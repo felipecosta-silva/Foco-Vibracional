@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Portais</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link" href="calendario.html">Calendário</a>
+        <a class="nav__link nav__link--active" href="portais.html">Portais</a>
+        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
+        <a class="nav__link" href="perguntas.html">Perguntas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <div class="head-row">
+        <div>
+          <h1>Portais numéricos (automático)</h1>
+          <p class="muted">
+            Aqui “portal” é um <strong>marco simbólico</strong> (numerologia / espiritualidade popular):
+            datas repetidas como 02/02, 03/03… úteis para foco, intenção e revisão de hábitos.
+          </p>
+        </div>
+
+        <div class="mode">
+          <span class="muted small">Modo</span>
+          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Dica prática:</strong> em “portal”, faça 3 passos:
+        (1) intenção clara, (2) uma ação pequena real, (3) gratidão.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Próximos portais</h2>
+          <span class="badge" id="portalYear">—</span>
+        </div>
+
+        <div id="portalNextList" class="stack"></div>
+
+        <p class="muted small">
+          Isso atualiza sozinho conforme o tempo passa (ano após ano).
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Hoje é portal?</h2>
+          <span class="badge" id="portalTodayBadge">—</span>
+        </div>
+
+        <p class="big" id="portalTodayTitle">Carregando…</p>
+        <p class="muted" id="portalTodayMeaning">—</p>
+
+        <div class="divider"></div>
+
+        <p class="muted small" id="portalTodayDo">
+          —
+        </p>
+      </article>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Mapa de intenção por portal</h2>
+        <span class="badge">01/01 → 12/12</span>
+      </div>
+
+      <div id="portalGrid" class="cards-grid"></div>
+
+      <p class="muted small advanced-only" style="margin-top:10px;">
+        Leitura simbólica: use como “tema do dia”. Não é regra universal.
+      </p>
+    </section>
+
+    <section class="card section-gap" id="grabovoi">
+      <div class="card__header">
+        <h2 class="card__title">Sequências numéricas (Grabovoi) — melhorado</h2>
+        <span class="badge">consulta</span>
+      </div>
+
+      <p class="muted">
+        Use como <strong>âncora de atenção</strong>: olhar → respirar → repetir → voltar ao foco.
+        (Interpretações variam conforme crenças.)
+      </p>
+
+      <div class="filters">
+        <input id="qSeq" class="input" type="text" placeholder="Buscar (ex.: prosperidade, foco, calma…)" />
+        <select id="fSeqCat" class="select">
+          <option value="todas">Categoria: todas</option>
+          <option value="prosperidade">Prosperidade</option>
+          <option value="foco">Foco</option>
+          <option value="calma">Calma</option>
+          <option value="protecao">Proteção</option>
+          <option value="harmonizacao">Harmonização</option>
+        </select>
+        <button class="btn btn--ghost" id="seqRandom" type="button">Sortear</button>
+        <button class="btn btn--ghost" id="seqClear" type="button">Limpar</button>
+      </div>
+
+      <div id="seqList" class="stack"></div>
+
+      <div class="notice" style="margin-top:12px;">
+        <strong>Uso inteligente:</strong> depois de repetir, faça <em>1 ação real pequena</em>.
+        Ex.: organizar algo, enviar uma mensagem, dar um passo em direção a uma meta.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Combine <a href="calendario.html">Lua</a> + <a href="banhos.html">Banhos</a> + <a href="afirmacoes.html">Afirmações</a> nos seus dias de foco.
+      </p>
+    </footer>
+  </main>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

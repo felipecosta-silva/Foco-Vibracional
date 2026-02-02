@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Calendário Lunar</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link nav__link--active" href="calendario.html">Calendário</a>
+        <a class="nav__link" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
+        <a class="nav__link" href="perguntas.html">Perguntas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <div class="head-row">
+        <div>
+          <h1>Calendário lunar (online)</h1>
+          <p class="muted">
+            Mostra a fase atual, próximas fases principais e um planner semanal de intenção.
+            (Sem receitas — só sugestões educativas.)
+          </p>
+        </div>
+
+        <div class="mode">
+          <span class="muted small">Modo</span>
+          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Nota:</strong> “portal” e usos espirituais são interpretações simbólicas. As fases da Lua são astronômicas.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Agora</h2>
+          <span class="badge" id="moonNowBadge">—</span>
+        </div>
+
+        <p class="big" id="moonNowName">Carregando…</p>
+        <p class="muted" id="moonNowDetails">—</p>
+
+        <div class="divider"></div>
+
+        <p class="muted small">
+          Fonte online: FarmSense (fase/iluminação). Se falhar, o site usa cálculo local aproximado.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Próximas fases</h2>
+          <span class="badge" id="nextCount">4</span>
+        </div>
+
+        <div id="nextPhases" class="stack"></div>
+
+        <p class="muted small advanced-only" style="margin-top:10px;">
+          As datas são aproximadas (variam por fuso/local). Para precisão absoluta, use um serviço astronômico por cidade.
+        </p>
+      </article>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Como ler as fases (bem simples)</h2>
+        <span class="badge">guia</span>
+      </div>
+
+      <div class="readmoon">
+        <div class="readmoon__item">
+          <div class="emoji">🌑</div>
+          <div>
+            <b>Lua Nova</b>
+            <p class="muted small">Quase não aparece no céu. Simboliza recomeço, intenção, planejamento.</p>
+          </div>
+        </div>
+
+        <div class="readmoon__item">
+          <div class="emoji">🌓</div>
+          <div>
+            <b>Quarto Crescente</b>
+            <p class="muted small">Metade iluminada. Simboliza crescimento, ação e disciplina.</p>
+          </div>
+        </div>
+
+        <div class="readmoon__item">
+          <div class="emoji">🌕</div>
+          <div>
+            <b>Lua Cheia</b>
+            <p class="muted small">Totalmente iluminada. Simboliza força, expansão, celebração e harmonização.</p>
+          </div>
+        </div>
+
+        <div class="readmoon__item">
+          <div class="emoji">🌗</div>
+          <div>
+            <b>Quarto Minguante</b>
+            <p class="muted small">Metade iluminada voltando a diminuir. Simboliza limpeza, encerramentos, descarrego simbólico.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:12px;">
+        <strong>Regra fácil:</strong> depois da Nova a luz cresce (crescente). Depois da Cheia a luz diminui (minguante).
+      </div>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Planner semanal (intenção)</h2>
+        <span class="badge">Seg–Dom</span>
+      </div>
+
+      <div id="weekPlanner" class="week"></div>
+
+      <p class="muted small">
+        Sugestões de “banho”: apenas <em>tipo/intenção</em> (calma, limpeza, energia…). Para combinações, veja as páginas Banhos/Defumação.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Se você usar Live Server, tudo fica ainda mais consistente no carregamento.
+      </p>
+    </footer>
+  </main>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

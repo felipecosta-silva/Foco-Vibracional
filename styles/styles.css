@@ -611,3 +611,78 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 }
 .faq__item summary::-webkit-details-marker{ display:none; }
 .faq__item p{ margin: 10px 0 0; }
+
+/* Calendário lunar */
+.stack{
+  display: grid;
+  gap: 10px;
+}
+.stack .item{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 10px;
+}
+.stack .item b{ display:block; }
+.stack .item .muted{ margin-top: 4px; }
+
+.readmoon{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 900px){
+  .readmoon{ grid-template-columns: 1fr; }
+}
+.readmoon__item{
+  display:flex;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 12px;
+}
+.emoji{
+  width: 44px;
+  height: 44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+  font-size: 22px;
+}
+
+.week{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+@media (max-width: 900px){
+  .week{ grid-template-columns: 1fr; }
+}
+.week .day{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 10px;
+}
+.week .day .top{
+  display:flex;
+  justify-content:space-between;
+  gap: 8px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.week .day .top b{ font-size: .95rem; }
+.week .pill{
+  display:inline-block;
+  font-size: .78rem;
+  border: 1px solid rgba(158,240,255,.22);
+  background: rgba(158,240,255,.08);
+  border-radius: 999px;
+  padding: 3px 8px;
+  color: rgba(255,255,255,.9);
+}

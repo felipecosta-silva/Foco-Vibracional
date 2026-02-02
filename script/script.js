@@ -554,3 +554,478 @@ function wireErvasUI() {
     renderErvas();
   });
 }
+
+
+/* =========================
+   CALENDÁRIO LUNAR (online + fallback)
+========================= */
+
+// API online (FarmSense) – retorna fase/iluminação para uma data
+// doc: https://api.farmsense.net/v1/moonphases/?d=UNIX
+const FARM_API = "https://api.farmsense.net/v1/moonphases/?d=";
+
+// Cálculo local aproximado (fallback): usa um “new moon reference” + ciclo sinódico
+// (aproximação boa para calendário geral; não é observatório)
+const SYNODIC_DAYS = 29.530588853;
+const REF_NEW_MOON_UTC = Date.UTC(2000, 0, 6, 18, 14, 0); // referência comum (aprox.)
+
+function toUnixSeconds(d){ return Math.floor(d.getTime() / 1000); }
+
+function moonAgeDays(date){
+  const diffDays = (date.getTime() - REF_NEW_MOON_UTC) / 86400000;
+  let age = diffDays % SYNODIC_DAYS;
+  if (age < 0) age += SYNODIC_DAYS;
+  return age;
+}
+
+// classifica “principal” (para mostrar Nova/Crescente/Cheia/Minguante)
+function majorPhaseFromAge(age){
+  // divisões simples em 4
+  if (age < 1.0 || age > SYNODIC_DAYS - 1.0) return "Lua Nova";
+  if (Math.abs(age - SYNODIC_DAYS/2) < 1.0) return "Lua Cheia";
+  if (Math.abs(age - SYNODIC_DAYS/4) < 1.0) return "Quarto Crescente";
+  if (Math.abs(age - 3*SYNODIC_DAYS/4) < 1.0) return "Quarto Minguante";
+
+  // entre os pontos:
+  if (age < SYNODIC_DAYS/4) return "Crescente (entre Nova e Crescente)";
+  if (age < SYNODIC_DAYS/2) return "Crescente (entre Crescente e Cheia)";
+  if (age < 3*SYNODIC_DAYS/4) return "Minguante (entre Cheia e Minguante)";
+  return "Minguante (entre Minguante e Nova)";
+}
+
+function phaseIntention(major){
+  // sugestões educativas (sem receita)
+  const map = {
+    "Lua Nova": "Intenção e recomeço • planejar hábitos",
+    "Quarto Crescente": "Crescimento • disciplina e ação",
+    "Lua Cheia": "Força e expansão • harmonização e gratidão",
+    "Quarto Minguante": "Limpeza • soltar e encerrar"
+  };
+  return map[major] || "Ajuste e presença • escolha uma intenção simples";
+}
+
+function banhoTipoSugestao(major){
+  // só tipo/intenção (sem receita)
+  const map = {
+    "Lua Nova": "Tipo: planejamento / prosperidade (leve)",
+    "Quarto Crescente": "Tipo: reenergizar / foco",
+    "Lua Cheia": "Tipo: harmonização / gratidão",
+    "Quarto Minguante": "Tipo: limpeza / descarrego simbólico"
+  };
+  return map[major] || "Tipo: calma / harmonização";
+}
+
+function formatDateBR(d){
+  const dd = String(d.getDate()).padStart(2,"0");
+  const mm = String(d.getMonth()+1).padStart(2,"0");
+  const yyyy = d.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+// acha próximas datas aproximadas das 4 fases principais
+function nextMajorPhases(startDate, count=4){
+  const targets = [
+    { name:"Lua Nova", targetAge: 0 },
+    { name:"Quarto Crescente", targetAge: SYNODIC_DAYS/4 },
+    { name:"Lua Cheia", targetAge: SYNODIC_DAYS/2 },
+    { name:"Quarto Minguante", targetAge: 3*SYNODIC_DAYS/4 }
+  ];
+
+  const results = [];
+  const baseAge = moonAgeDays(startDate);
+
+  for (const t of targets){
+    let delta = t.targetAge - baseAge;
+    if (delta <= 0) delta += SYNODIC_DAYS;
+    const date = new Date(startDate.getTime() + delta * 86400000);
+    results.push({ name: t.name, date });
+  }
+
+  results.sort((a,b)=>a.date - b.date);
+  return results.slice(0, count);
+}
+
+async function fetchFarmSense(date){
+  const url = FARM_API + toUnixSeconds(date);
+  const res = await fetch(url, { cache:"no-store" });
+  const data = await res.json();
+  // formato esperado: array com 1 item
+  const item = Array.isArray(data) ? data[0] : null;
+  if (!item || item.Error !== 0) throw new Error("FarmSense error");
+  return item;
+}
+
+function initWeekPlanner(major){
+  const wrap = document.querySelector("#weekPlanner");
+  if (!wrap) return;
+
+  const days = ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"];
+  wrap.innerHTML = "";
+
+  const today = new Date();
+  // começar na segunda
+  const day = (today.getDay()+6)%7; // 0=Seg
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - day);
+
+  for (let i=0;i<7;i++){
+    const d = new Date(monday);
+    d.setDate(monday.getDate()+i);
+
+    const age = moonAgeDays(d);
+    const m = majorPhaseFromAge(age);
+    const card = document.createElement("div");
+    card.className = "day";
+    card.innerHTML = `
+      <div class="top">
+        <b>${days[i]} • ${formatDateBR(d)}</b>
+        <span class="pill">${m.replace("Lua ","")}</span>
+      </div>
+      <div class="muted small">${phaseIntention(
+        m.includes("Nova") ? "Lua Nova" :
+        m.includes("Cheia") ? "Lua Cheia" :
+        m.includes("Crescente") ? "Quarto Crescente" :
+        m.includes("Minguante") ? "Quarto Minguante" : ""
+      )}</div>
+      <div class="muted small" style="margin-top:6px;">${banhoTipoSugestao(
+        m.includes("Nova") ? "Lua Nova" :
+        m.includes("Cheia") ? "Lua Cheia" :
+        m.includes("Crescente") ? "Quarto Crescente" :
+        m.includes("Minguante") ? "Quarto Minguante" : ""
+      )}</div>
+    `;
+    wrap.appendChild(card);
+  }
+}
+
+async function initCalendarioLunar(){
+  const nowName = document.querySelector("#moonNowName");
+  if (!nowName) return; // só roda no calendario.html
+
+  const nowBadge = document.querySelector("#moonNowBadge");
+  const nowDetails = document.querySelector("#moonNowDetails");
+  const nextWrap = document.querySelector("#nextPhases");
+
+  const today = new Date();
+
+  // tenta online (FarmSense)
+  let major = null;
+  try{
+    const item = await fetchFarmSense(today);
+    const phase = item.Phase || "—";
+    const illum = typeof item.Illumination === "number" ? Math.round(item.Illumination*100) : null;
+
+    // tradução simples (não perfeito, mas ajuda)
+    // Waxing = crescente; Waning = minguante
+    let label = phase;
+    label = label.replace("Waxing", "Crescente");
+    label = label.replace("Waning", "Minguante");
+    label = label.replace("Crescent", "Crescente");
+    label = label.replace("Gibbous", "Gibosa");
+    label = label.replace("Quarter", "Quarto");
+
+    // major aproximado pelo age (fallback) para mapear intenção
+    const age = moonAgeDays(today);
+    const m = majorPhaseFromAge(age);
+    major = m.includes("Nova") ? "Lua Nova"
+          : m.includes("Cheia") ? "Lua Cheia"
+          : m.includes("Crescente") ? "Quarto Crescente"
+          : m.includes("Minguante") ? "Quarto Minguante"
+          : "—";
+
+    nowName.textContent = label;
+    nowBadge.textContent = `Hoje • ${major}`;
+    nowDetails.textContent = illum !== null
+      ? `Iluminação aprox.: ${illum}% • (online)`
+      : `(online)`;
+
+  }catch{
+    // fallback local
+    const age = moonAgeDays(today);
+    const m = majorPhaseFromAge(age);
+    major = m.includes("Nova") ? "Lua Nova"
+          : m.includes("Cheia") ? "Lua Cheia"
+          : m.includes("Crescente") ? "Quarto Crescente"
+          : m.includes("Minguante") ? "Quarto Minguante"
+          : "—";
+
+    nowName.textContent = m;
+    nowBadge.textContent = `Hoje • ${major}`;
+    nowDetails.textContent = `Estimativa local (offline) • idade lunar: ${age.toFixed(1)} dias`;
+  }
+
+  // próximas fases (aprox)
+  const next = nextMajorPhases(today, 4);
+  nextWrap.innerHTML = "";
+  next.forEach(p=>{
+    const div = document.createElement("div");
+    div.className = "item";
+    div.innerHTML = `
+      <b>${p.name}</b>
+      <div class="muted small">${formatDateBR(p.date)} • ${phaseIntention(p.name)}</div>
+      <div class="muted small advanced-only" style="margin-top:6px;">${banhoTipoSugestao(p.name)}</div>
+    `;
+    nextWrap.appendChild(div);
+  });
+
+  // planner semanal
+  initWeekPlanner(major);
+}
+
+// encaixa no seu init geral
+document.addEventListener("DOMContentLoaded", () => {
+  initCalendarioLunar();
+});
+
+/* =========================
+   PORTAIS (AUTOMÁTICO) + SEQUÊNCIAS (MELHORADO)
+========================= */
+
+// Util: formatar data BR
+function fmtBR(d){
+  const dd = String(d.getDate()).padStart(2,"0");
+  const mm = String(d.getMonth()+1).padStart(2,"0");
+  const yyyy = d.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+// Portais 01/01 .. 12/12 (sempre)
+const PORTAL_MEANINGS = {
+  1: { tema: "Recomeço • decisão • direção", fazer: "Definir 1 meta clara e 1 ação mínima hoje." },
+  2: { tema: "Equilíbrio • relações • escolhas conscientes", fazer: "Harmonizar emoções e alinhar decisões com calma." },
+  3: { tema: "Expressão • criatividade • comunicação", fazer: "Escrever ideias, estudar, comunicar um objetivo." },
+  4: { tema: "Estrutura • disciplina • base", fazer: "Organizar rotina/finanças; construir constância." },
+  5: { tema: "Mudança • movimento • liberdade", fazer: "Quebrar um padrão e iniciar um hábito novo." },
+  6: { tema: "Cuidado • responsabilidade • amor", fazer: "Autocuidado e equilíbrio nos relacionamentos." },
+  7: { tema: "Introspecção • fé • estudo", fazer: "Silêncio, meditação, leitura e autoconhecimento." },
+  8: { tema: "Poder pessoal • prosperidade • expansão", fazer: "Foco em resultados, coragem e ação financeira." },
+  9: { tema: "Encerramento • desapego • conclusão", fazer: "Finalizar pendências, limpar excessos, perdoar/soltar." },
+  10:{ tema: "Alinhamento • clareza • ação", fazer: "Escolher prioridades e executar o essencial." },
+  11:{ tema: "Consciência • propósito • despertar", fazer: "Revisar rumo de vida e reafirmar propósito." },
+  12:{ tema: "Integração • síntese • fechamento", fazer: "Revisar o ano, agradecer e planejar o novo ciclo." }
+};
+
+// Gera lista de portais a partir de hoje (inclui próximos do ano e já emenda no próximo ano)
+function getNextPortals(fromDate, howMany=8){
+  const out = [];
+  const startYear = fromDate.getFullYear();
+  let y = startYear;
+
+  while (out.length < howMany){
+    for (let m=1;m<=12;m++){
+      const d = new Date(y, m-1, m); // mm/mm (dia = mês)
+      // considera "a partir de hoje" (inclui hoje)
+      const dayStart = new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate());
+      const candStart = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+      if (candStart >= dayStart){
+        out.push(d);
+        if (out.length >= howMany) break;
+      }
+    }
+    y++;
+  }
+  return out;
+}
+
+function isPortalDay(date){
+  const m = date.getMonth()+1;
+  const d = date.getDate();
+  return m === d && m >= 1 && m <= 12;
+}
+
+function portalName(month){
+  const mm = String(month).padStart(2,"0");
+  return `${mm}/${mm}`;
+}
+
+function initPortaisPage(){
+  const grid = document.querySelector("#portalGrid");
+  if (!grid) return; // só roda no portais.html
+
+  // modo iniciante/avançado (reaproveita chave que você já usa)
+  const MODE_KEY = "foco.mode.v1";
+  const mode = localStorage.getItem(MODE_KEY) || "beginner";
+  document.body.dataset.mode = (mode === "advanced") ? "advanced" : "beginner";
+  const btn = document.querySelector("#modeToggle");
+  if (btn){
+    const adv = mode === "advanced";
+    btn.setAttribute("aria-pressed", adv ? "true" : "false");
+    btn.textContent = adv ? "Avançado" : "Iniciante";
+    btn.addEventListener("click", () => {
+      const next = (localStorage.getItem(MODE_KEY) === "advanced") ? "beginner" : "advanced";
+      localStorage.setItem(MODE_KEY, next);
+      document.body.dataset.mode = next === "advanced" ? "advanced" : "beginner";
+      btn.setAttribute("aria-pressed", next === "advanced" ? "true" : "false");
+      btn.textContent = next === "advanced" ? "Avançado" : "Iniciante";
+    });
+  }
+
+  // Cabeçalho ano
+  const yearBadge = document.querySelector("#portalYear");
+  if (yearBadge) yearBadge.textContent = `Hoje • ${new Date().getFullYear()}`;
+
+  // Próximos portais
+  const nextWrap = document.querySelector("#portalNextList");
+  const next = getNextPortals(new Date(), 10);
+  nextWrap.innerHTML = "";
+  next.forEach(d=>{
+    const m = d.getMonth()+1;
+    const meaning = PORTAL_MEANINGS[m];
+    const el = document.createElement("div");
+    el.className = "item";
+    el.innerHTML = `
+      <b>${portalName(m)} • ${fmtBR(d)}</b>
+      <div class="muted small">${meaning.tema}</div>
+      <div class="muted small advanced-only" style="margin-top:6px;"><b>Intenção:</b> ${meaning.fazer}</div>
+    `;
+    nextWrap.appendChild(el);
+  });
+
+  // Hoje é portal?
+  const today = new Date();
+  const todayBadge = document.querySelector("#portalTodayBadge");
+  const todayTitle = document.querySelector("#portalTodayTitle");
+  const todayMeaning = document.querySelector("#portalTodayMeaning");
+  const todayDo = document.querySelector("#portalTodayDo");
+
+  if (isPortalDay(today)){
+    const m = today.getMonth()+1;
+    const meaning = PORTAL_MEANINGS[m];
+    todayBadge.textContent = "SIM";
+    todayTitle.textContent = `${portalName(m)} • ${fmtBR(today)}`;
+    todayMeaning.textContent = meaning.tema;
+    todayDo.textContent = `Sugestão: ${meaning.fazer}`;
+  } else {
+    todayBadge.textContent = "NÃO";
+    todayTitle.textContent = fmtBR(today);
+    todayMeaning.textContent = "Mesmo sem portal, você pode escolher um tema e praticar.";
+    todayDo.textContent = "Sugestão: pegue 1 afirmação + 1 pergunta e faça 1 ação real pequena.";
+  }
+
+  // Grid de todos portais do ano (01/01..12/12)
+  grid.innerHTML = "";
+  for (let m=1;m<=12;m++){
+    const meaning = PORTAL_MEANINGS[m];
+    const card = document.createElement("div");
+    card.className = "info-card";
+    card.innerHTML = `
+      <div class="info-card__top">
+        <div>
+          <h3 class="info-title">${portalName(m)}</h3>
+          <p class="muted small info-desc">${meaning.tema}</p>
+        </div>
+        <div class="badges"><span class="badge">intenção</span></div>
+      </div>
+      <ul class="kv">
+        <li><b>Melhor uso:</b> ${meaning.fazer}</li>
+        <li class="advanced-only"><b>Dica:</b> combine com Lua (Calendário) para escolher “limpeza” (minguante) ou “expansão” (crescente/cheia).</li>
+      </ul>
+    `;
+    grid.appendChild(card);
+  }
+
+  // ==== Grabovoi (melhorado) ====
+  const SEQS = [
+    { seq:"520 741 777 888", cat:"prosperidade", titulo:"Prosperidade + clareza + confiança", uso:"Foco em fluxo, abertura e ação financeira." },
+    { seq:"741", cat:"foco", titulo:"Clareza mental (âncora curta)", uso:"Quando estiver disperso: respirar e retornar ao essencial." },
+    { seq:"777", cat:"harmonizacao", titulo:"Alinhamento interno", uso:"Estabilidade emocional e fé no processo." },
+    { seq:"888", cat:"prosperidade", titulo:"Abundância e expansão", uso:"Trabalhar mentalidade de merecimento + disciplina." },
+    { seq:"111", cat:"foco", titulo:"Começo e direção", uso:"Iniciar algo simples e manter constância." },
+    { seq:"222", cat:"calma", titulo:"Equilíbrio e paz", uso:"Acalmar e harmonizar antes de dormir." },
+    { seq:"999", cat:"limpeza", titulo:"Encerramento e desapego", uso:"Fechar ciclos e soltar o que não serve." }
+  ];
+
+  const seqWrap = document.querySelector("#seqList");
+  const qSeq = document.querySelector("#qSeq");
+  const fSeq = document.querySelector("#fSeqCat");
+  const btnRnd = document.querySelector("#seqRandom");
+  const btnClr = document.querySelector("#seqClear");
+
+  function renderSeq(list){
+    seqWrap.innerHTML = "";
+    list.forEach(s=>{
+      const el = document.createElement("div");
+      el.className = "item";
+      const id = "seq_" + s.seq.replace(/\s/g,"_");
+      el.innerHTML = `
+        <b>${s.seq}</b>
+        <div class="muted small">${s.titulo} • <span class="badge">${s.cat}</span></div>
+        <div class="muted small" id="${id}" style="margin-top:6px;">${s.uso}</div>
+        <div class="row wrap-row" style="margin-top:10px;">
+          <button class="btn btn--ghost" data-copy-text="${s.seq}" type="button">Copiar</button>
+          <button class="btn" data-speak="#${id}" type="button">Ouvir</button>
+        </div>
+      `;
+      seqWrap.appendChild(el);
+    });
+  }
+
+  function applySeq(){
+    const q = (qSeq.value || "").toLowerCase().trim();
+    const cat = fSeq.value || "todas";
+    const filtered = SEQS.filter(s=>{
+      const hay = (s.seq+" "+s.cat+" "+s.titulo+" "+s.uso).toLowerCase();
+      const okQ = !q || hay.includes(q);
+      const okC = (cat==="todas") || s.cat===cat;
+      return okQ && okC;
+    });
+    renderSeq(filtered.length ? filtered : SEQS);
+  }
+
+  if (qSeq) qSeq.addEventListener("input", applySeq);
+  if (fSeq) fSeq.addEventListener("change", applySeq);
+  if (btnClr) btnClr.addEventListener("click", ()=>{
+    qSeq.value = "";
+    fSeq.value = "todas";
+    applySeq();
+  });
+  if (btnRnd) btnRnd.addEventListener("click", ()=>{
+    const list = SEQS.filter(s => (fSeq.value==="todas") || s.cat===fSeq.value);
+    const pick = list[Math.floor(Math.random()*list.length)];
+    renderSeq([pick]);
+  });
+
+  applySeq();
+}
+
+// Copiar (data-copy ou data-copy-text) + Ouvir (data-speak)
+function initCopySpeak(){
+  document.addEventListener("click", async (e)=>{
+    const t = e.target;
+    if (!(t instanceof HTMLElement)) return;
+
+    // COPY by selector
+    const sel = t.getAttribute("data-copy");
+    if (sel){
+      const el = document.querySelector(sel);
+      if (el){
+        const text = el.textContent.trim().replace(/^“|”$/g,"");
+        try{ await navigator.clipboard.writeText(text); }catch{}
+      }
+    }
+
+    // COPY by direct text
+    const txt = t.getAttribute("data-copy-text");
+    if (txt){
+      try{ await navigator.clipboard.writeText(txt); }catch{}
+    }
+
+    // SPEAK by selector
+    const sp = t.getAttribute("data-speak");
+    if (sp){
+      const el = document.querySelector(sp);
+      const text = el ? el.textContent.trim().replace(/^“|”$/g,"") : "";
+      if (text && "speechSynthesis" in window){
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = "pt-BR";
+        window.speechSynthesis.speak(u);
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  initCopySpeak();
+  initPortaisPage();
+});
