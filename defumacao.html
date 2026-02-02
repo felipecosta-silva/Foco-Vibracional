@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Defumação</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link nav__link--active" href="defumacao.html">Defumação</a>
+        <a class="nav__link" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <div class="head-row">
+        <div>
+          <h1>Defumação (educativo)</h1>
+          <p class="muted">
+            Guia cultural e de intenção: tipos, objetivos e combinações sugeridas (sem preparo detalhado).
+          </p>
+        </div>
+
+        <div class="mode">
+          <span class="muted small">Modo</span>
+          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Segurança:</strong> fumaça pode agravar asma/alergias. Sempre ventilação.
+        Cuidado com fogo e com pets. Se houver sensibilidade, prefira métodos ambientais sem fumaça.
+      </div>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Linha do tempo lunar</h2>
+        <span class="badge">referência simbólica</span>
+      </div>
+
+      <div class="lunar">
+        <button class="lunar__item" data-moon="nova" type="button">
+          <span class="lunar__dot"></span>
+          <b>Lua Nova</b>
+          <span class="muted small">recomeços</span>
+        </button>
+        <button class="lunar__item" data-moon="crescente" type="button">
+          <span class="lunar__dot"></span>
+          <b>Crescente</b>
+          <span class="muted small">crescimento</span>
+        </button>
+        <button class="lunar__item" data-moon="cheia" type="button">
+          <span class="lunar__dot"></span>
+          <b>Cheia</b>
+          <span class="muted small">potência</span>
+        </button>
+        <button class="lunar__item" data-moon="minguante" type="button">
+          <span class="lunar__dot"></span>
+          <b>Minguante</b>
+          <span class="muted small">limpeza</span>
+        </button>
+      </div>
+
+      <p class="muted small" style="margin-top:12px;">
+        Referência comum: minguante para limpeza; crescente/cheia para energização; nova para recomeços.
+      </p>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Tipos e objetivos</h2>
+        <span class="badge" id="smokeCount">0</span>
+      </div>
+
+      <div class="filters">
+        <input id="qSmoke" class="input" type="text" placeholder="Buscar (ex.: descarrego, proteção, prosperidade…)" />
+
+        <select id="fSmokeObjetivo" class="select">
+          <option value="todos">Objetivo: todos</option>
+          <option value="limpeza">Limpeza</option>
+          <option value="protecao">Proteção</option>
+          <option value="harmonizacao">Harmonização</option>
+          <option value="prosperidade">Prosperidade</option>
+          <option value="energia">Energia</option>
+          <option value="foco">Foco</option>
+        </select>
+
+        <select id="fSmokeMoon" class="select">
+          <option value="todas">Lua: todas</option>
+          <option value="nova">Nova</option>
+          <option value="crescente">Crescente</option>
+          <option value="cheia">Cheia</option>
+          <option value="minguante">Minguante</option>
+        </select>
+
+        <select id="fSmokeIntensidade" class="select">
+          <option value="todas">Intensidade: todas</option>
+          <option value="suave">Suave</option>
+          <option value="media">Média</option>
+          <option value="forte">Forte</option>
+        </select>
+
+        <button class="btn btn--ghost" id="clearSmokeFilters" type="button">Limpar</button>
+      </div>
+
+      <div id="smokeGrid" class="cards-grid"></div>
+      <p class="muted small" id="smokeEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
+
+      <div class="notice advanced-only" style="margin-top: 14px;">
+        <strong>Modo avançado:</strong> recomendações de “dia/horário” aqui são referências culturais, não regra fixa.
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Dados em <code>./data/defumacoes.json</code>.
+      </p>
+    </footer>
+  </main>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

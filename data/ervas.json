@@ -1,0 +1,149 @@
+{
+  "ervas": [
+    {
+      "nome": "Camomila",
+      "tipo": "frias",
+      "tags": ["calma", "harmonização", "leveza"],
+      "descricao": "Usada tradicionalmente para acalmar e harmonizar.",
+      "usos": [
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" },
+        { "id": "compressa", "nome": "Compressa" }
+      ],
+      "preparoGeral": "Uso suave: preferir infusão leve para uso externo. Evitar contato com olhos.",
+      "cabeca": "geralmente evitado sem orientação",
+      "cuidados": "Pode causar alergia em pessoas sensíveis a plantas da mesma família."
+    },
+    {
+      "nome": "Alfazema (Lavanda)",
+      "tipo": "frias",
+      "tags": ["tranquilidade", "conforto", "sono"],
+      "descricao": "Tradicionalmente associada a tranquilidade e bem-estar.",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" },
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" }
+      ],
+      "preparoGeral": "Aroma e uso externo leve. Em ambientes, use ventilação.",
+      "cabeca": "varia por tradição",
+      "cuidados": "Atenção a sensibilidade a aromas/óleos essenciais."
+    },
+    {
+      "nome": "Capim-limão (Capim-santo)",
+      "tipo": "frias",
+      "tags": ["serenidade", "clareza", "descanso"],
+      "descricao": "Mencionado para serenidade e clareza emocional.",
+      "usos": [
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" },
+        { "id": "ambiental", "nome": "Ambiental" }
+      ],
+      "preparoGeral": "Uso externo/ambiental moderado. Comece suave se tiver pele sensível.",
+      "cabeca": "geralmente evitado sem orientação",
+      "cuidados": "Pode irritar pele sensível em algumas pessoas."
+    },
+    {
+      "nome": "Erva-doce",
+      "tipo": "frias",
+      "tags": ["suavidade", "leveza", "acolhimento"],
+      "descricao": "Associada a suavidade e leveza.",
+      "usos": [
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" }
+      ],
+      "preparoGeral": "Uso externo suave. Evitar se houver alergia.",
+      "cabeca": "varia por tradição",
+      "cuidados": "Alergias podem ocorrer; suspenda se irritar."
+    },
+    {
+      "nome": "Manjericão",
+      "tipo": "frias",
+      "tags": ["limpeza leve", "ânimo", "harmonia"],
+      "descricao": "Pode ser usado em limpezas leves e para ânimo (varia por tradição).",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" },
+        { "id": "banho-external", "nome": "Banho externo (geral)" }
+      ],
+      "preparoGeral": "Uso externo leve. Em ambiente, ventilação.",
+      "cabeca": "varia por tradição",
+      "cuidados": "Pode irritar peles sensíveis."
+    },
+
+    {
+      "nome": "Alecrim",
+      "tipo": "quentes",
+      "tags": ["vitalidade", "disposição", "foco"],
+      "descricao": "Associado a vitalidade e disposição.",
+      "usos": [
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "ambiental", "nome": "Ambiental" }
+      ],
+      "preparoGeral": "Uso externo moderado. Evitar em pele muito sensível.",
+      "cabeca": "varia por tradição",
+      "cuidados": "Aroma pode incomodar quem tem sensibilidade/asma."
+    },
+    {
+      "nome": "Arruda",
+      "tipo": "quentes",
+      "tags": ["limpeza forte", "corte", "proteção"],
+      "descricao": "Muito citada em limpezas mais fortes. Use com cautela.",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" }
+      ],
+      "preparoGeral": "Preferir uso ambiental/simbólico; evite contato direto com pele sensível.",
+      "cabeca": "evitar sem orientação",
+      "cuidados": "Pode irritar a pele e causar reações. Cuidado com gestantes/crianças/pets."
+    },
+    {
+      "nome": "Guiné",
+      "tipo": "quentes",
+      "tags": ["limpeza forte", "quebra demanda", "proteção"],
+      "descricao": "Tradicional em limpezas mais intensas. Cautela.",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" }
+      ],
+      "preparoGeral": "Uso ambiental com cautela e ventilação. Evitar contato direto.",
+      "cabeca": "evitar sem orientação",
+      "cuidados": "Pode causar irritação/alergia. Não recomendado sem orientação."
+    },
+    {
+      "nome": "Espada-de-São-Jorge",
+      "tipo": "quentes",
+      "tags": ["proteção", "ambiente", "firmeza"],
+      "descricao": "Muito usada de forma ambiental/simbólica.",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" }
+      ],
+      "preparoGeral": "Uso como planta no ambiente; evite ingestão (pets/crianças).",
+      "cabeca": "não se aplica (ambiental)",
+      "cuidados": "Tóxica se ingerida por pets/crianças."
+    },
+
+    {
+      "nome": "Hortelã",
+      "tipo": "frias",
+      "tags": ["refresco", "leveza", "clareza"],
+      "descricao": "Associada a refresco e leveza.",
+      "usos": [
+        { "id": "ambiental", "nome": "Ambiental" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" }
+      ],
+      "preparoGeral": "Uso externo leve; atenção a sensibilidades.",
+      "cabeca": "varia por tradição",
+      "cuidados": "Aroma pode incomodar pessoas sensíveis."
+    },
+    {
+      "nome": "Melissa (Erva-cidreira)",
+      "tipo": "frias",
+      "tags": ["calma", "sono", "harmonização"],
+      "descricao": "Muito associada a tranquilidade.",
+      "usos": [
+        { "id": "banho-external", "nome": "Banho externo (geral)" },
+        { "id": "escalda-pes", "nome": "Escalda-pés" }
+      ],
+      "preparoGeral": "Uso externo suave.",
+      "cabeca": "geralmente evitado sem orientação",
+      "cuidados": "Pode causar alergia em pessoas sensíveis."
+    }
+  ]
+}

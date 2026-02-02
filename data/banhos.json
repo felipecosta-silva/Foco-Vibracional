@@ -1,0 +1,54 @@
+{
+  "banhos": [
+    {
+      "nome": "Calmante e harmonização",
+      "objetivo": "calma",
+      "intensidade": "suave",
+      "luas": ["crescente", "cheia"],
+      "dias": ["seg", "qui", "dom"],
+      "horario": "final do dia",
+      "ervas": ["Camomila", "Alfazema (Lavanda)", "Capim-limão (Capim-santo)"],
+      "observacao": "Referência cultural para equilíbrio emocional. Uso externo geral."
+    },
+    {
+      "nome": "Reenergizar e foco",
+      "objetivo": "energia",
+      "intensidade": "media",
+      "luas": ["crescente", "cheia"],
+      "dias": ["ter", "qua", "sex"],
+      "horario": "manhã",
+      "ervas": ["Alecrim", "Manjericão", "Hortelã"],
+      "observacao": "Referência cultural para disposição e foco. Ajuste se houver sensibilidade a aromas."
+    },
+    {
+      "nome": "Limpeza (descarrego simbólico)",
+      "objetivo": "limpeza",
+      "intensidade": "forte",
+      "luas": ["minguante"],
+      "dias": ["sex", "sab"],
+      "horario": "noite",
+      "ervas": ["Arruda", "Guiné", "Alecrim"],
+      "observacao": "Tradicionalmente associado a limpeza forte. Evite sem orientação se for sensível."
+    },
+    {
+      "nome": "Proteção e firmeza",
+      "objetivo": "protecao",
+      "intensidade": "media",
+      "luas": ["crescente", "cheia"],
+      "dias": ["seg", "sab"],
+      "horario": "qualquer",
+      "ervas": ["Alecrim", "Manjericão", "Louro"],
+      "observacao": "Referência cultural para fortalecimento do campo e do ambiente."
+    },
+    {
+      "nome": "Prosperidade e abertura",
+      "objetivo": "prosperidade",
+      "intensidade": "media",
+      "luas": ["nova", "crescente"],
+      "dias": ["qui", "dom"],
+      "horario": "manhã",
+      "ervas": ["Manjericão", "Louro", "Alecrim"],
+      "observacao": "Intenção de abertura de caminhos (referência cultural)."
+    }
+  ]
+}

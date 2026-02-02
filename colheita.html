@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Colheita</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link nav__link--active" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <div class="head-row">
+        <div>
+          <h1>Colheita (calendário simbólico)</h1>
+          <p class="muted">
+            Referência cultural/simbólica usada em tradições: intenção, fase da lua e cuidado com a planta.
+            <strong>Não é regra universal</strong> e não substitui orientação de uma casa/tradição.
+          </p>
+        </div>
+
+        <div class="mode">
+          <span class="muted small">Modo</span>
+          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Segurança:</strong> prefira plantas de origem segura (sem poluição/agrotóxicos).
+        Evite colher em locais contaminados. Se não tiver certeza da espécie, não use.
+      </div>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Fases da lua e intenções</h2>
+        <span class="badge">linha do tempo</span>
+      </div>
+
+      <div class="lunar">
+        <button class="lunar__item lunarpick active" data-moon="todas" type="button">
+          <span class="lunar__dot"></span>
+          <b>Todas</b>
+          <span class="muted small">ver tudo</span>
+        </button>
+
+        <button class="lunar__item lunarpick" data-moon="nova" type="button">
+          <span class="lunar__dot"></span>
+          <b>Lua Nova</b>
+          <span class="muted small">recomeços • intenção</span>
+        </button>
+
+        <button class="lunar__item lunarpick" data-moon="crescente" type="button">
+          <span class="lunar__dot"></span>
+          <b>Crescente</b>
+          <span class="muted small">crescimento • desenvolvimento</span>
+        </button>
+
+        <button class="lunar__item lunarpick" data-moon="cheia" type="button">
+          <span class="lunar__dot"></span>
+          <b>Cheia</b>
+          <span class="muted small">força • plenitude</span>
+        </button>
+
+        <button class="lunar__item lunarpick" data-moon="minguante" type="button">
+          <span class="lunar__dot"></span>
+          <b>Minguante</b>
+          <span class="muted small">limpeza • descarrego</span>
+        </button>
+      </div>
+
+      <p class="muted small" style="margin-top:12px;">
+        Clique em uma fase para filtrar os cartões abaixo. Isso é uma <strong>referência simbólica</strong>.
+      </p>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Cartões de estudo</h2>
+        <span class="badge" id="harvestCount">8</span>
+      </div>
+
+      <div class="filters">
+        <input id="qHarvest" class="input" type="text" placeholder="Buscar (ex.: folhas, flores, limpeza, prosperidade…)" />
+
+        <select id="fParteHarvest" class="select">
+          <option value="todas">Parte: todas</option>
+          <option value="folhas">Folhas</option>
+          <option value="flores">Flores</option>
+          <option value="caule">Caule</option>
+          <option value="cascas">Cascas</option>
+          <option value="sementes">Sementes</option>
+          <option value="raizes">Raízes</option>
+        </select>
+
+        <select id="fIntencaoHarvest" class="select">
+          <option value="todas">Intenção: todas</option>
+          <option value="calma">Calma</option>
+          <option value="harmonizacao">Harmonização</option>
+          <option value="energia">Energia</option>
+          <option value="foco">Foco</option>
+          <option value="limpeza">Limpeza</option>
+          <option value="protecao">Proteção</option>
+          <option value="prosperidade">Prosperidade</option>
+        </select>
+
+        <button class="btn btn--ghost" id="clearHarvest" type="button">Limpar</button>
+      </div>
+
+      <div id="harvestGrid" class="cards-grid"></div>
+      <p class="muted small" id="harvestEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
+
+      <div class="notice advanced-only" style="margin-top: 14px;">
+        <strong>Modo avançado:</strong> algumas tradições associam colheita a horários (ex.: manhã/tarde),
+        mas isso varia. Aqui fica como <em>cultura/estudo</em>, não como regra.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Boas práticas (gerais)</h2>
+          <span class="badge">segurança</span>
+        </div>
+
+        <ul class="list">
+          <li><strong>Identificação:</strong> use apenas plantas que você reconhece com segurança.</li>
+          <li><strong>Respeito:</strong> evite arrancar; prefira colher sem “matar” a planta quando possível.</li>
+          <li><strong>Higiene:</strong> descarte partes com mofo, manchas estranhas ou pragas.</li>
+          <li><strong>Origem:</strong> evite locais poluídos (beira de rua, lixo, áreas suspeitas).</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Como usar esse calendário</h2>
+          <span class="badge">método</span>
+        </div>
+
+        <ol class="list">
+          <li>Escolha sua <strong>intenção</strong> (calma, limpeza, proteção…).</li>
+          <li>Veja a fase da lua como <strong>simbolismo</strong> (não obrigação).</li>
+          <li>Priorize plantas <strong>suaves</strong> se você for iniciante.</li>
+          <li>Registre no caderno: <strong>o que colheu + como se sentiu</strong>.</li>
+        </ol>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Esta página é educativa e simbólica. Adapte ao que for ensinado na sua tradição.
+      </p>
+    </footer>
+  </main>
+
+  <!-- Script local da página (sem fetch) -->
+  <script>
+    // aplica modo armazenado (usa o mesmo MODE_KEY do seu script.js)
+    (function(){
+      const MODE_KEY = "foco.mode.v1";
+      const mode = localStorage.getItem(MODE_KEY) || "beginner";
+      document.body.dataset.mode = (mode === "advanced") ? "advanced" : "beginner";
+
+      const btn = document.querySelector("#modeToggle");
+      if (btn){
+        const adv = mode === "advanced";
+        btn.setAttribute("aria-pressed", adv ? "true" : "false");
+        btn.textContent = adv ? "Avançado" : "Iniciante";
+        btn.addEventListener("click", () => {
+          const next = (localStorage.getItem(MODE_KEY) === "advanced") ? "beginner" : "advanced";
+          localStorage.setItem(MODE_KEY, next);
+          document.body.dataset.mode = next === "advanced" ? "advanced" : "beginner";
+          btn.setAttribute("aria-pressed", next === "advanced" ? "true" : "false");
+          btn.textContent = next === "advanced" ? "Avançado" : "Iniciante";
+        });
+      }
+    })();
+
+    const CARDS = [
+      {
+        titulo: "Lua Nova • intenção e recomeço",
+        lua: "nova",
+        parte: "folhas",
+        intencao: "prosperidade",
+        resumo: "Culturalmente associada a iniciar ciclos e plantar intenções.",
+        avancado: "Bom para planejamento/propósito. Evite agir com pressa: intenção primeiro, prática depois."
+      },
+      {
+        titulo: "Lua Crescente • crescimento",
+        lua: "crescente",
+        parte: "folhas",
+        intencao: "energia",
+        resumo: "Símbolo de expansão e construção (crescer, fortalecer).",
+        avancado: "Em algumas tradições, combina com práticas de fortalecimento e progresso."
+      },
+      {
+        titulo: "Lua Cheia • força e plenitude",
+        lua: "cheia",
+        parte: "flores",
+        intencao: "harmonizacao",
+        resumo: "Ligada à potência e plenitude; energia ‘alta’.",
+        avancado: "Boa para ritos de celebração e harmonização. Para sensíveis, pode ser ‘intensa’."
+      },
+      {
+        titulo: "Lua Minguante • limpeza",
+        lua: "minguante",
+        parte: "folhas",
+        intencao: "limpeza",
+        resumo: "Associada a descarregar e finalizar ciclos (limpar, soltar).",
+        avancado: "Usada culturalmente para práticas de descarrego. Cautela com ervas fortes se você é sensível."
+      },
+      {
+        titulo: "Folhas • uso comum e versátil",
+        lua: "todas",
+        parte: "folhas",
+        intencao: "calma",
+        resumo: "Folhas costumam ser a parte mais usada por iniciantes (dependendo da erva).",
+        avancado: "Prefira folhas saudáveis e limpas. Se não conhece a planta, não use."
+      },
+      {
+        titulo: "Flores • energia sutil",
+        lua: "todas",
+        parte: "flores",
+        intencao: "harmonizacao",
+        resumo: "Flores são associadas a suavidade e harmonização (ex.: alfazema, camomila).",
+        avancado: "Guarde bem para evitar mofo. Se for usar aroma, ventile o ambiente."
+      },
+      {
+        titulo: "Cascas/raízes • cautela",
+        lua: "todas",
+        parte: "raizes",
+        intencao: "protecao",
+        resumo: "Partes mais densas (casca/raiz) exigem cuidado e orientação.",
+        avancado: "Evite como iniciante sem aprendizado direto. Algumas podem ser irritantes/tóxicas."
+      },
+      {
+        titulo: "Sementes • potencial",
+        lua: "todas",
+        parte: "sementes",
+        intencao: "prosperidade",
+        resumo: "Sementes simbolizam potencial e continuidade (ciclo).",
+        avancado: "Use como símbolo/estudo; práticas variam muito por tradição."
+      }
+    ];
+
+    const grid = document.querySelector("#harvestGrid");
+    const empty = document.querySelector("#harvestEmpty");
+    const count = document.querySelector("#harvestCount");
+
+    let moonLock = "todas";
+
+    function render(){
+      const q = (document.querySelector("#qHarvest").value || "").toLowerCase().trim();
+      const parte = document.querySelector("#fParteHarvest").value;
+      const intencao = document.querySelector("#fIntencaoHarvest").value;
+
+      const filtered = CARDS.filter(c => {
+        const hay = (c.titulo + " " + c.resumo + " " + c.intencao + " " + c.parte).toLowerCase();
+        const okQ = !q || hay.includes(q);
+        const okMoon = (moonLock === "todas") || (c.lua === moonLock) || (c.lua === "todas");
+        const okParte = (parte === "todas") || (c.parte === parte);
+        const okInt = (intencao === "todas") || (c.intencao === intencao);
+        return okQ && okMoon && okParte && okInt;
+      });
+
+      count.textContent = String(filtered.length);
+      grid.innerHTML = "";
+      empty.style.display = filtered.length ? "none" : "block";
+
+      filtered.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "info-card";
+        card.innerHTML = `
+          <div class="info-card__top">
+            <div>
+              <h3 class="info-title">${c.titulo}</h3>
+              <p class="muted small info-desc">${c.resumo}</p>
+            </div>
+            <div class="badges">
+              <span class="badge">${c.lua === "todas" ? "lua: qualquer" : "lua: " + c.lua}</span>
+              <span class="badge">parte: ${c.parte}</span>
+              <span class="badge">intenção: ${c.intencao}</span>
+            </div>
+          </div>
+          <ul class="kv advanced-only">
+            <li><b>Notas (avançado):</b> ${c.avancado}</li>
+          </ul>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.querySelector("#qHarvest").addEventListener("input", render);
+    document.querySelector("#fParteHarvest").addEventListener("change", render);
+    document.querySelector("#fIntencaoHarvest").addEventListener("change", render);
+    document.querySelector("#clearHarvest").addEventListener("click", () => {
+      document.querySelector("#qHarvest").value = "";
+      document.querySelector("#fParteHarvest").value = "todas";
+      document.querySelector("#fIntencaoHarvest").value = "todas";
+      moonLock = "todas";
+      document.querySelectorAll(".lunarpick").forEach(b => b.classList.remove("active"));
+      document.querySelector('.lunarpick[data-moon="todas"]').classList.add("active");
+      render();
+    });
+
+    document.querySelectorAll(".lunarpick").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".lunarpick").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        moonLock = btn.getAttribute("data-moon");
+        render();
+      });
+    });
+
+    render();
+  </script>
+</body>
+</html>

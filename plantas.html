@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Plantas</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link nav__link--active" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <div class="head-row">
+        <div>
+          <h1>Plantas (guia educativo)</h1>
+          <p class="muted">
+            Catálogo para estudo: energia (fria/quente/equilibradora), usos tradicionais gerais, partes da planta e cuidados.
+            (Sem receitas, sem quantidades.)
+          </p>
+        </div>
+
+        <div class="mode">
+          <span class="muted small">Modo</span>
+          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Segurança:</strong> ervas podem causar alergias/irritações. Evite olhos/mucosas.
+        Se tiver asma/alergias, cuidado com aromas. Gestantes, lactantes e crianças: cautela e orientação responsável.
+      </div>
+    </section>
+
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Catálogo de ervas</h2>
+        <span class="badge" id="herbCount">0</span>
+      </div>
+
+      <div class="filters">
+        <input id="qHerb" class="input" type="text" placeholder="Buscar (ex.: alecrim, calma, proteção…)" />
+
+        <select id="fEnergia" class="select">
+          <option value="todas">Energia: todas</option>
+          <option value="frias">Frias</option>
+          <option value="quentes">Quentes</option>
+          <option value="equilibradoras">Equilibradoras</option>
+        </select>
+
+        <select id="fUso" class="select">
+          <option value="todos">Uso: todos</option>
+          <option value="ambiental">Ambiental</option>
+          <option value="banho-external">Banho externo (geral)</option>
+          <option value="escalda-pes">Escalda-pés</option>
+          <option value="defumacao">Defumação (geral)</option>
+        </select>
+
+        <select id="fObjetivo" class="select">
+          <option value="todos">Objetivo: todos</option>
+          <option value="limpeza">Limpeza</option>
+          <option value="protecao">Proteção</option>
+          <option value="calma">Calma</option>
+          <option value="foco">Foco</option>
+          <option value="prosperidade">Prosperidade</option>
+          <option value="harmonizacao">Harmonização</option>
+          <option value="energia">Energia</option>
+        </select>
+
+        <select id="fParte" class="select">
+          <option value="todas">Parte: todas</option>
+          <option value="folha">Folha</option>
+          <option value="flor">Flor</option>
+          <option value="caule">Caule</option>
+          <option value="casca">Casca</option>
+          <option value="semente">Semente</option>
+          <option value="raiz">Raiz</option>
+        </select>
+
+        <select id="fIntensidade" class="select">
+          <option value="todas">Intensidade: todas</option>
+          <option value="suave">Suave</option>
+          <option value="media">Média</option>
+          <option value="forte">Forte</option>
+        </select>
+
+        <button class="btn btn--ghost" id="clearHerbFilters" type="button">Limpar</button>
+      </div>
+
+      <div id="herbGrid" class="cards-grid"></div>
+      <p class="muted small" id="herbEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Colheita (visão geral)</h2>
+          <span class="badge">educativo</span>
+        </div>
+        <ul class="list">
+          <li><strong>Preferência:</strong> plantas saudáveis, longe de poluição/agrotóxicos.</li>
+          <li><strong>Folhas:</strong> geralmente usadas em práticas suaves/diárias (varia por tradição).</li>
+          <li><strong>Flores:</strong> associadas a energia mais sutil/harmonizadora.</li>
+          <li><strong>Casca/raiz:</strong> costumam exigir mais cautela e orientação.</li>
+          <li><strong>Intenção:</strong> colher com respeito e foco (sem pressa).</li>
+        </ul>
+        <p class="muted small advanced-only">
+          Em algumas tradições, fases da lua e horários são considerados simbolicamente.
+          Use a “linha do tempo lunar” nas páginas de Banhos/Defumação como referência cultural.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Como estudar como iniciante</h2>
+          <span class="badge">passo a passo</span>
+        </div>
+        <ol class="list">
+          <li>Comece por ervas <strong>suaves</strong> (ex.: camomila, alfazema, capim-limão).</li>
+          <li>Observe <strong>reação</strong> (pele, respiração, sensibilidade a aromas).</li>
+          <li>Aprenda objetivos: <strong>calma, limpeza, proteção, foco</strong>.</li>
+          <li>Mantenha um diário: <strong>o que usei + como me senti</strong>.</li>
+        </ol>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Dados em <code>./data/ervas.json</code> (se o navegador bloquear, o site usa fallback interno).
+      </p>
+    </footer>
+  </main>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

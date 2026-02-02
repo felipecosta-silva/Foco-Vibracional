@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Mantras diários</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="index.html">Início</a>
+        <a class="nav__link nav__link--active" href="mantras.html">Mantras diários</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <h1>Mantras diários</h1>
+      <p class="muted">
+        Um mantra por dia (automático) + lista completa com busca e sorteio.
+      </p>
+
+      <div class="notice">
+        <strong>Importante:</strong> os mantras são carregados de <code>/data/mantras.json</code>.
+        Se abrir como <code>file:///</code> e não carregar, use Live Server (VS Code) ou abra via <code>http://localhost</code>.
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Mantra de hoje</h2>
+          <span class="badge" id="dailyTag">—</span>
+        </div>
+
+        <blockquote class="quote" id="dailyMantra">Carregando…</blockquote>
+
+        <div class="row wrap-row">
+          <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">Copiar</button>
+          <button class="btn" data-speak="#dailyMantra" type="button">Ouvir</button>
+          <button class="btn btn--ghost" id="favDailyBtn" type="button">Salvar nos favoritos</button>
+          <button class="btn" id="shuffleBtn" type="button">Sortear outro</button>
+        </div>
+
+        <p class="muted small" id="dailyTip">—</p>
+      </article>
+
+      <article class="card" id="tecnicas">
+        <div class="card__header">
+          <h2 class="card__title">Técnicas durante o trabalho</h2>
+          <span class="badge">guias</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Técnicas">
+          <button class="tab tab--active" data-tab="t1" type="button">2 min</button>
+          <button class="tab" data-tab="t2" type="button">5 min</button>
+          <button class="tab" data-tab="t3" type="button">Reset</button>
+        </div>
+
+        <div class="tabpanes">
+          <div class="pane pane--active" id="t1">
+            <ol class="list">
+              <li>Respire lento 3x (soltando mais longo do que puxando).</li>
+              <li>Recite o mantra (3x).</li>
+              <li>Defina 1 próxima ação objetiva (bem pequena).</li>
+            </ol>
+          </div>
+
+          <div class="pane" id="t2">
+            <ol class="list">
+              <li>1 min: respiração lenta.</li>
+              <li>2 min: mantra + gratidão (uma coisa real do momento).</li>
+              <li>2 min: planejar as próximas 2 tarefas.</li>
+            </ol>
+          </div>
+
+          <div class="pane" id="t3">
+            <ol class="list">
+              <li>Destrave a mandíbula, relaxe ombros.</li>
+              <li>Olhe um ponto fixo por 10 segundos e volte ao corpo.</li>
+              <li>Diga: “Eu escolho foco e presença agora.”</li>
+            </ol>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ✅ LISTA COMPLETA -->
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Todos os mantras</h2>
+        <span class="badge" id="countBadge">0</span>
+      </div>
+
+      <div class="row wrap-row" style="margin-bottom: 12px;">
+        <input id="searchInput" class="input" type="text" placeholder="Buscar (ex.: gratidão, foco, receber…)" />
+        <button class="btn btn--ghost" id="clearSearchBtn" type="button">Limpar</button>
+        <button class="btn" id="randomFromListBtn" type="button">Sortear da lista</button>
+      </div>
+
+      <div id="allMantrasList" class="mantra-list"></div>
+      <p class="muted small" id="emptySearch" style="display:none;">Nenhum mantra encontrado com essa busca.</p>
+    </section>
+
+    <section class="grid" id="sequencias">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Sequências numéricas</h2>
+          <span class="badge">âncoras</span>
+        </div>
+
+        <p class="muted small">
+          Use como foco de atenção (ex.: 1–3 minutos). Se quiser, escreva e observe com calma.
+        </p>
+
+        <div class="sequence-list">
+          <div class="sequence-item">
+            <div class="sequence sequence--small">
+              <span>520</span><span>741</span><span>777</span><span>888</span>
+            </div>
+            <button class="btn btn--ghost" data-copy-text="520 741 777 888" type="button">Copiar</button>
+          </div>
+
+          <div class="sequence-item">
+            <div class="sequence sequence--small"><span>318</span><span>798</span></div>
+            <button class="btn btn--ghost" data-copy-text="318 798" type="button">Copiar</button>
+          </div>
+
+          <div class="sequence-item">
+            <div class="sequence sequence--small"><span>714</span><span>273</span><span>218</span></div>
+            <button class="btn btn--ghost" data-copy-text="714 273 218" type="button">Copiar</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Favoritos</h2>
+          <span class="badge">local</span>
+        </div>
+
+        <div id="favoritesEmpty" class="muted small">
+          Ainda não há favoritos. Clique em “Salvar nos favoritos”.
+        </div>
+
+        <div id="favoritesList" class="favorites"></div>
+
+        <div class="row">
+          <button class="btn btn--ghost" id="clearFavsBtn" type="button">Limpar favoritos</button>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">Dica: você pode imprimir esta página para usar offline.</p>
+    </footer>
+  </main>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

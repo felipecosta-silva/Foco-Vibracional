@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Início</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html" aria-label="Voltar ao início">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span>Foco Vibracional</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link nav__link--active" href="index.html">Início</a>
+        <a class="nav__link" href="mantras.html">Mantras</a>
+        <a class="nav__link" href="plantas.html">Plantas</a>
+        <a class="nav__link" href="banhos.html">Banhos</a>
+        <a class="nav__link" href="defumacao.html">Defumação</a>
+        <a class="nav__link" href="colheita.html">Colheita</a>
+        <a class="nav__link" href="glossario.html">Glossário</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <section class="hero">
+      <div class="hero__content">
+        <h1>Seu painel de foco diário</h1>
+        <p class="muted">
+          Um espaço simples para repetir afirmações, manter presença e direcionar sua energia ao longo do dia.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn" href="mantras.html">Ir para Mantras diários</a>
+          <a class="btn btn--ghost" href="plantas.html">Ir para Plantas</a>
+        </div>
+
+        <div class="pill-row" role="list" aria-label="Atalhos">
+          <button class="pill" data-scroll="#mantra-hoje" type="button">Mantra de hoje</button>
+          <button class="pill" data-scroll="#antes-dormir" type="button">Antes de dormir</button>
+          <button class="pill" data-scroll="#grabovoi" type="button">Grabovoi</button>
+        </div>
+      </div>
+
+      <aside class="hero__card" aria-label="Relógio e foco rápido">
+        <div class="card">
+          <div class="card__header">
+            <h2 class="card__title">Agora</h2>
+            <span class="badge" id="todayBadge">—</span>
+          </div>
+          <p class="big" id="clock">--:--</p>
+
+          <div class="divider"></div>
+
+          <p class="muted small">
+            Dica: respire 4s, segure 2s, solte 6s. Repita 3 vezes e então recite o mantra.
+          </p>
+
+          <button class="btn btn--wide" id="focusModeBtn" type="button">
+            Ativar modo foco (escurecer)
+          </button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="mantra-hoje" class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Mantra do dia (trabalho)</h2>
+          <span class="badge">Repetição</span>
+        </div>
+
+        <blockquote class="quote" id="primaryMantra">
+          “Hoje o dinheiro flui para mim com facilidade, frequência e gratidão.”
+        </blockquote>
+
+        <div class="row">
+          <button class="btn btn--ghost" data-copy="#primaryMantra" type="button">Copiar</button>
+          <button class="btn" data-speak="#primaryMantra" type="button">Ouvir</button>
+        </div>
+
+        <p class="muted small">
+          Sugestão: repita 3–9 vezes com calma, como se fosse um “reset” mental.
+        </p>
+      </article>
+
+      <article id="antes-dormir" class="card">
+        <div class="card__header">
+          <h2 class="card__title">Antes de dormir</h2>
+          <span class="badge">Encerramento</span>
+        </div>
+
+        <blockquote class="quote" id="sleepMantra">
+          “O dinheiro me encontra com facilidade. Eu estou aberto e pronto para receber.”
+        </blockquote>
+
+        <div class="row">
+          <button class="btn btn--ghost" data-copy="#sleepMantra" type="button">Copiar</button>
+          <button class="btn" data-speak="#sleepMantra" type="button">Ouvir</button>
+        </div>
+
+        <p class="muted small">
+          Se quiser, finalize com gratidão por 3 coisas do dia (mesmo pequenas).
+        </p>
+      </article>
+    </section>
+
+    <!-- ✅ GRABOVOI com mais espaço + significado -->
+    <section id="grabovoi" class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Sequência (Grabovoi)</h2>
+        <span class="badge">Foco numérico</span>
+      </div>
+
+      <p class="muted">
+        Use como uma “âncora de atenção” (sem pressa). Você pode olhar, repetir mentalmente ou escrever em um papel.
+      </p>
+
+      <div class="notice">
+        <strong>Intenção sugerida:</strong>
+        usar a sequência como âncora de foco para prosperidade/fluxo e sensação de abertura para receber.
+        (Interpretações variam conforme crenças e tradições.)
+      </div>
+
+      <p class="muted small" style="margin-top: 12px;">
+        Versão em linha: <span class="mono" id="grabovoiLine">520 741 777 888</span>
+      </p>
+
+      <div class="sequence" aria-label="Sequência numérica">
+        <span>520</span>
+        <span>741</span>
+        <span>777</span>
+        <span>888</span>
+      </div>
+
+      <div class="row">
+        <button class="btn btn--ghost" data-copy-text="520 741 777 888" type="button">Copiar sequência</button>
+        <a class="btn" href="mantras.html#sequencias">Ver mais sequências</a>
+      </div>
+
+      <p class="muted small">
+        Nota: isso é uma prática de crença/espiritualidade; trate como ferramenta de foco e intenção.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Técnicas rápidas no trabalho</h2>
+          <span class="badge">2–3 min</span>
+        </div>
+
+        <ul class="list">
+          <li><strong>Pausa 60s:</strong> postura ereta + 3 respirações lentas.</li>
+          <li><strong>Frase-âncora:</strong> repita seu mantra 3x, bem consciente.</li>
+          <li><strong>Microgratidão:</strong> pense em 1 coisa boa que já aconteceu hoje.</li>
+          <li><strong>Intenção:</strong> “Eu direciono minha atenção ao que importa agora.”</li>
+        </ul>
+
+        <a class="btn btn--ghost" href="mantras.html#tecnicas">Ver técnicas guiadas</a>
+      </article>
+
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Rotina simples</h2>
+          <span class="badge">Sugestão</span>
+        </div>
+
+        <ol class="list">
+          <li><strong>Manhã:</strong> 1 mantra + 1 objetivo do dia.</li>
+          <li><strong>Trabalho:</strong> check-ins de 2 min (mantra + respiração).</li>
+          <li><strong>Noite:</strong> “Antes de dormir” + gratidão.</li>
+        </ol>
+
+        <p class="muted small">
+          Consistência ganha de intensidade. Pouco, todo dia.
+        </p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p class="muted small">
+        Feito para uso pessoal • Site estático (sem servidor) • Seus favoritos ficam no seu navegador.
+      </p>
+    </footer>
+  </main>
+
+  <div class="focus-overlay" id="focusOverlay" hidden></div>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

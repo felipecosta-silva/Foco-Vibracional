@@ -1,0 +1,48 @@
+{
+  "defumacoes": [
+    {
+      "nome": "Limpeza do ambiente",
+      "objetivo": "limpeza",
+      "intensidade": "forte",
+      "luas": ["minguante"],
+      "dias": ["sex", "sab"],
+      "horario": "noite",
+      "ervas": ["Arruda", "Guiné"],
+      "servePara": "Referência cultural para reduzir peso do ambiente.",
+      "cuidados": "Ventilação, cuidado com asma/alergias e fogo; atenção com pets."
+    },
+    {
+      "nome": "Harmonização e bem-estar",
+      "objetivo": "harmonizacao",
+      "intensidade": "suave",
+      "luas": ["crescente", "cheia"],
+      "dias": ["dom", "qui"],
+      "horario": "final do dia",
+      "ervas": ["Alfazema (Lavanda)", "Benjoim"],
+      "servePara": "Equilibrar e suavizar o clima do ambiente.",
+      "cuidados": "Se tiver sensibilidade a aroma, use bem pouco e ventile."
+    },
+    {
+      "nome": "Proteção e firmeza",
+      "objetivo": "protecao",
+      "intensidade": "media",
+      "luas": ["crescente", "cheia"],
+      "dias": ["seg", "sab"],
+      "horario": "manhã",
+      "ervas": ["Alecrim", "Louro", "Casca de alho (seca)"],
+      "servePara": "Referência cultural para fortalecer e firmar o ambiente.",
+      "cuidados": "Ventilação e cautela com pets e pessoas sensíveis."
+    },
+    {
+      "nome": "Foco e produtividade",
+      "objetivo": "foco",
+      "intensidade": "media",
+      "luas": ["crescente"],
+      "dias": ["ter", "qua"],
+      "horario": "manhã",
+      "ervas": ["Alecrim", "Manjericão"],
+      "servePara": "Referência cultural para clareza mental e ritmo de trabalho.",
+      "cuidados": "Evite se aroma te dá dor de cabeça; ventile."
+    }
+  ]
+}
