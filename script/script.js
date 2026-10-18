@@ -98,15 +98,20 @@ function renderHeader() {
           <span>Foco Vibracional</span>
         </a>
 
-        <button class="nav__toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" id="navToggleBtn">
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-        </button>
-
         <nav class="nav" id="mainNav">
           ${navItemsHtml}
         </nav>
+
+        <div class="topbar__actions">
+          <button class="search-btn" type="button" id="globalSearchBtn" aria-label="Buscar no site (atalho /)" title="Buscar (/)">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <button class="nav__toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" id="navToggleBtn">
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+            <span class="nav__toggle-bar"></span>
+          </button>
+        </div>
       </div>
     </header>
   `;
@@ -919,7 +924,7 @@ function initPageTabs() {
     const h = decodeURIComponent(location.hash.slice(1));
     if (ids.includes(h)) return show(h, scroll);
     // âncora interna (ex.: #tecnicas, #antes-dormir): abre a aba que a contém
-    const target = h && document.getElementById(h);
+    const target = h ? document.getElementById(h) : null;
     const panel = target?.closest("[data-page-panel]");
     show(panel ? panel.getAttribute("data-page-panel") : ids[0], false);
     if (target && panel) setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
@@ -3252,10 +3257,153 @@ function initOraculo() {
   });
 }
 
+/* ==========================================================================
+   Busca global (lupa no cabeçalho, atalho "/")
+   Carrega os data/*.js sob demanda para funcionar em qualquer página.
+   ========================================================================== */
+const SEARCH_PAGES = [
+  { t: "Painel Hoje — sugestões do dia", u: "index.html#hoje", k: "hoje dia sugestao lua" },
+  { t: "Oráculo — Como você está se sentindo?", u: "index.html#oraculo", k: "oraculo sentimento ansiedade cansaco inveja tristeza ritual" },
+  { t: "Ritual da Noite — perguntas ao Universo", u: "mantras.html#noite", k: "noite dormir perguntas universo sono" },
+  { t: "Afirmações", u: "mantras.html#afirmacoes", k: "afirmacoes frases" },
+  { t: "Técnicas no trabalho", u: "mantras.html#tecnicas", k: "trabalho pausa foco tecnica" },
+  { t: "Favoritos", u: "mantras.html#favoritos", k: "favoritos salvos" },
+  { t: "Sequências numéricas (Grabovoi)", u: "portais.html#grabovoi", k: "grabovoi numeros sequencia" },
+  { t: "Portais numéricos", u: "portais.html", k: "portal 11/11 datas" },
+  { t: "Calendário Lunar — fases e o que fazer", u: "calendario.html#fases", k: "lua fases nova crescente cheia minguante calendario" },
+  { t: "Colheita & Secagem", u: "colheita.html", k: "colheita colher secar chuva" },
+  { t: "Símbolos — Pemba e ponto riscado", u: "simbolos.html", k: "pemba ponto riscado simbolos" },
+  { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
+  { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
+  { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" }
+];
+
+function loadDataScript(name) {
+  if (window.FV_DATA && Array.isArray(window.FV_DATA[name])) return Promise.resolve();
+  return new Promise(resolve => {
+    const s = document.createElement("script");
+    s.src = `./data/${name}.js`;
+    s.onload = s.onerror = () => resolve();
+    document.head.appendChild(s);
+  });
+}
+
+async function ensureAllData() {
+  await Promise.all(["ervas", "banhos", "defumacoes", "mantras"].map(loadDataScript));
+  if (!ERVAS.length) loadErvas();
+  if (!BANHOS.length) loadBanhos();
+  if (!DEFUMACOES.length) loadDefumacoes();
+  if (!DAILY_MANTRAS.length) loadMantras();
+}
+
+function initGlobalSearch() {
+  const btn = $("#globalSearchBtn");
+  if (!btn) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "gsearch";
+  overlay.hidden = true;
+  overlay.innerHTML = `
+    <div class="gsearch__panel" role="dialog" aria-modal="true" aria-label="Buscar no site">
+      <div class="gsearch__bar">
+        <input class="input gsearch__input" type="search" placeholder="Buscar ervas, banhos, defumações, mantras…" autocomplete="off" />
+        <button class="btn btn--ghost gsearch__close" type="button" aria-label="Fechar busca">Esc</button>
+      </div>
+      <div class="gsearch__results" aria-live="polite"></div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const input = overlay.querySelector(".gsearch__input");
+  const results = overlay.querySelector(".gsearch__results");
+  let ready = false;
+
+  function group(title, items) {
+    if (!items.length) return "";
+    return `<div class="gsearch__group"><div class="gsearch__title">${title} <span class="muted">(${items.length})</span></div>${items.slice(0, 8).join("")}</div>`;
+  }
+  const row = (href, title, sub) =>
+    `<a class="gsearch__item" href="${href}"><b>${escapeHtml(title)}</b>${sub ? `<span class="muted small">${escapeHtml(sub)}</span>` : ""}</a>`;
+
+  function run() {
+    const q = normalizeSpiritualSearch(input.value);
+    if (q.length < 2) {
+      results.innerHTML = `<p class="muted small" style="padding:8px 4px;">Digite pelo menos 2 letras. Dica: tecle <b>/</b> em qualquer página para abrir a busca.</p>`;
+      return;
+    }
+    const has = (...parts) => normalizeSpiritualSearch(parts.join(" ")).includes(q);
+    const html =
+      group("🌿 Ervas", ERVAS.filter(e => has(e.nome, e.nomePopular, (e.objetivos || []).join(" "), e.descricao))
+        .map(e => row(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.nomePopular))) +
+      group("🛁 Banhos", BANHOS.filter(b => has(b.nome, (b.ervas || []).join(" "), b.objetivo, b.observacao))
+        .map(b => row(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, (b.ervas || []).slice(0, 4).join(" + ")))) +
+      group("💨 Defumações", DEFUMACOES.filter(d => has(d.nome, (d.ervas || []).join(" "), d.objetivo, d.servePara))
+        .map(d => row(`defumacao.html#${encodeURIComponent(d.id)}`, d.nome, (d.ervas || []).slice(0, 4).join(" + ")))) +
+      group("🙏 Mantras", DAILY_MANTRAS.filter(m => has(m.text, m.tag))
+        .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +
+      group("📄 Páginas", SEARCH_PAGES.filter(p => has(p.t, p.k)).map(p => row(p.u, p.t, "")));
+    results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
+  }
+
+  async function open() {
+    overlay.hidden = false;
+    document.body.classList.add("gsearch-open");
+    input.focus();
+    if (!ready) { results.innerHTML = `<p class="muted small" style="padding:8px 4px;">Carregando…</p>`; await ensureAllData(); ready = true; }
+    run();
+  }
+  function close() {
+    overlay.hidden = true;
+    document.body.classList.remove("gsearch-open");
+  }
+
+  btn.addEventListener("click", open);
+  overlay.querySelector(".gsearch__close").addEventListener("click", close);
+  overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+  results.addEventListener("click", e => {
+    const a = e.target.closest("a");
+    if (!a) return;
+    // mesmo documento: o hashchange cuida do destaque; só fecha o painel
+    close();
+  });
+  input.addEventListener("input", run);
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !overlay.hidden) close();
+    const typing = /input|textarea|select/i.test(document.activeElement?.tagName || "") || document.activeElement?.isContentEditable;
+    if (e.key === "/" && !typing && overlay.hidden) { e.preventDefault(); open(); }
+  });
+}
+
+/* Índice "Nesta página" (headings com data-toc) e botão "voltar ao topo" */
+function initPageToc() {
+  const nav = $("[data-toc-nav]");
+  if (!nav) return;
+  const heads = $all("h2[data-toc]");
+  if (!heads.length) { nav.remove(); return; }
+  nav.innerHTML = heads.map((h, i) => {
+    const target = h.closest("section, article") || h;
+    if (!target.id) target.id = "sec-" + (i + 1);
+    return `<a class="pill" href="#${target.id}">${escapeHtml(h.getAttribute("data-toc"))}</a>`;
+  }).join("");
+}
+
+function initBackToTop() {
+  if (document.body.scrollHeight < window.innerHeight * 2.5) return;
+  const btn = document.createElement("button");
+  btn.className = "to-top";
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Voltar ao topo");
+  btn.textContent = "↑";
+  btn.hidden = true;
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  document.body.appendChild(btn);
+  window.addEventListener("scroll", () => { btn.hidden = window.scrollY < 900; }, { passive: true });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Renderizar Cabeçalho e Rodapé únicos
   renderHeader();
   renderFooter();
+  initGlobalSearch();
 
   // Ações globais (cliques, atalhos, modo iniciante/avançado)
   initModeToggle();
@@ -3292,5 +3440,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initSimbolosPage();
   initHojePage();
   initOraculo();
+  initPageToc();
+  // após renderizar tudo, para medir a altura real da página
+  initBackToTop();
 });
 
