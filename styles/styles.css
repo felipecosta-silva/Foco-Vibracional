@@ -2051,3 +2051,17 @@ a.pill{ text-decoration: none; color: inherit; display: inline-flex; align-items
 /* Links dentro de textos (sem classe própria) legíveis no tema escuro */
 main a:not([class]){ color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 main a:not([class]):hover{ color: var(--accent2); }
+
+/* Links cruzados Ervas ⇄ Banhos ⇄ Defumações */
+.herb-link{ color: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
+.herb-link:hover{ color: var(--accent); }
+.used-in{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.used-in .herb-link{
+  text-decoration: none;
+  font-size: .82rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+}
+.used-in .herb-link:hover{ border-color: rgba(158,240,255,.35); }

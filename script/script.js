@@ -1009,6 +1009,70 @@ function renderFavorites() {
    Página: Plantas & Ervas Sagradas (plantas.html)
    Compatível com o layout oficial com IDs #herbGrid, #qHerb, #fEnergia, etc.
    ========================================================================== */
+/* ==========================================================================
+   Ligações cruzadas Ervas ⇄ Banhos ⇄ Defumações
+   Casa "Pétalas de 3 Rosas Brancas" com a ficha "Rosa Branca", "7 Folhas de Manga" com "Folha de Manga" etc.
+   ========================================================================== */
+let HERB_MATCHERS = null;
+
+function herbMatchers() {
+  if (HERB_MATCHERS) return HERB_MATCHERS;
+  const norm = t => String(t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/-/g, " ");
+  HERB_MATCHERS = ERVAS.map(e => {
+    const base = norm(e.nome)
+      .replace(/\(.*?\)/g, "")
+      .replace(/^folha e flor de |^folha de /, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    // cada palavra aceita plural simples: "rosa branca" casa "rosas brancas"
+    const pattern = base.split(" ").map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "s?").join("\\s+");
+    return { erva: e, re: new RegExp(`(^|[^a-z])${pattern}([^a-z]|$)`), len: base.length };
+  }).sort((a, b) => b.len - a.len); // nomes mais longos primeiro ("rosa branca" antes de "rosa")
+  HERB_MATCHERS.norm = norm;
+  return HERB_MATCHERS;
+}
+
+function findHerbFor(text) {
+  const ms = herbMatchers();
+  const t = ms.norm(text);
+  const m = ms.find(x => x.re.test(t));
+  return m ? m.erva : null;
+}
+
+/* Lista de ingredientes com link para a ficha da erva quando existir */
+function linkedHerbList(list) {
+  return (list || []).map(txt => {
+    const erva = ERVAS.length ? findHerbFor(txt) : null;
+    return erva
+      ? `<a class="herb-link" href="plantas.html#${encodeURIComponent(erva.id)}">${escapeHtml(txt)}</a>`
+      : escapeHtml(txt);
+  }).join(" + ");
+}
+
+/* Banhos e defumações que usam uma erva */
+function ritualsUsingHerb(erva) {
+  const uses = it => (it.ervas || []).some(txt => { const h = findHerbFor(txt); return h && h.id === erva.id; });
+  return {
+    banhos: BANHOS.filter(uses),
+    defumacoes: DEFUMACOES.filter(uses)
+  };
+}
+
+function usedInHtml(erva) {
+  if (!BANHOS.length && !DEFUMACOES.length) return "";
+  const { banhos, defumacoes } = ritualsUsingHerb(erva);
+  if (!banhos.length && !defumacoes.length) return "";
+  const links = [
+    ...banhos.map(b => `<a class="herb-link" href="banhos.html#${encodeURIComponent(b.id)}">🛁 ${escapeHtml(b.nome)}</a>`),
+    ...defumacoes.map(d => `<a class="herb-link" href="defumacao.html#${encodeURIComponent(d.id)}">💨 ${escapeHtml(d.nome)}</a>`)
+  ];
+  return `
+          <li>
+            <b>Usada em (${links.length}):</b>
+            <span class="used-in">${links.join("")}</span>
+          </li>`;
+}
+
 /* Link direto para um item de catálogo (ex.: banhos.html#banho-calma-sono):
    filtra pelo nome, rola até o card e o destaca por 2 segundos. */
 function focusCatalogItemFromHash(items, qInput, rerender, grid) {
@@ -1151,6 +1215,7 @@ function initPlantasPage() {
             <b>Cuidados e segurança:</b>
             <span style="color: #fca5a5; font-size: 0.88rem;">${e.cuidados || "Uso externo consciente."}</span>
           </li>
+          ${usedInHtml(e)}
           ${e.cha ? `
           <li style="border-top: 1px dashed rgba(246, 224, 94, 0.25); padding-top: 8px; margin-top: 6px;">
             <b style="color: #f6e05e;">☕ Uso em Chá / Medicina Popular:</b>
@@ -1289,7 +1354,7 @@ function initBanhosPage() {
         <ul class="kv">
           <li>
             <b>Ervas Sagradas:</b>
-            <span style="color: var(--accent2);">${(b.ervas || []).join(" + ")}</span>
+            <span style="color: var(--accent2);">${linkedHerbList(b.ervas)}</span>
           </li>
           <li>
             <b>Fase lunar & dias:</b>
@@ -1489,7 +1554,7 @@ function initDefumacaoPage() {
         <ul class="kv">
           <li>
             <b>Ervas e Resinas:</b>
-            <span style="color: var(--accent2);">${(d.ervas || []).join(" + ")}</span>
+            <span style="color: var(--accent2);">${linkedHerbList(d.ervas)}</span>
           </li>
           <li>
             <b>Sentido da defumação:</b>
