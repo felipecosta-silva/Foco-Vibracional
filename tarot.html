@@ -38,12 +38,16 @@
       <p class="muted">Estude cada carta com calma: a imagem, as palavras-chave, o significado, a posição invertida e o que ela diz sobre amor, trabalho e conselho.</p>
     </section>
 
-    <section class="card" aria-label="Carta do dia">
-      <div class="row wrap-row" style="margin-bottom:14px;">
-        <button class="pill pill--active" type="button" data-daily-deck="classico">🃏 Tarot</button>
-        <button class="pill" type="button" data-daily-deck="cigano">🌹 Cigano</button>
+    <section class="card" aria-label="Carta do dia e Tiragem">
+      <div class="row wrap-row" style="margin-bottom:14px; justify-content:space-between; align-items:center;">
+        <div class="row wrap-row">
+          <button class="pill pill--active" type="button" data-daily-deck="classico">🃏 Tarot</button>
+          <button class="pill" type="button" data-daily-deck="cigano">🌹 Cigano</button>
+        </div>
+        <button class="btn btn--ghost small" type="button" id="btnTiragem3">🎴 Tiragem de 3 Cartas</button>
       </div>
       <div id="tarotDaily"></div>
+      <div id="tarotSpread" class="tspread" hidden></div>
     </section>
 
     <section id="catalog" class="cat section-gap" data-catalog="tarot" aria-label="Cartas"></section>

@@ -10,12 +10,17 @@ window.FV_DATA.tarot = [
   "numero": 0,
   "nome": "O Louco",
   "imagem": "",
-  "palavrasChave": ["início", "liberdade", "fé no caminho", "espontaneidade"],
-  "significado": "O começo de uma jornada. Coragem para dar o primeiro passo sem ter todas as respostas, confiando na vida e na própria intuição.",
-  "invertida": "Imprudência, decisões sem pensar, medo de começar ou fuga de responsabilidades.",
-  "amor": "Relação leve e nova, ou vontade de viver algo diferente. Pede autenticidade.",
-  "trabalho": "Novo projeto, mudança de área ou empreendimento. Planeje o mínimo antes de saltar.",
-  "conselho": "Confie, mas olhe onde pisa."
+  "palavrasChave": [
+   "início",
+   "liberdade",
+   "fé no caminho",
+   "espontaneidade"
+  ],
+  "significado": "O começo de uma jornada sagrada. Coragem para dar o primeiro passo sem ter todas as respostas, confiando na vida e na própria intuição profunda.",
+  "invertida": "Imprudência, decisões impulsivas sem aterramento, medo de arriscar ou fuga de responsabilidades.",
+  "amor": "Relação leve, fresca e autêntica. Convite a viver o afeto sem o peso de cobranças do passado.",
+  "trabalho": "Novo projeto, guinada de carreira ou ideias inovadoras. Planeje o básico, mas não deixe o medo travar o salto.",
+  "conselho": "Confie na estrada, mas mantenha os olhos abertos a cada passo."
  },
  {
   "id": "classico-maior-01-mago",
@@ -25,12 +30,417 @@ window.FV_DATA.tarot = [
   "numero": 1,
   "nome": "O Mago",
   "imagem": "",
-  "palavrasChave": ["poder pessoal", "iniciativa", "habilidade", "manifestação"],
-  "significado": "Você tem as ferramentas de que precisa. Momento de agir, comunicar e transformar intenção em realidade.",
-  "invertida": "Manipulação, talento desperdiçado, falta de foco ou promessas vazias.",
-  "amor": "Conquista, charme e boa comunicação. Cuidado com jogos de sedução.",
-  "trabalho": "Ótimo para apresentar ideias, negociar e começar algo com as próprias mãos.",
-  "conselho": "Use o que já tem nas mãos."
+  "palavrasChave": [
+   "poder pessoal",
+   "iniciativa",
+   "habilidade",
+   "manifestação"
+  ],
+  "significado": "Você já tem sobre a mesa todos os elementos necessários para criar o que deseja: terra, ar, fogo e água. Momento de ação decidida, comunicação e poder de realização.",
+  "invertida": "Talento desperdiçado, promessas não cumpridas, manipulação ou dispersão de energia.",
+  "amor": "Iniciativa, magnetismo e clareza para expressar sentimentos. Cuidado com jogos mentais.",
+  "trabalho": "Momento propício para liderar projetos, negociar contratos e materializar ideias com autonomia.",
+  "conselho": "Use com consciência o poder que já está em suas mãos."
+ },
+ {
+  "id": "classico-maior-02-sacerdotisa",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 2,
+  "nome": "A Sacerdotisa",
+  "imagem": "",
+  "palavrasChave": [
+   "intuição",
+   "mistério",
+   "sabedoria interior",
+   "silêncio"
+  ],
+  "significado": "A guardiã dos véus da alma. Pede quietude, recolhimento e escuta atenta dos pressentimentos antes de qualquer decisão precipitada.",
+  "invertida": "Segredos prejudiciais, bloqueio intuitivo, isolamento defensivo ou ignorar a voz da própria consciência.",
+  "amor": "Conexão de almas profunda e sutil. Respeite o ritmo do outro e não force confissões imediatas.",
+  "trabalho": "Pesquisa, estudo e observação estratégica. Guarde seus planos até que amadureçam completamente.",
+  "conselho": "Silencie o barulho do mundo para ouvir a voz mansa do seu íntimo."
+ },
+ {
+  "id": "classico-maior-03-imperatriz",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 3,
+  "nome": "A Imperatriz",
+  "imagem": "",
+  "palavrasChave": [
+   "fertilidade",
+   "abundância",
+   "criatividade",
+   "nutrição"
+  ],
+  "significado": "A força geradora da Mãe Terra. Tudo o que você plantar com amor agora irá florescer, frutificar e trazer conforto aos sentidos e ao lar.",
+  "invertida": "Bloqueio criativo, desperdício, dependência emocional ou negligência no autocuidado.",
+  "amor": "Afeto generoso, acolhimento, beleza e sensualidade vivida com naturalidade e ternura.",
+  "trabalho": "Projetos em plena expansão, colheita farta e facilidade para atrair recursos e parcerias produtivas.",
+  "conselho": "Nutra seus projetos e seu corpo com a mesma dedicação com que rega uma flor rara."
+ },
+ {
+  "id": "classico-maior-04-imperador",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 4,
+  "nome": "O Imperador",
+  "imagem": "",
+  "palavrasChave": [
+   "estrutura",
+   "autoridade",
+   "estabilidade",
+   "disciplina"
+  ],
+  "significado": "A firmeza das bases e a clareza dos limites. Representa a capacidade de organizar a vida prática com ordem, proteção e responsabilidade firme.",
+  "invertida": "Rigidez excessiva, autoritarismo, teimosia cega ou dificuldade em aceitar a autoridade dos outros.",
+  "amor": "Relação segura, leal e com bases sólidas para o futuro. Cuidado para não sufocar o outro com controle.",
+  "trabalho": "Organização, liderança estável, consolidação financeira e definição clara de metas a longo prazo.",
+  "conselho": "Construa sobre a rocha: disciplina diária é a maior protetora da sua paz."
+ },
+ {
+  "id": "classico-maior-05-hierofante",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 5,
+  "nome": "O Hierofante",
+  "imagem": "",
+  "palavrasChave": [
+   "tradição",
+   "ensinamento",
+   "ética",
+   "espiritualidade"
+  ],
+  "significado": "A sabedoria dos mestres e a força dos preceitos que atravessam gerações. Convida ao aprendizado com quem já trilhou a estrada e à fidelidade aos seus valores mais elevados.",
+  "invertida": "Dogmatismo intolerante, moralismo hipócrita, revolta contra normas justas ou crenças limitantes.",
+  "amor": "Compromisso sério, união de propósitos e respeito mútuo. Afinidade de valores morais e espirituais.",
+  "trabalho": "Estudo formal, mentorias, respeito às regras institucionais e trabalho ético com a comunidade.",
+  "conselho": "Honre a sabedoria dos que vieram antes, filtrando tudo pelo amor e pelo bom senso."
+ },
+ {
+  "id": "classico-maior-06-enamorados",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 6,
+  "nome": "Os Enamorados",
+  "imagem": "",
+  "palavrasChave": [
+   "escolha",
+   "união",
+   "afinidade",
+   "alinhamento ético"
+  ],
+  "significado": "Uma encruzilhada do coração. Mais do que paixão, esta carta fala de uma escolha de caminhos guiada pelo que é verdadeiramente sagrado para você.",
+  "invertida": "Dúvida paralisante, conflito interno, concessões que ferem seus princípios ou ilusões amorosas.",
+  "amor": "Encontro significativo, cumplicidade e atração genuína. Exige decisão consciente e compromisso.",
+  "trabalho": "Sociedades promissoras e decisões que exigem escolher entre o ganho imediato e a integridade de longo prazo.",
+  "conselho": "Escolha aquilo que mantém sua cabeça erguida e seu peito em paz."
+ },
+ {
+  "id": "classico-maior-07-carro",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 7,
+  "nome": "O Carro",
+  "imagem": "",
+  "palavrasChave": [
+   "vitória",
+   "determinação",
+   "direção",
+   "superação"
+  ],
+  "significado": "O domínio das forças opostas pela força de vontade. Quando mente e coração puxam para o mesmo lado, nenhum obstáculo na estrada é capaz de impedir o seu avanço.",
+  "invertida": "Perda de rumo, arrogância, pressa destrutiva ou sensação de que as circunstâncias fugiram do controle.",
+  "amor": "Determinação para superar desentendimentos e conduzir a relação com objetivo claro.",
+  "trabalho": "Metas conquistadas, viagens a trabalho e reconhecimento merecido pela persistência.",
+  "conselho": "Segure as rédeas com firmeza: a direção importa muito mais do que a velocidade."
+ },
+ {
+  "id": "classico-maior-08-forca",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 8,
+  "nome": "A Força",
+  "imagem": "",
+  "palavrasChave": [
+   "mansidão",
+   "coragem",
+   "domínio interior",
+   "paciência"
+  ],
+  "significado": "A vitória da gentileza sobre a brutalidade. A mulher que amansa o leão com uma carícia ensina que a verdadeira força espiritual não grita: ela acolhe, compreende e guia.",
+  "invertida": "Explosões de raiva, fraqueza moral, desânimo perante desafios ou tentar impor a vontade pelo medo.",
+  "amor": "Paciência amorosa, diálogo maduro e compreensão das feridas do parceiro.",
+  "trabalho": "Resiliência sob pressão, diplomacia em reuniões difíceis e persistência serena.",
+  "conselho": "Dobre a dureza do mundo com a doçura inabalável de quem tem fé."
+ },
+ {
+  "id": "classico-maior-09-eremita",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 9,
+  "nome": "O Eremita",
+  "imagem": "",
+  "palavrasChave": [
+   "recolhimento",
+   "luz interior",
+   "prudência",
+   "maturidade"
+  ],
+  "significado": "O sábio que caminha na noite guiado pela lanterna da própria verdade. Um período de introspecção fecunda para buscar respostas dentro de si, e não no alvoroço alheio.",
+  "invertida": "Isolamento amargo, solidão involuntária, teimosia em pedir ajuda ou medo de conviver.",
+  "amor": "Tempo de autodescoberta e solitude curativa. Nas relações, pede respeito aos espaços individuais.",
+  "trabalho": "Especialização profunda, consultoria, reflexão antes de assinar contratos e trabalho independente.",
+  "conselho": "Ilumine apenas o próximo passo; a estrada inteira se revelará no momento certo."
+ },
+ {
+  "id": "classico-maior-10-roda-fortuna",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 10,
+  "nome": "A Roda da Fortuna",
+  "imagem": "",
+  "palavrasChave": [
+   "ciclos",
+   "mudança",
+   "destino",
+   "oportunidade"
+  ],
+  "significado": "O giro constante da existência: o que estava embaixo sobe, o que estava em cima desce. Lembra que fases difíceis passam e que a sabedoria reside em surfar as marés sem se apegar.",
+  "invertida": "Resistência teimosa às mudanças, maré de pequenos imprevistos ou sensação de estagnação temporária.",
+  "amor": "Reviravolta benéfica, reencontros inesperados ou superação de um impasse antigo.",
+  "trabalho": "Novas chances repentinas, mudança de ambiente e sorte nos momentos decisivos.",
+  "conselho": "Abrace a dança dos ciclos: nada é permanente, exceto a sua capacidade de renascer."
+ },
+ {
+  "id": "classico-maior-11-justica",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 11,
+  "nome": "A Justiça",
+  "imagem": "",
+  "palavrasChave": [
+   "equilíbrio",
+   "verdade",
+   "causa e efeito",
+   "clareza"
+  ],
+  "significado": "A balança que pesa os atos e a espada que corta a ilusão. Tudo o que foi plantado será colhido com exatidão. Pede imparcialidade, bom senso e honestidade irrepreensível.",
+  "invertida": "Injustiça percebida, julgamento precipitado, recusa em assumir erros ou pendências legais complexas.",
+  "amor": "Acordos justos, transparência total e conversas francas sobre direitos e deveres na relação.",
+  "trabalho": "Decisões contratuais, processos jurídicos que chegam a termo e avaliação justa de desempenho.",
+  "conselho": "Seja justo consigo e com o próximo: a verdade é o chão mais firme onde se pode pisar."
+ },
+ {
+  "id": "classico-maior-12-enforcado",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 12,
+  "nome": "O Enforcado",
+  "imagem": "",
+  "palavrasChave": [
+   "pausa",
+   "nova perspectiva",
+   "desapego",
+   "entrega"
+  ],
+  "significado": "Ver o mundo de cabeça para baixo para enxergar o que a correria escondia. Uma pausa necessária onde a melhor ação é não forçar as portas, permitindo que a vida se reorganize.",
+  "invertida": "Vitimização inútil, sacrifício sem sentido, resistência à renúncia necessária ou teimosia em remar contra a maré.",
+  "amor": "Tempo de espera e reflexão. Evite pressionar o outro por definições imediatas.",
+  "trabalho": "Projetos em compasso de espera. Aproveite o intervalo para rever estratégias e aprimorar detalhes.",
+  "conselho": "Solte o controle: às vezes a vitória vem de aprender a esperar em paz."
+ },
+ {
+  "id": "classico-maior-13-morte",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 13,
+  "nome": "A Morte",
+  "imagem": "",
+  "palavrasChave": [
+   "transformação",
+   "fim de ciclo",
+   "renovação",
+   "liberação"
+  ],
+  "significado": "A ceifadora do que já não tem vida. Não significa morte física, mas o fechamento inexorável de uma etapa gasta para abrir espaço ao broto verdejante do recomeço.",
+  "invertida": "Apego ao passado caduco, medo paralisante de recomeçar ou insistência em manter o que já secou.",
+  "amor": "Encerramento de mágoas antigas, transformação radical na convivência ou fim saudável de ciclo desgastado.",
+  "trabalho": "Transição profissional, encerramento de contrato e reestruturação profunda de métodos.",
+  "conselho": "Deixe ir as folhas secas para que a árvore da sua vida volte a florescer."
+ },
+ {
+  "id": "classico-maior-14-temperanca",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 14,
+  "nome": "A Temperança",
+  "imagem": "",
+  "palavrasChave": [
+   "cura",
+   "moderação",
+   "harmonia",
+   "alquimia"
+  ],
+  "significado": "O anjo que mistura a água de dois jarros com infinita delicadeza. A arte do equilíbrio, da paciência e da conciliação dos opostos, trazendo cura suave ao corpo e ao espírito.",
+  "invertida": "Exageros, impaciência destrutiva, falta de moderação nos hábitos ou conflitos por teimosia.",
+  "amor": "Harmonia cotidiana, carinho tranquilo e convivência pacífica sem sobressaltos.",
+  "trabalho": "Mediação de acordos, integração de equipes e progresso constante e seguro.",
+  "conselho": "O tempo cura o que a pressa estraga: tempere a vida com paz e moderação."
+ },
+ {
+  "id": "classico-maior-15-diabo",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 15,
+  "nome": "O Diabo",
+  "imagem": "",
+  "palavrasChave": [
+   "apego",
+   "ilusão",
+   "sombra",
+   "materialidade"
+  ],
+  "significado": "As amarras invisíveis que criamos para nós mesmos: vícios, obsessões e medo da escassez. Mostra que a corrente que nos prende é frouxa e que a liberdade depende apenas de despertar.",
+  "invertida": "Libertação de dependências, quebra de contratos abusivos e tomada de consciência dos próprios limites.",
+  "amor": "Paixão avassaladora e carnal, mas com risco de ciúme obsessivo e posse desmedida.",
+  "trabalho": "Ambição produtiva, lucros materiais rápidos; cuidado com práticas antiéticas ou atalhos duvidosos.",
+  "conselho": "Encare suas sombras com coragem: você é livre assim que escolhe soltar as correntes."
+ },
+ {
+  "id": "classico-maior-16-torre",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 16,
+  "nome": "A Torre",
+  "imagem": "",
+  "palavrasChave": [
+   "ruptura",
+   "verdade súbita",
+   "queda de ilusões",
+   "libertação"
+  ],
+  "significado": "O raio que derruba construções levantadas sobre bases falsas. Embora pareça brusca, a queda da torre liberta o prisioneiro das suas ilusões e abre caminho para a verdadeira luz.",
+  "invertida": "Crise arrastada, medo de romper com estruturas falidas ou reconstrução iniciada aos poucos.",
+  "amor": "Revelação de verdades ocultas que abalam a relação, mas dissolvem a hipocrisia.",
+  "trabalho": "Mudança inesperada de planos, reestruturação repentina na empresa ou ruptura de velhos modelos.",
+  "conselho": "Não chore pelo que caiu: o raio só destrói o que impedia a sua alma de crescer."
+ },
+ {
+  "id": "classico-maior-17-estrela",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 17,
+  "nome": "A Estrela",
+  "imagem": "",
+  "palavrasChave": [
+   "esperança",
+   "fé",
+   "inspiração",
+   "bênção espiritual"
+  ],
+  "significado": "A donzela que derrama águas limpas sobre a terra sob um céu constelado. A promessa de tempos serenos após a tormenta, inspiração artística e profunda conexão com o sagrado.",
+  "invertida": "Pessimismo injustificado, perda momentânea de fé, desânimo ou sensação de solidão cósmica.",
+  "amor": "Esperança renovada no amor, cumplicidade transparente e reencontro com a ternura.",
+  "trabalho": "Inspiração criativa em alta, projetos com propósito nobre e reconhecimento pelo talento genuíno.",
+  "conselho": "Erga os olhos para o céu: a sua estrela guia nunca deixou de brilhar sobre você."
+ },
+ {
+  "id": "classico-maior-18-lua",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 18,
+  "nome": "A Lua",
+  "imagem": "",
+  "palavrasChave": [
+   "inconsciente",
+   "sonhos",
+   "ilusão",
+   "intuição profunda"
+  ],
+  "significado": "A travessia pela noite das águas. Traz à tona medos ancestrais, sonhos reveladores e o terreno das emoções secretas. Pede cuidado com enganos e clareza mental nas decisões.",
+  "invertida": "Dissipação de ilusões, alívio de angústias noturnas, clareza sobre intenções alheias e superação de medos.",
+  "amor": "Inseguranças emocionais, fantasias que distorcem a realidade ou atração misteriosa e profunda.",
+  "trabalho": "Ambientes com fofocas ou informações truncadas. Verifique cada dado antes de assinar acordos.",
+  "conselho": "Não confunda sombras na parede com monstros reais: acenda a lâmpada da razão serena."
+ },
+ {
+  "id": "classico-maior-19-sol",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 19,
+  "nome": "O Sol",
+  "imagem": "",
+  "palavrasChave": [
+   "alegria",
+   "clareza",
+   "vitalidade",
+   "sucesso"
+  ],
+  "significado": "O resplendor da luz dourada que aquece e ilumina toda a criação. Clareza incontestável, saúde vigorosa, sucesso nos empreendimentos e a pura inocência da alegria de viver.",
+  "invertida": "Entusiasmo momentaneamente apagado, vaidade excessiva ou pequenos atrasos em vitórias certas.",
+  "amor": "Felicidade compartilhada, afeto caloroso, lealdade e transparência no olhar.",
+  "trabalho": "Triunfo profissional, projetos bem-sucedidos, visibilidade positiva e retorno financeiro generoso.",
+  "conselho": "Deixe sua luz brilhar sem medo: o calor do seu coração aquece a todos ao redor."
+ },
+ {
+  "id": "classico-maior-20-julgamento",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 20,
+  "nome": "O Julgamento",
+  "imagem": "",
+  "palavrasChave": [
+   "despertar",
+   "renascimento",
+   "chamado",
+   "perdão"
+  ],
+  "significado": "A trombeta do anjo que acorda os que dormiam. A hora de deixar a tumba das velhas desculpas, perdoar a si mesmo e atender ao verdadeiro chamado da sua vocação na Terra.",
+  "invertida": "Remorso estéril, hesitação em responder ao chamado interior ou julgamento severo demais consigo mesmo.",
+  "amor": "Reconciliação sincera, superação de mágoas passadas e um novo patamar de cumplicidade madura.",
+  "trabalho": "Momento de colher os frutos de uma vida de dedicação, mudança de rumo com propósito claro e aprovações.",
+  "conselho": "Ouça o chamado da sua alma: perdoe o ontem e levante-se para viver o seu verdadeiro destino."
+ },
+ {
+  "id": "classico-maior-21-mundo",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 21,
+  "nome": "O Mundo",
+  "imagem": "",
+  "palavrasChave": [
+   "plenitude",
+   "conclusão",
+   "celebração",
+   "integração"
+  ],
+  "significado": "A guirlanda da vitória cósmica. A jornada que se completa em perfeita harmonia entre corpo, mente, coração e espírito. A sensação sublime de estar no lugar certo, na hora certa.",
+  "invertida": "Pequenos detalhes pendentes para concluir uma meta, sensação de quase ter chegado ou medo de encerrar uma fase dourada.",
+  "amor": "Plenitude afetiva, união feliz, viagens a dois e sensação de lar acolhedor.",
+  "trabalho": "Conquista definitiva, projetos concluídos com louvor, expansão internacional ou reconhecimento público.",
+  "conselho": "Celebre cada vitória: o mundo está aberto para quem aprendeu a caminhar com amor."
  },
  {
   "id": "classico-copas-01-as",
@@ -40,12 +450,1117 @@ window.FV_DATA.tarot = [
   "numero": 1,
   "nome": "Ás de Copas",
   "imagem": "",
-  "palavrasChave": ["amor", "emoção nova", "abertura do coração", "intuição"],
-  "significado": "Um novo começo emocional: amor, amizade, reconciliação ou um período de sensibilidade e compaixão.",
-  "invertida": "Emoções bloqueadas, carência ou dificuldade de se abrir.",
-  "amor": "Início de relação ou renovação do afeto.",
-  "trabalho": "Satisfação com o que se faz; trabalho ligado a cuidar das pessoas.",
-  "conselho": "Deixe o coração transbordar."
+  "palavrasChave": [
+   "amor",
+   "emoção nova",
+   "abertura do coração",
+   "intuição"
+  ],
+  "significado": "Um novo começo emocional: amor genuíno, reconciliação ou período de sensibilidade e compaixão. A taça do coração transborda graça divina.",
+  "invertida": "Emoções bloqueadas, carência afetiva ou medo de se abrir para a ternura.",
+  "amor": "Início de relação promissora, renovação dos sentimentos e conexão sincera.",
+  "trabalho": "Satisfação pessoal com o que faz; vocação em cuidar, ensinar e acolher pessoas.",
+  "conselho": "Deixe o coração transbordar: o amor é a fonte que nunca seca."
+ },
+ {
+  "id": "classico-copas-02-dois",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 2,
+  "nome": "Dois de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "parceria",
+   "afinidade",
+   "união",
+   "reciprocidade"
+  ],
+  "significado": "O encontro de duas almas que se reconhecem e se respeitam. Harmonia mútua, acordos selados com afeto e troca equilibrada de energias.",
+  "invertida": "Desentendimento passageiro, falta de reciprocidade ou expectativa desalinhada.",
+  "amor": "Paixão compartilhada, casamento, namoro harmonioso e cumplicidade diária.",
+  "trabalho": "Sociedade sólida, negociação em que ambos ganham e colaboração produtiva.",
+  "conselho": "Cultive o encontro: a verdadeira união multiplica o bem de ambos."
+ },
+ {
+  "id": "classico-copas-03-tres",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 3,
+  "nome": "Três de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "celebração",
+   "amizade",
+   "comunidade",
+   "alegria"
+  ],
+  "significado": "Três taças erguidas em brinde fraterno. Momentos de festejar conquistas na companhia de amigos leais, familiares e pessoas queridas.",
+  "invertida": "Fofocas em grupo, excessos em festas ou sensação de exclusão social.",
+  "amor": "Ambiente leve, passeios alegres com amigos e comemoração de vitórias a dois.",
+  "trabalho": "Sucesso compartilhado na equipe, clima amigável e projetos concluídos com festa.",
+  "conselho": "Comemore as bênçãos: a alegria partilhada ganha força dobrada."
+ },
+ {
+  "id": "classico-copas-04-quatro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 4,
+  "nome": "Quatro de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "apatia",
+   "reavaliação",
+   "descontentamento",
+   "contemplação"
+  ],
+  "significado": "Foco exclusivo no que parece faltar, sem notar a taça de oportunidade oferecida pelos céus. Convite a sair do desânimo e valorizar o presente.",
+  "invertida": "Despertar do marasmo, aceitação de novas oportunidades e renovação de ânimo.",
+  "amor": "Tédio na rotina ou recusa em enxergar o afeto sincero de quem está ao lado.",
+  "trabalho": "Sensação de estagnação. Olhe ao redor: uma nova alternativa está ao alcance da sua mão.",
+  "conselho": "Abra os olhos para o agora: a vida sempre oferece um novo cálice de esperança."
+ },
+ {
+  "id": "classico-copas-05-cinco",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 5,
+  "nome": "Cinco de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "luto",
+   "pesar",
+   "perdão",
+   "esperança restante"
+  ],
+  "significado": "Três taças caídas no chão e o olhar fixo na perda. Mas atrás de você, duas taças continuam de pé e há uma ponte sólida para atravessar o rio.",
+  "invertida": "Superação do luto, cura de mágoas passadas e decisão de seguir em frente com coragem.",
+  "amor": "Tristeza por rompimento ou desilusão; hora de acolher a dor sem se afogar nela.",
+  "trabalho": "Perda de uma oportunidade que parecia certa; mantenha o foco no que restou e reconstrua.",
+  "conselho": "Vire as costas para o que derramou e honre as taças que continuam cheias."
+ },
+ {
+  "id": "classico-copas-06-seis",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 6,
+  "nome": "Seis de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "nostalgia",
+   "memórias",
+   "inocência",
+   "reconexão"
+  ],
+  "significado": "Crianças trocando flores em taças no jardim antigo. Recordações doces da infância, reencontro com pessoas queridas do passado e pureza de intenções.",
+  "invertida": "Ficar preso a um passado idealizado que não volta mais, ou imaturidade emocional.",
+  "amor": "Reencontro com um amor antigo ou relação vivida com inocência e doçura sincera.",
+  "trabalho": "Resgate de talentos esquecidos, negócios familiares ou retomada de projetos queridos.",
+  "conselho": "Resgate a pureza da sua criança interior para adoçar os desafios de hoje."
+ },
+ {
+  "id": "classico-copas-07-sete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 7,
+  "nome": "Sete de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "ilusão",
+   "múltiplas escolhas",
+   "sonhos",
+   "discernimento"
+  ],
+  "significado": "Sete taças flutuando entre nuvens, cada uma com uma promessa: ouro, serpente, castelo ou glória. Alerta para não se perder em fantasias sem aterramento prático.",
+  "invertida": "Clareza mental reconquistada, escolha realista de um caminho e dissipação de miragens.",
+  "amor": "Expectativas irreais sobre o parceiro ou indecisão entre pretendentes por medo de errar.",
+  "trabalho": "Muitas ideias mirabolantes sem execução; escolha uma direção concreta e dê o primeiro passo.",
+  "conselho": "Coloque os pés na terra: sonhar é lindo, mas só a ação concreta constrói a realidade."
+ },
+ {
+  "id": "classico-copas-08-oito",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 8,
+  "nome": "Oito de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "partida",
+   "busca espiritual",
+   "desapego",
+   "amadurecimento"
+  ],
+  "significado": "Caminhar sob a lua em direção às montanhas, deixando para trás oito taças bem empilhadas. A coragem de se afastar do que já foi bom, mas já não alimenta a alma.",
+  "invertida": "Medo de partir, apego a situações esgotadas por conforto ou fuga precipitada.",
+  "amor": "Decisão corajosa de deixar uma relação que perdeu o sentido, buscando paz e dignidade.",
+  "trabalho": "Transição profissional, busca por um trabalho com mais propósito e espiritualidade.",
+  "conselho": "Tenha a bravura de partir quando o seu coração souber que ali nada mais pode florescer."
+ },
+ {
+  "id": "classico-copas-09-nove",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 9,
+  "nome": "Nove de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "satisfação",
+   "desejo realizado",
+   "bem-estar",
+   "gratidão"
+  ],
+  "significado": "O anfitrião sereno diante de nove taças brilhantes. A carta dos desejos atendidos, do conforto emocional e da sensação plena de contentamento e paz de espírito.",
+  "invertida": "Vaidade excessiva, ganância por prazeres imediatos ou vazio interior mascarado por luxo.",
+  "amor": "Felicidade afetiva genuína, segurança emocional e realização de sonhos a dois.",
+  "trabalho": "Conquista de metas pessoais com reconhecimento e tranquilidade financeira merecida.",
+  "conselho": "Agradeça com humildade: a verdadeira fartura reside em estar em paz consigo mesmo."
+ },
+ {
+  "id": "classico-copas-10-dez",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 10,
+  "nome": "Dez de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "plenitude familiar",
+   "lar harmonioso",
+   "bênção",
+   "paz duradoura"
+  ],
+  "significado": "O arco-íris de dez taças douradas abençoando o lar e a família. Harmonia profunda nas relações, proteção divina sobre a casa e alegria compartilhada com quem amamos.",
+  "invertida": "Conflitos domésticos, atritos familiares ou busca por uma imagem de família perfeita.",
+  "amor": "Compromisso duradouro, casamento feliz, acolhimento mútuo e bênçãos sobre o lar.",
+  "trabalho": "Trabalho que honra a família e permite equilíbrio perfeito com a vida doméstica.",
+  "conselho": "Faça da sua casa um templo de paz: o amor compartilhado é o maior tesouro da Terra."
+ },
+ {
+  "id": "classico-copas-11-valete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 11,
+  "nome": "Valete de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "mensagem carinhosa",
+   "sensibilidade",
+   "criatividade",
+   "doçura"
+  ],
+  "significado": "O jovem poeta que contempla com surpresa um peixinho saltando da sua taça. Chegada de notícias amorosas, convites alegres e despertar da sensibilidade artística e intuitiva.",
+  "invertida": "Imaturidade emocional, caprichos infantis ou mensagens enganosas.",
+  "amor": "Declaração afetuosa, flerte doce e momentos românticos com delicadeza e humor.",
+  "trabalho": "Novos projetos criativos, intuição aguçada para criar soluções e aprendizado com entusiasmo.",
+  "conselho": "Acolha as novidades com o coração aberto e a pureza de quem não tem medo de sentir."
+ },
+ {
+  "id": "classico-copas-12-cavaleiro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 12,
+  "nome": "Cavaleiro de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "romantismo",
+   "idealismo",
+   "proposta",
+   "busca do coração"
+  ],
+  "significado": "O cavaleiro montado em cavalo sereno, segurando a taça do amor como uma oferenda sagrada. Chegada de convites sinceros, gestos românticos e conciliação pacífica.",
+  "invertida": "Ilusões amorosas, promessas vazias de sedutores ou fuga da realidade em devaneios.",
+  "amor": "Proposta sincera de namoro ou noivado, gestos de carinho e reconciliação calorosa.",
+  "trabalho": "Parcerias baseadas em confiança mútua e projetos que unem trabalho e sensibilidade artística.",
+  "conselho": "Traga suas boas intenções para o mundo: o afeto expresso com dignidade cura corações."
+ },
+ {
+  "id": "classico-copas-13-rainha",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 13,
+  "nome": "Rainha de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "empatia",
+   "intuição profunda",
+   "acolhimento",
+   "amor materno"
+  ],
+  "significado": "A soberana das águas calmas que contempla seu cálice dourado. Sabedoria emocional, compaixão curadora, capacidade de ouvir sem julgar e acolher a dor alheia.",
+  "invertida": "Hipersensibilidade destrutiva, chantagem emocional, dependência ou cuidar do outro esquecendo de si.",
+  "amor": "Amor generoso, carinho maternal/paternal acolhedor e cumplicidade espiritual inabalável.",
+  "trabalho": "Atuação destacada em áreas de saúde, terapia, artes ou orientação de pessoas com empatia.",
+  "conselho": "Seja o abraço acolhedor que o mundo precisa, sem esquecer de cuidar da sua própria nascente."
+ },
+ {
+  "id": "classico-copas-14-rei",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 14,
+  "nome": "Rei de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "maturidade emocional",
+   "equilíbrio",
+   "generosidade",
+   "serenidade"
+  ],
+  "significado": "O soberano que governa as tempestades do mar sobre um trono flutuante de paz. Representa o domínio sereno das emoções, diplomacia sábia e liderança pautada pela honra e pelo coração.",
+  "invertida": "Frieza simulada, manipulação emocional disfarçada de conselho ou turbulência interna reprimida.",
+  "amor": "Parceiro leal, protetor, maduro e compreensivo, capaz de manter a calma nos momentos de crise.",
+  "trabalho": "Liderança ética, mediação de conflitos difíceis e estabilidade profissional baseada no respeito.",
+  "conselho": "Domine suas marés com serenidade: a verdadeira nobreza está em manter o coração nobre sob qualquer tempestade."
+ },
+ {
+  "id": "classico-paus-01-as",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 1,
+  "nome": "Ás de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "fagulha criativa",
+   "iniciativa",
+   "energia vital",
+   "coragem"
+  ],
+  "significado": "A mão que brota das nuvens oferecendo o bastão verdejante. A chama da criação que se acende: entusiasmo contagiante, novo projeto e vitalidade para romper a inércia.",
+  "invertida": "Falta de energia, atrasos no início de projetos, hesitação ou desperdício de força criativa.",
+  "amor": "Paixão ardente, atração intensa e iniciativa para começar uma história com vibração.",
+  "trabalho": "Ideia brilhante para empreender, novo rumo profissional e ânimo para colocar a mão na massa.",
+  "conselho": "Aproveite a centelha: quando o fogo da inspiração queima, é hora de agir."
+ },
+ {
+  "id": "classico-paus-02-dois",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 2,
+  "nome": "Dois de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "planejamento",
+   "visão de futuro",
+   "escolha",
+   "expansão"
+  ],
+  "significado": "O conquistador que contempla o mundo do alto das muralhas, segurando o globo e o bastão. Momento de planejar os próximos passos com ambição nobre e visão ampla de longo alcance.",
+  "invertida": "Medo do desconhecido, hesitação em sair da zona de conforto ou falta de planejamento prático.",
+  "amor": "Planos a dois para o futuro, decisões sobre morar juntos ou dar um passo mais sério.",
+  "trabalho": "Estratégia comercial, prospecção de novos mercados e parcerias com visão de futuro.",
+  "conselho": "Olhe além do muro: o mundo é grande para quem sabe aonde quer chegar."
+ },
+ {
+  "id": "classico-paus-03-tres",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 3,
+  "nome": "Três de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "progresso",
+   "expansão",
+   "embarcações",
+   "confiança"
+  ],
+  "significado": "Observar os navios que partem pelo mar em direção a novas terras. Suas iniciativas começam a dar retorno; confiança no crescimento e expansão dos seus horizontes.",
+  "invertida": "Atrasos em retornos esperados, frustração com prazos ou necessidade de ajustar rotas.",
+  "amor": "Crescimento conjunto, viagens planejadas e horizontes mais amplos para o relacionamento.",
+  "trabalho": "Negócios florescendo, comércio, exportação ou chegada de notícias promissoras de longe.",
+  "conselho": "Mantenha a confiança: o que você enviou com honra voltará com fartura."
+ },
+ {
+  "id": "classico-paus-04-quatro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 4,
+  "nome": "Quatro de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "celebração",
+   "estabilidade",
+   "harmonia no lar",
+   "conquista"
+  ],
+  "significado": "Quatro bastões enfeitados de flores sustentam uma guirlanda de festa. Celebração de uma conquista marcante, compra da casa própria, casamento ou alicerce firme conquistado com suor.",
+  "invertida": "Pequenos conflitos na comemoração, atrasos em festividades ou instabilidade doméstica temporária.",
+  "amor": "Noivado, casamento, festa familiar e sensação abençoada de pertencer a um lar seguro.",
+  "trabalho": "Conquista de meta importante na carreira, consolidação da empresa e clima festivo na equipe.",
+  "conselho": "Comemore a colheita: construir bases sólidas é o alicerce para voos ainda maiores."
+ },
+ {
+  "id": "classico-paus-05-cinco",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 5,
+  "nome": "Cinco de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "competição",
+   "desafio",
+   "divergência",
+   "jogo de forças"
+  ],
+  "significado": "Jovens brandindo bastões numa disputa acirrada. Desafios cotidianos, choque de ideias e competição saudável que exige jogo de cintura para não virar discórdia destrutiva.",
+  "invertida": "Evitar conflitos necessários por medo, desentendimento estéril ou desgaste com brigas bobas.",
+  "amor": "Discussões por pequenas coisas da rotina; busque o diálogo em vez de disputar quem tem razão.",
+  "trabalho": "Concorrência acirrada no mercado ou disputa de ego entre colegas; destaque-se pelo mérito.",
+  "conselho": "Não gaste sua pólvora com pequenas picuinhas: concentre sua força no que realmente importa."
+ },
+ {
+  "id": "classico-paus-06-seis",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 6,
+  "nome": "Seis de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "vitória",
+   "reconhecimento",
+   "honra",
+   "sucesso público"
+  ],
+  "significado": "O cavaleiro laureado que desfila em seu cavalo sob os aplausos da multidão. Reconhecimento público do seu esforço, superação de desafios e aclamação pelo trabalho honesto.",
+  "invertida": "Queda temporária de popularidade, vaidade excessiva que afasta aliados ou vitória atrasada.",
+  "amor": "Reconhecimento do seu valor pelo parceiro, superação de crises com triunfo do amor.",
+  "trabalho": "Promoção merecida, elogio público de clientes ou chefia e vitória em concursos ou disputas.",
+  "conselho": "Receba a coroa com humildade: a verdadeira vitória honra a quem caminhou ao seu lado."
+ },
+ {
+  "id": "classico-paus-07-sete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 7,
+  "nome": "Sete de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "firmeza",
+   "defesa de valores",
+   "coragem",
+   "resistência"
+  ],
+  "significado": "O guerreiro que do alto da colina defende sua posição contra seis bastões adversários. Coragem inabalável para manter suas convicções, mesmo quando o mundo parece discordar.",
+  "invertida": "Sensação de sobrecarga por defender tudo sozinho, rendição prematura ou rigidez desnecessária.",
+  "amor": "Defender o relacionamento contra intromissões de fora ou impor limites saudáveis a palpites.",
+  "trabalho": "Sustentar suas ideias em reuniões difíceis, proteger sua posição no mercado e manter a liderança.",
+  "conselho": "Firme os pés na terra: quem tem razão e justiça ao seu lado não precisa temer a multidão."
+ },
+ {
+  "id": "classico-paus-08-oito",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 8,
+  "nome": "Oito de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "rapidez",
+   "mensagens rápidas",
+   "movimento acelerado",
+   "viagens"
+  ],
+  "significado": "Oito bastões voando em velocidade pelo ar límpido. Acontecimentos velozes, respostas muito esperadas que chegam de repente e viagem ou projeto que deslancha sem freios.",
+  "invertida": "Precipitação desastrada, mensagens mal interpretadas pela pressa ou atrasos inesperados em viagens.",
+  "amor": "Mensagens carinhosas instantâneas, reencontro rápido e evolução veloz da relação.",
+  "trabalho": "Comunicação fluida, e-mails decisivos, viagens a negócios e ritmo dinâmico de produção.",
+  "conselho": "Esteja pronto para agir: a flecha da oportunidade já está em pleno voo."
+ },
+ {
+  "id": "classico-paus-09-nove",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 9,
+  "nome": "Nove de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "resiliência",
+   "último esforço",
+   "vigilância",
+   "determinação"
+  ],
+  "significado": "O guardião com a cabeça enfaixada que se apoia em seu bastão diante de uma cerca fortificada. Você já enfrentou muitas batalhas e está cansado, mas a vitória final exige apenas mais um passo firme.",
+  "invertida": "Paranoia defensiva, esgotamento total por não pedir ajuda ou teimosia em lutar batalhas erradas.",
+  "amor": "Medo de se machucar novamente por traumas passados; não confunda cautela saudável com isolamento.",
+  "trabalho": "Reta final de um projeto exaustivo; mantenha o foco nos detalhes para entregar com excelência.",
+  "conselho": "Não desanime na última curva: você é mais forte do que todas as cicatrizes que carrega."
+ },
+ {
+  "id": "classico-paus-10-dez",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 10,
+  "nome": "Dez de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "sobrecarga",
+   "peso nas costas",
+   "responsabilidade",
+   "necessidade de delegar"
+  ],
+  "significado": "Carregar nos braços um feixe pesado de dez bastões em direção à cidade. Sucesso alcançado, mas com um fardo excessivo que esmaga os ombros. Hora de delegar e soltar o que não é seu.",
+  "invertida": "Alívio do fardo, aprendizado em dizer 'não' e libertação de obrigações que não lhe competem.",
+  "amor": "Relação onde um carrega todo o peso sozinho; necessária divisão justa de responsabilidades.",
+  "trabalho": "Excesso de trabalho, perigo de esgotamento físico e mental (burnout); organize e delegue tarefas.",
+  "conselho": "Solte o peso que não é seu: o bom guerreiro sabe a hora de pedir reforço na caminhada."
+ },
+ {
+  "id": "classico-paus-11-valete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 11,
+  "nome": "Valete de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "entusiasmo",
+   "mensageiro da ação",
+   "curiosidade",
+   "energia jovem"
+  ],
+  "significado": "O jovem viajante no deserto contemplando com fascínio o broto do seu bastão. Notícias animadoras, vontade de explorar novos caminhos e paixão por aprender coisas novas.",
+  "invertida": "Impaciência infantil, notícias desconexas, falta de foco e projetos abandonados no início.",
+  "amor": "Aproximação vibrante, convite para aventura ou mensagem cheia de energia e entusiasmo.",
+  "trabalho": "Estágio, início de uma nova habilidade ou função que desperta brilho nos olhos.",
+  "conselho": "Mantenha a chama da curiosidade acesa: o entusiasmo é o melhor combustível da vida."
+ },
+ {
+  "id": "classico-paus-12-cavaleiro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 12,
+  "nome": "Cavaleiro de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "ímpeto",
+   "aventura",
+   "audácia",
+   "mudança rápida"
+  ],
+  "significado": "O guerreiro montado em cavalo empinado, pronto para cavalgar pelo mundo. Audácia inabalável, dinamismo, mudanças repentinas de casa ou trabalho e paixão pela conquista.",
+  "invertida": "Impulsividade destrutiva, grosseria por pressa, abandono de deveres ou briga desnecessária.",
+  "amor": "Paixão arrebatadora, cheia de aventura e dinamismo, mas que exige cuidado com a inconstância.",
+  "trabalho": "Mudança súbita de rumo, viagens a trabalho empolgantes e disposição para quebrar rotinas.",
+  "conselho": "Cavalgue com bravura, mas cuide para que a sua fogueira não queime a casa de ninguém."
+ },
+ {
+  "id": "classico-paus-13-rainha",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 13,
+  "nome": "Rainha de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "carisma",
+   "autoconfiança",
+   "brilho pessoal",
+   "generosidade"
+  ],
+  "significado": "A soberana entronizada com um girassol na mão e um gato preto aos pés. Magnetismo irresistível, calor humano, liderança inspiradora e capacidade de iluminar qualquer ambiente.",
+  "invertida": "Arrogância, ciúme explosivo, competitividade venenosa ou dramatização de pequenas contrariedades.",
+  "amor": "Mulher ou energia confiante, independente, calorosa e leal aos seus afetos verdadeiros.",
+  "trabalho": "Liderança nata, empreendedorismo bem-sucedido e facilidade para atrair clientes e apoiadores.",
+  "conselho": "Assuma o seu brilho: o sol não pede licença para iluminar o dia."
+ },
+ {
+  "id": "classico-paus-14-rei",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "paus",
+  "numero": 14,
+  "nome": "Rei de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "visão",
+   "liderança nobre",
+   "determinação",
+   "realização"
+  ],
+  "significado": "O líder visionário em seu trono com leões e salamandras de fogo. Capacidade de transformar grandes sonhos em realizações concretas com coragem, honra e autoridade inspiradora.",
+  "invertida": "Tirania, inflexibilidade orgulhosa, exigências impossíveis ou agir como déspota com a equipe.",
+  "amor": "Parceiro apaixonado, leal, protetor e dinâmico, que incentiva o crescimento do outro.",
+  "trabalho": "Direção executiva, grandes empreendimentos, liderança de movimentos e conquista de respeito amplo.",
+  "conselho": "Lidere pelo exemplo da sua coragem: os grandes caminhos são abertos por quem não teme a fogueira."
+ },
+ {
+  "id": "classico-espadas-01-as",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 1,
+  "nome": "Ás de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "clareza mental",
+   "verdade",
+   "corte preciso",
+   "avanço intelectual"
+  ],
+  "significado": "A mão que sustenta a espada de lâmina brilhante encimada por coroa e louros. Momento de lucidez cristalina, corte de ilusões e vitória da verdade sobre a mentira.",
+  "invertida": "Confusão mental, agressividade verbal desmedida, uso cruel da inteligência ou mal-entendidos.",
+  "amor": "Conversa franca e decisiva que resolve dúvidas antigas e estabelece limites claros.",
+  "trabalho": "Ideia genial, decisão estratégica acertada, aprovação em exames e sucesso em negociações complexas.",
+  "conselho": "Use a espada da razão para cortar a névoa, mas guarde a lâmina com respeito."
+ },
+ {
+  "id": "classico-espadas-02-dois",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 2,
+  "nome": "Dois de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "impasse",
+   "indecisão",
+   "trégua",
+   "escuta interior"
+  ],
+  "significado": "A figura vendada que cruza duas espadas sobre o peito à beira do mar calmo. Um momento de trégua necessária onde os olhos de fora não enxergam a resposta; pede recolhimento para decidir com o coração.",
+  "invertida": "Fim do impasse, venda retirada dos olhos e necessidade urgente de tomar uma posição clara.",
+  "amor": "Silêncio defensivo ou bloqueio por medo de se magoar; é preciso coragem para reabrir o diálogo.",
+  "trabalho": "Dois caminhos igualmente complexos; não decida sob pressão até sentir paz na escolha.",
+  "conselho": "Quando o intelecto trava na dúvida, acalme o peito para que a intuição mostre a saída."
+ },
+ {
+  "id": "classico-espadas-03-tres",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 3,
+  "nome": "Três de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "dor da verdade",
+   "desilusão",
+   "cura do peito",
+   "liberação"
+  ],
+  "significado": "O coração transpassado por três espadas sob nuvens de tempestade. Uma dor emocional inevitável, mas necessária: a ilusão se desfaz para que a ferida possa ser limpa e cicatrizada de verdade.",
+  "invertida": "Recuperação do sofrimento, perdão libertador e alívio das angústias acumuladas.",
+  "amor": "Desilusão amorosa ou fim doloroso de um ciclo; permita-se chorar para lavar a alma.",
+  "trabalho": "Crítica dura ou cancelamento de projeto; separe o valor do seu trabalho das palavras alheias.",
+  "conselho": "Chore a dor que precisar chorar, sabendo que toda tempestade lava o chão para um novo sol."
+ },
+ {
+  "id": "classico-espadas-04-quatro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 4,
+  "nome": "Quatro de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "repouso",
+   "recolhimento",
+   "cura mental",
+   "pausa sagrada"
+  ],
+  "significado": "O cavaleiro que repousa em prece no santuário sob vitrais de paz. Pede pausa estratégica, sono reparador e silêncio para curar a mente cansada de tantas batalhas diárias.",
+  "invertida": "Retorno gradual às atividades após convalescença, ou inquietação que impede o descanso necessário.",
+  "amor": "Tempo de acalmar os ânimos após brigas; evite discutir temas pesados antes de recuperar o equilíbrio.",
+  "trabalho": "Férias merecidas, pausa produtiva e recuperação do esgotamento antes de iniciar novos desafios.",
+  "conselho": "Descanse sua espada: recolher-se em silêncio é a estratégia mais nobre dos sábios."
+ },
+ {
+  "id": "classico-espadas-05-cinco",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 5,
+  "nome": "Cinco de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "vitória amarga",
+   "orgulho",
+   "conflito de ego",
+   "limite"
+  ],
+  "significado": "O homem que recolhe as espadas dos derrotados com um sorriso cínico, enquanto eles se afastam chorando. Alerta contra vitórias vazias onde o ego vence a discussão, mas destrói a amizade e a paz.",
+  "invertida": "Desejo de selar a paz, reconciliação e reconhecimento de que guardar mágoas não vale a pena.",
+  "amor": "Discussão desgastante onde um quer humilhar o outro; pergunte-se: vale mais ter razão ou ser feliz?",
+  "trabalho": "Ambiente tóxico de disputas desleais; retire-se de armadilhas e mantenha sua postura ética intacta.",
+  "conselho": "Nem toda briga merece a sua presença: às vezes afastar-se em silêncio é a verdadeira vitória."
+ },
+ {
+  "id": "classico-espadas-06-seis",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 6,
+  "nome": "Seis de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "transição",
+   "águas calmas",
+   "travessia",
+   "deixar a tempestade"
+  ],
+  "significado": "O barqueiro que conduz a mulher e a criança das águas agitadas para um porto de águas mansas. A travessia serena para longe do sofrimento, em direção à cura e à paz mental.",
+  "invertida": "Resistência à transição, carregar bagagens pesadas demais ou viagem atrasada.",
+  "amor": "Superação de fase turbulenta a dois ou alívio após decidir seguir em frente em paz.",
+  "trabalho": "Mudança benéfica de ambiente profissional, transferência para setor mais tranquilo e projetos em calmaria.",
+  "conselho": "Confie na travessia: as águas turbulentas já estão ficando para trás."
+ },
+ {
+  "id": "classico-espadas-07-sete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 7,
+  "nome": "Sete de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "estratégia",
+   "astúcia",
+   "cautela",
+   "discrição"
+  ],
+  "significado": "O viajante que carrega cinco espadas na ponta dos pés, deixando duas para trás. Convite a agir com inteligência discreta, evitar confrontos frontais e proteger seus planos de olhares maliciosos.",
+  "invertida": "Verdades reveladas, arrependimento por atalhos duvidosos ou necessidade de transparência total.",
+  "amor": "Segredos ou conversas não ditas; cuidado para que a reserva excessiva não gere desconfiança.",
+  "trabalho": "Estratégia sigilosa, proteção de propriedade intelectual e navegação diplomática em ambientes competitivos.",
+  "conselho": "Trabalhe em silêncio: o que ninguém sabe, ninguém estraga."
+ },
+ {
+  "id": "classico-espadas-08-oito",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 8,
+  "nome": "Oito de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "prisão mental",
+   "autolimitação",
+   "medo ilusório",
+   "libertação"
+  ],
+  "significado": "A mulher amarrada e vendada cercada por oito espadas fincadas no chão. O chão à sua frente está livre e as amarras são frouxas; o que aprisiona são as próprias crenças e o medo imaginário.",
+  "invertida": "Libertação gradual dos medos, coragem para dar o primeiro passo e clareza mental recuperada.",
+  "amor": "Sensação de estar preso numa situação afetiva; lembre-se de que a chave da porta está na sua mão.",
+  "trabalho": "Sensação de beco sem saída na carreira; desafie as crenças que dizem que você não é capaz.",
+  "conselho": "Tire a venda dos olhos: as amarras que você teme só têm a força que você mesmo lhes concede."
+ },
+ {
+  "id": "classico-espadas-09-nove",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 9,
+  "nome": "Nove de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "angústia noturna",
+   "ansiedade",
+   "pensamentos repetitivos",
+   "despertar da noite"
+  ],
+  "significado": "Sentar-se na cama no meio da noite com as mãos no rosto, sob nove espadas na parede. A tortura da mente que amplifica medos no escuro. Lembra que a noite sempre cede lugar à alvorada.",
+  "invertida": "Alívio da ansiedade, luz lançada sobre problemas imaginários e recuperação de noites de sono em paz.",
+  "amor": "Preocupações excessivas e ciúmes infundados que tiram o sono; converse abertamente pela manhã.",
+  "trabalho": "Pressão mental por prazos; divida o problema em pequenas tarefas diárias para recuperar o controle.",
+  "conselho": "Não negocie com os monstros da madrugada: a luz do dia sempre mostra que o problema é menor do que parecia."
+ },
+ {
+  "id": "classico-espadas-10-dez",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 10,
+  "nome": "Dez de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "fundo do poço",
+   "ponto final",
+   "alvorada iminente",
+   "renascimento"
+  ],
+  "significado": "A figura caída sob dez espadas enquanto o céu ao fundo se tinge de dourado com a alvorada. O pior já passou: nada mais pode ferir você ali. A dor tocou o chão e agora o único caminho é se levantar.",
+  "invertida": "Recuperação de um golpe duro, renascimento das cinzas e libertação definitiva de um sofrimento longo.",
+  "amor": "Fim definitivo de um ciclo tortuoso; a dor do término dá lugar ao alívio e à paz de espírito.",
+  "trabalho": "Encerramento irrevogável de uma fase difícil; prepare-se para o recomeço com dignidade renovada.",
+  "conselho": "Erga-se do chão: a noite escura da alma terminou e o sol já desponta no horizonte."
+ },
+ {
+  "id": "classico-espadas-11-valete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 11,
+  "nome": "Valete de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "vigilância",
+   "mente rápida",
+   "curiosidade",
+   "observação"
+  ],
+  "significado": "O jovem em terreno elevado empunhando a espada com olhar atento e ventos agitando seus cabelos. Mente perspicaz, observação afiada da realidade e prontidão para defender a verdade.",
+  "invertida": "Comentários maldosos, fofocas impulsivas, bisbilhotice na vida alheia ou rebeldia sem causa.",
+  "amor": "Atenção a sinais sutis; cuidado para não agir como investigador desconfiado na relação.",
+  "trabalho": "Pesquisa minuciosa, elaboração de relatórios precisos e aprendizado rápido de conceitos técnicos.",
+  "conselho": "Observe tudo com atenção, mas fale apenas quando suas palavras forem melhores que o silêncio."
+ },
+ {
+  "id": "classico-espadas-12-cavaleiro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 12,
+  "nome": "Cavaleiro de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "ímpeto intelectual",
+   "determinação feroz",
+   "rapidez",
+   "franqueza"
+  ],
+  "significado": "O guerreiro que avança galopando contra o vento com espada em riste. Coragem implacável para cortar embaraços, defender a justiça e resolver problemas urgentes com velocidade mental fulminante.",
+  "invertida": "Agressividade cega, palavras cortantes ditas na cólera ou avanço estabanado sem planejamento.",
+  "amor": "Conversas diretas e sem rodeios; cuide para que a franqueza não se torne grosseria desnecessária.",
+  "trabalho": "Resolução rápida de crises, defesas jurídicas enérgicas e capacidade de tomar decisões difíceis.",
+  "conselho": "Avançe com determinação, mas lembre-se de que a inteligência deve sempre servir ao coração."
+ },
+ {
+  "id": "classico-espadas-13-rainha",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 13,
+  "nome": "Rainha de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "discernimento",
+   "independência",
+   "clareza mental",
+   "justiça"
+  ],
+  "significado": "A soberana entronizada no alto que segura a espada ereta e estende a mão com nobreza serena. Inteligência refinada que superou dores passadas sem perder a dignidade e a retidão moral.",
+  "invertida": "Amargura defensiva, sarcasmo destrutivo, frieza cruel ou dificuldade em perdoar erros do passado.",
+  "amor": "Exigência de respeito e lealdade; relação entre parceiros maduros e intelectualmente compatíveis.",
+  "trabalho": "Julgamento impecável, redação de contratos, consultoria estratégica e liderança exemplar.",
+  "conselho": "Mantenha a mente clara e a espinha ereta: a sabedoria que vem da superação é inabalável."
+ },
+ {
+  "id": "classico-espadas-14-rei",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "espadas",
+  "numero": 14,
+  "nome": "Rei de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "autoridade moral",
+   "verdade suprema",
+   "ética",
+   "sabedoria jurídica"
+  ],
+  "significado": "O juiz sábio entronizado com a espada ereta da imparcialidade. Representa o mais alto discernimento ético, autoridade justa, domínio sobre as paixões humanas e compromisso inegociável com a verdade.",
+  "invertida": "Julgamento implacável sem compaixão, arrogância intelectual ou abuso de poder legal.",
+  "amor": "Relação madura baseada em lealdade, clareza e respeito mútuo aos princípios morais.",
+  "trabalho": "Decisões judiciais justas, consultoria sênior, liderança estratégica e respeito inquestionável.",
+  "conselho": "Decida com justiça e equilíbrio: a autoridade verdadeira nunca precisa gritar para ser respeitada."
+ },
+ {
+  "id": "classico-ouros-01-as",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 1,
+  "nome": "Ás de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "prosperidade",
+   "semente fértil",
+   "saúde física",
+   "oportunidade tangível"
+  ],
+  "significado": "A mão celestial que surge nas nuvens segurando a moeda dourada sobre um jardim florido. Uma oportunidade material concreta, entrada de dinheiro ou início de negócio próspero.",
+  "invertida": "Oportunidade financeira perdida por desatenção, ganância cega ou falta de planejamento orçamentário.",
+  "amor": "Relação segura, confortável e acolhedora, com planos sólidos de construir patrimônio a dois.",
+  "trabalho": "Nova proposta de emprego, aumento salarial, investimento seguro ou abertura de negócio viável.",
+  "conselho": "Plante a moeda na terra boa: uma oportunidade sólida de prosperidade está ao seu alcance."
+ },
+ {
+  "id": "classico-ouros-02-dois",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 2,
+  "nome": "Dois de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "equilíbrio dinâmico",
+   "flexibilidade",
+   "malabarismo financeiro",
+   "adaptação"
+  ],
+  "significado": "O jovem dançarino que equilibra duas moedas dentro do laço do infinito enquanto navios navegam nas ondas. A arte de administrar múltiplas tarefas e finanças com leveza e jogo de cintura.",
+  "invertida": "Sobrecarga financeira, descontrole de gastos ou sensação de estar perdendo o equilíbrio diário.",
+  "amor": "Conciliar tempo entre trabalho e relação com flexibilidade e bom humor.",
+  "trabalho": "Gestão equilibrada de dois empregos ou projetos; adaptação ágil às oscilações do mercado.",
+  "conselho": "Abrace a dança das mudanças: a flexibilidade é o segredo para manter tudo em pé."
+ },
+ {
+  "id": "classico-ouros-03-tres",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 3,
+  "nome": "Três de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "trabalho em equipe",
+   "mestria",
+   "colaboração",
+   "reconhecimento técnico"
+  ],
+  "significado": "O artesão esculpindo no portal da catedral ao lado de um arquiteto e de um monge. Sucesso construído pela união de talentos complementares, dedicação técnica e respeito mútuo.",
+  "invertida": "Falta de cooperação no time, desrespeito ao conhecimento alheio ou trabalho mal executado por pressa.",
+  "amor": "Construção diária da relação a dois com respeito e divisão madura de responsabilidades.",
+  "trabalho": "Reconhecimento pela sua competência técnica, trabalho colaborativo de sucesso e projetos bem avaliados.",
+  "conselho": "Some forças com quem entende do ofício: a verdadeira mestria nasce da cooperação honesta."
+ },
+ {
+  "id": "classico-ouros-04-quatro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 4,
+  "nome": "Quatro de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "segurança material",
+   "apego",
+   "prudência",
+   "limites financeiros"
+  ],
+  "significado": "O homem sentado sobre a muralha segurando firmemente quatro moedas sobre o peito, a cabeça e os pés. Desejo compreensível de preservar o patrimônio, mas com alerta contra a mesquinhez e o medo da escassez.",
+  "invertida": "Libertação da avareza, generosidade financeira ou gastos imprevistos por negligência.",
+  "amor": "Ciúme possessivo ou medo de se entregar por insegurança; lembre-se de que amor não é propriedade.",
+  "trabalho": "Economia prudente, estabilidade financeira sólida e conservadorismo acertado nos investimentos.",
+  "conselho": "Cuide do que conquistou, mas não tranque o coração: a abundância precisa de espaço para circular."
+ },
+ {
+  "id": "classico-ouros-05-cinco",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 5,
+  "nome": "Cinco de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "aperto temporário",
+   "solidariedade",
+   "busca de auxílio",
+   "abrigo espiritual"
+  ],
+  "significado": "Dois caminhantes na neve passando ao lado de um vitral iluminado de santuário. Fase de aperto material ou sensação de desamparo; lembra que a ajuda e o acolhimento espiritual estão logo ao lado.",
+  "invertida": "Fim da escassez, recuperação financeira, acolhimento de amigos e retorno do bem-estar.",
+  "amor": "Dificuldades materiais enfrentadas a dois; momento de união fraterna para superar o inverno juntos.",
+  "trabalho": "Desemprego ou queda de rendimentos; não hesite em bater nas portas certas e pedir apoio.",
+  "conselho": "Não caminhe no frio sozinho: há luz e refúgio bem perto de você, basta erguer a cabeça e pedir."
+ },
+ {
+  "id": "classico-ouros-06-seis",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 6,
+  "nome": "Seis de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "generosidade",
+   "partilha justa",
+   "caridade",
+   "reciprocidade"
+  ],
+  "significado": "O mercador próspero que pesa moedas na balança e distribui ajuda aos necessitados. A circulação sagrada da riqueza: saber dar com respeito e saber receber com dignidade e gratidão.",
+  "invertida": "Dívidas pendentes, caridade humilhante com segundas intenções ou desigualdade de favores.",
+  "amor": "Equilíbrio entre doar e receber afeto; relação justa onde ninguém se sente explorado.",
+  "trabalho": "Pagamento justo de salário, concessão de empréstimo benéfico ou recebimento de apoio financeiro merecido.",
+  "conselho": "Pratique a lei da semeadura: quem divide o pão nunca encontra a mesa vazia."
+ },
+ {
+  "id": "classico-ouros-07-sete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 7,
+  "nome": "Sete de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "paciência",
+   "avaliação da colheita",
+   "espera do tempo",
+   "maturação"
+  ],
+  "significado": "O lavrador apoiado na enxada contemplando os sete pentáculos que crescem na videira. O trabalho pesado já foi feito; agora é hora de ter paciência e permitir que a natureza amadureça os frutos no tempo dela.",
+  "invertida": "Impaciência destrutiva, colheita antes da hora ou desânimo por esperar o resultado.",
+  "amor": "Relação que exige tempo para amadurecer; não force definições antes que a confiança se consolide.",
+  "trabalho": "Investimento de longo prazo; acompanhe o crescimento sem ansiedade precipitada.",
+  "conselho": "Respeite o tempo da terra: a fruta colhida verde trava na boca, mas madura é puro mel."
+ },
+ {
+  "id": "classico-ouros-08-oito",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 8,
+  "nome": "Oito de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "dedicação",
+   "artesanato",
+   "aprimoramento",
+   "trabalho meticuloso"
+  ],
+  "significado": "O artesão focado em sua bancada cinzelando pacientemente moeda por moeda. Dedicação silenciosa ao aprendizado, capricho nos detalhes e construção de reputação sólida pela qualidade do trabalho.",
+  "invertida": "Trabalho desleixado por pressa, perfeccionismo paralisante ou falta de empenho nos detalhes.",
+  "amor": "Cuidado amoroso na rotina, dedicação diária e atenção aos pequenos gestos de carinho.",
+  "trabalho": "Aperfeiçoamento profissional, cursos práticos, produção com alto padrão e reconhecimento pela entrega impecável.",
+  "conselho": "Capriche em cada detalhe: a sua assinatura no mundo é a qualidade do que você faz com amor."
+ },
+ {
+  "id": "classico-ouros-09-nove",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 9,
+  "nome": "Nove de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "autossuficiência",
+   "independência",
+   "beleza",
+   "frutos do esforço"
+  ],
+  "significado": "A dama elegante passeando em seu vinhedo florido com um falcão adestrado na mão. A doce recompensa da disciplina: independência financeira, elegância serena e paz conquistada pelo próprio mérito.",
+  "invertida": "Ostentação vazia, superficialidade ou dependência financeira que sufoca a liberdade pessoal.",
+  "amor": "Amor próprio cultivado em primeiro lugar; relação entre pessoas completas que se escolhem por alegria.",
+  "trabalho": "Independência financeira alcançada, negócios próprios bem-sucedidos e tranquilidade material.",
+  "conselho": "Desfrute do jardim que você mesmo plantou: a sua independência é fruto da sua honra."
+ },
+ {
+  "id": "classico-ouros-10-dez",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 10,
+  "nome": "Dez de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "legado",
+   "patrimônio familiar",
+   "fartura geracional",
+   "estabilidade máxima"
+  ],
+  "significado": "O patriarca cercado pela família, pelos cães leais e pelo portal decorado com dez moedas douradas. Prosperidade consolidada que ultrapassa gerações, segurança para os filhos e estabilidade duradoura.",
+  "invertida": "Disputas por herança, brigas familiares por dinheiro ou apego cego a tradições que sufocam.",
+  "amor": "Relação madura com planos de construir patrimônio, comprar imóvel e criar raízes sólidas.",
+  "trabalho": "Negócios familiares sólidos, aposentadoria tranquila, investimentos de longo prazo e estabilidade institucional.",
+  "conselho": "Pense a longo prazo: construa hoje o legado de paz e segurança que abrigará quem vier depois."
+ },
+ {
+  "id": "classico-ouros-11-valete",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 11,
+  "nome": "Valete de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "estudo prático",
+   "oportunidade financeira",
+   "dedicação",
+   "aprendizagem"
+  ],
+  "significado": "O jovem estudante que contempla com respeito e fascínio a moeda dourada sobre suas mãos no campo fértil. Vontade sincera de aprender, início de carreira com humildade e promessa de futuro próspero.",
+  "invertida": "Preguiça nos estudos, falta de disciplina com dinheiro ou projetos começados sem método.",
+  "amor": "Relação que se constrói com lealdade, simplicidade e planos práticos para o dia a dia.",
+  "trabalho": "Estágio promissor, início de nova formação técnica, chegada de pequena oportunidade financeira.",
+  "conselho": "Estude com dedicação: o conhecimento prático é o adubo mais seguro para fazer o ouro brotar."
+ },
+ {
+  "id": "classico-ouros-12-cavaleiro",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 12,
+  "nome": "Cavaleiro de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "persistência",
+   "confiabilidade",
+   "trabalho duro",
+   "método seguro"
+  ],
+  "significado": "O cavaleiro montado em cavalo robusto e firme sobre a terra arada, contemplando sua moeda. Ele não tem pressa porque sabe que a constância vence qualquer obstáculo. Confiança absoluta e entrega garantida.",
+  "invertida": "Teimosia inflexível, lentidão excessiva por perfeccionismo ou preguiça disfarçada de cautela.",
+  "amor": "Parceiro extremamente leal, seguro e trabalhador; afeto demonstrado mais por atitudes do que por palavras.",
+  "trabalho": "Execução impecável de tarefas, cumprimento rigoroso de prazos e confiança total da liderança.",
+  "conselho": "Seja constante: a disciplina diária constrói impérios que o vento da pressa jamais derruba."
+ },
+ {
+  "id": "classico-ouros-13-rainha",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 13,
+  "nome": "Rainha de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "prosperidade acolhedora",
+   "mão boa",
+   "natureza",
+   "administração do lar"
+  ],
+  "significado": "A soberana entronizada no meio das folhagens e flores, segurando a moeda dourada enquanto uma lebre corre aos seus pés. A mãe da terra fértil: generosa, excelente administradora, acolhedora e prática.",
+  "invertida": "Preocupação excessiva com aparências materiais, negligência no lar ou desequilíbrio entre trabalho e família.",
+  "amor": "Companheira afetuosa, prática e zelosa, que transforma qualquer casa num recanto acolhedor e farto.",
+  "trabalho": "Excelente gestão de recursos financeiros, negócios ligados à sustentabilidade, culinária, saúde ou bem-estar.",
+  "conselho": "Cuide da sua terra com carinho: onde há cuidado amoroso, a fartura se instala naturalmente."
+ },
+ {
+  "id": "classico-ouros-14-rei",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "ouros",
+  "numero": 14,
+  "nome": "Rei de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "mestria financeira",
+   "segurança",
+   "generosidade material",
+   "sucesso consolidado"
+  ],
+  "significado": "O rei próspero em seu trono adornado de videiras e touros, com o cetro e a moeda de ouro sobre os joelhos. Sucesso material consolidado, sabedoria nos negócios, liderança generosa e honra inabalável.",
+  "invertida": "Ganância cega, materialismo que julga as pessoas pela conta bancária ou corrupção de valores.",
+  "amor": "Provedor leal, parceiro generoso e maduro que oferece segurança e tranquilidade para o futuro.",
+  "trabalho": "Direção de grandes negócios, investimentos consolidados, solidez patrimonial e autoridade no mercado.",
+  "conselho": "Construa com honra e compartilhe com justiça: o valor de um homem é medido pela paz que ele cria ao seu redor."
  },
  {
   "id": "cigano-01-cavaleiro",
@@ -56,12 +1571,17 @@ window.FV_DATA.tarot = [
   "nome": "O Cavaleiro",
   "correspondencia": "9 de Copas",
   "imagem": "",
-  "palavrasChave": ["notícias", "movimento", "chegada", "rapidez"],
-  "significado": "Notícias chegando, visitas e acontecimentos rápidos. Indica movimento e novidades em breve, geralmente positivas.",
+  "palavrasChave": [
+   "notícias",
+   "movimento",
+   "chegada",
+   "rapidez"
+  ],
+  "significado": "Notícias chegando, visitas e acontecimentos rápidos. Indica movimento dinâmico e novidades em breve, geralmente positivas e animadoras.",
   "invertida": "",
-  "amor": "Alguém se aproximando ou uma mensagem esperada.",
-  "trabalho": "Propostas e respostas rápidas.",
-  "conselho": "Esteja pronto para agir quando a notícia chegar."
+  "amor": "Alguém se aproximando com intenção sincera ou uma mensagem esperada que traz alegria.",
+  "trabalho": "Propostas, respostas rápidas de processos seletivos e movimentação benéfica nos negócios.",
+  "conselho": "Esteja pronto para agir quando a notícia bater à sua porta."
  },
  {
   "id": "cigano-02-trevo",
@@ -72,12 +1592,17 @@ window.FV_DATA.tarot = [
   "nome": "O Trevo",
   "correspondencia": "6 de Ouros",
   "imagem": "",
-  "palavrasChave": ["pequenos obstáculos", "sorte breve", "esperança"],
-  "significado": "Pequenas dificuldades passageiras ou uma sorte rápida. O que atrapalha agora não dura muito.",
+  "palavrasChave": [
+   "pequenos obstáculos",
+   "sorte breve",
+   "esperança",
+   "paciência"
+  ],
+  "significado": "Pequenas dificuldades passageiras ou uma sorte rápida no caminho. O que atrapalha agora é apenas um tropeço leve que se dissolve com calma.",
   "invertida": "",
-  "amor": "Contratempos leves que se resolvem com paciência.",
-  "trabalho": "Atrasos pequenos; uma oportunidade de sorte que pede atenção.",
-  "conselho": "Não desanime: é só um trecho do caminho."
+  "amor": "Contratempos leves que se resolvem com paciência e bom humor na convivência.",
+  "trabalho": "Atrasos pequenos na rotina; oportunidade de sorte imediata que pede atenção.",
+  "conselho": "Não desanime com pedrinhas no sapato: é só um trecho curto do caminho."
  },
  {
   "id": "cigano-03-navio",
@@ -88,11 +1613,709 @@ window.FV_DATA.tarot = [
   "nome": "O Navio",
   "correspondencia": "10 de Espadas",
   "imagem": "",
-  "palavrasChave": ["viagem", "mudança", "comércio", "distância"],
-  "significado": "Viagens, mudanças e expansão. Também fala de negócios, de comércio e de algo que vem de longe.",
+  "palavrasChave": [
+   "viagem",
+   "mudança",
+   "comércio",
+   "distância"
+  ],
+  "significado": "Viagens, mudanças graduais e expansão dos horizontes. Também fala de negócios, comércio e de algo ou alguém que vem de terras distantes.",
   "invertida": "",
-  "amor": "Relação à distância ou vontade de mudar de ares a dois.",
-  "trabalho": "Negócios, vendas, oportunidades fora da sua cidade.",
-  "conselho": "Deixe o porto: o novo pede movimento."
+  "amor": "Relação à distância ou vontade saudável de mudar de ares e fazer viagens a dois.",
+  "trabalho": "Negócios com o exterior, vendas, oportunidades fora da sua cidade ou novo rumo profissional.",
+  "conselho": "Deixe o porto seguro: o novo pede movimento e coragem para navegar."
+ },
+ {
+  "id": "cigano-04-casa",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 4,
+  "nome": "A Casa",
+  "correspondencia": "Rei de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "lar",
+   "família",
+   "segurança",
+   "equilíbrio interior"
+  ],
+  "significado": "O refúgio sagrado do lar, a família e as raízes que nos sustentam. Fala de estabilidade física, harmonia doméstica e paz de espírito.",
+  "invertida": "",
+  "amor": "Relacionamento sólido, acolhedor e seguro; desejo de construir um lar e morar juntos.",
+  "trabalho": "Home office, estabilidade no emprego, negócios imobiliários ou empresa familiar bem-sucedida.",
+  "conselho": "Faça da sua casa o seu santuário: a paz começa dentro de quatro paredes."
+ },
+ {
+  "id": "cigano-05-arvore",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 5,
+  "nome": "A Árvore",
+  "correspondencia": "7 de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "saúde",
+   "vitalidade",
+   "crescimento seguro",
+   "ancestralidade"
+  ],
+  "significado": "A árvore de raízes profundas e copa frondosa. Fala de saúde física e espiritual fortalecida, crescimento constante e herança ancestral abençoada.",
+  "invertida": "",
+  "amor": "Relação madura com raízes firmes que cresce e floresce ao longo dos anos.",
+  "trabalho": "Crescimento sólido a longo prazo, estabilidade na profissão e negócios duradouros.",
+  "conselho": "Aprofunde suas raízes na fé: quem tem base firme suporta qualquer vendaval."
+ },
+ {
+  "id": "cigano-06-nuvens",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 6,
+  "nome": "As Nuvens",
+  "correspondencia": "Rei de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "dúvida passageira",
+   "confusão",
+   "instabilidade",
+   "névoa mental"
+  ],
+  "significado": "O céu encoberto por nuvens escuras que logo passam com o sopro do vento. Incerteza momentânea e pensamentos confusos; não tome decisões cruciais enquanto o tempo estiver fechado.",
+  "invertida": "",
+  "amor": "Mal-entendidos causados por boatos ou inseguranças; espere a poeira baixar antes de cobrar o outro.",
+  "trabalho": "Falta de clareza nas diretrizes; verifique dados com calma antes de assinar papéis.",
+  "conselho": "Espere o vento soprar: nenhuma tempestade dura para sempre."
+ },
+ {
+  "id": "cigano-07-serpente",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 7,
+  "nome": "A Serpente",
+  "correspondencia": "Rainha de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "prudência",
+   "astúcia",
+   "vigilância",
+   "sabedoria instintiva"
+  ],
+  "significado": "O animal que rasteja em silêncio e troca de pele. Alerta contra falsidades, inveja disfarçada e fofocas, mas também ensina a ter astúcia, flexibilidade e capacidade de regeneração.",
+  "invertida": "",
+  "amor": "Atração magnética e sensual; cuidado com traições, joguinhos ou pessoas que se intrometem na relação.",
+  "trabalho": "Concorrência silenciosa; proteja seus projetos e confie em poucas pessoas no trabalho.",
+  "conselho": "Seja prudente como a serpente: guarde seus segredos e saiba a hora de trocar de pele."
+ },
+ {
+  "id": "cigano-08-caixao",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 8,
+  "nome": "O Caixão",
+  "correspondencia": "9 de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "fim de ciclo",
+   "transformação",
+   "encerramento",
+   "renovação necessária"
+  ],
+  "significado": "O encerramento inevitável de uma fase que já deu o que tinha que dar. Não fala de morte física, mas do sepultamento de velhos hábitos, mágoas e dores para permitir o renascimento.",
+  "invertida": "",
+  "amor": "Término de um conflito antigo ou encerramento maduro de uma relação desgastada.",
+  "trabalho": "Mudança estrutural, fim de um contrato longo ou renovação profunda de objetivos de carreira.",
+  "conselho": "Aceite o ponto final: o enterro do que secou é o adubo sagrado do que há de nascer."
+ },
+ {
+  "id": "cigano-09-buque",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 9,
+  "nome": "O Buquê",
+  "correspondencia": "Rainha de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "alegria",
+   "presente",
+   "reconhecimento",
+   "beleza"
+  ],
+  "significado": "Um arranjo perfumado de flores frescas oferecido com amor. Chegada de gentilezas, presentes inesperados, convites agradáveis e reconhecimento sincero pelo seu valor.",
+  "invertida": "",
+  "amor": "Carinho demonstrado com gestos doces, reconciliação perfumada e momentos encantadores a dois.",
+  "trabalho": "Elogios de clientes, premiações, convites especiais e reconhecimento pelo talento.",
+  "conselho": "Receba as flores da vida com gratidão: você merece ser presenteado pela sua bondade."
+ },
+ {
+  "id": "cigano-10-foice",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 10,
+  "nome": "A Foice",
+  "correspondencia": "Valete de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "corte rápido",
+   "colheita",
+   "decisão firme",
+   "rompimento necessário"
+  ],
+  "significado": "A lâmina curvada que colhe o trigo maduro ou apara a erva daninha. Um corte rápido e decisivo que extirpa o que atrapalha ou colhe com rigor o fruto do que foi plantado.",
+  "invertida": "",
+  "amor": "Corte súbito de conversas tóxicas, rompimento necessário ou decisão firme que traz alívio.",
+  "trabalho": "Rescisão de contrato, reestruturação rápida ou colheita imediata de lucros pendentes.",
+  "conselho": "Corte sem medo o que já não dá fruto: a poda é o segredo para a árvore dar broto novo."
+ },
+ {
+  "id": "cigano-11-chicote",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 11,
+  "nome": "O Chicote",
+  "correspondencia": "Valete de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "disciplina",
+   "conflito",
+   "força mágica",
+   "repetição"
+  ],
+  "significado": "O chicote e a vassoura ritualística. Representa discussões e atritos que exigem autocontrole, mas também fala de purificação espiritual, firmeza enérgica e disciplina rigorosa.",
+  "invertida": "",
+  "amor": "Discussões repetitivas ou atração com muita intensidade; evite palavras cruéis na hora da raiva.",
+  "trabalho": "Cobranças fortes da chefia, debates acalorados em equipe e exigência de disciplina férrea.",
+  "conselho": "Domine sua própria língua: a disciplina da palavra evita feridas que demoram a sarar."
+ },
+ {
+  "id": "cigano-12-passaros",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 12,
+  "nome": "Os Pássaros",
+  "correspondencia": "7 de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "conversa",
+   "parceria leve",
+   "comunicação",
+   "pequenas preocupações"
+  ],
+  "significado": "Pássaros cantando juntos nos galhos da árvore. Conversas animadas, trocas de mensagens, encontros descontraídos e agitação comunicativa no dia a dia.",
+  "invertida": "",
+  "amor": "Conversas gostosas a dois, cumplicidade leve e partilha das pequenas novidades do cotidiano.",
+  "trabalho": "Reuniões produtivas, networking, ligações telefônicas importantes e trabalho com comunicação.",
+  "conselho": "Converse com leveza: duas cabeças que dialogam encontram soluções onde a solidão só via problemas."
+ },
+ {
+  "id": "cigano-13-crianca",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 13,
+  "nome": "A Criança",
+  "correspondencia": "Valete de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "novo começo",
+   "pureza",
+   "espontaneidade",
+   "filhos"
+  ],
+  "significado": "A pureza e o olhar encantado de uma criança diante do mundo. Um recomeço sincero, nascimento de novos projetos, simplicidade de coração ou assuntos ligados a filhos e jovens.",
+  "invertida": "",
+  "amor": "Início meigo e espontâneo de uma relação; gravidez desejada ou alegria na convivência familiar.",
+  "trabalho": "Projeto novo que começa pequeno, mas com enorme potencial de crescimento criativo.",
+  "conselho": "Aproxime-se da vida com olhos de criança: a ingenuidade do bem desarmas as malícias do mundo."
+ },
+ {
+  "id": "cigano-14-raposa",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 14,
+  "nome": "A Raposa",
+  "correspondencia": "9 de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "cautela",
+   "estratégia",
+   "armadilha",
+   "sobrevivência"
+  ],
+  "significado": "O animal astuto que fareja o perigo antes de se aproximar da toca. Alerta para desconfiar de bajulações e promessas fáceis demais; pede atenção estratégica e discrição no caminhar.",
+  "invertida": "",
+  "amor": "Pessoas interesseiras ou segundas intenções; observe as atitudes reais em vez de palavras bonitas.",
+  "trabalho": "Armadilhas contratuais ou colegas interesseiros; trabalhe com inteligência afiada e boca fechada.",
+  "conselho": "Não caia no canto da sereia: use sua esperteza para proteger o que você construiu com suor."
+ },
+ {
+  "id": "cigano-15-urso",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 15,
+  "nome": "O Urso",
+  "correspondencia": "10 de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "proteção",
+   "força bruta",
+   "ciúme",
+   "poder"
+  ],
+  "significado": "A imponência e a força física do urso. Representa proteção vigorosa e apoio de pessoas influentes, mas alerta contra o ciúme possessivo, o controle sufocante e a inveja pesada.",
+  "invertida": "",
+  "amor": "Parceiro protetor, mas com tendência a controlar e sufocar; estabeleça limites saudáveis com carinho.",
+  "trabalho": "Chefia autoritária ou figura de poder financeiro; lide com diplomacia firme sem baixar a cabeça.",
+  "conselho": "Proteja os seus com bravura, mas cuide para que o seu abraço não sufoque quem você ama."
+ },
+ {
+  "id": "cigano-16-estrela",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 16,
+  "nome": "A Estrela",
+  "correspondencia": "6 de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "brilho",
+   "espiritualidade",
+   "destino feliz",
+   "proteção divina"
+  ],
+  "significado": "O céu noturno iluminado por uma estrela guia brilhante. Bênção espiritual, clareza nos caminhos, intuição certeira e sucesso garantido para quem age com fé e pureza de propósito.",
+  "invertida": "",
+  "amor": "Encontro de almas, cumplicidade espiritual profunda e esperança plenamente realizada a dois.",
+  "trabalho": "Sucesso profissional, reconhecimento público, fama meritória e bênçãos sobre projetos nobres.",
+  "conselho": "Confie na sua luz: a espiritualidade maior está guiando seus passos na escuridão."
+ },
+ {
+  "id": "cigano-17-cegonha",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 17,
+  "nome": "A Cegonha",
+  "correspondencia": "Rainha de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "mudança positiva",
+   "novidade",
+   "viagem",
+   "renovação"
+  ],
+  "significado": "A ave migratória que constrói seu ninho com gravetos novos. Chegada de transformações benéficas, mudança de casa, viagem feliz ou notícias que trazem um sopro de ar fresco à rotina.",
+  "invertida": "",
+  "amor": "Renovação saudável na convivência a dois; viagem romântica ou notícias de chegada de bebê na família.",
+  "trabalho": "Promoção, mudança de cargo ou nova oportunidade que traz mais flexibilidade e entusiasmo.",
+  "conselho": "Abra as janelas para as novidades: a vida se renova quando você aceita mudar de ares."
+ },
+ {
+  "id": "cigano-18-cachorro",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 18,
+  "nome": "O Cachorro",
+  "correspondencia": "10 de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "lealdade",
+   "amigo fiel",
+   "companheirismo",
+   "confiança"
+  ],
+  "significado": "O guardião leal que abana o rabo e guarda a casa do seu dono. Presença de amigos verdadeiros, aliados que não traem, companheirismo sincero e relações baseadas na mais pura fidelidade.",
+  "invertida": "",
+  "amor": "Parceiro leal, amigo incondicional e protetor; cumplicidade que sobrevive a qualquer dificuldade.",
+  "trabalho": "Sócios e colegas de total confiança; apoio sincero de mentores e parceiros comerciais de longa data.",
+  "conselho": "Valorize os amigos leais: um companheiro fiel ao lado vale mais que mil tesouros no cofre."
+ },
+ {
+  "id": "cigano-19-torre",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 19,
+  "nome": "A Torre",
+  "correspondencia": "6 de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "recolhimento",
+   "elevação",
+   "isolamento fecundo",
+   "instituições"
+  ],
+  "significado": "A torre de pedra alta e solitária erguida sobre a colina. Fala de recolhimento espiritual, busca de solitude para colocar as ideias em ordem e assuntos ligados a órgãos públicos ou empresas sólidas.",
+  "invertida": "",
+  "amor": "Necessidade de espaço individual ou introspecção; não confunda silêncio maduro com desamor.",
+  "trabalho": "Organizações governamentais, hospitais, bancos ou trabalho que exige concentração profunda sem distrações.",
+  "conselho": "Suba na torre do seu íntimo: olhar as coisas de cima ajuda a enxergar a solução que o chão escondia."
+ },
+ {
+  "id": "cigano-20-jardim",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 20,
+  "nome": "O Jardim",
+  "correspondencia": "8 de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "vida social",
+   "público",
+   "natureza",
+   "encontros"
+  ],
+  "significado": "O parque aberto com chafariz onde as pessoas passeiam e conversam. Fala de eventos sociais, festas, reuniões em grupo, convívio comunitário e conexão revitalizadora com a natureza viva.",
+  "invertida": "",
+  "amor": "Passeios agradáveis a dois, vida social ativa e apresentação do parceiro aos amigos e familiares.",
+  "trabalho": "Trabalho em eventos, marketing, redes sociais, relações públicas e contato direto com o público.",
+  "conselho": "Saia da toca: compartilhe a sua presença no jardim da convivência humana."
+ },
+ {
+  "id": "cigano-21-montanha",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 21,
+  "nome": "A Montanha",
+  "correspondencia": "8 de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "obstáculo firme",
+   "justiça",
+   "superação",
+   "firmeza de Xangô"
+  ],
+  "significado": "A rocha colossal e imponente que se eleva até as nuvens. Representa um grande desafio ou atraso burocrático, mas também fala de firmeza de caráter, justiça divina e vitória pela perseverança.",
+  "invertida": "",
+  "amor": "Dificuldade de comunicação ou barreira que exige paciência para ser contornada sem confronto ríspido.",
+  "trabalho": "Desafios burocráticos ou processos lentos na justiça; mantenha a calma e confie na retidão.",
+  "conselho": "Não tente empurrar a montanha: contorne com sabedoria ou suba passo a passo com fé inabalável."
+ },
+ {
+  "id": "cigano-22-caminho",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 22,
+  "nome": "O Caminho",
+  "correspondencia": "Rainha de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "encruzilhada",
+   "escolha",
+   "alternativas",
+   "livre-arbítrio"
+  ],
+  "significado": "A bifurcação que se abre diante do viajante na clareira da mata. Momento de decisão consciente: você tem opções viáveis e o poder de escolher a rota que melhor atende à sua verdade interior.",
+  "invertida": "",
+  "amor": "Decisão sobre rumos do relacionamento ou escolha entre dois sentimentos com maturidade.",
+  "trabalho": "Mais de uma proposta sobre a mesa; avalie com bom senso prático qual caminho oferece estabilidade e paz.",
+  "conselho": "A encruzilhada pede oração e bom senso: escolha o caminho que mantém seu coração nobre."
+ },
+ {
+  "id": "cigano-23-rato",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 23,
+  "nome": "O Rato",
+  "correspondencia": "7 de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "desgaste",
+   "perda de energia",
+   "prejuízo pequeno",
+   "cansaço"
+  ],
+  "significado": "O pequeno roedor que rói o saco de mantimentos na despensa. Alerta para vazamentos de energia, preocupações que corroem o ânimo, pequenos prejuízos e pessoas que drenam a sua vitalidade.",
+  "invertida": "",
+  "amor": "Desgaste na relação por cobranças miúdas ou desconfianças; preserve sua energia e cuide da higiene mental.",
+  "trabalho": "Pequenos gastos invisíveis que pesam no orçamento ou colegas que roubam seu tempo e ideias.",
+  "conselho": "Feche as frestas da despensa: cuide da sua energia e não permita que pequenas queixas roubem sua paz."
+ },
+ {
+  "id": "cigano-24-coracao",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 24,
+  "nome": "O Coração",
+  "correspondencia": "Valete de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "amor verdadeiro",
+   "paixão",
+   "generosidade",
+   "afeto sincero"
+  ],
+  "significado": "O coração vermelho pulsante coroado de luz. A essência do amor mais puro e apaixonado: reconciliação, carinho abundante, compaixão e entrega generosa aos melhores sentimentos da vida.",
+  "invertida": "",
+  "amor": "Amor recíproco e sincero, declarações apaixonadas, reconciliação e cumplicidade comovente.",
+  "trabalho": "Paixão pelo que faz, vocação profissional exercida com entusiasmo e ambiente de trabalho acolhedor.",
+  "conselho": "Viva com o coração aberto: o amor é a única moeda que enriquece quanto mais se gasta."
+ },
+ {
+  "id": "cigano-25-anel",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 25,
+  "nome": "O Anel",
+  "correspondencia": "Ás de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "aliança",
+   "união",
+   "compromisso",
+   "contrato"
+  ],
+  "significado": "A aliança dourada que não tem começo nem fim. Símbolo sagrado de união duradoura, pactos selados com honra, contratos formais assinados e fidelidade inabalável aos compromissos assumidos.",
+  "invertida": "",
+  "amor": "Noivado, casamento, pacto de lealdade a dois e renovação de votos com alegria profunda.",
+  "trabalho": "Assinatura de contratos importantes, sociedades consolidadas e acordos comerciais de sucesso.",
+  "conselho": "Honre as alianças que fizer: a sua palavra empenhada é a sua maior riqueza na Terra."
+ },
+ {
+  "id": "cigano-26-livros",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 26,
+  "nome": "Os Livros",
+  "correspondencia": "10 de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "segredo",
+   "estudo",
+   "conhecimento profundo",
+   "revelação futura"
+  ],
+  "significado": "O livro grosso encadernado com fecho de prata. Fala de estudos acadêmicos e espirituais, sabedoria acumulada e segredos guardados que se revelarão no momento oportuno.",
+  "invertida": "",
+  "amor": "Sentimentos não declarados ou mistério saudável na relação; respeite o que ainda não foi dito.",
+  "trabalho": "Cursos de capacitação, concursos, pesquisas científicas e sucesso através da dedicação intelectual.",
+  "conselho": "Estude e guarde silêncio: o conhecimento silencioso é o escudo mais seguro da sabedoria."
+ },
+ {
+  "id": "cigano-27-carta",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 27,
+  "nome": "A Carta",
+  "correspondencia": "7 de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "mensagem escrita",
+   "documento",
+   "notícia oficial",
+   "aviso"
+  ],
+  "significado": "O envelope selado com cera vermelha que aguarda abertura. Chegada de correspondências, convites oficiais, resultados de exames, contratos impressos ou mensagens importantes escritas.",
+  "invertida": "",
+  "amor": "Mensagem de texto carinhosa, carta de declaração ou comunicação importante sobre a rotina.",
+  "trabalho": "Documentos oficiais, e-mails decisivos, diplomas, certidões ou contratos para assinar.",
+  "conselho": "Leia com atenção cada linha antes de responder: as palavras escritas têm força de lei."
+ },
+ {
+  "id": "cigano-28-cigano",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 28,
+  "nome": "O Cigano",
+  "correspondencia": "Ás de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "homem de valor",
+   "figura masculina",
+   "ação prática",
+   "parceiro"
+  ],
+  "significado": "A representação da energia masculina, do consulente homem ou da figura masculina mais marcante da vida de quem consulta: marido, companheiro, pai, irmão ou parceiro leal.",
+  "invertida": "",
+  "amor": "Presença forte e protetora de um homem no relacionamento; atitudes práticas e decididas.",
+  "trabalho": "Parceria ou liderança masculina benéfica; necessidade de assumir uma postura firme de ação.",
+  "conselho": "Assuma o protagonismo dos seus passos com coragem, retidão e atitude nobre."
+ },
+ {
+  "id": "cigano-29-cigana",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 29,
+  "nome": "A Cigana",
+  "correspondencia": "Ás de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "mulher de valor",
+   "figura feminina",
+   "intuição prática",
+   "parceira"
+  ],
+  "significado": "A representação da energia feminina, da consulente mulher ou da figura feminina mais relevante da vida de quem consulta: esposa, companheira, mãe, irmã ou sábia conselheira.",
+  "invertida": "",
+  "amor": "Presença calorosa e intuitiva de uma mulher na relação; acolhimento e ternura sincera.",
+  "trabalho": "Liderança ou colaboração feminina produtiva; use a sensibilidade e a diplomacia nos negócios.",
+  "conselho": "Confie na sua intuição sábia: a delicadeza guiada pela firmeza move montanhas."
+ },
+ {
+  "id": "cigano-30-lirios",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 30,
+  "nome": "Os Lírios",
+  "correspondencia": "Rei de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "paz profunda",
+   "pureza",
+   "maturidade",
+   "sabedoria serena"
+  ],
+  "significado": "As flores brancas do lírio desabrochando em serenidade. A bênção da paz madura, honestidade impecável, tranquilidade espiritual, proteção dos antepassados e sabedoria que vem com a idade.",
+  "invertida": "",
+  "amor": "Relação serena, afeto maduro e seguro, livre de joguinhos e baseado na paz e no respeito.",
+  "trabalho": "Aposentadoria tranquila, carreira respeitada, estabilidade profissional e clima pacífico com todos.",
+  "conselho": "Acalme a alma: a paz de espírito é o maior presente que a maturidade concede ao coração."
+ },
+ {
+  "id": "cigano-31-sol",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 31,
+  "nome": "O Sol",
+  "correspondencia": "Ás de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "sucesso brilhante",
+   "clareza total",
+   "energia positiva",
+   "prosperidade"
+  ],
+  "significado": "O astro-rei brilhando em todo o seu esplendor dourado. Sucesso absoluto, vitalidade radiante, clareza que dissolve qualquer dúvida e certeza de vitórias merecidas em todos os setores.",
+  "invertida": "",
+  "amor": "Felicidade transbordante, paixão calorosa, lealdade transparente e alegria a dois.",
+  "trabalho": "Sucesso comercial estrondoso, metas batidas com louvor, visibilidade e crescimento financeiro.",
+  "conselho": "Aqueça seu caminho com fé: a luz do sol divino está brilhando sobre a sua estrada."
+ },
+ {
+  "id": "cigano-32-lua",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 32,
+  "nome": "A Lua",
+  "correspondencia": "8 de Copas",
+  "imagem": "",
+  "palavrasChave": [
+   "reconhecimento",
+   "intuição",
+   "sensibilidade",
+   "mérito"
+  ],
+  "significado": "O crescente prateado da lua brilhando no céu noturno. Reconhecimento público pelo talento, intuição mediúnica aguçada, sonhos premonitórios e honra conquistada pelo mérito da alma.",
+  "invertida": "",
+  "amor": "Romantismo sutil, atração magnética e sintonia emocional profunda entre os parceiros.",
+  "trabalho": "Elogios de superiores, fama positiva pelo ofício e sucesso em carreiras intuitivas ou artísticas.",
+  "conselho": "Honre sua sensibilidade: a sua intuição é uma bússola de prata que nunca erra o rumo."
+ },
+ {
+  "id": "cigano-33-chave",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 33,
+  "nome": "A Chave",
+  "correspondencia": "8 de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "solução",
+   "porta aberta",
+   "saída garantida",
+   "sucesso nas mãos"
+  ],
+  "significado": "A chave de ferro antigo que abre a fechadura trancada. A resposta definitiva para um impasse antigo: uma porta que se abre, uma solução que aparece e a certeza de que a saída está nas suas mãos.",
+  "invertida": "",
+  "amor": "Conversa decisiva que destranca o coração e resolve mal-entendidos de vez.",
+  "trabalho": "Descoberta da solução perfeita para um problema complexo; aprovação de projeto travado.",
+  "conselho": "Gire a chave com determinação: a oportunidade está esperando apenas pela sua atitude."
+ },
+ {
+  "id": "cigano-34-peixes",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 34,
+  "nome": "Os Peixes",
+  "correspondencia": "Rei de Ouros",
+  "imagem": "",
+  "palavrasChave": [
+   "abundância",
+   "dinheiro fluindo",
+   "prosperidade material",
+   "comércio"
+  ],
+  "significado": "Peixes dourados nadando em cardume pelas águas límpidas. Multiplicação de recursos materiais, comércio dinâmico, dinheiro entrando com frequência e abundância de bênçãos na vida prática.",
+  "invertida": "",
+  "amor": "Relação farta e generosa, onde ambos se apoiam e desfrutam dos prazeres da vida a dois.",
+  "trabalho": "Lucros fartos, novos clientes frequentes, bons negócios e dinheiro circulando com facilidade.",
+  "conselho": "Agradeça à abundância da vida: o rio da fartura corre para quem não segura as águas com mesquinhez."
+ },
+ {
+  "id": "cigano-35-ancora",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 35,
+  "nome": "A Âncora",
+  "correspondencia": "9 de Espadas",
+  "imagem": "",
+  "palavrasChave": [
+   "estabilidade",
+   "porto seguro",
+   "firmeza",
+   "confiança duradoura"
+  ],
+  "significado": "A pesada âncora fincada no fundo do mar que mantém o navio seguro mesmo na tormenta. Estabilidade inabalável, segurança conquistada, lealdade sólida e chegada a um porto de repouso e paz.",
+  "invertida": "",
+  "amor": "Relacionamento estável, seguro e à prova de crises; compromisso duradouro e confiável.",
+  "trabalho": "Emprego estável, aposentadoria tranquila, negócios firmes que garantem o sustento com paz.",
+  "conselho": "Firme sua âncora na fé e na honestidade: quem está bem ancorado não teme as ondas da vida."
+ },
+ {
+  "id": "cigano-36-cruz",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 36,
+  "nome": "A Cruz",
+  "correspondencia": "6 de Paus",
+  "imagem": "",
+  "palavrasChave": [
+   "vitória pelo sofrimento",
+   "fé inabalável",
+   "superação cármica",
+   "bênção final"
+  ],
+  "significado": "A cruz erguida no alto do monte que recebe os raios da vitória. A prova que foi superada com dignidade; o fardo que foi carregado com honra e que agora se transforma em coroa de vitória e libertação espiritual.",
+  "invertida": "",
+  "amor": "Superação definitiva de uma grande prova afetiva; o amor sai fortalecido e purificado pelo perdão.",
+  "trabalho": "Conquista difícil que exigiu sacrifício, mas que traz respeito e estabilidade definitiva.",
+  "conselho": "Sustente a sua fé: a cruz da provação é pesada, mas o amanhecer da vitória é glorioso e eterno."
  }
 ];

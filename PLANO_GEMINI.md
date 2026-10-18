@@ -247,6 +247,39 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 - **Pendências / dúvidas para o supervisor:**
   - Nenhuma pendência técnica. Fase 1 finalizada estritamente de acordo com os critérios de aceite. Aguardando revisão do supervisor para autorização da Fase 2.
 
+### Fase 7 — 2026-10-18 · Tarot clássico (78 cartas), Baralho Cigano (36 cartas), filtros dinâmicos e tiragem
+
+- **O que foi feito:**
+  - **7.1 Dados completos em `data/tarot.js`:**
+    - Criadas e validadas todas as **114 cartas** (78 do Tarot clássico + 36 do Baralho Cigano), totalizando 97.9 KB.
+    - 22 Arcanos Maiores (00 a 21: O Louco ao Mundo) com `arcano: "maior"`, `naipe: null`, `palavrasChave`, `significado`, `invertida`, `amor`, `trabalho` e `conselho`.
+    - 56 Arcanos Menores (14 Copas, 14 Paus, 14 Espadas, 14 Ouros) com `arcano: "menor"`, `numero` de 1 a 14 (Ás a Rei), todos com `invertida`, aspectos de amor, trabalho e conselho.
+    - 36 cartas do Baralho Cigano (Petit Lenormand, 1 a 36: O Cavaleiro à Cruz) com `baralho: "cigano"`, `arcano: null`, `naipe: null`, `correspondencia` tradicional de baralho comum francês (ex.: "9 de Copas", "6 de Ouros"), `invertida: ""` e conselho acolhedor.
+    - Tom espiritual acolhedor, sem fatalismos, em perfeita sintonia com a linha da Jurema Sagrada e com as regras de ouro do projeto.
+  - **7.3 Ajustes na página e catálogo:**
+    - Implementada a opção genérica `filter.showWhen(state)` em `createCatalog` (`script/script.js`), que oculta dinamicamente a fileira de filtros de "Arcano" quando o filtro ativo for "Baralho Cigano" e reseta o estado para "todos".
+    - Implementada a **Tiragem de 3 Cartas** (`initTarotSpread`) em `tarot.html` e `script/script.js`: sorteio dinâmico de 3 cartas distintas (Passado / Raízes • Presente / O Momento • Conselho / Caminho) com botão de re-sorteio, responsividade e abertura de ficha completa via `#id`.
+    - Busca global enriquecida: agora busca também no significado e na correspondência das cartas de Tarot e Baralho Cigano.
+    - Estilização em harmonia com a identidade "Noite na Mata" (`styles/styles.css`).
+  - **7.4 Acabamento e PWA:**
+    - `sw.js` atualizado com `CACHE_VERSION = "fv-v3"`.
+    - Testes automatizados executados (`scratch/test_fase7.js`): 114 cartas validadas, contagens exatas por naipe/baralho, busca testada ("Imperatriz", "viagem"), link direto `#cigano-03-navio` verificado, 0 erros.
+- **Arquivos alterados:**
+  - `data/tarot.js` (completado com as 114 cartas)
+  - `script/script.js` (showWhen em createCatalog, initTarotSpread, busca global enriquecida)
+  - `styles/styles.css` (estilos de .tspread)
+  - `tarot.html` (botão e container da tiragem de 3 cartas)
+  - `sw.js` (bump de cache para fv-v3)
+- **`id`s criados:**
+  - 22 Maiores: `classico-maior-00-louco` a `classico-maior-21-mundo`
+  - 14 Copas: `classico-copas-01-as` a `classico-copas-14-rei`
+  - 14 Paus: `classico-paus-01-as` a `classico-paus-14-rei`
+  - 14 Espadas: `classico-espadas-01-as` a `classico-espadas-14-rei`
+  - 14 Ouros: `classico-ouros-01-as` a `classico-ouros-14-rei`
+  - 36 Cigano: `cigano-01-cavaleiro` a `cigano-36-cruz`
+- **Pendências / dúvidas para o supervisor:**
+  - Conforme previsto na Seção 7.2 ("Sem imagem, a carta mostra o verso desenhado em CSS (já funciona). Por isso dá para entregar os dados primeiro e as imagens depois"), todas as 114 cartas estão entregues com o verso estilizado em CSS nativo (com numerais romanos/arábicos, símbolos dos naipes/ornamentos e títulos estilizados). O acervo de imagens pode ser integrado posteriormente com os arquivos em lote do Wikimedia Commons.
+
 
 ---
 

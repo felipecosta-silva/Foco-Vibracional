@@ -1287,7 +1287,7 @@ function createCatalog(cfg) {
   const todayMoon = getLiveMoonData(new Date()).key;
 
   const chipRow = f => `
-      <div class="chip-row" role="group" aria-label="${f.label}">
+      <div class="chip-row" role="group" aria-label="${f.label}" data-filter-row="${f.key}">
         <span class="chip-row__label">${f.label}</span>
         <button class="pill" type="button" data-f="${f.key}" data-v="todos">Todos</button>
         ${f.options.map(o => `<button class="pill" type="button" data-f="${f.key}" data-v="${o.k}" ${o.c ? `style="--c:${o.c}"` : ""}>${o.icon ? o.icon + " " : ""}${o.label}${f.key === "lua" && o.k === todayMoon ? ' <span class="today-tag">hoje</span>' : ""}</button>`).join("")}
@@ -1331,6 +1331,19 @@ function createCatalog(cfg) {
   }
 
   function render() {
+    cfg.filters.forEach(f => {
+      if (typeof f.showWhen === "function") {
+        const row = mount.querySelector(`.chip-row[data-filter-row="${f.key}"]`);
+        if (row) {
+          const visible = f.showWhen(state);
+          row.hidden = !visible;
+          if (!visible && state[f.key] !== "todos") {
+            state[f.key] = "todos";
+          }
+        }
+      }
+    });
+
     mount.querySelectorAll("[data-f]").forEach(b => b.classList.toggle("pill--active", state[b.dataset.f] === b.dataset.v));
     mount.querySelectorAll("[data-t]").forEach(b => b.classList.toggle("pill--active", !!state[b.dataset.t]));
     const list = filtered();
@@ -1515,6 +1528,97 @@ function initTarotDaily() {
   render("classico");
 }
 
+/* Tiragem de 3 cartas (passado • presente • conselho) */
+function initTarotSpread() {
+  const spreadBox = $("#tarotSpread");
+  const btnTrigger = $("#btnTiragem3");
+  if (!spreadBox || !btnTrigger) return;
+
+  function runSpread() {
+    const activeDeckBtn = document.querySelector("[data-daily-deck].pill--active");
+    const baralho = activeDeckBtn ? activeDeckBtn.dataset.dailyDeck : "classico";
+    const deck = TAROT.filter(c => c.baralho === baralho);
+    if (deck.length < 3) return;
+
+    // Sorteia 3 cartas distintas
+    const shuffled = [...deck].sort(() => Math.random() - 0.5);
+    const [cPassado, cPresente, cConselho] = [shuffled[0], shuffled[1], shuffled[2]];
+
+    const deckNome = baralho === "cigano" ? "Baralho Cigano" : "Tarot";
+
+    spreadBox.hidden = false;
+    spreadBox.innerHTML = `
+      <div class="tspread__header">
+        <div>
+          <span class="eyebrow">Tiragem de 3 Cartas • ${deckNome}</span>
+          <h3 style="margin:2px 0 0; font-family:var(--font-display);">Passado • Presente • Conselho</h3>
+        </div>
+        <button class="btn btn--ghost small" type="button" id="btnResortearSpread">Sortear Novamente 🔀</button>
+      </div>
+      <div class="tspread__grid">
+        <div class="tspread__slot">
+          <span class="tspread__pos">1. Passado / Raízes</span>
+          <button class="tcard" type="button" data-open-card="${escapeHtml(cPassado.id)}" style="width:100%;">
+            <span class="tcard__face">${tarotFaceHtml(cPassado)}</span>
+            <span class="tcard__body">
+              <b class="tcard__title">${escapeHtml(cPassado.nome)}</b>
+              <span class="tcard__sub">${cPassado.baralho === "cigano" ? (cPassado.correspondencia || "") : (cPassado.arcano === "maior" ? "Arcano Maior" : (NAIPES.find(n => n.k === cPassado.naipe) || {}).label || "")}</span>
+            </span>
+          </button>
+          <p class="tspread__advice"><b>As raízes:</b> ${escapeHtml(cPassado.significado)}</p>
+        </div>
+        <div class="tspread__slot">
+          <span class="tspread__pos">2. Presente / O Momento</span>
+          <button class="tcard" type="button" data-open-card="${escapeHtml(cPresente.id)}" style="width:100%;">
+            <span class="tcard__face">${tarotFaceHtml(cPresente)}</span>
+            <span class="tcard__body">
+              <b class="tcard__title">${escapeHtml(cPresente.nome)}</b>
+              <span class="tcard__sub">${cPresente.baralho === "cigano" ? (cPresente.correspondencia || "") : (cPresente.arcano === "maior" ? "Arcano Maior" : (NAIPES.find(n => n.k === cPresente.naipe) || {}).label || "")}</span>
+            </span>
+          </button>
+          <p class="tspread__advice"><b>A energia viva:</b> ${escapeHtml(cPresente.significado)}</p>
+        </div>
+        <div class="tspread__slot">
+          <span class="tspread__pos">3. Conselho / Caminho</span>
+          <button class="tcard" type="button" data-open-card="${escapeHtml(cConselho.id)}" style="width:100%;">
+            <span class="tcard__face">${tarotFaceHtml(cConselho)}</span>
+            <span class="tcard__body">
+              <b class="tcard__title">${escapeHtml(cConselho.nome)}</b>
+              <span class="tcard__sub">${cConselho.baralho === "cigano" ? (cConselho.correspondencia || "") : (cConselho.arcano === "maior" ? "Arcano Maior" : (NAIPES.find(n => n.k === cConselho.naipe) || {}).label || "")}</span>
+            </span>
+          </button>
+          <p class="tspread__advice"><b>O conselho:</b> ${escapeHtml(cConselho.conselho)}</p>
+        </div>
+      </div>
+      <p class="muted small" style="text-align:center; margin-top:16px;">
+        Clique em qualquer carta para abrir o significado completo, aspectos de amor e trabalho.
+      </p>
+    `;
+
+    spreadBox.querySelector("#btnResortearSpread")?.addEventListener("click", runSpread);
+    spreadBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  spreadBox.addEventListener("click", e => {
+    const b = e.target.closest("[data-open-card]");
+    if (b) location.hash = b.dataset.openCard;
+  });
+
+  btnTrigger.addEventListener("click", () => {
+    if (spreadBox.hidden) {
+      runSpread();
+      btnTrigger.textContent = "Fechar Tiragem";
+    } else {
+      spreadBox.hidden = true;
+      btnTrigger.textContent = "🎴 Tiragem de 3 Cartas";
+    }
+  });
+
+  $all("[data-daily-deck]").forEach(b => b.addEventListener("click", () => {
+    if (!spreadBox.hidden) runSpread();
+  }));
+}
+
 function initTarotPage() {
   const mount = $("#catalog[data-catalog='tarot']");
   if (!mount) return;
@@ -1525,12 +1629,19 @@ function initTarotPage() {
     searchText: c => `${c.nome} ${(c.palavrasChave || []).join(" ")} ${c.significado} ${c.correspondencia || ""}`,
     filters: [
       { key: "baralho", label: "Baralho", options: [{ k: "classico", label: "Tarot clássico", icon: "🃏" }, { k: "cigano", label: "Baralho Cigano", icon: "🌹" }], test: (c, v) => c.baralho === v },
-      { key: "arcano", label: "Arcano", options: [{ k: "maior", label: "Maiores" }, ...NAIPES.map(n => ({ k: n.k, label: n.label, icon: n.icon }))], test: (c, v) => v === "maior" ? c.arcano === "maior" : c.naipe === v }
+      {
+        key: "arcano",
+        label: "Arcano",
+        showWhen: state => state.baralho !== "cigano",
+        options: [{ k: "maior", label: "Maiores" }, ...NAIPES.map(n => ({ k: n.k, label: n.label, icon: n.icon }))],
+        test: (c, v) => v === "maior" ? c.arcano === "maior" : c.naipe === v
+      }
     ],
     renderCard: tarotCardHtml,
     detail: tarotDetailHtml
   });
   initTarotDaily();
+  initTarotSpread();
 }
 
 /* ==========================================================================
@@ -3196,8 +3307,8 @@ function initGlobalSearch() {
         .map(d => row(`defumacao.html#${encodeURIComponent(d.id)}`, d.nome, (d.ervas || []).slice(0, 4).join(" + ")))) +
       group("🙏 Mantras", DAILY_MANTRAS.filter(m => has(m.text, m.tag))
         .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +
-      group("🃏 Tarot & Cigano", ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => has(c.nome, (c.palavrasChave || []).join(" ")))
-        .map(c => row(`tarot.html#${encodeURIComponent(c.id)}`, c.nome, c.baralho === "cigano" ? "Baralho Cigano" : "Tarot clássico"))) +
+      group("🃏 Tarot & Cigano", ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => has(c.nome, (c.palavrasChave || []).join(" "), c.significado || "", c.correspondencia || ""))
+        .map(c => row(`tarot.html#${encodeURIComponent(c.id)}`, c.nome, c.baralho === "cigano" ? `Baralho Cigano • ${c.correspondencia || ""}` : (c.arcano === "maior" ? "Arcano Maior" : `Arcano Menor • ${(NAIPES.find(n => n.k === c.naipe) || {}).label || ""}`)))) +
       group("📄 Páginas", SEARCH_PAGES.filter(p => has(p.t, p.k)).map(p => row(p.u, p.t, "")));
     results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
   }
