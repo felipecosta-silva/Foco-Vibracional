@@ -9,7 +9,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 0,
   "nome": "O Louco",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-00-louco.jpg",
   "palavrasChave": [
    "início",
    "liberdade",
@@ -29,7 +29,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 1,
   "nome": "O Mago",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-01-mago.jpg",
   "palavrasChave": [
    "poder pessoal",
    "iniciativa",
@@ -49,7 +49,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 2,
   "nome": "A Sacerdotisa",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-02-sacerdotisa.jpg",
   "palavrasChave": [
    "intuição",
    "mistério",
@@ -69,7 +69,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 3,
   "nome": "A Imperatriz",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-03-imperatriz.jpg",
   "palavrasChave": [
    "fertilidade",
    "abundância",
@@ -89,7 +89,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 4,
   "nome": "O Imperador",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-04-imperador.jpg",
   "palavrasChave": [
    "estrutura",
    "autoridade",
@@ -109,7 +109,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 5,
   "nome": "O Hierofante",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-05-hierofante.jpg",
   "palavrasChave": [
    "tradição",
    "ensinamento",
@@ -129,7 +129,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 6,
   "nome": "Os Enamorados",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-06-enamorados.jpg",
   "palavrasChave": [
    "escolha",
    "união",
@@ -149,7 +149,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 7,
   "nome": "O Carro",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-07-carro.jpg",
   "palavrasChave": [
    "vitória",
    "determinação",
@@ -169,7 +169,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 8,
   "nome": "A Força",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-08-forca.jpg",
   "palavrasChave": [
    "mansidão",
    "coragem",
@@ -189,7 +189,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 9,
   "nome": "O Eremita",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-09-eremita.jpg",
   "palavrasChave": [
    "recolhimento",
    "luz interior",
@@ -209,7 +209,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 10,
   "nome": "A Roda da Fortuna",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-10-roda-fortuna.jpg",
   "palavrasChave": [
    "ciclos",
    "mudança",
@@ -229,7 +229,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 11,
   "nome": "A Justiça",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-11-justica.jpg",
   "palavrasChave": [
    "equilíbrio",
    "verdade",
@@ -249,7 +249,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 12,
   "nome": "O Enforcado",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-12-enforcado.jpg",
   "palavrasChave": [
    "pausa",
    "nova perspectiva",
@@ -269,7 +269,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 13,
   "nome": "A Morte",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-13-morte.jpg",
   "palavrasChave": [
    "transformação",
    "fim de ciclo",
@@ -289,7 +289,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 14,
   "nome": "A Temperança",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-14-temperanca.jpg",
   "palavrasChave": [
    "cura",
    "moderação",
@@ -309,7 +309,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 15,
   "nome": "O Diabo",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-15-diabo.jpg",
   "palavrasChave": [
    "apego",
    "ilusão",
@@ -329,7 +329,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 16,
   "nome": "A Torre",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-16-torre.jpg",
   "palavrasChave": [
    "ruptura",
    "verdade súbita",
@@ -349,7 +349,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 17,
   "nome": "A Estrela",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-17-estrela.jpg",
   "palavrasChave": [
    "esperança",
    "fé",
@@ -369,7 +369,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 18,
   "nome": "A Lua",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-18-lua.jpg",
   "palavrasChave": [
    "inconsciente",
    "sonhos",
@@ -389,7 +389,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 19,
   "nome": "O Sol",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-19-sol.jpg",
   "palavrasChave": [
    "alegria",
    "clareza",
@@ -409,7 +409,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 20,
   "nome": "O Julgamento",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-20-julgamento.jpg",
   "palavrasChave": [
    "despertar",
    "renascimento",
@@ -429,7 +429,7 @@ window.FV_DATA.tarot = [
   "naipe": null,
   "numero": 21,
   "nome": "O Mundo",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-maior-21-mundo.jpg",
   "palavrasChave": [
    "plenitude",
    "conclusão",
@@ -449,7 +449,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 1,
   "nome": "Ás de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-01-as.jpg",
   "palavrasChave": [
    "amor",
    "emoção nova",
@@ -469,7 +469,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 2,
   "nome": "Dois de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-02-dois.jpg",
   "palavrasChave": [
    "parceria",
    "afinidade",
@@ -489,7 +489,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 3,
   "nome": "Três de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-03-tres.jpg",
   "palavrasChave": [
    "celebração",
    "amizade",
@@ -509,7 +509,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 4,
   "nome": "Quatro de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-04-quatro.jpg",
   "palavrasChave": [
    "apatia",
    "reavaliação",
@@ -529,7 +529,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 5,
   "nome": "Cinco de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-05-cinco.jpg",
   "palavrasChave": [
    "luto",
    "pesar",
@@ -549,7 +549,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 6,
   "nome": "Seis de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-06-seis.jpg",
   "palavrasChave": [
    "nostalgia",
    "memórias",
@@ -569,7 +569,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 7,
   "nome": "Sete de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-07-sete.jpg",
   "palavrasChave": [
    "ilusão",
    "múltiplas escolhas",
@@ -589,7 +589,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 8,
   "nome": "Oito de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-08-oito.jpg",
   "palavrasChave": [
    "partida",
    "busca espiritual",
@@ -609,7 +609,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 9,
   "nome": "Nove de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-09-nove.jpg",
   "palavrasChave": [
    "satisfação",
    "desejo realizado",
@@ -629,7 +629,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 10,
   "nome": "Dez de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-10-dez.jpg",
   "palavrasChave": [
    "plenitude familiar",
    "lar harmonioso",
@@ -649,7 +649,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 11,
   "nome": "Valete de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-11-valete.jpg",
   "palavrasChave": [
    "mensagem carinhosa",
    "sensibilidade",
@@ -669,7 +669,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 12,
   "nome": "Cavaleiro de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-12-cavaleiro.jpg",
   "palavrasChave": [
    "romantismo",
    "idealismo",
@@ -689,7 +689,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 13,
   "nome": "Rainha de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-13-rainha.jpg",
   "palavrasChave": [
    "empatia",
    "intuição profunda",
@@ -709,7 +709,7 @@ window.FV_DATA.tarot = [
   "naipe": "copas",
   "numero": 14,
   "nome": "Rei de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-copas-14-rei.jpg",
   "palavrasChave": [
    "maturidade emocional",
    "equilíbrio",
@@ -729,7 +729,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 1,
   "nome": "Ás de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-01-as.jpg",
   "palavrasChave": [
    "fagulha criativa",
    "iniciativa",
@@ -749,7 +749,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 2,
   "nome": "Dois de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-02-dois.jpg",
   "palavrasChave": [
    "planejamento",
    "visão de futuro",
@@ -769,7 +769,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 3,
   "nome": "Três de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-03-tres.jpg",
   "palavrasChave": [
    "progresso",
    "expansão",
@@ -789,7 +789,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 4,
   "nome": "Quatro de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-04-quatro.jpg",
   "palavrasChave": [
    "celebração",
    "estabilidade",
@@ -809,7 +809,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 5,
   "nome": "Cinco de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-05-cinco.jpg",
   "palavrasChave": [
    "competição",
    "desafio",
@@ -829,7 +829,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 6,
   "nome": "Seis de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-06-seis.jpg",
   "palavrasChave": [
    "vitória",
    "reconhecimento",
@@ -849,7 +849,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 7,
   "nome": "Sete de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-07-sete.jpg",
   "palavrasChave": [
    "firmeza",
    "defesa de valores",
@@ -869,7 +869,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 8,
   "nome": "Oito de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-08-oito.jpg",
   "palavrasChave": [
    "rapidez",
    "mensagens rápidas",
@@ -889,7 +889,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 9,
   "nome": "Nove de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-09-nove.jpg",
   "palavrasChave": [
    "resiliência",
    "último esforço",
@@ -909,7 +909,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 10,
   "nome": "Dez de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-10-dez.jpg",
   "palavrasChave": [
    "sobrecarga",
    "peso nas costas",
@@ -929,7 +929,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 11,
   "nome": "Valete de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-11-valete.jpg",
   "palavrasChave": [
    "entusiasmo",
    "mensageiro da ação",
@@ -949,7 +949,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 12,
   "nome": "Cavaleiro de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-12-cavaleiro.jpg",
   "palavrasChave": [
    "ímpeto",
    "aventura",
@@ -969,7 +969,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 13,
   "nome": "Rainha de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-13-rainha.jpg",
   "palavrasChave": [
    "carisma",
    "autoconfiança",
@@ -989,7 +989,7 @@ window.FV_DATA.tarot = [
   "naipe": "paus",
   "numero": 14,
   "nome": "Rei de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-paus-14-rei.jpg",
   "palavrasChave": [
    "visão",
    "liderança nobre",
@@ -1009,7 +1009,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 1,
   "nome": "Ás de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-01-as.jpg",
   "palavrasChave": [
    "clareza mental",
    "verdade",
@@ -1029,7 +1029,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 2,
   "nome": "Dois de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-02-dois.jpg",
   "palavrasChave": [
    "impasse",
    "indecisão",
@@ -1049,7 +1049,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 3,
   "nome": "Três de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-03-tres.jpg",
   "palavrasChave": [
    "dor da verdade",
    "desilusão",
@@ -1069,7 +1069,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 4,
   "nome": "Quatro de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-04-quatro.jpg",
   "palavrasChave": [
    "repouso",
    "recolhimento",
@@ -1089,7 +1089,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 5,
   "nome": "Cinco de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-05-cinco.jpg",
   "palavrasChave": [
    "vitória amarga",
    "orgulho",
@@ -1109,7 +1109,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 6,
   "nome": "Seis de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-06-seis.jpg",
   "palavrasChave": [
    "transição",
    "águas calmas",
@@ -1129,7 +1129,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 7,
   "nome": "Sete de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-07-sete.jpg",
   "palavrasChave": [
    "estratégia",
    "astúcia",
@@ -1149,7 +1149,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 8,
   "nome": "Oito de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-08-oito.jpg",
   "palavrasChave": [
    "prisão mental",
    "autolimitação",
@@ -1169,7 +1169,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 9,
   "nome": "Nove de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-09-nove.jpg",
   "palavrasChave": [
    "angústia noturna",
    "ansiedade",
@@ -1189,7 +1189,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 10,
   "nome": "Dez de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-10-dez.jpg",
   "palavrasChave": [
    "fundo do poço",
    "ponto final",
@@ -1209,7 +1209,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 11,
   "nome": "Valete de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-11-valete.jpg",
   "palavrasChave": [
    "vigilância",
    "mente rápida",
@@ -1229,7 +1229,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 12,
   "nome": "Cavaleiro de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-12-cavaleiro.jpg",
   "palavrasChave": [
    "ímpeto intelectual",
    "determinação feroz",
@@ -1249,7 +1249,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 13,
   "nome": "Rainha de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-13-rainha.jpg",
   "palavrasChave": [
    "discernimento",
    "independência",
@@ -1269,7 +1269,7 @@ window.FV_DATA.tarot = [
   "naipe": "espadas",
   "numero": 14,
   "nome": "Rei de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-espadas-14-rei.jpg",
   "palavrasChave": [
    "autoridade moral",
    "verdade suprema",
@@ -1289,7 +1289,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 1,
   "nome": "Ás de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-01-as.jpg",
   "palavrasChave": [
    "prosperidade",
    "semente fértil",
@@ -1309,7 +1309,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 2,
   "nome": "Dois de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-02-dois.jpg",
   "palavrasChave": [
    "equilíbrio dinâmico",
    "flexibilidade",
@@ -1329,7 +1329,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 3,
   "nome": "Três de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-03-tres.jpg",
   "palavrasChave": [
    "trabalho em equipe",
    "mestria",
@@ -1349,7 +1349,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 4,
   "nome": "Quatro de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-04-quatro.jpg",
   "palavrasChave": [
    "segurança material",
    "apego",
@@ -1369,7 +1369,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 5,
   "nome": "Cinco de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-05-cinco.jpg",
   "palavrasChave": [
    "aperto temporário",
    "solidariedade",
@@ -1389,7 +1389,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 6,
   "nome": "Seis de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-06-seis.jpg",
   "palavrasChave": [
    "generosidade",
    "partilha justa",
@@ -1409,7 +1409,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 7,
   "nome": "Sete de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-07-sete.jpg",
   "palavrasChave": [
    "paciência",
    "avaliação da colheita",
@@ -1429,7 +1429,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 8,
   "nome": "Oito de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-08-oito.jpg",
   "palavrasChave": [
    "dedicação",
    "artesanato",
@@ -1449,7 +1449,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 9,
   "nome": "Nove de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-09-nove.jpg",
   "palavrasChave": [
    "autossuficiência",
    "independência",
@@ -1469,7 +1469,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 10,
   "nome": "Dez de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-10-dez.jpg",
   "palavrasChave": [
    "legado",
    "patrimônio familiar",
@@ -1489,7 +1489,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 11,
   "nome": "Valete de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-11-valete.jpg",
   "palavrasChave": [
    "estudo prático",
    "oportunidade financeira",
@@ -1509,7 +1509,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 12,
   "nome": "Cavaleiro de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-12-cavaleiro.jpg",
   "palavrasChave": [
    "persistência",
    "confiabilidade",
@@ -1529,7 +1529,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 13,
   "nome": "Rainha de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-13-rainha.jpg",
   "palavrasChave": [
    "prosperidade acolhedora",
    "mão boa",
@@ -1549,7 +1549,7 @@ window.FV_DATA.tarot = [
   "naipe": "ouros",
   "numero": 14,
   "nome": "Rei de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/classico/classico-ouros-14-rei.jpg",
   "palavrasChave": [
    "mestria financeira",
    "segurança",
@@ -1570,7 +1570,7 @@ window.FV_DATA.tarot = [
   "numero": 1,
   "nome": "O Cavaleiro",
   "correspondencia": "9 de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-01-cavaleiro.jpg",
   "palavrasChave": [
    "notícias",
    "movimento",
@@ -1591,7 +1591,7 @@ window.FV_DATA.tarot = [
   "numero": 2,
   "nome": "O Trevo",
   "correspondencia": "6 de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-02-trevo.jpg",
   "palavrasChave": [
    "pequenos obstáculos",
    "sorte breve",
@@ -1612,7 +1612,7 @@ window.FV_DATA.tarot = [
   "numero": 3,
   "nome": "O Navio",
   "correspondencia": "10 de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-03-navio.jpg",
   "palavrasChave": [
    "viagem",
    "mudança",
@@ -1633,7 +1633,7 @@ window.FV_DATA.tarot = [
   "numero": 4,
   "nome": "A Casa",
   "correspondencia": "Rei de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-04-casa.jpg",
   "palavrasChave": [
    "lar",
    "família",
@@ -1654,7 +1654,7 @@ window.FV_DATA.tarot = [
   "numero": 5,
   "nome": "A Árvore",
   "correspondencia": "7 de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-05-arvore.jpg",
   "palavrasChave": [
    "saúde",
    "vitalidade",
@@ -1675,7 +1675,7 @@ window.FV_DATA.tarot = [
   "numero": 6,
   "nome": "As Nuvens",
   "correspondencia": "Rei de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-06-nuvens.jpg",
   "palavrasChave": [
    "dúvida passageira",
    "confusão",
@@ -1696,7 +1696,7 @@ window.FV_DATA.tarot = [
   "numero": 7,
   "nome": "A Serpente",
   "correspondencia": "Rainha de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-07-serpente.jpg",
   "palavrasChave": [
    "prudência",
    "astúcia",
@@ -1717,7 +1717,7 @@ window.FV_DATA.tarot = [
   "numero": 8,
   "nome": "O Caixão",
   "correspondencia": "9 de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-08-caixao.jpg",
   "palavrasChave": [
    "fim de ciclo",
    "transformação",
@@ -1738,7 +1738,7 @@ window.FV_DATA.tarot = [
   "numero": 9,
   "nome": "O Buquê",
   "correspondencia": "Rainha de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-09-buque.jpg",
   "palavrasChave": [
    "alegria",
    "presente",
@@ -1759,7 +1759,7 @@ window.FV_DATA.tarot = [
   "numero": 10,
   "nome": "A Foice",
   "correspondencia": "Valete de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-10-foice.jpg",
   "palavrasChave": [
    "corte rápido",
    "colheita",
@@ -1780,7 +1780,7 @@ window.FV_DATA.tarot = [
   "numero": 11,
   "nome": "O Chicote",
   "correspondencia": "Valete de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-11-chicote.jpg",
   "palavrasChave": [
    "disciplina",
    "conflito",
@@ -1801,7 +1801,7 @@ window.FV_DATA.tarot = [
   "numero": 12,
   "nome": "Os Pássaros",
   "correspondencia": "7 de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-12-passaros.jpg",
   "palavrasChave": [
    "conversa",
    "parceria leve",
@@ -1822,7 +1822,7 @@ window.FV_DATA.tarot = [
   "numero": 13,
   "nome": "A Criança",
   "correspondencia": "Valete de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-13-crianca.jpg",
   "palavrasChave": [
    "novo começo",
    "pureza",
@@ -1843,7 +1843,7 @@ window.FV_DATA.tarot = [
   "numero": 14,
   "nome": "A Raposa",
   "correspondencia": "9 de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-14-raposa.jpg",
   "palavrasChave": [
    "cautela",
    "estratégia",
@@ -1864,7 +1864,7 @@ window.FV_DATA.tarot = [
   "numero": 15,
   "nome": "O Urso",
   "correspondencia": "10 de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-15-urso.jpg",
   "palavrasChave": [
    "proteção",
    "força bruta",
@@ -1885,7 +1885,7 @@ window.FV_DATA.tarot = [
   "numero": 16,
   "nome": "A Estrela",
   "correspondencia": "6 de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-16-estrela.jpg",
   "palavrasChave": [
    "brilho",
    "espiritualidade",
@@ -1906,7 +1906,7 @@ window.FV_DATA.tarot = [
   "numero": 17,
   "nome": "A Cegonha",
   "correspondencia": "Rainha de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-17-cegonha.jpg",
   "palavrasChave": [
    "mudança positiva",
    "novidade",
@@ -1927,7 +1927,7 @@ window.FV_DATA.tarot = [
   "numero": 18,
   "nome": "O Cachorro",
   "correspondencia": "10 de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-18-cachorro.jpg",
   "palavrasChave": [
    "lealdade",
    "amigo fiel",
@@ -1948,7 +1948,7 @@ window.FV_DATA.tarot = [
   "numero": 19,
   "nome": "A Torre",
   "correspondencia": "6 de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-19-torre.jpg",
   "palavrasChave": [
    "recolhimento",
    "elevação",
@@ -1969,7 +1969,7 @@ window.FV_DATA.tarot = [
   "numero": 20,
   "nome": "O Jardim",
   "correspondencia": "8 de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-20-jardim.jpg",
   "palavrasChave": [
    "vida social",
    "público",
@@ -1990,7 +1990,7 @@ window.FV_DATA.tarot = [
   "numero": 21,
   "nome": "A Montanha",
   "correspondencia": "8 de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-21-montanha.jpg",
   "palavrasChave": [
    "obstáculo firme",
    "justiça",
@@ -2011,7 +2011,7 @@ window.FV_DATA.tarot = [
   "numero": 22,
   "nome": "O Caminho",
   "correspondencia": "Rainha de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-22-caminho.jpg",
   "palavrasChave": [
    "encruzilhada",
    "escolha",
@@ -2032,7 +2032,7 @@ window.FV_DATA.tarot = [
   "numero": 23,
   "nome": "O Rato",
   "correspondencia": "7 de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-23-rato.jpg",
   "palavrasChave": [
    "desgaste",
    "perda de energia",
@@ -2053,7 +2053,7 @@ window.FV_DATA.tarot = [
   "numero": 24,
   "nome": "O Coração",
   "correspondencia": "Valete de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-24-coracao.jpg",
   "palavrasChave": [
    "amor verdadeiro",
    "paixão",
@@ -2074,7 +2074,7 @@ window.FV_DATA.tarot = [
   "numero": 25,
   "nome": "O Anel",
   "correspondencia": "Ás de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-25-anel.jpg",
   "palavrasChave": [
    "aliança",
    "união",
@@ -2095,7 +2095,7 @@ window.FV_DATA.tarot = [
   "numero": 26,
   "nome": "Os Livros",
   "correspondencia": "10 de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-26-livros.jpg",
   "palavrasChave": [
    "segredo",
    "estudo",
@@ -2116,7 +2116,7 @@ window.FV_DATA.tarot = [
   "numero": 27,
   "nome": "A Carta",
   "correspondencia": "7 de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-27-carta.jpg",
   "palavrasChave": [
    "mensagem escrita",
    "documento",
@@ -2137,7 +2137,7 @@ window.FV_DATA.tarot = [
   "numero": 28,
   "nome": "O Cigano",
   "correspondencia": "Ás de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-28-cigano.jpg",
   "palavrasChave": [
    "homem de valor",
    "figura masculina",
@@ -2158,7 +2158,7 @@ window.FV_DATA.tarot = [
   "numero": 29,
   "nome": "A Cigana",
   "correspondencia": "Ás de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-29-cigana.jpg",
   "palavrasChave": [
    "mulher de valor",
    "figura feminina",
@@ -2179,7 +2179,7 @@ window.FV_DATA.tarot = [
   "numero": 30,
   "nome": "Os Lírios",
   "correspondencia": "Rei de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-30-lirios.jpg",
   "palavrasChave": [
    "paz profunda",
    "pureza",
@@ -2200,7 +2200,7 @@ window.FV_DATA.tarot = [
   "numero": 31,
   "nome": "O Sol",
   "correspondencia": "Ás de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-31-sol.jpg",
   "palavrasChave": [
    "sucesso brilhante",
    "clareza total",
@@ -2221,7 +2221,7 @@ window.FV_DATA.tarot = [
   "numero": 32,
   "nome": "A Lua",
   "correspondencia": "8 de Copas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-32-lua.jpg",
   "palavrasChave": [
    "reconhecimento",
    "intuição",
@@ -2242,7 +2242,7 @@ window.FV_DATA.tarot = [
   "numero": 33,
   "nome": "A Chave",
   "correspondencia": "8 de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-33-chave.jpg",
   "palavrasChave": [
    "solução",
    "porta aberta",
@@ -2263,7 +2263,7 @@ window.FV_DATA.tarot = [
   "numero": 34,
   "nome": "Os Peixes",
   "correspondencia": "Rei de Ouros",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-34-peixes.jpg",
   "palavrasChave": [
    "abundância",
    "dinheiro fluindo",
@@ -2284,7 +2284,7 @@ window.FV_DATA.tarot = [
   "numero": 35,
   "nome": "A Âncora",
   "correspondencia": "9 de Espadas",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-35-ancora.jpg",
   "palavrasChave": [
    "estabilidade",
    "porto seguro",
@@ -2305,7 +2305,7 @@ window.FV_DATA.tarot = [
   "numero": 36,
   "nome": "A Cruz",
   "correspondencia": "6 de Paus",
-  "imagem": "",
+  "imagem": "images/tarot/cigano/cigano-36-cruz.jpg",
   "palavrasChave": [
    "vitória pelo sofrimento",
    "fé inabalável",
