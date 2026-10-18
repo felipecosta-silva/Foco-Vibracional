@@ -149,5 +149,55 @@ window.FV_DATA.mantras = [
   "tag": "gratidão",
   "text": "Tudo que chega até mim soma e melhora minha vida. Eu agradeço.",
   "tip": "Nomeie 1 vitória pequena do dia."
+ },
+ {
+  "tag": "proteção",
+  "text": "Eu estou guardado. Nenhum mal me alcança, porque minha fé é firme.",
+  "tip": "Repita ao sair de casa, tocando o peito."
+ },
+ {
+  "tag": "paz",
+  "text": "Eu respiro paz, eu solto o que não controlo e confio no tempo certo.",
+  "tip": "Ótimo nos momentos de ansiedade."
+ },
+ {
+  "tag": "gratidão",
+  "text": "Agradeço a folha, a água e o caminho. Tudo que é meu chega até mim.",
+  "tip": "Diga ao acordar, antes de pegar o celular."
+ },
+ {
+  "tag": "coragem",
+  "text": "Eu enfrento o dia de cabeça erguida, com a força dos que vieram antes de mim.",
+  "tip": "Para dias difíceis de trabalho."
+ },
+ {
+  "tag": "clareza",
+  "text": "Minha mente está limpa como água de fonte. Eu sei o próximo passo.",
+  "tip": "Antes de decisões importantes."
+ },
+ {
+  "tag": "equilíbrio",
+  "text": "Eu não sou o peso do mundo. Faço a minha parte e entrego o resto.",
+  "tip": "Quando estiver sobrecarregado."
+ },
+ {
+  "tag": "prosperidade",
+  "text": "Meu trabalho é abençoado e o fruto dele chega com fartura e justiça.",
+  "tip": "Repita ao começar o expediente."
+ },
+ {
+  "tag": "leveza",
+  "text": "Eu deixo escorrer o que é pesado, como água de banho que volta para a terra.",
+  "tip": "Ideal durante um banho de descarrego."
+ },
+ {
+  "tag": "autovalor",
+  "text": "Eu mereço respeito, descanso e alegria. Eu cuido de mim com carinho.",
+  "tip": "Em frente ao espelho, pela manhã."
+ },
+ {
+  "tag": "limites",
+  "text": "Eu digo não com amor e sim com verdade.",
+  "tip": "Antes de conversas difíceis."
  }
 ];

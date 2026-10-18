@@ -1357,5 +1357,256 @@ window.FV_DATA.ervas = [
   "cuidados": "Suave, segura e profundamente aromática.",
   "tradicao": "Indispensável nos amassis e lavagens de contas e cabeças nas casas de Iemanjá e Oxalá.",
   "cha": "CHÁ DE FOLHA DE COLÔNIA: 1 folha fresca picada em 300ml de água quente por 8 minutos abafado. Consagrado na medicina popular para auxiliar no controle da hipertensão arterial leve e acalmar o coração acelerado pelo estresse."
+ },
+ {
+  "id": "aroeira",
+  "nome": "Aroeira",
+  "nomePopular": "Aroeira-vermelha / Aroeira-pimenteira (Schinus terebinthifolia)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "limpeza",
+   "protecao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "NUNCA na cabeça (erva de descarrego forte, somente do pescoço para baixo)",
+  "imagem": "",
+  "descricao": "Árvore brava do sertão e da restinga, conhecida na Jurema como folha de descarrego pesado. Corta cargas acumuladas, cansaço espiritual e fluidos densos trazidos da rua.",
+  "colheita": "Colher pela manhã, de árvore saudável, pedindo licença à mata. Não confundir com a aroeira-brava (Lithraea), que causa alergia forte.",
+  "cuidados": "Pode irritar a pele sensível e causar alergia. Faça teste em pequena área do braço. Não usar em crianças pequenas, gestantes ou lactantes. Nunca ingerir as folhas em banho.",
+  "tradicao": "Folha de Caboclos e Mestres de linha forte. Depois de um banho de aroeira, firme com um banho de erva mansa (manjericão, alfavaca ou boldo)."
+ },
+ {
+  "id": "alfavaca",
+  "nome": "Alfavaca",
+  "nomePopular": "Alfavaca / Manjericão-cravo (Ocimum gratissimum)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "protecao",
+   "prosperidade"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental",
+   "defumacao"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (prima do manjericão, refresca e equilibra a coroa)",
+  "imagem": "",
+  "descricao": "Parente graúda do manjericão, de aroma forte de cravo. Equilibra a energia depois de descarregos, traz proteção doce e boa sorte para a casa.",
+  "colheita": "Colher os ponteiros pela manhã, sem arrancar a planta, para que ela rebrote.",
+  "cuidados": "Erva segura para uso externo. Evitar contato com os olhos. Pessoas com pele muito sensível devem diluir mais.",
+  "tradicao": "Muito usada no Nordeste em banhos de cheiro e para enfeitar quartinhas e altares. Ótima para o 2º tempo (reconstrução) dos ciclos de banho."
+ },
+ {
+  "id": "erva-cidreira",
+  "nome": "Erva-Cidreira",
+  "nomePopular": "Erva-cidreira / Melissa (Melissa officinalis) & Erva-cidreira-de-arbusto (Lippia alba)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "calma",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental",
+   "escalda-pes"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (erva mansa, acalma pensamentos e ajuda no sono)",
+  "imagem": "",
+  "descricao": "A folha do sossego. Acalma o peito apertado, a irritação e a agitação antes de dormir. Mansa o bastante para banhos de crianças (morno, do pescoço para baixo).",
+  "colheita": "Colher folhas verdes e perfumadas, de preferência no fim da tarde, quando o aroma está mais forte.",
+  "cuidados": "Segura para uso externo. Em bebês, usar somente bem diluída, morna e do pescoço para baixo. Como chá, pode baixar a pressão em pessoas sensíveis.",
+  "tradicao": "Erva das avós e das rezadeiras. Chá e banho de cidreira são o primeiro socorro contra nervoso e insônia.",
+  "cha": "Chá calmante clássico: 1 colher de sopa de folhas para 1 xícara de água quente, abafar 5 minutos. Evitar excesso em quem tem pressão baixa."
+ },
+ {
+  "id": "malva",
+  "nome": "Malva",
+  "nomePopular": "Malva-branca / Malva-cheirosa (Malva sylvestris & Plectranthus spp.)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "calma",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "compressa",
+   "ambiental"
+  ],
+  "partes": [
+   "folha",
+   "flor"
+  ],
+  "cabeca": "Sim (folha de consolo, alivia dores emocionais)",
+  "imagem": "",
+  "descricao": "Folha macia e acolhedora, ligada ao consolo e ao alívio de mágoas. Acalma inflamações da alma: tristeza, saudade e ressentimento.",
+  "colheita": "Colher folhas sadias, sem manchas, preferencialmente na lua cheia ou crescente.",
+  "cuidados": "Segura para uso externo. Gestantes devem evitar o uso interno (chá).",
+  "tradicao": "Muito usada pelas rezadeiras em compressas e banhos de assento. Combina com rosa branca e manjerona nos banhos de consolo."
+ },
+ {
+  "id": "pata-de-vaca",
+  "nome": "Pata-de-Vaca",
+  "nomePopular": "Pata-de-vaca (Bauhinia forficata)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "protecao",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sob orientação de um Juremeiro (tradicionalmente do pescoço para baixo)",
+  "imagem": "",
+  "descricao": "Folha partida em duas, como pegada de boi. Simboliza união e firmeza da família e do lar. Usada para fortalecer os laços da casa e a proteção dos que moram juntos.",
+  "colheita": "Colher folhas maduras pela manhã. A árvore é comum em praças e quintais.",
+  "cuidados": "Uso externo seguro. O chá é popular para glicemia, mas quem tem diabetes não deve substituir medicação: converse com seu médico.",
+  "tradicao": "Ligada às falanges de Boiadeiros. Boa em banhos de firmeza familiar e para lavar a soleira da porta."
+ },
+ {
+  "id": "vence-demanda",
+  "nome": "Vence-Demanda",
+  "nomePopular": "Vence-demanda / Vence-tudo (Justicia gendarussa e plantas afins, conforme a região)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "protecao",
+   "limpeza"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental",
+   "defumacao"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "NUNCA na cabeça (folha de combate, do pescoço para baixo)",
+  "imagem": "",
+  "descricao": "Como diz o nome, folha de vencer demandas: disputas no trabalho, perseguições e cargas enviadas. Usada em vaso na entrada e em banhos de proteção.",
+  "colheita": "Colher com pedido de licença e intenção clara de proteção, nunca de ataque.",
+  "cuidados": "O nome popular varia por região e pode indicar plantas diferentes. Só use se tiver certeza da identificação. Uso externo; não ingerir.",
+  "tradicao": "Planta de porteira e de Exu Guardião. Não se usa para 'devolver' mal a ninguém: vence-se a demanda limpando e fechando o próprio corpo."
+ },
+ {
+  "id": "espinheira-santa",
+  "nome": "Espinheira-Santa",
+  "nomePopular": "Espinheira-santa (Maytenus ilicifolia)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "protecao",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (com moderação, traz proteção serena)",
+  "imagem": "",
+  "descricao": "Folha de bordas espinhosas que protege sem agredir. Na tradição, guarda a pessoa contra a inveja silenciosa e acalma o estômago emocional (as preocupações que 'pesam').",
+  "colheita": "Espécie nativa ameaçada em algumas regiões: prefira mudas cultivadas ou folhas compradas de origem legal.",
+  "cuidados": "Uso interno (chá) é contraindicado na gestação e na amamentação. Para banho externo, é segura.",
+  "tradicao": "Erva de proteção das benzedeiras do Sul e do Sudeste, hoje presente em muitas casas de Jurema."
+ },
+ {
+  "id": "manjericao-roxo",
+  "nome": "Manjericão-Roxo",
+  "nomePopular": "Manjericão-roxo / Alfavaquinha-roxa (Ocimum basilicum var. purpurascens)",
+  "energia": "quentes",
+  "intensidade": "media",
+  "objetivos": [
+   "protecao",
+   "energia",
+   "limpeza"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental",
+   "defumacao"
+  ],
+  "partes": [
+   "folha",
+   "flor"
+  ],
+  "cabeca": "NUNCA na cabeça (o roxo é mais quente que o verde; usar do pescoço para baixo)",
+  "imagem": "",
+  "descricao": "Irmão quente do manjericão verde. Enquanto o verde acalma, o roxo protege e dá força, afastando energias densas e trazendo ânimo.",
+  "colheita": "Colher os ponteiros e as flores pela manhã. Podar as flores ajuda a planta a durar mais.",
+  "cuidados": "Uso externo seguro. Pele sensível: diluir bem.",
+  "tradicao": "Na Jurema, o verde vai na cabeça e o roxo vai no corpo. Os dois juntos fazem um banho completo de proteção e equilíbrio."
+ },
+ {
+  "id": "folha-bananeira",
+  "nome": "Folha de Bananeira",
+  "nomePopular": "Bananeira (Musa spp.)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "limpeza",
+   "harmonizacao"
+  ],
+  "usos": [
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Não se aplica (uso ambiental: forrar, enrolar e servir)",
+  "imagem": "",
+  "descricao": "Folha larga e fresca que serve de 'toalha sagrada': forra o chão de oferendas, embrulha comidas e cobre os trabalhos com frescor e acolhimento.",
+  "colheita": "Pedir licença e cortar a folha com faca limpa, sem ferir o 'umbigo' (coração) da bananeira.",
+  "cuidados": "Uso ambiental. Lave bem antes de usar com alimentos.",
+  "tradicao": "Na Jurema de chão, a folha de bananeira acolhe as obrigações e refresca o ambiente. Também é usada para passar no corpo em limpezas leves."
+ },
+ {
+  "id": "cana-do-brejo",
+  "nome": "Cana-do-Brejo",
+  "nomePopular": "Cana-do-brejo / Cana-de-macaco (Costus spicatus)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "limpeza",
+   "calma"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "folha",
+   "caule"
+  ],
+  "cabeca": "Sim (refrescante, com moderação)",
+  "imagem": "",
+  "descricao": "Planta de beira d'água, fresca e drenante. Na tradição, 'escoa' energias paradas e refresca quem anda com a cabeça quente.",
+  "colheita": "Colher folhas e pedaços do caule perto de água limpa, nunca em brejo poluído.",
+  "cuidados": "Uso externo seguro. Uso interno (chá) é diurético: evitar na gestação e em quem toma remédios para pressão sem orientação médica.",
+  "tradicao": "Ligada ao povo das águas. Boa para banhos de alívio em dias quentes e de muito estresse."
  }
 ];

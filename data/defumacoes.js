@@ -599,5 +599,214 @@ window.FV_DATA.defumacoes = [
   "reza": "Ácido que queima, enxofre que limpa: o que mandaram contra este lar queima na brasa e volta desfeito ao pó da terra.",
   "servePara": "Elimina larvas astrais viscosas, sensações de peso nos ombros ao entrar em casa e clima de tensão repentina sem motivo aparente.",
   "cuidados": "Aroma penetrante; ventilar o imóvel completamente após a queima."
+ },
+ {
+  "id": "defumacao-aroeira-alecrim",
+  "nome": "Aroeira & Alecrim (Descarrego da Casa)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "seg",
+   "sex"
+  ],
+  "horario": "fim de tarde",
+  "ervas": [
+   "Folhas secas de Aroeira",
+   "Alecrim seco"
+  ],
+  "sentido": "Do fundo da casa para a porta da rua",
+  "reza": "Aroeira do sertão, alecrim do sol: levem embora o que pesa nesta casa e deixem só o que é bom.",
+  "servePara": "Limpeza forte de ambientes carregados, depois de discussões ou visitas pesadas.",
+  "cuidados": "Ventile bem: a fumaça da aroeira é forte. Mantenha crianças, gestantes e animais fora do cômodo durante a defumação."
+ },
+ {
+  "id": "defumacao-cidreira-paz-noturna",
+  "nome": "Erva-Cidreira (Paz Noturna)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex",
+   "dom"
+  ],
+  "horario": "à noite, antes de dormir",
+  "ervas": [
+   "Folhas secas de Erva-Cidreira",
+   "Uma pitada de Açúcar cristal"
+  ],
+  "sentido": "Da porta para dentro, terminando nos quartos",
+  "reza": "Que a paz da cidreira envolva esta casa e embale nosso sono.",
+  "servePara": "Acalmar a casa à noite, reduzir agitação e preparar um sono tranquilo.",
+  "cuidados": "Defumação suave. Apague antes de dormir: nunca deixe brasa acesa sem supervisão."
+ },
+ {
+  "id": "defumacao-laranja-canela-alegria",
+  "nome": "Casca de Laranja & Canela (Alegria do Lar)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "qui",
+   "sab",
+   "dom"
+  ],
+  "horario": "manhã ou tarde",
+  "ervas": [
+   "Cascas secas de Laranja",
+   "Canela em pau quebrada"
+  ],
+  "sentido": "Da porta para dentro",
+  "reza": "Que a alegria entre por esta porta, que a fartura se sente à mesa e que o riso volte a morar aqui.",
+  "servePara": "Trazer alegria, doçura e prosperidade para a casa; ótima depois de uma limpeza.",
+  "cuidados": "Pode ser feita na frigideira seca em fogo baixo. Seque as cascas ao sol por alguns dias antes."
+ },
+ {
+  "id": "defumacao-louro-mirra",
+  "nome": "Louro & Mirra (Vitória e Sacralidade)",
+  "objetivo": "protecao",
+  "intensidade": "media",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "dom",
+   "qui"
+  ],
+  "horario": "manhã",
+  "ervas": [
+   "Folhas secas de Louro",
+   "Resina de Mirra"
+  ],
+  "sentido": "Da porta para dentro, passando pelo altar ou cantinho de oração",
+  "reza": "Louro da vitória, mirra dos sábios: consagrem esta casa e firmem nossa fé.",
+  "servePara": "Consagrar o ambiente, firmar o cantinho de oração e atrair vitórias.",
+  "cuidados": "A resina queima melhor sobre carvão próprio para defumação. Ventile depois."
+ },
+ {
+  "id": "defumacao-capim-limao-frescor",
+  "nome": "Capim-Limão (Frescor e Leveza)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "ter",
+   "qua",
+   "sex"
+  ],
+  "horario": "qualquer horário",
+  "ervas": [
+   "Folhas secas de Capim-limão"
+  ],
+  "sentido": "Pela casa toda, abrindo as janelas ao final",
+  "reza": "Que o frescor desta folha leve o abafado e traga leveza a cada canto.",
+  "servePara": "Renovar o ar e a energia da casa em dias quentes ou abafados.",
+  "cuidados": "Defumação leve e de aroma agradável. Segura para casas com crianças, com ventilação."
+ },
+ {
+  "id": "defumacao-escritorio-sem-brasa",
+  "nome": "Defumação do Trabalho sem Brasa (Spray de Ervas)",
+  "objetivo": "protecao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex"
+  ],
+  "horario": "no início do expediente",
+  "ervas": [
+   "Alecrim",
+   "Folhas de Louro",
+   "Manjericão",
+   "Água e um pouco de álcool de cereais"
+  ],
+  "sentido": "Borrifar no ar ao redor da mesa e na porta da sala",
+  "reza": "Que meu trabalho seja protegido, minha mente clara e meu ambiente em paz.",
+  "servePara": "Para escritórios, lojas e lugares onde não é possível acender fumaça.",
+  "cuidados": "Prepare um chá forte das ervas, coe, misture com um pouco de álcool de cereais e guarde em borrifador na geladeira por até 7 dias. Não borrife nos olhos nem em equipamentos eletrônicos."
+ },
+ {
+  "id": "defumacao-quarto-crianca",
+  "nome": "Defumação Suave do Quarto da Criança",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex"
+  ],
+  "horario": "de dia, com a criança fora do quarto",
+  "ervas": [
+   "Alfazema seca",
+   "Camomila seca",
+   "Uma pitada de Açúcar"
+  ],
+  "sentido": "Do canto do quarto para a porta, depois abrir a janela",
+  "reza": "Anjo da guarda desta criança, protegei seu quarto, seus sonhos e seu crescimento.",
+  "servePara": "Afastar pesadelos, acalmar o ambiente e proteger o sono das crianças.",
+  "cuidados": "Nunca defume com a criança dentro do quarto. Espere a fumaça sair completamente (pelo menos 30 minutos com a janela aberta) antes de ela voltar."
+ },
+ {
+  "id": "defumacao-virada-ciclo",
+  "nome": "Defumação de Virada de Ciclo (Ano Novo)",
+  "objetivo": "limpeza",
+  "intensidade": "media",
+  "luas": [
+   "nova",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex",
+   "sab",
+   "dom"
+  ],
+  "horario": "nos últimos dias do ano ou antes de uma grande mudança",
+  "ervas": [
+   "Arruda seca",
+   "Alecrim",
+   "Louro",
+   "Cascas de Alho"
+  ],
+  "sentido": "Primeiro do fundo para a porta (limpar); depois, com louro e alecrim, da porta para dentro (abrir)",
+  "reza": "Fecho o ciclo que passou com gratidão, limpo o que ficou de pesado e abro a porta para o novo.",
+  "servePara": "Encerrar um ano ou ciclo e preparar a casa para o que vem.",
+  "cuidados": "Faça em duas etapas: limpeza e depois atração. Ventile bem entre uma e outra."
  }
 ];

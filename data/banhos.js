@@ -1494,5 +1494,394 @@ window.FV_DATA.banhos = [
   "modoPreparo": "Coloque a água quente (em temperatura confortável) na bacia. Adicione o sal grosso, a alfazema e o alecrim, mexendo com uma colher de pau. Sente-se em local confortável, coloque os pés na bacia e respire fundo por 15 a 20 minutos. Enquanto a água amorna, sinta todo o excesso de pensamentos, a eletricidade mental e a ansiedade descendo pelo corpo e sendo descarregados na água salgada. Seque os pés e calce meias confortáveis antes de dormir.",
   "reza": "Mãe Terra acolhedora: recebei o peso que não me pertence, drenai a tensão dos meus ombros e firmai meus passos na serenidade da paz divina.",
   "observacao": "ESCALDA-PÉS RITUALÍSTICO. Ideal para noites de insônia, peso nas pernas pós-trabalho ou quando a cabeça parece que vai explodir de tantas preocupações."
+ },
+ {
+  "id": "banho-aroeira-descarrego",
+  "nome": "Banho de Aroeira (Descarrego Forte do Sertão)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "seg",
+   "sex"
+  ],
+  "horario": "fim de tarde ou à noite",
+  "ervas": [
+   "7 ramos de Aroeira",
+   "Punhado de Sal Grosso (opcional)",
+   "2 litros de água"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva a água, desligue o fogo e abafe a aroeira por 10 minutos. Coe, espere ficar morno e acrescente o sal se quiser. Tome seu banho de higiene e jogue o banho do pescoço para baixo, pedindo que tudo que é pesado escorra para a terra.",
+  "reza": "Aroeira braba do sertão, leva o que não é meu, corta o que me pesa e devolve à terra o que a terra pode transformar.",
+  "observacao": "SOMENTE do pescoço para baixo. Teste antes na pele (a aroeira pode irritar). No mesmo dia ou no seguinte, tome um banho de reconstrução (ex.: Alfavaca & Manjericão)."
+ },
+ {
+  "id": "banho-cidreira-camomila-criancas",
+  "nome": "Banho de Cidreira & Camomila (Sono Tranquilo das Crianças)",
+  "objetivo": "calma",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex",
+   "dom"
+  ],
+  "horario": "à noite, antes de dormir",
+  "ervas": [
+   "Folhas de Erva-Cidreira",
+   "Flores de Camomila",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Faça um chá fraco com as ervas (5 minutos abafado), coe e misture em água morna até ficar agradável ao toque. Para crianças maiores, pode ser jogado com cuidado do pescoço para baixo e, se quiser, molhar levemente a cabeça. Para bebês, apenas do pescoço para baixo e bem diluído.",
+  "reza": "Anjo da guarda desta criança, envolvei seu sono com paz. Que os pesadelos se desfaçam e o descanso seja doce.",
+  "observacao": "Banho mansíssimo. Em bebês: sempre do pescoço para baixo, morno e bem diluído. Interrompa se houver qualquer irritação na pele."
+ },
+ {
+  "id": "banho-alfavaca-manjericao-reconstrucao",
+  "nome": "Banho de Alfavaca & Manjericão (2º Tempo: Reconstrução)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "ter",
+   "qui",
+   "sab",
+   "dom"
+  ],
+  "horario": "pela manhã ou no dia seguinte ao descarrego",
+  "ervas": [
+   "Folhas de Alfavaca",
+   "Manjericão verde",
+   "Água fresca"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Macere as folhas frescas com as mãos na água fria ou em temperatura ambiente, conversando com elas e pedindo equilíbrio. Coe e jogue da cabeça aos pés, ou só do pescoço para baixo se preferir.",
+  "reza": "Folha mansa de bom cheiro, fecha meu corpo com paz, devolve meu brilho e equilibra o que foi limpo.",
+  "observacao": "É o banho ideal para fechar qualquer ciclo de descarrego. Pode na cabeça."
+ },
+ {
+  "id": "banho-malva-consolo",
+  "nome": "Banho de Malva & Rosa Branca (Consolo da Alma)",
+  "objetivo": "calma",
+  "intensidade": "suave",
+  "luas": [
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "sex",
+   "dom"
+  ],
+  "horario": "à noite",
+  "ervas": [
+   "Folhas de Malva",
+   "Pétalas de 1 Rosa Branca",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Abafe as folhas de malva em água quente por 5 minutos, coe e junte as pétalas de rosa branca já fora do fogo. Espere amornar e jogue devagar, respirando fundo.",
+  "reza": "Que esta folha macia acolha minha dor e que a rosa branca de Oxalá devolva paz ao meu coração.",
+  "observacao": "Bom em fases de tristeza, saudade e mágoa. Se a tristeza for persistente, procure também apoio de um profissional de saúde."
+ },
+ {
+  "id": "banho-pata-de-vaca-familia",
+  "nome": "Banho de Pata-de-Vaca (Firmeza da Casa e da Família)",
+  "objetivo": "protecao",
+  "intensidade": "media",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "qui",
+   "sab"
+  ],
+  "horario": "de manhã",
+  "ervas": [
+   "7 folhas de Pata-de-Vaca",
+   "Alecrim",
+   "2 litros de água"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva a água, desligue e abafe as folhas por 10 minutos. Coe. Cada pessoa da casa pode tomar do pescoço para baixo. O que sobrar pode ser usado para lavar a soleira da porta, de dentro para fora.",
+  "reza": "Assim como esta folha é uma só em duas partes, que nossa família seja unida, firme e protegida.",
+  "observacao": "Do pescoço para baixo. Ótimo para famílias passando por desentendimentos."
+ },
+ {
+  "id": "banho-vence-demanda-trabalho",
+  "nome": "Banho de Vence-Demanda (Proteção no Trabalho)",
+  "objetivo": "protecao",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "cheia"
+  ],
+  "dias": [
+   "ter",
+   "sex"
+  ],
+  "horario": "antes de sair para o trabalho ou na véspera de uma reunião difícil",
+  "ervas": [
+   "Folhas de Vence-Demanda",
+   "Folhas de Espada de São Jorge (1 pedaço)",
+   "2 litros de água"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Abafe as folhas na água quente por 10 minutos, coe e use morno do pescoço para baixo. Mentalize um escudo verde ao seu redor.",
+  "reza": "Ogum guerreiro, abri meu caminho no trabalho. Que nenhuma perseguição me alcance e que eu vença pela verdade e pelo bom trabalho.",
+  "observacao": "Do pescoço para baixo. Não é banho para atacar ninguém: é para se proteger e trabalhar em paz."
+ },
+ {
+  "id": "banho-mel-rosa-amarela-docura",
+  "nome": "Banho de Mel & Rosa Amarela (Doçura e Prosperidade de Oxum)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "sab",
+   "dom"
+  ],
+  "horario": "de manhã ou ao entardecer",
+  "ervas": [
+   "Pétalas de 3 Rosas Amarelas",
+   "1 colher de sopa de Mel",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Dissolva o mel em um pouco de água morna. Junte as pétalas e macere de leve. Complete com água em temperatura agradável e jogue do pescoço para baixo (ou da cabeça, se for seu costume). Deixe secar naturalmente por alguns minutos antes de enxaguar, se quiser.",
+  "reza": "Mamãe Oxum, adoçai meus caminhos, trazei prosperidade com doçura e fazei brilhar o ouro da minha vida.",
+  "observacao": "O mel pode deixar a pele grudenta: um enxágue leve depois é permitido. Pode na cabeça."
+ },
+ {
+  "id": "banho-agua-coco-rosa-branca",
+  "nome": "Banho de Água de Coco & Rosa Branca (Paz no Ori)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "sex",
+   "dom"
+  ],
+  "horario": "à noite, antes de dormir",
+  "ervas": [
+   "Água de 1 coco verde",
+   "Pétalas de 1 Rosa Branca",
+   "Água fresca"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Misture a água de coco à água fresca e acrescente as pétalas, macerando com carinho. Jogue da cabeça aos pés, devagar, mentalizando uma luz branca.",
+  "reza": "Pai Oxalá, que a pureza do coco e da rosa branca acalme minha cabeça e traga paz ao meu Ori.",
+  "observacao": "Um dos banhos mais suaves e seguros para a cabeça. Ótimo depois de dias de muita cobrança mental."
+ },
+ {
+  "id": "banho-sal-grosso-alecrim-seguro",
+  "nome": "Banho de Sal Grosso & Alecrim (Versão Segura)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "sex"
+  ],
+  "horario": "à noite, no máximo uma vez por semana",
+  "ervas": [
+   "1 punhado pequeno de Sal Grosso",
+   "Ramos de Alecrim",
+   "2 litros de água morna"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Dissolva o sal na água morna e junte o alecrim já abafado (5 minutos em água quente). Jogue do pescoço para baixo. No dia seguinte, tome obrigatoriamente um banho de ervas mansas.",
+  "reza": "Sal da terra, alecrim do sol: levem o que pesa e deixem só o que é luz.",
+  "observacao": "NUNCA na cabeça. O sal limpa tudo, inclusive o que é bom: por isso sempre feche com um banho de reconstrução. Evite em pele ferida ou ressecada."
+ },
+ {
+  "id": "banho-inicio-ciclo-aniversario",
+  "nome": "Banho de Início de Ciclo (Aniversário e Ano Novo Pessoal)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "qui",
+   "dom"
+  ],
+  "horario": "na manhã do aniversário ou do começo do novo ciclo",
+  "ervas": [
+   "Manjericão verde",
+   "Folhas de Louro",
+   "Pétalas de Rosa Branca",
+   "Água fresca"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Macere o manjericão e as pétalas na água fresca. Abafe o louro em um pouco de água quente, coe e misture. Antes de jogar, diga em voz alta 3 coisas que você quer cultivar no novo ciclo.",
+  "reza": "Começo novo, caminho aberto. Agradeço o ciclo que fecha e recebo com alegria o que começa.",
+  "observacao": "Pode na cabeça. Ótimo para aniversários, mudanças de casa e começos de emprego."
+ },
+ {
+  "id": "banho-vespera-prova-foco",
+  "nome": "Banho de Véspera de Prova ou Entrevista (Clareza e Foco)",
+  "objetivo": "energia",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex"
+  ],
+  "horario": "na noite anterior ou na manhã do compromisso",
+  "ervas": [
+   "Alecrim",
+   "Hortelã",
+   "Folhas de Louro",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Abafe as ervas por 5 minutos em água quente, coe e misture com água fresca até ficar morno. Jogue do pescoço para baixo e passe um pouco nas têmporas e na nuca, respirando fundo.",
+  "reza": "Que minha mente fique clara, minha memória firme e minha palavra certeira. Eu estou preparado e confio no meu caminho.",
+  "observacao": "Combine com sono cedo e boa alimentação. Pode passar na cabeça com moderação."
+ },
+ {
+  "id": "banho-luto-saudade",
+  "nome": "Banho de Luto e Saudade (Manjerona & Rosa Branca)",
+  "objetivo": "calma",
+  "intensidade": "suave",
+  "luas": [
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "seg",
+   "sab"
+  ],
+  "horario": "à noite",
+  "ervas": [
+   "Manjerona",
+   "Pétalas de Rosa Branca",
+   "Erva-Cidreira",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Abafe a manjerona e a cidreira em água quente por 5 minutos, coe e junte as pétalas. Jogue com calma, permitindo-se chorar se vier. Ao final, acenda uma vela branca em intenção de quem partiu.",
+  "reza": "Que quem partiu siga em paz na luz, e que eu guarde o amor sem prender a dor. Eu me permito sentir e me permito seguir.",
+  "observacao": "Banho de acolhimento, não de esquecimento. Pode na cabeça. Luto é processo: procure sua rede de apoio."
+ },
+ {
+  "id": "banho-reconciliacao-lar",
+  "nome": "Banho de Reconciliação do Lar (Para Toda a Família)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "sex",
+   "dom"
+  ],
+  "horario": "num fim de tarde tranquilo",
+  "ervas": [
+   "Alfazema",
+   "Camomila",
+   "Folhas de Laranjeira",
+   "Água morna"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Prepare uma panela grande de chá fraco com as ervas, coe e divida entre os moradores. Cada um toma o seu, do pescoço para baixo, pedindo paz. Use o resto para passar um pano úmido nas maçanetas da casa.",
+  "reza": "Que nesta casa reine a paciência, a escuta e o carinho. Que as palavras duras se desfaçam e o amor volte a circular.",
+  "observacao": "Ervas mansas: seguro para toda a família. Em bebês, bem diluído e do pescoço para baixo."
+ },
+ {
+  "id": "escalda-pes-alecrim-sal",
+  "nome": "Escalda-Pés de Alecrim & Sal (Cansaço Físico do Trabalho)",
+  "objetivo": "energia",
+  "intensidade": "media",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex"
+  ],
+  "horario": "ao chegar do trabalho",
+  "ervas": [
+   "Ramos de Alecrim",
+   "1 colher de sopa de Sal Grosso",
+   "Água quente suficiente para cobrir os tornozelos em uma bacia"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Abafe o alecrim na água quente por 5 minutos, junte o sal e espere chegar a uma temperatura confortável. Deixe os pés de 10 a 15 minutos, depois seque bem e descanse com os pés para cima.",
+  "reza": "Pés que andaram, pés que trabalharam: descansem. Que a terra leve o cansaço e o alecrim devolva o ânimo.",
+  "observacao": "Diferente do escalda-pés de alfazema (calmante), este é revigorante. Diabéticos e pessoas com má circulação: cuidado com a temperatura da água."
+ },
+ {
+  "id": "banho-lua-cheia-agua-serenada",
+  "nome": "Banho de Lua Cheia (Água Serenada & Pétalas Brancas)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "cheia"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex",
+   "sab",
+   "dom"
+  ],
+  "horario": "na manhã seguinte à noite de lua cheia",
+  "ervas": [
+   "Água serenada (deixada no sereno da lua cheia)",
+   "Pétalas de Rosa Branca",
+   "Folhas de Boldo"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Na noite de lua cheia, deixe uma bacia de vidro ou louça com água limpa no sereno (coberta com um pano fino). Pela manhã, macere as pétalas e o boldo nessa água e jogue da cabeça aos pés.",
+  "reza": "Lua cheia, mãe da noite, que tua luz serenada lave meu Ori e plenifique meus caminhos.",
+  "observacao": "Pode na cabeça. A água serenada também pode ser guardada em garrafa de vidro escura por até 3 dias para firmeza de quartinha."
  }
 ];
