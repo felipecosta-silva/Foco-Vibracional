@@ -35,9 +35,10 @@ const NAV = [
   {
     label: "Mente & Palavra",
     children: [
-      { label: "Mantras & Afirmações", url: "mantras.html" },
-      { label: "Afirmações Diárias", url: "afirmacoes.html" },
-      { label: "Perguntas da Noite", url: "perguntas.html" }
+      { label: "Mantras", url: "mantras.html#mantras" },
+      { label: "Afirmações", url: "mantras.html#afirmacoes" },
+      { label: "Ritual da Noite", url: "mantras.html#noite" },
+      { label: "Favoritos", url: "mantras.html#favoritos" }
     ]
   },
   {
@@ -60,16 +61,17 @@ function renderHeader() {
   let navItemsHtml = "";
   for (const item of NAV) {
     if (!item.children) {
-      const isActive = currentPath === item.url.toLowerCase();
+      const isActive = currentPath === item.url.split("#")[0].toLowerCase();
       navItemsHtml += `
         <a class="nav__link ${isActive ? 'nav__link--active' : ''}" href="${item.url}">
           ${item.label}
         </a>`;
     } else {
-      const isDropdownActive = item.children.some(c => c.url.toLowerCase() === currentPath);
+      const isDropdownActive = item.children.some(c => c.url.split("#")[0].toLowerCase() === currentPath);
       let subLinksHtml = "";
       for (const sub of item.children) {
-        const isSubActive = currentPath === sub.url.toLowerCase();
+        // Sublinks com âncora (#aba) são marcados por initPageTabs()
+        const isSubActive = !sub.url.includes("#") && currentPath === sub.url.toLowerCase();
         subLinksHtml += `
           <a class="nav__sublink ${isSubActive ? 'nav__sublink--active' : ''}" href="${sub.url}">
             ${sub.label}
@@ -200,9 +202,9 @@ function renderFooter() {
           </div>
           <div class="site-footer__col">
             <span class="site-footer__heading">Mente &amp; Palavra</span>
-            <a href="mantras.html">Mantras &amp; Afirmações</a>
-            <a href="afirmacoes.html">Afirmações Diárias</a>
-            <a href="perguntas.html">Perguntas da Noite</a>
+            <a href="mantras.html#mantras">Mantras</a>
+            <a href="mantras.html#afirmacoes">Afirmações</a>
+            <a href="mantras.html#noite">Ritual da Noite</a>
           </div>
           <div class="site-footer__col">
             <span class="site-footer__heading">Conhecimento</span>
@@ -890,6 +892,48 @@ function wireSearch() {
   }
 }
 
+/* Abas de seção de página (ex.: mantras.html#afirmacoes), sincronizadas com o hash da URL */
+function initPageTabs() {
+  const tabs = $all("[data-page-tab]");
+  if (!tabs.length) return;
+  const ids = tabs.map(t => t.getAttribute("data-page-tab"));
+
+  function show(id, scroll) {
+    if (!ids.includes(id)) id = ids[0];
+    tabs.forEach(t => {
+      const on = t.getAttribute("data-page-tab") === id;
+      t.classList.toggle("page-tab--active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    $all("[data-page-panel]").forEach(p => { p.hidden = p.getAttribute("data-page-panel") !== id; });
+    $all(".nav__sublink").forEach(a => {
+      const href = a.getAttribute("href") || "";
+      if (href.includes("#") && href.split("#")[0] === (location.pathname.split("/").pop() || "index.html")) {
+        a.classList.toggle("nav__sublink--active", href.split("#")[1] === id);
+      }
+    });
+    if (scroll) document.querySelector(".page-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function fromHash(scroll) {
+    const h = decodeURIComponent(location.hash.slice(1));
+    if (ids.includes(h)) return show(h, scroll);
+    // âncora interna (ex.: #tecnicas, #antes-dormir): abre a aba que a contém
+    const target = h && document.getElementById(h);
+    const panel = target?.closest("[data-page-panel]");
+    show(panel ? panel.getAttribute("data-page-panel") : ids[0], false);
+    if (target && panel) setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  }
+
+  tabs.forEach(t => t.addEventListener("click", () => {
+    const id = t.getAttribute("data-page-tab");
+    history.replaceState(null, "", "#" + id);
+    show(id, false);
+  }));
+  window.addEventListener("hashchange", () => fromHash(true));
+  fromHash(false);
+}
+
 function wireTabs() {
   const tabs = $all(".tab");
   if (!tabs.length) return;
@@ -965,6 +1009,28 @@ function renderFavorites() {
    Página: Plantas & Ervas Sagradas (plantas.html)
    Compatível com o layout oficial com IDs #herbGrid, #qHerb, #fEnergia, etc.
    ========================================================================== */
+/* Link direto para um item de catálogo (ex.: banhos.html#banho-calma-sono):
+   filtra pelo nome, rola até o card e o destaca por 2 segundos. */
+function focusCatalogItemFromHash(items, qInput, rerender, grid) {
+  function go() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id || !grid) return;
+    const item = items.find(x => x.id === id);
+    if (!item) return;
+    if (qInput) qInput.value = item.nome;
+    rerender();
+    const el = grid.querySelector(`[data-item-id="${CSS.escape(id)}"]`);
+    if (!el) return;
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.add("info-card--focus");
+      setTimeout(() => el.classList.remove("info-card--focus"), 2200);
+    }, 60);
+  }
+  window.addEventListener("hashchange", go);
+  go();
+}
+
 function initPlantasPage() {
   const grid = $("#herbGrid");
   const count = $("#herbCount");
@@ -1025,6 +1091,7 @@ function initPlantasPage() {
     pageItems.forEach(e => {
       const card = document.createElement("div");
       card.className = "info-card";
+      card.dataset.itemId = e.id || "";
 
       // Cor ou tag da energia
       const energiaTag = (e.energia === "frias") ? "fria (paz)" :
@@ -1138,6 +1205,7 @@ function initPlantasPage() {
   }
 
   render();
+  focusCatalogItemFromHash(ERVAS, qInput, render, grid);
 }
 
 /* ==========================================================================
@@ -1199,6 +1267,7 @@ function initBanhosPage() {
     pageItems.forEach((b, index) => {
       const card = document.createElement("div");
       card.className = "info-card";
+      card.dataset.itemId = b.id || "";
 
       const cabecaBadge = b.cabeca
         ? `<span class="badge" style="border-color: rgba(177,255,204,0.4); color: #b1ffcc;">✓ Cabeça permitida</span>`
@@ -1342,6 +1411,7 @@ function initBanhosPage() {
   }
 
   render();
+  focusCatalogItemFromHash(BANHOS, qInput, render, grid);
 }
 
 /* ==========================================================================
@@ -1401,6 +1471,7 @@ function initDefumacaoPage() {
     pageItems.forEach((d, index) => {
       const card = document.createElement("div");
       card.className = "info-card";
+      card.dataset.itemId = d.id || "";
 
       const idReza = `reza_defuma_${index}`;
 
@@ -1534,6 +1605,7 @@ function initDefumacaoPage() {
   }
 
   render();
+  focusCatalogItemFromHash(DEFUMACOES, qInput, render, grid);
 }
 
 /* ==========================================================================
@@ -1887,6 +1959,25 @@ function portalName(month) {
   return `${mm}/${mm}`;
 }
 
+/* Sequências numéricas (Grabovoi) — fonte única usada em portais.html e no painel Hoje */
+const GRABOVOI_SEQS = [
+  { seq: "520 741 777 888", cat: "prosperidade", titulo: "Prosperidade Máxima & Fluxo Total", uso: "Combinação clássica para destravamento material, milagres e abundância divina." },
+  { seq: "520", cat: "prosperidade", titulo: "Dinheiro Inesperado", uso: "Abertura rápida de canais de renda imprevistos, destravamento de pagamentos e circulação do fluxo material." },
+  { seq: "318 798", cat: "prosperidade", titulo: "Paz Financeira & Quitação de Dívidas", uso: "Organização mental para pagar pendências, tranquilidade orçamentária e prosperidade sustentável." },
+  { seq: "888", cat: "prosperidade", titulo: "Abundância Divina & Expansão Justa", uso: "Trabalhar disciplina, merecimento e colheita fértil do próprio suor." },
+  { seq: "741", cat: "foco", titulo: "Solução Imediata de Problemas", uso: "Clareza mental instantânea quando estiver diante de um impasse ou aperto urgente." },
+  { seq: "519 7148", cat: "foco", titulo: "Tudo é Possível", uso: "Rompimento de crenças de incapacidade e conexão direta com o campo de infinitas possibilidades." },
+  { seq: "111", cat: "foco", titulo: "Começo Abençoado & Direção", uso: "Iniciar um novo projeto, trabalho ou estudo com firmeza, bênção e constância." },
+  { seq: "1814321", cat: "saude", titulo: "Saúde Integral & Vitalidade", uso: "Harmonização do corpo físico, fortalecimento celular e vigor para a jornada diária." },
+  { seq: "1891014", cat: "calma", titulo: "Alívio do Estresse & Ansiedade", uso: "Acalmar o peito apertado, desanuviar pensamentos acelerados e respirar em paz." },
+  { seq: "1001105010", cat: "calma", titulo: "Paz Interior Profunda", uso: "Serenidade de espírito, equilíbrio emocional e alinhamento do coração." },
+  { seq: "222", cat: "harmonizacao", titulo: "Harmonia Familiar & no Lar", uso: "Apaziguar conflitos de convivência, fortalecer a paciência mútua e restaurar a concórdia." },
+  { seq: "918 005 914", cat: "harmonizacao", titulo: "Amor Próprio & Autoestima", uso: "Reconhecimento do seu valor sagrado e libertação de sentimentos de culpa ou rejeição." },
+  { seq: "917 498 814316", cat: "protecao", titulo: "Escudo Protetor Energético", uso: "Blindagem áurica contra inveja, energias intrusas e ambientes espiritualmente densos." },
+  { seq: "777", cat: "protecao", titulo: "Milagres & Bênçãos Cósmicas", uso: "Sustentação na fé, amparo superior em horas difíceis e gratidão pelas vitórias." },
+  { seq: "999", cat: "limpeza", titulo: "Encerramento de Ciclos & Desapego", uso: "Fechar portas do passado com dignidade e soltar laços que não servem mais à sua evolução." }
+];
+
 function initPortaisPage() {
   const grid = $("#portalGrid");
   if (!grid) return;
@@ -1955,24 +2046,8 @@ function initPortaisPage() {
     grid.appendChild(card);
   }
 
-  // Grabovoi & Sequências Expandidas
-  const SEQS = [
-    { seq: "520 741 777 888", cat: "prosperidade", titulo: "Prosperidade Máxima & Fluxo Total", uso: "Combinação clássica para destravamento material, milagres e abundância divina." },
-    { seq: "520", cat: "prosperidade", titulo: "Dinheiro Inesperado", uso: "Abertura rápida de canais de renda imprevistos, destravamento de pagamentos e circulação do fluxo material." },
-    { seq: "318 798", cat: "prosperidade", titulo: "Paz Financeira & Quitação de Dívidas", uso: "Organização mental para pagar pendências, tranquilidade orçamentária e prosperidade sustentável." },
-    { seq: "888", cat: "prosperidade", titulo: "Abundância Divina & Expansão Justa", uso: "Trabalhar disciplina, merecimento e colheita fértil do próprio suor." },
-    { seq: "741", cat: "foco", titulo: "Solução Imediata de Problemas", uso: "Clareza mental instantânea quando estiver diante de um impasse ou aperto urgente." },
-    { seq: "519 7148", cat: "foco", titulo: "Tudo é Possível", uso: "Rompimento de crenças de incapacidade e conexão direta com o campo de infinitas possibilidades." },
-    { seq: "111", cat: "foco", titulo: "Começo Abençoado & Direção", uso: "Iniciar um novo projeto, trabalho ou estudo com firmeza, bênção e constância." },
-    { seq: "1814321", cat: "saude", titulo: "Saúde Integral & Vitalidade", uso: "Harmonização do corpo físico, fortalecimento celular e vigor para a jornada diária." },
-    { seq: "1891014", cat: "calma", titulo: "Alívio do Estresse & Ansiedade", uso: "Acalmar o peito apertado, desanuviar pensamentos acelerados e respirar em paz." },
-    { seq: "1001105010", cat: "calma", titulo: "Paz Interior Profunda", uso: "Serenidade de espírito, equilíbrio emocional e alinhamento do coração." },
-    { seq: "222", cat: "harmonizacao", titulo: "Harmonia Familiar & no Lar", uso: "Apaziguar conflitos de convivência, fortalecer a paciência mútua e restaurar a concórdia." },
-    { seq: "918 005 914", cat: "harmonizacao", titulo: "Amor Próprio & Autoestima", uso: "Reconhecimento do seu valor sagrado e libertação de sentimentos de culpa ou rejeição." },
-    { seq: "917 498 814316", cat: "protecao", titulo: "Escudo Protetor Energético", uso: "Blindagem áurica contra inveja, energias intrusas e ambientes espiritualmente densos." },
-    { seq: "777", cat: "protecao", titulo: "Milagres & Bênçãos Cósmicas", uso: "Sustentação na fé, amparo superior em horas difíceis e gratidão pelas vitórias." },
-    { seq: "999", cat: "limpeza", titulo: "Encerramento de Ciclos & Desapego", uso: "Fechar portas do passado com dignidade e soltar laços que não servem mais à sua evolução." }
-  ];
+  // Grabovoi & Sequências Expandidas (fonte única: GRABOVOI_SEQS)
+  const SEQS = GRABOVOI_SEQS;
 
   const seqWrap = $("#seqList");
   const qSeq = $("#qSeq");
@@ -2950,6 +3025,168 @@ function initSimbolosPage() {
 /* ==========================================================================
    Inicialização Global
    ========================================================================== */
+
+/* ==========================================================================
+   Painel "Hoje" (index.html): sugestão de banho/defumação pela lua + dia,
+   portal do dia e sequência numérica do dia
+   ========================================================================== */
+const WEEKDAY_KEYS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
+const OBJETIVO_LABEL = {
+  harmonizacao: "harmonização", limpeza: "limpeza", prosperidade: "prosperidade",
+  protecao: "proteção", calma: "calma", energia: "energia"
+};
+
+function escapeHtml(str) {
+  return String(str ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/* Itens compatíveis com a lua e o dia de hoje (com recuo gradual se não houver) */
+function itemsForToday(list, moonKey, dayKey) {
+  const both = list.filter(x => (x.luas || []).includes(moonKey) && (x.dias || []).includes(dayKey));
+  if (both.length) return both;
+  const byMoon = list.filter(x => (x.luas || []).includes(moonKey));
+  return byMoon.length ? byMoon : list;
+}
+
+function ritualItemHtml(kind, item, href) {
+  if (!item) return "";
+  const icon = kind === "banho" ? "🛁" : "💨";
+  const cabeca = kind === "banho"
+    ? (item.cabeca ? ' • <span style="color:#b1ffcc;">pode na cabeça</span>' : ' • <span style="color:#ffd2a6;">do pescoço para baixo</span>')
+    : "";
+  return `
+    <a class="item ritual-link" href="${href}#${encodeURIComponent(item.id)}">
+      <span class="muted small">${icon} ${kind === "banho" ? "Banho" : "Defumação"} • ${escapeHtml(OBJETIVO_LABEL[item.objetivo] || item.objetivo || "")}${cabeca}</span>
+      <b>${escapeHtml(item.nome)}</b>
+    </a>`;
+}
+
+function initHojePage() {
+  const wrap = $("#todaySuggest");
+  if (!wrap) return;
+
+  const today = new Date();
+  const moon = getLiveMoonData(today);
+  const dayKey = WEEKDAY_KEYS[today.getDay()];
+  const banhos = itemsForToday(BANHOS, moon.key, dayKey);
+  const defs = itemsForToday(DEFUMACOES, moon.key, dayKey);
+  let offset = 0;
+
+  const badge = $("#todaySuggestBadge");
+  if (badge) badge.textContent = `${moon.icon} ${moon.name.replace(/^Lua /, "")} • ${dayKey}`;
+
+  function render() {
+    const b = banhos.length ? banhos[(dailyIndexByDate(today, banhos.length) + offset) % banhos.length] : null;
+    const d = defs.length ? defs[(dailyIndexByDate(today, defs.length) + offset) % defs.length] : null;
+    wrap.innerHTML = ritualItemHtml("defumacao", d, "defumacao.html") + ritualItemHtml("banho", b, "banhos.html") +
+      `<p class="muted small" style="margin:6px 0 0;">${escapeHtml(moon.orientacao || "")}</p>`;
+  }
+  $("#todaySuggestNext")?.addEventListener("click", () => { offset++; render(); });
+  render();
+
+  // Portal do dia
+  const pBadge = $("#todayPortalBadge");
+  const pText = $("#todayPortalText");
+  if (isPortalDay(today)) {
+    if (pBadge) pBadge.textContent = "✨ Hoje é portal";
+    if (pText) pText.innerHTML = `Hoje é o portal <b>${portalName(today.getMonth() + 1)}</b>. Faça 3 passos: intenção clara, uma ação pequena real e gratidão. <a href="portais.html">Saiba mais →</a>`;
+  } else {
+    const next = getNextPortals(today, 1)[0];
+    if (pBadge) pBadge.textContent = "Próximo portal";
+    if (pText && next) pText.innerHTML = `Próximo portal: <b>${formatDateBR(next)}</b>. <a href="portais.html">Ver o mapa de portais →</a>`;
+  }
+
+  // Sequência do dia
+  const seq = GRABOVOI_SEQS[dailyIndexByDate(today, GRABOVOI_SEQS.length)];
+  const seqEl = $("#todaySeq");
+  if (seqEl && seq) {
+    seqEl.textContent = seq.seq;
+    const t = $("#todaySeqTitle");
+    if (t) t.textContent = `${seq.titulo} — ${seq.uso}`;
+    $("#todaySeqCopy")?.addEventListener("click", () => copyText(seq.seq));
+  }
+}
+
+/* ==========================================================================
+   Oráculo "Como você está se sentindo?" — ritual guiado em 3 passos
+   ========================================================================== */
+const ORACULO = [
+  { id: "cansaco", label: "😮‍💨 Cansaço / peso nas costas", defumacao: ["limpeza"], banho1: ["limpeza", "protecao"], banho2: ["harmonizacao", "calma"], mantra: ["leveza", "energia", "equilíbrio"],
+    palavra: "Peso acumulado pede dois tempos: primeiro limpar, depois reconstruir. Nunca deixe o corpo 'aberto' depois de um descarrego." },
+  { id: "ansiedade", label: "😟 Ansiedade / insônia", defumacao: ["harmonizacao"], banho1: ["calma"], mantra: ["calma", "paz", "presença"],
+    palavra: "Prefira banhos mornos, à noite, e respire 4-2-6 antes de deitar. Folha mansa acalma a cabeça (Ori)." },
+  { id: "caminhos", label: "🚪 Caminhos fechados / trabalho travado", defumacao: ["prosperidade"], banho1: ["prosperidade"], mantra: ["prosperidade", "oportunidades", "fluxo"],
+    palavra: "Abra caminhos de preferência na lua crescente, e faça uma ação concreta no mesmo dia: o Axé acompanha quem se move." },
+  { id: "inveja", label: "🧿 Inveja / olho-gordo", defumacao: ["limpeza", "protecao"], banho1: ["protecao", "limpeza"], banho2: ["harmonizacao"], mantra: ["proteção", "limites", "confiança"],
+    palavra: "Corte primeiro, feche o corpo depois. Erva quente (arruda, guiné) sempre do pescoço para baixo." },
+  { id: "desanimo", label: "🪫 Desânimo / sem força", defumacao: ["energia", "prosperidade"], banho1: ["energia"], mantra: ["energia", "coragem", "crescimento"],
+    palavra: "Sol da manhã, água fresca e um banho de vitalidade. Comece pequeno: uma tarefa de cada vez." },
+  { id: "casa", label: "🏠 Casa pesada / brigas", defumacao: ["limpeza", "harmonizacao"], banho1: ["harmonizacao"], mantra: ["paz", "equilíbrio", "comunicação"],
+    palavra: "Defume do fundo da casa para a porta da rua, abra as janelas e, depois, ofereça um banho de harmonização a quem mora junto." },
+  { id: "tristeza", label: "💧 Tristeza / saudade", defumacao: ["harmonizacao"], banho1: ["calma", "harmonizacao"], mantra: ["gratidão", "paz", "autovalor"],
+    palavra: "Acolha o sentimento sem pressa. Banho suave, oração e conversa com quem você confia. Se a tristeza persistir, procure ajuda profissional." },
+  { id: "decisao", label: "🎯 Prova, entrevista ou decisão", defumacao: ["energia", "prosperidade"], banho1: ["energia", "prosperidade"], mantra: ["foco", "clareza", "concentração", "confiança"],
+    palavra: "Na véspera: banho de clareza, cabeça fresca e sono cedo. No dia: respire, recite o mantra 3 vezes e vá com fé." }
+];
+
+function pickByObjectives(list, objetivos, moonKey, seed, extraFilter) {
+  let pool = list.filter(x => objetivos.includes(x.objetivo) && (!extraFilter || extraFilter(x)));
+  if (!pool.length) pool = list.filter(x => objetivos.includes(x.objetivo));
+  const withMoon = pool.filter(x => (x.luas || []).includes(moonKey));
+  if (withMoon.length) pool = withMoon;
+  return pool.length ? pool[seed % pool.length] : null;
+}
+
+function initOraculo() {
+  const chips = $("#oracleChips");
+  const out = $("#oracleResult");
+  if (!chips || !out) return;
+
+  const moon = getLiveMoonData(new Date());
+  const base = dailyIndexByDate(new Date(), 997);
+  let current = null;
+  let variant = 0;
+
+  chips.innerHTML = ORACULO.map(o => `<button class="pill" type="button" data-oraculo="${o.id}">${o.label}</button>`).join("");
+
+  function render() {
+    const o = ORACULO.find(x => x.id === current);
+    if (!o) return;
+    const seed = base + variant;
+    const def = pickByObjectives(DEFUMACOES, o.defumacao, moon.key, seed);
+    const b1 = pickByObjectives(BANHOS, o.banho1, moon.key, seed, o.banho2 ? (x => x.intensidade !== "suave") : null);
+    const b2 = o.banho2 ? pickByObjectives(BANHOS, o.banho2, moon.key, seed, x => x.cabeca === true && x.intensidade === "suave") : null;
+    const mantras = DAILY_MANTRAS.filter(m => o.mantra.includes(m.tag));
+    const mantra = mantras.length ? mantras[seed % mantras.length] : DAILY_MANTRAS[seed % Math.max(1, DAILY_MANTRAS.length)];
+
+    const steps = [];
+    if (def) steps.push({ t: "Limpe o ambiente", html: ritualItemHtml("defumacao", def, "defumacao.html") });
+    if (b1) steps.push({ t: o.banho2 ? "1º tempo — descarrego" : "Tome o banho", html: ritualItemHtml("banho", b1, "banhos.html") });
+    if (b2) steps.push({ t: "2º tempo — reconstrução (no mesmo dia ou no seguinte)", html: ritualItemHtml("banho", b2, "banhos.html") });
+    if (mantra) steps.push({ t: "Firme o pensamento", html: `<div class="item"><span class="muted small">🙏 Mantra • ${escapeHtml(mantra.tag)}</span><b id="oracleMantra">“${escapeHtml(mantra.text)}”</b><div class="row wrap-row" style="margin-top:8px;"><button class="btn-micro" data-copy="#oracleMantra" type="button">📋 Copiar</button><button class="btn-micro" data-speak="#oracleMantra" type="button">🔊 Ouvir</button></div></div>` });
+
+    out.innerHTML = `
+      <div class="notice"><strong>Palavra do Juremeiro:</strong> ${escapeHtml(o.palavra)}</div>
+      <ol class="oracle-steps">
+        ${steps.map(s => `<li><span class="oracle-steps__title">${escapeHtml(s.t)}</span>${s.html}</li>`).join("")}
+      </ol>
+      <div class="row wrap-row">
+        <button class="btn btn--ghost" id="oracleOther" type="button">🔄 Outra combinação</button>
+        <span class="muted small">Lua de hoje: ${moon.icon} ${escapeHtml(moon.name)}</span>
+      </div>`;
+    $("#oracleOther")?.addEventListener("click", () => { variant++; render(); });
+  }
+
+  chips.addEventListener("click", e => {
+    const btn = e.target.closest("[data-oraculo]");
+    if (!btn) return;
+    current = btn.getAttribute("data-oraculo");
+    variant = 0;
+    chips.querySelectorAll(".pill").forEach(p => p.classList.toggle("pill--active", p === btn));
+    render();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Renderizar Cabeçalho e Rodapé únicos
   renderHeader();
@@ -2974,6 +3211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Inicializar páginas específicas se seus elementos existirem
   setDailyMantra();
+  initPageTabs();
   wireTabs();
   renderFavorites();
   renderAllMantras("");
@@ -2987,5 +3225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initCalendarioLunar();
   initPortaisPage();
   initSimbolosPage();
+  initHojePage();
+  initOraculo();
 });
 

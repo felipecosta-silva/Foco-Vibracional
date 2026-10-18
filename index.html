@@ -31,19 +31,19 @@
         </p>
 
         <div class="hero__actions">
-          <a class="btn" href="banhos.html">Banhos Sagrados</a>
-          <a class="btn btn--ghost" href="plantas.html">Ervas & Fundamentos</a>
+          <a class="btn" href="#oraculo">🌿 Como você está hoje?</a>
+          <a class="btn btn--ghost" href="banhos.html">Banhos</a>
+          <a class="btn btn--ghost" href="plantas.html">Ervas</a>
           <a class="btn btn--ghost" href="defumacao.html">Defumação</a>
-          <a class="btn btn--ghost" href="simbolos.html">Símbolos & Runas</a>
-          <a class="btn btn--ghost" href="mantras.html">Mantras & Preces</a>
         </div>
 
         <div class="pill-row" role="list" aria-label="Atalhos">
-          <button class="pill" data-scroll="#mantra-hoje" type="button">Mantra de hoje</button>
-          <button class="pill" data-scroll="#antes-dormir" type="button">Antes de dormir</button>
-          <button class="pill" data-scroll="#grabovoi" type="button">Grabovoi</button>
+          <a class="pill" href="#hoje">Sugestões de hoje</a>
+          <a class="pill" href="mantras.html#noite">Ritual da noite</a>
+          <a class="pill" href="portais.html#grabovoi">Sequências numéricas</a>
         </div>
       </div>
+
 
       <aside class="hero__card" aria-label="Relógio e foco rápido">
         <div class="card">
@@ -63,7 +63,7 @@
           <div class="divider"></div>
 
           <p class="muted small">
-            Dica: respire 4s, segure 2s, solte 6s. Repita 3 vezes e então recite o mantra.
+            Dica: respire 4s, segure 2s, solte 6s. Repita 3 vezes e então recite o mantra. <a href="simbolos.html">Exercício guiado 4-2-6 →</a>
           </p>
 
           <button class="btn btn--wide" id="focusModeBtn" type="button">
@@ -73,142 +73,112 @@
       </aside>
     </section>
 
-    <section id="mantra-hoje" class="grid">
+    <!-- PAINEL DO DIA -->
+    <section id="hoje" class="today-grid">
       <article class="card">
         <div class="card__header">
-          <h2 class="card__title">Mantra do dia (trabalho)</h2>
-          <span class="badge">Repetição</span>
+          <h2 class="card__title">Mantra do dia</h2>
+          <span class="badge" id="dailyTag">—</span>
         </div>
-
-        <blockquote class="quote" id="primaryMantra">
-          “Hoje o dinheiro flui para mim com facilidade, frequência e gratidão.”
-        </blockquote>
-
-        <div class="row">
-          <button class="btn btn--ghost" data-copy="#primaryMantra" type="button">Copiar</button>
-          <button class="btn" data-speak="#primaryMantra" type="button">Ouvir</button>
+        <blockquote class="quote" id="dailyMantra">Carregando…</blockquote>
+        <p class="muted small" id="dailyTip">—</p>
+        <div class="row wrap-row">
+          <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">Copiar</button>
+          <button class="btn" data-speak="#dailyMantra" type="button">Ouvir</button>
+          <a class="btn btn--ghost" href="mantras.html#mantras">Todos os mantras</a>
         </div>
-
-        <p class="muted small">
-          Sugestão: repita 3–9 vezes com calma, como se fosse um “reset” mental.
-        </p>
       </article>
 
-      <article id="antes-dormir" class="card">
+      <article class="card">
         <div class="card__header">
-          <h2 class="card__title">Antes de dormir</h2>
-          <span class="badge">Encerramento</span>
+          <h2 class="card__title">Sugestão para hoje</h2>
+          <span class="badge" id="todaySuggestBadge">lua + dia</span>
         </div>
-
-        <blockquote class="quote" id="sleepMantra">
-          “O dinheiro me encontra com facilidade. Eu estou aberto e pronto para receber.”
-        </blockquote>
-
-        <div class="row">
-          <button class="btn btn--ghost" data-copy="#sleepMantra" type="button">Copiar</button>
-          <button class="btn" data-speak="#sleepMantra" type="button">Ouvir</button>
+        <div id="todaySuggest" class="stack"></div>
+        <div class="row wrap-row" style="margin-top:10px;">
+          <button class="btn btn--ghost" id="todaySuggestNext" type="button">🔄 Outra sugestão</button>
         </div>
+      </article>
 
-        <p class="muted small">
-          Se quiser, finalize com gratidão por 3 coisas do dia (mesmo pequenas).
-        </p>
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title">Números de hoje</h2>
+          <span class="badge" id="todayPortalBadge">—</span>
+        </div>
+        <p class="muted small" id="todayPortalText">—</p>
+        <div class="divider"></div>
+        <p class="muted small" style="margin:0 0 6px;">Sequência do dia</p>
+        <p class="mono big-seq" id="todaySeq">—</p>
+        <p class="muted small" id="todaySeqTitle">—</p>
+        <div class="row wrap-row">
+          <button class="btn btn--ghost" id="todaySeqCopy" type="button">📋 Copiar</button>
+          <a class="btn btn--ghost" href="portais.html#grabovoi">Ver todas →</a>
+        </div>
       </article>
     </section>
 
-    <!-- ✅ GRABOVOI INTERATIVO: Múltiplas sequências, alternador rápido e link correto para Portais -->
-    <section id="grabovoi" class="card section-gap">
+    <!-- ORÁCULO -->
+    <section id="oraculo" class="card section-gap">
       <div class="card__header">
         <div>
-          <h2 class="card__title">Sequências Numéricas & Foco Vibracional (Grabovoi)</h2>
-          <p class="muted small" style="margin: 4px 0 0;">Âncoras de atenção e reprogramação de foco pela ressonância dos números.</p>
+          <h2 class="card__title">🌿 Como você está se sentindo?</h2>
+          <p class="muted small" style="margin:4px 0 0;">Toque no que mais combina com o seu momento e receba um ritual simples em 3 passos.</p>
         </div>
-        <span class="badge">interativo</span>
+        <span class="badge">oráculo</span>
       </div>
-
-      <p class="muted">
-        Escolha uma intenção abaixo para alternar a sequência ou sortear. Na tradição do foco, mentalize cada dígito como uma vibração de luz, respirando com tranquilidade e firmeza.
-      </p>
-
-      <!-- Seletor Rápido de Sequências -->
-      <div class="pill-row" id="grabovoiPills" style="margin: 14px 0;">
-        <button class="pill pill--active" type="button" data-seq="520 741 777 888" data-title="Prosperidade & Abertura Máxima" data-desc="Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.">🌟 Prosperidade Máxima</button>
-        <button class="pill" type="button" data-seq="520" data-title="Dinheiro Inesperado" data-desc="Abertura de canais de renda imprevistos, destravamento de pagamentos e circulação do fluxo material.">💰 Dinheiro Inesperado</button>
-        <button class="pill" type="button" data-seq="741" data-title="Solução Imediata de Problemas" data-desc="Para clarear a mente em momentos de aperto, desatar nós e encontrar saídas rápidas.">⚡ Solução Imediata</button>
-        <button class="pill" type="button" data-seq="777" data-title="Milagres & Bênçãos Cósmicas" data-desc="Sustentação na fé, conexão com a providência divina e alinhamento com causas boas.">✨ Milagres & Fé</button>
-        <button class="pill" type="button" data-seq="1814321" data-title="Saúde Integral & Vitalidade" data-desc="Harmonização das células, restauração de energia vital e regeneração física e emocional.">🌿 Saúde & Vitalidade</button>
-        <button class="pill" type="button" data-seq="519 7148" data-title="Tudo é Possível" data-desc="Rompimento de crenças limitantes e sintonização direta com o campo de infinitas possibilidades.">🌀 Tudo é Possível</button>
-        <button class="pill" type="button" data-seq="1001105010" data-title="Paz Interior & Serenidade" data-desc="Dissolução de ansiedade no peito, acalmação de ânimos e tranquilidade profunda.">🕊️ Paz Interior</button>
-        <button class="pill" type="button" data-seq="917 498 814316" data-title="Escudo Protetor Energético" data-desc="Blindagem áurica contra inveja, negatividade e ambientes espiritualmente carregados.">🛡️ Proteção Total</button>
-        <button class="pill" id="grabovoiBtnRandom" type="button" style="border-color: rgba(177, 255, 204, 0.4); background: rgba(177, 255, 204, 0.1);">🎲 Sortear Outra</button>
-      </div>
-
-      <!-- Caixa de Destaque da Sequência Ativa -->
-      <div class="grabovoi-display-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-          <h3 id="grabovoiActiveTitle" style="margin: 0; font-size: 1.15rem; color: #fff;">Prosperidade & Abertura Máxima</h3>
-          <span class="mono muted small" id="grabovoiActiveCode">520 741 777 888</span>
-        </div>
-
-        <div class="notice" id="grabovoiNotice" style="margin: 12px 0;">
-          <strong>Intenção & Uso:</strong>
-          <span id="grabovoiActiveDesc">Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.</span>
-        </div>
-
-        <div class="sequence" id="grabovoiBlockDisplay" aria-label="Dígitos da Sequência Numérica" style="margin: 16px 0;">
-          <span>520</span>
-          <span>741</span>
-          <span>777</span>
-          <span>888</span>
-        </div>
-
-        <div class="row wrap-row" style="margin-top: 14px; gap: 10px;">
-          <button class="btn btn--ghost" id="grabovoiCopyBtn" data-copy-text="520 741 777 888" type="button">📋 Copiar sequência</button>
-          <button class="btn btn--ghost" id="grabovoiSpeakBtn" type="button">🔊 Ouvir sequência</button>
-          <a class="btn" href="portais.html#grabovoi">Ver catálogo completo (Portais & Grabovoi) →</a>
-        </div>
-      </div>
-
-      <p class="muted small" style="margin-top: 12px;">
-        <strong>Dica do Juremeiro:</strong> Ao mentalizar o número, visualize-o iluminado em prata ou dourado na altura do seu terceiro olho (entre as sobrancelhas) ou no peito. Repita 3 vezes e faça uma ação concreta no seu dia.
+      <div class="pill-row oracle-chips" id="oracleChips"></div>
+      <div id="oracleResult" class="oracle-result" aria-live="polite"></div>
+      <p class="muted small" style="margin-top:12px;">
+        Este guia é espiritual e educativo. <strong>Não substitui orientação médica ou psicológica.</strong>
       </p>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Técnicas rápidas no trabalho</h2>
-          <span class="badge">2–3 min</span>
-        </div>
-
-        <ul class="list">
-          <li><strong>Pausa 60s:</strong> postura ereta + 3 respirações lentas.</li>
-          <li><strong>Frase-âncora:</strong> repita seu mantra 3x, bem consciente.</li>
-          <li><strong>Microgratidão:</strong> pense em 1 coisa boa que já aconteceu hoje.</li>
-          <li><strong>Intenção:</strong> “Eu direciono minha atenção ao que importa agora.”</li>
-        </ul>
-
-        <a class="btn btn--ghost" href="mantras.html#tecnicas">Ver técnicas guiadas</a>
-      </article>
-
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Rotina simples</h2>
-          <span class="badge">Sugestão</span>
-        </div>
-
-        <ol class="list">
-          <li><strong>Manhã:</strong> 1 mantra + 1 objetivo do dia.</li>
-          <li><strong>Trabalho:</strong> check-ins de 2 min (mantra + respiração).</li>
-          <li><strong>Noite:</strong> “Antes de dormir” + gratidão.</li>
-        </ol>
-
-        <p class="muted small">
-          Consistência ganha de intensidade. Pouco, todo dia.
-        </p>
-      </article>
+    <!-- EXPLORAR -->
+    <section class="explore-grid section-gap" aria-label="Explorar">
+      <a class="card explore-card" href="mantras.html#noite">
+        <span class="explore-card__icon">🌙</span>
+        <b>Ritual da Noite</b>
+        <span class="muted small">Afirmações e perguntas ao Universo antes de dormir.</span>
+      </a>
+      <a class="card explore-card" href="mantras.html#tecnicas">
+        <span class="explore-card__icon">⏱️</span>
+        <b>Pausas no trabalho</b>
+        <span class="muted small">Técnicas de 2 e 5 minutos para recuperar o foco.</span>
+      </a>
+      <a class="card explore-card" href="calendario.html">
+        <span class="explore-card__icon">🌕</span>
+        <b>Calendário Lunar</b>
+        <span class="muted small">Próximas fases e o que fazer em cada uma.</span>
+      </a>
+      <a class="card explore-card" href="simbolos.html">
+        <span class="explore-card__icon">✴️</span>
+        <b>Símbolos & Runas</b>
+        <span class="muted small">Pemba, runas, mandalas e criação de sigilos.</span>
+      </a>
+      <a class="card explore-card" href="colheita.html">
+        <span class="explore-card__icon">🧺</span>
+        <b>Colheita</b>
+        <span class="muted small">Como colher, secar e pedir licença às folhas.</span>
+      </a>
+      <a class="card explore-card" href="glossario.html">
+        <span class="explore-card__icon">📖</span>
+        <b>Glossário</b>
+        <span class="muted small">Ori, firmeza, descarrego e outros termos.</span>
+      </a>
     </section>
 
-    
+    <section class="card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">Rotina simples</h2>
+        <span class="badge">sugestão</span>
+      </div>
+      <ol class="list">
+        <li><strong>Manhã:</strong> 1 mantra + 1 objetivo do dia.</li>
+        <li><strong>Trabalho:</strong> pausas de 2 min (mantra + respiração).</li>
+        <li><strong>Noite:</strong> <a href="mantras.html#noite">ritual da noite</a> + gratidão por 3 coisas do dia.</li>
+      </ol>
+      <p class="muted small">Consistência ganha de intensidade. Pouco, todo dia.</p>
+    </section>
   </main>
 
   <div id="site-footer"></div>

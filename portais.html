@@ -91,7 +91,7 @@
 
     <section class="card section-gap" id="grabovoi">
       <div class="card__header">
-        <h2 class="card__title">Sequências numéricas (Grabovoi) — melhorado</h2>
+        <h2 class="card__title">Sequências Numéricas & Foco Vibracional (Grabovoi)</h2>
         <span class="badge">consulta</span>
       </div>
 
@@ -99,6 +99,51 @@
         Use como <strong>âncora de atenção</strong>: olhar → respirar → repetir → voltar ao foco.
         (Interpretações variam conforme crenças.)
       </p>
+
+
+      <!-- Seletor Rápido de Sequências -->
+      <div class="pill-row" id="grabovoiPills" style="margin: 14px 0;">
+        <button class="pill pill--active" type="button" data-seq="520 741 777 888" data-title="Prosperidade & Abertura Máxima" data-desc="Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.">🌟 Prosperidade Máxima</button>
+        <button class="pill" type="button" data-seq="520" data-title="Dinheiro Inesperado" data-desc="Abertura de canais de renda imprevistos, destravamento de pagamentos e circulação do fluxo material.">💰 Dinheiro Inesperado</button>
+        <button class="pill" type="button" data-seq="741" data-title="Solução Imediata de Problemas" data-desc="Para clarear a mente em momentos de aperto, desatar nós e encontrar saídas rápidas.">⚡ Solução Imediata</button>
+        <button class="pill" type="button" data-seq="777" data-title="Milagres & Bênçãos Cósmicas" data-desc="Sustentação na fé, conexão com a providência divina e alinhamento com causas boas.">✨ Milagres & Fé</button>
+        <button class="pill" type="button" data-seq="1814321" data-title="Saúde Integral & Vitalidade" data-desc="Harmonização das células, restauração de energia vital e regeneração física e emocional.">🌿 Saúde & Vitalidade</button>
+        <button class="pill" type="button" data-seq="519 7148" data-title="Tudo é Possível" data-desc="Rompimento de crenças limitantes e sintonização direta com o campo de infinitas possibilidades.">🌀 Tudo é Possível</button>
+        <button class="pill" type="button" data-seq="1001105010" data-title="Paz Interior & Serenidade" data-desc="Dissolução de ansiedade no peito, acalmação de ânimos e tranquilidade profunda.">🕊️ Paz Interior</button>
+        <button class="pill" type="button" data-seq="917 498 814316" data-title="Escudo Protetor Energético" data-desc="Blindagem áurica contra inveja, negatividade e ambientes espiritualmente carregados.">🛡️ Proteção Total</button>
+        <button class="pill" id="grabovoiBtnRandom" type="button" style="border-color: rgba(177, 255, 204, 0.4); background: rgba(177, 255, 204, 0.1);">🎲 Sortear Outra</button>
+      </div>
+
+      <!-- Caixa de Destaque da Sequência Ativa -->
+      <div class="grabovoi-display-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <h3 id="grabovoiActiveTitle" style="margin: 0; font-size: 1.15rem; color: #fff;">Prosperidade & Abertura Máxima</h3>
+          <span class="mono muted small" id="grabovoiActiveCode">520 741 777 888</span>
+        </div>
+
+        <div class="notice" id="grabovoiNotice" style="margin: 12px 0;">
+          <strong>Intenção & Uso:</strong>
+          <span id="grabovoiActiveDesc">Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.</span>
+        </div>
+
+        <div class="sequence" id="grabovoiBlockDisplay" aria-label="Dígitos da Sequência Numérica" style="margin: 16px 0;">
+          <span>520</span>
+          <span>741</span>
+          <span>777</span>
+          <span>888</span>
+        </div>
+
+        <div class="row wrap-row" style="margin-top: 14px; gap: 10px;">
+          <button class="btn btn--ghost" id="grabovoiCopyBtn" data-copy-text="520 741 777 888" type="button">📋 Copiar sequência</button>
+          <button class="btn btn--ghost" id="grabovoiSpeakBtn" type="button">🔊 Ouvir sequência</button>
+        </div>
+      </div>
+
+      <p class="muted small" style="margin-top: 12px;">
+        <strong>Dica do Juremeiro:</strong> Ao mentalizar o número, visualize-o iluminado em prata ou dourado na altura do seu terceiro olho (entre as sobrancelhas) ou no peito. Repita 3 vezes e faça uma ação concreta no seu dia.
+      </p>
+
+      <h3 style="margin:22px 0 10px;">Catálogo completo</h3>
 
       <div class="filters">
         <input id="qSeq" class="input" type="text" placeholder="Buscar (ex.: prosperidade, foco, calma…)" />

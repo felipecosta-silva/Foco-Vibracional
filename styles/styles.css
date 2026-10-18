@@ -1898,3 +1898,156 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 .site-footer__copy {
   display: block;
 }
+
+/* ==========================================================================
+   Abas de seção de página (mantras.html: Mantras • Afirmações • Noite • Favoritos)
+   ========================================================================== */
+.page-tabs{
+  position: sticky;
+  top: 64px;
+  z-index: 20;
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+  padding: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(11,15,23,.92);
+  scroll-margin-top: 70px;
+}
+.page-tabs::-webkit-scrollbar{ display:none; }
+.page-tab{
+  flex: 0 0 auto;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: .92rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.page-tab:hover{ color: var(--text); background: rgba(255,255,255,.05); }
+.page-tab--active{
+  color: var(--text);
+  border-color: rgba(158,240,255,.28);
+  background: rgba(158,240,255,.12);
+}
+.page-panel[hidden]{ display: none !important; }
+.panel-intro{ margin: 4px 0 16px; }
+.panel-intro__title{ margin: 0 0 6px; font-size: 1.35rem; }
+@media (max-width: 900px){
+  .page-tabs{ top: 58px; border-radius: 14px; }
+}
+
+/* Tabela "Na prática" das fases da lua (calendario.html#fases) */
+.table-scroll{ overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.moon-table{ width: 100%; min-width: 560px; border-collapse: collapse; font-size: .9rem; }
+.moon-table th, .moon-table td{ text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.moon-table th{ color: var(--muted); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.moon-table td:first-child{ white-space: nowrap; font-weight: 600; }
+#fases{ scroll-margin-top: 80px; }
+
+/* Destaque do card aberto por link direto (#id) */
+.info-card--focus{
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(158,240,255,.15), var(--shadow);
+  transition: outline-color .3s ease, box-shadow .3s ease;
+}
+
+/* ==========================================================================
+   Painel "Hoje" (index.html)
+   ========================================================================== */
+.today-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+  scroll-margin-top: 80px;
+}
+@media (max-width: 1000px){ .today-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 680px){ .today-grid{ grid-template-columns: 1fr; } }
+.today-grid .quote{ font-size: 1.05rem; }
+.big-seq{
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  letter-spacing: .08em;
+  color: #fff;
+  word-break: break-word;
+}
+.ritual-link{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s ease, background .15s ease;
+}
+.ritual-link:hover{ border-color: rgba(158,240,255,.35); background: rgba(158,240,255,.06); }
+.ritual-link b{ font-size: .95rem; line-height: 1.35; }
+
+#oraculo{ scroll-margin-top: 80px; }
+.oracle-chips{ margin: 14px 0; }
+.oracle-chips .pill{ font-size: .9rem; }
+.oracle-result:empty{ display: none; }
+.oracle-steps{
+  list-style: none;
+  counter-reset: passo;
+  padding: 0;
+  margin: 14px 0;
+  display: grid;
+  gap: 12px;
+}
+.oracle-steps > li{
+  counter-increment: passo;
+  position: relative;
+  padding-left: 42px;
+}
+.oracle-steps > li::before{
+  content: counter(passo);
+  position: absolute;
+  left: 0; top: 0;
+  width: 30px; height: 30px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  font-weight: 700;
+  color: #0b0f17;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+}
+.oracle-steps__title{ display: block; font-weight: 600; margin: 4px 0 6px; }
+
+.explore-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 900px){ .explore-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px){ .explore-grid{ grid-template-columns: 1fr; } }
+.explore-card{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.explore-card:hover{ transform: translateY(-2px); border-color: rgba(158,240,255,.3); }
+.explore-card__icon{ font-size: 1.5rem; }
+a.pill{ text-decoration: none; color: inherit; display: inline-flex; align-items: center; }
+.oracle-steps .item{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+.oracle-steps .item b{ display: block; }
+.stack .ritual-link + .ritual-link{ margin-top: 8px; }
+
+/* Links dentro de textos (sem classe própria) legíveis no tema escuro */
+main a:not([class]){ color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+main a:not([class]):hover{ color: var(--accent2); }
