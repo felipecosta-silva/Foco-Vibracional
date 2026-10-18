@@ -2695,3 +2695,8 @@ body.drawer-open{ overflow: hidden; }
   .tcard__phname{ font-size: .78rem; }
   .tdaily{ grid-template-columns: 90px 1fr; }
 }
+
+/* Planner semanal sem estourar a largura */
+.week{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.week .day{ min-width: 0; }
+.week .pill{ white-space: normal; }
