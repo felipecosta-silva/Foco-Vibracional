@@ -6,29 +6,50 @@ Um portal espiritual e vibracional gratuito desenvolvido por um Juremeiro com ma
 
 ## 🌟 O Que Você Encontra Aqui
 
-- **🌿 Catálogo de Plantas & Ervas Sagradas (`plantas.html`):** Classificação energética (frias, quentes, equilibradoras), indicações de colheita, cuidados e fundamento da Jurema.
-- **🛁 Banhos Sagrados & Alinhamento (`banhos.html`):** Banhos de descarrego, equilíbrio, prosperidade e sono reparador, com a **Regra de Ouro da Cabeça (Ori)** e orações de consagração com áudio e cópia rápida.
-- **💨 Defumação Sagrada & Limpeza do Lar (`defumacao.html`):** Instruções de defumação direcional (de dentro para fora vs da rua para dentro) e rezas tradicionais.
-- **🌙 Calendário Lunar Inteligente (`calendario.html`):** Fases da lua em tempo real (com cálculo offline e online) e planner semanal de intenções.
-- **✨ Mantras & Frases de Firmeza (`mantras.html` e `index.html`):** Frases-âncora diárias, áudio por síntese de voz (TTS) e salvamento de favoritos no navegador.
-- **🔢 Portais Numéricos & Foco (`portais.html`):** Marcas de datas comemorativas, reflexões e sequências Grabovoi como ferramenta de foco.
-- **🌾 Colheita, Glossário, Afirmações & Perguntas (`colheita.html`, `glossario.html`, `afirmacoes.html`, `perguntas.html`).**
+| Menu | Página | Conteúdo |
+|---|---|---|
+| **Hoje** | `index.html` | Mantra do dia, banho e defumação sugeridos pela lua, portal e sequência do dia, **Oráculo "Como você está?"** |
+| **Ervas & Rituais** | `plantas.html` · `banhos.html` · `defumacao.html` · `colheita.html` | Catálogos ligados entre si (cada erva leva à sua ficha e cada ficha mostra onde é usada) |
+| **Mente & Palavra** | `mantras.html` | Abas: Mantras • Afirmações • Ritual da Noite • Favoritos |
+| **Números & Lua** | `calendario.html` · `portais.html` | Fases da lua e o que fazer em cada uma; portais e sequências de Grabovoi |
+| **Símbolos** | `simbolos.html` | Pemba, runas, mandalas e sigilos |
+| **Glossário** | `glossario.html` | Termos da tradição |
 
----
-
-## 📖 Documentação Completa
-
-Para conhecer a história, os fundamentos da Jurema ensinados e todo o detalhamento técnico do que foi feito e do roadmap futuro, leia:
-👉 **[DOCUMENTACAO_JUREMA_FOCO.md](file:///c:/Users/tasco/OneDrive/Documentos/Foco-Vibracional/DOCUMENTACAO_JUREMA_FOCO.md)**
+Em qualquer página: **lupa no topo** (ou tecla `/`) para buscar em todo o site.
 
 ---
 
 ## 🚀 Como Executar
 
-O projeto é 100% estático (HTML, CSS e JavaScript Vanilla). Não necessita de servidores complexos ou banco de dados.
+Projeto 100% estático (HTML, CSS e JavaScript puro).
 
-1. **Via Live Server (Recomendado no VS Code):** Clique com botão direito em `index.html` e selecione *Open with Live Server*.
-2. **Diretamente no Navegador (Offline):** O site conta com **mecanismo de fallback integrado**, podendo ser aberto com duplo-clique em qualquer arquivo `.html` mesmo em modo offline ou sem servidor web.
+- **Abrir direto:** dois cliques em `index.html` (funciona sem servidor).
+- **Com servidor local:** `python -m http.server 8000` e acesse `http://localhost:8000`. Pelo servidor, o site também pode ser **instalado como app** e funciona **offline**.
+
+> Ao publicar mudanças, aumente `CACHE_VERSION` em `sw.js` para que quem instalou o app receba a versão nova.
+
+---
+
+## ➕ Como Adicionar um Banho, Erva ou Defumação
+
+Os dados ficam em `data/*.js` (fonte única):
+
+| Arquivo | Campos obrigatórios |
+|---|---|
+| `data/banhos.js` | `id`, `nome`, `objetivo` (limpeza · protecao · calma · energia · prosperidade · harmonizacao), `intensidade` (suave · media · forte), `luas`, `dias` (seg…dom), `horario`, `ervas`, `cabeca` (true/false), `modoPreparo`, `reza`, `observacao` |
+| `data/defumacoes.js` | `id`, `nome`, `objetivo`, `intensidade`, `luas`, `dias`, `horario`, `ervas`, `sentido`, `reza`, `servePara`, `cuidados` |
+| `data/ervas.js` | `id`, `nome`, `nomePopular`, `energia` (frias · quentes · equilibradoras), `intensidade`, `objetivos`, `usos`, `partes`, `cabeca` (texto), `imagem`, `descricao`, `colheita`, `cuidados`, `tradicao` |
+
+Regras:
+- `id` único, em minúsculas e com hífens (ex.: `banho-alecrim-foco`).
+- **Cuidados de segurança são obrigatórios** (toxicidade, gestantes, crianças, se vai ou não na cabeça).
+- Para o link automático com a ficha da erva funcionar, cite a erva pelo nome dela (ex.: "Folhas de Alecrim").
+
+---
+
+## 📖 Documentação Completa
+
+História, fundamentos e detalhamento técnico: **[DOCUMENTACAO_JUREMA_FOCO.md](DOCUMENTACAO_JUREMA_FOCO.md)**
 
 ---
 

@@ -3445,3 +3445,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initBackToTop();
 });
 
+/* PWA: registra o service worker (só funciona em http/https, não em file://) */
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}

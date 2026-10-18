@@ -253,3 +253,29 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 ## 6. Revisões do Supervisor (preenchido pelo Claude)
 
 <!-- Claude: notas de revisão, correções e aprovação de cada fase -->
+
+### Revisão da Fase 1 — 2026-10-18 · ✅ APROVADA com 1 correção
+- Testado em Chrome headless (1280 px e 375 px, via `file://`): todas as páginas carregam sem erro de JS; menu e rodapé idênticos; catálogos renderizam (58 banhos, 50 ervas, 25 defumações na época).
+- **Correção aplicada pelo supervisor:** o menu mobile ficava transparente (o texto da página aparecia por trás). Causa: `backdrop-filter` aninhado dentro do `.topbar`, que também tem `backdrop-filter`. Solução: fundo sólido `#0b121c` no `.nav` mobile e `z-index: 1000` no `.topbar`. **Lição:** não aninhar `backdrop-filter`.
+
+### Fases 2 a 5 — 2026-10-18 · executadas pelo supervisor (o Gemini estava sem cota)
+- **Fase 2:** `mantras.html` com abas sincronizadas ao hash (`initPageTabs`); `afirmacoes.html` e `perguntas.html` viraram redirecionamentos; Grabovoi interativo movido para `portais.html#grabovoi` com `GRABOVOI_SEQS` como fonte única; `calendario.html#fases` ganhou a tabela "Na prática"; os blocos de lua de Banhos, Defumação e Colheita viraram "🌙 Filtrar pela Lua" com link para o calendário; colheita removida de `plantas.html`.
+- **Fase 3:** painel Hoje (`initHojePage`), Oráculo com 8 sentimentos (`ORACULO`, `initOraculo`), link direto `#id` nos catálogos (`focusCatalogItemFromHash`), ligações cruzadas (`findHerbFor`, `linkedHerbList`, `usedInHtml` — 168 de 187 ingredientes ligados; o restante são água, sal, mel, alho etc.), busca global (`initGlobalSearch`, tecla `/`), índice no glossário e botão voltar ao topo.
+- **Fase 4:** +10 ervas, +15 banhos, +8 defumações, +10 mantras, +5 afirmações, +5 perguntas da noite, +4 termos no glossário. Totais: **73 banhos • 60 ervas • 33 defumações • 40 mantras**.
+- **Fase 5:** PWA (`manifest.webmanifest`, `sw.js`, `icons/`), testado offline; imagens de 11 MB → 1,5 MB; metas description/OG; documentação (seção 3.10) e README atualizados.
+- **Ficou de fora:** filtros refletidos na URL (3.5).
+
+---
+
+## 7. Próximo lote para o Gemini (Fase 6)
+
+> Mesmas regras da seção 0. Uma tarefa por vez, registrar no log e aguardar revisão.
+
+1. **Fotos das ervas novas:** `aroeira`, `alfavaca`, `erva-cidreira`, `malva`, `pata-de-vaca`, `vence-demanda`, `espinheira-santa`, `manjericao-roxo`, `folha-bananeira` e `cana-do-brejo` estão com `imagem: ""`. Também faltam fotos de várias ervas antigas. Use fotos próprias ou de licença livre (Wikimedia Commons, citando o autor), com no máximo 900 px de largura e ≤ 150 KB, e preencha o campo `imagem`.
+2. **Filtros na URL (pendência da 3.5):** em `banhos.html`, `defumacao.html` e `plantas.html`, ler e gravar `?lua=&objetivo=&intensidade=&q=` com `history.replaceState`. Não pode conflitar com o `#id` do link direto.
+3. **Caderno de Firmeza (roadmap Fase 4):** nova aba "Meu Caderno" em `mantras.html` para anotar data, banho feito e como se sentiu. Salvar em `localStorage` (envolver em try/catch), com botão de exportar `.txt`. Nada é enviado a servidor.
+4. **Acessibilidade:** conferir contraste AA dos textos `.muted` sobre os cards; garantir foco visível em `.pill`, `.page-tab` e `.gsearch__item`; navegação por setas nos resultados da busca.
+5. **Dividir o `script/script.js`** (~140 KB) em `script/core.js` (nav, busca, utilitários, dados) + um arquivo por página, carregando só o necessário. Atualizar a lista `PRECACHE` do `sw.js` e aumentar `CACHE_VERSION`.
+6. **Conteúdo:** chegar a 90 banhos, priorizando objetivos com menos opções (`calma`: 10, `energia`: 9) e banhos para situações do dia a dia (mudança de casa, emprego novo, pós-hospital com aval médico). Sempre com `cuidados`.
+
+**Sempre que mudar arquivos servidos:** aumentar `CACHE_VERSION` em `sw.js`.

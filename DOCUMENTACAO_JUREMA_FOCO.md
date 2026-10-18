@@ -227,6 +227,18 @@ Atendendo ao princípio ancestral de que **a espiritualidade deve estar ao alcan
 
 ---
 
+### 3.10 Reestruturação da Navegação, Oráculo, Busca e App Offline (73 Banhos • 60 Ervas • 33 Defumações)
+- **Menu enxuto:** de 12 links soltos para 6 grupos (Hoje • Ervas & Rituais • Mente & Palavra • Números & Lua • Símbolos • Glossário), gerado em um único lugar (`NAV` em `script/script.js`), com menu hambúrguer no celular.
+- **Conteúdo sem repetição:** cada assunto mora em uma só página. Afirmações e Perguntas viraram abas de `mantras.html` (os endereços antigos redirecionam); Grabovoi ficou só em `portais.html#grabovoi`; o significado das fases da lua ficou só em `calendario.html#fases`.
+- **Painel Hoje (`index.html`):** mantra do dia, banho e defumação sugeridos pela lua e pelo dia da semana, portal e sequência numérica do dia.
+- **Oráculo "Como você está se sentindo?":** 8 sentimentos, cada um gerando um ritual em 3 passos (defumação → banho → mantra), respeitando a regra dos 2 tempos.
+- **Tudo ligado:** cada erva citada num banho ou defumação leva à sua ficha, e cada ficha de erva lista onde é usada ("Usada em").
+- **Busca global:** lupa no topo (ou tecla `/`) procura em ervas, banhos, defumações, mantras e páginas.
+- **App instalável e offline (PWA):** `manifest.webmanifest` + `sw.js`. Fotos recomprimidas (de 11 MB para 1,5 MB).
+- **Dados em fonte única:** `data/*.js` (funcionam até abrindo o arquivo direto, sem servidor).
+
+---
+
 ## 4. O Coração do Ensinamento: Regras de Ouro Transmitidas
 
 Para que qualquer pessoa possa utilizar o portal com segurança e respeito, três princípios fundamentais foram selados no código e nos textos:
@@ -255,10 +267,10 @@ Para continuar honrando a caminhada e expandindo o portal:
 | Etapa | Funcionalidade Proposta | Descrição |
 |---|---|---|
 | **Fase 1** *(Concluída)* | **Funcionalidade Plena dos Módulos** | Banhos, Plantas, Defumação, Mantras e Portais 100% interativos com busca, voz e proteção offline. |
-| **Fase 2** *(Próxima)* | **Oráculo / Orientador Interativo de Banhos** | Assistente interativo onde o visitante clica no que está sentindo (ex.: "Cansaço extremo", "Dúvida no trabalho", "Insônia") e recebe na hora o ritual guiado ideal. |
+| **Fase 2** *(Concluída)* | **Oráculo / Orientador Interativo de Banhos** | Assistente interativo onde o visitante clica no que está sentindo (ex.: "Cansaço extremo", "Dúvida no trabalho", "Insônia") e recebe na hora o ritual guiado ideal. |
 | **Fase 3** | **Cantigas e Toques da Jurema (Áudio Nativo)** | Biblioteca de toques sagrados de maracá e cantigas de mestres explicadas com áudio embutido e significado histórico/espiritual. |
 | **Fase 4** | **Caderno de Firmeza Pessoal (Offline)** | Espaço no navegador para o praticante anotar seus ciclos, percepções de banhos e hábitos espirituais sem envio de dados a servidores. |
-| **Fase 5** | **PWA (Progressive Web App)** | Permitir que o filho de fé instale o site na tela inicial do celular como um aplicativo nativo que funciona mesmo sem internet na mata ou na estrada. |
+| **Fase 5** *(Concluída)* | **PWA (Progressive Web App)** | Permitir que o filho de fé instale o site na tela inicial do celular como um aplicativo nativo que funciona mesmo sem internet na mata ou na estrada. |
 
 ---
 
