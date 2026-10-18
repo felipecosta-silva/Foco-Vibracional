@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Tarot & Baralho Cigano</title>
+  <meta name="description" content="Estude o Tarot clássico e o Baralho Cigano: imagem de cada carta, significado, invertida, amor, trabalho e conselho." />
+  <meta name="theme-color" content="#0d1310" />
+  <meta property="og:title" content="Foco Vibracional • Tarot & Baralho Cigano" />
+  <meta property="og:description" content="Estude o Tarot clássico e o Baralho Cigano." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="icons/icon-512.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+    <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <span class="eyebrow">Saberes</span>
+      <h1>Tarot & Baralho Cigano</h1>
+      <p class="muted">Estude cada carta com calma: a imagem, as palavras-chave, o significado, a posição invertida e o que ela diz sobre amor, trabalho e conselho.</p>
+    </section>
+
+    <section class="card" aria-label="Carta do dia">
+      <div class="row wrap-row" style="margin-bottom:14px;">
+        <button class="pill pill--active" type="button" data-daily-deck="classico">🃏 Tarot</button>
+        <button class="pill" type="button" data-daily-deck="cigano">🌹 Cigano</button>
+      </div>
+      <div id="tarotDaily"></div>
+    </section>
+
+    <section id="catalog" class="cat section-gap" data-catalog="tarot" aria-label="Cartas"></section>
+
+    <section class="fund" aria-label="Como estudar">
+      <span class="eyebrow">Para estudar</span>
+      <h2>Como ler as cartas</h2>
+      <p class="muted">Um caminho simples para começar.</p>
+      <details>
+        <summary>A estrutura do Tarot (78 cartas)</summary>
+        <div class="fund__content"><p class="muted">São <b>22 Arcanos Maiores</b> (do Louco ao Mundo), que falam das grandes lições e fases da vida, e <b>56 Arcanos Menores</b>, divididos em quatro naipes que falam do dia a dia: <b>Copas</b> (água, emoções), <b>Paus</b> (fogo, ação e criatividade), <b>Espadas</b> (ar, pensamentos e conflitos) e <b>Ouros</b> (terra, dinheiro, corpo e trabalho). Cada naipe vai do Ás ao 10 e tem quatro cartas da corte: Valete, Cavaleiro, Rainha e Rei.</p></div>
+      </details>
+      <details>
+        <summary>O Baralho Cigano (36 cartas)</summary>
+        <div class="fund__content"><p class="muted">Inspirado no baralho de Mademoiselle Lenormand, tem <b>36 cartas</b> com imagens do cotidiano (o Cavaleiro, o Trevo, o Navio, a Casa…). A leitura é mais direta e prática, e as cartas ganham sentido <b>em combinação</b>: a carta da esquerda costuma ser o assunto e a da direita, o que o qualifica. No Baralho Cigano, em geral, não se lê carta invertida.</p></div>
+      </details>
+      <details>
+        <summary>Um jeito de começar: uma carta por dia</summary>
+        <div class="fund__content"><p class="muted">Tire uma carta pela manhã com uma pergunta simples (“o que preciso observar hoje?”). Leia o significado, anote suas impressões e, à noite, veja como aquilo apareceu no seu dia. Em poucas semanas você conhece o baralho pela experiência, não pela decoreba.</p></div>
+      </details>
+    </section>
+  </main>
+
+
+  <div id="site-footer"></div>
+
+    <script src="./data/tarot.js"></script>
+  <script src="./script/script.js"></script>
+</body>
+</html>

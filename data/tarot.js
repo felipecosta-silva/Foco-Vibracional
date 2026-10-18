@@ -1,0 +1,98 @@
+window.FV_DATA = window.FV_DATA || {};
+/* Tarot clássico (78 cartas) e Baralho Cigano (36 cartas).
+   Esquema e regras: ver PLANO_GEMINI.md, Fase 7. Imagens em images/tarot/<baralho>/ */
+window.FV_DATA.tarot = [
+ {
+  "id": "classico-maior-00-louco",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 0,
+  "nome": "O Louco",
+  "imagem": "",
+  "palavrasChave": ["início", "liberdade", "fé no caminho", "espontaneidade"],
+  "significado": "O começo de uma jornada. Coragem para dar o primeiro passo sem ter todas as respostas, confiando na vida e na própria intuição.",
+  "invertida": "Imprudência, decisões sem pensar, medo de começar ou fuga de responsabilidades.",
+  "amor": "Relação leve e nova, ou vontade de viver algo diferente. Pede autenticidade.",
+  "trabalho": "Novo projeto, mudança de área ou empreendimento. Planeje o mínimo antes de saltar.",
+  "conselho": "Confie, mas olhe onde pisa."
+ },
+ {
+  "id": "classico-maior-01-mago",
+  "baralho": "classico",
+  "arcano": "maior",
+  "naipe": null,
+  "numero": 1,
+  "nome": "O Mago",
+  "imagem": "",
+  "palavrasChave": ["poder pessoal", "iniciativa", "habilidade", "manifestação"],
+  "significado": "Você tem as ferramentas de que precisa. Momento de agir, comunicar e transformar intenção em realidade.",
+  "invertida": "Manipulação, talento desperdiçado, falta de foco ou promessas vazias.",
+  "amor": "Conquista, charme e boa comunicação. Cuidado com jogos de sedução.",
+  "trabalho": "Ótimo para apresentar ideias, negociar e começar algo com as próprias mãos.",
+  "conselho": "Use o que já tem nas mãos."
+ },
+ {
+  "id": "classico-copas-01-as",
+  "baralho": "classico",
+  "arcano": "menor",
+  "naipe": "copas",
+  "numero": 1,
+  "nome": "Ás de Copas",
+  "imagem": "",
+  "palavrasChave": ["amor", "emoção nova", "abertura do coração", "intuição"],
+  "significado": "Um novo começo emocional: amor, amizade, reconciliação ou um período de sensibilidade e compaixão.",
+  "invertida": "Emoções bloqueadas, carência ou dificuldade de se abrir.",
+  "amor": "Início de relação ou renovação do afeto.",
+  "trabalho": "Satisfação com o que se faz; trabalho ligado a cuidar das pessoas.",
+  "conselho": "Deixe o coração transbordar."
+ },
+ {
+  "id": "cigano-01-cavaleiro",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 1,
+  "nome": "O Cavaleiro",
+  "correspondencia": "9 de Copas",
+  "imagem": "",
+  "palavrasChave": ["notícias", "movimento", "chegada", "rapidez"],
+  "significado": "Notícias chegando, visitas e acontecimentos rápidos. Indica movimento e novidades em breve, geralmente positivas.",
+  "invertida": "",
+  "amor": "Alguém se aproximando ou uma mensagem esperada.",
+  "trabalho": "Propostas e respostas rápidas.",
+  "conselho": "Esteja pronto para agir quando a notícia chegar."
+ },
+ {
+  "id": "cigano-02-trevo",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 2,
+  "nome": "O Trevo",
+  "correspondencia": "6 de Ouros",
+  "imagem": "",
+  "palavrasChave": ["pequenos obstáculos", "sorte breve", "esperança"],
+  "significado": "Pequenas dificuldades passageiras ou uma sorte rápida. O que atrapalha agora não dura muito.",
+  "invertida": "",
+  "amor": "Contratempos leves que se resolvem com paciência.",
+  "trabalho": "Atrasos pequenos; uma oportunidade de sorte que pede atenção.",
+  "conselho": "Não desanime: é só um trecho do caminho."
+ },
+ {
+  "id": "cigano-03-navio",
+  "baralho": "cigano",
+  "arcano": null,
+  "naipe": null,
+  "numero": 3,
+  "nome": "O Navio",
+  "correspondencia": "10 de Espadas",
+  "imagem": "",
+  "palavrasChave": ["viagem", "mudança", "comércio", "distância"],
+  "significado": "Viagens, mudanças e expansão. Também fala de negócios, de comércio e de algo que vem de longe.",
+  "invertida": "",
+  "amor": "Relação à distância ou vontade de mudar de ares a dois.",
+  "trabalho": "Negócios, vendas, oportunidades fora da sua cidade.",
+  "conselho": "Deixe o porto: o novo pede movimento."
+ }
+];

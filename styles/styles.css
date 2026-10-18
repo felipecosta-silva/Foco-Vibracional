@@ -2641,3 +2641,57 @@ body.drawer-open{ overflow: hidden; }
 }
 .big{ font-family: var(--font-display); font-weight: 500; letter-spacing: -.01em; }
 .simbolos-tabs .pill, .simbolos-tabs button{ font-size: .9rem; }
+
+/* ---------- Tarot & Baralho Cigano ---------- */
+.cat-grid:has(.tcard){ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.tcard{
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 0; border: 0; background: none; color: var(--text);
+  font: inherit; text-align: left; cursor: pointer;
+}
+.tcard__face{
+  display: block;
+  aspect-ratio: 7 / 12;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.tcard:hover .tcard__face{ transform: translateY(-4px) rotate(-1deg); border-color: rgba(227,184,103,.5); box-shadow: var(--shadow); }
+.tcard__face img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.tcard__ph{
+  height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 14px 10px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(227,184,103,.20), transparent 60%),
+    linear-gradient(170deg, #21301f, #121a14);
+  outline: 1px solid rgba(227,184,103,.35);
+  outline-offset: -7px;
+  border-radius: 14px;
+}
+.tcard__ph--cigano{ background: radial-gradient(circle at 50% 45%, rgba(232,160,124,.22), transparent 60%), linear-gradient(170deg, #2e1f1c, #161110); outline-color: rgba(232,160,124,.4); }
+.tcard__num{ font-family: var(--font-display); font-size: 1.1rem; color: var(--accent); }
+.tcard__ornament{ font-size: 2rem; opacity: .85; }
+.tcard__phname{ font-family: var(--font-display); font-size: .95rem; line-height: 1.2; }
+.tcard__title{ font-family: var(--font-display); font-weight: 560; font-size: 1rem; line-height: 1.2; }
+.tcard__sub{ display: block; color: var(--faint); font-size: .78rem; margin-top: 2px; }
+.tcard__body{ padding: 0 2px; }
+.tdetail__face{ width: min(220px, 60%); margin: 22px auto 0; aspect-ratio: 7 / 12; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+.tdetail__face img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.tdetail__face .tcard__ph{ border-radius: 16px; }
+.tdetail__face ~ .drawer__title, .tdetail__face ~ .drawer__sub{ text-align: center; }
+.tdetail__face ~ .drawer__chips{ justify-content: center; }
+.tdaily{ display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; width: 100%; padding: 0; border: 0; background: none; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.tdaily > span:last-child{ display: grid; gap: 6px; }
+.tdaily__title{ font-family: var(--font-display); font-weight: 560; font-size: 1.5rem; }
+.tdaily__cta{ color: var(--accent); font-size: .9rem; font-weight: 600; }
+@media (max-width: 600px){
+  .cat-grid:has(.tcard){ grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tcard__ornament{ font-size: 1.4rem; }
+  .tcard__phname{ font-size: .78rem; }
+  .tdaily{ grid-template-columns: 90px 1fr; }
+}

@@ -55,6 +55,7 @@ const NAV = [
   {
     id: "saberes", label: "Saberes", url: "simbolos.html",
     children: [
+      { label: "Tarot & Cigano", url: "tarot.html" },
       { label: "Símbolos & Runas", url: "simbolos.html" },
       { label: "Glossário", url: "glossario.html" }
     ]
@@ -1421,6 +1422,115 @@ function initPlantasPage() {
     renderCard: herbCardHtml,
     detail: ervaDetailHtml
   });
+}
+
+/* ==========================================================================
+   TAROT (clássico) & BARALHO CIGANO (tarot.html) — usa o mesmo motor do catálogo
+   ========================================================================== */
+let TAROT = [];
+const NAIPES = [
+  { k: "copas", label: "Copas", icon: "🏆", elemento: "Água • emoções" },
+  { k: "paus", label: "Paus", icon: "🔥", elemento: "Fogo • ação" },
+  { k: "espadas", label: "Espadas", icon: "⚔️", elemento: "Ar • mente" },
+  { k: "ouros", label: "Ouros", icon: "🪙", elemento: "Terra • matéria" }
+];
+const ROMANOS = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
+
+function tarotNumeral(c) {
+  if (c.baralho === "cigano") return String(c.numero);
+  if (c.arcano === "maior") return ROMANOS[c.numero] ?? String(c.numero);
+  return "";
+}
+
+function tarotFaceHtml(c) {
+  if (c.imagem) return `<img src="${escapeHtml(c.imagem)}" alt="${escapeHtml(c.nome)}" loading="lazy" decoding="async">`;
+  const naipe = NAIPES.find(n => n.k === c.naipe);
+  return `
+    <span class="tcard__ph ${c.baralho === "cigano" ? "tcard__ph--cigano" : ""}">
+      <span class="tcard__num">${tarotNumeral(c) || (naipe ? naipe.icon : "✦")}</span>
+      <span class="tcard__ornament">${c.baralho === "cigano" ? "✶" : naipe ? naipe.icon : "☾ ✦ ☽"}</span>
+      <span class="tcard__phname">${escapeHtml(c.nome)}</span>
+    </span>`;
+}
+
+function tarotCardHtml(c) {
+  const sub = c.baralho === "cigano"
+    ? `Baralho Cigano${c.correspondencia ? " • " + escapeHtml(c.correspondencia) : ""}`
+    : c.arcano === "maior" ? "Arcano Maior" : `${(NAIPES.find(n => n.k === c.naipe) || {}).label || ""}`;
+  return `
+    <button class="tcard" type="button" data-open="${escapeHtml(c.id)}">
+      <span class="tcard__face">${tarotFaceHtml(c)}</span>
+      <span class="tcard__body">
+        <b class="tcard__title">${escapeHtml(c.nome)}</b>
+        <span class="tcard__sub">${sub}</span>
+      </span>
+    </button>`;
+}
+
+function tarotDetailHtml(c) {
+  const naipe = NAIPES.find(n => n.k === c.naipe);
+  const tipo = c.baralho === "cigano" ? "Baralho Cigano" : c.arcano === "maior" ? "Arcano Maior" : `Arcano Menor • ${naipe ? naipe.label : ""}`;
+  return `
+    <div class="tdetail__face">${tarotFaceHtml(c)}</div>
+    <h2 class="drawer__title">${tarotNumeral(c) ? `<span class="muted">${tarotNumeral(c)} · </span>` : ""}${escapeHtml(c.nome)}</h2>
+    <p class="drawer__sub">${tipo}${naipe ? ` • ${naipe.elemento}` : ""}${c.correspondencia ? ` • corresponde ao ${escapeHtml(c.correspondencia)}` : ""}</p>
+    <div class="drawer__chips">${(c.palavrasChave || []).map(p => `<span class="badge">${escapeHtml(p)}</span>`).join("")}</div>
+    <div class="dsec"><h3>Significado</h3><p>${escapeHtml(c.significado || "")}</p></div>
+    ${c.invertida ? `<div class="dsec"><h3>Invertida</h3><p>${escapeHtml(c.invertida)}</p></div>` : ""}
+    <div class="facts">
+      ${c.amor ? `<div class="fact" style="grid-column:1/-1"><span>❤️ Amor</span><b>${escapeHtml(c.amor)}</b></div>` : ""}
+      ${c.trabalho ? `<div class="fact" style="grid-column:1/-1"><span>💼 Trabalho</span><b>${escapeHtml(c.trabalho)}</b></div>` : ""}
+    </div>
+    ${c.conselho ? `<div class="dsec dsec--tea" style="margin-top:14px;"><h3>✨ Conselho</h3><p>${escapeHtml(c.conselho)}</p></div>` : ""}
+    <p class="muted small" style="margin-top:18px;">O baralho é uma ferramenta de reflexão e autoconhecimento, não uma sentença sobre o futuro.</p>`;
+}
+
+/* Carta do dia (determinística por data, muda à meia-noite) */
+function initTarotDaily() {
+  const box = $("#tarotDaily");
+  if (!box || !TAROT.length) return;
+  const render = baralho => {
+    const list = TAROT.filter(c => c.baralho === baralho);
+    if (!list.length) { box.innerHTML = `<p class="muted">Cartas deste baralho em breve.</p>`; return; }
+    const c = list[dailyIndexByDate(new Date(), list.length)];
+    box.innerHTML = `
+      <button class="tdaily" type="button" data-open-card="${escapeHtml(c.id)}">
+        <span class="tcard__face">${tarotFaceHtml(c)}</span>
+        <span>
+          <span class="eyebrow">Carta do dia • ${baralho === "cigano" ? "Cigano" : "Tarot"}</span>
+          <b class="tdaily__title">${escapeHtml(c.nome)}</b>
+          <span class="muted">${escapeHtml(c.significado || "")}</span>
+          <span class="tdaily__cta">Ver significado completo →</span>
+        </span>
+      </button>`;
+  };
+  $all("[data-daily-deck]").forEach(b => b.addEventListener("click", () => {
+    $all("[data-daily-deck]").forEach(x => x.classList.toggle("pill--active", x === b));
+    render(b.dataset.dailyDeck);
+  }));
+  box.addEventListener("click", e => {
+    const b = e.target.closest("[data-open-card]");
+    if (b) location.hash = b.dataset.openCard;
+  });
+  render("classico");
+}
+
+function initTarotPage() {
+  const mount = $("#catalog[data-catalog='tarot']");
+  if (!mount) return;
+  TAROT = (window.FV_DATA && window.FV_DATA.tarot) || [];
+  createCatalog({
+    mount, items: TAROT, perPage: 36, unit: ["carta", "cartas"], eyebrow: "Carta",
+    placeholder: "Buscar carta ou palavra-chave (ex.: amor, viagem, Imperatriz)…",
+    searchText: c => `${c.nome} ${(c.palavrasChave || []).join(" ")} ${c.significado} ${c.correspondencia || ""}`,
+    filters: [
+      { key: "baralho", label: "Baralho", options: [{ k: "classico", label: "Tarot clássico", icon: "🃏" }, { k: "cigano", label: "Baralho Cigano", icon: "🌹" }], test: (c, v) => c.baralho === v },
+      { key: "arcano", label: "Arcano", options: [{ k: "maior", label: "Maiores" }, ...NAIPES.map(n => ({ k: n.k, label: n.label, icon: n.icon }))], test: (c, v) => v === "maior" ? c.arcano === "maior" : c.naipe === v }
+    ],
+    renderCard: tarotCardHtml,
+    detail: tarotDetailHtml
+  });
+  initTarotDaily();
 }
 
 /* ==========================================================================
@@ -3020,7 +3130,8 @@ const SEARCH_PAGES = [
   { t: "Símbolos — Pemba e ponto riscado", u: "simbolos.html", k: "pemba ponto riscado simbolos" },
   { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
-  { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" }
+  { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
+  { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" }
 ];
 
 function loadDataScript(name) {
@@ -3034,7 +3145,7 @@ function loadDataScript(name) {
 }
 
 async function ensureAllData() {
-  await Promise.all(["ervas", "banhos", "defumacoes", "mantras"].map(loadDataScript));
+  await Promise.all(["ervas", "banhos", "defumacoes", "mantras", "tarot"].map(loadDataScript));
   if (!ERVAS.length) loadErvas();
   if (!BANHOS.length) loadBanhos();
   if (!DEFUMACOES.length) loadDefumacoes();
@@ -3085,6 +3196,8 @@ function initGlobalSearch() {
         .map(d => row(`defumacao.html#${encodeURIComponent(d.id)}`, d.nome, (d.ervas || []).slice(0, 4).join(" + ")))) +
       group("🙏 Mantras", DAILY_MANTRAS.filter(m => has(m.text, m.tag))
         .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +
+      group("🃏 Tarot & Cigano", ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => has(c.nome, (c.palavrasChave || []).join(" ")))
+        .map(c => row(`tarot.html#${encodeURIComponent(c.id)}`, c.nome, c.baralho === "cigano" ? "Baralho Cigano" : "Tarot clássico"))) +
       group("📄 Páginas", SEARCH_PAGES.filter(p => has(p.t, p.k)).map(p => row(p.u, p.t, "")));
     results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
   }
@@ -3225,6 +3338,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Módulos com novos seletores
   initPlantasPage();
+  initTarotPage();
   initBanhosPage();
   initDefumacaoPage();
   initColheitaPage();

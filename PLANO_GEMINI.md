@@ -267,9 +267,14 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 
 ---
 
-## 7. Próximo lote para o Gemini (Fase 6)
+### Cara nova — 2026-10-18 · feita pelo supervisor
+O site inteiro foi redesenhado. Os padrões estão descritos na **seção 8**: leia antes de mexer em qualquer coisa. A Fase 6 abaixo foi **substituída** pelas seções 9 (Tarot, prioridade) e 10 (backlog).
 
-> Mesmas regras da seção 0. Uma tarefa por vez, registrar no log e aguardar revisão.
+---
+
+## 7. ~~Próximo lote para o Gemini (Fase 6)~~ — substituído pelas seções 9 e 10
+
+> Mantido só como histórico.
 
 1. **Fotos das ervas novas:** `aroeira`, `alfavaca`, `erva-cidreira`, `malva`, `pata-de-vaca`, `vence-demanda`, `espinheira-santa`, `manjericao-roxo`, `folha-bananeira` e `cana-do-brejo` estão com `imagem: ""`. Também faltam fotos de várias ervas antigas. Use fotos próprias ou de licença livre (Wikimedia Commons, citando o autor), com no máximo 900 px de largura e ≤ 150 KB, e preencha o campo `imagem`.
 2. **Filtros na URL (pendência da 3.5):** em `banhos.html`, `defumacao.html` e `plantas.html`, ler e gravar `?lua=&objetivo=&intensidade=&q=` com `history.replaceState`. Não pode conflitar com o `#id` do link direto.
@@ -277,5 +282,90 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 4. **Acessibilidade:** conferir contraste AA dos textos `.muted` sobre os cards; garantir foco visível em `.pill`, `.page-tab` e `.gsearch__item`; navegação por setas nos resultados da busca.
 5. **Dividir o `script/script.js`** (~140 KB) em `script/core.js` (nav, busca, utilitários, dados) + um arquivo por página, carregando só o necessário. Atualizar a lista `PRECACHE` do `sw.js` e aumentar `CACHE_VERSION`.
 6. **Conteúdo:** chegar a 90 banhos, priorizando objetivos com menos opções (`calma`: 10, `energia`: 9) e banhos para situações do dia a dia (mudança de casa, emprego novo, pós-hospital com aval médico). Sempre com `cuidados`.
+
+**Sempre que mudar arquivos servidos:** aumentar `CACHE_VERSION` em `sw.js`.
+
+
+---
+
+## 8. Cara nova (2026-10-18, feita pelo supervisor) — LEIA ANTES DE QUALQUER FASE
+
+O site foi redesenhado. **Não reverta nem "corrija" estes padrões; siga-os.**
+
+**Identidade "Noite na Mata"** (`styles/styles.css`, topo do arquivo):
+- Tokens em `:root`: `--bg`, `--surface`, `--surface-2`, `--line`, `--text`, `--muted`, `--faint`, `--accent` (dourado, luz de vela), `--accent2` (verde-folha), `--clay`, `--danger` e as cores por objetivo `--c-limpeza`, `--c-protecao`, `--c-calma`, `--c-energia`, `--c-prosperidade`, `--c-harmonizacao`.
+- Fontes locais em `fonts/`: **Fraunces** (títulos, `var(--font-display)`) e **Inter** (texto, `var(--font-body)`).
+- **Proibido:** cores fixas novas em `style=""` ou no JS (use os tokens) e reintroduzir ciano (#9ef0ff) ou menta (#b1ffcc).
+- O CSS tem 3 blocos, nesta ordem: base nova → "Estilos legados" (componentes das páginas antigas) → "CAMADA DE COMPONENTES 2026" (sobrepõe). Estilo novo vai sempre no fim.
+
+**Navegação** (`NAV` em `script/script.js`): 5 seções — Hoje • Rituais (Banhos/Defumações/Ervas/Colheita) • Mantras • Lua (Calendário/Portais) • Saberes (Tarot/Símbolos/Glossário).
+- Desktop: links no topo.
+- Celular: barra inferior estilo app (`.bottomnav`).
+- Seções com subpáginas mostram o alternador `.subnav`.
+- **Página nova = uma entrada em `NAV`**, nunca HTML de menu.
+
+**Catálogo unificado** (`createCatalog` em `script/script.js`): banhos, defumações, ervas e tarot usam o mesmo motor.
+- Busca instantânea, chips de filtro, "mostrar mais" (sem paginação) e filtros na URL (`?objetivo=calma&lua=cheia&cabeca=1`).
+- **Painel de detalhes** (`getDrawer`): lateral no desktop, de baixo para cima no celular. Abre por `#id`.
+- Para um catálogo novo, chame `createCatalog({ mount, items, filters, toggles, renderCard, detail, ... })`. Não crie grids nem paginação próprios.
+- Nas páginas de rituais: catálogo primeiro, fundamentos depois, em acordeão (`.fund details`).
+
+**Home:** herói com busca e lua de hoje (`initHomeHero`), Oráculo, "três gestos do dia", mosaico de seções com fotos (`.tiles`).
+
+**Aposentados:** paginação numerada (`renderPaginationControls` pode ser apagada), modo iniciante/avançado e o widget de relógio/"modo foco".
+
+**Atenção ao editar via terminal:** emojis com ZWJ quebram heredocs no Git Bash do Windows. Grave scripts em arquivo antes de executar.
+
+---
+
+## 9. Fase 7 — Tarot & Baralho Cigano (PRIORIDADE)
+
+A estrutura já está pronta e funcionando em `tarot.html` + `data/tarot.js` + `initTarotPage`, com carta do dia, filtros, busca global e painel. Ela tem **6 cartas de exemplo** (O Louco, O Mago, Ás de Copas, O Cavaleiro, O Trevo, O Navio). **O trabalho é completar os dados e as imagens.**
+
+### 7.1 Dados — completar `data/tarot.js`
+- **Tarot clássico: 78 cartas.**
+  - 22 Arcanos Maiores, numerados de 0 a 21: `arcano: "maior"`, `naipe: null`.
+  - 56 Menores (`naipe`: copas, paus, espadas, ouros), cada naipe com Ás (1) a 10 + Valete (11), Cavaleiro (12), Rainha (13) e Rei (14): `arcano: "menor"`.
+- **Baralho Cigano: 36 cartas**, de 1 (O Cavaleiro) a 36 (A Cruz), com `baralho: "cigano"`, `arcano: null`, `naipe: null` e `correspondencia` (carta de baralho comum tradicional, ex.: "9 de Copas"). Deixe `invertida: ""`.
+- **Esquema exato** (copie dos exemplos):
+  - `id`:
+    - Maiores: `classico-maior-NN-nome`
+    - Menores: `classico-<naipe>-NN-nome`
+    - Cigano: `cigano-NN-nome`
+    - Use sempre 2 dígitos, minúsculas e sem acento.
+  - Demais campos: `baralho`, `arcano`, `naipe`, `numero`, `nome`, `imagem`, `palavrasChave` (3 a 5), `significado` (2 a 3 frases), `invertida` (só clássico), `amor`, `trabalho`, `conselho` (uma frase curta), `correspondencia` (só cigano).
+- **Ordem do array:** Maiores 0–21 → Copas → Paus → Espadas → Ouros (Ás → Rei) → Cigano 1–36.
+- **Tom:** acolhedor, reflexivo, sem fatalismo (nada de "morte certa" ou "traição garantida"). A carta A Morte fala de transformação e fim de ciclo.
+- **Nomes em português consagrados no Brasil.**
+  - Tarot: O Louco, O Mago, A Sacerdotisa, A Imperatriz, O Imperador, O Hierofante (O Papa)…
+  - Cigano: O Cavaleiro, O Trevo, O Navio, A Casa, A Árvore, As Nuvens, A Serpente, O Caixão, O Buquê, A Foice, O Chicote, Os Pássaros, A Criança, A Raposa, O Urso, A Estrela, A Cegonha, O Cachorro, A Torre, O Jardim, A Montanha, O Caminho, O Rato, O Coração, O Anel, Os Livros, A Carta, O Cigano, A Cigana, Os Lírios, O Sol, A Lua, A Chave, Os Peixes, A Âncora, A Cruz.
+
+### 7.2 Imagens — `images/tarot/classico/` e `images/tarot/cigano/`
+- **Use somente imagens de domínio público** e registre a origem em `images/tarot/CREDITOS.md` (arquivo, autor, link, licença).
+  - Tarot: baralho **Rider-Waite-Smith de 1909** (arte de Pamela Colman Smith, domínio público). Fonte: Wikimedia Commons, categoria "Rider-Waite tarot deck" (arquivos tipo `RWS Tarot 00 Fool.jpg`).
+  - Cigano: baralhos **Lenormand antigos do século XIX** no Wikimedia Commons (categoria "Lenormand cards"). Confirme que cada arquivo está marcado como domínio público.
+- Nome do arquivo: igual ao `id` + `.jpg` (ex.: `images/tarot/classico/classico-maior-00-louco.jpg`). Preencha o campo `imagem` com esse caminho.
+- Tamanho: 400 px de largura, JPEG qualidade ~78, **≤ 60 KB** cada.
+- Sem imagem, a carta mostra o verso desenhado em CSS (já funciona). Por isso dá para entregar os dados primeiro e as imagens depois.
+
+### 7.3 Pequenos ajustes na página
+1. Quando o filtro "Baralho Cigano" estiver ativo, esconder a fileira "Arcano". Implemente uma opção genérica `filter.showWhen(state)` em `createCatalog`; não faça gambiarra específica.
+2. Opcional: uma **tiragem de 3 cartas** (passado • presente • conselho) com sorteio, abaixo da carta do dia, reutilizando `tarotFaceHtml` e o painel.
+
+### 7.4 Ao terminar
+- Acrescentar os arquivos novos de `images/tarot/` ao `PRECACHE` do `sw.js` e mudar `CACHE_VERSION` para `"fv-v3"`.
+- Testar: `tarot.html`, filtros (Maiores, cada naipe, Cigano), busca global ("Imperatriz", "viagem"), link direto `tarot.html#cigano-03-navio` e celular a 375 px.
+- Registrar no log (seção 5) e aguardar revisão.
+
+---
+
+## 10. Backlog (depois da Fase 7)
+- ~~Filtros na URL~~ feito no redesenho.
+- **Fotos das ervas sem imagem** (hoje aparece uma folha desenhada). Mesmas regras de licença; 900 px, ≤ 150 KB.
+- **Favoritar rituais e cartas** pelo painel de detalhes (botão ao lado de compartilhar), mostrando-os na aba Favoritos de `mantras.html`.
+- **Caderno de Firmeza** (nova aba em `mantras.html`, `localStorage` com try/catch, exportar .txt).
+- **Levar o visual novo às páginas antigas:** limpar os `style=""` de `simbolos.html`, `colheita.html`, `calendario.html` e `portais.html`, usando as classes da camada 2026.
+- **Dividir `script/script.js`** em `core.js` + um arquivo por página. Atualizar `PRECACHE`.
+- **Mais banhos** (meta: 90), priorizando calma e energia.
 
 **Sempre que mudar arquivos servidos:** aumentar `CACHE_VERSION` em `sw.js`.

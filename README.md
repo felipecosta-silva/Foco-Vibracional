@@ -9,11 +9,10 @@ Um portal espiritual e vibracional gratuito desenvolvido por um Juremeiro com ma
 | Menu | Página | Conteúdo |
 |---|---|---|
 | **Hoje** | `index.html` | Mantra do dia, banho e defumação sugeridos pela lua, portal e sequência do dia, **Oráculo "Como você está?"** |
-| **Ervas & Rituais** | `plantas.html` · `banhos.html` · `defumacao.html` · `colheita.html` | Catálogos ligados entre si (cada erva leva à sua ficha e cada ficha mostra onde é usada) |
-| **Mente & Palavra** | `mantras.html` | Abas: Mantras • Afirmações • Ritual da Noite • Favoritos |
-| **Números & Lua** | `calendario.html` · `portais.html` | Fases da lua e o que fazer em cada uma; portais e sequências de Grabovoi |
-| **Símbolos** | `simbolos.html` | Pemba, runas, mandalas e sigilos |
-| **Glossário** | `glossario.html` | Termos da tradição |
+| **Rituais** | `plantas.html` · `banhos.html` · `defumacao.html` · `colheita.html` | Catálogos ligados entre si (cada erva leva à sua ficha e cada ficha mostra onde é usada) |
+| **Mantras** | `mantras.html` | Abas: Mantras • Afirmações • Ritual da Noite • Favoritos |
+| **Lua** | `calendario.html` · `portais.html` | Fases da lua e o que fazer em cada uma; portais e sequências de Grabovoi |
+| **Saberes** | `tarot.html` · `simbolos.html` · `glossario.html` | Tarot clássico e Baralho Cigano; pemba, runas, mandalas e sigilos; termos da tradição |
 
 Em qualquer página: **lupa no topo** (ou tecla `/`) para buscar em todo o site.
 
