@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Foco Vibracional • Plantas</title>
   <meta name="description" content="Ervas sagradas da Jurema: energia, uso na cabeça (Ori), colheita, cuidados de segurança e os banhos e defumações em que cada uma aparece." />
-  <meta name="theme-color" content="#0b0f17" />
+  <meta name="theme-color" content="#0d1310" />
   <meta property="og:title" content="Foco Vibracional • Plantas" />
   <meta property="og:description" content="Ervas sagradas da Jurema: energia, uso na cabeça (Ori), colheita, cuidados de segurança e os banhos e defumações em que cada uma aparece." />
   <meta property="og:type" content="website" />
@@ -33,34 +33,23 @@
 
   <main class="wrap page">
     <section class="pagehead">
-      <div class="head-row">
-        <div>
-          <h1>Plantas (guia educativo)</h1>
-          <p class="muted">
-            Catálogo para estudo: energia (fria/quente/equilibradora), usos tradicionais gerais, partes da planta e cuidados.
-            (Sem receitas, sem quantidades.)
-          </p>
-        </div>
-
-        <div class="mode">
-          <span class="muted small">Modo</span>
-          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
-        </div>
-      </div>
-
-      <div class="notice">
-        <strong>Segurança:</strong> ervas podem causar alergias/irritações. Evite olhos/mucosas.
-        Se tiver asma/alergias, cuidado com aromas. Gestantes, lactantes e crianças: cautela e orientação responsável.
-      </div>
+      <span class="eyebrow">Rituais</span>
+      <h1>Ervas sagradas</h1>
+      <p class="muted">Conheça cada folha: sua energia, se vai ou não na cabeça (Ori), como colher, os cuidados e os banhos e defumações em que aparece.</p>
     </section>
 
-    <!-- 🌿 DESTAQUE ANCESTRAL: DIFERENCIAÇÃO MACHO VS. FÊMEA -->
-    <section class="card spotlight-card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">🌿 Diferenciação Ancestral: Macho vs. Fêmea & Polaridades</h2>
-        <span class="badge">Sabedoria de Terreiro</span>
-      </div>
-      <p class="muted">
+    <section id="catalog" class="cat" data-catalog="ervas" aria-label="Catálogo"></section>
+
+    <div class="notice" style="margin-top:28px;"><strong>Segurança:</strong> ervas podem causar alergia ou irritação. Evite olhos e mucosas. Gestantes, lactantes e crianças: cautela e orientação de quem conhece. Na dúvida sobre a espécie, não use.</div>
+
+    <section class="fund" aria-label="Fundamentos">
+      <span class="eyebrow">Fundamentos</span>
+      <h2>Para estudar as folhas</h2>
+      <p class="muted">Polaridades, colheita e um caminho para quem está começando.</p>
+      <details>
+        <summary>Diferenciação Ancestral: Macho vs. Fêmea & Polaridades</summary>
+        <div class="fund__content">
+<p class="muted">
         Na Jurema Sagrada e no saber das rezadeiras e mestres, a denominação "macho" ou "fêmea" traduz a polaridade da força, o formato das folhas e a intensidade do corte espiritual:
       </p>
 
@@ -97,93 +86,27 @@
           </p>
         </div>
       </div>
-    </section>
-
-    <section class="card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">Catálogo de ervas</h2>
-        <span class="badge" id="herbCount">0</span>
-      </div>
-
-      <div class="filters">
-        <input id="qHerb" class="input" type="text" placeholder="Buscar erva (ex.: samambaia, girassol, manga, amora, pinhão roxo, peregum…)" />
-
-        <select id="fEnergia" class="select">
-          <option value="todas">Energia: todas</option>
-          <option value="frias">Frias</option>
-          <option value="quentes">Quentes</option>
-          <option value="equilibradoras">Equilibradoras</option>
-        </select>
-
-        <select id="fUso" class="select">
-          <option value="todos">Uso: todos</option>
-          <option value="ambiental">Ambiental</option>
-          <option value="banho-external">Banho externo (geral)</option>
-          <option value="escalda-pes">Escalda-pés</option>
-          <option value="defumacao">Defumação (geral)</option>
-        </select>
-
-        <select id="fObjetivo" class="select">
-          <option value="todos">Objetivo: todos</option>
-          <option value="limpeza">Limpeza</option>
-          <option value="protecao">Proteção</option>
-          <option value="calma">Calma</option>
-          <option value="foco">Foco</option>
-          <option value="prosperidade">Prosperidade</option>
-          <option value="harmonizacao">Harmonização</option>
-          <option value="energia">Energia</option>
-        </select>
-
-        <select id="fParte" class="select">
-          <option value="todas">Parte: todas</option>
-          <option value="folha">Folha</option>
-          <option value="flor">Flor</option>
-          <option value="caule">Caule</option>
-          <option value="casca">Casca</option>
-          <option value="semente">Semente</option>
-          <option value="raiz">Raiz</option>
-        </select>
-
-        <select id="fIntensidade" class="select">
-          <option value="todas">Intensidade: todas</option>
-          <option value="suave">Suave</option>
-          <option value="media">Média</option>
-          <option value="forte">Forte</option>
-        </select>
-
-        <button class="btn btn--ghost" id="clearHerbFilters" type="button">Limpar</button>
-      </div>
-
-      <div id="herbGrid" class="cards-grid"></div>
-      <p class="muted small" id="herbEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
-      <div id="herbPagination" class="catalog-pagination" style="display:none;"></div>
-    </section>
-
-    <section class="grid">
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Colheita & Secagem</h2>
-          <span class="badge">guia</span>
         </div>
-        <p class="muted">Cada ficha de erva traz como colhê-la. O passo a passo completo — fase da lua, horário, pedido de licença, secagem e água da chuva — fica reunido em um só lugar.</p>
+      </details>
+      <details>
+        <summary>Colheita & Secagem</summary>
+        <div class="fund__content">
+<p class="muted">Cada ficha de erva traz como colhê-la. O passo a passo completo — fase da lua, horário, pedido de licença, secagem e água da chuva — fica reunido em um só lugar.</p>
         <a class="btn btn--ghost" href="colheita.html">Abrir guia de Colheita →</a>
-      </article>
-
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Como estudar como iniciante</h2>
-          <span class="badge">passo a passo</span>
         </div>
-        <ol class="list">
+      </details>
+      <details>
+        <summary>Como estudar como iniciante</summary>
+        <div class="fund__content">
+<ol class="list">
           <li>Comece por ervas <strong>suaves</strong> (ex.: camomila, alfazema, capim-limão).</li>
           <li>Observe <strong>reação</strong> (pele, respiração, sensibilidade a aromas).</li>
           <li>Aprenda objetivos: <strong>calma, limpeza, proteção, foco</strong>.</li>
           <li>Mantenha um diário: <strong>o que usei + como me senti</strong>.</li>
         </ol>
-      </article>
+        </div>
+      </details>
     </section>
-
-    
   </main>
 
   <div id="site-footer"></div>

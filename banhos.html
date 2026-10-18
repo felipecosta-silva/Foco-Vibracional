@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Foco Vibracional • Banhos</title>
   <meta name="description" content="Banhos de ervas com modo de preparo, reza, fase da lua e a regra dos 2 tempos: descarrego e reconstrução." />
-  <meta name="theme-color" content="#0b0f17" />
+  <meta name="theme-color" content="#0d1310" />
   <meta property="og:title" content="Foco Vibracional • Banhos" />
   <meta property="og:description" content="Banhos de ervas com modo de preparo, reza, fase da lua e a regra dos 2 tempos: descarrego e reconstrução." />
   <meta property="og:type" content="website" />
@@ -33,68 +33,48 @@
 
   <main class="wrap page">
     <section class="pagehead">
-      <div class="head-row">
-        <div>
-          <h1>Banhos Sagrados & Alinhamento Vibracional</h1>
-          <p class="muted">
-            Sabedoria ancestral das ervas e da Jurema: aprenda as combinações por intenção, a regra de ouro do banho de cabeça (Ori), a força das folhas vivas maceradas e as rezas tradicionais.
-          </p>
-        </div>
-
-        <div class="mode">
-          <span class="muted small">Modo</span>
-          <button class="toggle" id="modeToggle" type="button" aria-pressed="false">Iniciante</button>
-        </div>
-      </div>
-
-      <div class="notice">
-        <strong>Regra de Ouro da Jurema:</strong> Ervas quentes de descarrego (Arruda, Guiné, Espada de São Jorge) devem ser despejadas <em>SEMPRE do pescoço para baixo</em>, nunca na cabeça. Na cabeça (Ori), apenas ervas mansas de paz e equilíbrio (Boldo, Manjericão, Alfazema, Camomila).
-      </div>
+      <span class="eyebrow">Rituais</span>
+      <h1>Banhos de ervas</h1>
+      <p class="muted">Banhos de descarrego, proteção, calma e prosperidade, com preparo, reza e a fase da lua certa. Toque em um banho para ver o passo a passo.</p>
     </section>
 
-    <!-- Guia Rápido dos Fundamentos dos Banhos -->
-    <section class="card section-gap" style="background: linear-gradient(135deg, rgba(177, 255, 204, 0.07), rgba(20, 28, 42, 0.7)); border-color: rgba(177, 255, 204, 0.25);">
-      <div class="card__header">
-        <div>
-          <h2 class="card__title" style="color: #b1ffcc;">🌿 A Ciência da Coroa (Ori) & O Poder das Folhas Vivas</h2>
-          <p class="muted small" style="margin: 4px 0 0;">Como preparar e tomar seu banho com eficácia espiritual e segurança.</p>
-        </div>
-        <span class="badge" style="background: rgba(177, 255, 204, 0.15); border-color: rgba(177, 255, 204, 0.4); color: #b1ffcc;">Fundamento</span>
-      </div>
+    <section id="catalog" class="cat" data-catalog="banhos" aria-label="Catálogo"></section>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 10px;">
+    <div class="notice" style="margin-top:28px;"><strong>Regra de ouro:</strong> erva quente de descarrego (arruda, guiné, espada de São Jorge) vai <em>sempre do pescoço para baixo</em>. Na cabeça (Ori), só ervas mansas — boldo, manjericão, alfazema, camomila. E todo descarrego pede um segundo banho de reconstrução.</div>
+
+    <section class="fund" aria-label="Fundamentos">
+      <span class="eyebrow">Fundamentos</span>
+      <h2>Antes de preparar</h2>
+      <p class="muted">Os fundamentos que valem para qualquer banho.</p>
+      <details>
+        <summary>A Ciência da Coroa (Ori) & O Poder das Folhas Vivas</summary>
+        <div class="fund__content">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 10px;">
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-          <b style="color: #b1ffcc; font-size: 0.95rem;">👑 Na Cabeça (Coroa / Ori):</b>
+          <b style="color: #9fd09a; font-size: 0.95rem;">👑 Na Cabeça (Coroa / Ori):</b>
           <p class="muted small" style="margin: 6px 0 0; line-height: 1.45;">
             Apenas ervas frias e equilibradoras: <strong>Boldo (Tapete de Oxalá), Manjericão, Alfazema e Camomila</strong>. Acalmam a mente, clareiam as ideias e restauram o sono. Folha viva macerada em água fresca, sem ferver.
           </p>
         </div>
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-          <b style="color: #ffd2a6; font-size: 0.95rem;">⚠ Do Pescoço para Baixo:</b>
+          <b style="color: #e8a07c; font-size: 0.95rem;">⚠ Do Pescoço para Baixo:</b>
           <p class="muted small" style="margin: 6px 0 0; line-height: 1.45;">
             Ervas quentes e de corte: <strong>Arruda, Guiné, Espada de Ogum, Casca de Alho e Pinhão Roxo</strong>. Cortam laços pesados e descarregam o corpo. Jamais jogue na cabeça para não desarmonizar seu Ori.
           </p>
         </div>
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 14px;">
-          <b style="color: #9ef0ff; font-size: 0.95rem;">🤲 Maceração com as Mãos:</b>
+          <b style="color: #e3b867; font-size: 0.95rem;">🤲 Maceração com as Mãos:</b>
           <p class="muted small" style="margin: 6px 0 0; line-height: 1.45;">
             Folha verde viva não se cozinha! Esfregue as folhas entre as palmas das mãos dentro da água fria ou tépida, cantando ou rezando. O calor e o magnetismo das suas próprias mãos ativam a seiva viva vegetal.
           </p>
         </div>
       </div>
-    </section>
-
-    <!-- Guia dos Ciclos Sagrados em 2 Etapas (Limpar & Construir) -->
-    <section class="card section-gap" style="background: linear-gradient(135deg, rgba(246, 224, 94, 0.06), rgba(20, 24, 38, 0.75)); border-color: rgba(246, 224, 94, 0.28);">
-      <div class="card__header">
-        <div>
-          <h2 class="card__title" style="color: #f6e05e;">🔄 Ciclos Sagrados em 2 Etapas: Limpar & Depois Construir</h2>
-          <p class="muted small" style="margin: 4px 0 0;">O segredo tradicional dos terreiros: nunca faça apenas um descarrego sem ancorar desenvolvimento e proteção.</p>
         </div>
-        <span class="badge" style="background: rgba(246, 224, 94, 0.15); border-color: rgba(246, 224, 94, 0.4); color: #f6e05e;">Alquimia em 2 Tempos</span>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; margin-top: 12px;">
+      </details>
+      <details>
+        <summary>Ciclos Sagrados em 2 Etapas: Limpar & Depois Construir</summary>
+        <div class="fund__content">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; margin-top: 12px;">
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <b style="color: #93c5fd; font-size: 0.98rem;">1. Ori Limpo + Intuição & Mediunidade</b>
@@ -119,7 +99,7 @@
 
         <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 12px; padding: 16px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <b style="color: #fca5a5; font-size: 0.98rem;">3. Fim do Azedume + Doçura & Brilho</b>
+            <b style="color: #f0a39a; font-size: 0.98rem;">3. Fim do Azedume + Doçura & Brilho</b>
             <span class="badge" style="font-size:0.75rem;">Amor & Vigor</span>
           </div>
           <p class="muted small" style="line-height: 1.5; margin: 0 0 10px;">
@@ -128,104 +108,9 @@
           </p>
         </div>
       </div>
+        </div>
+      </details>
     </section>
-
-    <section class="card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">🌙 Filtrar pela Lua</h2>
-        <span class="badge">referência simbólica</span>
-      </div>
-
-      <!-- Banner dinâmico da Lua de Hoje -->
-      <div id="banhosMoonBanner"></div>
-
-      <div class="lunar">
-        <button class="lunar__item" data-moon="nova" type="button">
-          <span class="lunar__dot"></span>
-          <b>Lua Nova</b>
-          <span class="muted small">recomeços • intenção</span>
-        </button>
-        <button class="lunar__item" data-moon="crescente" type="button">
-          <span class="lunar__dot"></span>
-          <b>Crescente</b>
-          <span class="muted small">crescimento • expansão</span>
-        </button>
-        <button class="lunar__item" data-moon="cheia" type="button">
-          <span class="lunar__dot"></span>
-          <b>Cheia</b>
-          <span class="muted small">força • potência</span>
-        </button>
-        <button class="lunar__item" data-moon="minguante" type="button">
-          <span class="lunar__dot"></span>
-          <b>Minguante</b>
-          <span class="muted small">limpeza • descarrego</span>
-        </button>
-      </div>
-
-      <p class="muted small" id="moonHint" style="margin-top:12px;">
-        Clique em uma fase para filtrar combinações recomendadas para aquela energia.
-      </p>
-      <p class="muted small" style="margin-top:6px;"><a href="calendario.html#fases">Entenda o que cada fase significa no Calendário Lunar →</a></p>
-    </section>
-
-    <section class="card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">Catálogo Completo de Banhos Sagrados</h2>
-        <span class="badge" id="bathCount">0</span>
-      </div>
-
-      <!-- Atalhos de Categoria Rápidos -->
-      <div class="pill-row" id="banhoPills" style="margin-bottom: 14px;">
-        <button class="pill pill--active" type="button" data-cat="todos">✨ Todos os Banhos</button>
-        <button class="pill" type="button" data-cat="harmonizacao">👑 Coroa & Cabeça (Ori)</button>
-        <button class="pill" type="button" data-cat="limpeza">🧹 Limpeza & Corte</button>
-        <button class="pill" type="button" data-cat="prosperidade">💰 Prosperidade & Fartura</button>
-        <button class="pill" type="button" data-cat="protecao">🛡️ Proteção & Firmeza</button>
-        <button class="pill" type="button" data-cat="calma">🕊️ Calma & Acalento</button>
-        <button class="pill" type="button" data-cat="energia">⚡ Disposição & Ânimo</button>
-      </div>
-
-      <div class="filters">
-        <input id="qBath" class="input" type="text" placeholder="Buscar banho (ex.: girassol, samambaia, manga, café, exu, boiadeiro, descarrego…)" />
-
-        <select id="fBathObjetivo" class="select">
-          <option value="todos">Objetivo: todos</option>
-          <option value="limpeza">Limpeza</option>
-          <option value="protecao">Proteção</option>
-          <option value="calma">Calma</option>
-          <option value="energia">Energia</option>
-          <option value="prosperidade">Prosperidade</option>
-          <option value="harmonizacao">Harmonização</option>
-        </select>
-
-        <select id="fBathMoon" class="select">
-          <option value="todas">Lua: todas</option>
-          <option value="nova">Nova</option>
-          <option value="crescente">Crescente</option>
-          <option value="cheia">Cheia</option>
-          <option value="minguante">Minguante</option>
-        </select>
-
-        <select id="fBathIntensidade" class="select">
-          <option value="todas">Intensidade: todas</option>
-          <option value="suave">Suave</option>
-          <option value="media">Média</option>
-          <option value="forte">Forte</option>
-        </select>
-
-        <button class="btn btn--ghost" id="clearBathFilters" type="button">Limpar</button>
-      </div>
-
-      <div id="bathGrid" class="cards-grid"></div>
-      <p class="muted small" id="bathEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
-      <div id="bathPagination" class="catalog-pagination" style="display:none;"></div>
-
-      <div class="notice advanced-only" style="margin-top: 14px;">
-        <strong>Modo avançado:</strong> use isso como mapa de estudo. Em prática real, cada casa/tradição tem regras próprias.
-      </div>
-    </section>
-
-    
   </main>
 
   <div id="site-footer"></div>

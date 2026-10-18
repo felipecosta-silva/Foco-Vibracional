@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foco Vibracional • Início</title>
+  <title>Foco Vibracional • Sabedoria da Jurema</title>
   <meta name="description" content="Painel do dia com mantra, banho e defumação sugeridos pela lua, e o Oráculo “Como você está?” — guia gratuito da Jurema Sagrada." />
-  <meta name="theme-color" content="#0b0f17" />
+  <meta name="theme-color" content="#0d1310" />
   <meta property="og:title" content="Foco Vibracional • Início" />
   <meta property="og:description" content="Painel do dia com mantra, banho e defumação sugeridos pela lua, e o Oráculo “Como você está?” — guia gratuito da Jurema Sagrada." />
   <meta property="og:type" content="website" />
@@ -31,162 +31,113 @@
     </header>
   </noscript>
 
-  <main class="wrap page">
-    <section class="hero">
-      <div class="hero__content">
-        <h1>Foco Vibracional & Sabedoria da Jurema</h1>
-        <p class="muted">
-          Um guia acolhedor e gratuito para filhos de fé, consulentes e buscadores. Aprenda sobre firmeza espiritual, vibração mental, ervas sagradas, banhos de equilíbrio e defumação com o respeito de quem trilha a Jurema há mais de 30 anos.
+  <main class="wrap page" style="padding-top:8px;">
+    <!-- HERÓI -->
+    <section class="home-hero">
+      <div>
+        <span class="eyebrow" id="heroGreeting">Bem-vindo</span>
+        <h1>Que folha te <em>chama</em> hoje?</h1>
+        <p class="home-hero__lead">
+          Banhos, ervas, defumações e palavras de firmeza da Jurema Sagrada. Um guia gratuito e acolhedor, feito com o respeito de mais de 30 anos de caminhada.
         </p>
-
-        <div class="hero__actions">
-          <a class="btn" href="#oraculo">🌿 Como você está hoje?</a>
-          <a class="btn btn--ghost" href="banhos.html">Banhos</a>
-          <a class="btn btn--ghost" href="plantas.html">Ervas</a>
-          <a class="btn btn--ghost" href="defumacao.html">Defumação</a>
-        </div>
-
-        <div class="pill-row" role="list" aria-label="Atalhos">
-          <a class="pill" href="#hoje">Sugestões de hoje</a>
-          <a class="pill" href="mantras.html#noite">Ritual da noite</a>
-          <a class="pill" href="portais.html#grabovoi">Sequências numéricas</a>
+        <button class="hero-search" type="button" data-open-search aria-label="Buscar no site">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <span>Arruda, banho de calma, proteção…</span>
+          <b>Buscar</b>
+        </button>
+        <div class="hero-quick">
+          <a class="pill" href="#oraculo">🌿 Como estou hoje?</a>
+          <a class="pill" href="banhos.html" id="heroMoonBaths">🛁 Banhos para esta lua</a>
+          <a class="pill" href="mantras.html#noite">🌙 Ritual da noite</a>
         </div>
       </div>
 
-
-      <aside class="hero__card" aria-label="Relógio e foco rápido">
-        <div class="card">
-          <div class="card__header">
-            <h2 class="card__title">Agora</h2>
-            <span class="badge" id="todayBadge">—</span>
-          </div>
-          <p class="big" id="clock">--:--</p>
-          <div class="today-moon-home" id="homeMoonWidget">
-            <span class="moon-icon" id="homeMoonIcon" aria-hidden="true">🌑</span>
-            <div>
-              <b id="homeMoonName">Carregando fase lunar...</b>
-              <span class="muted small" id="homeMoonDetail">Fase lunar atual</span>
-            </div>
-          </div>
-
-          <div class="divider"></div>
-
-          <p class="muted small">
-            Dica: respire 4s, segure 2s, solte 6s. Repita 3 vezes e então recite o mantra. <a href="simbolos.html">Exercício guiado 4-2-6 →</a>
-          </p>
-
-          <button class="btn btn--wide" id="focusModeBtn" type="button">
-            Ativar modo foco (escurecer)
-          </button>
-        </div>
+      <aside class="moon-card" aria-label="Lua de hoje">
+        <div class="moon-orb" aria-hidden="true"><div class="moon-orb__shadow" id="moonOrbShadow"></div></div>
+        <p class="moon-card__name" id="moonCardName">Lua de hoje</p>
+        <p class="moon-card__meta" id="moonCardMeta">—</p>
+        <p class="moon-card__tip" id="moonCardTip">—</p>
       </aside>
     </section>
 
-    <!-- PAINEL DO DIA -->
-    <section id="hoje" class="today-grid">
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Mantra do dia</h2>
-          <span class="badge" id="dailyTag">—</span>
-        </div>
-        <blockquote class="quote" id="dailyMantra">Carregando…</blockquote>
-        <p class="muted small" id="dailyTip">—</p>
-        <div class="row wrap-row">
-          <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">Copiar</button>
-          <button class="btn" data-speak="#dailyMantra" type="button">Ouvir</button>
-          <a class="btn btn--ghost" href="mantras.html#mantras">Todos os mantras</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Sugestão para hoje</h2>
-          <span class="badge" id="todaySuggestBadge">lua + dia</span>
-        </div>
-        <div id="todaySuggest" class="stack"></div>
-        <div class="row wrap-row" style="margin-top:10px;">
-          <button class="btn btn--ghost" id="todaySuggestNext" type="button">🔄 Outra sugestão</button>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Números de hoje</h2>
-          <span class="badge" id="todayPortalBadge">—</span>
-        </div>
-        <p class="muted small" id="todayPortalText">—</p>
-        <div class="divider"></div>
-        <p class="muted small" style="margin:0 0 6px;">Sequência do dia</p>
-        <p class="mono big-seq" id="todaySeq">—</p>
-        <p class="muted small" id="todaySeqTitle">—</p>
-        <div class="row wrap-row">
-          <button class="btn btn--ghost" id="todaySeqCopy" type="button">📋 Copiar</button>
-          <a class="btn btn--ghost" href="portais.html#grabovoi">Ver todas →</a>
-        </div>
-      </article>
+    <!-- ORÁCULO -->
+    <section id="oraculo" class="home-section">
+      <div class="oracle">
+        <span class="eyebrow">Oráculo</span>
+        <h2 style="margin:6px 0 4px; font-size:clamp(1.5rem,3.4vw,2.1rem);">Como você está se sentindo?</h2>
+        <p class="muted" style="margin:0;">Toque no que mais combina com o seu momento e receba um ritual simples em 3 passos.</p>
+        <div class="oracle-chips" id="oracleChips"></div>
+        <div id="oracleResult" class="oracle-result" aria-live="polite"></div>
+        <p class="muted small" style="margin:14px 0 0;">Guia espiritual e educativo. <strong>Não substitui orientação médica ou psicológica.</strong></p>
+      </div>
     </section>
 
-    <!-- ORÁCULO -->
-    <section id="oraculo" class="card section-gap">
-      <div class="card__header">
+    <!-- HOJE -->
+    <section id="hoje" class="home-section">
+      <div class="home-section__head">
         <div>
-          <h2 class="card__title">🌿 Como você está se sentindo?</h2>
-          <p class="muted small" style="margin:4px 0 0;">Toque no que mais combina com o seu momento e receba um ritual simples em 3 passos.</p>
+          <span class="eyebrow">Para hoje</span>
+          <h2>O dia, em três gestos</h2>
         </div>
-        <span class="badge">oráculo</span>
       </div>
-      <div class="pill-row oracle-chips" id="oracleChips"></div>
-      <div id="oracleResult" class="oracle-result" aria-live="polite"></div>
-      <p class="muted small" style="margin-top:12px;">
-        Este guia é espiritual e educativo. <strong>Não substitui orientação médica ou psicológica.</strong>
-      </p>
+      <div class="today-grid">
+        <article class="card">
+          <div class="card__header">
+            <h3 class="card__title">Mantra do dia</h3>
+            <span class="badge" id="dailyTag">—</span>
+          </div>
+          <blockquote class="quote" id="dailyMantra">Carregando…</blockquote>
+          <p class="muted small" id="dailyTip">—</p>
+          <div class="row wrap-row" style="margin-top:auto;">
+            <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">📋 Copiar</button>
+            <button class="btn btn--ghost" data-speak="#dailyMantra" type="button">🔊 Ouvir</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3 class="card__title">Ritual sugerido</h3>
+            <span class="badge" id="todaySuggestBadge">lua + dia</span>
+          </div>
+          <div id="todaySuggest" class="stack"></div>
+          <div class="row wrap-row" style="margin-top:auto; padding-top:10px;">
+            <button class="btn btn--ghost" id="todaySuggestNext" type="button">🔄 Outra sugestão</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3 class="card__title">Número do dia</h3>
+            <span class="badge" id="todayPortalBadge">—</span>
+          </div>
+          <p class="mono big-seq" id="todaySeq">—</p>
+          <p class="muted small" id="todaySeqTitle">—</p>
+          <div class="divider"></div>
+          <p class="muted small" id="todayPortalText" style="margin:0 0 12px;">—</p>
+          <div class="row wrap-row" style="margin-top:auto;">
+            <button class="btn btn--ghost" id="todaySeqCopy" type="button">📋 Copiar</button>
+            <a class="btn btn--ghost" href="portais.html#grabovoi">Ver todos</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- EXPLORAR -->
-    <section class="explore-grid section-gap" aria-label="Explorar">
-      <a class="card explore-card" href="mantras.html#noite">
-        <span class="explore-card__icon">🌙</span>
-        <b>Ritual da Noite</b>
-        <span class="muted small">Afirmações e perguntas ao Universo antes de dormir.</span>
-      </a>
-      <a class="card explore-card" href="mantras.html#tecnicas">
-        <span class="explore-card__icon">⏱️</span>
-        <b>Pausas no trabalho</b>
-        <span class="muted small">Técnicas de 2 e 5 minutos para recuperar o foco.</span>
-      </a>
-      <a class="card explore-card" href="calendario.html">
-        <span class="explore-card__icon">🌕</span>
-        <b>Calendário Lunar</b>
-        <span class="muted small">Próximas fases e o que fazer em cada uma.</span>
-      </a>
-      <a class="card explore-card" href="simbolos.html">
-        <span class="explore-card__icon">✴️</span>
-        <b>Símbolos & Runas</b>
-        <span class="muted small">Pemba, runas, mandalas e criação de sigilos.</span>
-      </a>
-      <a class="card explore-card" href="colheita.html">
-        <span class="explore-card__icon">🧺</span>
-        <b>Colheita</b>
-        <span class="muted small">Como colher, secar e pedir licença às folhas.</span>
-      </a>
-      <a class="card explore-card" href="glossario.html">
-        <span class="explore-card__icon">📖</span>
-        <b>Glossário</b>
-        <span class="muted small">Ori, firmeza, descarrego e outros termos.</span>
-      </a>
-    </section>
-
-    <section class="card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">Rotina simples</h2>
-        <span class="badge">sugestão</span>
+    <section class="home-section" aria-label="Explorar">
+      <div class="home-section__head">
+        <div>
+          <span class="eyebrow">Explorar</span>
+          <h2>Tudo o que a mata ensina</h2>
+        </div>
       </div>
-      <ol class="list">
-        <li><strong>Manhã:</strong> 1 mantra + 1 objetivo do dia.</li>
-        <li><strong>Trabalho:</strong> pausas de 2 min (mantra + respiração).</li>
-        <li><strong>Noite:</strong> <a href="mantras.html#noite">ritual da noite</a> + gratidão por 3 coisas do dia.</li>
-      </ol>
-      <p class="muted small">Consistência ganha de intensidade. Pouco, todo dia.</p>
+      <div class="tiles">
+        <a class="tile" href="banhos.html"><img src="images/boldo.jpg" alt="" loading="lazy"><span class="tile__count" data-count="banhos"></span><b>Banhos</b><span>Descarrego, calma, proteção e fartura</span></a>
+        <a class="tile" href="defumacao.html"><img src="images/louro.jpg" alt="" loading="lazy"><span class="tile__count" data-count="defumacoes"></span><b>Defumações</b><span>Limpar e abençoar a casa</span></a>
+        <a class="tile" href="plantas.html"><img src="images/arruda.jpg" alt="" loading="lazy"><span class="tile__count" data-count="ervas"></span><b>Ervas</b><span>Cada folha, seu fundamento</span></a>
+        <a class="tile tile--plain" href="mantras.html"><span class="tile__icon">✨</span><b>Mantras</b><span>Afirmações e ritual da noite</span></a>
+        <a class="tile tile--plain" href="calendario.html"><span class="tile__icon">🌙</span><b>Lua & Números</b><span>Fases, portais e sequências</span></a>
+        <a class="tile tile--plain" href="simbolos.html"><span class="tile__icon">✴️</span><b>Símbolos</b><span>Pemba, runas, mandalas e sigilos</span></a>
+      </div>
     </section>
   </main>
 

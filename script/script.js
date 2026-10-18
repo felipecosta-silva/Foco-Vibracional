@@ -18,211 +18,132 @@ let ERVAS = [];
 let BANHOS = [];
 let DEFUMACOES = [];
 
+const ICONS = {
+  hoje: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6l1.4 1.4M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M7 16a5 5 0 0 1 10 0"/><path d="M3 20h18"/></svg>',
+  rituais: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c3-5 6-8 10-10"/></svg>',
+  mantras: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15.5l-1.8-4.7L5.5 9l4.7-1.3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
+  lua: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>',
+  saberes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7M8 11h5"/></svg>',
+  search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>',
+  leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c3-5 6-8 10-10"/></svg>'
+};
+
 /* ==========================================================================
-   Arquitetura de Navegação Global (Fonte Única de Cabeçalho e Rodapé)
+   Arquitetura de Navegação (fonte única): 5 seções; cada seção pode ter subpáginas
    ========================================================================== */
 const NAV = [
-  { label: "Hoje", url: "index.html" },
+  { id: "hoje", label: "Hoje", url: "index.html" },
   {
-    label: "Ervas & Rituais",
+    id: "rituais", label: "Rituais", url: "banhos.html",
     children: [
-      { label: "Ervas Sagradas", url: "plantas.html" },
-      { label: "Banhos de Ervas", url: "banhos.html" },
+      { label: "Banhos", url: "banhos.html" },
       { label: "Defumações", url: "defumacao.html" },
-      { label: "Colheita & Secagem", url: "colheita.html" }
+      { label: "Ervas", url: "plantas.html" },
+      { label: "Colheita", url: "colheita.html" }
     ]
   },
+  { id: "mantras", label: "Mantras", url: "mantras.html" },
   {
-    label: "Mente & Palavra",
-    children: [
-      { label: "Mantras", url: "mantras.html#mantras" },
-      { label: "Afirmações", url: "mantras.html#afirmacoes" },
-      { label: "Ritual da Noite", url: "mantras.html#noite" },
-      { label: "Favoritos", url: "mantras.html#favoritos" }
-    ]
-  },
-  {
-    label: "Números & Lua",
+    id: "lua", label: "Lua", url: "calendario.html",
     children: [
       { label: "Calendário Lunar", url: "calendario.html" },
-      { label: "Portais & Grabovoi", url: "portais.html" }
+      { label: "Portais & Números", url: "portais.html" }
     ]
   },
-  { label: "Símbolos", url: "simbolos.html" },
-  { label: "Glossário", url: "glossario.html" }
+  {
+    id: "saberes", label: "Saberes", url: "simbolos.html",
+    children: [
+      { label: "Símbolos & Runas", url: "simbolos.html" },
+      { label: "Glossário", url: "glossario.html" }
+    ]
+  }
 ];
+
+function currentPage() {
+  return (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+}
+
+function currentSection() {
+  const page = currentPage();
+  return NAV.find(s => s.url === page || (s.children || []).some(c => c.url === page)) || NAV[0];
+}
 
 function renderHeader() {
   const container = document.getElementById("site-header");
   if (!container) return;
 
-  const currentPath = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-
-  let navItemsHtml = "";
-  for (const item of NAV) {
-    if (!item.children) {
-      const isActive = currentPath === item.url.split("#")[0].toLowerCase();
-      navItemsHtml += `
-        <a class="nav__link ${isActive ? 'nav__link--active' : ''}" href="${item.url}">
-          ${item.label}
-        </a>`;
-    } else {
-      const isDropdownActive = item.children.some(c => c.url.split("#")[0].toLowerCase() === currentPath);
-      let subLinksHtml = "";
-      for (const sub of item.children) {
-        // Sublinks com âncora (#aba) são marcados por initPageTabs()
-        const isSubActive = !sub.url.includes("#") && currentPath === sub.url.toLowerCase();
-        subLinksHtml += `
-          <a class="nav__sublink ${isSubActive ? 'nav__sublink--active' : ''}" href="${sub.url}">
-            ${sub.label}
-          </a>`;
-      }
-
-      navItemsHtml += `
-        <div class="nav__dropdown ${isDropdownActive ? 'nav__dropdown--active' : ''}">
-          <button class="nav__link nav__dropdown-toggle ${isDropdownActive ? 'nav__link--active' : ''}" type="button" aria-expanded="false">
-            ${item.label} <span class="nav__chevron" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav__dropdown-menu">
-            ${subLinksHtml}
-          </div>
-        </div>`;
-    }
-  }
+  const page = currentPage();
+  const section = currentSection();
+  const links = NAV.map(s => `
+          <a class="nav__link ${s === section ? "nav__link--active" : ""}" href="${s.url}" ${s === section ? 'aria-current="page"' : ""}>${ICONS[s.id]}${s.label}</a>`).join("");
+  const bottom = NAV.map(s => `
+      <a class="bottomnav__item ${s === section ? "bottomnav__item--active" : ""}" href="${s.url}" ${s === section ? 'aria-current="page"' : ""}>${ICONS[s.id]}<span>${s.label}</span></a>`).join("");
+  const sub = section.children ? `
+    <nav class="subnav" aria-label="${section.label}">
+      <div class="wrap subnav__inner">
+        ${section.children.map(c => `<a class="subnav__link ${c.url === page ? "subnav__link--active" : ""}" href="${c.url}" ${c.url === page ? 'aria-current="page"' : ""}>${c.label}</a>`).join("")}
+      </div>
+    </nav>` : "";
 
   container.innerHTML = `
     <header class="topbar">
       <div class="wrap topbar__inner">
-        <a class="brand" href="index.html" aria-label="Voltar ao início">
-          <span class="brand__dot" aria-hidden="true"></span>
+        <a class="brand" href="index.html" aria-label="Foco Vibracional — início">
+          <img class="brand__logo" src="icons/icon.svg" alt="" width="30" height="30" />
           <span>Foco Vibracional</span>
         </a>
-
-        <nav class="nav" id="mainNav">
-          ${navItemsHtml}
+        <nav class="nav" aria-label="Principal">${links}
         </nav>
-
-        <div class="topbar__actions">
-          <button class="search-btn" type="button" id="globalSearchBtn" aria-label="Buscar no site (atalho /)" title="Buscar (/)">
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-          <button class="nav__toggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" id="navToggleBtn">
-            <span class="nav__toggle-bar"></span>
-            <span class="nav__toggle-bar"></span>
-            <span class="nav__toggle-bar"></span>
-          </button>
-        </div>
+        <button class="search-trigger" type="button" id="globalSearchBtn" aria-label="Buscar no site (atalho /)">
+          ${ICONS.search}<span>Buscar folha, banho…</span><kbd>/</kbd>
+        </button>
       </div>
     </header>
+    ${sub}
+    <nav class="bottomnav" aria-label="Principal">${bottom}
+    </nav>
   `;
 
-  // Comportamentos e interações do menu
-  const toggleBtn = container.querySelector("#navToggleBtn");
-  const navEl = container.querySelector("#mainNav");
-
-  if (toggleBtn && navEl) {
-    toggleBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = navEl.classList.toggle("nav--open");
-      toggleBtn.setAttribute("aria-expanded", String(isOpen));
-    });
-  }
-
-  // Toggles de dropdown no mobile / toque
-  container.querySelectorAll(".nav__dropdown").forEach(dropdown => {
-    const btn = dropdown.querySelector(".nav__dropdown-toggle");
-    if (!btn) return;
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const wasOpen = dropdown.classList.contains("nav__dropdown--open");
-      container.querySelectorAll(".nav__dropdown--open").forEach(dd => {
-        if (dd !== dropdown) {
-          dd.classList.remove("nav__dropdown--open");
-          const b = dd.querySelector(".nav__dropdown-toggle");
-          if (b) b.setAttribute("aria-expanded", "false");
-        }
-      });
-      dropdown.classList.toggle("nav__dropdown--open", !wasOpen);
-      btn.setAttribute("aria-expanded", String(!wasOpen));
-    });
-  });
-
-  // Fechar menu ou submenus ao clicar fora
-  document.addEventListener("click", (e) => {
-    if (!container.contains(e.target)) {
-      if (navEl && navEl.classList.contains("nav--open")) {
-        navEl.classList.remove("nav--open");
-        if (toggleBtn) toggleBtn.setAttribute("aria-expanded", "false");
-      }
-      container.querySelectorAll(".nav__dropdown--open").forEach(dd => {
-        dd.classList.remove("nav__dropdown--open");
-        const b = dd.querySelector(".nav__dropdown-toggle");
-        if (b) b.setAttribute("aria-expanded", "false");
-      });
-    }
-  });
-
-  // Fechar no ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      if (navEl && navEl.classList.contains("nav--open")) {
-        navEl.classList.remove("nav--open");
-        if (toggleBtn) {
-          toggleBtn.setAttribute("aria-expanded", "false");
-          toggleBtn.focus();
-        }
-      }
-      container.querySelectorAll(".nav__dropdown--open").forEach(dd => {
-        dd.classList.remove("nav__dropdown--open");
-        const b = dd.querySelector(".nav__dropdown-toggle");
-        if (b) b.setAttribute("aria-expanded", "false");
-      });
-    }
-  });
+  // Rola o link ativo do alternador para a vista no celular
+  container.querySelector(".subnav__link--active")?.scrollIntoView({ block: "nearest", inline: "center" });
 }
 
 function renderFooter() {
   const container = document.getElementById("site-footer");
   if (!container) return;
 
+  const cols = NAV.filter(s => s.children).map(s => `
+          <div class="site-footer__col">
+            <span class="site-footer__heading">${s.label}</span>
+            ${s.children.map(c => `<a href="${c.url}">${c.label}</a>`).join("")}
+          </div>`).join("");
+
   container.innerHTML = `
     <footer class="site-footer">
       <div class="wrap site-footer__inner">
         <div class="site-footer__brand">
           <div class="site-footer__title">
-            <span class="brand__dot" aria-hidden="true"></span>
-            <strong>Foco Vibracional &amp; Jurema Sagrada</strong>
+            <img class="brand__logo" src="icons/icon.svg" alt="" width="26" height="26" />
+            <strong>Foco Vibracional</strong>
           </div>
           <p class="site-footer__blessing">
             "Salve a Jurema Sagrada, salve os Mestres e Mestras das Matas e das Cidades. Que a sabedoria vegetal traga paz, firmeza e bons caminhos ao seu caminhar."
           </p>
         </div>
-        <div class="site-footer__links">
+        <div class="site-footer__links">${cols}
           <div class="site-footer__col">
-            <span class="site-footer__heading">Ervas &amp; Rituais</span>
-            <a href="plantas.html">Ervas Sagradas</a>
-            <a href="banhos.html">Banhos de Ervas</a>
-            <a href="defumacao.html">Defumações</a>
-            <a href="colheita.html">Colheita &amp; Secagem</a>
-          </div>
-          <div class="site-footer__col">
-            <span class="site-footer__heading">Mente &amp; Palavra</span>
+            <span class="site-footer__heading">Mantras</span>
             <a href="mantras.html#mantras">Mantras</a>
             <a href="mantras.html#afirmacoes">Afirmações</a>
             <a href="mantras.html#noite">Ritual da Noite</a>
-          </div>
-          <div class="site-footer__col">
-            <span class="site-footer__heading">Conhecimento</span>
-            <a href="calendario.html">Calendário Lunar</a>
-            <a href="portais.html">Portais &amp; Grabovoi</a>
-            <a href="simbolos.html">Símbolos Sagrados</a>
-            <a href="glossario.html">Glossário</a>
           </div>
         </div>
       </div>
       <div class="wrap site-footer__bottom">
         <small class="muted site-footer__copy">
-          Foco Vibracional • Compartilhamento gratuito e livre para elevação espiritual • Salve os Mestres e Mestras da Jurema Sagrada
+          Guia gratuito e educativo. Não substitui orientação médica ou psicológica. • Salve a Jurema Sagrada
         </small>
       </div>
     </footer>
@@ -380,7 +301,7 @@ function toast(message) {
   el.style.bottom = "24px";
   el.style.transform = "translateX(-50%)";
   el.style.background = "rgba(11, 23, 19, 0.95)";
-  el.style.border = "1px solid rgba(177, 255, 204, 0.35)";
+  el.style.border = "1px solid rgba(159,208,154, 0.35)";
   el.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.4)";
   el.style.backdropFilter = "blur(12px)";
   el.style.color = "#ffffff";
@@ -911,12 +832,6 @@ function initPageTabs() {
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
     $all("[data-page-panel]").forEach(p => { p.hidden = p.getAttribute("data-page-panel") !== id; });
-    $all(".nav__sublink").forEach(a => {
-      const href = a.getAttribute("href") || "";
-      if (href.includes("#") && href.split("#")[0] === (location.pathname.split("/").pop() || "index.html")) {
-        a.classList.toggle("nav__sublink--active", href.split("#")[1] === id);
-      }
-    });
     if (scroll) document.querySelector(".page-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -1078,604 +993,434 @@ function usedInHtml(erva) {
           </li>`;
 }
 
-/* Link direto para um item de catálogo (ex.: banhos.html#banho-calma-sono):
-   filtra pelo nome, rola até o card e o destaca por 2 segundos. */
-function focusCatalogItemFromHash(items, qInput, rerender, grid) {
-  function go() {
-    const id = decodeURIComponent(location.hash.slice(1));
-    if (!id || !grid) return;
-    const item = items.find(x => x.id === id);
-    if (!item) return;
-    if (qInput) qInput.value = item.nome;
-    rerender();
-    const el = grid.querySelector(`[data-item-id="${CSS.escape(id)}"]`);
-    if (!el) return;
-    setTimeout(() => {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("info-card--focus");
-      setTimeout(() => el.classList.remove("info-card--focus"), 2200);
-    }, 60);
+/* ==========================================================================
+   CATÁLOGO UNIFICADO (Banhos • Defumações • Ervas)
+   Cards compactos + filtros em chips + "mostrar mais" + painel de detalhes.
+   Filtros ficam na URL (?q=&objetivo=&lua=…) e cada item abre por #id.
+   ========================================================================== */
+const OBJETIVOS = [
+  { k: "limpeza", label: "Limpeza", icon: "🧹" },
+  { k: "protecao", label: "Proteção", icon: "🛡️" },
+  { k: "calma", label: "Calma", icon: "💧" },
+  { k: "energia", label: "Energia", icon: "☀️" },
+  { k: "prosperidade", label: "Prosperidade", icon: "🌻" },
+  { k: "harmonizacao", label: "Harmonização", icon: "🕊️" }
+];
+const LUAS = [
+  { k: "nova", label: "Nova", icon: "🌑" },
+  { k: "crescente", label: "Crescente", icon: "🌓" },
+  { k: "cheia", label: "Cheia", icon: "🌕" },
+  { k: "minguante", label: "Minguante", icon: "🌗" }
+];
+const ENERGIAS = [
+  { k: "frias", label: "Frias (paz)", c: "var(--c-calma)" },
+  { k: "equilibradoras", label: "Equilibradoras", c: "var(--c-harmonizacao)" },
+  { k: "quentes", label: "Quentes (força)", c: "var(--c-protecao)" }
+];
+const INTENSIDADE_NIVEL = { suave: 1, media: 2, forte: 3 };
+const INTENSIDADE_LABEL = { suave: "Suave", media: "Média", forte: "Forte" };
+const DIAS_LABEL = { dom: "Dom", seg: "Seg", ter: "Ter", qua: "Qua", qui: "Qui", sex: "Sex", sab: "Sáb" };
+
+const objInfo = k => OBJETIVOS.find(o => o.k === k) || { k, label: k || "—", icon: "✨" };
+
+function splitName(nome) {
+  const m = String(nome || "").match(/^(.*?)\s*\((.*)\)\s*$/);
+  return m ? [m[1], m[2]] : [String(nome || ""), ""];
+}
+
+function herbCabeca(e) {
+  const t = String(e.cabeca || "");
+  if (/nunca|jamais/i.test(t)) return "no";
+  if (/^sim/i.test(t)) return "yes";
+  return "maybe";
+}
+
+function sentidoCurto(s) {
+  const t = normalizeSpiritualSearch(s || "");
+  if (t.includes("fundo") && t.includes("porta")) return "Fundo → porta";
+  if (t.includes("porta para dentro") || t.startsWith("da porta")) return "Porta → dentro";
+  return "";
+}
+
+function moonsHtml(luas) {
+  return `<span class="moons" aria-label="Luas: ${(luas || []).join(", ")}">${LUAS.map(l =>
+    `<span class="${(luas || []).includes(l.k) ? "" : "off"}" title="Lua ${l.label}">${l.icon}</span>`).join("")}</span>`;
+}
+
+function intensityHtml(v) {
+  const n = INTENSIDADE_NIVEL[v] || 1;
+  return `<span class="intensity" title="Intensidade ${INTENSIDADE_LABEL[v] || v}">${[1, 2, 3].map(i => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+}
+
+function herbThumbHtml(e, cls = "") {
+  if (e && e.imagem) return `<img class="${cls}" src="${escapeHtml(e.imagem)}" alt="${escapeHtml(e.nome)}" loading="lazy" decoding="async">`;
+  const en = ENERGIAS.find(x => x.k === e?.energia);
+  return `<div class="leaf-ph" style="--c:${en ? en.c : "var(--accent2)"}">${ICONS.leaf}<span>${escapeHtml(splitName(e?.nome || "?")[0].charAt(0))}</span></div>`;
+}
+
+/* ---------- Cards ---------- */
+function ritualCardHtml(kind, it) {
+  const [titulo, sub] = splitName(it.nome);
+  const o = objInfo(it.objetivo);
+  // Resumo de ervas: nomes das fichas reconhecidas (sem quantidades), sem repetir o subtítulo
+  const names = [];
+  (it.ervas || []).forEach(t => { const e = ERVAS.length ? findHerbFor(t) : null; const n = e ? splitName(e.nome)[0] : null; if (n && !names.includes(n)) names.push(n); });
+  const subN = normalizeSpiritualSearch(sub);
+  const herbs = names.length && !names.every(n => subN.includes(normalizeSpiritualSearch(n))) ? names.slice(0, 5).join(" · ") : "";
+  let foot;
+  if (kind === "banho") {
+    foot = it.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça</span>` : `<span class="ori ori--no">Pescoço p/ baixo</span>`;
+  } else {
+    const s = sentidoCurto(it.sentido);
+    foot = s ? `<span class="badge">${s}</span>` : "";
   }
-  window.addEventListener("hashchange", go);
-  go();
+  return `
+    <button class="rcard" type="button" data-open="${escapeHtml(it.id)}" style="--c:var(--c-${o.k})">
+      <span class="rcard__top">
+        <span class="rcard__kind">${o.icon} ${o.label}</span>
+        ${intensityHtml(it.intensidade)}
+      </span>
+      <h3 class="rcard__title">${escapeHtml(titulo)}</h3>
+      ${sub ? `<p class="rcard__sub">${escapeHtml(sub)}</p>` : ""}
+      ${herbs ? `<span class="rcard__herbs">🌿 ${escapeHtml(herbs)}</span>` : ""}
+      <span class="rcard__foot">${moonsHtml(it.luas)}${foot}</span>
+    </button>`;
+}
+
+function herbCardHtml(e) {
+  const en = ENERGIAS.find(x => x.k === e.energia);
+  const cab = herbCabeca(e);
+  const oriBadge = cab === "yes" ? `<span class="ori ori--yes">✓ Cabeça</span>` : cab === "no" ? `<span class="ori ori--no">Pescoço p/ baixo</span>` : `<span class="badge">Com orientação</span>`;
+  const objs = (e.objetivos || []).slice(0, 2).map(k => `<span class="badge">${objInfo(k).icon} ${objInfo(k).label}</span>`).join("");
+  return `
+    <button class="hcard" type="button" data-open="${escapeHtml(e.id)}">
+      <span class="hcard__media">
+        ${herbThumbHtml(e)}
+        ${en ? `<span class="hcard__energy" style="color:${en.c}">${en.label}</span>` : ""}
+      </span>
+      <span class="hcard__body">
+        <h3 class="hcard__title">${escapeHtml(splitName(e.nome)[0])}</h3>
+        <p class="hcard__pop">${escapeHtml(e.nomePopular || "")}</p>
+        <span class="hcard__foot">${oriBadge}${objs}</span>
+      </span>
+    </button>`;
+}
+
+/* ---------- Detalhes ---------- */
+function linkHerb(txt) {
+  const erva = ERVAS.length ? findHerbFor(txt) : null;
+  return erva ? `<a class="herb-link" href="plantas.html#${encodeURIComponent(erva.id)}">${escapeHtml(txt)}</a>` : escapeHtml(txt);
+}
+
+function rezaHtml(it) {
+  if (!it.reza) return "";
+  const id = "reza_" + it.id.replace(/[^a-z0-9_-]/gi, "");
+  return `
+      <div class="dsec">
+        <h3>Reza</h3>
+        <blockquote class="quote" id="${id}">“${escapeHtml(it.reza)}”</blockquote>
+        <div class="row wrap-row">
+          <button class="btn btn--ghost" data-copy="#${id}" type="button">📋 Copiar reza</button>
+          <button class="btn btn--ghost" data-speak="#${id}" type="button">🔊 Ouvir</button>
+        </div>
+      </div>`;
+}
+
+function ingredientsHtml(list) {
+  return `<ul class="ingredients">${(list || []).map(t => `<li>${linkHerb(t)}</li>`).join("")}</ul>`;
+}
+
+function heroForRitual(it) {
+  for (const t of it.ervas || []) {
+    const e = ERVAS.length ? findHerbFor(t) : null;
+    if (e && e.imagem) return `<div class="drawer__hero"><img src="${escapeHtml(e.imagem)}" alt="${escapeHtml(e.nome)}"></div>`;
+  }
+  return "";
+}
+
+function banhoDetailHtml(b) {
+  const [titulo, sub] = splitName(b.nome);
+  const o = objInfo(b.objetivo);
+  return `
+    ${heroForRitual(b)}
+    <h2 class="drawer__title">${escapeHtml(titulo)}</h2>
+    ${sub ? `<p class="drawer__sub">${escapeHtml(sub)}</p>` : ""}
+    <div class="drawer__chips">
+      <span class="badge" style="color:var(--c-${o.k})">${o.icon} ${o.label}</span>
+      <span class="badge">Intensidade ${INTENSIDADE_LABEL[b.intensidade] || b.intensidade}</span>
+      ${b.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça (Ori)</span>` : `<span class="ori ori--no">⚠ Do pescoço para baixo</span>`}
+    </div>
+    <div class="facts">
+      <div class="fact"><span>Luas</span><b>${moonsHtml(b.luas)}</b></div>
+      <div class="fact"><span>Dias</span><b>${(b.dias || []).map(d => DIAS_LABEL[d] || d).join(", ") || "Qualquer dia"}</b></div>
+      <div class="fact" style="grid-column: 1 / -1"><span>Horário</span><b>${escapeHtml(b.horario || "Livre")}</b></div>
+    </div>
+    <div class="dsec"><h3>Ingredientes</h3>${ingredientsHtml(b.ervas)}</div>
+    <div class="dsec"><h3>Modo de preparo</h3><p>${escapeHtml(b.modoPreparo || "")}</p></div>
+    ${rezaHtml(b)}
+    <div class="dsec ${b.cabeca ? "" : "dsec--warn"}"><h3>Atenção & fundamento</h3><p>${escapeHtml(b.observacao || "")}</p></div>
+    ${b.versaoCha ? `<div class="dsec dsec--tea"><h3>☕ Versão em chá</h3><p>${escapeHtml(b.versaoCha)}</p></div>` : ""}`;
+}
+
+function defumacaoDetailHtml(d) {
+  const [titulo, sub] = splitName(d.nome);
+  const o = objInfo(d.objetivo);
+  return `
+    ${heroForRitual(d)}
+    <h2 class="drawer__title">${escapeHtml(titulo)}</h2>
+    ${sub ? `<p class="drawer__sub">${escapeHtml(sub)}</p>` : ""}
+    <div class="drawer__chips">
+      <span class="badge" style="color:var(--c-${o.k})">${o.icon} ${o.label}</span>
+      <span class="badge">Intensidade ${INTENSIDADE_LABEL[d.intensidade] || d.intensidade}</span>
+    </div>
+    <div class="facts">
+      <div class="fact"><span>Luas</span><b>${moonsHtml(d.luas)}</b></div>
+      <div class="fact"><span>Dias</span><b>${(d.dias || []).map(x => DIAS_LABEL[x] || x).join(", ") || "Qualquer dia"}</b></div>
+      <div class="fact" style="grid-column: 1 / -1"><span>Sentido</span><b>${escapeHtml(d.sentido || "Por todos os cômodos, com ventilação")}</b></div>
+      <div class="fact" style="grid-column: 1 / -1"><span>Horário</span><b>${escapeHtml(d.horario || "Livre")}</b></div>
+    </div>
+    <div class="dsec"><h3>Ervas e resinas</h3>${ingredientsHtml(d.ervas)}</div>
+    <div class="dsec"><h3>Para que serve</h3><p>${escapeHtml(d.servePara || "")}</p></div>
+    ${rezaHtml(d)}
+    <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(d.cuidados || "Ventile bem; cuidado com fogo, crianças e animais.")}</p></div>`;
+}
+
+function ervaDetailHtml(e) {
+  const [titulo, sub] = splitName(e.nome);
+  const en = ENERGIAS.find(x => x.k === e.energia);
+  const cab = herbCabeca(e);
+  const usos = (e.usos || []).map(u => u.replace("banho-external", "banho externo").replace("escalda-pes", "escalda-pés")).join(", ");
+  const used = usedInHtml(e);
+  return `
+    <div class="drawer__hero">${herbThumbHtml(e)}</div>
+    <h2 class="drawer__title">${escapeHtml(titulo)}</h2>
+    <p class="drawer__sub">${escapeHtml(e.nomePopular || sub)}</p>
+    <div class="drawer__chips">
+      ${en ? `<span class="badge" style="color:${en.c}">${en.label}</span>` : ""}
+      <span class="badge">Intensidade ${INTENSIDADE_LABEL[e.intensidade] || e.intensidade || "—"}</span>
+      ${(e.objetivos || []).map(k => `<span class="badge">${objInfo(k).icon} ${objInfo(k).label}</span>`).join("")}
+    </div>
+    <div class="dsec ${cab === "no" ? "dsec--warn" : ""}" style="border-top:0; padding-top:0;">
+      <h3>Na cabeça (Ori)</h3><p>${escapeHtml(e.cabeca || "")}</p>
+    </div>
+    <div class="dsec"><h3>Sobre</h3><p>${escapeHtml(e.descricao || "")}</p></div>
+    <div class="facts">
+      <div class="fact"><span>Partes usadas</span><b>${escapeHtml((e.partes || []).join(", ") || "—")}</b></div>
+      <div class="fact"><span>Usos</span><b>${escapeHtml(usos || "—")}</b></div>
+    </div>
+    ${e.diferenciacao ? `<div class="dsec"><h3>Diferenciação na tradição</h3><p>${escapeHtml(e.diferenciacao).replace(/\n/g, "<br>")}</p></div>` : ""}
+    <div class="dsec"><h3>Colheita</h3><p>${escapeHtml(e.colheita || "")}</p></div>
+    <div class="dsec"><h3>Fundamento & tradição</h3><p>${escapeHtml(e.tradicao || "")}</p></div>
+    <div class="dsec dsec--warn"><h3>Cuidados e segurança</h3><p>${escapeHtml(e.cuidados || "Uso externo consciente.")}</p></div>
+    ${e.cha ? `<div class="dsec dsec--tea"><h3>☕ Uso em chá / medicina popular</h3><p>${escapeHtml(e.cha)}</p></div>` : ""}
+    ${used ? `<div class="dsec"><h3>Usada em</h3>${used.replace(/^[\s\S]*?<span class="used-in">/, '<span class="used-in">').replace(/<\/li>\s*$/, "")}</div>` : ""}`;
+}
+
+/* ---------- Painel de detalhes ---------- */
+let DRAWER = null;
+
+function getDrawer() {
+  if (DRAWER) return DRAWER;
+  const el = document.createElement("div");
+  el.className = "drawer";
+  el.hidden = true;
+  el.innerHTML = `
+    <div class="drawer__backdrop" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <div class="drawer__bar">
+        <span class="eyebrow" id="drawerEyebrow"></span>
+        <div class="drawer__actions">
+          <button class="icon-btn" type="button" data-share aria-label="Compartilhar">${ICONS.share}</button>
+          <button class="icon-btn" type="button" data-close aria-label="Fechar">${ICONS.close}</button>
+        </div>
+      </div>
+      <div class="drawer__body" id="drawerBody"></div>
+    </aside>`;
+  document.body.appendChild(el);
+  let lastFocus = null;
+
+  const api = {
+    open(eyebrow, html, id) {
+      lastFocus = document.activeElement;
+      el.querySelector("#drawerEyebrow").textContent = eyebrow;
+      const body = el.querySelector("#drawerBody");
+      body.innerHTML = html;
+      body.scrollTop = 0;
+      body.querySelector(".drawer__title")?.setAttribute("id", "drawerTitle");
+      el.hidden = false;
+      document.body.classList.add("drawer-open");
+      if (id && location.hash !== "#" + id) history.replaceState(null, "", location.pathname + location.search + "#" + id);
+      el.querySelector("[data-close].icon-btn").focus({ preventScroll: true });
+    },
+    close() {
+      if (el.hidden) return;
+      el.hidden = true;
+      document.body.classList.remove("drawer-open");
+      history.replaceState(null, "", location.pathname + location.search);
+      lastFocus?.focus?.({ preventScroll: true });
+    },
+    get isOpen() { return !el.hidden; }
+  };
+
+  el.addEventListener("click", e => {
+    if (e.target.closest("[data-close]")) api.close();
+    if (e.target.closest("[data-share]")) {
+      const url = location.href;
+      const title = el.querySelector(".drawer__title")?.textContent || document.title;
+      if (navigator.share) navigator.share({ title, url }).catch(() => {});
+      else copyText(url);
+    }
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && api.isOpen) api.close(); });
+  DRAWER = api;
+  return api;
+}
+
+/* ---------- Motor do catálogo ---------- */
+function createCatalog(cfg) {
+  const mount = cfg.mount;
+  const params = new URLSearchParams(location.search);
+  const state = { q: params.get("q") || "", shown: cfg.perPage };
+  cfg.filters.forEach(f => { state[f.key] = params.get(f.key) || "todos"; });
+  (cfg.toggles || []).forEach(t => { state[t.key] = params.get(t.key) === "1"; });
+  const todayMoon = getLiveMoonData(new Date()).key;
+
+  const chipRow = f => `
+      <div class="chip-row" role="group" aria-label="${f.label}">
+        <span class="chip-row__label">${f.label}</span>
+        <button class="pill" type="button" data-f="${f.key}" data-v="todos">Todos</button>
+        ${f.options.map(o => `<button class="pill" type="button" data-f="${f.key}" data-v="${o.k}" ${o.c ? `style="--c:${o.c}"` : ""}>${o.icon ? o.icon + " " : ""}${o.label}${f.key === "lua" && o.k === todayMoon ? ' <span class="today-tag">hoje</span>' : ""}</button>`).join("")}
+        ${f === cfg.filters[cfg.filters.length - 1] ? (cfg.toggles || []).map(t => `<button class="pill" type="button" data-t="${t.key}">${t.label}</button>`).join("") : ""}
+      </div>`;
+
+  mount.innerHTML = `
+    <label class="cat-search">
+      ${ICONS.search}
+      <input class="input" type="search" placeholder="${cfg.placeholder}" value="${escapeHtml(state.q)}" aria-label="${cfg.placeholder}" />
+    </label>
+    <div class="cat-filters">${cfg.filters.map(chipRow).join("")}</div>
+    <div class="cat-meta"><span class="cat-count"></span><button class="cat-clear" type="button" hidden>Limpar filtros</button></div>
+    <div class="cat-grid"></div>
+    <div class="cat-empty" hidden>Nada encontrado com esses filtros. <button class="cat-clear" type="button">Limpar filtros</button></div>
+    <div class="cat-more"></div>`;
+
+  const input = mount.querySelector(".cat-search input");
+  const grid = mount.querySelector(".cat-grid");
+  const countEl = mount.querySelector(".cat-count");
+  const empty = mount.querySelector(".cat-empty");
+  const more = mount.querySelector(".cat-more");
+  const clearBtns = mount.querySelectorAll(".cat-clear");
+
+  function syncUrl() {
+    const p = new URLSearchParams();
+    if (state.q) p.set("q", state.q);
+    cfg.filters.forEach(f => { if (state[f.key] !== "todos") p.set(f.key, state[f.key]); });
+    (cfg.toggles || []).forEach(t => { if (state[t.key]) p.set(t.key, "1"); });
+    const qs = p.toString();
+    history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+  }
+
+  function filtered() {
+    const q = normalizeSpiritualSearch(state.q);
+    return cfg.items.filter(it =>
+      (!q || normalizeSpiritualSearch(cfg.searchText(it)).includes(q)) &&
+      cfg.filters.every(f => state[f.key] === "todos" || f.test(it, state[f.key])) &&
+      (cfg.toggles || []).every(t => !state[t.key] || t.test(it))
+    );
+  }
+
+  function render() {
+    mount.querySelectorAll("[data-f]").forEach(b => b.classList.toggle("pill--active", state[b.dataset.f] === b.dataset.v));
+    mount.querySelectorAll("[data-t]").forEach(b => b.classList.toggle("pill--active", !!state[b.dataset.t]));
+    const list = filtered();
+    const active = state.q || cfg.filters.some(f => state[f.key] !== "todos") || (cfg.toggles || []).some(t => state[t.key]);
+    countEl.innerHTML = `<b>${list.length}</b> ${list.length === 1 ? cfg.unit[0] : cfg.unit[1]}${active ? ` de ${cfg.items.length}` : ""}`;
+    clearBtns[0].hidden = !active;
+    empty.hidden = list.length > 0;
+    grid.innerHTML = list.slice(0, state.shown).map(cfg.renderCard).join("");
+    const rest = list.length - state.shown;
+    more.innerHTML = rest > 0 ? `<button class="btn btn--ghost" type="button">Mostrar mais ${Math.min(rest, cfg.perPage)} (${rest} restantes)</button>` : "";
+  }
+
+  function update() { state.shown = cfg.perPage; syncUrl(); render(); }
+
+  let t;
+  input.addEventListener("input", () => { clearTimeout(t); t = setTimeout(() => { state.q = input.value.trim(); update(); }, 120); });
+  mount.addEventListener("click", e => {
+    const f = e.target.closest("[data-f]");
+    if (f) { state[f.dataset.f] = (state[f.dataset.f] === f.dataset.v && f.dataset.v !== "todos") ? "todos" : f.dataset.v; return update(); }
+    const tg = e.target.closest("[data-t]");
+    if (tg) { state[tg.dataset.t] = !state[tg.dataset.t]; return update(); }
+    if (e.target.closest(".cat-clear")) {
+      state.q = ""; input.value = "";
+      cfg.filters.forEach(x => { state[x.key] = "todos"; });
+      (cfg.toggles || []).forEach(x => { state[x.key] = false; });
+      return update();
+    }
+    if (e.target.closest(".cat-more button")) { state.shown += cfg.perPage; return render(); }
+    const card = e.target.closest("[data-open]");
+    if (card) openItem(card.dataset.open);
+  });
+
+  function openItem(id) {
+    const it = cfg.items.find(x => x.id === id);
+    if (it) getDrawer().open(cfg.eyebrow, cfg.detail(it), it.id);
+  }
+  function fromHash() {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (id && cfg.items.some(x => x.id === id)) openItem(id);
+  }
+  window.addEventListener("hashchange", fromHash);
+
+  render();
+  fromHash();
+}
+
+const OBJ_FILTER = { key: "objetivo", label: "Para", options: OBJETIVOS.map(o => ({ ...o, c: `var(--c-${o.k})` })), test: (it, v) => it.objetivo === v };
+const LUA_FILTER = { key: "lua", label: "Lua", options: LUAS, test: (it, v) => (it.luas || []).includes(v) };
+
+function initBanhosPage() {
+  const mount = $("#catalog[data-catalog='banhos']");
+  if (!mount) return;
+  createCatalog({
+    mount, items: BANHOS, perPage: 24, unit: ["banho", "banhos"], eyebrow: "Banho",
+    placeholder: "Buscar banho, erva ou intenção…",
+    searchText: b => `${b.nome} ${(b.ervas || []).join(" ")} ${b.objetivo} ${b.observacao} ${b.modoPreparo}`,
+    filters: [OBJ_FILTER, LUA_FILTER],
+    toggles: [{ key: "cabeca", label: "👑 Pode na cabeça", test: b => b.cabeca === true }],
+    renderCard: b => ritualCardHtml("banho", b),
+    detail: banhoDetailHtml
+  });
+}
+
+function initDefumacaoPage() {
+  const mount = $("#catalog[data-catalog='defumacoes']");
+  if (!mount) return;
+  createCatalog({
+    mount, items: DEFUMACOES, perPage: 24, unit: ["defumação", "defumações"], eyebrow: "Defumação",
+    placeholder: "Buscar defumação, erva ou intenção…",
+    searchText: d => `${d.nome} ${(d.ervas || []).join(" ")} ${d.objetivo} ${d.servePara} ${d.sentido}`,
+    filters: [OBJ_FILTER, LUA_FILTER],
+    renderCard: d => ritualCardHtml("defumacao", d),
+    detail: defumacaoDetailHtml
+  });
 }
 
 function initPlantasPage() {
-  const grid = $("#herbGrid");
-  const count = $("#herbCount");
-  const empty = $("#herbEmpty");
-  const paginationContainer = $("#herbPagination");
-  if (!grid || !count || !empty) return;
-
-  const qInput = $("#qHerb");
-  const fEnergia = $("#fEnergia");
-  const fUso = $("#fUso");
-  const fObjetivo = $("#fObjetivo");
-  const fParte = $("#fParte");
-  const fIntensidade = $("#fIntensidade");
-  const clearBtn = $("#clearHerbFilters");
-
-  let currentPage = 1;
-  const perPage = 8;
-  let viewAll = false;
-
-  function render() {
-    const q = normalizeSpiritualSearch(qInput?.value);
-    const energia = fEnergia?.value || "todas";
-    const uso = fUso?.value || "todos";
-    const objetivo = fObjetivo?.value || "todos";
-    const parte = fParte?.value || "todas";
-    const intensidade = fIntensidade?.value || "todas";
-
-    const filtered = ERVAS.filter(e => {
-      const nome = normalizeSpiritualSearch(e.nome);
-      const pop = normalizeSpiritualSearch(e.nomePopular);
-      const desc = normalizeSpiritualSearch(e.descricao);
-      const trad = normalizeSpiritualSearch(e.tradicao);
-      const dif = normalizeSpiritualSearch(e.diferenciacao);
-      const cha = normalizeSpiritualSearch(e.cha || "");
-      const allText = `${nome} ${pop} ${desc} ${trad} ${dif} ${cha}`;
-
-      const okQ = !q || allText.includes(q);
-      const okEnergia = (energia === "todas") || (e.energia === energia);
-      const okUso = (uso === "todos") || (Array.isArray(e.usos) && e.usos.includes(uso));
-      const okObjetivo = (objetivo === "todos") || (Array.isArray(e.objetivos) && e.objetivos.includes(objetivo));
-      const okParte = (parte === "todas") || (Array.isArray(e.partes) && e.partes.includes(parte));
-      const okIntensidade = (intensidade === "todas") || (e.intensidade === intensidade);
-
-      return okQ && okEnergia && okUso && okObjetivo && okParte && okIntensidade;
-    });
-
-    count.textContent = String(filtered.length);
-    grid.innerHTML = "";
-    empty.style.display = filtered.length ? "none" : "block";
-
-    const totalPages = viewAll ? 1 : Math.max(1, Math.ceil(filtered.length / perPage));
-    if (currentPage > totalPages) currentPage = 1;
-
-    const pageItems = viewAll
-      ? filtered
-      : filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
-
-    pageItems.forEach(e => {
-      const card = document.createElement("div");
-      card.className = "info-card";
-      card.dataset.itemId = e.id || "";
-
-      // Cor ou tag da energia
-      const energiaTag = (e.energia === "frias") ? "fria (paz)" :
-                         (e.energia === "quentes") ? "quente (força)" : "equilibradora";
-
-      // Permissão na cabeça (Ori)
-      const isNunca = e.cabeca && e.cabeca.toLowerCase().includes("nunca");
-      const cabecaBadge = isNunca
-        ? `<span class="badge" style="border-color: rgba(255,210,166,0.5); color: #ffd2a6; background: rgba(255,210,166,0.12);">⚠ Ori: Pescoço p/ baixo</span>`
-        : `<span class="badge" style="border-color: rgba(177,255,204,0.5); color: #b1ffcc; background: rgba(177,255,204,0.12);">✓ Ori: Permitido na cabeça</span>`;
-
-      // Mídia / Foto
-      const mediaHtml = e.imagem ? `
-        <div class="herb-card__media">
-          <img src="${e.imagem}" alt="${e.nome}" class="herb-card__img" loading="lazy" onerror="this.parentElement.style.display='none'">
-        </div>
-      ` : "";
-
-      // Caixa de diferenciação tradicional (se houver)
-      const difHtml = e.diferenciacao ? `
-        <div class="diferenciacao-box">
-          <div class="diferenciacao-title">🌿 Diferenciação na Tradição:</div>
-          <p class="diferenciacao-text">${e.diferenciacao.replace(/\n/g, "<br>")}</p>
-        </div>
-      ` : "";
-
-      card.innerHTML = `
-        ${mediaHtml}
-        <div class="info-card__top">
-          <div>
-            <h3 class="info-title">${e.nome}</h3>
-            <p class="muted small info-desc"><em>${e.nomePopular || ""}</em></p>
-          </div>
-          <div class="badges">
-            <span class="badge">${energiaTag}</span>
-            <span class="badge">${e.intensidade || "suave"}</span>
-            ${cabecaBadge}
-          </div>
-        </div>
-
-        <p class="small" style="margin: 8px 0 12px; color: rgba(255,255,255,0.92); line-height: 1.55;">${e.descricao}</p>
-
-        <ul class="kv">
-          <li>
-            <b>Usos sagrados:</b>
-            <span>${(e.usos || []).join(", ").replace(/banho-external/g, "banho externo").replace(/escalda-pes/g, "escalda-pés")}</span>
-          </li>
-          <li>
-            <b>Colheita com respeito:</b>
-            <span>${e.colheita || "Colher fresca com pedido de licença aos Mestres."}</span>
-          </li>
-          <li class="advanced-only">
-            <b>Fundamento & Tradição:</b>
-            <span style="color: var(--accent2);">${e.tradicao || "Tradição das matas e juremados."}</span>
-          </li>
-          <li>
-            <b>Cuidados e segurança:</b>
-            <span style="color: #fca5a5; font-size: 0.88rem;">${e.cuidados || "Uso externo consciente."}</span>
-          </li>
-          ${usedInHtml(e)}
-          ${e.cha ? `
-          <li style="border-top: 1px dashed rgba(246, 224, 94, 0.25); padding-top: 8px; margin-top: 6px;">
-            <b style="color: #f6e05e;">☕ Uso em Chá / Medicina Popular:</b>
-            <span style="color: #fef08a; font-size: 0.88rem; line-height: 1.5;">${e.cha}</span>
-          </li>
-          ` : ""}
-        </ul>
-
-        ${difHtml}
-      `;
-      grid.appendChild(card);
-    });
-
-    renderPaginationControls({
-      container: paginationContainer,
-      totalItems: filtered.length,
-      currentPage,
-      perPage,
-      viewAll,
-      unitName: "ervas",
-      onPageChange: (newPage) => {
-        currentPage = newPage;
-        render();
-        grid.scrollIntoView({ behavior: "smooth", block: "start" });
-      },
-      onToggleViewAll: (newViewAll) => {
-        viewAll = newViewAll;
-        currentPage = 1;
-        render();
-      }
-    });
-  }
-
-  if (qInput) qInput.addEventListener("input", () => { currentPage = 1; render(); });
-  if (fEnergia) fEnergia.addEventListener("change", () => { currentPage = 1; render(); });
-  if (fUso) fUso.addEventListener("change", () => { currentPage = 1; render(); });
-  if (fObjetivo) fObjetivo.addEventListener("change", () => { currentPage = 1; render(); });
-  if (fParte) fParte.addEventListener("change", () => { currentPage = 1; render(); });
-  if (fIntensidade) fIntensidade.addEventListener("change", () => { currentPage = 1; render(); });
-
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      if (qInput) qInput.value = "";
-      if (fEnergia) fEnergia.value = "todas";
-      if (fUso) fUso.value = "todos";
-      if (fObjetivo) fObjetivo.value = "todos";
-      if (fParte) fParte.value = "todas";
-      if (fIntensidade) fIntensidade.value = "todas";
-      currentPage = 1;
-      render();
-    });
-  }
-
-  render();
-  focusCatalogItemFromHash(ERVAS, qInput, render, grid);
-}
-
-/* ==========================================================================
-   Página: Banhos Energéticos e Sagrados (banhos.html)
-   Renderiza cartões de banhos com modo de preparo, reza e indicação de cabeça
-   ========================================================================== */
-function initBanhosPage() {
-  const grid = $("#bathGrid");
-  const count = $("#bathCount");
-  const empty = $("#bathEmpty");
-  const paginationContainer = $("#bathPagination");
-  if (!grid || !count || !empty) return;
-
-  const qInput = $("#qBath");
-  const fObjetivo = $("#fBathObjetivo");
-  const fMoon = $("#fBathMoon");
-  const fIntensidade = $("#fBathIntensidade");
-  const clearBtn = $("#clearBathFilters");
-  const lunarBtns = $all(".lunar__item[data-moon]");
-
-  let currentPage = 1;
-  const perPage = 9;
-  let viewAll = false;
-
-  function render() {
-    const q = normalizeSpiritualSearch(qInput?.value);
-    const objetivo = fObjetivo?.value || "todos";
-    const moon = fMoon?.value || "todas";
-    const intensidade = fIntensidade?.value || "todas";
-
-    const filtered = BANHOS.filter(b => {
-      const nome = normalizeSpiritualSearch(b.nome);
-      const ervas = normalizeSpiritualSearch((b.ervas || []).join(" "));
-      const obs = normalizeSpiritualSearch(b.observacao);
-      const reza = normalizeSpiritualSearch(b.reza);
-      const prep = normalizeSpiritualSearch(b.modoPreparo);
-      const cha = normalizeSpiritualSearch(b.versaoCha || "");
-      const allText = `${nome} ${ervas} ${obs} ${reza} ${prep} ${cha}`;
-
-      const okQ = !q || allText.includes(q);
-      const okObj = (objetivo === "todos") || (b.objetivo === objetivo);
-      const okMoon = (moon === "todas") || (Array.isArray(b.luas) && b.luas.includes(moon));
-      const okInt = (intensidade === "todas") || (b.intensidade === intensidade);
-
-      return okQ && okObj && okMoon && okInt;
-    });
-
-    count.textContent = String(filtered.length);
-    grid.innerHTML = "";
-    empty.style.display = filtered.length ? "none" : "block";
-
-    const totalPages = viewAll ? 1 : Math.max(1, Math.ceil(filtered.length / perPage));
-    if (currentPage > totalPages) currentPage = 1;
-
-    const pageItems = viewAll
-      ? filtered
-      : filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
-
-    pageItems.forEach((b, index) => {
-      const card = document.createElement("div");
-      card.className = "info-card";
-      card.dataset.itemId = b.id || "";
-
-      const cabecaBadge = b.cabeca
-        ? `<span class="badge" style="border-color: rgba(177,255,204,0.4); color: #b1ffcc;">✓ Cabeça permitida</span>`
-        : `<span class="badge" style="border-color: rgba(255,210,166,0.4); color: #ffd2a6;">⚠ Do pescoço para baixo</span>`;
-
-      const idReza = `reza_banho_${index}`;
-
-      card.innerHTML = `
-        <div class="info-card__top">
-          <div>
-            <h3 class="info-title">${b.nome}</h3>
-            <p class="muted small info-desc">Objetivo: <b>${b.objetivo}</b> • Intensidade: <b>${b.intensidade}</b></p>
-          </div>
-          <div class="badges">
-            ${cabecaBadge}
-          </div>
-        </div>
-
-        <ul class="kv">
-          <li>
-            <b>Ervas Sagradas:</b>
-            <span style="color: var(--accent2);">${linkedHerbList(b.ervas)}</span>
-          </li>
-          <li>
-            <b>Fase lunar & dias:</b>
-            <span>Luas: ${(b.luas || []).join(", ")} • Dias: ${(b.dias || []).join(", ")} • Horário: ${b.horario || "livre"}</span>
-          </li>
-          <li>
-            <b>Modo de preparo ancestral:</b>
-            <span>${b.modoPreparo || "Macerar em água fresca ou infusão morna."}</span>
-          </li>
-          ${b.reza ? `
-          <li>
-            <b>Reza de consagração e intenção:</b>
-            <blockquote class="quote" id="${idReza}" style="margin: 8px 0 6px; font-size: 0.95rem;">“${b.reza}”</blockquote>
-            <div class="row wrap-row" style="margin-top: 6px;">
-              <button class="btn btn--ghost" data-copy="#${idReza}" type="button">Copiar reza</button>
-              <button class="btn" data-speak="#${idReza}" type="button">Ouvir reza</button>
-            </div>
-          </li>
-          ` : ""}
-          <li>
-            <b>Atenção & Fundamento:</b>
-            <span style="font-size: 0.88rem; color: rgba(255,255,255,0.85);">${b.observacao || "Tome com respeito e fé."}</span>
-          </li>
-          ${b.versaoCha ? `
-          <li style="border-top: 1px dashed rgba(246, 224, 94, 0.25); padding-top: 8px; margin-top: 6px;">
-            <b style="color: #f6e05e;">☕ Versão em Chá & Uso Medicinal:</b>
-            <span style="color: #fef08a; font-size: 0.88rem; line-height: 1.5;">${b.versaoCha}</span>
-          </li>
-          ` : ""}
-        </ul>
-      `;
-      grid.appendChild(card);
-    });
-
-    renderPaginationControls({
-      container: paginationContainer,
-      totalItems: filtered.length,
-      currentPage,
-      perPage,
-      viewAll,
-      unitName: "banhos",
-      onPageChange: (newPage) => {
-        currentPage = newPage;
-        render();
-        grid.scrollIntoView({ behavior: "smooth", block: "start" });
-      },
-      onToggleViewAll: (newViewAll) => {
-        viewAll = newViewAll;
-        currentPage = 1;
-        render();
-      }
-    });
-  }
-
-  // Banner da Lua de Hoje em banhos.html
-  const todayMoonBath = initTodayMoonBanner("#banhosMoonBanner", (phaseKey) => {
-    lunarBtns.forEach(x => x.classList.toggle("active", x.getAttribute("data-moon") === phaseKey));
-    if (fMoon) fMoon.value = phaseKey;
-    currentPage = 1;
-    render();
-    toast(`Filtrado para a Lua de Hoje (${todayMoonBath.name}) ✨`);
-    grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  const mount = $("#catalog[data-catalog='ervas']");
+  if (!mount) return;
+  createCatalog({
+    mount, items: ERVAS, perPage: 24, unit: ["erva", "ervas"], eyebrow: "Erva",
+    placeholder: "Buscar erva pelo nome ou uso…",
+    searchText: e => `${e.nome} ${e.nomePopular} ${(e.objetivos || []).join(" ")} ${e.descricao} ${e.tradicao}`,
+    filters: [
+      { key: "energia", label: "Energia", options: ENERGIAS, test: (e, v) => e.energia === v },
+      { key: "objetivo", label: "Para", options: OBJETIVOS, test: (e, v) => (e.objetivos || []).includes(v) }
+    ],
+    toggles: [{ key: "cabeca", label: "👑 Vai na cabeça", test: e => herbCabeca(e) === "yes" }],
+    renderCard: herbCardHtml,
+    detail: ervaDetailHtml
   });
-
-  // Sincroniza botões da linha do tempo lunar
-  lunarBtns.forEach(btn => {
-    btn.onclick = () => {
-      const moonVal = btn.getAttribute("data-moon");
-      lunarBtns.forEach(x => x.classList.remove("active"));
-      btn.classList.add("active");
-      if (fMoon) fMoon.value = moonVal;
-      currentPage = 1;
-      render();
-      toast(`Filtrado por Lua ${moonVal.charAt(0).toUpperCase() + moonVal.slice(1)}.`);
-    };
-  });
-
-  const bathPills = $all("#banhoPills .pill");
-  bathPills.forEach(btn => {
-    btn.addEventListener("click", () => {
-      bathPills.forEach(p => p.classList.remove("pill--active"));
-      btn.classList.add("pill--active");
-      const cat = btn.getAttribute("data-cat") || "todos";
-      if (fObjetivo) fObjetivo.value = cat;
-      currentPage = 1;
-      render();
-    });
-  });
-
-  if (qInput) qInput.addEventListener("input", () => { currentPage = 1; render(); });
-  if (fObjetivo) {
-    fObjetivo.addEventListener("change", () => {
-      const val = fObjetivo.value;
-      bathPills.forEach(p => p.classList.toggle("pill--active", (p.getAttribute("data-cat") || "todos") === val));
-      currentPage = 1;
-      render();
-    });
-  }
-  if (fMoon) {
-    fMoon.addEventListener("change", () => {
-      lunarBtns.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-moon") === fMoon.value));
-      currentPage = 1;
-      render();
-    });
-  }
-  if (fIntensidade) fIntensidade.addEventListener("change", () => { currentPage = 1; render(); });
-
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      if (qInput) qInput.value = "";
-      if (fObjetivo) fObjetivo.value = "todos";
-      if (fMoon) fMoon.value = "todas";
-      if (fIntensidade) fIntensidade.value = "todas";
-      bathPills.forEach(p => p.classList.toggle("pill--active", p.getAttribute("data-cat") === "todos"));
-      lunarBtns.forEach(btn => btn.classList.remove("active"));
-      currentPage = 1;
-      render();
-    });
-  }
-
-  render();
-  focusCatalogItemFromHash(BANHOS, qInput, render, grid);
-}
-
-/* ==========================================================================
-   Página: Defumação Sagrada (defumacao.html)
-   Renderiza cartões de defumação com sentido, oração e instruções práticas
-   ========================================================================== */
-function initDefumacaoPage() {
-  const grid = $("#smokeGrid");
-  const count = $("#smokeCount");
-  const empty = $("#smokeEmpty");
-  const paginationContainer = $("#smokePagination");
-  if (!grid || !count || !empty) return;
-
-  const qInput = $("#qSmoke");
-  const fObjetivo = $("#fSmokeObjetivo");
-  const fMoon = $("#fSmokeMoon");
-  const fIntensidade = $("#fSmokeIntensidade");
-  const clearBtn = $("#clearSmokeFilters");
-  const lunarBtns = $all(".lunar__item[data-moon]");
-
-  let currentPage = 1;
-  const perPage = 9;
-  let viewAll = false;
-
-  function render() {
-    const q = normalizeSpiritualSearch(qInput?.value);
-    const objetivo = fObjetivo?.value || "todos";
-    const moon = fMoon?.value || "todas";
-    const intensidade = fIntensidade?.value || "todas";
-
-    const filtered = DEFUMACOES.filter(d => {
-      const nome = normalizeSpiritualSearch(d.nome);
-      const ervas = normalizeSpiritualSearch((d.ervas || []).join(" "));
-      const serve = normalizeSpiritualSearch(d.servePara);
-      const reza = normalizeSpiritualSearch(d.reza);
-      const allText = `${nome} ${ervas} ${serve} ${reza}`;
-
-      const okQ = !q || allText.includes(q);
-      const okObj = (objetivo === "todos") || (d.objetivo === objetivo);
-      const okMoon = (moon === "todas") || (Array.isArray(d.luas) && d.luas.includes(moon));
-      const okInt = (intensidade === "todas") || (d.intensidade === intensidade);
-
-      return okQ && okObj && okMoon && okInt;
-    });
-
-    count.textContent = String(filtered.length);
-    grid.innerHTML = "";
-    empty.style.display = filtered.length ? "none" : "block";
-
-    const totalPages = viewAll ? 1 : Math.max(1, Math.ceil(filtered.length / perPage));
-    if (currentPage > totalPages) currentPage = 1;
-
-    const pageItems = viewAll
-      ? filtered
-      : filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
-
-    pageItems.forEach((d, index) => {
-      const card = document.createElement("div");
-      card.className = "info-card";
-      card.dataset.itemId = d.id || "";
-
-      const idReza = `reza_defuma_${index}`;
-
-      card.innerHTML = `
-        <div class="info-card__top">
-          <div>
-            <h3 class="info-title">${d.nome}</h3>
-            <p class="muted small info-desc">Objetivo: <b>${d.objetivo}</b> • Intensidade: <b>${d.intensidade}</b></p>
-          </div>
-          <div class="badges">
-            <span class="badge">${d.intensidade}</span>
-          </div>
-        </div>
-
-        <ul class="kv">
-          <li>
-            <b>Ervas e Resinas:</b>
-            <span style="color: var(--accent2);">${linkedHerbList(d.ervas)}</span>
-          </li>
-          <li>
-            <b>Sentido da defumação:</b>
-            <span style="font-weight: 600; color: #ffd2a6;">${d.sentido || "Em todos os cômodos com ventilação"}</span>
-          </li>
-          <li>
-            <b>Para que serve:</b>
-            <span>${d.servePara || "Purificação e elevação vibratória do ambiente."}</span>
-          </li>
-          ${d.reza ? `
-          <li>
-            <b>Reza tradicional de defumação:</b>
-            <blockquote class="quote" id="${idReza}" style="margin: 8px 0 6px; font-size: 0.95rem;">“${d.reza}”</blockquote>
-            <div class="row wrap-row" style="margin-top: 6px;">
-              <button class="btn btn--ghost" data-copy="#${idReza}" type="button">Copiar reza</button>
-              <button class="btn" data-speak="#${idReza}" type="button">Ouvir reza</button>
-            </div>
-          </li>
-          ` : ""}
-          <li>
-            <b>Cuidados e segurança:</b>
-            <span style="color: #fca5a5; font-size: 0.88rem;">${d.cuidados || "Ventilação constante; cuidado com fogo e animais."}</span>
-          </li>
-        </ul>
-      `;
-      grid.appendChild(card);
-    });
-
-    renderPaginationControls({
-      container: paginationContainer,
-      totalItems: filtered.length,
-      currentPage,
-      perPage,
-      viewAll,
-      unitName: "defumações",
-      onPageChange: (newPage) => {
-        currentPage = newPage;
-        render();
-        grid.scrollIntoView({ behavior: "smooth", block: "start" });
-      },
-      onToggleViewAll: (newViewAll) => {
-        viewAll = newViewAll;
-        currentPage = 1;
-        render();
-      }
-    });
-  }
-
-  // Banner da Lua de Hoje em defumacao.html
-  const todayMoonSmoke = initTodayMoonBanner("#defumacaoMoonBanner", (phaseKey) => {
-    lunarBtns.forEach(x => x.classList.toggle("active", x.getAttribute("data-moon") === phaseKey));
-    if (fMoon) fMoon.value = phaseKey;
-    currentPage = 1;
-    render();
-    toast(`Filtrado para a Lua de Hoje (${todayMoonSmoke.name}) ✨`);
-    grid.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  // Sincroniza botões lunares
-  lunarBtns.forEach(btn => {
-    btn.onclick = () => {
-      const moonVal = btn.getAttribute("data-moon");
-      lunarBtns.forEach(x => x.classList.remove("active"));
-      btn.classList.add("active");
-      if (fMoon) fMoon.value = moonVal;
-      currentPage = 1;
-      render();
-      toast(`Filtrado por Lua ${moonVal.charAt(0).toUpperCase() + moonVal.slice(1)}.`);
-    };
-  });
-
-  const smokePills = $all("#defumacaoPills .pill");
-  smokePills.forEach(btn => {
-    btn.addEventListener("click", () => {
-      smokePills.forEach(p => p.classList.remove("pill--active"));
-      btn.classList.add("pill--active");
-      const cat = btn.getAttribute("data-cat") || "todos";
-      if (fObjetivo) fObjetivo.value = cat;
-      currentPage = 1;
-      render();
-    });
-  });
-
-  if (qInput) qInput.addEventListener("input", () => { currentPage = 1; render(); });
-  if (fObjetivo) {
-    fObjetivo.addEventListener("change", () => {
-      const val = fObjetivo.value;
-      smokePills.forEach(p => p.classList.toggle("pill--active", (p.getAttribute("data-cat") || "todos") === val));
-      currentPage = 1;
-      render();
-    });
-  }
-  if (fMoon) {
-    fMoon.addEventListener("change", () => {
-      lunarBtns.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-moon") === fMoon.value));
-      currentPage = 1;
-      render();
-    });
-  }
-  if (fIntensidade) fIntensidade.addEventListener("change", () => { currentPage = 1; render(); });
-
-  if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-      if (qInput) qInput.value = "";
-      if (fObjetivo) fObjetivo.value = "todos";
-      if (fMoon) fMoon.value = "todas";
-      if (fIntensidade) fIntensidade.value = "todas";
-      smokePills.forEach(p => p.classList.toggle("pill--active", p.getAttribute("data-cat") === "todos"));
-      lunarBtns.forEach(btn => btn.classList.remove("active"));
-      currentPage = 1;
-      render();
-    });
-  }
-
-  render();
-  focusCatalogItemFromHash(DEFUMACOES, qInput, render, grid);
 }
 
 /* ==========================================================================
@@ -2057,7 +1802,7 @@ function initPortaisPage() {
 
   const nextWrap = $("#portalNextList");
   if (nextWrap) {
-    const next = getNextPortals(new Date(), 10);
+    const next = getNextPortals(new Date(), 6);
     nextWrap.innerHTML = "";
     next.forEach(d => {
       const m = d.getMonth() + 1;
@@ -2416,28 +2161,28 @@ function initSimbolosPage() {
       svg: `
         <defs>
           <radialGradient id="gradFlor" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#9ef0ff" stop-opacity="0.9"/>
+            <stop offset="0%" stop-color="#e3b867" stop-opacity="0.9"/>
             <stop offset="70%" stop-color="#38bdf8" stop-opacity="0.4"/>
             <stop offset="100%" stop-color="#0284c7" stop-opacity="0.1"/>
           </radialGradient>
         </defs>
-        <circle cx="100" cy="100" r="88" fill="none" stroke="#9ef0ff" stroke-width="2" stroke-opacity="0.6"/>
-        <circle cx="100" cy="100" r="94" fill="none" stroke="#b1ffcc" stroke-width="1.2" stroke-opacity="0.4"/>
-        <circle cx="100" cy="100" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.6"/>
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#e3b867" stroke-width="2" stroke-opacity="0.6"/>
+        <circle cx="100" cy="100" r="94" fill="none" stroke="#9fd09a" stroke-width="1.2" stroke-opacity="0.4"/>
+        <circle cx="100" cy="100" r="32" fill="none" stroke="#e3b867" stroke-width="1.6"/>
         <!-- 6 Círculos Concêntricos -->
-        <circle cx="100" cy="68" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
-        <circle cx="127" cy="84" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
-        <circle cx="127" cy="116" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
-        <circle cx="100" cy="132" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
-        <circle cx="73" cy="116" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
-        <circle cx="73" cy="84" r="32" fill="none" stroke="#9ef0ff" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="100" cy="68" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="127" cy="84" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="127" cy="116" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="100" cy="132" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="73" cy="116" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
+        <circle cx="73" cy="84" r="32" fill="none" stroke="#e3b867" stroke-width="1.4" stroke-opacity="0.7"/>
         <!-- Anel Externo de Pétalas -->
-        <circle cx="100" cy="36" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
-        <circle cx="155" cy="68" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
-        <circle cx="155" cy="132" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
-        <circle cx="100" cy="164" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
-        <circle cx="45" cy="132" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
-        <circle cx="45" cy="68" r="32" fill="none" stroke="#b1ffcc" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="100" cy="36" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="155" cy="68" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="155" cy="132" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="100" cy="164" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="45" cy="132" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
+        <circle cx="45" cy="68" r="32" fill="none" stroke="#9fd09a" stroke-width="1" stroke-opacity="0.45"/>
         <circle cx="100" cy="100" r="5" fill="#ffffff" />
       `
     },
@@ -2445,7 +2190,7 @@ function initSimbolosPage() {
       title: "Mandala Solar (Fartura, Ouro & Realização)",
       caption: "<strong>Mandala Solar:</strong> Alinhamento com o chakra do plexo solar. Desperta entusiasmo, energia de realização e sensação de merecimento da fartura.",
       svg: `
-        <circle cx="100" cy="100" r="90" fill="none" stroke="#f6e05e" stroke-width="2" stroke-dasharray="4,3" opacity="0.6"/>
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#e3b867" stroke-width="2" stroke-dasharray="4,3" opacity="0.6"/>
         <circle cx="100" cy="100" r="76" fill="none" stroke="#d97706" stroke-width="1.5" opacity="0.8"/>
         <!-- 12 Raios Solares Geométricos -->
         <g stroke="#f59e0b" stroke-width="2" opacity="0.85">
@@ -2459,7 +2204,7 @@ function initSimbolosPage() {
           <line x1="38" y1="162" x2="58" y2="142"/>
         </g>
         <!-- Estrela de Ouro Interna -->
-        <polygon points="100,45 118,78 155,80 125,104 135,140 100,120 65,140 75,104 45,80 82,78" fill="rgba(245,158,11,0.2)" stroke="#f6e05e" stroke-width="1.8"/>
+        <polygon points="100,45 118,78 155,80 125,104 135,140 100,120 65,140 75,104 45,80 82,78" fill="rgba(245,158,11,0.2)" stroke="#e3b867" stroke-width="1.8"/>
         <circle cx="100" cy="100" r="22" fill="rgba(251,191,36,0.3)" stroke="#f59e0b" stroke-width="2"/>
         <circle cx="100" cy="100" r="6" fill="#fff" />
       `
@@ -2688,7 +2433,7 @@ function initSimbolosPage() {
 
   let sigilLineStyle = "straight"; // "straight" | "curved"
   let sigilViewMode = "complete";  // "complete" | "pure"
-  let sigilActiveColor = "#f6e05e"; // default gold
+  let sigilActiveColor = "#e3b867"; // default gold
   let currentSigilData = null;
 
   function processSigilWord(rawText) {
@@ -2789,7 +2534,7 @@ function initSimbolosPage() {
             ${inSeq ? `
               <circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="14" fill="none" stroke="${color}" stroke-opacity="0.35" stroke-dasharray="2,2"/>
             ` : ""}
-            <circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="9.5" fill="${inSeq ? 'rgba(246, 224, 94, 0.15)' : 'rgba(15, 23, 42, 0.9)'}" stroke="${inSeq ? color : 'rgba(255,255,255,0.22)'}" stroke-width="1.4"/>
+            <circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="9.5" fill="${inSeq ? 'rgba(227,184,103, 0.15)' : 'rgba(20,29,23, 0.9)'}" stroke="${inSeq ? color : 'rgba(255,255,255,0.22)'}" stroke-width="1.4"/>
             <text x="${pt.x.toFixed(1)}" y="${(pt.y + 3.8).toFixed(1)}" text-anchor="middle" font-size="10.5" font-weight="700" fill="${inSeq ? color : 'rgba(255,255,255,0.7)'}" font-family="inherit">${n}</text>
           </g>
         `;
@@ -3122,7 +2867,7 @@ function ritualItemHtml(kind, item, href) {
   if (!item) return "";
   const icon = kind === "banho" ? "🛁" : "💨";
   const cabeca = kind === "banho"
-    ? (item.cabeca ? ' • <span style="color:#b1ffcc;">pode na cabeça</span>' : ' • <span style="color:#ffd2a6;">do pescoço para baixo</span>')
+    ? (item.cabeca ? ' • <span style="color:#9fd09a;">pode na cabeça</span>' : ' • <span style="color:#e8a07c;">do pescoço para baixo</span>')
     : "";
   return `
     <a class="item ritual-link" href="${href}#${encodeURIComponent(item.id)}">
@@ -3143,7 +2888,7 @@ function initHojePage() {
   let offset = 0;
 
   const badge = $("#todaySuggestBadge");
-  if (badge) badge.textContent = `${moon.icon} ${moon.name.replace(/^Lua /, "")} • ${dayKey}`;
+  if (badge) badge.textContent = `${moon.icon} ${({ dom: "domingo", seg: "segunda", ter: "terça", qua: "quarta", qui: "quinta", sex: "sexta", sab: "sábado" })[dayKey]}`;
 
   function render() {
     const b = banhos.length ? banhos[(dailyIndexByDate(today, banhos.length) + offset) % banhos.length] : null;
@@ -3357,6 +3102,18 @@ function initGlobalSearch() {
   }
 
   btn.addEventListener("click", open);
+  $all("[data-open-search]").forEach(b => b.addEventListener("click", open));
+
+  // Setas ↑ ↓ percorrem os resultados; Enter abre
+  overlay.addEventListener("keydown", e => {
+    if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+    const items = [...results.querySelectorAll(".gsearch__item")];
+    if (!items.length) return;
+    e.preventDefault();
+    const i = items.indexOf(document.activeElement);
+    const next = e.key === "ArrowDown" ? (i + 1) % items.length : (i <= 0 ? -1 : i - 1);
+    if (next === -1) input.focus(); else items[next].focus();
+  });
   overlay.querySelector(".gsearch__close").addEventListener("click", close);
   overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
   results.addEventListener("click", e => {
@@ -3399,6 +3156,42 @@ function initBackToTop() {
   window.addEventListener("scroll", () => { btn.hidden = window.scrollY < 900; }, { passive: true });
 }
 
+/* ==========================================================================
+   Herói da página inicial: saudação, lua de hoje e contadores
+   ========================================================================== */
+function initHomeHero() {
+  const greet = $("#heroGreeting");
+  if (!greet) return;
+  const now = new Date();
+  const h = now.getHours();
+  const saud = h < 5 ? "Boa madrugada" : h < 12 ? "Bom dia" : h < 18 ? "Boa tarde" : "Boa noite";
+  const data = now.toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" });
+  greet.textContent = `${saud} • ${data}`;
+
+  const moon = getLiveMoonData(now);
+  const name = $("#moonCardName");
+  if (name) name.textContent = `${moon.icon} ${moon.name}`;
+  const meta = $("#moonCardMeta");
+  if (meta) meta.textContent = `${moon.illum}% iluminada • ${moon.age} dias de lua`;
+  const tip = $("#moonCardTip");
+  if (tip) tip.textContent = moon.orientacao || moon.intention || "";
+  const shadow = $("#moonOrbShadow");
+  if (shadow) {
+    // crescente: luz à direita (sombra sai pela esquerda); minguante: o contrário
+    const waxing = moon.age < SYNODIC_DAYS / 2;
+    shadow.style.transform = `translateX(${(waxing ? -1 : 1) * Math.min(100, moon.illum)}%)`;
+  }
+  const baths = $("#heroMoonBaths");
+  if (baths) baths.href = `banhos.html?lua=${moon.key}`;
+
+  const counts = { banhos: BANHOS.length, defumacoes: DEFUMACOES.length, ervas: ERVAS.length };
+  $all("[data-count]").forEach(el => {
+    const n = counts[el.dataset.count];
+    if (n) el.textContent = String(n);
+    else el.remove();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Renderizar Cabeçalho e Rodapé únicos
   renderHeader();
@@ -3438,6 +3231,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initCalendarioLunar();
   initPortaisPage();
   initSimbolosPage();
+  initHomeHero();
   initHojePage();
   initOraculo();
   initPageToc();
