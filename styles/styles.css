@@ -2700,3 +2700,6 @@ body.drawer-open{ overflow: hidden; }
 .week{ grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 .week .day{ min-width: 0; }
 .week .pill{ white-space: normal; }
+
+@media (max-width: 900px){ .home-hero{ grid-template-columns: minmax(0, 1fr); } }
+.hero-search span{ min-width: 0; }
