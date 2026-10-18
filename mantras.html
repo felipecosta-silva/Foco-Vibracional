@@ -7,38 +7,30 @@
   <link rel="stylesheet" href="./styles/styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="index.html">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span>Foco Vibracional</span>
-      </a>
-
-      <nav class="nav">
-        <a class="nav__link" href="index.html">Início</a>
-        <a class="nav__link nav__link--active" href="mantras.html">Mantras diários</a>
-        <a class="nav__link" href="plantas.html">Plantas</a>
-        <a class="nav__link" href="banhos.html">Banhos</a>
-        <a class="nav__link" href="defumacao.html">Defumação</a>
-        <a class="nav__link" href="colheita.html">Colheita</a>
-        <a class="nav__link" href="glossario.html">Glossário</a>
-        <a class="nav__link" href="calendario.html">Calendário</a>
-        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
-        <a class="nav__link" href="perguntas.html">Perguntas</a>
-      </nav>
-    </div>
-  </header>
+    <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
 
   <main class="wrap page">
     <section class="pagehead">
-      <h1>Mantras diários</h1>
+      <h1>Mantras diários & Frases de Firmeza</h1>
       <p class="muted">
-        Um mantra por dia (automático) + lista completa com busca e sorteio.
+        Frases-âncora para manter a mente serena, a intenção firme e a vibração elevada ao longo do seu dia.
       </p>
 
       <div class="notice">
-        <strong>Importante:</strong> os mantras são carregados de <code>/data/mantras.json</code>.
-        Se abrir como <code>file:///</code> e não carregar, use Live Server (VS Code) ou abra via <code>http://localhost</code>.
+        <strong>Firmeza diária:</strong> escolha um mantra pela manhã, respire profundamente 3 vezes e mentalize seus objetivos abençoados pelos bons espíritos.
       </div>
     </section>
 
@@ -167,11 +159,12 @@
       </article>
     </section>
 
-    <footer class="footer">
-      <p class="muted small">Dica: você pode imprimir esta página para usar offline.</p>
-    </footer>
+    
   </main>
 
+  <div id="site-footer"></div>
+
+  <script src="./data/mantras.js"></script>
   <script src="./script/script.js"></script>
 </body>
 </html>

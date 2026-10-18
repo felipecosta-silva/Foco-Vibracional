@@ -7,39 +7,35 @@
   <link rel="stylesheet" href="./styles/styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="index.html" aria-label="Voltar ao início">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span>Foco Vibracional</span>
-      </a>
-
-      <nav class="nav">
-        <a class="nav__link nav__link--active" href="index.html">Início</a>
-        <a class="nav__link" href="mantras.html">Mantras</a>
-        <a class="nav__link" href="plantas.html">Plantas</a>
-        <a class="nav__link" href="banhos.html">Banhos</a>
-        <a class="nav__link" href="defumacao.html">Defumação</a>
-        <a class="nav__link" href="colheita.html">Colheita</a>
-        <a class="nav__link" href="glossario.html">Glossário</a>
-        <a class="nav__link" href="calendario.html">Calendário</a>
-        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
-        <a class="nav__link" href="perguntas.html">Perguntas</a>
-      </nav>
-    </div>
-  </header>
+    <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
 
   <main class="wrap page">
     <section class="hero">
       <div class="hero__content">
-        <h1>Seu painel de foco diário</h1>
+        <h1>Foco Vibracional & Sabedoria da Jurema</h1>
         <p class="muted">
-          Um espaço simples para repetir afirmações, manter presença e direcionar sua energia ao longo do dia.
+          Um guia acolhedor e gratuito para filhos de fé, consulentes e buscadores. Aprenda sobre firmeza espiritual, vibração mental, ervas sagradas, banhos de equilíbrio e defumação com o respeito de quem trilha a Jurema há mais de 30 anos.
         </p>
 
         <div class="hero__actions">
-          <a class="btn" href="mantras.html">Ir para Mantras diários</a>
-          <a class="btn btn--ghost" href="plantas.html">Ir para Plantas</a>
+          <a class="btn" href="banhos.html">Banhos Sagrados</a>
+          <a class="btn btn--ghost" href="plantas.html">Ervas & Fundamentos</a>
+          <a class="btn btn--ghost" href="defumacao.html">Defumação</a>
+          <a class="btn btn--ghost" href="simbolos.html">Símbolos & Runas</a>
+          <a class="btn btn--ghost" href="mantras.html">Mantras & Preces</a>
         </div>
 
         <div class="pill-row" role="list" aria-label="Atalhos">
@@ -56,6 +52,13 @@
             <span class="badge" id="todayBadge">—</span>
           </div>
           <p class="big" id="clock">--:--</p>
+          <div class="today-moon-home" id="homeMoonWidget">
+            <span class="moon-icon" id="homeMoonIcon" aria-hidden="true">🌑</span>
+            <div>
+              <b id="homeMoonName">Carregando fase lunar...</b>
+              <span class="muted small" id="homeMoonDetail">Fase lunar atual</span>
+            </div>
+          </div>
 
           <div class="divider"></div>
 
@@ -112,41 +115,61 @@
       </article>
     </section>
 
-    <!-- ✅ GRABOVOI com mais espaço + significado -->
+    <!-- ✅ GRABOVOI INTERATIVO: Múltiplas sequências, alternador rápido e link correto para Portais -->
     <section id="grabovoi" class="card section-gap">
       <div class="card__header">
-        <h2 class="card__title">Sequência (Grabovoi)</h2>
-        <span class="badge">Foco numérico</span>
+        <div>
+          <h2 class="card__title">Sequências Numéricas & Foco Vibracional (Grabovoi)</h2>
+          <p class="muted small" style="margin: 4px 0 0;">Âncoras de atenção e reprogramação de foco pela ressonância dos números.</p>
+        </div>
+        <span class="badge">interativo</span>
       </div>
 
       <p class="muted">
-        Use como uma “âncora de atenção” (sem pressa). Você pode olhar, repetir mentalmente ou escrever em um papel.
+        Escolha uma intenção abaixo para alternar a sequência ou sortear. Na tradição do foco, mentalize cada dígito como uma vibração de luz, respirando com tranquilidade e firmeza.
       </p>
 
-      <div class="notice">
-        <strong>Intenção sugerida:</strong>
-        usar a sequência como âncora de foco para prosperidade/fluxo e sensação de abertura para receber.
-        (Interpretações variam conforme crenças e tradições.)
+      <!-- Seletor Rápido de Sequências -->
+      <div class="pill-row" id="grabovoiPills" style="margin: 14px 0;">
+        <button class="pill pill--active" type="button" data-seq="520 741 777 888" data-title="Prosperidade & Abertura Máxima" data-desc="Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.">🌟 Prosperidade Máxima</button>
+        <button class="pill" type="button" data-seq="520" data-title="Dinheiro Inesperado" data-desc="Abertura de canais de renda imprevistos, destravamento de pagamentos e circulação do fluxo material.">💰 Dinheiro Inesperado</button>
+        <button class="pill" type="button" data-seq="741" data-title="Solução Imediata de Problemas" data-desc="Para clarear a mente em momentos de aperto, desatar nós e encontrar saídas rápidas.">⚡ Solução Imediata</button>
+        <button class="pill" type="button" data-seq="777" data-title="Milagres & Bênçãos Cósmicas" data-desc="Sustentação na fé, conexão com a providência divina e alinhamento com causas boas.">✨ Milagres & Fé</button>
+        <button class="pill" type="button" data-seq="1814321" data-title="Saúde Integral & Vitalidade" data-desc="Harmonização das células, restauração de energia vital e regeneração física e emocional.">🌿 Saúde & Vitalidade</button>
+        <button class="pill" type="button" data-seq="519 7148" data-title="Tudo é Possível" data-desc="Rompimento de crenças limitantes e sintonização direta com o campo de infinitas possibilidades.">🌀 Tudo é Possível</button>
+        <button class="pill" type="button" data-seq="1001105010" data-title="Paz Interior & Serenidade" data-desc="Dissolução de ansiedade no peito, acalmação de ânimos e tranquilidade profunda.">🕊️ Paz Interior</button>
+        <button class="pill" type="button" data-seq="917 498 814316" data-title="Escudo Protetor Energético" data-desc="Blindagem áurica contra inveja, negatividade e ambientes espiritualmente carregados.">🛡️ Proteção Total</button>
+        <button class="pill" id="grabovoiBtnRandom" type="button" style="border-color: rgba(177, 255, 204, 0.4); background: rgba(177, 255, 204, 0.1);">🎲 Sortear Outra</button>
+      </div>
+
+      <!-- Caixa de Destaque da Sequência Ativa -->
+      <div class="grabovoi-display-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <h3 id="grabovoiActiveTitle" style="margin: 0; font-size: 1.15rem; color: #fff;">Prosperidade & Abertura Máxima</h3>
+          <span class="mono muted small" id="grabovoiActiveCode">520 741 777 888</span>
+        </div>
+
+        <div class="notice" id="grabovoiNotice" style="margin: 12px 0;">
+          <strong>Intenção & Uso:</strong>
+          <span id="grabovoiActiveDesc">Âncora completa para fluxo financeiro, clareza rápida de ideias, milagres e abundância divina.</span>
+        </div>
+
+        <div class="sequence" id="grabovoiBlockDisplay" aria-label="Dígitos da Sequência Numérica" style="margin: 16px 0;">
+          <span>520</span>
+          <span>741</span>
+          <span>777</span>
+          <span>888</span>
+        </div>
+
+        <div class="row wrap-row" style="margin-top: 14px; gap: 10px;">
+          <button class="btn btn--ghost" id="grabovoiCopyBtn" data-copy-text="520 741 777 888" type="button">📋 Copiar sequência</button>
+          <button class="btn btn--ghost" id="grabovoiSpeakBtn" type="button">🔊 Ouvir sequência</button>
+          <a class="btn" href="portais.html#grabovoi">Ver catálogo completo (Portais & Grabovoi) →</a>
+        </div>
       </div>
 
       <p class="muted small" style="margin-top: 12px;">
-        Versão em linha: <span class="mono" id="grabovoiLine">520 741 777 888</span>
-      </p>
-
-      <div class="sequence" aria-label="Sequência numérica">
-        <span>520</span>
-        <span>741</span>
-        <span>777</span>
-        <span>888</span>
-      </div>
-
-      <div class="row">
-        <button class="btn btn--ghost" data-copy-text="520 741 777 888" type="button">Copiar sequência</button>
-        <a class="btn" href="mantras.html#sequencias">Ver mais sequências</a>
-      </div>
-
-      <p class="muted small">
-        Nota: isso é uma prática de crença/espiritualidade; trate como ferramenta de foco e intenção.
+        <strong>Dica do Juremeiro:</strong> Ao mentalizar o número, visualize-o iluminado em prata ou dourado na altura do seu terceiro olho (entre as sobrancelhas) ou no peito. Repita 3 vezes e faça uma ação concreta no seu dia.
       </p>
     </section>
 
@@ -185,15 +208,17 @@
       </article>
     </section>
 
-    <footer class="footer">
-      <p class="muted small">
-        Feito para uso pessoal • Site estático (sem servidor) • Seus favoritos ficam no seu navegador.
-      </p>
-    </footer>
+    
   </main>
+
+  <div id="site-footer"></div>
 
   <div class="focus-overlay" id="focusOverlay" hidden></div>
 
+  <script src="./data/mantras.js"></script>
+  <script src="./data/ervas.js"></script>
+  <script src="./data/banhos.js"></script>
+  <script src="./data/defumacoes.js"></script>
   <script src="./script/script.js"></script>
 </body>
 </html>

@@ -7,26 +7,20 @@
   <link rel="stylesheet" href="./styles/styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="index.html">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span>Foco Vibracional</span>
-      </a>
-
-      <nav class="nav">
-        <a class="nav__link" href="index.html">Início</a>
-        <a class="nav__link" href="mantras.html">Mantras</a>
-        <a class="nav__link" href="plantas.html">Plantas</a>
-        <a class="nav__link" href="banhos.html">Banhos</a>
-        <a class="nav__link" href="defumacao.html">Defumação</a>
-        <a class="nav__link" href="calendario.html">Calendário</a>
-        <a class="nav__link nav__link--active" href="portais.html">Portais</a>
-        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
-        <a class="nav__link" href="perguntas.html">Perguntas</a>
-      </nav>
-    </div>
-  </header>
+    <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
 
   <main class="wrap page">
     <section class="pagehead">
@@ -113,8 +107,10 @@
           <option value="prosperidade">Prosperidade</option>
           <option value="foco">Foco</option>
           <option value="calma">Calma</option>
+          <option value="saude">Saúde</option>
           <option value="protecao">Proteção</option>
           <option value="harmonizacao">Harmonização</option>
+          <option value="limpeza">Limpeza</option>
         </select>
         <button class="btn btn--ghost" id="seqRandom" type="button">Sortear</button>
         <button class="btn btn--ghost" id="seqClear" type="button">Limpar</button>
@@ -128,12 +124,10 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <p class="muted small">
-        Combine <a href="calendario.html">Lua</a> + <a href="banhos.html">Banhos</a> + <a href="afirmacoes.html">Afirmações</a> nos seus dias de foco.
-      </p>
-    </footer>
+    
   </main>
+
+  <div id="site-footer"></div>
 
   <script src="./script/script.js"></script>
 </body>

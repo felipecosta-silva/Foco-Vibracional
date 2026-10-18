@@ -7,27 +7,20 @@
   <link rel="stylesheet" href="./styles/styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="index.html">
-        <span class="brand__dot" aria-hidden="true"></span>
-        <span>Foco Vibracional</span>
-      </a>
-
-      <nav class="nav">
-        <a class="nav__link" href="index.html">Início</a>
-        <a class="nav__link" href="mantras.html">Mantras</a>
-        <a class="nav__link nav__link--active" href="plantas.html">Plantas</a>
-        <a class="nav__link" href="banhos.html">Banhos</a>
-        <a class="nav__link" href="defumacao.html">Defumação</a>
-        <a class="nav__link" href="colheita.html">Colheita</a>
-        <a class="nav__link" href="glossario.html">Glossário</a>
-        <a class="nav__link" href="calendario.html">Calendário</a>
-        <a class="nav__link" href="afirmacoes.html">Afirmações</a>
-        <a class="nav__link" href="perguntas.html">Perguntas</a>
-      </nav>
-    </div>
-  </header>
+    <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
 
   <main class="wrap page">
     <section class="pagehead">
@@ -52,6 +45,51 @@
       </div>
     </section>
 
+    <!-- 🌿 DESTAQUE ANCESTRAL: DIFERENCIAÇÃO MACHO VS. FÊMEA -->
+    <section class="card spotlight-card section-gap">
+      <div class="card__header">
+        <h2 class="card__title">🌿 Diferenciação Ancestral: Macho vs. Fêmea & Polaridades</h2>
+        <span class="badge">Sabedoria de Terreiro</span>
+      </div>
+      <p class="muted">
+        Na Jurema Sagrada e no saber das rezadeiras e mestres, a denominação "macho" ou "fêmea" traduz a polaridade da força, o formato das folhas e a intensidade do corte espiritual:
+      </p>
+
+      <div class="spotlight-grid">
+        <div class="spotlight-item">
+          <h4>Arruda-Macho vs. Arruda-Fêmea</h4>
+          <p class="muted small">
+            <b>• Arruda-Fêmea (folhas miúdas e arredondadas):</b> Mais aveludada e protetora. Indicada para quebranto em crianças, mau-olhado sutil, proteção do lar familiar e benzimento com raminho verde.<br><br>
+            <b>• Arruda-Macho (folhas compridas e pontiagudas, aroma penetrante):</b> Corte severo. Usada para desmanchar feitiçarias pesadas, afastar obsessores (eguns) e firmezas de porteira e cruzeiro.
+          </p>
+        </div>
+
+        <div class="spotlight-item">
+          <h4>Guiné-Pipiu vs. Guiné-Caboclo</h4>
+          <p class="muted small">
+            <b>• Guiné-Pipiu / Fêmea (folhas menores):</b> Cheiro mais suave de alho. Ideal para banho pessoal de equilíbrio e proteção sutil do dia a dia.<br><br>
+            <b>• Guiné-Caboclo / Macho (folhas largas, porte alto):</b> Odor marcante de alho silvestre. Usada para descarregos fortes no chão do terreiro e fumo sagrado no cachimbo dos Mestres.
+          </p>
+        </div>
+
+        <div class="spotlight-item">
+          <h4>Espada de Ogum vs. Santa Bárbara</h4>
+          <p class="muted small">
+            <b>• Espada de São Jorge / Ogum (verde lisa estriada):</b> A lâmina de ferro e a coragem que corta demandas na entrada do lar.<br><br>
+            <b>• Espada de Santa Bárbara / Iansã (bordas amarelo-ouro):</b> A força do raio e da ventania que queima e dispersa a inveja acumulada.
+          </p>
+        </div>
+
+        <div class="spotlight-item">
+          <h4>Manjericão Branco vs. Roxo</h4>
+          <p class="muted small">
+            <b>• Manjericão Branco/Verde:</b> Doçura maternal e paz de Oxalá. Pode e deve ir na cabeça (Ori) para serenar pensamentos e atrair o bem.<br><br>
+            <b>• Manjericão Roxo (Alfavaca roxa):</b> Folha escura aromática. Atua na limpeza de energias estagnadas e sacode o desânimo (do pescoço para baixo).
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="card section-gap">
       <div class="card__header">
         <h2 class="card__title">Catálogo de ervas</h2>
@@ -59,7 +97,7 @@
       </div>
 
       <div class="filters">
-        <input id="qHerb" class="input" type="text" placeholder="Buscar (ex.: alecrim, calma, proteção…)" />
+        <input id="qHerb" class="input" type="text" placeholder="Buscar erva (ex.: samambaia, girassol, manga, amora, pinhão roxo, peregum…)" />
 
         <select id="fEnergia" class="select">
           <option value="todas">Energia: todas</option>
@@ -109,6 +147,7 @@
 
       <div id="herbGrid" class="cards-grid"></div>
       <p class="muted small" id="herbEmpty" style="display:none;">Nada encontrado com esses filtros.</p>
+      <div id="herbPagination" class="catalog-pagination" style="display:none;"></div>
     </section>
 
     <section class="grid">
@@ -144,13 +183,12 @@
       </article>
     </section>
 
-    <footer class="footer">
-      <p class="muted small">
-        Dados em <code>./data/ervas.json</code> (se o navegador bloquear, o site usa fallback interno).
-      </p>
-    </footer>
+    
   </main>
 
+  <div id="site-footer"></div>
+
+  <script src="./data/ervas.js"></script>
   <script src="./script/script.js"></script>
 </body>
 </html>
