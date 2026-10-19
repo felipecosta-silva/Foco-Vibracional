@@ -1516,7 +1516,7 @@ window.FV_DATA.tarot = [
    "trabalho duro",
    "método seguro"
   ],
-  "significado": "O cavaleiro montado em cavalo robusto e firme sobre a terra arada, contemplando sua moeda. Ele não tem pressa porque sabe que a constância vence qualquer obstáculo. Confiança absoluta e entrega garantida.",
+  "significado": "O cavaleiro montado em cavalo robusto e firme sobre a terra arada, contemplando sua moeda. Ele não tem pressa porque sabe que a constância vence qualquer obstáculo. Confiança e entrega no tempo certo.",
   "invertida": "Teimosia inflexível, lentidão excessiva por perfeccionismo ou preguiça disfarçada de cautela.",
   "amor": "Parceiro extremamente leal, seguro e trabalhador; afeto demonstrado mais por atitudes do que por palavras.",
   "trabalho": "Execução impecável de tarefas, cumprimento rigoroso de prazos e confiança total da liderança.",
@@ -1892,7 +1892,7 @@ window.FV_DATA.tarot = [
    "destino feliz",
    "proteção divina"
   ],
-  "significado": "O céu noturno iluminado por uma estrela guia brilhante. Bênção espiritual, clareza nos caminhos, intuição certeira e sucesso garantido para quem age com fé e pureza de propósito.",
+  "significado": "O céu noturno iluminado por uma estrela guia brilhante. Bênção espiritual, clareza nos caminhos, intuição certeira e bons resultados para quem age com fé e pureza de propósito.",
   "invertida": "",
   "amor": "Encontro de almas, cumplicidade espiritual profunda e esperança plenamente realizada a dois.",
   "trabalho": "Sucesso profissional, reconhecimento público, fama meritória e bênçãos sobre projetos nobres.",
@@ -2246,7 +2246,7 @@ window.FV_DATA.tarot = [
   "palavrasChave": [
    "solução",
    "porta aberta",
-   "saída garantida",
+   "uma saída possível",
    "sucesso nas mãos"
   ],
   "significado": "A chave de ferro antigo que abre a fechadura trancada. A resposta definitiva para um impasse antigo: uma porta que se abre, uma solução que aparece e a certeza de que a saída está nas suas mãos.",

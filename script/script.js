@@ -509,6 +509,11 @@ const REF_NEW_MOON_UTC = Date.UTC(2000, 0, 6, 18, 14, 0);
 
 function toUnixSeconds(d) { return Math.floor(d.getTime() / 1000); }
 
+/* Data local no formato AAAA-MM-DD (toISOString usa UTC e "pula" o dia à noite no Brasil) */
+function localISODate(d = new Date()) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 function moonAgeDays(date) {
   const diffDays = (date.getTime() - REF_NEW_MOON_UTC) / 86400000;
   let age = diffDays % SYNODIC_DAYS;
@@ -1009,12 +1014,12 @@ function initCadernoFirmeza() {
   const exportBtn = $("#btnExportCaderno");
 
   if (dataInput && !dataInput.value) {
-    dataInput.value = new Date().toISOString().slice(0, 10);
+    dataInput.value = localISODate();
   }
 
   if (moonTag) {
-    const m = moonPhase(new Date());
-    moonTag.textContent = `${m.nome} ${m.emoji}`;
+    const m = getLiveMoonData(new Date());
+    moonTag.textContent = `${m.name} ${m.icon}`;
   }
 
   function renderCaderno() {
@@ -1077,12 +1082,12 @@ function initCadernoFirmeza() {
 
     if (!tituloVal) return;
 
-    const m = moonPhase(dataVal ? new Date(dataVal + "T12:00:00") : new Date());
+    const m = getLiveMoonData(dataVal ? new Date(dataVal + "T12:00:00") : new Date());
 
     const newEntry = {
       id: Date.now(),
-      data: dataVal || new Date().toISOString().slice(0, 10),
-      moon: `${m.nome} ${m.emoji}`,
+      data: dataVal || localISODate(),
+      moon: `${m.name} ${m.icon}`,
       tipo: tipoVal,
       titulo: tituloVal,
       relato: relatoVal || ""
@@ -1093,7 +1098,7 @@ function initCadernoFirmeza() {
     saveCadernoEntries(entries);
 
     form.reset();
-    if (dataInput) dataInput.value = new Date().toISOString().slice(0, 10);
+    if (dataInput) dataInput.value = localISODate();
     renderCaderno();
     toast("Registro guardado no seu Caderno de Firmeza! ✨");
   });
@@ -1125,7 +1130,7 @@ function initCadernoFirmeza() {
       const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = `meu_caderno_de_firmeza_${new Date().toISOString().slice(0, 10)}.txt`;
+      a.download = `meu_caderno_de_firmeza_${localISODate()}.txt`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

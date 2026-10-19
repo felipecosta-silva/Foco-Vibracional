@@ -402,3 +402,36 @@ A estrutura já está pronta e funcionando em `tarot.html` + `data/tarot.js` + `
 - **Mais banhos** (meta: 90), priorizando calma e energia.
 
 **Sempre que mudar arquivos servidos:** aumentar `CACHE_VERSION` em `sw.js`.
+
+
+---
+
+## 11. Revisão do supervisor — Fase 7 + commit extra (2026-10-18)
+
+**Resultado: aprovado com correções.** Revisados os commits `1441076`, `583f2cd`, `6224bfe` e `c70c5ae`.
+
+**O que ficou bom**
+- Dados do Tarot completos e íntegros: 114 cartas (78 + 36), sem `id` repetido, todas com imagem existente, no esquema pedido.
+- `filter.showWhen` implementado de forma genérica, como pedido; a tiragem de 3 cartas funciona.
+- Caderno de Firmeza, favoritos de rituais (botão no painel → aba Favoritos) e a página de Firmeza de Vela funcionam e seguem o visual novo.
+- +8 banhos e +1 erva (rosa-champanhe), todos completos e com objetivo válido.
+
+**Problemas encontrados e já corrigidos pelo supervisor**
+1. **Bug que quebrava `mantras.html`:** o caderno chamava `moonPhase()`, que não existe (`ReferenceError`), e isso interrompia o restante do script da página. Trocado por `getLiveMoonData()` (campos `name`/`icon`). **Sempre rode as páginas no navegador e olhe o console antes de commitar.**
+2. A data padrão do caderno usava `toISOString()` (UTC): depois das 21h no Brasil, mostrava o dia seguinte. Criada `localISODate()`.
+3. `firmeza.html` não tinha **nenhum aviso de segurança com fogo**. Adicionado.
+4. O banho pós-hospital não pedia liberação médica. Texto corrigido (liberação médica, água morna, não molhar pontos, curativos ou cateter).
+5. Três frases do Tarot prometiam resultado ("entrega garantida", "sucesso garantido", "saída garantida"). Suavizadas, conforme a regra de tom.
+6. **`images/tarot/CREDITOS.md` dizia coisas falsas:**
+   - As cartas clássicas não são scans de 1909: trazem o aviso "© 1971 U.S. Games".
+   - As cartas ciganas não são gravuras do século XIX: são ilustrações modernas com títulos em inglês, provavelmente geradas por IA, e sem origem documentada.
+   - O arquivo foi reescrito com a situação real. **Nunca registre uma origem ou licença que você não verificou.**
+7. `CACHE_VERSION` → `fv-v5`.
+
+**Pendências (Fase 8, para o Gemini)**
+1. **Origem das imagens ciganas:** registrar em `CREDITOS.md` exatamente como foram obtidas. Se foram geradas por IA, diga isso.
+2. **Títulos em inglês nas cartas ciganas** ("The Rider", "The Heart") num site em português: gere de novo **sem texto na imagem** (o nome já aparece abaixo da carta) ou troque por um Lenormand do século XIX em domínio público.
+3. **Tarot clássico:** trocar pelos scans da edição original de 1909 ("Roses & Lilies"/"Pam-A", no Wikimedia Commons), para não depender da recoloração de 1971 da U.S. Games.
+4. **Peso:** `images/tarot/` tem 7,7 MB, e as imagens estão entre 55 e 85 KB (a meta era ≤ 60 KB). Recomprimir.
+5. **Registrar no log TODOS os commits.** Os commits `583f2cd`, `6224bfe` e `c70c5ae` não entraram no log da seção 5.
+6. O que ainda vale do backlog da seção 10: fotos das ervas sem imagem; limpar `style=""` das páginas antigas; dividir `script.js`.

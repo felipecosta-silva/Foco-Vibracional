@@ -15,17 +15,13 @@ Este projeto preza pela conformidade de direitos autorais e preservação das tr
   - Nos Estados Unidos: publicado antes de 1º de janeiro de 1929, portanto em Domínio Público.
   - No Reino Unido e União Europeia: os direitos autorais expiraram 70 anos após o falecimento da ilustradora (1951 + 70 = 1º de janeiro de 2022).
   - No Brasil (Lei nº 9.610/1998, art. 41): direitos patrimoniais perduram por setenta anos contados de 1° de janeiro do ano subsequente ao falecimento do autor.
-- **Origem dos Scans:** Arquivos históricos preservados da primeira edição de 1909 (Rider-Waite-Smith roses & lilies / scans de preservação histórica, Wikimedia Commons / repositório aberto Arcanite).
+- **Origem dos scans (corrigido na revisão de 2026-10-18):** as imagens usadas são os scans difundidos pelo Wikimedia Commons, que vêm da **reimpressão de 1971 da U.S. Games Systems**. O aviso "© 1971 U.S. Games" aparece no canto das cartas, então **não** são scans da primeira edição de 1909. O desenho de Pamela Colman Smith é de domínio público. A U.S. Games reivindica direitos sobre a recoloração de 1971, mas o Wikimedia Commons trata esses arquivos como domínio público nos EUA. **Pendência:** para eliminar qualquer dúvida, trocar por scans da edição original de 1909 ("Roses & Lilies" / "Pam-A"), também disponíveis no Commons.
 
 ---
 
 ## 2. Baralho Cigano (36 Cartas)
-- **Baralho:** Petit Lenormand Tradicional (36 cartas).
-- **Origem Histórica:** Baseado no jogo original *"Das Spiel der Hoffnung"* (O Jogo da Esperança, 1799) criado por Johann Kaspar Hechtel em Nuremberg, e na tradição de cartomancia popular associada a Marie-Anne Adelaide Lenormand (1772–1843).
-- **Iconografia:** Gravuras e ilustrações clássicas dos símbolos tradicionais (Cavaleiro, Trevo, Navio, Casa, Árvore, Nuvens, Serpente, Caixão, Buquê, Foice, Chicote, Pássaros, Criança, Raposa, Urso, Estrela, Cegonha, Cão, Torre, Jardim, Montanha, Caminho, Ratos, Coração, Anel, Livro, Carta, Homem, Mulher, Lírios, Sol, Lua, Chave, Peixes, Âncora, Cruz).
-- **Status Legal / Direitos:**
-  - **Domínio Público Mundial** (símbolos e matrizes originais do século XIX).
-  - Ilustrações digitais abertas integradas via repositório Arcanite (licença MIT permissiva de redistribuição irrestrita).
+- **Situação atual (corrigida na revisão de 2026-10-18):** as ilustrações em estilo "pintura a óleo" entraram no commit `6224bfe` **sem origem documentada**. O estilo é moderno e os títulos estão em inglês ("The Rider", "The Heart"), o que indica imagens **geradas por IA**, e não gravuras Lenormand do século XIX, como dizia a versão anterior deste arquivo.
+- **Pendência:** documentar aqui a origem real (ferramenta, data, autor). De preferência, substituir por baralhos Lenormand do século XIX em domínio público (Wikimedia Commons, categoria "Lenormand cards") ou por ilustrações geradas **sem texto em inglês**.
 
 ---
 

@@ -2097,7 +2097,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "Misture 500ml de água de coco natural com 1 litro de água mineral morna. Macere delicadamente as pétalas de rosa branca e as folhas de manjericão. Não ferva. Despeje de maneira acolhedora da coroa da cabeça aos pés, mentalizando a vida, a circulação sanguínea e os fluidos vitais se restabelecendo.",
   "reza": "Na doçura das águas e na brancura das pétalas, recebo o fôlego da cura e a paz para o meu corpo e espírito. Que a saúde se firme e a força retorne. Axé!",
-  "observacao": "Uso espiritual acolhedor que respeita todas as orientações médicas convencionais. Pode ir na cabeça.",
+  "observacao": "Só depois de liberação médica. Use água morna e evite molhar pontos de cirurgia, curativos, cateteres ou feridas abertas. Este banho acolhe o espírito e não substitui nenhum tratamento. Pode ir na cabeça.",
   "versaoCha": ""
  }
 ];
