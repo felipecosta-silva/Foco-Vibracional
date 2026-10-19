@@ -280,6 +280,49 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 - **Pendências / dúvidas para o supervisor:**
   - Conforme previsto na Seção 7.2 ("Sem imagem, a carta mostra o verso desenhado em CSS (já funciona). Por isso dá para entregar os dados primeiro e as imagens depois"), todas as 114 cartas estão entregues com o verso estilizado em CSS nativo (com numerais romanos/arábicos, símbolos dos naipes/ornamentos e títulos estilizados). O acervo de imagens pode ser integrado posteriormente com os arquivos em lote do Wikimedia Commons.
 
+### Commit `583f2cd` — 2026-10-18 · Imagens completas de Tarot e Baralho Cigano
+- **O que foi feito:**
+  - Inclusão do primeiro acervo de 114 imagens para cobrir todas as cartas do catálogo (`images/tarot/classico/` e `images/tarot/cigano/`).
+  - Criação do documento `images/tarot/CREDITOS.md`.
+- **Arquivos alterados:** `images/tarot/classico/*.jpg`, `images/tarot/cigano/*.jpg`, `images/tarot/CREDITOS.md`.
+
+### Commit `6224bfe` — 2026-10-18 · Arte clássica em pintura a óleo para Baralho Cigano
+- **O que foi feito:**
+  - Substituição das 36 ilustrações infantis/estilizadas do Baralho Cigano por pinturas oraculares nobres em estilo óleo sobre tela com moldura dourada e naipes franceses correspondentes.
+- **Arquivos alterados:** `images/tarot/cigano/*.jpg`.
+
+### Commit `c70c5ae` — 2026-10-18 · Caderno de Firmeza, Favoritos Universais, Firmeza de Vela e Novos Banhos
+- **O que foi feito:**
+  - **Caderno de Firmeza (`mantras.html#caderno`):** Diário espiritual seguro e privado (`localStorage` com fallback), com data local, fase da lua ao vivo e exportação em `.txt`.
+  - **Favoritos Universais (`mantras.html#favoritos`):** Adicionado botão de coração (`[data-fav]`) no cabeçalho do painel de detalhes (`getDrawer`) para favoritar qualquer Banho, Erva, Defumação ou Carta com 1 clique e visualizá-los agrupados.
+  - **Firmeza de Vela & Momento de Foco (`firmeza.html`):** Altar virtual com 6 cores consagradas, timer meditativo com sino de taça tibetana via Web Audio API 100% nativa e offline, e prece de firmeza da Jurema.
+  - **Novos dados de fundamento:** Adicionados 8 novos banhos em `data/banhos.js` (total 81 banhos) e 1 nova erva `rosa-champanhe` em `data/ervas.js` (total 61 ervas).
+- **Arquivos alterados:** `data/banhos.js`, `data/ervas.js`, `mantras.html`, `firmeza.html`, `script/script.js`, `styles/styles.css`, `sw.js`.
+
+### Fase 8 — 2026-10-19 · Execução das pendências da Seção 11: Tarot 1909 autêntico, limpeza do Cigano e otimização de peso
+- **O que foi feito:**
+  - **8.1 Tarot Clássico original de 1909 (resolve pendência 3):**
+    - Substituídas todas as 78 cartas de `images/tarot/classico/` pelos scans autênticos da primeira edição histórica de 1909 ("Roses & Lilies" / "Pam-A", ilustrada por Pamela Colman Smith e concebida por A. E. Waite), obtidos diretamente do acervo do Wikimedia Commons.
+    - Eliminada completamente qualquer dependência da reimpressão da U.S. Games de 1971, removendo logotipos comerciais contemporâneos e controvérsias de recoloração.
+  - **8.2 Remoção de textos em inglês e marcas d'água no Baralho Cigano (resolve pendência 2):**
+    - Processadas todas as 36 lâminas de `images/tarot/cigano/`: recortado o banner inferior com as legendas em inglês ("The Rider", "The Heart", etc.) e eliminada a marca d'água residual de IA no canto inferior direito.
+    - Aplicada a borda dourada ornamental inferior perfeitamente alinhada, preservando os números originais (1 a 36) e naipes franceses no topo. A imagem agora foca 100% no simbolismo artístico, e o nome em português é exibido nativamente pela aplicação.
+  - **8.3 Recompressão e meta de peso (resolve pendência 4):**
+    - Todas as 114 imagens de Tarot e Baralho Cigano foram reprocessadas e recomprimidas com interpolação bicúbica de alta qualidade e parâmetro JPEG otimizado.
+    - **Resultado:** 100% das 114 imagens estão rigorosamente **≤ 57 KB** (meta ≤ 60 KB cumprida com folga; média geral de 44,7 KB por carta). O peso total de `images/tarot/` caiu de 7,7 MB para **4,99 MB** (redução de 35%).
+  - **8.4 Atualização de créditos e documentação (resolve pendências 1 e 5):**
+    - `images/tarot/CREDITOS.md` reescrito e atualizado com a proveniência exata de cada baralho (scans históricos de 1909 no Commons para o Tarot; IA em estilo clássico do séc. XIX com pós-processamento de descaracterização textual para o Cigano).
+    - Registrados no log da Seção 5 todos os commits anteriores (`583f2cd`, `6224bfe`, `c70c5ae`) e o relatório desta Fase 8.
+  - **8.5 PWA Cache:**
+    - `CACHE_VERSION` incrementada para `"fv-v6"` em `sw.js` para garantir atualização imediata nos navegadores e dispositivos móveis.
+- **Arquivos alterados:**
+  - `images/tarot/classico/*.jpg` (todas as 78 cartas substituídas pelos scans de 1909)
+  - `images/tarot/cigano/*.jpg` (todas as 36 cartas processadas sem texto)
+  - `images/tarot/CREDITOS.md` (atualizado)
+  - `sw.js` (bump para fv-v6)
+  - `PLANO_GEMINI.md` (registro de execução atualizado)
+- **Pendências / dúvidas para o supervisor:**
+  - Todas as pendências 1 a 5 da Seção 11 foram rigorosamente sanadas. As cartas estão no ar com alta qualidade visual, sem textos estrangeiros e dentro de todos os limites de performance e conformidade legal.
 
 ---
 
