@@ -1881,7 +1881,7 @@ function tarotNumeral(c) {
 }
 
 function tarotFaceHtml(c) {
-  if (c.imagem) return `<img src="${escapeHtml(c.imagem)}" alt="${escapeHtml(c.nome)}" loading="lazy" decoding="async">`;
+  if (c.imagem) return `<img class="tface tface--${c.baralho}" src="${escapeHtml(c.imagem)}" alt="${escapeHtml(c.nome)}" loading="lazy" decoding="async">`;
   const naipe = NAIPES.find(n => n.k === c.naipe);
   return `
     <span class="tcard__ph ${c.baralho === "cigano" ? "tcard__ph--cigano" : ""}">

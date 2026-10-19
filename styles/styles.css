@@ -1038,20 +1038,20 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #34d399;
-  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+  background-color: #9fd09a;
+  box-shadow: 0 0 0 0 rgba(159,208,154, 0.7);
   animation: pulseDot 2s infinite;
 }
 
 @keyframes pulseDot {
   0% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+    box-shadow: 0 0 0 0 rgba(159,208,154, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 7px rgba(52, 211, 153, 0);
+    box-shadow: 0 0 0 7px rgba(159,208,154, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    box-shadow: 0 0 0 0 rgba(159,208,154, 0);
   }
 }
 
@@ -1174,7 +1174,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 }
 
 .grabovoi-display-box {
-  background: rgba(18, 24, 38, 0.65);
+  background: rgba(18, 25, 20, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   padding: 20px;
@@ -1203,7 +1203,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 }
 
 .ponto-card {
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), rgba(15, 20, 30, 0.85));
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), rgba(15, 22, 17, 0.85));
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
   padding: 18px;
@@ -1269,7 +1269,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 }
 
 .ponto-firmeza-card {
-  background: linear-gradient(160deg, rgba(22, 28, 42, 0.95), rgba(13, 17, 26, 0.98));
+  background: linear-gradient(160deg, rgba(22, 29, 24, 0.95), rgba(13, 20, 15, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
   padding: 20px;
@@ -1290,7 +1290,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   aspect-ratio: 1 / 1;
   max-width: 320px;
   margin: 0 auto;
-  background: radial-gradient(circle at center, #182236 0%, #0a0e17 100%);
+  background: radial-gradient(circle at center, #1b2a20 0%, #0b110d 100%);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 16px;
   padding: 12px;
@@ -1333,23 +1333,23 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 }
 
 .ponto-legend-dot--vela {
-  background: #ffb703;
-  box-shadow: 0 0 6px #ffb703;
+  background: #e3b867;
+  box-shadow: 0 0 6px #e3b867;
 }
 
 .ponto-legend-dot--agua {
-  background: #38bdf8;
-  box-shadow: 0 0 6px #38bdf8;
+  background: #8fc1e3;
+  box-shadow: 0 0 6px #8fc1e3;
 }
 
 .ponto-legend-dot--banho {
-  background: #34d399;
-  box-shadow: 0 0 6px #34d399;
+  background: #9fd09a;
+  box-shadow: 0 0 6px #9fd09a;
 }
 
 .ponto-legend-dot--sal {
-  background: #c084fc;
-  box-shadow: 0 0 6px #c084fc;
+  background: #b9a8e8;
+  box-shadow: 0 0 6px #b9a8e8;
 }
 
 .ponto-firmeza-steps {
@@ -1387,7 +1387,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
 
 /* --- Runas Nórdicas (Elder Futhark) --- */
 .runa-oracle-box {
-  background: linear-gradient(145deg, rgba(24, 32, 48, 0.85), rgba(12, 17, 26, 0.95));
+  background: linear-gradient(145deg, rgba(24, 31, 26, 0.85), rgba(12, 19, 14, 0.95));
   border: 1px solid rgba(227,184,103, 0.25);
   border-radius: var(--radius);
   padding: 24px;
@@ -1472,7 +1472,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: radial-gradient(circle, rgba(20, 30, 48, 0.7) 0%, rgba(10,15,12, 0.95) 100%);
+  background: radial-gradient(circle, rgba(20, 27, 22, 0.7) 0%, rgba(10,15,12, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   position: relative;
@@ -1736,7 +1736,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   align-items: center;
   justify-content: center;
   padding: 24px 16px;
-  background: radial-gradient(circle at center, rgba(22, 32, 52, 0.8) 0%, rgba(10,15,12, 0.98) 100%);
+  background: radial-gradient(circle at center, rgba(22, 29, 24, 0.8) 0%, rgba(10,15,12, 0.98) 100%);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
   position: relative;
@@ -3180,3 +3180,10 @@ body.drawer-open{ overflow: hidden; }
   fill: #fc8181;
 }
 
+
+/* Revisão Fase 8: fileira de filtro oculta de verdade; cartas ciganas no formato delas */
+.chip-row[hidden]{ display: none !important; }
+.tcard__face:has(.tface--cigano), .tdetail__face:has(.tface--cigano){ aspect-ratio: 8 / 11; }
+.tface--cigano{ object-position: top center; }
+
+@media (max-width: 600px){ .tdaily{ grid-template-columns: 72px 1fr; gap: 12px; align-items: start; } .tdaily__title{ font-size: 1.2rem; } .tdaily .muted{ display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } }

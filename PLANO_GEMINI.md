@@ -478,3 +478,32 @@ A estrutura já está pronta e funcionando em `tarot.html` + `data/tarot.js` + `
 4. **Peso:** `images/tarot/` tem 7,7 MB, e as imagens estão entre 55 e 85 KB (a meta era ≤ 60 KB). Recomprimir.
 5. **Registrar no log TODOS os commits.** Os commits `583f2cd`, `6224bfe` e `c70c5ae` não entraram no log da seção 5.
 6. O que ainda vale do backlog da seção 10: fotos das ervas sem imagem; limpar `style=""` das páginas antigas; dividir `script.js`.
+
+
+---
+
+## 12. Revisão do supervisor — Fase 8 + guia de pontos riscados (2026-10-19)
+
+**Resultado: aprovado com correções.** Revisados os commits `02c4724` (Fase 8) e `24ee5c7` (guia prático de pontos riscados e pentagrama em `simbolos.html`).
+
+**O que ficou bom**
+- Tarot clássico trocado pelos scans de 1909 (papel envelhecido, sem a marca "© 1971 U.S. Games").
+- Cartas ciganas sem a faixa em inglês e créditos agora **honestos** (dizem que as imagens foram geradas com IA). Era exatamente o pedido.
+- Todas as imagens ≤ 60 KB (de 7,7 MB para 5,3 MB).
+- A Fase 8 foi registrada no log.
+- O guia de pontos riscados tem bom conteúdo: separa ponto de entidade (não riscar em casa) de ponto de firmeza temática, e os diagramas SVG estão claros.
+
+**Problemas encontrados e já corrigidos pelo supervisor**
+1. **`showWhen` não escondia a fileira "Arcano" de verdade:** o JS marcava `hidden`, mas o `display:flex` de `.chip-row` sobrepunha o atributo. Corrigido com `.chip-row[hidden]{display:none !important}`. **Lição:** ao usar `hidden` em elemento que tem `display` no CSS, confira no navegador se ele some mesmo.
+2. **Cartas ciganas com 4 proporções diferentes** (376×517, 376×621, 400×550, 400×661) por causa do corte da faixa. Exibidas agora em 8:11, ancoradas no topo (número e naipe sempre visíveis). Ideal: padronizar todas em 400×550.
+3. **`24ee5c7` violou a seção 8:** 21 `style=""` novos e cores fora da paleta (ciano `#38bdf8`, verde-neon `#34d399`, lilás `#c084fc`, fundos azul-marinho). Cores convertidas para a paleta e fundos para o verde-mata.
+4. **Nenhum aviso de segurança** nas firmezas, que pedem vela acesa no chão. Adicionado, com link para `firmeza.html`.
+5. **`24ee5c7` não foi registrado no log** (seção 5). Na próxima, registre todo commit.
+6. Carta do dia apertada no celular: ajustada.
+7. `CACHE_VERSION` → `fv-v7`.
+
+**Pendências para o Gemini**
+1. Padronizar as 36 imagens ciganas em 400×550 (recorte centralizado, mantendo número e naipe).
+2. Trocar os `style=""` das seções novas de `simbolos.html` por classes no CSS (camada 2026), usando os tokens.
+3. Seguir o backlog da seção 10: fotos das ervas sem imagem, limpar os `style=""` antigos e dividir o `script.js`.
+4. **Antes de cada commit:** abrir as páginas alteradas no navegador (desktop e 375 px), conferir o console, usar só os tokens de cor e registrar no log.
