@@ -1883,5 +1883,221 @@ window.FV_DATA.banhos = [
   "modoPreparo": "Na noite de lua cheia, deixe uma bacia de vidro ou louça com água limpa no sereno (coberta com um pano fino). Pela manhã, macere as pétalas e o boldo nessa água e jogue da cabeça aos pés.",
   "reza": "Lua cheia, mãe da noite, que tua luz serenada lave meu Ori e plenifique meus caminhos.",
   "observacao": "Pode na cabeça. A água serenada também pode ser guardada em garrafa de vidro escura por até 3 dias para firmeza de quartinha."
+ },
+ {
+  "id": "banho-triade-sagrada-arruda-guine-alecrim",
+  "nome": "Banho da Tríade Sagrada (Arruda, Guiné & Alecrim • Corte, Aterramento & Ativação Solar)",
+  "objetivo": "protecao",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova",
+   "crescente"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex"
+  ],
+  "horario": "noite ou fim de tarde",
+  "ervas": [
+   "Arruda",
+   "Guiné",
+   "Alecrim"
+  ],
+  "cabeca": false,
+  "modoPreparo": "1. Em uma bacia com 2 litros de água fresca ou tépida, macere com firmeza os ramos de Arruda e Guiné, intencionando a quebra de olhos-gordos, miasmas e nós energéticos.\\n2. Em seguida, acrescente o Alecrim fresco, esfregando-o suavemente para liberar seus óleos dourados, consagrando a entrada da luz solar e da vitalidade.\\n3. Deixe descansar por 30 minutos e coe. Tome seu banho habitual de higiene e despeje do pescoço para baixo. Não enxágue; vista roupa clara e descanse.",
+  "reza": "Pela força do Guiné, todo nó se desfaz. Pelo fogo da Arruda, toda inveja se desmancha. Pela luz do Alecrim, meu campo se reergue, brilha e caminha em vitória. Salve as matas sagradas!",
+  "observacao": "ATENÇÃO: Não vai à cabeça. A Arruda corta a larva espiritual; o Guiné aterra e desfaz o feitiço; o Alecrim atua com o calor do Sol, recompondo a aura e impedindo que o descarrego deixe a pessoa sem energia.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-peregum-vence-tudo-batalha",
+  "nome": "Banho de Desatar Nós e Vencer Demandas (Peregum Roxo, Vence-Demanda & Alecrim)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "ter",
+   "sex"
+  ],
+  "horario": "tarde ou início da noite",
+  "ervas": [
+   "Peregum Roxo",
+   "Vence-Demanda",
+   "Alecrim"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Rasgar as folhas de Peregum Roxo e Vence-Demanda em pedaços pequenos dentro de 2 litros de água morna (após desligar a fervura). Abafar por 20 minutos. Ao amornar, macere o Alecrim fresco junto para levantar a vibração de vitória. Despejar do pescoço para baixo mentalizando todas as amarras invisíveis caindo por terra.",
+  "reza": "Com a força do Peregum, o que estava podre é arrancado. Com a força do Vence-Demanda, nenhuma injustiça prevalece sobre meu caminho. Eu ando de cabeça erguida e corpo fechado.",
+  "observacao": "Banho de impacto para épocas de forte opressão, disputas judiciais, perseguição profissional ou sensação de que tudo travou. Não vai à cabeça.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-brilhantina-oxum-refrigerio",
+  "nome": "Banho de Refrigério do Ori e Brilho Líquido (Brilhantina & Manjericão)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia",
+   "nova"
+  ],
+  "dias": [
+   "qua",
+   "qui",
+   "sab",
+   "dom"
+  ],
+  "horario": "manhã ou após um banho de descarrego",
+  "ervas": [
+   "Brilhantina",
+   "Manjericão"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Macerar a Brilhantina fresca e o Manjericão fresco com as mãos em água fria ou mineral bem límpida. Não ferva; as duas ervas são vivas e aquáticas. Após o banho habitual, despeje delicadamente desde o alto da cabeça, deixando a água escorrer pelo rosto e costas. Mentalize frescor, calma profunda e a restauração do seu brilho pessoal.",
+  "reza": "Águas doces que lavam a pedra, refresquem minha mente e acalmem meu coração. Que a paz da Jurema e o ouro de Oxum reinem no meu Ori. Odoyá, Ora Yê Yê Ô!",
+  "observacao": "Pode ir na cabeça com toda a segurança. Perfeito para quem saiu de um período de estresse violento, insônia ou como segundo tempo pós-descarrego com arruda e guiné.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-rosa-amarela-ouro-oxum",
+  "nome": "Banho Dourado de Rosas Amarelas (Atração Financeira, Autoestima & Brilho de Oxum)",
+  "objetivo": "prosperidade",
+  "intensidade": "media",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "qua",
+   "sab",
+   "dom"
+  ],
+  "horario": "manhã com sol ou início da tarde",
+  "ervas": [
+   "Rosa Amarela",
+   "Anis-Estrelado",
+   "Canela em Pau",
+   "1 colher rasa de Mel"
+  ],
+  "cabeca": true,
+  "modoPreparo": "1. Ferva 1,5 litro de água com o anis-estrelado e a canela em pau por 5 minutos. Desligue o fogo.\\n2. Adicione as pétalas frescas de rosa amarela e dissolva 1 colherzinha de mel.\\n3. Tampe e deixe abafado até ficar em temperatura tépida agradável. Coe.\\n4. Após seu banho higiênico, despeje da cabeça aos pés (ou do pescoço para baixo se preferir) mentalizando fartura, clientes, reconhecimento e a vida florescendo em doçura.",
+  "reza": "Ouro que brilha na cascata, abre meus caminhos para a riqueza limpa, o amor sincero e a alegria de viver. Que a doçura de Oxum me envolva e afaste qualquer amargura. Ora Yê Yê Ô!",
+  "observacao": "Pode molhar a cabeça (não há ervas cáusticas). Para quem tem formigas ou pele muito sensível a mel, pode substituir o mel por um punhadinho de açúcar mascavo ou erva-doce.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-rosa-champanhe-nobreza",
+  "nome": "Banho Nobre de Rosas Champanhe (Amor Maduro, Diplomacia & Reconciliação Serena)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "seg",
+   "qui",
+   "sex",
+   "dom"
+  ],
+  "horario": "noite, antes de descansar",
+  "ervas": [
+   "Rosa Champanhe",
+   "Alfazema",
+   "Erva-Cidreira (Melissa)"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Aqueça 1,5 litro de água até iniciar as primeiras bolhinhas de fervura e apague o fogo. Adicione as pétalas da rosa cor de champanhe, a alfazema e as folhas de erva-cidreira. Tampe e deixe descansar por 15 minutos em silêncio. Despeje da coroa da cabeça aos pés, respirando com calma e mentalizando acordos pacíficos, respeito mútuo e concórdia em seu lar.",
+  "reza": "Que a serenidade das flores nobres perfume meus pensamentos. Onde houver discórdia, floresça a compreensão. Onde houver aspereza, reine a dignidade e a paz. Assim é.",
+  "observacao": "Excelente para casais em momentos de desgaste, sócios em negociações delicadas ou para quem deseja atrair um amor com maturidade, respeito e estabilidade.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-blindagem-atendimento-publico",
+  "nome": "Banho de Blindagem Áurica (Para Médicos, Terapeutas & Quem Atende Público)",
+  "objetivo": "protecao",
+  "intensidade": "media",
+  "luas": [
+   "todas",
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex"
+  ],
+  "horario": "ao chegar do trabalho / fim de expediente",
+  "ervas": [
+   "Arruda",
+   "Guiné",
+   "Espada de São Jorge",
+   "Manjericão"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Corte 3 pedacinhos de Espada de São Jorge e macere junto com Arruda, Guiné e Manjericão em 2 litros de água tépida. Deixe descansar por 20 minutos. Tome após a jornada diária, despejando dos ombros para baixo, sentindo os miasmas, dores e queixas ouvidas durante o dia escorrerem direto para o ralo.",
+  "reza": "O que é dos outros fica com os outros; o que é meu é protegido pelo manto da floresta. Meu escudo está erguido e minha energia preservada.",
+  "observacao": "Essencial para quem trabalha absorvendo problemas alheios. Nunca jogar na cabeça devido à espada e à arruda.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-mudanca-lar-novo",
+  "nome": "Banho e Purificação de Mudança de Lar (Limpeza Astral das Paredes & Bênção da Nova Casa)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova",
+   "crescente"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sab"
+  ],
+  "horario": "ao entrar no imóvel antes de organizar os móveis",
+  "ervas": [
+   "Casca de Alho",
+   "Alecrim",
+   "Alfazema",
+   "Sal Grosso"
+  ],
+  "cabeca": false,
+  "modoPreparo": "1. Para a casa: ferva as cascas de alho com sal grosso em 3 litros de água por 5 minutos. Desligue, acrescente alecrim e alfazema. Após amornar e coar, passe um pano úmido do fundo da casa para a porta de entrada com a intenção de limpar impressões e energias dos antigos moradores.\\n2. Para os novos moradores: prepare uma parte (sem o alho pesado) de alecrim e alfazema e despeje do pescoço para baixo após a arrumação, selando a paz.",
+  "reza": "Que saia todo passado, tristeza e desavença que habitou estas paredes. Que entre a prosperidade, a saúde e a risada solta. Abençoado seja este teto e quem nele morar.",
+  "observacao": "A casa nova carrega a memória das dores de quem morou antes. A limpeza com casca de alho e alecrim neutraliza esse histórico.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-convalescenca-pos-hospital",
+  "nome": "Banho de Convalescença e Restauração Vital (Pós-Hospital / Recuperação com Água de Coco & Rosa Branca)",
+  "objetivo": "energia",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "dom",
+   "seg",
+   "qui"
+  ],
+  "horario": "manhã ou tarde ensolarada",
+  "ervas": [
+   "Água de Coco fresca",
+   "Pétalas de Rosas Brancas",
+   "Folhas de Manjericão Branco",
+   "Alfazema"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Misture 500ml de água de coco natural com 1 litro de água mineral morna. Macere delicadamente as pétalas de rosa branca e as folhas de manjericão. Não ferva. Despeje de maneira acolhedora da coroa da cabeça aos pés, mentalizando a vida, a circulação sanguínea e os fluidos vitais se restabelecendo.",
+  "reza": "Na doçura das águas e na brancura das pétalas, recebo o fôlego da cura e a paz para o meu corpo e espírito. Que a saúde se firme e a força retorne. Axé!",
+  "observacao": "Uso espiritual acolhedor que respeita todas as orientações médicas convencionais. Pode ir na cabeça.",
+  "versaoCha": ""
  }
 ];

@@ -41,7 +41,8 @@ const NAV = [
       { label: "Banhos", url: "banhos.html" },
       { label: "Defumações", url: "defumacao.html" },
       { label: "Ervas", url: "plantas.html" },
-      { label: "Colheita", url: "colheita.html" }
+      { label: "Colheita", url: "colheita.html" },
+      { label: "Firmeza de Vela", url: "firmeza.html" }
     ]
   },
   { id: "mantras", label: "Mantras", url: "mantras.html" },
@@ -375,7 +376,7 @@ function loadFavorites() {
   catch { return []; }
 }
 function saveFavorites(items) {
-  localStorage.setItem(FAVORITES_KEY, JSON.stringify(items));
+  try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(items)); } catch {}
 }
 function addFavorite(text) {
   const items = loadFavorites();
@@ -390,6 +391,39 @@ function addFavorite(text) {
 function removeFavorite(text) {
   const items = loadFavorites().filter(x => x !== text);
   saveFavorites(items);
+}
+
+/* Favoritos Universais do Catálogo (Banhos, Ervas, Defumações e Cartas) */
+const CATALOG_FAVS_KEY = "fv_catalog_favs_v1";
+function loadCatalogFavorites() {
+  try { return JSON.parse(localStorage.getItem(CATALOG_FAVS_KEY) || "[]"); }
+  catch { return []; }
+}
+function saveCatalogFavorites(items) {
+  try { localStorage.setItem(CATALOG_FAVS_KEY, JSON.stringify(items)); } catch {}
+}
+function isCatalogFavorite(id) {
+  if (!id) return false;
+  return loadCatalogFavorites().some(x => x.id === id);
+}
+function toggleCatalogFavorite(item) {
+  if (!item || !item.id) return false;
+  let items = loadCatalogFavorites();
+  const exists = items.some(x => x.id === item.id);
+  if (exists) {
+    items = items.filter(x => x.id !== item.id);
+    saveCatalogFavorites(items);
+    return false;
+  } else {
+    items.unshift({
+      id: item.id,
+      eyebrow: item.eyebrow || "Item",
+      title: item.title || item.id,
+      url: item.url || (location.pathname + "#" + item.id)
+    });
+    saveCatalogFavorites(items);
+    return true;
+  }
 }
 
 /* =========================
@@ -872,58 +906,422 @@ function renderFavorites() {
   const list = $("#favoritesList");
   const empty = $("#favoritesEmpty");
   const clearBtn = $("#clearFavsBtn");
-  if (!list || !empty) return;
+  const catalogList = $("#catalogFavoritesList");
+  const catalogSection = $("#catalogFavoritesSection");
+  const mantraSection = $("#mantraFavoritesSection");
 
-  const items = loadFavorites();
-  list.innerHTML = "";
+  const mantraItems = loadFavorites();
+  const catalogItems = loadCatalogFavorites();
 
-  empty.style.display = items.length ? "none" : "block";
+  const totalCount = mantraItems.length + catalogItems.length;
+  if (empty) empty.style.display = totalCount === 0 ? "block" : "none";
 
-  items.forEach(text => {
-    const card = document.createElement("div");
-    card.className = "fav";
+  // Catalog items (Banhos, Ervas, Cartas, Defumações)
+  if (catalogList && catalogSection) {
+    catalogList.innerHTML = "";
+    if (catalogItems.length) {
+      catalogSection.hidden = false;
+      catalogItems.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "fav-catalog-card";
+        card.innerHTML = `
+          <div>
+            <span class="badge" style="font-size:0.75rem;">${escapeHtml(item.eyebrow || "Item")}</span>
+            <b class="fav-catalog-title">${escapeHtml(item.title || item.id)}</b>
+          </div>
+          <div class="row wrap-row" style="gap:8px; align-items:center;">
+            <a class="btn btn--ghost small" href="${escapeHtml(item.url || "#")}">Abrir ficha →</a>
+            <button class="btn btn--ghost small" type="button" data-del-catfav="${escapeHtml(item.id)}">Remover</button>
+          </div>
+        `;
+        card.querySelector("[data-del-catfav]")?.addEventListener("click", () => {
+          toggleCatalogFavorite(item);
+          renderFavorites();
+          toast("Item removido dos favoritos.");
+        });
+        catalogList.appendChild(card);
+      });
+    } else {
+      catalogSection.hidden = true;
+    }
+  }
 
-    const p = document.createElement("p");
-    p.className = "fav__text";
-    p.textContent = `“${text}”`;
-
-    const actions = document.createElement("div");
-    actions.className = "fav__actions";
-
-    const copyBtn = document.createElement("button");
-    copyBtn.className = "btn btn--ghost";
-    copyBtn.type = "button";
-    copyBtn.textContent = "Copiar";
-    copyBtn.addEventListener("click", () => copyText(text));
-
-    const speakBtn = document.createElement("button");
-    speakBtn.className = "btn";
-    speakBtn.type = "button";
-    speakBtn.textContent = "Ouvir";
-    speakBtn.addEventListener("click", () => speak(text));
-
-    const delBtn = document.createElement("button");
-    delBtn.className = "btn btn--ghost";
-    delBtn.type = "button";
-    delBtn.textContent = "Remover";
-    delBtn.addEventListener("click", () => {
-      removeFavorite(text);
-      renderFavorites();
-      toast("Removido dos favoritos.");
-    });
-
-    actions.append(copyBtn, speakBtn, delBtn);
-    card.append(p, actions);
-    list.append(card);
-  });
+  // Mantra items
+  if (list && mantraSection) {
+    list.innerHTML = "";
+    if (mantraItems.length) {
+      mantraSection.hidden = false;
+      mantraItems.forEach(text => {
+        const card = document.createElement("div");
+        card.className = "fav";
+        card.innerHTML = `
+          <p class="fav__text">“${escapeHtml(text)}”</p>
+          <div class="fav__actions">
+            <button class="btn btn--ghost" type="button" data-copy-fav>Copiar</button>
+            <button class="btn" type="button" data-speak-fav>Ouvir</button>
+            <button class="btn btn--ghost" type="button" data-del-fav>Remover</button>
+          </div>
+        `;
+        card.querySelector("[data-copy-fav]")?.addEventListener("click", () => copyText(text));
+        card.querySelector("[data-speak-fav]")?.addEventListener("click", () => speak(text));
+        card.querySelector("[data-del-fav]")?.addEventListener("click", () => {
+          removeFavorite(text);
+          renderFavorites();
+          toast("Removido dos favoritos.");
+        });
+        list.appendChild(card);
+      });
+    } else {
+      mantraSection.hidden = true;
+    }
+  }
 
   if (clearBtn) {
     clearBtn.onclick = () => {
       saveFavorites([]);
+      saveCatalogFavorites([]);
       renderFavorites();
-      toast("Favoritos limpos.");
+      toast("Todos os favoritos foram limpos.");
     };
   }
+}
+
+/* ==========================================================================
+   Caderno de Firmeza (Diário Espiritual Pessoal em mantras.html#caderno)
+   ========================================================================== */
+const CADERNO_KEY = "fv_caderno_entries_v1";
+function loadCadernoEntries() {
+  try { return JSON.parse(localStorage.getItem(CADERNO_KEY) || "[]"); }
+  catch { return []; }
+}
+function saveCadernoEntries(entries) {
+  try { localStorage.setItem(CADERNO_KEY, JSON.stringify(entries)); } catch {}
+}
+
+function initCadernoFirmeza() {
+  const form = $("#cadernoForm");
+  const list = $("#cadernoList");
+  if (!form || !list) return;
+
+  const dataInput = $("#cadernoData");
+  const moonTag = $("#cadernoMoonTag");
+  const countBadge = $("#cadernoCount");
+  const exportBtn = $("#btnExportCaderno");
+
+  if (dataInput && !dataInput.value) {
+    dataInput.value = new Date().toISOString().slice(0, 10);
+  }
+
+  if (moonTag) {
+    const m = moonPhase(new Date());
+    moonTag.textContent = `${m.nome} ${m.emoji}`;
+  }
+
+  function renderCaderno() {
+    const entries = loadCadernoEntries();
+    if (countBadge) countBadge.textContent = `${entries.length} registro${entries.length === 1 ? "" : "s"}`;
+    if (!entries.length) {
+      list.innerHTML = `<p class="muted small" id="cadernoEmpty">Nenhum registro no caderno ainda. Preencha seu primeiro relato acima!</p>`;
+      return;
+    }
+    list.innerHTML = "";
+    const sorted = [...entries].reverse();
+    sorted.forEach(entry => {
+      const card = document.createElement("article");
+      card.className = "caderno-card";
+
+      const tipoMap = {
+        banho: "🌿 Banho de Ervas",
+        defumacao: "💨 Defumação",
+        oraculo: "🎴 Oráculo",
+        firmeza: "🕯️ Firmeza",
+        oracao: "🙏 Oração",
+        sonho: "🌙 Sonho ou Sinal",
+        outro: "✨ Prática"
+      };
+      const tipoLabel = tipoMap[entry.tipo] || "✨ Prática";
+      const formattedDate = entry.data ? new Date(entry.data + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" }) : "";
+
+      card.innerHTML = `
+        <div class="caderno-card__header">
+          <div class="row wrap-row" style="gap:6px; align-items:center;">
+            <span class="badge badge--tea">${escapeHtml(tipoLabel)}</span>
+            ${entry.moon ? `<span class="badge">${escapeHtml(entry.moon)}</span>` : ""}
+            <span class="muted small" style="margin-left:4px;">${escapeHtml(formattedDate)}</span>
+          </div>
+          <button class="btn-micro" type="button" data-del-entry="${entry.id}" title="Excluir este relato">🗑️</button>
+        </div>
+        <h3 class="caderno-card__title">${escapeHtml(entry.titulo)}</h3>
+        ${entry.relato ? `<p class="caderno-card__relato">${escapeHtml(entry.relato)}</p>` : ""}
+      `;
+
+      card.querySelector("[data-del-entry]")?.addEventListener("click", () => {
+        if (confirm("Deseja apagar este registro do seu caderno?")) {
+          const updated = loadCadernoEntries().filter(x => x.id !== entry.id);
+          saveCadernoEntries(updated);
+          renderCaderno();
+          toast("Registro removido.");
+        }
+      });
+
+      list.appendChild(card);
+    });
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const dataVal = $("#cadernoData")?.value;
+    const tipoVal = $("#cadernoTipo")?.value || "outro";
+    const tituloVal = $("#cadernoTitulo")?.value?.trim();
+    const relatoVal = $("#cadernoRelato")?.value?.trim();
+
+    if (!tituloVal) return;
+
+    const m = moonPhase(dataVal ? new Date(dataVal + "T12:00:00") : new Date());
+
+    const newEntry = {
+      id: Date.now(),
+      data: dataVal || new Date().toISOString().slice(0, 10),
+      moon: `${m.nome} ${m.emoji}`,
+      tipo: tipoVal,
+      titulo: tituloVal,
+      relato: relatoVal || ""
+    };
+
+    const entries = loadCadernoEntries();
+    entries.push(newEntry);
+    saveCadernoEntries(entries);
+
+    form.reset();
+    if (dataInput) dataInput.value = new Date().toISOString().slice(0, 10);
+    renderCaderno();
+    toast("Registro guardado no seu Caderno de Firmeza! ✨");
+  });
+
+  if (exportBtn) {
+    exportBtn.addEventListener("click", () => {
+      const entries = loadCadernoEntries();
+      if (!entries.length) {
+        toast("Seu caderno ainda não possui registros para exportar.");
+        return;
+      }
+      let txt = "=======================================================\\n";
+      txt += "       MEU CADERNO DE FIRMEZA — FOCO VIBRACIONAL\\n";
+      txt += "  Diário Espiritual Pessoal & Relato de Práticas Sagradas\\n";
+      txt += "=======================================================\\n\\n";
+      txt += `Total de relatos: ${entries.length}\\nGerado em: ${new Date().toLocaleDateString("pt-BR")} às ${new Date().toLocaleTimeString("pt-BR")}\\n\\n`;
+
+      entries.forEach((e, idx) => {
+        txt += `-------------------------------------------------------\\n`;
+        txt += `[Registro #${idx + 1}] • ${e.data} • ${e.moon || ""}\\n`;
+        txt += `Tipo: ${e.tipo.toUpperCase()}\\n`;
+        txt += `Título / Prática: ${e.titulo}\\n`;
+        if (e.relato) {
+          txt += `Relato / Sensações:\\n${e.relato}\\n`;
+        }
+        txt += `\\n`;
+      });
+
+      const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `meu_caderno_de_firmeza_${new Date().toISOString().slice(0, 10)}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      toast("Caderno exportado em .txt com sucesso! 📥");
+    });
+  }
+
+  renderCaderno();
+}
+
+/* ==========================================================================
+   Firmeza de Vela & Momento de Foco (firmeza.html)
+   ========================================================================== */
+function initFirmezaPage() {
+  const candleWrapper = $("#candleWrapper");
+  if (!candleWrapper) return;
+
+  const candleAura = $("#candleAura");
+  const candleFlame = $("#candleFlame");
+  const candleBody = $("#candleBody");
+  const candleLabel = $("#candleLabel");
+  const intentionDisplay = $("#firmezaIntentionDisplay");
+  const inputIntencao = $("#inputIntencao");
+  const timerDisplay = $("#timerDisplay");
+  const btnToggle = $("#btnTimerToggle");
+  const btnReset = $("#btnTimerReset");
+  const btnSound = $("#btnSoundToggle");
+  const colorPills = $all("[data-candle-color]");
+  const durationPills = $all("[data-duration]");
+
+  let timerInterval = null;
+  let remainingSeconds = 300; // default 5 min
+  let selectedDuration = 300;
+  let isRunning = false;
+  let soundEnabled = true;
+
+  // Mapa de cores e auras
+  const COLORS = {
+    branca: {
+      body: "linear-gradient(180deg, #f8f9fa, #e2e8f0)",
+      aura: "radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(227, 184, 103, 0.25) 50%, transparent 75%)"
+    },
+    amarela: {
+      body: "linear-gradient(180deg, #fef08a, #f59e0b)",
+      aura: "radial-gradient(circle, rgba(251, 191, 36, 0.55) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 75%)"
+    },
+    verde: {
+      body: "linear-gradient(180deg, #86efac, #16a34a)",
+      aura: "radial-gradient(circle, rgba(74, 222, 128, 0.5) 0%, rgba(22, 163, 74, 0.25) 50%, transparent 75%)"
+    },
+    azul: {
+      body: "linear-gradient(180deg, #93c5fd, #2563eb)",
+      aura: "radial-gradient(circle, rgba(96, 165, 250, 0.5) 0%, rgba(37, 99, 235, 0.25) 50%, transparent 75%)"
+    },
+    violeta: {
+      body: "linear-gradient(180deg, #d8b4fe, #7c3aed)",
+      aura: "radial-gradient(circle, rgba(192, 132, 252, 0.5) 0%, rgba(124, 58, 237, 0.25) 50%, transparent 75%)"
+    },
+    vermelha: {
+      body: "linear-gradient(180deg, #fca5a5, #dc2626)",
+      aura: "radial-gradient(circle, rgba(248, 113, 113, 0.5) 0%, rgba(220, 38, 38, 0.25) 50%, transparent 75%)"
+    }
+  };
+
+  function playTibetanBowl() {
+    if (!soundEnabled) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      if (ctx.state === "suspended") ctx.resume();
+
+      // Sintetizador harmônico de Taça Tibetana (432Hz fundamental, harmônicos 864Hz e 1296Hz)
+      const freqs = [432, 864, 1296];
+      const gains = [0.22, 0.07, 0.025];
+
+      freqs.forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(f, ctx.currentTime);
+
+        gain.gain.setValueAtTime(gains[i], ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.2);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 3.3);
+      });
+    } catch (e) {
+      // áudio desabilitado ou sem permissão
+    }
+  }
+
+  function formatTime(s) {
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
+  }
+
+  function updateTimerDisplay() {
+    if (selectedDuration === 0) {
+      timerDisplay.textContent = isRunning ? "Chama Viva 🕯️" : "Livre";
+      return;
+    }
+    timerDisplay.textContent = formatTime(remainingSeconds);
+  }
+
+  function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    isRunning = false;
+    btnToggle.textContent = "Iniciar Firmeza 🕯️";
+    btnToggle.classList.remove("btn--ghost");
+    if (candleFlame) candleFlame.style.animation = "flameFlicker 3s infinite ease-in-out";
+  }
+
+  function startTimer() {
+    isRunning = true;
+    btnToggle.textContent = "Pausar ⏸️";
+    btnToggle.classList.add("btn--ghost");
+    if (candleFlame) candleFlame.style.animation = "flameFlickerActive 1.5s infinite ease-in-out";
+    playTibetanBowl();
+
+    if (selectedDuration === 0) {
+      updateTimerDisplay();
+      return;
+    }
+
+    timerInterval = setInterval(() => {
+      remainingSeconds--;
+      updateTimerDisplay();
+      if (remainingSeconds <= 0) {
+        stopTimer();
+        playTibetanBowl();
+        toast("Firmeza concluída com luz e bênçãos! 🙏✨");
+      }
+    }, 1000);
+  }
+
+  btnToggle.addEventListener("click", () => {
+    if (isRunning) {
+      stopTimer();
+    } else {
+      if (remainingSeconds <= 0 && selectedDuration > 0) remainingSeconds = selectedDuration;
+      startTimer();
+    }
+  });
+
+  btnReset.addEventListener("click", () => {
+    stopTimer();
+    remainingSeconds = selectedDuration;
+    updateTimerDisplay();
+  });
+
+  btnSound.addEventListener("click", () => {
+    soundEnabled = !soundEnabled;
+    btnSound.textContent = soundEnabled ? "🔔" : "🔕";
+    btnSound.title = soundEnabled ? "Som ativado" : "Som silenciado";
+    toast(soundEnabled ? "Sino tibetano ativado 🔔" : "Sino silenciado 🔕");
+  });
+
+  durationPills.forEach(p => {
+    p.addEventListener("click", () => {
+      stopTimer();
+      durationPills.forEach(x => x.classList.remove("pill--active"));
+      p.classList.add("pill--active");
+      selectedDuration = parseInt(p.dataset.duration, 10);
+      remainingSeconds = selectedDuration;
+      updateTimerDisplay();
+    });
+  });
+
+  colorPills.forEach(cp => {
+    cp.addEventListener("click", () => {
+      colorPills.forEach(x => x.classList.remove("color-pill--active"));
+      cp.classList.add("color-pill--active");
+      const colKey = cp.dataset.candleColor;
+      const col = COLORS[colKey] || COLORS.branca;
+      if (candleBody) candleBody.style.background = col.body;
+      if (candleAura) candleAura.style.background = col.aura;
+      if (candleLabel) candleLabel.textContent = cp.dataset.label;
+    });
+  });
+
+  if (inputIntencao) {
+    inputIntencao.addEventListener("input", () => {
+      const val = inputIntencao.value.trim();
+      if (intentionDisplay) {
+        intentionDisplay.textContent = val ? `“${val}”` : "“Abençoada seja a luz que guia meus passos em serenidade.”";
+      }
+    });
+  }
+
+  updateTimerDisplay();
 }
 
 /* ==========================================================================
@@ -1231,6 +1629,9 @@ function getDrawer() {
       <div class="drawer__bar">
         <span class="eyebrow" id="drawerEyebrow"></span>
         <div class="drawer__actions">
+          <button class="icon-btn" type="button" data-fav aria-label="Favoritar" title="Salvar nos favoritos">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fav-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
           <button class="icon-btn" type="button" data-share aria-label="Compartilhar">${ICONS.share}</button>
           <button class="icon-btn" type="button" data-close aria-label="Fechar">${ICONS.close}</button>
         </div>
@@ -1239,15 +1640,23 @@ function getDrawer() {
     </aside>`;
   document.body.appendChild(el);
   let lastFocus = null;
+  let currentDrawerItem = null;
 
   const api = {
     open(eyebrow, html, id) {
       lastFocus = document.activeElement;
+      currentDrawerItem = { id, eyebrow };
       el.querySelector("#drawerEyebrow").textContent = eyebrow;
       const body = el.querySelector("#drawerBody");
       body.innerHTML = html;
       body.scrollTop = 0;
       body.querySelector(".drawer__title")?.setAttribute("id", "drawerTitle");
+
+      const favBtn = el.querySelector("[data-fav]");
+      if (favBtn) {
+        favBtn.classList.toggle("icon-btn--active", isCatalogFavorite(id));
+      }
+
       el.hidden = false;
       document.body.classList.add("drawer-open");
       if (id && location.hash !== "#" + id) history.replaceState(null, "", location.pathname + location.search + "#" + id);
@@ -1265,6 +1674,17 @@ function getDrawer() {
 
   el.addEventListener("click", e => {
     if (e.target.closest("[data-close]")) api.close();
+    if (e.target.closest("[data-fav]")) {
+      const title = el.querySelector(".drawer__title")?.textContent || "";
+      const isNowFav = toggleCatalogFavorite({
+        id: currentDrawerItem?.id,
+        eyebrow: currentDrawerItem?.eyebrow,
+        title,
+        url: location.pathname + (currentDrawerItem?.id ? "#" + currentDrawerItem.id : "")
+      });
+      el.querySelector("[data-fav]")?.classList.toggle("icon-btn--active", isNowFav);
+      toast(isNowFav ? "Salvo nos seus favoritos! ❤️" : "Removido dos favoritos.");
+    }
     if (e.target.closest("[data-share]")) {
       const url = location.href;
       const title = el.querySelector(".drawer__title")?.textContent || document.title;
@@ -3454,6 +3874,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initDefumacaoPage();
   initColheitaPage();
   initCalendarioLunar();
+  initCadernoFirmeza();
+  initFirmezaPage();
   initPortaisPage();
   initSimbolosPage();
   initHomeHero();

@@ -44,6 +44,7 @@
       <button class="page-tab" role="tab" data-page-tab="mantras" type="button">🙏 Mantras</button>
       <button class="page-tab" role="tab" data-page-tab="afirmacoes" type="button">✨ Afirmações</button>
       <button class="page-tab" role="tab" data-page-tab="noite" type="button">🌙 Ritual da Noite</button>
+      <button class="page-tab" role="tab" data-page-tab="caderno" type="button">📖 Meu Caderno</button>
       <button class="page-tab" role="tab" data-page-tab="favoritos" type="button">⭐ Favoritos</button>
     </div>
 
@@ -712,21 +713,90 @@
     </section>
     </div>
 
-    <div class="page-panel" data-page-panel="favoritos" role="tabpanel">
+    <!-- MEU CADERNO DE FIRMEZA (DIÁRIO ESPIRITUAL PRIVADO) -->
+    <div class="page-panel" data-page-panel="caderno" role="tabpanel" hidden>
+      <div class="notice">
+        <strong>Seu Diário Espiritual Privado:</strong> Registre seus banhos de ervas, firmezas, orações, tiragens de cartas e sensações. Todos os dados são guardados exclusivamente no seu aparelho (100% privado, seguro e offline).
+      </div>
+
+      <section class="card section-gap">
+        <div class="card__header">
+          <h2 class="card__title">Novo registro</h2>
+          <span class="badge" id="cadernoMoonTag">Lua de hoje</span>
+        </div>
+
+        <form id="cadernoForm" class="caderno-form">
+          <div class="form-row">
+            <label class="form-group" style="flex:1;">
+              <span class="form-label">Data</span>
+              <input type="date" id="cadernoData" class="form-input" required />
+            </label>
+            <label class="form-group" style="flex:1;">
+              <span class="form-label">Tipo de Prática</span>
+              <select id="cadernoTipo" class="form-select">
+                <option value="banho">🌿 Banho de Ervas</option>
+                <option value="defumacao">💨 Defumação</option>
+                <option value="oraculo">🎴 Tarot / Baralho Cigano</option>
+                <option value="firmeza">🕯️ Firmeza de Vela</option>
+                <option value="oracao">🙏 Oração / Mantra</option>
+                <option value="sonho">🌙 Sonho ou Sinal</option>
+                <option value="outro">✨ Outro Ritual</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="form-group" style="margin-top:12px;">
+            <span class="form-label">Qual ritual, erva, firmeza ou carta foi utilizada?</span>
+            <input type="text" id="cadernoTitulo" class="form-input" placeholder="Ex.: Banho de Arruda, Guiné e Alecrim; Carta A Estrela; Vela Branca..." required />
+          </label>
+
+          <label class="form-group" style="margin-top:12px;">
+            <span class="form-label">Como você se sentiu? (sensações físicas, sonhos, intuições, alívio)</span>
+            <textarea id="cadernoRelato" class="form-textarea" rows="4" placeholder="Escreva com o coração: o alívio que sentiu no corpo, sonhos que teve na noite seguinte, clareza mental ou sinais observados..."></textarea>
+          </label>
+
+          <div class="row wrap-row" style="margin-top:16px; justify-content:space-between; align-items:center;">
+            <button class="btn" type="submit">Salvar no Caderno ✍️</button>
+            <button class="btn btn--ghost small" type="button" id="btnExportCaderno">📥 Exportar Diário (.txt)</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card section-gap">
+        <div class="card__header">
+          <h2 class="card__title">Registros Anteriores</h2>
+          <span class="badge" id="cadernoCount">0 registros</span>
+        </div>
+        <div id="cadernoList" class="caderno-list">
+          <p class="muted small" id="cadernoEmpty">Nenhum registro no caderno ainda. Preencha seu primeiro relato acima!</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAINEL DE FAVORITOS (UNIVERSAL: RITUAIS, ERVAS, CARTAS E MANTRAS) -->
+    <div class="page-panel" data-page-panel="favoritos" role="tabpanel" hidden>
       <article class="card">
         <div class="card__header">
-          <h2 class="card__title">Favoritos</h2>
-          <span class="badge">local</span>
+          <h2 class="card__title">Seus Favoritos</h2>
+          <span class="badge">guardados no seu aparelho</span>
         </div>
 
-        <div id="favoritesEmpty" class="muted small">
-          Ainda não há favoritos. Clique em “Salvar nos favoritos”.
+        <div id="favoritesEmpty" class="muted small" style="margin-bottom:16px;">
+          Ainda não há favoritos salvos. Você pode salvar mantras clicando em “Salvar nos favoritos” ou clicar no ícone de coração (❤️) dentro da gaveta de qualquer Banho, Erva, Defumação ou Carta de Tarot.
         </div>
 
-        <div id="favoritesList" class="favorites"></div>
+        <div id="catalogFavoritesSection" hidden style="margin-bottom:24px;">
+          <h3 style="font-size:1.05rem; margin:16px 0 10px; font-family:var(--font-display); color:var(--accent);">Rituais, Ervas & Cartas Salvas</h3>
+          <div id="catalogFavoritesList" class="fav-catalog-grid"></div>
+        </div>
 
-        <div class="row">
-          <button class="btn btn--ghost" id="clearFavsBtn" type="button">Limpar favoritos</button>
+        <div id="mantraFavoritesSection" hidden>
+          <h3 style="font-size:1.05rem; margin:16px 0 10px; font-family:var(--font-display); color:var(--accent);">Mantras Salvos</h3>
+          <div id="favoritesList" class="favorites"></div>
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+          <button class="btn btn--ghost" id="clearFavsBtn" type="button">Limpar todos os favoritos</button>
         </div>
       </article>
     </div>

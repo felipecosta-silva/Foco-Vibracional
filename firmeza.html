@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Firmeza de Vela & Foco</title>
+  <meta name="description" content="Acenda uma firmeza de vela virtual, consagre sua intenção com uma prece da Jurema e medite em silêncio com timer e áudio sereno." />
+  <meta name="theme-color" content="#0d1310" />
+  <meta property="og:title" content="Foco Vibracional • Firmeza de Vela & Foco" />
+  <meta property="og:description" content="Acenda uma firmeza de vela virtual, consagre sua intenção e medite em recolhimento." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="icons/icon-512.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+        <nav class="nav">
+          <a class="nav__link" href="index.html">Início</a>
+        </nav>
+      </div>
+    </header>
+  </noscript>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <span class="eyebrow">Rituais & Recolhimento</span>
+      <h1>Firmeza de Vela & Momento de Foco</h1>
+      <p class="muted">
+        Firmar uma vela é ancorar um pensamento puro no mundo invisível. Escolha a cor correspondente à sua necessidade, consagre sua intenção e permaneça em recolhimento sereno.
+      </p>
+    </section>
+
+    <div class="firmeza-layout">
+      <!-- PALCO DA VELA -->
+      <section class="card firmeza-altar" aria-label="Altar da Vela">
+        <div class="candle-wrapper" id="candleWrapper">
+          <div class="candle-aura" id="candleAura"></div>
+          <div class="candle-flame" id="candleFlame"></div>
+          <div class="candle-wick"></div>
+          <div class="candle-body" id="candleBody"></div>
+          <div class="candle-base"></div>
+        </div>
+
+        <div class="firmeza-meta">
+          <span class="badge" id="candleLabel">Vela Branca • Paz & Iluminação do Ori</span>
+          <p class="firmeza-intention-display" id="firmezaIntentionDisplay">“Abençoada seja a luz que guia meus passos em serenidade.”</p>
+        </div>
+
+        <div class="firmeza-timer-box">
+          <div class="firmeza-timer" id="timerDisplay">05:00</div>
+          <div class="row wrap-row" style="justify-content:center; gap:8px;">
+            <button class="btn" type="button" id="btnTimerToggle">Iniciar Firmeza 🕯️</button>
+            <button class="btn btn--ghost" type="button" id="btnTimerReset">Zerar</button>
+            <button class="btn btn--ghost icon-btn" type="button" id="btnSoundToggle" title="Ativar som do sino">🔔</button>
+          </div>
+          <div class="firmeza-duration-pills">
+            <button class="pill pill--active" type="button" data-duration="300">5 min</button>
+            <button class="pill" type="button" data-duration="600">10 min</button>
+            <button class="pill" type="button" data-duration="900">15 min</button>
+            <button class="pill" type="button" data-duration="0">Livre (sem alarme)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTROLES E CONSAGRAÇÃO -->
+      <section class="card firmeza-controls" aria-label="Consagração e Intenção">
+        <h2 class="card__title" style="margin-bottom:12px;">Consagrar a Chama</h2>
+
+        <div class="form-group">
+          <span class="form-label">1. Escolha a irradiação da vela:</span>
+          <div class="candle-color-selector">
+            <button class="color-pill color-pill--active" type="button" data-candle-color="branca" data-label="Vela Branca • Paz, Luz no Ori & Oxalá" style="--c:#ffffff; --glow:rgba(255,255,255,0.4);">⚪ Branca</button>
+            <button class="color-pill" type="button" data-candle-color="amarela" data-label="Vela Amarela • Fartura, Ouro & Prosperidade (Oxum)" style="--c:#f5d061; --glow:rgba(245,208,97,0.5);">🟡 Amarela</button>
+            <button class="color-pill" type="button" data-candle-color="verde" data-label="Vela Verde • Saúde, Cura & Equilíbrio das Matas (Caboclos)" style="--c:#48bb78; --glow:rgba(72,187,120,0.5);">🟢 Verde</button>
+            <button class="color-pill" type="button" data-candle-color="azul" data-label="Vela Azul • Serenidade, Harmonia Familiar & Águas (Iemanjá)" style="--c:#63b3ed; --glow:rgba(99,179,237,0.5);">🔵 Azul</button>
+            <button class="color-pill" type="button" data-candle-color="violeta" data-label="Vela Violeta • Transmutação & Quebra de Padrões (Obaluaê)" style="--c:#b794f4; --glow:rgba(183,148,244,0.5);">🟣 Violeta</button>
+            <button class="color-pill" type="button" data-candle-color="vermelha" data-label="Vela Vermelha • Força, Abertura de Caminhos & Coragem (Ogum)" style="--c:#fc8181; --glow:rgba(252,129,129,0.5);">🔴 Vermelha</button>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:16px;">
+          <label for="inputIntencao" class="form-label">2. Qual é a sua intenção ou pedido de coração?</label>
+          <input type="text" id="inputIntencao" class="form-input" placeholder="Ex.: Clareza mental para uma decisão; Paz na minha casa; Proteção..." maxlength="120" />
+          <p class="muted small" style="margin-top:4px;">Mentalize com clareza enquanto digita. O pensamento firme é a verdadeira vela acesa.</p>
+        </div>
+
+        <div class="dsec dsec--tea" style="margin-top:18px;">
+          <h3 style="font-size:.95rem; margin-bottom:6px;">✨ Prece de Firmeza da Jurema</h3>
+          <p class="muted small" style="line-height:1.5;">
+            “Em nome de Deus todo-poderoso, dos Mestres e Mestras da Jurema Sagrada e de todas as forças benfazejas que guardam meus caminhos: firmo esta chama viva em meu favor. Que onde houver trevas, se faça a luz. Que onde houver dúvida, reine a clareza. Que meu anjo da guarda seja fortalecido e que a paz habite meu ser. Amém, Axé!”
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- FUNDAMENTOS DA FIRMEZA -->
+    <section class="fund section-gap" aria-label="Fundamentos da Firmeza">
+      <span class="eyebrow">Sabedoria Ancestral</span>
+      <h2>Fundamentos da Firmeza de Pensamento</h2>
+      <p class="muted">Como a vela opera no plano espiritual.</p>
+
+      <details>
+        <summary>A vela precisa ser de cera real ou a virtual tem efeito?</summary>
+        <div class="fund__content">
+          <p class="muted">
+            No plano sutil, o elemento mais poderoso da vela física não é a parafina em si, mas o <b>vetor mental</b> de quem a acende: o foco, a intenção pura e a conexão com o plano espiritual. A firmeza virtual serve como <b>ponto de ancoragem visual</b> para recolher a mente acelerada, criar um instante sagrado de respiração e emitir formas-pensamento luminosas. Quando não puder acender fogo físico em casa ou no trabalho, a firmeza de intenção no coração tem o mesmo poder de bênção.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>O que fazer durante o tempo de firmeza?</summary>
+        <div class="fund__content">
+          <p class="muted">
+            Evite celular, notificações e conversas paralelas. Sente-se com as costas eretas, olhe para a chama, respire devagar e feche os olhos por alguns minutos. Imagine a cor da vela envolvendo todo o seu corpo como uma capa de luz protetora. Ao terminar, beba um copo de água fresca.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>O significado das cores das velas</summary>
+        <div class="fund__content">
+          <p class="muted">
+            <b>Branca:</b> Cor universal de purificação, conexão com o Anjo da Guarda, Oxalá e paz de espírito.<br>
+            <b>Amarela:</b> Ativa a inteligência, a riqueza justa, a criatividade, o magnetismo e a energia solar.<br>
+            <b>Verde:</b> Cura física e emocional, vigor celular, conexão com os Caboclos das Matas.<br>
+            <b>Azul:</b> Pacificação das emoções descontroladas, serenidade materna e harmonia no lar.<br>
+            <b>Violeta:</b> Transmutação de mágoas antigas, superação de dores e libertação de vícios espirituais.<br>
+            <b>Vermelha:</b> Impulso de ação, coragem para batalhas diárias e quebra de letargia.
+          </p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="./script/script.js"></script>
+</body>
+</html>

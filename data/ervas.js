@@ -1608,5 +1608,31 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas e pedaços do caule perto de água limpa, nunca em brejo poluído.",
   "cuidados": "Uso externo seguro. Uso interno (chá) é diurético: evitar na gestação e em quem toma remédios para pressão sem orientação médica.",
   "tradicao": "Ligada ao povo das águas. Boa para banhos de alívio em dias quentes e de muito estresse."
+ },
+ {
+  "id": "rosa-champanhe",
+  "nome": "Rosa Champanhe",
+  "nomePopular": "Rosa Creme, Rosa Pêssego, Rosa Nude (Rosa sp.)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "prosperidade",
+   "calma"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "flor"
+  ],
+  "cabeca": "Sim (traz nobreza espiritual, clareza de pensamento e paz nas relações)",
+  "descricao": "A flor da nobreza sutil e da diplomacia espiritual. Diferente da rosa vermelha (que queima em paixão) e da rosa branca (que pede recolhimento e desapego), a rosa cor de champanhe vibra no amor maduro, nas parcerias duradouras e sólidas, na reconciliação digna e na atração de oportunidades refinadas sem tempestades emocionais.",
+  "diferenciacao": "• Com Alfazema e Melissa: Dissolve atritos conjugais e mal-entendidos familiares com elegância.\n• Com Folhas de Louro: Atrai negócios prósperos de alto padrão e respeito nos círculos profissionais.",
+  "colheita": "Colher preferencialmente nas fases de Lua Crescente ou Cheia, ao alvorecer.",
+  "cuidados": "Lavar bem as pétalas. Preferir flores orgânicas ou cultivadas sem agrotóxicos florais.",
+  "tradicao": "Muito estimada na Linha do Oriente e nas homenagens reservadas às Iabás pelo seu requinte e vibração de paz nobre.",
+  "cha": "Infusão sutil das pétalas secas: calmante do sistema nervoso e harmonizador do humor."
  }
 ];
