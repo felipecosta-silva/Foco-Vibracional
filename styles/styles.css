@@ -3677,3 +3677,47 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 .page-rail-section {
   margin: 28px 0 32px;
 }
+
+/* Microinterações imersivas (Fase 9) */
+.btn:active,
+.btn-micro:active,
+.pill:active,
+.chip:active,
+.rcard:active,
+.hcard:active,
+.tcard:active .tcard__face {
+  transform: scale(0.97) !important;
+}
+
+.btn--copied,
+.btn-micro.btn--copied {
+  background: var(--accent-soft) !important;
+  border-color: rgba(227, 184, 103, 0.65) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 0 12px rgba(227, 184, 103, 0.25) !important;
+}
+
+/* Transição suave entre abas de páginas (ex.: mantras.html) */
+.page-tab {
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+.page-tab:active {
+  transform: scale(0.96);
+}
+
+.page-panel--entering,
+[data-page-panel]:not([hidden]) {
+  animation: pagePanelFade 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pagePanelFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -276,7 +276,21 @@ function randInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-async function copyText(text) {
+function feedbackCopyBtn(btn) {
+  if (!btn || btn.dataset.copying) return;
+  btn.dataset.copying = "1";
+  const origHtml = btn.innerHTML;
+  btn.innerHTML = "✓ Copiado";
+  btn.classList.add("btn--copied");
+  setTimeout(() => {
+    btn.innerHTML = origHtml;
+    btn.classList.remove("btn--copied");
+    delete btn.dataset.copying;
+  }, 1500);
+}
+
+async function copyText(text, triggerEl) {
+  if (triggerEl) feedbackCopyBtn(triggerEl);
   try {
     await navigator.clipboard.writeText(text);
     toast("Copiado com sucesso!");
@@ -474,7 +488,7 @@ function initCopySpeak() {
       const el = document.querySelector(copySel);
       if (el) {
         const text = el.textContent.trim().replace(/^“|”$/g, "");
-        copyText(text);
+        copyText(text, t);
       }
       return;
     }
@@ -482,7 +496,7 @@ function initCopySpeak() {
     // COPY por texto direto
     const copyDirect = t.getAttribute("data-copy-text");
     if (copyDirect) {
-      copyText(copyDirect);
+      copyText(copyDirect, t);
       return;
     }
 
@@ -800,7 +814,7 @@ function renderAllMantras(filter = "") {
     copyBtn.className = "btn btn--ghost";
     copyBtn.type = "button";
     copyBtn.textContent = "Copiar";
-    copyBtn.onclick = () => copyText(m.text);
+    copyBtn.onclick = () => copyText(m.text, copyBtn);
 
     const speakBtn = document.createElement("button");
     speakBtn.className = "btn";
@@ -871,7 +885,18 @@ function initPageTabs() {
       t.classList.toggle("page-tab--active", on);
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
-    $all("[data-page-panel]").forEach(p => { p.hidden = p.getAttribute("data-page-panel") !== id; });
+    $all("[data-page-panel]").forEach(p => {
+      const match = p.getAttribute("data-page-panel") === id;
+      if (match) {
+        p.hidden = false;
+        p.classList.remove("page-panel--entering");
+        void p.offsetWidth;
+        p.classList.add("page-panel--entering");
+      } else {
+        p.hidden = true;
+        p.classList.remove("page-panel--entering");
+      }
+    });
     if (scroll) document.querySelector(".page-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -967,7 +992,7 @@ function renderFavorites() {
             <button class="btn btn--ghost" type="button" data-del-fav>Remover</button>
           </div>
         `;
-        card.querySelector("[data-copy-fav]")?.addEventListener("click", () => copyText(text));
+        card.querySelector("[data-copy-fav]")?.addEventListener("click", e => copyText(text, e.currentTarget));
         card.querySelector("[data-speak-fav]")?.addEventListener("click", () => speak(text));
         card.querySelector("[data-del-fav]")?.addEventListener("click", () => {
           removeFavorite(text);
@@ -3599,7 +3624,7 @@ function initHojePage() {
     seqEl.textContent = seq.seq;
     const t = $("#todaySeqTitle");
     if (t) t.textContent = `${seq.titulo} — ${seq.uso}`;
-    $("#todaySeqCopy")?.addEventListener("click", () => copyText(seq.seq));
+    $("#todaySeqCopy")?.addEventListener("click", e => copyText(seq.seq, e.currentTarget));
   }
 }
 
