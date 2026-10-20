@@ -2099,5 +2099,80 @@ window.FV_DATA.banhos = [
   "reza": "Na doçura das águas e na brancura das pétalas, recebo o fôlego da cura e a paz para o meu corpo e espírito. Que a saúde se firme e a força retorne. Axé!",
   "observacao": "Só depois de liberação médica. Use água morna e evite molhar pontos de cirurgia, curativos, cateteres ou feridas abertas. Este banho acolhe o espírito e não substitui nenhum tratamento. Pode ir na cabeça.",
   "versaoCha": ""
+ },
+ {
+  "id": "banho-mamao-corte-vespera",
+  "nome": "Banho de Folha de Mamão (Corte na Véspera do Banho das Onze Horas)",
+  "objetivo": "limpeza",
+  "intensidade": "media",
+  "luas": [
+   "minguante",
+   "crescente"
+  ],
+  "dias": [
+   "sex",
+   "sab"
+  ],
+  "horario": "noite da véspera",
+  "ervas": [
+   "3 folhas de Mamão",
+   "Alecrim"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Lave muito bem as folhas de mamão retirando o excesso de seiva leitosa com água corrente e luvas. Em uma bacia com 2 litros de água fresca ou tépida, macere as folhas de mamão e o alecrim com as mãos, mentalizando o corte de miasmas estagnados e pesos da coluna. Coe. Após o banho comum de higiene, despeje do pescoço para baixo, pedindo que saia tudo o que está parado e pesado. Vista roupa clara e durma cedo.",
+  "reza": "Que a força da terra e a foice das matas cortem as amarras e o peso que não me pertencem. Que saia a estagnação e que meu corpo fique limpo, leve e preparado para a luz do novo dia.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Primeira etapa do Banho das Onze Horas (veja o card dele). Não use se tiver alergia a látex; gestantes devem evitar; não aplique sobre feridas abertas.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-onze-horas-fartura",
+  "nome": "Banho das Onze Horas (Ora-pro-nóbis, Pitanga, Buganvília & Onze-horas • Fartura e Caminhos Abertos ao Sol)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "dom",
+   "qui"
+  ],
+  "horario": "fim da manhã, perto das 11h, com as onze-horas abertas",
+  "ervas": [
+   "7 folhas de Ora-pro-nóbis",
+   "7 folhas de Pitangueira",
+   "brácteas de Buganvília",
+   "flores de Onze-horas"
+  ],
+  "cabeca": false,
+  "modoPreparo": "1. Colha as flores de onze-horas na hora, ainda abertas ao sol. Pegue as folhas de ora-pro-nóbis com luvas para se proteger dos espinhos dos caules.\n2. Em 2 litros de água fresca, macere primeiro as folhas de ora-pro-nóbis entre as mãos até sentir a água ficar macia e sedosa.\n3. Junte as folhas de pitangueira e, por último, as brácteas de buganvília e flores de onze-horas, apenas apertando de leve com carinho. Não ferva.\n4. Se puder, deixe a bacia tomar alguns minutos de sol da manhã.\n5. Coe e despeje do pescoço para baixo após o banho de higiene, mentalizando sustento, alegria e portas que se abrem no tempo oportuno.\n6. As sobras de flores e folhas devem ser descartadas na terra ou em um vaso de jardim, fora do alcance de cães e gatos.",
+  "reza": "Flor que abre com o sol, folha que sustenta a mesa, pitanga que alegra o caminho: que a fartura chegue simples e na hora certa, que meus passos se abram com o dia e que nada me falte do que é bom.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Se quiser levar algo à cabeça, use só um pouco da água de pitangueira, preparada à parte. Faça na véspera o Banho de Folha de Mamão para limpar antes de chamar a fartura. Espinhos: ora-pro-nóbis e buganvília, colha com luvas. Onze-horas pode fazer mal a cães e gatos se mastigada.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-mestras-buganvilia-jasmim",
+  "nome": "Banho das Mestras: Iluminação, Consciência e Autoestima (Buganvília & Jasmim)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "sex",
+   "sab",
+   "dom"
+  ],
+  "horario": "manhã ensolarada ou ao entardecer",
+  "ervas": [
+   "brácteas de Buganvília",
+   "flores de Jasmim"
+  ],
+  "cabeca": true,
+  "modoPreparo": "1. Selecione rigorosamente apenas as brácteas coloridas da buganvília (as 'folhas de cor') e as flores frescas de jasmim, lavando bem e descartando completamente qualquer caule, espinho ou folha verde.\n2. Em uma bacia com 2 litros de água fresca mineral ou filtrada límpida, macere suavemente as flores e brácteas com as próprias mãos, entoando orações de paz e agradecendo a força acolhedora das Mestras da Jurema.\n3. Tome seu banho de higiene normal e, em seguida, verta a água perfumada DA COROA DA CABEÇA AOS PÉS (lavando o Ori e todo o corpo), respirando com calma e sentindo o desabrochar da clareza íntima e da firmeza da alma.\n4. Seque-se suavemente com toalha clara, vista roupa leve e desfrute de alguns minutos em silêncio de paz.",
+  "reza": "Na força da rocha que floresce e no perfume que acalma o pensamento: que a luz clareie minha consciência, que o amor-próprio firme meus passos e que a sabedoria das Mestras guie meu caminho com beleza e dignidade.",
+  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). Fundamental: use exclusivamente as brácteas coloridas despetaladas e as flores puras de jasmim, sem galhos, folhas verdes ou espinhos. Traz serenidade mental, iluminação interior, elevação da autoestima e reconexão profunda com a própria verdade.",
+  "versaoCha": ""
  }
 ];
