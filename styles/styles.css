@@ -3662,3 +3662,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   justify-content: center;
   gap: 10px;
 }
+
+.page-rail-section {
+  margin: 28px 0 32px;
+}

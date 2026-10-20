@@ -4016,6 +4016,49 @@ function initHomeRails() {
   }
 }
 
+/* Carrosséis nas páginas de rituais (Ervas na cabeça e Defumações de Limpeza/Atração) */
+function initRitualRails() {
+  const headRail = $("#headHerbsRail");
+  if (headRail && ERVAS.length) {
+    const list = ERVAS.filter(e => herbCabeca(e) === "yes" && e.imagem);
+    const finalHerbs = list.length >= 6 ? list : ERVAS.filter(e => herbCabeca(e) === "yes");
+    headRail.innerHTML = finalHerbs.slice(0, 14).map(herbCardHtml).join("");
+    headRail.addEventListener("click", e => {
+      const c = e.target.closest("[data-open]");
+      if (c) {
+        location.hash = `#${encodeURIComponent(c.dataset.open)}`;
+        if (typeof focusCatalogItemFromHash === "function") focusCatalogItemFromHash();
+      }
+    });
+  }
+
+  const defLimpRail = $("#defumacaoLimpezaRail");
+  if (defLimpRail && DEFUMACOES.length) {
+    const list = DEFUMACOES.filter(d => d.objetivo === "limpeza" || d.objetivo === "protecao");
+    defLimpRail.innerHTML = list.slice(0, 12).map(d => ritualCardHtml("defumacao", d)).join("");
+    defLimpRail.addEventListener("click", e => {
+      const c = e.target.closest("[data-open]");
+      if (c) {
+        location.hash = `#${encodeURIComponent(c.dataset.open)}`;
+        if (typeof focusCatalogItemFromHash === "function") focusCatalogItemFromHash();
+      }
+    });
+  }
+
+  const defAtraRail = $("#defumacaoAtracaoRail");
+  if (defAtraRail && DEFUMACOES.length) {
+    const list = DEFUMACOES.filter(d => d.objetivo === "prosperidade" || d.objetivo === "harmonizacao" || d.objetivo === "calma");
+    defAtraRail.innerHTML = list.slice(0, 12).map(d => ritualCardHtml("defumacao", d)).join("");
+    defAtraRail.addEventListener("click", e => {
+      const c = e.target.closest("[data-open]");
+      if (c) {
+        location.hash = `#${encodeURIComponent(c.dataset.open)}`;
+        if (typeof focusCatalogItemFromHash === "function") focusCatalogItemFromHash();
+      }
+    });
+  }
+}
+
 /* Revelação suave ao rolar (só elementos estáticos; catálogos têm animação própria) */
 function initReveal() {
   if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -4089,6 +4132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initSimbolosPage();
   initHomeHero();
   initHomeRails();
+  initRitualRails();
   initCountUp();
   initFireflies();
   initHojePage();
