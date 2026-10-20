@@ -324,6 +324,44 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 - **Pendências / dúvidas para o supervisor:**
   - Todas as pendências 1 a 5 da Seção 11 foram rigorosamente sanadas. As cartas estão no ar com alta qualidade visual, sem textos estrangeiros e dentro de todos os limites de performance e conformidade legal.
 
+### Fase 9 — 2026-10-19 · "Toque de site": continuação da camada imersiva (Seção 13)
+
+- **O que foi feito (executado e comitado tarefa por tarefa):**
+  - **Tarefa 1 (Commit `8af4fdc`): Calendário mais visual**
+    - No card "Agora" de `calendario.html`, substituído texto simples por `.moon-orb--cal` com renderização dinâmica da fase real (`#calMoonOrbShadow`) usando cálculo astronômico sinódico.
+    - Em "Próximas fases", reorganizado em linha do tempo horizontal no desktop (`.moon-timeline` com grid responsivo de 4 colunas em desktop, 2 em tablet e 1 em mobile) com ícone grande de cada fase, dias restantes e iluminação estimada.
+  - **Tarefa 2 (Commit `6287c7d`): Mantras mais visual**
+    - Transformado o mantra do dia em `mantras.html` num bloco heróico de destaque (`.mantra-hero`), com tipografia Fraunces itálica responsiva (`clamp(1.45rem, 3.2vw, 2.15rem)`), brilho atmosférico de vela (`candleFlicker` suave) e centralização nobre. O bloco de técnicas no trabalho foi isolado em card próprio.
+  - **Tarefa 3 (Commit `2f88127`): Carrosséis nas páginas de rituais**
+    - Em `plantas.html`: inserido carrossel horizontal `.rail` "Ervas que vão na cabeça (Ori)" com fotos reais e badges de segurança.
+    - Em `defumacao.html`: inseridos carrosséis horizontais `.rail` "Para limpar (descarrego & proteção)" e "Para atrair (prosperidade, energia & harmonia)".
+    - Implementada a função genérica `initRitualRails` em `script/script.js` integrando navegação, clique direto e abertura nos drawers (`#id`).
+  - **Tarefa 4 (Commit `485d8a1`): Ícones vetoriais SVG em vez de emojis nos filtros e no Oráculo**
+    - Criados SVGs finos consistentes com o design system (`stroke-width="1.8"`, `currentColor`, alinhamento vertical e tamanho fixo 15px/14px/13px) para `OBJ_ICONS` (6 objetivos), `MOON_ICONS` (4 luas) e `ICONS_ORACULO` (8 sentimentos).
+    - Eliminada a dependência de emojis de sistema operacional em filtros, tags de cards e botões pills do Oráculo.
+  - **Tarefa 5 (Commit `dbabcac`): Fotos reais de domínio público para o acervo de ervas**
+    - Baixadas e processadas 49 imagens botânicas de alta resolução do Wikimedia Commons cobrindo 100% das ervas faltantes (total de 61 ervas com fotos reais).
+    - Todas as imagens foram redimensionadas para resolução máxima de 900 px e comprimidas em JPEG de alta qualidade estritamente **≤ 150 KB** (média de ~110 KB).
+    - Criado o documento `images/CREDITOS.md` com atribuição formal de autoria, licenças abertas (CC BY, CC BY-SA, GFDL, Domínio Público) e links diretos para cada arquivo no Wikimedia Commons.
+    - Atualizado `data/ervas.js` apontando `"imagem": "./images/<id>.jpg"` para todas as 61 ervas.
+  - **Tarefa 6 (Commit `5f26a73`): Microinterações imersivas**
+    - Botão "copiar" vira "✓ Copiado" por 1,5 s com estilo ativo e brilho dourado antes de retornar ao estado original (função `feedbackCopyBtn` e `copyText` com `triggerEl`).
+    - Estado `:active` com `scale(0.97)` aplicado a `.btn`, `.btn-micro`, `.pill`, `.chip`, `.rcard`, `.hcard` e `.tcard .tcard__face`.
+    - Transição suave com animação de subida e fade (`pagePanelFade`, 0.22s) ao alternar entre abas em `mantras.html` (`initPageTabs`).
+  - **Tarefa 7 (Commit `feat(fase9-t7)`): Bump de cache e finalização**
+    - `CACHE_VERSION` incrementada para `"fv-v9"` em `sw.js` garantindo atualização imediata do PWA e disponibilidade offline de todo o acervo.
+- **Arquivos alterados:**
+  - `calendario.html`, `mantras.html`, `plantas.html`, `defumacao.html`
+  - `script/script.js`
+  - `styles/styles.css`
+  - `data/ervas.js`
+  - `images/*.jpg` (49 novas fotos adicionadas e 2 recomprimidas)
+  - `images/CREDITOS.md` (criado)
+  - `sw.js` (bump para fv-v9)
+  - `PLANO_GEMINI.md`
+- **Pendências / dúvidas para o supervisor:**
+  - Todas as 7 tarefas da Fase 9 foram executadas e comitadas de forma estritamente isolada e verificada, sem criação de `style=""` novo, mantendo todos os tokens de cores do design system e cumprindo todas as diretrizes da Seção 13.
+
 ---
 
 ## 6. Revisões do Supervisor (preenchido pelo Claude)
