@@ -402,7 +402,7 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
     - Em `defumacao.html`: inserido o acordeão "Defumação completa da casa, passo a passo" com os 5 passos detalhados (abrir portas/janelas; arruda e alecrim no turíbulo com brasa; fundo para a frente / cima para baixo; término no portão à esquerda de quem entra; descarte na terra após frias) e aviso de segurança com o fogo/brasa.
   - **Subtarefa 10.6 (Commit `9597b38`): Novos termos ancestrais e ritualísticos no glossário**
     - Adicionados 7 termos em `glossario.html`: **Dikenga**, **Kalunga** (Grande e Pequena), **Ku Nseke**, **Ku Mpemba**, **Turíbulo**, **Linha de trabalho** e **Falange**, com fundamentação respeitosa e linguagem acessível.
-  - **Subtarefa 10.7 (Commit a seguir): Rodapé de fontes em símbolos, bump de CACHE_VERSION e registro**
+  - **Subtarefa 10.7 (Commit `c588fec`): Rodapé de fontes em símbolos, bump de CACHE_VERSION e registro**
     - Inserido rodapé de fontes ao final da aba Pontos Riscados em `simbolos.html`: K. K. Bunseki Fu-Kiau, Márcio Kain / Umband' Boa (PTD nº 927), aula sobre Dikenga e tradição oral.
     - Incrementada a versão do Service Worker em `sw.js` para `"fv-v11"`.
     - Registro detalhado da Fase 10 no plano de execução.
@@ -418,6 +418,39 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
   - Zero novos `style=""` inline inseridos em todas as subtarefas.
   - Todos os SVGs em conformidade vetorial, traço fino e responsivo.
   - Acessibilidade e hierarquia semântica preservadas.
+
+### Fase 11 — 2026-10-20 · Banho das Onze Horas e saberes tradicionais da Buganvília e Mestras (Seção 17)
+
+- **O que foi feito (executado e comitado com 1 commit por subtarefa):**
+  - **Subtarefa 11.1 (Commit `43c1412`): Novas ervas em `data/ervas.js`**
+    - **Ora-pro-nóbis** (`ora-pro-nobis`): Cacto trepadeira rico em mucilagem que amacia a água do banho; arquétipo do sustento simples, firmeza do corpo e fartura que vem do pouco.
+    - **Buganvília** (`buganvilia`): Trepadeira rústica e solar ("a rocha"), associada à resiliência, alegria, transmutação e doçura. Diferenciação detalhada entre flores e brácteas coloridas; fundamentação do chá tradicional das brácteas para vias respiratórias (tosse/bronquite com mel); e afinidade com a Linha das Mestras. Permissão explícita de uso na cabeça quando despetalada pura sem espinhos nem galhos.
+    - **Onze-horas** (`onze-horas`): Suculenta rasteira de flores solares que abrem às 11h e fecham à tarde; ensinamento do tempo certo e paciência, com alerta sobre oxalatos tóxicos para cães e gatos.
+    - **Jasmim** (`jasmim`): Flor aromática de elevação e paz de Oxalá, Iemanjá e das Mestras, atuando na clareza do Ori, serenidade mental e consciência íntima.
+  - **Subtarefa 11.2 (Commit `9b48e43`): Atualizar ervas existentes em `data/ervas.js`**
+    - **Mamão** (`mamao`): Cuidados ampliados com alerta explícito de contraindicação para quem tem alergia a látex (reação cruzada com a seiva leitosa), gestantes, feridas abertas e recomendação de luvas.
+    - **Pitangueira** (`pitangueira`): Texto de cuidados ajustado para tom moderado e sem exagero ("Uso externo suave e bem tolerado. Lave bem as folhas.").
+  - **Subtarefa 11.3 (Commit `831c101`): Três novos banhos em `data/banhos.js`**
+    - `banho-mamao-corte-vespera`: "Banho de Folha de Mamão (Corte na Véspera do Banho das Onze Horas)", `cabeca: false`, primeira etapa de limpeza pesada da coluna.
+    - `banho-onze-horas-fartura`: "Banho das Onze Horas (Ora-pro-nóbis, Pitanga, Buganvília & Onze-horas • Fartura e Caminhos Abertos ao Sol)", `cabeca: false`, ritual solar das 11h com reza tradicional de fartura.
+    - `banho-mestras-buganvilia-jasmim`: "Banho das Mestras: Iluminação, Consciência e Autoestima (Buganvília & Jasmim)", `cabeca: true` (Ori), banho doce de flores e brácteas puras para clareza da consciência e resgate do amor-próprio.
+    - Testado e verificado que 100% dos ingredientes linkam perfeitamente para as fichas das ervas correspondentes via `findHerbFor`.
+  - **Subtarefa 11.4 (Commit `3c29c61`): Ligações e novos termos no Glossário**
+    - Em `colheita.html`: verificado que a página opera por fases lunares gerais sem tabela horária estática (registrado no log sem quebras).
+    - Em `glossario.html`: inseridos os termos **PANC** (plantas alimentícias não convencionais e o sustento simples), **Brácteas** (as "folhas de cor" protetoras da flor), **Comigo-Ninguém-Pode** (sentinela de vaso vivo e perigo vital de ingestão de oxalatos) e **Vinca** (flor das Almas e acalanto do sono, com contraindicação farmacológica de chá interno).
+  - **Subtarefa 11.5 (Commit `4664020`): Bump de CACHE_VERSION e registro**
+    - `CACHE_VERSION` atualizada para `"fv-v13"` em `sw.js`.
+    - Registro detalhado da Fase 11 na Seção 5 de `PLANO_GEMINI.md`.
+- **Arquivos alterados:**
+  - `data/ervas.js`
+  - `data/banhos.js`
+  - `glossario.html`
+  - `sw.js` (bump para fv-v13)
+  - `PLANO_GEMINI.md`
+- **Resultados e testes:**
+  - Todas as 65 ervas e 84 banhos carregados com integridade e sintaxe testadas em Node.js.
+  - Zero novos inline styles.
+  - Links de ingredientes 100% funcionais entre banhos e plantas.
 
 ---
 
