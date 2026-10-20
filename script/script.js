@@ -2402,7 +2402,7 @@ async function initCalendarioLunar() {
   if (shadow) {
     const age = moonAgeDays(today);
     const waxing = age < SYNODIC_DAYS / 2;
-    const finalIllum = illumVal !== null ? illumVal : Math.round(moonIllumFraction(age) * 100);
+    const finalIllum = illumVal !== null ? illumVal : Math.round((1 - Math.cos((2 * Math.PI * age) / SYNODIC_DAYS)) / 2 * 100);
     shadow.style.transform = `translateX(${(waxing ? -1 : 1) * Math.min(100, finalIllum)}%)`;
   }
 

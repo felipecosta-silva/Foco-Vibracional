@@ -1,6 +1,6 @@
 # Créditos e Licenças — Fotos do Acervo de Ervas e Plantas Sagradas
 
-Todas as fotografias de plantas e ervas medicinais e sagradas do projeto **Foco Vibracional** são disponibilizadas sob **licenças livres e abertas** (Creative Commons CC BY, CC BY-SA, GFDL ou Domínio Público), preservadas e catalogadas pelos colaboradores e fotógrafos botânicos do **Wikimedia Commons**.
+As fotografias da seção 2 deste arquivo são disponibilizadas sob **licenças livres e abertas** (Creative Commons CC BY, CC BY-SA, GFDL ou Domínio Público), preservadas e catalogadas pelos colaboradores e fotógrafos botânicos do **Wikimedia Commons**.
 
 As imagens foram redimensionadas para resolução máxima de 900 px e otimizadas em formato JPEG de alta fidelidade visual (peso estritamente ≤ 150 KB por imagem), garantindo carregamento rápido, baixo consumo de dados móveis e disponibilidade 100% offline via Service Worker.
 
@@ -8,8 +8,11 @@ As imagens foram redimensionadas para resolução máxima de 900 px e otimizadas
 
 ## 1. Ervas Originais do Catálogo Base
 
-| Erva | Arquivo | Espécie Botânica | Autor / Fotógrafo | Licença | Fonte |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+> **Correção do supervisor (2026-10-20):** as 12 fotos originais (`arruda`, `guine`, `alecrim`, `espada`, `manjericao`, `boldo`, `alfazema`, `camomila`, `hortela`, `louro`, `capim_limao`, `jurema`) **já estavam no projeto antes da Fase 9 e não foram baixadas do Wikimedia Commons**. Na Fase 9, `guine.jpg` e `capim_limao.jpg` só foram recomprimidas. A tabela anterior as atribuía a fotógrafos do Commons (H. Zell, Forest & Kim Starr etc.) sem que isso fosse verdade, e por isso foi removida.
+>
+> **Origem real: não documentada.** O estilo indica imagens geradas por IA. **Pendência:** o autor do site confirma a origem, ou essas fotos são trocadas por arquivos do Commons de verdade, com o link do arquivo baixado.
+
+--- | :--- | :--- | :--- | :--- | :--- |
 | arruda | `arruda.jpg` | *Ruta graveolens* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ruta_graveolens_001.JPG) |
 | guine | `guine.jpg` | *Petiveria alliacea* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_080117-1555_Petiveria_alliacea.jpg) |
 | alecrim | `alecrim.jpg` | *Salvia rosmarinus* | Margrit Manz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_flowers.jpg) |

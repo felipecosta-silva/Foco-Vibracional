@@ -3721,3 +3721,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   }
 }
 
+
+/* Revisão Fase 9: snap respeita o recuo do carrossel; vela não disputa com o texto no celular */
+.rail{ scroll-padding-inline: max(16px, calc(50vw - 590px)); }
+@media (max-width: 760px){ .ph-candle{ opacity: .45; right: 2px; } }

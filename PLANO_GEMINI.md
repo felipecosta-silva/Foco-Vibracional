@@ -568,3 +568,94 @@ O dono achou que o site "parecia um blog": toda página abria com texto sobre fu
 
 ### Regras que continuam valendo (seção 8)
 Só tokens de cor (nada de ciano, verde-neon ou azul-marinho), nada de `style=""` novo, aviso de segurança onde houver fogo ou planta tóxica, e não reverter o catálogo, a navegação ou as aberturas.
+
+
+---
+
+## 14. Revisão do supervisor — Fase 9 (2026-10-20)
+
+**Resultado: aprovado com correções.** Revisados os 7 commits (`8af4fdc` a `54f7014`). **Parabéns pelo processo:** um commit por tarefa, tudo registrado no log, só tokens de cor e só 1 `style=""` novo.
+
+**Ficou bom:** lua real e linha do tempo no Calendário; mantra do dia em destaque; carrosséis em Ervas e Defumações; ícones SVG nos filtros e no Oráculo; microinterações; ~50 fotos novas de ervas que parecem ser mesmo do Wikimedia Commons, com créditos detalhados.
+
+**Corrigido pelo supervisor:**
+1. **`moonIllumFraction is not defined`** quebrava o Calendário justamente quando a API da lua falhava ou o site estava offline. Trocado pela fórmula que o resto do site já usa. **Teste sempre também com a internet desligada.**
+2. **Créditos falsos de novo:** `images/CREDITOS.md` atribuía as 12 fotos originais (arruda, guiné, jurema…) a fotógrafos do Commons, mas elas já estavam no projeto e só 2 foram recomprimidas. Seção corrigida. **Nunca escreva autor, licença ou link de um arquivo que você não baixou dessa fonte.**
+3. Carrosséis (`.rail`): o snap encaixava o 1º card na borda da tela, ignorando o recuo. Adicionado `scroll-padding-inline`.
+4. Vela da abertura de Mantras por cima do texto no celular: suavizada.
+5. `CACHE_VERSION` → `fv-v10`.
+
+**Pendência herdada:** trocar as 12 fotos originais por arquivos reais do Commons (com o link exato do arquivo baixado) **ou** deixar como estão até o dono do site confirmar a origem. Não invente créditos.
+
+---
+
+## 15. Fase 10 — Ponto riscado: leitura, fundamentos e estrelas sagradas (PRIORIDADE)
+
+**Origem do conteúdo:** resumos de vídeos que o dono do site enviou e duas imagens didáticas sobre estrelas. Um dos vídeos é do canal *Umband' Boa* (Márcio Kain, PTD nº 927); a autoria do outro (aula sobre a Dikenga) não foi informada. O supervisor já filtrou e corrigiu o material abaixo; **use estas orientações, não reinvente o conteúdo.**
+
+**Onde:** `simbolos.html`, aba **Pontos Riscados** (que já tem "Gramática dos Símbolos", "Ética", "Bússola da Intuição" e as 4 firmezas). **Integre, não duplique:** se um símbolo já tem card, **amplie** o card existente.
+
+**Princípio que guia toda a seção** (está nos dois vídeos e deve aparecer em destaque no topo):
+> O ponto riscado é a "assinatura" (o "RG") da entidade e também uma ferramenta de firmeza. Os padrões abaixo ajudam a estudar, **mas a leitura não é fixa: quem explica o ponto é a própria entidade.** Na dúvida, pergunte ao guia durante o atendimento.
+
+### 10.1 "Como ler um ponto: o cosmograma Dikenga" (bloco novo, interativo)
+- **Diagrama SVG desenhado à mão no código:** círculo, cruz central e a linha horizontal **Kalunga**. Os 4 pontos são clicáveis e abrem a explicação (pode reutilizar o painel `getDrawer()` ou um texto ao lado). Visual "Noite na Mata": traço dourado `var(--accent)`, fundo verde-mata.
+- **Use a disposição mais difundida (K. K. Bunseki Fu-Kiau, *African Cosmology of the Bântu-Kôngo*):**
+  - **Metade de cima = Ku Nseke** (mundo físico, dos vivos); **metade de baixo = Ku Mpemba** (mundo espiritual, dos ancestrais). A **Kalunga** é a fronteira entre os dois (alusão ao mar e ao cemitério, a "Kalunga Grande" e a "Kalunga Pequena").
+  - **Musoni** (embaixo, "meia-noite"): concepção, a ideia no plano espiritual antes de nascer.
+  - **Kala** (à direita, "nascer do sol"): nascimento, início da jornada física.
+  - **Tukula** (em cima, "meio-dia"): ápice da força, maturidade, sabedoria no mundo material.
+  - **Luvemba** (à esquerda, "pôr do sol"): fim da vida física, passagem de volta ao espiritual.
+  - O ciclo é contínuo: nada existe no físico sem ter passado pelo espiritual, e vice-versa.
+- **Atenção:** o resumo do vídeo trocava as posições (colocava Musoni no topo e dizia ao mesmo tempo que o topo era o mundo dos vivos). **Não reproduza essa contradição.** Acrescente uma nota curta: "Grafias e orientação variam entre autores e casas."
+- **Leitura aplicada** (do vídeo): um símbolo em cada quadrante indica em que estágio a força atua: concepção (Musoni), início de uma ação (Kala), ação em plena força (Tukula), encerramento, descarrego ou retorno (Luvemba). Exemplo: uma espiral perto de Luvemba sugere fechamento de ciclo ou limpeza; um tridente cruzando a Kalunga sugere força operando na passagem entre os planos. Sempre com a ressalva de que o guia confirma.
+
+### 10.2 Ampliar a "Gramática dos Símbolos" (cards existentes + novos)
+- **Tridente** (card novo, linha de Exu): **curvo** = força passiva e receptiva; **reto** = força ativa e expansiva.
+- **Espiral:** associada a banimento e descarrego, ao esgotamento de energias densas. **Junte** com o que já está na "Bússola" (sentido horário atrai movimento; anti-horário desfaz nós) sem contradizer.
+- **Cruz:** encruzilhada de caminhos **ou** ligação com as almas, conforme a posição no ponto.
+- **Flecha** (linha de Caboclo): a ponta indica a **direção da força** (do espiritual para o físico ou o contrário). Junte com o card "Flechas & Setas" já existente.
+- **Luas e estrelas:** indicam o ciclo/tempo do trabalho (lua) e força estelar ou magia (estrela), lidas conforme o quadrante.
+
+### 10.3 "Como reconhecer um ponto legítimo" (bloco novo, curto, com ícones)
+Segundo Márcio Kain (*Umband' Boa*, PTD nº 927):
+1. Tem **o símbolo do Orixá regente** da entidade + **o símbolo da linha de trabalho/falange**.
+   - Exemplos comuns, que **variam por casa**: arco e flecha → Oxóssi; espada e linhas retas → Ogum; ondas → Iemanjá; tridente → linha da esquerda.
+2. **Sem "firulas":** todo traço tem função; enfeite sem explicação é sinal de alerta.
+3. **A entidade sabe explicar** cada elemento do próprio ponto.
+4. **Ninguém deve ser pressionado a riscar ponto** nem copiar da internet: o médium risca quando a mediunidade amadurece, no tempo da espiritualidade.
+
+Feche reforçando a ética que já está na página: em casa, só firmezas temáticas; **nunca** riscar ponto de entidade específica por conta própria.
+
+### 10.4 "Estrelas sagradas" (bloco novo; baseado nas duas imagens enviadas)
+Faça um card por estrela, cada um com um **SVG geométrico limpo** (traço `currentColor`, linhas precisas e simétricas, nada de imagem baixada) e um texto curto:
+- **Estrela de 5 pontas:** luz, perfeição, renascimento, sabedoria, proteção, esperança, equilíbrio, aspiração.
+- **Pentagrama (estrela de 5 pontas em traço contínuo, dentro de círculo):** união e síntese. Os 5 dedos de cada mão e pé lembram os 5 sentidos; o espírito sobre os 4 elementos. No ocultismo, figura a que se atribuem virtudes de proteção.
+- **Hexagrama:** masculino e feminino, carne e espírito, atividade e passividade (**dualidade**). No hinduísmo, a ligação entre o masculino e o feminino; na alquimia, a união dos 4 elementos. Seis pontas mais o centro dão 7, número tido como perfeito. Mostre também o **hexagrama unicursal** (traço único), presente na imagem.
+- **Estrela de 7 pontas (heptagrama)** e **estrela de 8 pontas (octograma: dois quadrados sobrepostos):** apareciam desenhadas na imagem, sem texto. Escreva só o que for consenso e curto (ex.: 7 = ciclos e completude; 8 = equilíbrio, os quatro pontos cardeais e colaterais). **Não invente atribuições mágicas específicas.**
+- **Estrela de Davi:** apresente com respeito, como **símbolo do povo judeu e do judaísmo**, e depois os significados de união do feminino e do masculino, de opostos e de ligação entre céu e terra. Não a trate como "amuleto".
+- **Selo de Salomão:** os mesmos 2 triângulos, mas **entrelaçados** (desenhe o entrelaçamento). Não se confunde com a Estrela de Davi. Na tradição esotérica, proteção contra o mal; na maçonaria, "Deus, criação e perfeição".
+- Ligue este bloco à seção do Pentagrama que já existe nas firmezas, sem repetir o texto.
+
+### 10.5 Mediunidade olfativa + defumação completa
+- Em **`glossario.html`**, termo novo **"Mediunidade olfativa"**: perceber presença espiritual por cheiros sem fonte física.
+  - Cheiros **agradáveis** (charuto, cachimbo, flores, perfume, comida boa) costumam ser associados a protetores.
+  - Cheiros **desagradáveis**, que causam enjoo, a espíritos desequilibrados (obsessores).
+  - Sentir isso com frequência não é o normal; vale uma defumação ou procurar um terreiro.
+  - **OBRIGATÓRIO, em destaque:** "Antes de pensar em causa espiritual, descarte causas físicas: cheiro de queimado pode ser fiação ou aparelho elétrico; cheiro de gás pede fechar o registro, abrir as janelas e não acender nada. Alterações no olfato também podem ter causa de saúde: se persistirem, procure um médico."
+- Em **`defumacao.html`**, nos Fundamentos, um acordeão novo **"Defumação completa da casa, passo a passo"**:
+  1. Abra portas e janelas.
+  2. Coloque arruda e alecrim no turíbulo (ou panela própria) sobre brasa.
+  3. Percorra do **fundo para a frente**; em sobrado, **de cima para baixo**, passando por todos os cômodos e pelas pessoas da casa.
+  4. Termine no portão: deixe o turíbulo apagar **do lado de dentro, à esquerda de quem entra**.
+  5. **Só depois de frias**, despeje as cinzas na terra (grama, terreno ou mata afastada da casa).
+  - Com cuidado: brasa longe de crianças, animais, cortinas e tapetes.
+
+### 10.6 Glossário
+Termos novos (sem duplicar os que já existem): **Dikenga**, **Kalunga**, **Nseke**, **Mpemba**, **Turíbulo**, **Linha de trabalho**, **Falange**, **Mediunidade olfativa**.
+
+### 10.7 Regras desta fase
+- Tom acolhedor e respeitoso a todas as tradições citadas (bantu-kongo, umbandista, judaica, maçônica e esotérica). Nada de sensacionalismo ou promessa ("impenetrável", "garantido").
+- Ao final da aba, uma linha de **fontes**: Fu-Kiau (cosmograma); canal *Umband' Boa*, Márcio Kain, PTD nº 927 (ponto legítimo e mediunidade olfativa); aula sobre a Dikenga (autor não informado).
+- Só tokens de cor; SVGs com `currentColor`; nada de `style=""` novo; classes na camada final do CSS.
+- **Testar** a 1440 px e a 375 px **e offline**, com o console limpo. Um commit por subtarefa (10.1 a 10.6), cada um registrado no log. Ao final, aumentar `CACHE_VERSION`.
