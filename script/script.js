@@ -1402,19 +1402,35 @@ function usedInHtml(erva) {
    Cards compactos + filtros em chips + "mostrar mais" + painel de detalhes.
    Filtros ficam na URL (?q=&objetivo=&lua=…) e cada item abre por #id.
    ========================================================================== */
+const OBJ_ICONS = {
+  limpeza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m19 5-8 8"/><path d="m14 14-6 6a2 2 0 0 1-2.8-2.8l6-6"/><path d="M17 3l4 4"/></svg>',
+  protecao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  calma: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.6 5.6a8 8 0 1 1-11.3 0z"/><path d="M12 12a3 3 0 0 0-3 3"/></svg>',
+  energia: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg>',
+  prosperidade: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9 9.5c.6-.9 1.6-1.5 3-1.5 1.7 0 3 .9 3 2s-1 1.7-2.5 2c-1.5.3-2.5 1-2.5 2s1.3 2 3 2c1.4 0 2.4-.6 3-1.5"/></svg>',
+  harmonizacao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
+};
+
+const MOON_ICONS = {
+  nova: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" stroke-dasharray="3 2"/></svg>',
+  crescente: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17" fill="currentColor"/></svg>',
+  cheia: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/></svg>',
+  minguante: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 0 0 17" fill="currentColor"/></svg>'
+};
+
 const OBJETIVOS = [
-  { k: "limpeza", label: "Limpeza", icon: "🧹" },
-  { k: "protecao", label: "Proteção", icon: "🛡️" },
-  { k: "calma", label: "Calma", icon: "💧" },
-  { k: "energia", label: "Energia", icon: "☀️" },
-  { k: "prosperidade", label: "Prosperidade", icon: "🌻" },
-  { k: "harmonizacao", label: "Harmonização", icon: "🕊️" }
+  { k: "limpeza", label: "Limpeza", icon: OBJ_ICONS.limpeza },
+  { k: "protecao", label: "Proteção", icon: OBJ_ICONS.protecao },
+  { k: "calma", label: "Calma", icon: OBJ_ICONS.calma },
+  { k: "energia", label: "Energia", icon: OBJ_ICONS.energia },
+  { k: "prosperidade", label: "Prosperidade", icon: OBJ_ICONS.prosperidade },
+  { k: "harmonizacao", label: "Harmonização", icon: OBJ_ICONS.harmonizacao }
 ];
 const LUAS = [
-  { k: "nova", label: "Nova", icon: "🌑" },
-  { k: "crescente", label: "Crescente", icon: "🌓" },
-  { k: "cheia", label: "Cheia", icon: "🌕" },
-  { k: "minguante", label: "Minguante", icon: "🌗" }
+  { k: "nova", label: "Nova", icon: MOON_ICONS.nova },
+  { k: "crescente", label: "Crescente", icon: MOON_ICONS.crescente },
+  { k: "cheia", label: "Cheia", icon: MOON_ICONS.cheia },
+  { k: "minguante", label: "Minguante", icon: MOON_ICONS.minguante }
 ];
 const ENERGIAS = [
   { k: "frias", label: "Frias (paz)", c: "var(--c-calma)" },
@@ -1425,7 +1441,7 @@ const INTENSIDADE_NIVEL = { suave: 1, media: 2, forte: 3 };
 const INTENSIDADE_LABEL = { suave: "Suave", media: "Média", forte: "Forte" };
 const DIAS_LABEL = { dom: "Dom", seg: "Seg", ter: "Ter", qua: "Qua", qui: "Qui", sex: "Sex", sab: "Sáb" };
 
-const objInfo = k => OBJETIVOS.find(o => o.k === k) || { k, label: k || "—", icon: "✨" };
+const objInfo = k => OBJETIVOS.find(o => o.k === k) || { k, label: k || "—", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg>' };
 
 function splitName(nome) {
   const m = String(nome || "").match(/^(.*?)\s*\((.*)\)\s*$/);
@@ -3590,22 +3606,33 @@ function initHojePage() {
 /* ==========================================================================
    Oráculo "Como você está se sentindo?" — ritual guiado em 3 passos
    ========================================================================== */
+const ICONS_ORACULO = {
+  cansaco: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="M8 13h2M14 13h2"/></svg>',
+  ansiedade: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-6 4 12 3-9 2 5 3-2h4"/></svg>',
+  caminhos: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M14 11h.01"/></svg>',
+  inveja: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
+  desanimo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><line x1="22" x2="22" y1="11" y2="13"/><line x1="6" x2="6" y1="11" y2="13"/><line x1="10" x2="10" y1="11" y2="13"/></svg>',
+  casa: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>',
+  tristeza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.6 5.6a8 8 0 1 1-11.3 0z"/></svg>',
+  decisao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'
+};
+
 const ORACULO = [
-  { id: "cansaco", label: "😮‍💨 Cansaço / peso nas costas", defumacao: ["limpeza"], banho1: ["limpeza", "protecao"], banho2: ["harmonizacao", "calma"], mantra: ["leveza", "energia", "equilíbrio"],
+  { id: "cansaco", label: "Cansaço / peso nas costas", icon: ICONS_ORACULO.cansaco, defumacao: ["limpeza"], banho1: ["limpeza", "protecao"], banho2: ["harmonizacao", "calma"], mantra: ["leveza", "energia", "equilíbrio"],
     palavra: "Peso acumulado pede dois tempos: primeiro limpar, depois reconstruir. Nunca deixe o corpo 'aberto' depois de um descarrego." },
-  { id: "ansiedade", label: "😟 Ansiedade / insônia", defumacao: ["harmonizacao"], banho1: ["calma"], mantra: ["calma", "paz", "presença"],
+  { id: "ansiedade", label: "Ansiedade / insônia", icon: ICONS_ORACULO.ansiedade, defumacao: ["harmonizacao"], banho1: ["calma"], mantra: ["calma", "paz", "presença"],
     palavra: "Prefira banhos mornos, à noite, e respire 4-2-6 antes de deitar. Folha mansa acalma a cabeça (Ori)." },
-  { id: "caminhos", label: "🚪 Caminhos fechados / trabalho travado", defumacao: ["prosperidade"], banho1: ["prosperidade"], mantra: ["prosperidade", "oportunidades", "fluxo"],
+  { id: "caminhos", label: "Caminhos fechados / trabalho travado", icon: ICONS_ORACULO.caminhos, defumacao: ["prosperidade"], banho1: ["prosperidade"], mantra: ["prosperidade", "oportunidades", "fluxo"],
     palavra: "Abra caminhos de preferência na lua crescente, e faça uma ação concreta no mesmo dia: o Axé acompanha quem se move." },
-  { id: "inveja", label: "🧿 Inveja / olho-gordo", defumacao: ["limpeza", "protecao"], banho1: ["protecao", "limpeza"], banho2: ["harmonizacao"], mantra: ["proteção", "limites", "confiança"],
+  { id: "inveja", label: "Inveja / olho-gordo", icon: ICONS_ORACULO.inveja, defumacao: ["limpeza", "protecao"], banho1: ["protecao", "limpeza"], banho2: ["harmonizacao"], mantra: ["proteção", "limites", "confiança"],
     palavra: "Corte primeiro, feche o corpo depois. Erva quente (arruda, guiné) sempre do pescoço para baixo." },
-  { id: "desanimo", label: "🪫 Desânimo / sem força", defumacao: ["energia", "prosperidade"], banho1: ["energia"], mantra: ["energia", "coragem", "crescimento"],
+  { id: "desanimo", label: "Desânimo / sem força", icon: ICONS_ORACULO.desanimo, defumacao: ["energia", "prosperidade"], banho1: ["energia"], mantra: ["energia", "coragem", "crescimento"],
     palavra: "Sol da manhã, água fresca e um banho de vitalidade. Comece pequeno: uma tarefa de cada vez." },
-  { id: "casa", label: "🏠 Casa pesada / brigas", defumacao: ["limpeza", "harmonizacao"], banho1: ["harmonizacao"], mantra: ["paz", "equilíbrio", "comunicação"],
+  { id: "casa", label: "Casa pesada / brigas", icon: ICONS_ORACULO.casa, defumacao: ["limpeza", "harmonizacao"], banho1: ["harmonizacao"], mantra: ["paz", "equilíbrio", "comunicação"],
     palavra: "Defume do fundo da casa para a porta da rua, abra as janelas e, depois, ofereça um banho de harmonização a quem mora junto." },
-  { id: "tristeza", label: "💧 Tristeza / saudade", defumacao: ["harmonizacao"], banho1: ["calma", "harmonizacao"], mantra: ["gratidão", "paz", "autovalor"],
+  { id: "tristeza", label: "Tristeza / saudade", icon: ICONS_ORACULO.tristeza, defumacao: ["harmonizacao"], banho1: ["calma", "harmonizacao"], mantra: ["gratidão", "paz", "autovalor"],
     palavra: "Acolha o sentimento sem pressa. Banho suave, oração e conversa com quem você confia. Se a tristeza persistir, procure ajuda profissional." },
-  { id: "decisao", label: "🎯 Prova, entrevista ou decisão", defumacao: ["energia", "prosperidade"], banho1: ["energia", "prosperidade"], mantra: ["foco", "clareza", "concentração", "confiança"],
+  { id: "decisao", label: "Prova, entrevista ou decisão", icon: ICONS_ORACULO.decisao, defumacao: ["energia", "prosperidade"], banho1: ["energia", "prosperidade"], mantra: ["foco", "clareza", "concentração", "confiança"],
     palavra: "Na véspera: banho de clareza, cabeça fresca e sono cedo. No dia: respire, recite o mantra 3 vezes e vá com fé." }
 ];
 
@@ -3627,7 +3654,7 @@ function initOraculo() {
   let current = null;
   let variant = 0;
 
-  chips.innerHTML = ORACULO.map(o => `<button class="pill" type="button" data-oraculo="${o.id}">${o.label}</button>`).join("");
+  chips.innerHTML = ORACULO.map(o => `<button class="pill" type="button" data-oraculo="${o.id}">${o.icon} <span>${escapeHtml(o.label)}</span></button>`).join("");
 
   function render() {
     const o = ORACULO.find(x => x.id === current);
