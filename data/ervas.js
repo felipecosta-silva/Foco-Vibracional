@@ -1673,5 +1673,102 @@ window.FV_DATA.ervas = [
   "tradicao": "Muito estimada na Linha do Oriente e nas homenagens reservadas às Iabás pelo seu requinte e vibração de paz nobre.",
   "cha": "Infusão sutil das pétalas secas: calmante do sistema nervoso e harmonizador do humor.",
   "imagem": "./images/rosa-champanhe.jpg"
+ },
+ {
+  "id": "ora-pro-nobis",
+  "nome": "Ora-pro-nóbis",
+  "nomePopular": "Carne-de-pobre, Lobrobó, Espinho-de-santo-antônio (Pereskia aculeata)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "prosperidade",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "alimentar"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Não recomendado na cabeça (uso do pescoço para baixo devido à mucilagem densa)",
+  "descricao": "Cacto trepadeira de folhas verdes e carnudas, altamente nutritivo (PANC). Traz o arquétipo do sustento que brota do chão simples, a firmeza física e a fartura duradoura.",
+  "diferenciacao": "Ao ser macerada em água fresca, sua folha libera uma baba (mucilagem) rica em proteínas e polissacarídeos que amacia profundamente a água do banho, envolvendo o corpo em sensação de nutrição e acolhimento.",
+  "colheita": "Colher com luvas grossas devido aos espinhos pontiagudos nos caules. Selecionar folhas verdes, viçosas e limpas, preferencialmente pela manhã.",
+  "cuidados": "O caule tem espinhos afiados: colha sempre com luvas e utilize apenas as folhas. Planta segura para uso externo. Nunca use folhas de plantas pulverizadas com defensivos agrícolas.",
+  "tradicao": "Símbolo dos quintais mineiros e da cozinha tradicional da roça. A história popular conta que o nome em latim ('rogai por nós') nasceu porque os moradores colhiam as folhas no quintal da igreja enquanto o padre celebrava a missa."
+ },
+ {
+  "id": "buganvilia",
+  "nome": "Buganvília",
+  "nomePopular": "Primavera, Três-Marias, Flor-de-papel, Pataguinha (Bougainvillea spp.)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "prosperidade"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "brácteas"
+  ],
+  "cabeca": "Sim, quando preparado exclusivamente com as brácteas coloridas despetaladas e limpas (sem galhos, sem espinhos e sem folhas verdes)",
+  "descricao": "Trepadeira rústica e vigorosa que floresce no sol ardente e escala muros e rochas com resiliência inabalável. Suas cores vivas transmitem alegria, beleza, doçura e a capacidade de fazer brotar luz mesmo nos terrenos mais áridos.",
+  "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.",
+  "colheita": "Colher as brácteas coloridas com delicadeza, usando luvas para se proteger dos espinhos dos caules. Descartar caules e folhas verdes.",
+  "cuidados": "Os galhos contêm espinhos pontiagudos e a seiva verde pode causar irritação em peles sensíveis. Utilize rigorosamente apenas as brácteas coloridas bem lavadas. Manter longe de crianças e animais de estimação.",
+  "tradicao": "Consagrada na medicina popular pelo chá das brácteas coloridas (infusão tradicional com mel para tosse, bronquite e alívio das vias respiratórias). Na ciência da Jurema e na Linha das Mestras, o banho de suas brácteas com flores de jasmim é ritual de encanto, resgate do amor-próprio e iluminação íntima da consciência."
+ },
+ {
+  "id": "onze-horas",
+  "nome": "Onze-horas",
+  "nomePopular": "Flor-de-onze-horas, Portulaca, Bela-em-onze-horas (Portulaca grandiflora)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "energia",
+   "prosperidade"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "flor"
+  ],
+  "cabeca": "Não (banho solar feito do pescoço para baixo)",
+  "descricao": "Suculenta rasteira de flores coloridas e brilhantes que só se abrem plenamente sob o sol alto do meio do dia. Traz o ensinamento do tempo certo: a flor que espera a luz para se abrir, despertando paciência, alegria solar e sincronia com as oportunidades.",
+  "diferenciacao": "As flores abrem por volta das 11h da manhã e se fecham à tarde ou em dias nublados e chuvosos. Essa dança com a luz solar faz dela um condensador natural de vitalidade e bom humor.",
+  "colheita": "Colher as flores abertas no fim da manhã (perto das 11h), em dia ensolarado, para uso imediato no banho fresco.",
+  "cuidados": "Uso externo seguro para pessoas. ATENÇÃO COM PETS: plantas do gênero Portulaca contêm oxalatos solúveis que podem ser tóxicos para cães e gatos se ingeridos. Descarte sobras de flores em canteiros ou vasos fora do alcance de animais.",
+  "tradicao": "Muito cultivada em floreiras e beirais de janelas no Brasil. Associada à alegria de viver, ao despertar da boa sorte no tempo oportuno e à paciência com o próprio ritmo de amadurecimento."
+ },
+ {
+  "id": "jasmim",
+  "nome": "Jasmim",
+  "nomePopular": "Jasmim-branco, Jasmim-dos-poetas, Jasmim-estrela, Jasmim-da-noite (Jasminum spp.)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "calma",
+   "prosperidade"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "flor"
+  ],
+  "cabeca": "Sim (excelente para a coroa/Ori, acalma os pensamentos e clareia a visão íntima)",
+  "descricao": "Flor aristocrática de perfume inebriante e doce, reverenciada pela espiritualidade como símbolo da pureza, elevação de consciência e nobreza da alma. Dissipa o barulho mental, afasta pesadelos e abre os canais de percepção espiritual com serenidade.",
+  "diferenciacao": "• Com Buganvília (Primavera): Forma o banho clássico de encanto, autoestima e firmeza íntima na Linha das Mestras da Jurema.\n• Com Rosa Branca: Alinha a paz da mente e o sono reparador sob a luz de Oxalá e Iemanjá.\n• Na fitoenergia pura: O aroma atua no sistema límbico desfazendo amargura, frieza emocional e sensação de abandono.",
+  "colheita": "Colher as flores preferencialmente ao anoitecer ou nas primeiras horas da manhã, momentos em que a concentração de óleos aromáticos nas pétalas é máxima.",
+  "cuidados": "Uso externo seguro e suave. Utilizar apenas as pétalas das flores bem lavadas, descartando ramos e folhas lenhosas.",
+  "tradicao": "Consagrada a Oxalá, Iemanjá e Oxum nos terreiros de Umbanda e às Mestras Encantadas na Jurema Sagrada. Suas flores são usadas para banhos de cabeça de iniciação de paz e para perfumar a água das quartinhas."
  }
 ];
