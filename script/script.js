@@ -2712,6 +2712,100 @@ function initHomeGrabovoi() {
    Inicialização da Página de Símbolos Sagrados (simbolos.html)
    Pontos Riscados, 24 Runas com Oráculo e Mandalas com Respiração 4-2-6
    ========================================================================== */
+function initDikenga() {
+  const container = $("#dikenga");
+  if (!container) return;
+
+  const DIKENGA_DATA = {
+    tukula: {
+      id: "tukula",
+      nome: "Tukula — O Meio-Dia da Alma",
+      sol: "☀️ Zênite Solar • Ápice da Força & Sabedoria Plena",
+      plano: "Ku Nseke (Mundo Físico / Terra dos Vivos)",
+      descricao: "Na cosmologia Bântu-Kôngo, Tukula é o ponto mais alto do sol no céu, simbolizando a maturidade, a liderança, a força realizadora e o domínio das ciências materiais e espirituais.",
+      ponto: "Símbolos no quadrante superior do ponto operam no ápice da ação manifestada. É onde se firmam coroas de Orixá, espadas de Ogum em guarda, a força realizadora de Caboclos e a autoridade espiritual dos Mestres.",
+      exemplo: "Coroas, raios de Iansã, espadas em riste, sóis brilhando."
+    },
+    luvemba: {
+      id: "luvemba",
+      nome: "Luvemba — O Pôr do Sol & Passagem",
+      sol: "🌅 Crepúsculo • Encerramento, Descarrego & Retorno",
+      plano: "Fronteira da Kalunga (Transição de Ku Nseke para Ku Mpemba)",
+      descricao: "O entardecer cósmico, onde a jornada física se encerra e o ser prepara sua travessia de volta ao reino ancestral. Rege o recolhimento, a quebra de amarras e a dissolução de energias densas.",
+      ponto: "Quadrante de corte de demandas, descarrego pesado e esgotamento. Uma espiral aqui traçada suga e desfaz os miasmas espirituais, devolvendo forças obsessoras ao mar sagrado para transmutação.",
+      exemplo: "Espirais em sentido anti-horário, flechas de retorno, nós desfeitos."
+    },
+    musoni: {
+      id: "musoni",
+      nome: "Musoni — A Meia-Noite Sagrada",
+      sol: "🌑 Meia-Noite • Concepção, Gestações & Mistério Ancestral",
+      plano: "Ku Mpemba (Mundo Espiritual / Reino dos Ancestrais)",
+      descricao: "A escuridão fértil onde a ideia é fecundada no invisível antes de qualquer manifestação na terra. É o ventre cósmico, o repouso dos espíritos iluminados e o contato com a raiz ancestral.",
+      ponto: "A base do ponto onde se ancora a sustentação espiritual. Nenhum trabalho vinga na matéria sem a semente gerada nesta profundeza sagrada. Conecta aos Pretos Velhos, Almas e Encantaria de Jurema.",
+      exemplo: "Cruzes de almas, caldeirões, raízes subterrâneas, sementes de pemba."
+    },
+    kala: {
+      id: "kala",
+      nome: "Kala — O Nascer do Sol & Alvorecer",
+      sol: "🌱 Aurora • Nascimento, Novos Caminhos & Despertar",
+      plano: "Fronteira da Kalunga (Emergência de Ku Mpemba para Ku Nseke)",
+      descricao: "O alvorecer dourado, quando a centelha divina cruza a Kalunga e entra no mundo dos vivos. É a energia do recomeço, da saúde renascendo, da abertura de portas e do brotar das matas.",
+      ponto: "Símbolos à direita do ponto indicam início de trabalhos, abertura de caminhos trancados, prosperidade nascente e o despertar mediúnico seguro de um filho de fé.",
+      exemplo: "Flechas apontadas para a frente, chaves de porteira, brotos de erva."
+    }
+  };
+
+  const detailCard = $("#dikengaDetailCard");
+  const nodes = $all(".dikenga-node", container);
+  const pills = $all("[data-dikenga-target]", container);
+
+  function render(key) {
+    const d = DIKENGA_DATA[key] || DIKENGA_DATA.tukula;
+    nodes.forEach(n => {
+      const active = n.getAttribute("data-node") === d.id;
+      n.classList.toggle("is-active", active);
+      n.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    pills.forEach(p => {
+      const active = p.getAttribute("data-dikenga-target") === d.id;
+      p.classList.toggle("pill--active", active);
+      p.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    if (detailCard) {
+      detailCard.innerHTML = `
+        <div class="dikenga-badge-row">
+          <span class="badge">${escapeHtml(d.plano)}</span>
+        </div>
+        <h3 class="dikenga-detail-title">${escapeHtml(d.nome)}</h3>
+        <div class="dikenga-detail-sol">${escapeHtml(d.sol)}</div>
+        <p class="dikenga-detail-desc">${escapeHtml(d.descricao)}</p>
+        <div class="dikenga-detail-ponto">
+          <strong>Como atua no ponto riscado:</strong><br>
+          ${escapeHtml(d.ponto)}<br>
+          <span class="small muted" style="display:block; margin-top:6px;"><b>Exemplos comuns:</b> ${escapeHtml(d.exemplo)}</span>
+        </div>
+      `;
+    }
+  }
+
+  nodes.forEach(n => {
+    n.addEventListener("click", () => render(n.getAttribute("data-node")));
+    n.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        render(n.getAttribute("data-node"));
+      }
+    });
+  });
+
+  pills.forEach(p => {
+    p.addEventListener("click", () => render(p.getAttribute("data-dikenga-target")));
+  });
+
+  render("tukula");
+}
+
 function initSimbolosPage() {
   // 1. Alternador de Abas Principais
   const tabBtnPontos = $("#tabBtnPontos");
@@ -2738,6 +2832,8 @@ function initSimbolosPage() {
   tabBtnRunas.addEventListener("click", () => switchSimboloTab(tabBtnRunas, paneRunas));
   tabBtnMandalas.addEventListener("click", () => switchSimboloTab(tabBtnMandalas, paneMandalas));
   tabBtnSigilos?.addEventListener("click", () => switchSimboloTab(tabBtnSigilos, paneSigilos));
+
+  initDikenga();
 
   // 2. Base de Dados das 24 Runas do Elder Futhark
   const RUNAS_DATA = [
