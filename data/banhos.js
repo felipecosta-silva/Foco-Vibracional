@@ -2174,5 +2174,36 @@ window.FV_DATA.banhos = [
   "reza": "Na força da rocha que floresce e no perfume que acalma o pensamento: que a luz clareie minha consciência, que o amor-próprio firme meus passos e que a sabedoria das Mestras guie meu caminho com beleza e dignidade.",
   "observacao": "PODE E DEVE IR NA CABEÇA (Ori). Fundamental: use exclusivamente as brácteas coloridas despetaladas e as flores puras de jasmim, sem galhos, folhas verdes ou espinhos. Banho de serenidade, autoestima e reencontro com a própria verdade. Jasmim: use só o verdadeiro (Jasminum), nunca dama-da-noite nem jasmim-amarelo.",
   "versaoCha": ""
+ },
+ {
+  "id": "banho-maracuja-cidreira-sono",
+  "nome": "Banho de Folha de Maracujá com Erva-cidreira (Calma para Dormir)",
+  "objetivo": "calma",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qua",
+   "qui",
+   "sex",
+   "sab",
+   "dom"
+  ],
+  "horario": "à noite, 1 hora antes de dormir",
+  "ervas": [
+   "7 folhas de Maracujá",
+   "Erva-cidreira"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva 2 litros de água e desligue o fogo. Adicione as 7 folhas de maracujá bem lavadas e o punhado de erva-cidreira. Abafe o recipiente por 10 minutos e coe. Aguarde a infusão ficar morna em temperatura agradável para o corpo e despeje do pescoço para baixo após seu banho de higiene, respirando devagar e deixando que o vapor relaxe os ombros. Deite logo depois em ambiente escuro e tranquilo, evitando o uso de telas de celular.",
+  "reza": "Folha que acalma, água que acolhe: desatai a pressa do meu peito, aquietai meus pensamentos e me dai um sono de paz.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Se a insônia ou a ansiedade forem frequentes, procure também um médico. O banho acolhe, mas não substitui o tratamento.",
+  "versaoCha": ""
  }
 ];

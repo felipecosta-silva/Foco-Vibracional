@@ -808,5 +808,31 @@ window.FV_DATA.defumacoes = [
   "reza": "Fecho o ciclo que passou com gratidão, limpo o que ficou de pesado e abro a porta para o novo.",
   "servePara": "Encerrar um ano ou ciclo e preparar a casa para o que vem.",
   "cuidados": "Faça em duas etapas: limpeza e depois atração. Ventile bem entre uma e outra."
+ },
+ {
+  "id": "defumacao-ramos-bentos-palmeira",
+  "nome": "Ramos Bentos de Palmeira (Proteção da Casa & Temporal)",
+  "objetivo": "protecao",
+  "intensidade": "media",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "dom",
+   "qua",
+   "sex",
+   "sab"
+  ],
+  "horario": "fim da tarde, ou em dia de temporal (só um pedacinho)",
+  "ervas": [
+   "folha seca de Palmeira",
+   "Alecrim",
+   "Louro"
+  ],
+  "sentido": "Do fundo da casa para a porta",
+  "reza": "Ramo bento que a fé guardou: cobri esta casa, afastai o perigo e o mal, e que Santa Bárbara e todos os protetores desta morada nos guardem do raio e do vendaval.",
+  "servePara": "Proteção do lar e serenidade em dias de tempestade, seguindo o costume tradicional de queimar o ramo bento guardado.",
+  "cuidados": "A folha seca queima rápido e solta faíscas: use pedaços pequenos, sobre brasa num turíbulo ou pires de barro, longe de cortinas. Em temporal, fique dentro de casa, longe de tomadas e aparelhos ligados. Janelas entreabertas para ventilar."
  }
 ];
