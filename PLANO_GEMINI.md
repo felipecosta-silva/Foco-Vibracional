@@ -507,3 +507,26 @@ A estrutura já está pronta e funcionando em `tarot.html` + `data/tarot.js` + `
 2. Trocar os `style=""` das seções novas de `simbolos.html` por classes no CSS (camada 2026), usando os tokens.
 3. Seguir o backlog da seção 10: fotos das ervas sem imagem, limpar os `style=""` antigos e dividir o `script.js`.
 4. **Antes de cada commit:** abrir as páginas alteradas no navegador (desktop e 375 px), conferir o console, usar só os tokens de cor e registrar no log.
+
+
+---
+
+## 13. Fase 9 — "Toque de site": continuar a camada imersiva (PRIORIDADE)
+
+O dono achou que o site "parecia um blog": toda página abria com texto sobre fundo liso, numa coluna de caixas, sem imagem nem movimento. O supervisor já fez a base, na **"CAMADA IMERSIVA"**, no fim de `styles/styles.css`, e no bloco "CAMADA IMERSIVA" de `script/script.js`:
+
+- **Abertura em largura total em todas as páginas internas** (`enhancePageHead` + mapa `PAGE_HERO`): foto da erva nas páginas de rituais e arte em CSS nas demais (lua na fase real, vela, leque de cartas, geometria sagrada, "11:11"). **Página nova = uma entrada em `PAGE_HERO`.**
+- **Home cinematográfica:** foto da jurema em tela cheia com vaga-lumes em canvas (`initFireflies`), faixa de números com contagem (`initCountUp`, `data-countup`), carrossel "Banhos para esta lua" (`.rail`, `initHomeRails`), carta do dia com imagem (`.feature`), divisor botânico e topo transparente sobre o herói.
+- **Movimento:** revelação ao rolar (`initReveal`, classes `.reveal`/`.is-in`), cards do catálogo surgindo em sequência e zoom lento nas fotos. Tudo desligado com `prefers-reduced-motion`.
+
+### Tarefas (uma por vez; testar no navegador a 1440 px e a 375 px; console limpo; commit + log)
+1. **Calendário mais visual:** no card "Agora", trocar o texto grande por uma lua desenhada na fase real (reaproveite `.moon-orb` e a lógica de sombra de `initHomeHero`). Em "Próximas fases", pôr um ícone de lua grande em cada item e organizar como uma linha do tempo horizontal no desktop.
+2. **Mantras mais visual:** o mantra do dia vira um bloco de destaque grande (tipografia Fraunces itálica, ~2rem, centralizado, fundo com brilho de vela), em vez de card comum.
+3. **Carrosséis nas páginas de rituais:** acima do catálogo de `plantas.html`, um `.rail` "Ervas que vão na cabeça" (com foto). Em `defumacao.html`, um `.rail` "Para limpar" e outro "Para atrair". Reutilize `ritualCardHtml`/`herbCardHtml` e o padrão de `initHomeRails`.
+4. **Ícones em vez de emojis nos chips de filtro e no Oráculo:** crie SVGs finos (estilo de `ICONS`, stroke 1.8, `currentColor`) para os 6 objetivos e as 4 luas, e use-os em `OBJETIVOS`, `LUAS` e `ORACULO`. Os emojis mudam conforme o celular e deixam o site com cara amadora.
+5. **Fotos das ervas** (pendente desde a Fase 6): várias ervas aparecem só com a folha desenhada. Use fotos de licença livre (Wikimedia Commons, com crédito em `images/CREDITOS.md`), 900 px, ≤ 150 KB.
+6. **Microinterações:** botão "copiar" que vira "✓ copiado" por 1,5 s (em vez de só toast); estado `:active` com leve encolhimento (`scale(.97)`) em `.btn`, `.pill`, `.rcard`, `.hcard` e `.tcard`; e transição suave ao trocar as abas de `mantras.html`.
+7. Ao terminar: aumentar `CACHE_VERSION` em `sw.js` e registrar no log (seção 5).
+
+### Regras que continuam valendo (seção 8)
+Só tokens de cor (nada de ciano, verde-neon ou azul-marinho), nada de `style=""` novo, aviso de segurança onde houver fogo ou planta tóxica, e não reverter o catálogo, a navegação ou as aberturas.
