@@ -3586,3 +3586,79 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   color: var(--text);
   margin: 2px 0;
 }
+
+/* --- Mantras mais visual: Bloco de destaque com brilho de vela --- */
+.mantra-hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse 600px 320px at 50% 30%, rgba(227,184,103,.18), rgba(227,184,103,.03) 60%, transparent 75%),
+    linear-gradient(175deg, #18221a 0%, #101712 100%);
+  border: 1px solid rgba(227,184,103,.35);
+  border-radius: var(--radius);
+  padding: 44px 28px 36px;
+  margin: 18px 0 28px;
+  text-align: center;
+  box-shadow: 0 16px 50px rgba(0,0,0,.45), 0 0 45px rgba(227,184,103,.12);
+  overflow: hidden;
+}
+
+.mantra-hero__glow {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(227,184,103,.28) 0%, rgba(227,184,103,0) 70%);
+  pointer-events: none;
+  filter: blur(25px);
+}
+
+.mantra-hero__candle {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 12px rgba(227,184,103,.6));
+  animation: candleFlicker 3s infinite ease-in-out;
+}
+
+@keyframes candleFlicker {
+  0%, 100% { transform: scale(1); opacity: .95; filter: drop-shadow(0 0 12px rgba(227,184,103,.6)); }
+  50% { transform: scale(1.06); opacity: 1; filter: drop-shadow(0 0 18px rgba(227,184,103,.85)); }
+}
+
+.mantra-hero__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mantra-hero__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.45rem, 3.2vw, 2.15rem);
+  line-height: 1.4;
+  color: var(--text);
+  max-width: 780px;
+  margin: 0 auto 14px;
+  letter-spacing: -.2px;
+  text-shadow: 0 2px 14px rgba(0,0,0,.5);
+}
+
+.mantra-hero__tip {
+  color: var(--muted);
+  font-size: .95rem;
+  max-width: 580px;
+  margin: 0 auto 22px;
+  line-height: 1.5;
+}
+
+.mantra-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}

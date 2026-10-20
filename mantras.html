@@ -54,64 +54,64 @@
       </div>
 
 
-    <section class="grid">
-      <article class="card">
-        <div class="card__header">
-          <h2 class="card__title">Mantra de hoje</h2>
-          <span class="badge" id="dailyTag">—</span>
-        </div>
+    <!-- Bloco de Destaque Grande: Mantra do Dia -->
+    <section class="mantra-hero">
+      <div class="mantra-hero__glow" aria-hidden="true"></div>
+      <div class="mantra-hero__candle" aria-hidden="true">🕯️</div>
+      <div class="mantra-hero__header">
+        <span class="eyebrow">Mantra de hoje</span>
+        <span class="badge" id="dailyTag">—</span>
+      </div>
 
-        <blockquote class="quote" id="dailyMantra">Carregando…</blockquote>
+      <blockquote class="mantra-hero__quote" id="dailyMantra">Carregando…</blockquote>
+      <p class="mantra-hero__tip" id="dailyTip">—</p>
 
-        <div class="row wrap-row">
-          <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">Copiar</button>
-          <button class="btn" data-speak="#dailyMantra" type="button">Ouvir</button>
-          <button class="btn btn--ghost" id="favDailyBtn" type="button">Salvar nos favoritos</button>
-          <button class="btn" id="shuffleBtn" type="button">Sortear outro</button>
-        </div>
-
-        <p class="muted small" id="dailyTip">—</p>
-      </article>
-
-      <article class="card" id="tecnicas">
-        <div class="card__header">
-          <h2 class="card__title">Técnicas durante o trabalho</h2>
-          <span class="badge">guias</span>
-        </div>
-
-        <div class="tabs" role="tablist" aria-label="Técnicas">
-          <button class="tab tab--active" data-tab="t1" type="button">2 min</button>
-          <button class="tab" data-tab="t2" type="button">5 min</button>
-          <button class="tab" data-tab="t3" type="button">Reset</button>
-        </div>
-
-        <div class="tabpanes">
-          <div class="pane pane--active" id="t1">
-            <ol class="list">
-              <li>Respire lento 3x (soltando mais longo do que puxando).</li>
-              <li>Recite o mantra (3x).</li>
-              <li>Defina 1 próxima ação objetiva (bem pequena).</li>
-            </ol>
-          </div>
-
-          <div class="pane" id="t2">
-            <ol class="list">
-              <li>1 min: respiração lenta.</li>
-              <li>2 min: mantra + gratidão (uma coisa real do momento).</li>
-              <li>2 min: planejar as próximas 2 tarefas.</li>
-            </ol>
-          </div>
-
-          <div class="pane" id="t3">
-            <ol class="list">
-              <li>Destrave a mandíbula, relaxe ombros.</li>
-              <li>Olhe um ponto fixo por 10 segundos e volte ao corpo.</li>
-              <li>Diga: “Eu escolho foco e presença agora.”</li>
-            </ol>
-          </div>
-        </div>
-      </article>
+      <div class="mantra-hero__actions">
+        <button class="btn btn--ghost" data-copy="#dailyMantra" type="button">Copiar</button>
+        <button class="btn btn--ghost" data-speak="#dailyMantra" type="button">Ouvir</button>
+        <button class="btn btn--ghost" id="favDailyBtn" type="button">Salvar nos favoritos</button>
+        <button class="btn" id="shuffleBtn" type="button">Sortear outro</button>
+      </div>
     </section>
+
+    <article class="card section-gap" id="tecnicas">
+      <div class="card__header">
+        <h2 class="card__title">Técnicas durante o trabalho</h2>
+        <span class="badge">guias</span>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Técnicas">
+        <button class="tab tab--active" data-tab="t1" type="button">2 min</button>
+        <button class="tab" data-tab="t2" type="button">5 min</button>
+        <button class="tab" data-tab="t3" type="button">Reset</button>
+      </div>
+
+      <div class="tabpanes">
+        <div class="pane pane--active" id="t1">
+          <ol class="list">
+            <li>Respire lento 3x (soltando mais longo do que puxando).</li>
+            <li>Recite o mantra (3x).</li>
+            <li>Defina 1 próxima ação objetiva (bem pequena).</li>
+          </ol>
+        </div>
+
+        <div class="pane" id="t2">
+          <ol class="list">
+            <li>1 min: respiração lenta.</li>
+            <li>2 min: mantra + gratidão (uma coisa real do momento).</li>
+            <li>2 min: planejar as próximas 2 tarefas.</li>
+          </ol>
+        </div>
+
+        <div class="pane" id="t3">
+          <ol class="list">
+            <li>Destrave a mandíbula, relaxe ombros.</li>
+            <li>Olhe um ponto fixo por 10 segundos e volte ao corpo.</li>
+            <li>Diga: “Eu escolho foco e presença agora.”</li>
+          </ol>
+        </div>
+      </div>
+    </article>
 
     <!-- ✅ LISTA COMPLETA -->
     <section class="card section-gap">
