@@ -845,3 +845,101 @@ Use exatamente os campos que os outros banhos usam. Os cuidados vão em `observa
 5. Hash errado no log (`4664020` → `9655bea`). `CACHE_VERSION` → `fv-v14`.
 
 **Próximo passo:** aguardar a nova tarefa do dono do site. Continuam valendo o backlog da seção 10 e a pendência das fotos (seções 13 e 14). As 4 ervas novas estão sem foto.
+
+---
+
+## 19. Fase 12 — Plantas fáceis de achar + Guia completo das velas (PRIORIDADE)
+
+**Pedido do dono do site:** novos banhos e defumações com plantas fáceis de achar (palmeira, jiboia, zamioculca, pimenta malagueta e biquinho), e um conteúdo completo sobre velas: como firmar, as cores e como ativar. O supervisor já fez a triagem de segurança abaixo. **Siga-a à risca: ela decide o que pode virar banho, defumação ou só planta de vaso.**
+
+| Planta | Banho | Defumação | Vaso / ambiente | Por quê |
+|---|---|---|---|---|
+| Palmeira (folha seca) | não | **sim** | sim | Costume real do ramo bento do Domingo de Ramos. |
+| Jiboia | **não** | **não** | sim | Tóxica (oxalato de cálcio): irrita a boca, a pele e os olhos. Perigosa para crianças e pets. |
+| Zamioculca | **não** | **não** | sim | Tóxica (oxalato de cálcio). A seiva irrita a pele. |
+| Pimenta malagueta / biquinho | **não** | **NUNCA** | sim | Queimar pimenta solta fumaça que arde nos olhos e no pulmão (é o princípio do spray de pimenta). No banho, queima a pele e as mucosas. |
+| Babosa | não | não | sim | O gel é seguro na pele, mas o látex amarelo da casca irrita e faz mal a pets. |
+| Folha de maracujá | **sim** | não | não | Banho calmante seguro e fácil de achar. |
+
+### 12.1 Ervas novas em `data/ervas.js`
+Use o formato das outras. Antes, confira se já não existem com outro nome. Para jiboia, zamioculca, pimenteira e babosa: `usos: ["ambiental"]` e `cabeca: "Nunca. Não usar em banho, chá nem defumação"`.
+
+- **Palmeira** (`palmeira`): "Folha de Palmeira (Ramo Bento)". Nome popular: coqueiro, dendezeiro, areca-bambu (*Cocos nucifera*, *Elaeis guineensis*, *Dypsis lutescens*). `objetivos`: proteção, harmonização. `usos`: defumação, ambiental. `partes`: folha.
+  - `tradicao`: no Domingo de Ramos, os ramos bentos levados da missa são guardados atrás da porta ou do quadro de santo. Em dia de temporal, é costume católico popular queimar um pedacinho e rezar a Santa Bárbara. No candomblé e na umbanda, a folha desfiada do dendezeiro é o **mariwô**, ligado a Ogum, usado em portas e portais como sinal de proteção do espaço.
+  - `cuidados`: **não confunda com a palmeira-sagu** (*Cycas revoluta*). Ela parece palmeira, mas não é, e é **muito tóxica** para cães e gatos (pode ser fatal). Folha seca de palmeira pega fogo rápido e solta faíscas: queime só pedaços pequenos.
+- **Jiboia** (`jiboia`; *Epipremnum aureum*). `objetivos`: harmonização, proteção. Sentido popular: planta que mantém o verde vivo dentro de casa, ocupa cantos parados e acompanha a vida da casa. Seja honesto: é um **uso popular de ambiente**, sem fundamento de terreiro amplamente difundido. `cuidados`: tóxica se mastigada; vasos altos, longe de crianças e pets; luvas na poda.
+- **Zamioculca** (`zamioculca`; *Zamioculcas zamiifolia*; "planta-da-fortuna"). `objetivos`: prosperidade, proteção. Sentido popular: firmeza e constância, porque resiste com pouca água e pouca luz. Pode ir em escritórios e na entrada do comércio. `cuidados`: igual à jiboia, com luvas ao mexer, porque a seiva irrita.
+- **Pimenteira** (`pimenteira`): "Pimenteira (Malagueta & Biquinho)" (*Capsicum frutescens* e *Capsicum chinense*). `objetivos`: proteção, limpeza.
+  - `diferenciacao`: a **malagueta** é ardida, a pimenteira clássica "de guarda" na porta. A **biquinho** quase não arde e serve para quem tem crianças e pets em casa e prefere uma guarda mais suave.
+  - `tradicao`: vaso de pimenteira na entrada contra olho-gordo e inveja, ligado à linha da esquerda e à sentinela de porteira (já citado no glossário). Crença popular: quando a pimenteira murcha ou seca de repente, "segurou" uma carga. Apresente como **crença**, e lembre que rega, sol e praga explicam a maior parte desses casos.
+  - `cuidados`: **nunca queimar e nunca usar em banho.** Lave as mãos depois de mexer e não leve aos olhos. Pets e crianças longe dos frutos.
+- **Babosa** (`babosa`; *Aloe vera*). `objetivos`: proteção, limpeza. Vaso na entrada, sentido popular de "cortar" olho-gordo. `cuidados`: o gel transparente é seguro na pele. O **látex amarelo** junto da casca irrita a pele e faz mal a pets. Não ingerir.
+- **Maracujá** (`maracuja`; *Passiflora edulis*; folha de maracujá). `objetivos`: calma, harmonização. `usos`: banho. `partes`: folha. `cabeca`: "Do pescoço para baixo". `cuidados`: uso externo suave; se fizer chá, ele dá sono, então gestantes evitam e não se mistura com remédios para dormir ou para ansiedade.
+- **Fotos:** a mesma regra da seção 17. Sem arquivo realmente baixado e creditado, deixe sem `imagem`.
+
+### 12.2 Banho e defumação novos
+**A) `data/banhos.js` → `banho-maracuja-cidreira-sono`: "Banho de Folha de Maracujá com Erva-cidreira (Calma para Dormir)"**
+- `objetivo`: calma. `intensidade`: suave. `cabeca`: false. `luas`: todas. `dias`: todos. `horario`: "à noite, 1 hora antes de dormir".
+- `ervas`: 7 folhas de Maracujá, um punhado de Erva-cidreira (use os nomes que o `findHerbFor` reconhece).
+- Preparo: ferva 2 L de água e desligue o fogo. Abafe as folhas por 10 minutos e coe. Espere ficar morno e jogue do pescoço para baixo, respirando devagar. Deite logo depois, sem tela.
+- `reza`: "Folha que acalma, água que acolhe: desatai a pressa do meu peito, aquietai meus pensamentos e me dai um sono de paz."
+- `observacao`: "DO PESCOÇO PARA BAIXO. Se a insônia ou a ansiedade forem frequentes, procure também um médico. O banho acolhe, mas não substitui o tratamento."
+
+**B) `data/defumacoes.js` → `defumacao-ramos-bentos-palmeira`: "Ramos Bentos de Palmeira (Proteção da Casa & Temporal)"**
+- `objetivo`: proteção. `intensidade`: media. `luas`: crescente e cheia. `horario`: "fim da tarde, ou em dia de temporal (só um pedacinho)".
+- `ervas`: folha seca de Palmeira (o ramo bento, ou folha seca de coqueiro ou areca), Alecrim e Louro.
+- `sentido`: do fundo da casa para a porta.
+- `reza`: "Ramo bento que a fé guardou: cobri esta casa, afastai o perigo e o mal, e que Santa Bárbara e todos os protetores desta morada nos guardem do raio e do vendaval."
+- `servePara`: proteção do lar e serenidade em dias de tempestade, seguindo o costume de queimar o ramo bento.
+- `cuidados`: "A folha seca queima rápido e solta faíscas: use pedaços pequenos, sobre brasa num turíbulo ou pires de barro, longe de cortinas. Em temporal, fique dentro de casa, longe de tomadas e aparelhos ligados. Janelas entreabertas para ventilar."
+
+### 12.3 "Plantas de vaso que guardam a casa" (bloco novo em `plantas.html`)
+- Um acordeão novo nos Fundamentos (`.fund details`), com um parágrafo curto: "Nem toda planta de proteção é de banho. Algumas trabalham vivas, no vaso."
+- Links para os cards de Espada-de-São-Jorge, Comigo-Ninguém-Pode, Jiboia, Zamioculca, Pimenteira, Babosa e Palmeira, cada um com **onde colocar** (porta, sala, comércio) e um selo **"tóxica para pets / crianças"** quando for o caso. Use classes, sem `style=""`.
+- Feche com um alerta (`.notice`): "Planta de vaso não vai para o banho nem para o fogo. Jiboia, zamioculca, comigo-ninguém-pode e pimenta irritam a pele, os olhos e a boca. Em caso de ingestão por criança ou animal, procure atendimento: CIATox 0800 722 6001."
+
+### 12.4 Guia completo das velas (`firmeza.html`)
+O altar interativo continua igual. **Abaixo dele**, os Fundamentos ganham estes acordeões, nesta ordem (os que já existem são revisados e ficam no meio):
+
+1. **"Como firmar uma vela, passo a passo"**
+   1. Lave as mãos e escolha um lugar firme e alto, longe de vento e cortinas.
+   2. **Consagre:** segure a vela entre as mãos e diga a intenção em voz baixa. Costume popular, opcional: untar com um pouco de azeite, **da base para o pavio** para chamar algo, **do pavio para a base** para afastar.
+   3. **Firme:** pingue um pouco de cera no pires e cole a base nela. É costume pôr um copo de água ao lado (para o Anjo da Guarda).
+   4. **Ative:** acenda (é costume usar fósforo), faça a prece e fique alguns minutos em silêncio, olhando a chama.
+   5. Deixe queimar até o fim. Se precisar sair, **apague abafando** (com tampa ou abafador; é costume não soprar) e reacenda depois com a mesma intenção.
+   6. **Depois:** agradeça. Restos de cera e de fósforo vão para o lixo comum. A água do copo vai para a terra ou para o ralo. Nunca jogue cera em rio ou mar.
+2. **"Tipos de vela":** palito (firmezas rápidas, de 1 a 3 horas), de 7 dias (em copo de vidro), de cera de abelha (mais limpa e doce) e bicolor (para linhas específicas). Para a de 7 dias: **sempre sobre prato ou pires, nunca direto sobre madeira ou toalha, porque o vidro pode trincar.**
+3. **"O significado das cores" (revisar o que já existe):** remova expressões como "vigor celular". Inclua as cores que faltam, sempre com a frase "**as correspondências variam de casa para casa; vale a orientação do seu terreiro**":
+   - **Rosa:** amor, ternura, autoestima; Ibejis e Erês.
+   - **Laranja:** alegria e ânimo.
+   - **Azul-claro:** Iemanjá, calma.
+   - **Azul-escuro:** em muitas casas, Ogum.
+   - **Marrom:** justiça, firmeza, Xangô.
+   - **Lilás:** transmutação suave, Nanã (algumas casas).
+   - **Preta e branca:** Pretos Velhos.
+   - **Preta e vermelha:** Exu e linha da esquerda. **Só com orientação de um terreiro.**
+4. **"O que a chama mostra (leitura popular)":** chama alta e firme; chama que tremula ou estala; vela que "chora" muito; pavio que se divide; vela que apaga sozinha. Apresente como **leitura popular, sem recado garantido**. Comece pelo checklist físico (o mesmo espírito do alerta de mediunidade olfativa): **vento, pavio comprido, vela torta e cera de baixa qualidade explicam a maior parte desses casos.**
+5. **"Vela do Anjo da Guarda":** vela branca, um copo de água e uma prece curta, uma vez por semana (é costume fazer na segunda-feira).
+- Mantenha o alerta de fogo que já existe no topo e acrescente: "nunca durma com vela acesa; nada de vela no quarto de criança".
+
+### 12.5 Novas cores no altar interativo + limpeza do código
+- Hoje as cores estão em hexadecimal fixo no `COLORS` do `script/script.js` (perto da linha 1196) e em `style="--c:…"` nos botões de `firmeza.html`. **Isso viola a seção 8.** Refatore assim:
+  - No fim do CSS, crie os tokens `--vela-branca`, `--vela-amarela`, `--vela-verde`, `--vela-azul`, `--vela-violeta`, `--vela-vermelha`, `--vela-rosa`, `--vela-laranja`, `--vela-marrom`, `--vela-preta`.
+  - Crie as classes `.color-pill--<cor>` e uma regra `.candle-wrapper[data-cor="<cor>"]` que define `--vela` e `--vela-2` (a segunda só nas bicolores). Corpo e aura saem de `var(--vela)` com `color-mix()`.
+  - No JS, o clique só faz `candleWrapper.dataset.cor = colKey` e troca o rótulo. **Apague** o objeto `COLORS` e os `style.background`.
+- Adicione os botões rosa, laranja, marrom, preta e branca (Pretos Velhos) e preta e vermelha (Exu, com rótulo "só com orientação"). As bicolores são metade de cada cor no corpo da vela.
+- Remova os 14 `style=""` de `firmeza.html`, trocando por classes na camada final.
+
+### 12.6 Glossário
+Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **Vela de 7 dias**, **CIATox**.
+
+### 12.7 Regras desta fase
+- Tom acolhedor, sem promessa ("garante", "infalível", "impenetrável"). Respeito às tradições católica, umbandista e do candomblé.
+- **Registre no log a origem** de todo conteúdo fora deste plano.
+- Testar a 1440 px e a 375 px, **e offline**:
+  - busca por "jiboia", "pimenta", "palmeira" e "maracujá";
+  - abrir o banho e a defumação novos pelo `#id`;
+  - clicar em **todas** as cores do altar (incluindo as bicolores);
+  - console limpo e sem rolagem lateral;
+  - `grep 'style="' firmeza.html` deve voltar vazio.
+- Um commit por subtarefa (12.1 a 12.6), cada um registrado no log. No fim, `CACHE_VERSION` → `fv-v15`.
