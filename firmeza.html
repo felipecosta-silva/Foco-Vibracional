@@ -40,14 +40,14 @@
       </p>
     </section>
 
-    <div class="notice" style="margin-bottom:22px;">
+    <div class="notice firmeza-notice">
       <strong>Segurança com o fogo:</strong> acenda a vela sobre um pires ou prato firme, longe de cortinas, papéis e do alcance de crianças e animais. Nunca deixe a chama acesa sem ninguém por perto, <strong>nunca durma com vela acesa e nada de vela no quarto de criança</strong> — se precisar sair, apague abafando e reacenda depois com a mesma intenção.
     </div>
 
     <div class="firmeza-layout">
       <!-- PALCO DA VELA -->
       <section class="card firmeza-altar" aria-label="Altar da Vela">
-        <div class="candle-wrapper" id="candleWrapper">
+        <div class="candle-wrapper" id="candleWrapper" data-cor="branca">
           <div class="candle-aura" id="candleAura"></div>
           <div class="candle-flame" id="candleFlame"></div>
           <div class="candle-wick"></div>
@@ -56,13 +56,13 @@
         </div>
 
         <div class="firmeza-meta">
-          <span class="badge" id="candleLabel">Vela Branca • Paz & Iluminação do Ori</span>
+          <span class="badge" id="candleLabel">Vela Branca • Paz &amp; Iluminação do Ori</span>
           <p class="firmeza-intention-display" id="firmezaIntentionDisplay">“Abençoada seja a luz que guia meus passos em serenidade.”</p>
         </div>
 
         <div class="firmeza-timer-box">
           <div class="firmeza-timer" id="timerDisplay">05:00</div>
-          <div class="row wrap-row" style="justify-content:center; gap:8px;">
+          <div class="row wrap-row firmeza-timer-actions">
             <button class="btn" type="button" id="btnTimerToggle">Iniciar Firmeza 🕯️</button>
             <button class="btn btn--ghost" type="button" id="btnTimerReset">Zerar</button>
             <button class="btn btn--ghost icon-btn" type="button" id="btnSoundToggle" title="Ativar som do sino">🔔</button>
@@ -78,29 +78,34 @@
 
       <!-- CONTROLES E CONSAGRAÇÃO -->
       <section class="card firmeza-controls" aria-label="Consagração e Intenção">
-        <h2 class="card__title" style="margin-bottom:12px;">Consagrar a Chama</h2>
+        <h2 class="card__title firmeza-controls__title">Consagrar a Chama</h2>
 
         <div class="form-group">
           <span class="form-label">1. Escolha a irradiação da vela:</span>
           <div class="candle-color-selector">
-            <button class="color-pill color-pill--active" type="button" data-candle-color="branca" data-label="Vela Branca • Paz, Luz no Ori & Oxalá" style="--c:#ffffff; --glow:rgba(255,255,255,0.4);">⚪ Branca</button>
-            <button class="color-pill" type="button" data-candle-color="amarela" data-label="Vela Amarela • Fartura, Ouro & Prosperidade (Oxum)" style="--c:#f5d061; --glow:rgba(245,208,97,0.5);">🟡 Amarela</button>
-            <button class="color-pill" type="button" data-candle-color="verde" data-label="Vela Verde • Saúde, Cura & Equilíbrio das Matas (Caboclos)" style="--c:#48bb78; --glow:rgba(72,187,120,0.5);">🟢 Verde</button>
-            <button class="color-pill" type="button" data-candle-color="azul" data-label="Vela Azul • Serenidade, Harmonia Familiar & Águas (Iemanjá)" style="--c:#63b3ed; --glow:rgba(99,179,237,0.5);">🔵 Azul</button>
-            <button class="color-pill" type="button" data-candle-color="violeta" data-label="Vela Violeta • Transmutação & Quebra de Padrões (Obaluaê)" style="--c:#b794f4; --glow:rgba(183,148,244,0.5);">🟣 Violeta</button>
-            <button class="color-pill" type="button" data-candle-color="vermelha" data-label="Vela Vermelha • Força, Abertura de Caminhos & Coragem (Ogum)" style="--c:#fc8181; --glow:rgba(252,129,129,0.5);">🔴 Vermelha</button>
+            <button class="color-pill color-pill--branca color-pill--active" type="button" data-candle-color="branca" data-label="Vela Branca • Paz, Luz no Ori & Oxalá">Branca</button>
+            <button class="color-pill color-pill--amarela" type="button" data-candle-color="amarela" data-label="Vela Amarela • Fartura, Ouro & Prosperidade (Oxum)">Amarela</button>
+            <button class="color-pill color-pill--verde" type="button" data-candle-color="verde" data-label="Vela Verde • Saúde, Cura & Equilíbrio das Matas (Caboclos)">Verde</button>
+            <button class="color-pill color-pill--azul" type="button" data-candle-color="azul" data-label="Vela Azul • Serenidade, Harmonia Familiar & Águas (Iemanjá)">Azul</button>
+            <button class="color-pill color-pill--violeta" type="button" data-candle-color="violeta" data-label="Vela Violeta • Transmutação & Quebra de Padrões (Obaluaê)">Violeta</button>
+            <button class="color-pill color-pill--vermelha" type="button" data-candle-color="vermelha" data-label="Vela Vermelha • Força, Abertura de Caminhos & Coragem (Ogum)">Vermelha</button>
+            <button class="color-pill color-pill--rosa" type="button" data-candle-color="rosa" data-label="Vela Rosa • Amor, Ternura & Autoestima (Ibejis)">Rosa</button>
+            <button class="color-pill color-pill--laranja" type="button" data-candle-color="laranja" data-label="Vela Laranja • Alegria de Viver, Vitalidade & Ânimo">Laranja</button>
+            <button class="color-pill color-pill--marrom" type="button" data-candle-color="marrom" data-label="Vela Marrom • Justiça, Firmeza & Equilíbrio (Xangô)">Marrom</button>
+            <button class="color-pill color-pill--preta-branca" type="button" data-candle-color="preta-branca" data-label="Vela Bicolor Preta e Branca • Sabedoria, Humildade & Cura (Pretos Velhos)">Preta e Branca</button>
+            <button class="color-pill color-pill--preta-vermelha" type="button" data-candle-color="preta-vermelha" data-label="Vela Bicolor Preta e Vermelha • Guardiões & Porteira (só com orientação)">Preta e Vermelha (só com orientação)</button>
           </div>
         </div>
 
-        <div class="form-group" style="margin-top:16px;">
+        <div class="form-group form-group--spaced">
           <label for="inputIntencao" class="form-label">2. Qual é a sua intenção ou pedido de coração?</label>
           <input type="text" id="inputIntencao" class="form-input" placeholder="Ex.: Clareza mental para uma decisão; Paz na minha casa; Proteção..." maxlength="120" />
-          <p class="muted small" style="margin-top:4px;">Mentalize com clareza enquanto digita. O pensamento firme é a verdadeira vela acesa.</p>
+          <p class="muted small form-hint">Mentalize com clareza enquanto digita. O pensamento firme é a verdadeira vela acesa.</p>
         </div>
 
-        <div class="dsec dsec--tea" style="margin-top:18px;">
-          <h3 style="font-size:.95rem; margin-bottom:6px;">✨ Prece de Firmeza da Jurema</h3>
-          <p class="muted small" style="line-height:1.5;">
+        <div class="dsec dsec--tea firmeza-prece">
+          <h3 class="firmeza-prece__title">✨ Prece de Firmeza da Jurema</h3>
+          <p class="muted small firmeza-prece__text">
             “Em nome de Deus todo-poderoso, dos Mestres e Mestras da Jurema Sagrada e de todas as forças benfazejas que guardam meus caminhos: firmo esta chama viva em meu favor. Que onde houver trevas, se faça a luz. Que onde houver dúvida, reine a clareza. Que meu anjo da guarda seja fortalecido e que a paz habite meu ser. Amém, Axé!”
           </p>
         </div>

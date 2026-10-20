@@ -1192,33 +1192,8 @@ function initFirmezaPage() {
   let isRunning = false;
   let soundEnabled = true;
 
-  // Mapa de cores e auras
-  const COLORS = {
-    branca: {
-      body: "linear-gradient(180deg, #f8f9fa, #e2e8f0)",
-      aura: "radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(227, 184, 103, 0.25) 50%, transparent 75%)"
-    },
-    amarela: {
-      body: "linear-gradient(180deg, #fef08a, #f59e0b)",
-      aura: "radial-gradient(circle, rgba(251, 191, 36, 0.55) 0%, rgba(245, 158, 11, 0.3) 50%, transparent 75%)"
-    },
-    verde: {
-      body: "linear-gradient(180deg, #86efac, #16a34a)",
-      aura: "radial-gradient(circle, rgba(74, 222, 128, 0.5) 0%, rgba(22, 163, 74, 0.25) 50%, transparent 75%)"
-    },
-    azul: {
-      body: "linear-gradient(180deg, #93c5fd, #2563eb)",
-      aura: "radial-gradient(circle, rgba(96, 165, 250, 0.5) 0%, rgba(37, 99, 235, 0.25) 50%, transparent 75%)"
-    },
-    violeta: {
-      body: "linear-gradient(180deg, #d8b4fe, #7c3aed)",
-      aura: "radial-gradient(circle, rgba(192, 132, 252, 0.5) 0%, rgba(124, 58, 237, 0.25) 50%, transparent 75%)"
-    },
-    vermelha: {
-      body: "linear-gradient(180deg, #fca5a5, #dc2626)",
-      aura: "radial-gradient(circle, rgba(248, 113, 113, 0.5) 0%, rgba(220, 38, 38, 0.25) 50%, transparent 75%)"
-    }
-  };
+  // Cor inicial pelo dataset
+  candleWrapper.dataset.cor = candleWrapper.dataset.cor || "branca";
 
   function playTibetanBowl() {
     if (!soundEnabled) return;
@@ -1334,10 +1309,8 @@ function initFirmezaPage() {
     cp.addEventListener("click", () => {
       colorPills.forEach(x => x.classList.remove("color-pill--active"));
       cp.classList.add("color-pill--active");
-      const colKey = cp.dataset.candleColor;
-      const col = COLORS[colKey] || COLORS.branca;
-      if (candleBody) candleBody.style.background = col.body;
-      if (candleAura) candleAura.style.background = col.aura;
+      const colKey = cp.dataset.candleColor || "branca";
+      candleWrapper.dataset.cor = colKey;
       if (candleLabel) candleLabel.textContent = cp.dataset.label;
     });
   });

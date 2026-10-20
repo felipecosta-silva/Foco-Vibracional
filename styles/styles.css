@@ -4243,3 +4243,166 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   color: var(--accent);
   text-decoration-color: var(--accent);
 }
+
+/* ==========================================================================
+   Tokens e Estilos do Altar das Velas (Fase 12)
+   ========================================================================== */
+:root {
+  --vela-branca: #f8fafc;
+  --vela-amarela: #f5d061;
+  --vela-verde: #48bb78;
+  --vela-azul: #63b3ed;
+  --vela-violeta: #b794f4;
+  --vela-vermelha: #fc8181;
+  --vela-rosa: #f472b6;
+  --vela-laranja: #fb923c;
+  --vela-marrom: #92400e;
+  --vela-preta: #1e1e1e;
+}
+
+.candle-wrapper {
+  --vela: var(--vela-branca);
+  --vela-2: var(--vela-branca);
+}
+
+.candle-wrapper[data-cor="branca"] {
+  --vela: var(--vela-branca);
+  --vela-2: var(--vela-branca);
+}
+
+.candle-wrapper[data-cor="amarela"] {
+  --vela: var(--vela-amarela);
+  --vela-2: var(--vela-amarela);
+}
+
+.candle-wrapper[data-cor="verde"] {
+  --vela: var(--vela-verde);
+  --vela-2: var(--vela-verde);
+}
+
+.candle-wrapper[data-cor="azul"] {
+  --vela: var(--vela-azul);
+  --vela-2: var(--vela-azul);
+}
+
+.candle-wrapper[data-cor="violeta"] {
+  --vela: var(--vela-violeta);
+  --vela-2: var(--vela-violeta);
+}
+
+.candle-wrapper[data-cor="vermelha"] {
+  --vela: var(--vela-vermelha);
+  --vela-2: var(--vela-vermelha);
+}
+
+.candle-wrapper[data-cor="rosa"] {
+  --vela: var(--vela-rosa);
+  --vela-2: var(--vela-rosa);
+}
+
+.candle-wrapper[data-cor="laranja"] {
+  --vela: var(--vela-laranja);
+  --vela-2: var(--vela-laranja);
+}
+
+.candle-wrapper[data-cor="marrom"] {
+  --vela: var(--vela-marrom);
+  --vela-2: var(--vela-marrom);
+}
+
+.candle-wrapper[data-cor="preta-branca"] {
+  --vela: var(--vela-preta);
+  --vela-2: var(--vela-branca);
+}
+
+.candle-wrapper[data-cor="preta-vermelha"] {
+  --vela: var(--vela-preta);
+  --vela-2: var(--vela-vermelha);
+}
+
+/* Corpo e aura da vela alimentados pelas variáveis com color-mix */
+.candle-wrapper .candle-body {
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--vela) 80%, #ffffff) 0%,
+    var(--vela) 50%,
+    color-mix(in srgb, var(--vela) 75%, #000000) 100%
+  );
+  box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), inset 6px 0 10px rgba(255,255,255,0.2), var(--shadow-sm);
+  transition: background .35s ease;
+}
+
+/* Bicolores: metade de cima e metade de baixo */
+.candle-wrapper[data-cor="preta-branca"] .candle-body,
+.candle-wrapper[data-cor="preta-vermelha"] .candle-body {
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--vela) 75%, #ffffff) 0%,
+    var(--vela) 49%,
+    var(--vela-2) 51%,
+    color-mix(in srgb, var(--vela-2) 75%, #000000) 100%
+  );
+}
+
+.candle-wrapper .candle-aura {
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--vela) 50%, transparent) 0%,
+    color-mix(in srgb, var(--vela) 22%, transparent) 50%,
+    transparent 72%
+  );
+  transition: background .35s ease;
+}
+
+/* Pílulas de seleção de cores de vela */
+.color-pill::before {
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.color-pill--branca::before { background: var(--vela-branca); }
+.color-pill--amarela::before { background: var(--vela-amarela); }
+.color-pill--verde::before { background: var(--vela-verde); }
+.color-pill--azul::before { background: var(--vela-azul); }
+.color-pill--violeta::before { background: var(--vela-violeta); }
+.color-pill--vermelha::before { background: var(--vela-vermelha); }
+.color-pill--rosa::before { background: var(--vela-rosa); }
+.color-pill--laranja::before { background: var(--vela-laranja); }
+.color-pill--marrom::before { background: var(--vela-marrom); }
+.color-pill--preta-branca::before {
+  background: linear-gradient(180deg, var(--vela-preta) 50%, var(--vela-branca) 50%);
+}
+.color-pill--preta-vermelha::before {
+  background: linear-gradient(180deg, var(--vela-preta) 50%, var(--vela-vermelha) 50%);
+}
+
+/* Classes para eliminar os inline style de firmeza.html */
+.firmeza-notice {
+  margin-bottom: 22px;
+}
+.firmeza-timer-actions {
+  justify-content: center;
+  gap: 8px;
+}
+.firmeza-controls__title {
+  margin-bottom: 12px;
+}
+.form-group--spaced {
+  margin-top: 16px;
+}
+.form-hint {
+  margin-top: 4px;
+}
+.firmeza-prece {
+  margin-top: 18px;
+}
+.firmeza-prece__title {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.firmeza-prece__text {
+  line-height: 1.5;
+}
+
