@@ -361,7 +361,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PÉTALAS AMARELAS vs. SEMENTES PRETAS:\n• Pétalas Frescas: Usadas em banhos solares da coroa aos pés para elevar a autoestima, irradiar magnetismo pessoal, clarear a aura e atrair simpatias puras.\n• Sementes de Girassol: Usadas em patuás de riqueza, defumações secas e mandalas de sementes para atrair prosperidade multiplicada, crescimento de colheita e estabilidade financeira.",
   "colheita": "Colher pela manhã com o sol alto quando a flor estiver totalmente aberta em direção ao nascente.",
   "cuidados": "Para banhos, prefira sempre flores naturais sem pesticidas ou conservantes químicos de floricultura comercial.",
-  "tradicao": "Associada a Oxum das Águas Doces e à pureza de Oxalá. Muito usada nos terreiros para pessoas em depressão ou sentindo-se esquecidas e desvalorizadas."
+  "tradicao": "Associada a Oxum das Águas Doces e à pureza de Oxalá. Muito usada nos terreiros para pessoas em depressão ou sentindo-se esquecidas e desvalorizadas.",
+  "imagem": "./images/girassol.jpg"
  },
  {
   "id": "brilhantina",
@@ -387,7 +388,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PLANTA FRESCA ORVALHADA vs. SECA:\n• Folhas Vivas (Frescas): Carregam a seiva cristalina primordial que refresca o Ori e acalma crianças inquietas; macerada sempre com água fria.\n• Planta Seca: Perde a força condutora do frescor; a brilhantina deve ser sempre utilizada viva e fresca nos banhos de asseio.",
   "colheita": "Colher nas primeiras horas da manhã com o orvalho ainda brilhando nas folhas miúdas. Macerar com delicadeza.",
   "cuidados": "Planta frágil; lavar bem com água limpa para retirar partículas de terra antes da maceração.",
-  "tradicao": "Consagrada a Mamãe Oxum e Iemanjá. É a erva que traz o 'brilho da graça': atrai simpatia nas relações, leveza no olhar e harmonia nos lares abalados por brigas."
+  "tradicao": "Consagrada a Mamãe Oxum e Iemanjá. É a erva que traz o 'brilho da graça': atrai simpatia nas relações, leveza no olhar e harmonia nos lares abalados por brigas.",
+  "imagem": "./images/brilhantina.jpg"
  },
  {
   "id": "samambaia",
@@ -411,7 +413,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "SAMAMBAIA DE VASO SUSPENSO vs. SAMAMBAIA DO MATO:\n• No Vaso Suspenso: Atua como filtro áurico contínuo na porta de entrada ou varanda, retendo a carga densa das visitas antes que ela entre na sala.\n• Colhida na Mata Virgem: Folhas fortes colhidas sob preceito de Oxóssi para banhos de descarrego pesado dos pés e quebra de quebranto em adultos.",
   "colheita": "Cortar ramos maduros com tesoura bem limpa, agradecendo à força das matas e a Oxóssi.",
   "cuidados": "NÃO INGERIR (algumas espécies silvestres possuem glicosídeos tóxicos). Uso rigorosamente externo dos ombros para baixo.",
-  "tradicao": "Consagrada ao Orixá Oxóssi e a todos os Caboclos flecheiros das matas. É o manto vegetal que esconde o caçador e desvia os dardos da inveja."
+  "tradicao": "Consagrada ao Orixá Oxóssi e a todos os Caboclos flecheiros das matas. É o manto vegetal que esconde o caçador e desvia os dardos da inveja.",
+  "imagem": "./images/samambaia.jpg"
  },
  {
   "id": "manga",
@@ -437,7 +440,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "MANGA ESPADA vs. MANGA ROSA:\n• Manga-Espada (folha mais alongada e rígida): Usada preferencialmente em feixes de 'Bate-Folha' e banhos de descarrego incisivo para cortar demandas.\n• Manga-Rosa (folha mais aromática e larga): Muito usada em defumações de força de trabalho e banhos de ânimo e disposição matinal.",
   "colheita": "Colher folhas verdes maduras de mangueiras sadias, quebrando o talo com firmeza e pedindo licença aos guerreiros.",
   "cuidados": "A seiva leitosa fresca do pecíolo da manga pode manchar tecidos ou irritar peles muito sensíveis; lave as folhas antes do preparo.",
-  "tradicao": "O feixe de folhas de manga é o instrumento predileto dos Boiadeiros e Caboclos de Ogum para 'bater folha' em comércios que estão sem movimento."
+  "tradicao": "O feixe de folhas de manga é o instrumento predileto dos Boiadeiros e Caboclos de Ogum para 'bater folha' em comércios que estão sem movimento.",
+  "imagem": "./images/manga.jpg"
  },
  {
   "id": "amora",
@@ -464,7 +468,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher ao cair da tarde com reverência e silêncio, homenageando os ancestrais que já partiram.",
   "cuidados": "Uso externo extremamente seguro e calmante para todas as idades.",
   "tradicao": "Regida pelas águas profundas e pela lama primordial de Nanã. É o banho que enxuga as lágrimas secretas e traz paciência para aguardar o tempo certo das coisas.",
-  "cha": "CHÁ DE FOLHA DE AMORA DAS RAIZEIRAS: 1 colher de sopa de folhas secas picadas (ou 3 folhas frescas) em 250ml de água fervente por 10 minutos abafado. Muito celebrado secularmente na medicina popular brasileira para alívio dos calores e oscilações do climatério/menopausa, regulação metabólica, combate ao estresse oxidativo e ação anti-inflamatória natural."
+  "cha": "CHÁ DE FOLHA DE AMORA DAS RAIZEIRAS: 1 colher de sopa de folhas secas picadas (ou 3 folhas frescas) em 250ml de água fervente por 10 minutos abafado. Muito celebrado secularmente na medicina popular brasileira para alívio dos calores e oscilações do climatério/menopausa, regulação metabólica, combate ao estresse oxidativo e ação anti-inflamatória natural.",
+  "imagem": "./images/amora.jpg"
  },
  {
   "id": "anis-estrelado",
@@ -493,7 +498,8 @@ window.FV_DATA.ervas = [
   "colheita": "Utilizar as estrelas secas inteiras de boa qualidade aromática com as sementinhas reluzentes nos carpelos.",
   "cuidados": "Usar apenas a espécie verdadeira (Illicium verum). Não confundir com o anis japonês tóxico.",
   "tradicao": "Muito consagrado nas falanges das Mestras da Jurema (Mestra Paulina, Mestra Laura) e no Povo Cigano do Oriente para abertura do sexto sentido.",
-  "cha": "CHÁ DE ANIS-ESTRELADO: Ferver 1 a 2 estrelas em 300ml de água por 5 minutos. Excelente digestivo, alivia gases, reduz inchaço abdominal, aromatiza o hálito e traz leveza e clareza mental."
+  "cha": "CHÁ DE ANIS-ESTRELADO: Ferver 1 a 2 estrelas em 300ml de água por 5 minutos. Excelente digestivo, alivia gases, reduz inchaço abdominal, aromatiza o hálito e traz leveza e clareza mental.",
+  "imagem": "./images/anis-estrelado.jpg"
  },
  {
   "id": "canela",
@@ -520,7 +526,8 @@ window.FV_DATA.ervas = [
   "colheita": "Cascas secas de aroma doce, picante e penetrante.",
   "cuidados": "Altamente aromática e quente. Pode provocar vermelhidão em peles sensíveis se muito concentrada. Jamais jogar nos olhos ou na cabeça.",
   "tradicao": "Regida pelas forças solares e pelas Mestras e Pombagiras de lei que trabalham com magnetismo de atração, abertura de cofres e vitalidade de vida.",
-  "cha": "CHÁ DE CANELA EM PAU: Ferva 1 canela em pau em 300ml de água por 5 a 8 minutos. Poderoso termogênico natural que aquece o corpo, estimula a circulação, acelera o metabolismo e dá ânimo. (Contraindicado para gestantes e pessoas com hipertensão severa sem controle)."
+  "cha": "CHÁ DE CANELA EM PAU: Ferva 1 canela em pau em 300ml de água por 5 a 8 minutos. Poderoso termogênico natural que aquece o corpo, estimula a circulação, acelera o metabolismo e dá ânimo. (Contraindicado para gestantes e pessoas com hipertensão severa sem controle).",
+  "imagem": "./images/canela.jpg"
  },
  {
   "id": "pinhao-roxo",
@@ -546,7 +553,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PINHÃO ROXO vs. PINHÃO BRANCO:\n• Pinhão Roxo (folhas roxas arroxeadas): Ação agressiva de corte, choque elétrico vegetal que desmancha demandas pesadas e limpa o campo áurico de vampirizações.\n• Pinhão Branco (folhas verdes claras): Ação de limpeza mais amena, usado em lavagens de chão de casas e firmezas de quintal.",
   "colheita": "Colher com luvas ou cautela com pedido de licença cantado aos Guardiões da terra. Lavar as mãos com sabão neutro imediatamente após o corte.",
   "cuidados": "PLANTA ALTAMENTE TÓXICA SE INGERIDA. Manter longe de crianças e animais de estimação. Uso exclusivamente ritualístico externo do pescoço para baixo.",
-  "tradicao": "Planta consagrada a Ogum, Xangô e Exu. Plantada na frente das casas de axé e porteiras de juremados como sentinela viva contra energias ruins."
+  "tradicao": "Planta consagrada a Ogum, Xangô e Exu. Plantada na frente das casas de axé e porteiras de juremados como sentinela viva contra energias ruins.",
+  "imagem": "./images/pinhao-roxo.jpg"
  },
  {
   "id": "peregum",
@@ -571,7 +579,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PEREGUM VERDE vs. PEREGUM RAJADO/VERMELHO:\n• Peregum Verde Puro: Consagrado a Oxóssi e Ossaim; traz vigor da mata fechada, fartura nos caminhos e purificação dos filhos de fé.\n• Peregum Rajado/Vermelho: Consagrado a Ogum e Iansã; lâmina vegetal que corta cordões fluídicos de obsessão, inveja furiosa e demandas de cemitério.",
   "colheita": "Colher as folhas inteiras em número ímpar (3, 7 ou 9) com oração ou cantiga tradicional de licença aos encantos da mata.",
   "cuidados": "Folhas resistentes e firmes; uso ritualístico externo em feixes ou banhos macerados.",
-  "tradicao": "É a folha mestra do 'Bate-Folha' (Sasanyin): feixes de peregum são passados com cantigas vigorosas rente ao corpo do consulente para descolar cargas pesadas da aura."
+  "tradicao": "É a folha mestra do 'Bate-Folha' (Sasanyin): feixes de peregum são passados com cantigas vigorosas rente ao corpo do consulente para descolar cargas pesadas da aura.",
+  "imagem": "./images/peregum.jpg"
  },
  {
   "id": "mamona",
@@ -595,7 +604,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "MAMONA BRANCA vs. MAMONA ROXA:\n• Mamona Branca (talo verde): Usada como forro de bacias de banhos de descarrego, esteira para os pés durante rituais de limpeza e faxina espiritual de assoalhos.\n• Mamona Roxa (talo arroxeado): Usada nos descarregos mais severos de terreiro para quebra de magia pesada, assentamentos de encruza e sacudimentos profundos.",
   "colheita": "Colher folhas grandes e bem formadas, quebrando com cuidado para não tocar nos frutos com espinhos.",
   "cuidados": "ATENÇÃO MÁXIMA: AS SEMENTES SÃO EXTREMAMENTE VENENOSAS (contêm ricina). Nunca manuseie sementes. Utilize apenas as folhas sadias para uso externo de limpeza.",
-  "tradicao": "Sagrada para Omulu, Obaluaê e Exu. É a folha sobre a qual o consulente pisa descalço durante o descarrego para descarregar o peso diretamente na terra."
+  "tradicao": "Sagrada para Omulu, Obaluaê e Exu. É a folha sobre a qual o consulente pisa descalço durante o descarrego para descarregar o peso diretamente na terra.",
+  "imagem": "./images/mamona.jpg"
  },
  {
   "id": "mamao",
@@ -619,7 +629,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "FOLHA DO MAMÃO MACHO vs. FÊMEA:\n• Mamão Macho (que não produz frutos, apenas flores em cachos longos): A folha é considerada mais cortante e rápida para quebrar mau-olhado de rua e descarrego repentino.\n• Mamão Fêmea (que dá os frutos carnosos): Ação mais acolhedora de alívio de esgotamento físico e dores crônicas de cansaço no corpo.",
   "colheita": "Colher folhas verdes grandes sem manchas amarelas, lavando bem a seiva leitosa.",
   "cuidados": "A seiva branca pode ser levemente cáustica em peles muito finas. Lavar a folha antes de macerar em bastante água.",
-  "tradicao": "Muito utilizada pelas benzedeiras para sacudir o quarto de enfermos e convalescentes, retirando a atmosfera estagnada de sofrimento e trazendo ar fresco renovado."
+  "tradicao": "Muito utilizada pelas benzedeiras para sacudir o quarto de enfermos e convalescentes, retirando a atmosfera estagnada de sofrimento e trazendo ar fresco renovado.",
+  "imagem": "./images/mamao.jpg"
  },
  {
   "id": "salsa",
@@ -648,7 +659,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher ramos viçosos e verdes logo pela manhã. Macerar fresca em água mineral ou da quartinha.",
   "cuidados": "Uso externo extremamente seguro e acessível. Gestantes devem usar apenas topicamente em banho morno, sem ingestão de chás concentrados.",
   "tradicao": "Consagrada a Mamãe Oxum e às ciganas de prosperidade. Considerada a erva do 'dinheiro rápido': quando os negócios estão lentos, o banho de salsa abre as portas com leveza.",
-  "cha": "CHÁ DE SALSA (SALSINHA): 2 colheres de salsinha fresca picada em 250ml de água quente por 10 minutos. Poderoso diurético natural tradicional para eliminar retenção de líquidos e desinchar. (PROIBIDO PARA GESTANTES)."
+  "cha": "CHÁ DE SALSA (SALSINHA): 2 colheres de salsinha fresca picada em 250ml de água quente por 10 minutos. Poderoso diurético natural tradicional para eliminar retenção de líquidos e desinchar. (PROIBIDO PARA GESTANTES).",
+  "imagem": "./images/salsa.jpg"
  },
  {
   "id": "oregano",
@@ -675,7 +687,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "FOLHA SECA PARA DEFUMAÇÃO vs. RAMO FRESCO EM BANHO:\n• Folha Seca na Brasa: Queima perfumando o ambiente com notas balsâmicas quentes, transmutando brigas de casal em aconchego e selando o teto com paz.\n• Ramos Frescos em Infusão: Banho revitalizante que solta tensões nos ombros e renova o afeto entre os moradores da casa.",
   "colheita": "Folhas secas de boa procedência ou colheita matinal de ramos viçosos da horta.",
   "cuidados": "Uso externo muito tranquilo. Em defumação, salpicar aos poucos sobre a brasa para não sufocar o braseiro.",
-  "tradicao": "Tradicional na magia doméstica mediterrânea e brasileira. Associada à deusa Afrodite e aos espíritos pacificadores do lar; onde o orégano fumega, o rancor não permanece."
+  "tradicao": "Tradicional na magia doméstica mediterrânea e brasileira. Associada à deusa Afrodite e aos espíritos pacificadores do lar; onde o orégano fumega, o rancor não permanece.",
+  "imagem": "./images/oregano.jpg"
  },
  {
   "id": "tomilho",
@@ -704,7 +717,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher ramos maduros sob sol forte quando a concentração de timol está no ápice.",
   "cuidados": "Uso externo seguro. Peles hipersensíveis devem usar infusão suave e diluída.",
   "tradicao": "Desde os templos antigos até os terreiros de Caboclo de Ogum e Xangô, o tomilho é o banho que 'infunde fogo no peito do cansado'.",
-  "cha": "CHÁ DE TOMILHO: 1 colher de chá em 250ml de água fervente por 10 minutos. Excelente antisséptico das vias respiratórias e reconfortante do peito."
+  "cha": "CHÁ DE TOMILHO: 1 colher de chá em 250ml de água fervente por 10 minutos. Excelente antisséptico das vias respiratórias e reconfortante do peito.",
+  "imagem": "./images/tomilho.jpg"
  },
  {
   "id": "cravo-da-india",
@@ -732,7 +746,8 @@ window.FV_DATA.ervas = [
   "colheita": "Botões secos bem formados com a corola redonda intacta.",
   "cuidados": "Nunca utilizar nos olhos nem verter sobre a coroa da cabeça. Pode irritar mucosas.",
   "tradicao": "Consagrado aos Pretos Velhos e Guardiões da Estrada. Muito usado em patuás de proteção nos bolsos de quem trabalha no comércio.",
-  "cha": "CHÁ DE CRAVO-DA-ÍNDIA: Ferva 4 a 5 cravos em 250ml de água por 5 minutos. Antisséptico natural bucal, digestivo, combate náuseas e aquece o organismo nos dias frios."
+  "cha": "CHÁ DE CRAVO-DA-ÍNDIA: Ferva 4 a 5 cravos em 250ml de água por 5 minutos. Antisséptico natural bucal, digestivo, combate náuseas e aquece o organismo nos dias frios.",
+  "imagem": "./images/cravo-da-india.jpg"
  },
  {
   "id": "noz-moscada",
@@ -759,7 +774,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "SEMENTE RALADA NA HORA vs. PÓ INDUSTRIAL:\n• Ralada no Ralador na Hora: Libera óleos voláteis cristalinos que ativam o magnetismo de vitória em banhos de infusão.\n• Noz Inteira em Patuá: Carregada no bolso esquerdo enrolada em pano vermelho para atrair ganhos inesperados e boa ventura nos jogos e propostas.",
   "colheita": "Sementes duras e aromáticas raladas em quantidade moderada (meia noz basta para 2 litros de água).",
   "cuidados": "NÃO INGERIR EM GRANDES QUANTIDADES (tem propriedades entorpecentes em excesso). Uso estritamente externo e moderado.",
-  "tradicao": "Segredo antigo do Catimbó e das feiticeiras populares: a noz-moscada é chamada de 'o tempero da vitória dos audazes'."
+  "tradicao": "Segredo antigo do Catimbó e das feiticeiras populares: a noz-moscada é chamada de 'o tempero da vitória dos audazes'.",
+  "imagem": "./images/noz-moscada.jpg"
  },
  {
   "id": "erva-doce",
@@ -788,7 +804,8 @@ window.FV_DATA.ervas = [
   "colheita": "Sementes secas aromáticas bem guardadas ou folhas frescas colhidas pela manhã.",
   "cuidados": "Extremamente segura e calmante para todas as faixas etárias.",
   "tradicao": "Fundamental nas quartinhas e batismos na Umbanda e Jurema. O banho de erva-doce na cabeça é o primeiro socorro contra a ansiedade.",
-  "cha": "CHÁ DE ERVA-DOCE: Ferver 1 colher de chá de sementes em 250ml de água por 3 minutos. Digestivo impecável, combate cólicas intestinais, acalma a respiração e reduz a ansiedade no peito."
+  "cha": "CHÁ DE ERVA-DOCE: Ferver 1 colher de chá de sementes em 250ml de água por 3 minutos. Digestivo impecável, combate cólicas intestinais, acalma a respiração e reduz a ansiedade no peito.",
+  "imagem": "./images/erva-doce.jpg"
  },
  {
   "id": "gengibre",
@@ -815,7 +832,8 @@ window.FV_DATA.ervas = [
   "colheita": "Rizomas firmes, limpos e aromáticos.",
   "cuidados": "Pode ruborizar a pele pelo aumento da circulação sanguínea periférica. Não passar nos olhos nem no topo da cabeça.",
   "tradicao": "Consagrado aos Orixás do Fogo e dos Raios (Xangô e Iansã) e aos Caboclos de flecha rápida. O gengibre põe fogo nas pernas para caminhar sem desistir.",
-  "cha": "CHÁ DE GENGIBRE: Fatias finas fervidas por 7 minutos. O fogo da imunidade: combate sintomas iniciais de resfriados, aquece o corpo e ativa a digestão forte."
+  "cha": "CHÁ DE GENGIBRE: Fatias finas fervidas por 7 minutos. O fogo da imunidade: combate sintomas iniciais de resfriados, aquece o corpo e ativa a digestão forte.",
+  "imagem": "./images/gengibre.jpg"
  },
  {
   "id": "manjerona",
@@ -843,7 +861,8 @@ window.FV_DATA.ervas = [
   "colheita": "Folhas frescas colhidas delicadamente no início da manhã.",
   "cuidados": "Segura, suave e sem contraindicações no uso externo.",
   "tradicao": "Chamada pelas benzedeiras de 'o xarope da alma': o banho de manjerona lava o pranto e devolve o carinho com a própria vida.",
-  "cha": "CHÁ DE MANJERONA: 1 colher de chá em 250ml de água quente por 8 minutos. Serena cólicas menstruais e tensões nervosas com aroma doce."
+  "cha": "CHÁ DE MANJERONA: 1 colher de chá em 250ml de água quente por 8 minutos. Serena cólicas menstruais e tensões nervosas com aroma doce.",
+  "imagem": "./images/manjerona.jpg"
  },
  {
   "id": "salvia",
@@ -871,7 +890,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas sadias ao meio-dia sob céu claro. Secar à sombra para uso em defumações.",
   "cuidados": "Uso externo muito seguro. Defumação deve ser feita em local ventilado.",
   "tradicao": "O próprio nome latino vem de 'salvare' (curar/salvar). Associada à sabedoria dos Pretos Velhos e mestres que ensinam a falar com calma e agir com acerto.",
-  "cha": "CHÁ DE SÁLVIA: 1 colher de chá de folhas secas em 200ml de água fervente por 7 minutos. Adstringente bucal, alivia inflamações de garganta e calores noturnos."
+  "cha": "CHÁ DE SÁLVIA: 1 colher de chá de folhas secas em 200ml de água fervente por 7 minutos. Adstringente bucal, alivia inflamações de garganta e calores noturnos.",
+  "imagem": "./images/salvia.jpg"
  },
  {
   "id": "goiabeira",
@@ -898,7 +918,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "BROTOS VERDES vs. FOLHAS MADURAS:\n• Brotos Verdes com Alecrim: Banho morno revigorante que estanca o vazamento de energia de quem se sente exaurido sem explicação médica.\n• Folhas Maduras em Decocção: Banhos de assento e lavagens de chão de terreiro para firmar a linha de Ogum e Oxóssi.",
   "colheita": "Colher brotos e folhas sadias na parte média da árvore com pedido de licença aos Caboclos.",
   "cuidados": "Adstringente; indicada rigorosamente do pescoço para baixo.",
-  "tradicao": "Erva de assentamento e firmeza dos Caboclos das matas. Fecha as frestas da aura como se passasse uma cera protetora natural."
+  "tradicao": "Erva de assentamento e firmeza dos Caboclos das matas. Fecha as frestas da aura como se passasse uma cera protetora natural.",
+  "imagem": "./images/goiabeira.jpg"
  },
  {
   "id": "pitangueira",
@@ -925,7 +946,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "FOLHAS FRESCAS TRITURADAS vs. DEFUMAÇÃO SECA:\n• Folhas Frescas Maceradas com Hortelã: Banho da cabeça aos pés para tirar a sensação de estagnação na rotina e despertar a proatividade.\n• Seca com Açúcar na Brasa: Atrai compradores, movimento de rua e dinheiro de giro rápido em pequenos comércios.",
   "colheita": "Colher folhas verdes e brilhantes de manhã cedo sentindo o perfume adocicado característico.",
   "cuidados": "Uso externo extremamente agradável e seguro.",
-  "tradicao": "Consagrada a Oxum e aos Ibejis (Erês). É o banho do 'sorriso no rosto': tira o peso das obrigações e torna o trabalho prazeroso."
+  "tradicao": "Consagrada a Oxum e aos Ibejis (Erês). É o banho do 'sorriso no rosto': tira o peso das obrigações e torna o trabalho prazeroso.",
+  "imagem": "./images/pitangueira.jpg"
  },
  {
   "id": "laranjeira",
@@ -952,7 +974,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "FLORES (Flor de Azahar) vs. FOLHAS VERDES:\n• Flores de Laranjeira: O perfume supremo da paz interior e da pureza matrimonial; banho da cabeça aos pés que desfaz angústias e atrai romances nobres.\n• Folhas Frescas: Infusão morna para afastar desânimo e renovar o viço da pele e da aura.",
   "colheita": "Colher flores recém-abertas ou folhas viçosas sem manchas.",
   "cuidados": "Evitar o uso do sumo do fruto em contato com o sol para não manchar a pele; as folhas e flores são extremamente seguras.",
-  "tradicao": "Tradicional em banhos de noivado, bênçãos de recém-nascidos e dias de culto a Oxalá e Iemanjá."
+  "tradicao": "Tradicional em banhos de noivado, bênçãos de recém-nascidos e dias de culto a Oxalá e Iemanjá.",
+  "imagem": "./images/laranjeira.jpg"
  },
  {
   "id": "rosa-branca",
@@ -978,7 +1001,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PÉTALAS MACERADAS EM ÁGUA FRIA vs. INFUSÃO MORNA:\n• Em Água Fresca da Quartinha: O banho sagrado de cabeça por excelência. Macerar com as mãos sem ferver, vertendo da coroa aos pés em silêncio de oração.\n• Infusão Suave com Alfazema: Acalma pessoas em choque emocional profundo, luto ou crises de pânico.",
   "colheita": "Colher rosas frescas pela manhã, desfolhando as pétalas com veneração e respeito.",
   "cuidados": "Prefira rosas orgânicas ou de quintal sem aditivos químicos industriais de floricultura.",
-  "tradicao": "A flor sagrada de Pai Oxalá e das Mães das Águas. O banho de rosa branca na coroa é a maior bênção de paz e recomposição espiritual que existe."
+  "tradicao": "A flor sagrada de Pai Oxalá e das Mães das Águas. O banho de rosa branca na coroa é a maior bênção de paz e recomposição espiritual que existe.",
+  "imagem": "./images/rosa-branca.jpg"
  },
  {
   "id": "rosa-vermelha",
@@ -1003,7 +1027,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "PÉTALAS VERMELHAS COM CANELA vs. COM ANIS ESTRELADO:\n• Com Canela: Banho quente de atração, sedução sadia, paixão pela vida e vitalidade de mulher guerreira.\n• Com Anis Estrelado: Eleva o magnetismo social, facilitando acordos, contratos de trabalho e reconhecimento do seu talento.",
   "colheita": "Desfolhar as pétalas vermelhas vivas ao entardecer ou início da noite.",
   "cuidados": "Usar rigorosamente do pescoço para baixo. Evitar rosas com espinhos no preparo.",
-  "tradicao": "Consagrada às Mestras da Jurema (Mestra Luziara, Paulina) e às Guardiãs Pombagiras da Umbanda. É o manto rubro da autoconfiança inabalável."
+  "tradicao": "Consagrada às Mestras da Jurema (Mestra Luziara, Paulina) e às Guardiãs Pombagiras da Umbanda. É o manto rubro da autoconfiança inabalável.",
+  "imagem": "./images/rosa-vermelha.jpg"
  },
  {
   "id": "arnica",
@@ -1030,7 +1055,8 @@ window.FV_DATA.ervas = [
   "diferenciacao": "FOLHAS MACERADAS vs. MACERAÇÃO EM ÁLCOOL DE CEREAIS:\n• Banho Morno com Alecrim: Lava o corpo que se sente 'moído' após confronto espiritual ou ambiente com violência verbal.\n• Tintura Tradicional: Usada pelas rezadeiras para fricção de pernas cansadas e ombros travados de tensão.",
   "colheita": "Colher folhas e flores amarelas ao sol. Lavar e utilizar em infusão.",
   "cuidados": "USO RIGOROSAMENTE EXTERNO. Tóxica por ingestão. Jamais aplicar sobre feridas abertas.",
-  "tradicao": "O banho de socorro dos terreiros após trabalhos de descarrego pesado: a arnica 'remenda' a aura e tira o cansaço do corpo."
+  "tradicao": "O banho de socorro dos terreiros após trabalhos de descarrego pesado: a arnica 'remenda' a aura e tira o cansaço do corpo.",
+  "imagem": "./images/arnica.jpg"
  },
  {
   "id": "coentro",
@@ -1058,7 +1084,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas viçosas antes da floração, ou usar sementes secas aromáticas.",
   "cuidados": "Uso externo muito tranquilo e sem contraindicações.",
   "tradicao": "Presente na mesa e nos banhos dos vaqueiros e comerciantes do Nordeste. O coentro é conhecido por 'puxar o passo de quem estava devagar'.",
-  "cha": "CHÁ DE SEMENTES DE COENTRO: 1 colher de chá de sementes amassadas em 300ml de água fervida por 5 minutos. Tradicional digestivo e estimulante estomacal."
+  "cha": "CHÁ DE SEMENTES DE COENTRO: 1 colher de chá de sementes amassadas em 300ml de água fervida por 5 minutos. Tradicional digestivo e estimulante estomacal.",
+  "imagem": "./images/coentro.jpg"
  },
  {
   "id": "calendula",
@@ -1086,7 +1113,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher pela manhã em dias claros assim que as flores se abrirem em direção ao sol nascente.",
   "cuidados": "Uso externo extremamente seguro e suave. Pessoas alérgicas a plantas da família Asteraceae devem fazer teste prévio.",
   "tradicao": "Associada às forças solares de Oxum e Oxalá. Conhecida pelas benzedeiras como 'a flor que abre o sorriso da alma'.",
-  "cha": "CHÁ DE CALÊNDULA: 1 colher de sopa de flores secas em 250ml de água fervente por 10 minutos abafado. Reconhecido tradicionalmente por sua ação cicatrizante interna, calmante estomacal, anti-inflamatória e protetora das mucosas."
+  "cha": "CHÁ DE CALÊNDULA: 1 colher de sopa de flores secas em 250ml de água fervente por 10 minutos abafado. Reconhecido tradicionalmente por sua ação cicatrizante interna, calmante estomacal, anti-inflamatória e protetora das mucosas.",
+  "imagem": "./images/calendula.jpg"
  },
  {
   "id": "comigo-ninguem-pode",
@@ -1111,7 +1139,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher com tesoura ou luvas com oração firme de respeito aos Guardiões da porteira.",
   "cuidados": "ATENÇÃO MÁXIMA E ABSOLUTA: PLANTA ALTAMENTE TÓXICA (contém cristais de oxalato de cálcio). JAMAIS INGERIR. Não encostar nas mucosas, boca ou olhos. Lavar as mãos imediatamente após o manuseio. Mantenha longe de crianças e pets.",
   "tradicao": "Consagrada a Ogum, Xangô e aos Guardiões de encruza. Como o próprio nome sagrado afirma: 'Comigo ninguém pode, com meu caminho ninguém brinca'.",
-  "cha": "PROIBIDO INGERIR (Planta tóxica). Jamais consuma em chá. Uso estritamente externo e ritualístico nos pés ou ambiente."
+  "cha": "PROIBIDO INGERIR (Planta tóxica). Jamais consuma em chá. Uso estritamente externo e ritualístico nos pés ou ambiente.",
+  "imagem": "./images/comigo-ninguem-pode.jpg"
  },
  {
   "id": "artemisia",
@@ -1140,7 +1169,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher preferencialmente nas fases de Lua Crescente ou Cheia ao entardecer.",
   "cuidados": "Uso externo muito seguro. Mulheres grávidas NÃO devem consumir chá de artemísia devido ao efeito emenagogo.",
   "tradicao": "Fundamental nas tradições xamânicas, juremeiras e celtas. Colocada debaixo do travesseiro para revelar respostas em sonhos.",
-  "cha": "CHÁ DE ARTEMÍSIA: Infusão de 1 colher de café em 250ml de água fervente por 5 a 7 minutos. Usado pelas raizeiras tradicionais para alívio de cólicas e regulação do ciclo menstrual. (ESTRITAMENTE PROIBIDO PARA GESTANTES)."
+  "cha": "CHÁ DE ARTEMÍSIA: Infusão de 1 colher de café em 250ml de água fervente por 5 a 7 minutos. Usado pelas raizeiras tradicionais para alívio de cólicas e regulação do ciclo menstrual. (ESTRITAMENTE PROIBIDO PARA GESTANTES).",
+  "imagem": "./images/artemisia.jpg"
  },
  {
   "id": "rosa-amarela",
@@ -1166,7 +1196,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher flores sadias pela manhã com o sol alto, despetalando com prece de gratidão.",
   "cuidados": "Prefira flores frescas naturais sem pesticidas químicos.",
   "tradicao": "A flor favorita de Oxum para homenagens de fartura e riqueza limpa nos terreiros.",
-  "cha": "CHÁ DE PÉTALAS DE ROSA AMARELA: 1 colher de sopa de pétalas em 200ml de água fervente por 8 minutos. Tônico suave, digestivo e aromático, excelente para acalmar a mente."
+  "cha": "CHÁ DE PÉTALAS DE ROSA AMARELA: 1 colher de sopa de pétalas em 200ml de água fervente por 8 minutos. Tônico suave, digestivo e aromático, excelente para acalmar a mente.",
+  "imagem": "./images/rosa-amarela.jpg"
  },
  {
   "id": "rosa-cor-de-rosa",
@@ -1192,7 +1223,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher de manhã cedo com o orvalho ainda presente nas pétalas.",
   "cuidados": "Suave, nobre e sem qualquer contraindicação externa.",
   "tradicao": "Associada aos Ibejis (Erês) e à doçura maternal de Nanã. O banho que abre os braços para perdoar e recomeçar.",
-  "cha": "CHÁ DE ROSAS COM CAMOMILA: Infusão morna de pétalas com flores de camomila. Acalma a ansiedade e relaxa as tensões do peito."
+  "cha": "CHÁ DE ROSAS COM CAMOMILA: Infusão morna de pétalas com flores de camomila. Acalma a ansiedade e relaxa as tensões do peito.",
+  "imagem": "./images/rosa-cor-de-rosa.jpg"
  },
  {
   "id": "abre-caminho",
@@ -1220,7 +1252,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas firmes pela manhã em dia de sol aberto, saudando o Senhor dos Caminhos.",
   "cuidados": "Uso externo muito seguro e tradicional.",
   "tradicao": "Fundamental nas firmezas de ano novo e nas vésperas de decisões importantes da vida.",
-  "cha": "Uso medicinal popular reservado a infusões tópicas ou compressas nas articulações; não costuma ser bebida rotineiramente em chá caseiro sem indicação de raizeiro."
+  "cha": "Uso medicinal popular reservado a infusões tópicas ou compressas nas articulações; não costuma ser bebida rotineiramente em chá caseiro sem indicação de raizeiro.",
+  "imagem": "./images/abre-caminho.jpg"
  },
  {
   "id": "levante",
@@ -1248,7 +1281,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher galhos frescos com orvalho matinal.",
   "cuidados": "Suave, refrescante e aromático.",
   "tradicao": "Dito clássico dos velhos juremeiros: 'Não há tristeza que dure onde a água de levante molha o peito'.",
-  "cha": "CHÁ DE LEVANTE: 1 ramo fresco picado em 250ml de água fervente por 7 minutos abafado. Digestivo tônico, alivia dores de cabeça por cansaço, combate a fadiga física e renova o ar dos pulmões."
+  "cha": "CHÁ DE LEVANTE: 1 ramo fresco picado em 250ml de água fervente por 7 minutos abafado. Digestivo tônico, alivia dores de cabeça por cansaço, combate a fadiga física e renova o ar dos pulmões.",
+  "imagem": "./images/levante.jpg"
  },
  {
   "id": "saiao",
@@ -1275,7 +1309,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher de manhã cedo, escolhendo folhas espessas e sadias sem quebrar as bordas.",
   "cuidados": "Uso externo extremamente nobre, seguro e suave.",
   "tradicao": "Consagrada ao Grande Pai Oxalá e a Mamãe Oxum. Em iorubá, 'Abamodá' significa: 'aquilo que você deseja com pureza se realiza'.",
-  "cha": "SUCO OU CHÁ DE SAIÃO: A medicina tradicional consagra o uso de 1 folha fresca batida ou em infusão leve para acalmar azia crônica, gastrite e úlceras estomacais graças ao seu altíssimo teor mucilaginoso protetor."
+  "cha": "SUCO OU CHÁ DE SAIÃO: A medicina tradicional consagra o uso de 1 folha fresca batida ou em infusão leve para acalmar azia crônica, gastrite e úlceras estomacais graças ao seu altíssimo teor mucilaginoso protetor.",
+  "imagem": "./images/saiao.jpg"
  },
  {
   "id": "espada-santa-barbara",
@@ -1301,7 +1336,8 @@ window.FV_DATA.ervas = [
   "colheita": "Cortar com tesoura ou faca limpa pedindo licença aos Ventos de Oyá.",
   "cuidados": "TÓXICA POR INGESTÃO. Nunca beber em chá. Uso estritamente externo do pescoço para baixo ou no vaso de entrada.",
   "tradicao": "A sentinela das tempestades. Colocada na entrada para não deixar passar fofocas, calúnias e feitiços de desunião.",
-  "cha": "PROIBIDO INGERIR (Planta tóxica). Jamais faça chá. Uso exclusivo ritualístico externo."
+  "cha": "PROIBIDO INGERIR (Planta tóxica). Jamais faça chá. Uso exclusivo ritualístico externo.",
+  "imagem": "./images/espada-santa-barbara.jpg"
  },
  {
   "id": "eucalipto",
@@ -1328,7 +1364,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas adultas ricas em óleo essencial.",
   "cuidados": "Não passar nos olhos. Não recomendado para gestantes em banhos concentrados.",
   "tradicao": "Elemento de choque de Boiadeiros para cortar preguiça física e mental.",
-  "cha": "INALAÇÃO OU CHÁ MODERADO: O chá tradicional de 1 colher de café de folhas em 250ml de água é usado nas crises catarrais e bronquiais, embora a inalação do vapor com água quente seja a forma mais consagrada e segura."
+  "cha": "INALAÇÃO OU CHÁ MODERADO: O chá tradicional de 1 colher de café de folhas em 250ml de água é usado nas crises catarrais e bronquiais, embora a inalação do vapor com água quente seja a forma mais consagrada e segura.",
+  "imagem": "./images/eucalipto.jpg"
  },
  {
   "id": "colonia",
@@ -1356,7 +1393,8 @@ window.FV_DATA.ervas = [
   "colheita": "Colher pela manhã com palavras de gratidão à Rainha do Mar.",
   "cuidados": "Suave, segura e profundamente aromática.",
   "tradicao": "Indispensável nos amassis e lavagens de contas e cabeças nas casas de Iemanjá e Oxalá.",
-  "cha": "CHÁ DE FOLHA DE COLÔNIA: 1 folha fresca picada em 300ml de água quente por 8 minutos abafado. Consagrado na medicina popular para auxiliar no controle da hipertensão arterial leve e acalmar o coração acelerado pelo estresse."
+  "cha": "CHÁ DE FOLHA DE COLÔNIA: 1 folha fresca picada em 300ml de água quente por 8 minutos abafado. Consagrado na medicina popular para auxiliar no controle da hipertensão arterial leve e acalmar o coração acelerado pelo estresse.",
+  "imagem": "./images/colonia.jpg"
  },
  {
   "id": "aroeira",
@@ -1377,7 +1415,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (erva de descarrego forte, somente do pescoço para baixo)",
-  "imagem": "",
+  "imagem": "./images/aroeira.jpg",
   "descricao": "Árvore brava do sertão e da restinga, conhecida na Jurema como folha de descarrego pesado. Corta cargas acumuladas, cansaço espiritual e fluidos densos trazidos da rua.",
   "colheita": "Colher pela manhã, de árvore saudável, pedindo licença à mata. Não confundir com a aroeira-brava (Lithraea), que causa alergia forte.",
   "cuidados": "Pode irritar a pele sensível e causar alergia. Faça teste em pequena área do braço. Não usar em crianças pequenas, gestantes ou lactantes. Nunca ingerir as folhas em banho.",
@@ -1403,7 +1441,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sim (prima do manjericão, refresca e equilibra a coroa)",
-  "imagem": "",
+  "imagem": "./images/alfavaca.jpg",
   "descricao": "Parente graúda do manjericão, de aroma forte de cravo. Equilibra a energia depois de descarregos, traz proteção doce e boa sorte para a casa.",
   "colheita": "Colher os ponteiros pela manhã, sem arrancar a planta, para que ela rebrote.",
   "cuidados": "Erva segura para uso externo. Evitar contato com os olhos. Pessoas com pele muito sensível devem diluir mais.",
@@ -1428,7 +1466,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sim (erva mansa, acalma pensamentos e ajuda no sono)",
-  "imagem": "",
+  "imagem": "./images/erva-cidreira.jpg",
   "descricao": "A folha do sossego. Acalma o peito apertado, a irritação e a agitação antes de dormir. Mansa o bastante para banhos de crianças (morno, do pescoço para baixo).",
   "colheita": "Colher folhas verdes e perfumadas, de preferência no fim da tarde, quando o aroma está mais forte.",
   "cuidados": "Segura para uso externo. Em bebês, usar somente bem diluída, morna e do pescoço para baixo. Como chá, pode baixar a pressão em pessoas sensíveis.",
@@ -1455,7 +1493,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Sim (folha de consolo, alivia dores emocionais)",
-  "imagem": "",
+  "imagem": "./images/malva.jpg",
   "descricao": "Folha macia e acolhedora, ligada ao consolo e ao alívio de mágoas. Acalma inflamações da alma: tristeza, saudade e ressentimento.",
   "colheita": "Colher folhas sadias, sem manchas, preferencialmente na lua cheia ou crescente.",
   "cuidados": "Segura para uso externo. Gestantes devem evitar o uso interno (chá).",
@@ -1479,7 +1517,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sob orientação de um Juremeiro (tradicionalmente do pescoço para baixo)",
-  "imagem": "",
+  "imagem": "./images/pata-de-vaca.jpg",
   "descricao": "Folha partida em duas, como pegada de boi. Simboliza união e firmeza da família e do lar. Usada para fortalecer os laços da casa e a proteção dos que moram juntos.",
   "colheita": "Colher folhas maduras pela manhã. A árvore é comum em praças e quintais.",
   "cuidados": "Uso externo seguro. O chá é popular para glicemia, mas quem tem diabetes não deve substituir medicação: converse com seu médico.",
@@ -1504,7 +1542,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (folha de combate, do pescoço para baixo)",
-  "imagem": "",
+  "imagem": "./images/vence-demanda.jpg",
   "descricao": "Como diz o nome, folha de vencer demandas: disputas no trabalho, perseguições e cargas enviadas. Usada em vaso na entrada e em banhos de proteção.",
   "colheita": "Colher com pedido de licença e intenção clara de proteção, nunca de ataque.",
   "cuidados": "O nome popular varia por região e pode indicar plantas diferentes. Só use se tiver certeza da identificação. Uso externo; não ingerir.",
@@ -1528,7 +1566,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sim (com moderação, traz proteção serena)",
-  "imagem": "",
+  "imagem": "./images/espinheira-santa.jpg",
   "descricao": "Folha de bordas espinhosas que protege sem agredir. Na tradição, guarda a pessoa contra a inveja silenciosa e acalma o estômago emocional (as preocupações que 'pesam').",
   "colheita": "Espécie nativa ameaçada em algumas regiões: prefira mudas cultivadas ou folhas compradas de origem legal.",
   "cuidados": "Uso interno (chá) é contraindicado na gestação e na amamentação. Para banho externo, é segura.",
@@ -1555,7 +1593,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "NUNCA na cabeça (o roxo é mais quente que o verde; usar do pescoço para baixo)",
-  "imagem": "",
+  "imagem": "./images/manjericao-roxo.jpg",
   "descricao": "Irmão quente do manjericão verde. Enquanto o verde acalma, o roxo protege e dá força, afastando energias densas e trazendo ânimo.",
   "colheita": "Colher os ponteiros e as flores pela manhã. Podar as flores ajuda a planta a durar mais.",
   "cuidados": "Uso externo seguro. Pele sensível: diluir bem.",
@@ -1578,7 +1616,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Não se aplica (uso ambiental: forrar, enrolar e servir)",
-  "imagem": "",
+  "imagem": "./images/folha-bananeira.jpg",
   "descricao": "Folha larga e fresca que serve de 'toalha sagrada': forra o chão de oferendas, embrulha comidas e cobre os trabalhos com frescor e acolhimento.",
   "colheita": "Pedir licença e cortar a folha com faca limpa, sem ferir o 'umbigo' (coração) da bananeira.",
   "cuidados": "Uso ambiental. Lave bem antes de usar com alimentos.",
@@ -1603,7 +1641,7 @@ window.FV_DATA.ervas = [
    "caule"
   ],
   "cabeca": "Sim (refrescante, com moderação)",
-  "imagem": "",
+  "imagem": "./images/cana-do-brejo.jpg",
   "descricao": "Planta de beira d'água, fresca e drenante. Na tradição, 'escoa' energias paradas e refresca quem anda com a cabeça quente.",
   "colheita": "Colher folhas e pedaços do caule perto de água limpa, nunca em brejo poluído.",
   "cuidados": "Uso externo seguro. Uso interno (chá) é diurético: evitar na gestação e em quem toma remédios para pressão sem orientação médica.",
@@ -1633,6 +1671,7 @@ window.FV_DATA.ervas = [
   "colheita": "Colher preferencialmente nas fases de Lua Crescente ou Cheia, ao alvorecer.",
   "cuidados": "Lavar bem as pétalas. Preferir flores orgânicas ou cultivadas sem agrotóxicos florais.",
   "tradicao": "Muito estimada na Linha do Oriente e nas homenagens reservadas às Iabás pelo seu requinte e vibração de paz nobre.",
-  "cha": "Infusão sutil das pétalas secas: calmante do sistema nervoso e harmonizador do humor."
+  "cha": "Infusão sutil das pétalas secas: calmante do sistema nervoso e harmonizador do humor.",
+  "imagem": "./images/rosa-champanhe.jpg"
  }
 ];
