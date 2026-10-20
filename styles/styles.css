@@ -3963,4 +3963,78 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   margin: 0 0 4px;
 }
 
+/* 10.3 Como reconhecer um ponto legítimo */
+.legitimo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0 22px;
+}
+
+.legitimo-card {
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.legitimo-card:hover {
+  border-color: rgba(227, 184, 103, 0.4);
+  transform: translateY(-2px);
+}
+
+.legitimo-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.legitimo-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.legitimo-ex {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-2);
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.notice--etica {
+  border-left-color: var(--clay);
+  background: rgba(232, 160, 124, 0.08);
+}
+
+.ponto-card--alerta {
+  border-left: 3px solid var(--clay);
+}
+.ponto-card--alerta h3 {
+  color: var(--clay);
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+}
+
+.ponto-card--seguro {
+  border-left: 3px solid var(--accent2);
+}
+.ponto-card--seguro h3 {
+  color: var(--accent2);
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+}
+
+.section-top-gap {
+  margin-top: 14px;
+}
+
+
 
