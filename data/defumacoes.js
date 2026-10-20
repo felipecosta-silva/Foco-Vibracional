@@ -837,7 +837,7 @@ window.FV_DATA.defumacoes = [
  },
  {
   "id": "defumacao-hibisco-harmonia-afeto",
-  "nome": "Defumação de Pétalas de Hibisco com Louro e Açúcar (Harmonia Afetiva & Acolhimento)",
+  "nome": "Defumação de Pétalas de Hibisco com Louro e Canela (Harmonia Afetiva & Acolhimento)",
   "objetivo": "harmonizacao",
   "intensidade": "suave",
   "luas": [

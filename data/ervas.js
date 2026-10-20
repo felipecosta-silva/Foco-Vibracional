@@ -1812,7 +1812,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
-  "descricao": "Planta ornamental de folhagem exuberante e resistente que ocupa cantos de sombra e purifica o ar. Muito cultivada em vasos suspensos no lar para acompanhar o ritmo da casa e manter o ambiente vivo e acolhedor.",
+  "descricao": "Planta ornamental de folhagem exuberante e resistente que ocupa cantos de sombra e deixa o ambiente mais vivo. Muito cultivada em vasos suspensos no lar para acompanhar o ritmo da casa e manter o ambiente vivo e acolhedor.",
   "diferenciacao": "Uso exclusivamente ornamental e de ambiente doméstico. Não possui fundamento ritualístico de terreiro tradicional: sua presença atua na harmonização visual e psicológica dos cômodos através da biofilia e do verde constante.",
   "colheita": "Para propagação em água ou terra, corte estacas abaixo do nó foliar usando tesoura limpa e luvas de proteção.",
   "cuidados": "PLANTA TÓXICA SE MASTIGADA. Contém cristais de oxalato de cálcio que provocam queimação intensa na boca, inchaço de lábios e irritação de mucosas. Cultive sempre em vasos altos ou prateleiras fora do alcance de crianças e de cães e gatos. Use luvas ao podar, pois a seiva pode irritar a pele sensível.",
@@ -1905,11 +1905,11 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Do pescoço para baixo (traz sonolência e relaxamento profundo)",
-  "descricao": "Trepadeira vigorosa de folhas recortadas e flor espetacular, riquíssima em passiflorina e flavonoides calmantes. Na fitoenergia, é o bálsamo que desata a ansiedade, desacelera pensamentos angustiantes e prepara o corpo para um sono restaurador.",
-  "diferenciacao": "FOLHA DO MARACUJAZEIRO vs. FRUTO:\n• As folhas concentram a ação sedativa e calmante para banhos noturnos de serenidade.\n• Combinação clássica: Com erva-cidreira (melissa) e camomila, forma o mais suave e eficaz banho caseiro contra insônia e estresse acumulado.",
+  "descricao": "Trepadeira vigorosa de folhas recortadas e flor espetacular, tradicionalmente usada como calmante. Na fitoenergia, é o bálsamo que ajuda a desatar a ansiedade, desacelerar os pensamentos e preparar o corpo para o sono.",
+  "diferenciacao": "FOLHA DO MARACUJAZEIRO vs. FRUTO:\n• As folhas concentram a ação sedativa e calmante para banhos noturnos de serenidade.\n• Combinação clássica: Com erva-cidreira (melissa) e camomila, forma uma combinação clássica e suave para a hora de dormir.",
   "colheita": "Colher folhas verdes sadias ao entardecer, lavando bem em água corrente antes da infusão morna.",
   "cuidados": "Uso externo suave e relaxante. Se preparado como chá medicinal caseiro, possui forte efeito indutor de sono: evite antes de dirigir ou operar máquinas; gestantes e pessoas que fazem uso de ansiolíticos ou sedativos controlados devem consultar orientação médica.",
-  "tradicao": "Usada pelas mães e rezadeiras do Brasil para acalmar pessoas nervosas e espíritos atribulados. O banho morno das folhas despejado antes de dormir fecha as portas para pesadelos e traz aconchego ao peito."
+  "tradicao": "Usada pelas mães e rezadeiras do Brasil para acalmar pessoas nervosas e espíritos atribulados. O banho morno das folhas antes de dormir traz aconchego ao peito e serenidade para a noite."
  },
  {
   "id": "abacaxi-roxo",
@@ -1932,7 +1932,7 @@ window.FV_DATA.ervas = [
   "descricao": "Herbácea exuberante de folhas espadas bicolores: verde-esmeralda intenso na face superior e roxo-brilhante na face inferior. Atua como escudo magnético cortante contra inveja pesada, mau-olhado e energias intrusas que tentam romper as defesas do lar.",
   "diferenciacao": "Diferencia-se pela força da pigmentação roxa sob a folha espessa: na fitoenergia de terreiro, o roxo atua transmutando e desmanchando miasmas colados ao chão astral. Muito plantada em vasos de soleira e canteiros de entrada.",
   "colheita": "Cortar as folhas inteiras pela manhã com tesoura de poda, usando luvas para evitar contato direto da seiva com a pele.",
-  "cuidados": "ATENÇÃO: A seiva das Tradescantias contém substâncias que podem provocar dermatites e irritação em peles sensíveis. Nunca esfregar nos olhos nem passar no rosto. Uso ritualístico estritamente do pescoço para baixo em infusão ou maceração coada. Manter fora do alcance de cães e gatos (tóxica se mastigada).",
+  "cuidados": "ATENÇÃO: A seiva das Tradescantias contém substâncias que podem provocar dermatites e irritação em peles sensíveis. Nunca esfregar nos olhos nem passar no rosto. Uso ritualístico estritamente do pescoço para baixo em infusão ou maceração coada. Manter fora do alcance de cães e gatos (tóxica se mastigada). Antes do banho, teste a água numa área pequena do antebraço; se arder ou avermelhar, não use. Crianças, gestantes e quem tem pele sensível ou alergias não devem usar.",
   "tradicao": "Tradicionalmente plantada à entrada de casas e terreiros como pára-raios vegetal contra demandas. Em rituais de Bate-Folhas e sacudimentos no chão, suas folhas firmes são batidas nas pernas e pés para desmanchar amarras espirituais."
  },
  {
@@ -1977,11 +1977,11 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (erva de guerra do pescoço para baixo)",
-  "descricao": "Estandarte vegetal sagrado da linha de fogo, consagrado a Ogum e Iansã. Suas folhas largas em tons de vinho, bordô e roxo-avermelhado carregam o vigor da guerra justa, expulsando espíritos obsessores, rompendo feitiços antigos e reerguendo a coragem.",
+  "descricao": "Estandarte vegetal sagrado da linha de fogo, consagrado a Ogum e Iansã. Suas folhas largas em tons de vinho, bordô e roxo-avermelhado carregam o vigor da guerra justa, ajudando a afastar energias densas e a reerguer a coragem.",
   "diferenciacao": "PEREGUN VERDE vs. PEREGUN ROXO:\n• Peregun Verde: Ligado a Oxóssi e Ossaim, vibra na fartura, frescor e rejuvenescimento das matas.\n• Peregun Roxo: Ligado à espada de ferro de Ogum e ao fogo de Iansã, atua no confronto enérgico e sacudimento de forças densas.",
   "colheita": "Colher folhas maduras e firmes pedindo licença aos Guardiões da Lei e às forças guerreiras das matas.",
-  "cuidados": "Erva quente de grande voltagem espiritual: uso exclusivamente externo do pescoço para baixo. Não utilize na coroa (Ori). Lave as mãos após o manuseio das folhas.",
-  "tradicao": "Primordial nos terreiros de Candomblé e Umbanda para o ritual de Bate-Folhas (sacudimento), onde seus feixes varrem as larvas astrais coladas à aura. Cultivada nas divisas e cantos do terreno como sentinela que impede a entrada de energias destrutivas."
+  "cuidados": "Erva quente de grande voltagem espiritual: uso exclusivamente externo do pescoço para baixo. Não utilize na coroa (Ori). Lave as mãos após o manuseio das folhas. Tóxica para cães e gatos se mastigada: mantenha fora do alcance deles. Peles sensíveis: teste antes numa área pequena do antebraço.",
+  "tradicao": "Primordial nos terreiros de Candomblé e Umbanda para o ritual de Bate-Folhas (sacudimento), onde seus feixes varrem as cargas pesadas da aura. Cultivada nas divisas e cantos do terreno como sentinela que impede a entrada de energias destrutivas."
  },
  {
   "id": "hibisco",
@@ -1990,8 +1990,8 @@ window.FV_DATA.ervas = [
   "energia": "equilibradoras",
   "intensidade": "suave",
   "objetivos": [
-   "amor",
-   "harmonizacao"
+   "harmonizacao",
+   "calma"
   ],
   "usos": [
    "banho-external",

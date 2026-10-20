@@ -480,7 +480,7 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
     - Em `firmeza.html`: adicionados os 5 novos botões (rosa, laranja, marrom, preta e branca, e preta e vermelha); removidos todos os 14 atributos `style=""` inline da página, substituídos por classes na folha de estilos. Verificado: `grep 'style="' firmeza.html` retorna 0 ocorrências.
   - **Subtarefa 12.6 (Commit `2495a23`): Novos termos no Glossário**
     - Inseridos 5 novos verbetes detalhados em `glossario.html`: **Ramo bento**, **Mariwô**, **Firmar (vela)**, **Vela de 7 dias** e **CIATox** (com número 0800 722 6001).
-  - **Subtarefa 12.7 (Commit `ab40d1f`): Bump de CACHE_VERSION e testes integrados**
+  - **Subtarefa 12.7 (Commit `859a90a`): Bump de CACHE_VERSION e testes integrados**
     - `CACHE_VERSION` incrementada para `"fv-v15"` em `sw.js`.
     - Testes automatizados executados com sucesso validando: busca de jiboia, pimenteira, palmeira e maracujá; carregamento de novos banhos/defumações por ID; 0 inline styles em `firmeza.html`; existência de todos os tokens CSS e verbetes.
 - **Arquivos alterados:**
@@ -1010,3 +1010,23 @@ Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **V
   - console limpo e sem rolagem lateral;
   - `grep 'style="' firmeza.html` deve voltar vazio.
 - Um commit por subtarefa (12.1 a 12.6), cada um registrado no log. No fim, `CACHE_VERSION` → `fv-v15`.
+
+---
+
+## 20. Revisão do supervisor — Fase 12 (2026-10-20)
+
+**Resultado: aprovado com ajustes.** Revisados os 8 commits (`2a344f4` a `b0a30f6`). A triagem de segurança foi respeitada: jiboia, zamioculca, pimenteira e babosa ficaram só como plantas de vaso, e a pimenta tem o alerta de "nunca queimar". O alerta da palmeira-sagu entrou. O altar ficou com 11 cores, todas trocando a vela, e as bicolores aparecem certas. `firmeza.html` ficou sem nenhum `style=""`. O bloco "Plantas de vaso" linka para as 7 fichas. Console limpo e sem rolagem lateral a 1440 px e a 375 px.
+
+**Conteúdo extra** (abacaxi-roxo, trevo-roxo, peregun roxo, hibisco, os 4 banhos, a defumação e o termo Mezinha): registrado no log como "a pedido do usuário", então foi mantido. Obrigado por anotar a origem.
+
+**Ajustado pelo supervisor:**
+1. **Bug:** o hibisco e o banho de hibisco usavam o objetivo `amor`, que não existe em `OBJETIVOS` (o card ficava sem cor e fora dos filtros). Trocado por `harmonizacao` (e `calma` na erva). **Use só os 6 objetivos existentes.**
+2. **Abacaxi-roxo** (seiva que causa dermatite): entrou o teste no antebraço antes do banho e a restrição para crianças, gestantes e peles sensíveis, na ficha e no banho. Saiu "escudo impenetrável".
+3. **Peregun roxo:** entrou o alerta de toxicidade para pets e o teste de pele. Saíram "rompendo feitiços antigos" e "larvas astrais".
+4. **Maracujá:** saíram "riquíssima em passiflorina", "o mais eficaz banho contra insônia" e "fecha as portas para pesadelos". **Jiboia:** saiu "purifica o ar" (é um mito).
+5. A defumação de hibisco dizia "com Louro e Açúcar", mas a receita leva canela e não leva açúcar. Nome corrigido.
+6. Hash errado no log (`ab40d1f` → `859a90a`). `CACHE_VERSION` → `fv-v17`.
+
+**Pendência antiga, para uma próxima fase:** 12 ervas antigas usam o objetivo `foco`, que também não existe em `OBJETIVOS`.
+
+**Próximo passo:** aguardar a nova tarefa do dono do site. As 14 ervas novas das Fases 11 e 12 estão sem foto.

@@ -2209,7 +2209,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-hibisco-autoestima-brilho",
   "nome": "Banho de Hibisco com Canela e Rosa Vermelha (Autoestima, Amor-Próprio & Brilho)",
-  "objetivo": "amor",
+  "objetivo": "harmonizacao",
   "intensidade": "suave",
   "luas": [
    "crescente",
@@ -2304,9 +2304,9 @@ window.FV_DATA.banhos = [
    "Espada de São Jorge"
   ],
   "cabeca": false,
-  "modoPreparo": "Lave com cuidado 3 folhas frescas de abacaxi-roxo e corte em pedaços médios 1 folha de espada de são jorge (usando luvas ou tesoura limpa). Ferva 2 litros de água, desligue o fogo e adicione as ervas. Abafe por 15 minutos. Coe com muito cuidado para não levar resíduos de seiva aos olhos. Espere esfriar até ficar morno e despeje dos ombros para baixo, sentindo as lâminas vegetais criando um escudo impenetrável contra invejas e cobranças energéticas externas.",
+  "modoPreparo": "Lave com cuidado 3 folhas frescas de abacaxi-roxo e corte em pedaços médios 1 folha de espada de são jorge (usando luvas ou tesoura limpa). Ferva 2 litros de água, desligue o fogo e adicione as ervas. Abafe por 15 minutos. Coe com muito cuidado para não levar resíduos de seiva aos olhos. Espere esfriar até ficar morno e despeje dos ombros para baixo, sentindo as lâminas vegetais formando um escudo contra invejas e cobranças energéticas externas.",
   "reza": "Escudo de duas cores, lâmina de proteção: cortai o olho-gordo que me cerca, secai a inveja que me mira e deixai meu corpo e meu lar sob a guarda dos bons espíritos.",
-  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. Cuidado ao manipular a seiva do abacaxi-roxo: não passe as mãos nos olhos nem na boca. Restos vegetais vão para o lixo comum ou compostagem longe do alcance de animais.",
+  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. A seiva do abacaxi-roxo pode causar dermatite: teste antes numa área pequena do antebraço; crianças, gestantes e peles sensíveis não usam. Cuidado ao manipular: não passe as mãos nos olhos nem na boca. Restos vegetais vão para o lixo comum ou compostagem longe do alcance de animais.",
   "versaoCha": ""
  }
 ];
