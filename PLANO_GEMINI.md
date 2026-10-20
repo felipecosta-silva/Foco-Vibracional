@@ -729,3 +729,69 @@ Termos novos (sem duplicar os que já existem): **Dikenga**, **Kalunga**, **Nsek
 3. `CACHE_VERSION` → `fv-v12`.
 
 **Próximo passo:** aguardar a nova tarefa do dono do site. Enquanto isso, continua valendo o backlog da seção 10 e a pendência das 12 fotos originais (seção 14).
+
+---
+
+## 17. Fase 11 — Banho das Onze Horas: ora-pro-nóbis, mamão, buganvília, pitanga e onze-horas (PRIORIDADE)
+
+**Pedido do dono do site:** um ritual que use juntas **ora-pro-nóbis, folha de mamão, buganvília, pitanga e onze-horas**. O supervisor desenhou o ritual abaixo; **use estas orientações, não reinvente o conteúdo.**
+
+**Por que são dois banhos e não um:** a folha de mamão é erva **de corte** (já cadastrada em `ervas.js` como "quentes", limpeza/proteção, **nunca na cabeça**). As outras quatro são doces e solares. Misturar tudo enfraquece as duas coisas. Seguindo a lógica que o site já ensina (descarrego primeiro, banho doce depois), o ritual tem **duas etapas**, e cada uma vira um card próprio no catálogo, um apontando para o outro.
+
+**A ideia que amarra o ritual:** a onze-horas (*Portulaca grandiflora*) só abre as flores com o sol alto do fim da manhã. Por isso o banho doce é feito **perto das 11h**, com as flores abertas. Mensagem: "cada coisa abre na sua hora". A ora-pro-nóbis, conhecida como "carne de pobre", traz o sentido de **sustento e fartura simples**. A pitanga traz alegria e dinamismo (como já está no site). A buganvília traz beleza e doçura.
+
+### 11.1 Três ervas novas em `data/ervas.js`
+Siga o mesmo formato das outras (com `nomePopular`, `energia`, `objetivos`, `usos`, `partes`, `cabeca`, `descricao`, `diferenciacao`, `colheita`, `cuidados`, `tradicao`). **Antes, confira se já não existem** com outro nome (primavera, três-marias…).
+
+- **Ora-pro-nóbis** (*Pereskia aculeata*; "carne de pobre", "lobrobó"). Um cacto trepadeira de folha carnuda, comestível e rica em proteína (é uma PANC).
+  - `energia`: equilibradoras. `objetivos`: prosperidade, harmonização. `partes`: folha.
+  - Sentido: sustento, fartura que vem do pouco, firmeza do corpo. A folha solta uma **baba (mucilagem)** que amacia a água do banho.
+  - `cuidados`: o caule tem **espinhos fortes**, então colha com luvas e use só as folhas. Planta segura para uso externo. Não usar folhas de plantas pulverizadas.
+  - `tradicao`: muito presente nos quintais mineiros e na cozinha da roça. O nome vem do latim "rogai por nós", porque se colhia no quintal do padre enquanto ele rezava. Apresente como **história popular**, sem dar como fato comprovado.
+- **Buganvília** (*Bougainvillea* spp.; "primavera", "três-marias").
+  - `energia`: equilibradoras. `objetivos`: harmonização, prosperidade. `partes`: brácteas.
+  - Detalhe bonito para a `diferenciacao`: as "pétalas" coloridas são **brácteas** (folhas modificadas). A flor de verdade é a pequena flor branca do centro. **Cores:** rosa e magenta para afeto e doçura, branca para paz, laranja e amarela para alegria e brilho. Diga que isso é **associação popular de cor**, não regra.
+  - **Não atribua a um Orixá ou entidade específica:** não há consenso. Diga só "associada à alegria, à beleza e à doçura".
+  - `cuidados`: galhos com **espinhos**, e a seiva pode irritar pele sensível. Use só as brácteas. Mantenha longe de pets e de crianças pequenas.
+- **Onze-horas** (*Portulaca grandiflora*; "flor-de-onze-horas", "portulaca").
+  - `energia`: equilibradoras. `objetivos`: energia, prosperidade. `partes`: flor.
+  - Sentido: abertura no tempo certo, alegria solar, paciência com o próprio ritmo. As flores **fecham à tarde e em dias nublados**, então colha quando estiverem abertas.
+  - `cuidados`: uso externo seguro para pessoas. **Pets:** plantas do gênero *Portulaca* têm **oxalatos**, que podem fazer mal a cães e gatos se mastigadas. Não deixe sobras ao alcance deles.
+- **Fotos:** só use foto se você **baixou de verdade** um arquivo do Wikimedia Commons, com o link exato, o autor e a licença daquela página anotados em `images/CREDITOS.md` (900 px, ≤ 150 KB). Se não conseguir, **deixe sem `imagem`**: o card já mostra a folha desenhada. **Nunca invente crédito** (seção 14).
+
+### 11.2 Atualizar ervas que já existem (sem duplicar)
+- **`mamao`**: complete `cuidados`. **Quem tem alergia a látex não usa** (a seiva branca é látex e pode dar reação cruzada). Gestantes devem evitar. Teste antes numa área pequena do antebraço. Nunca sobre feridas. Colha e lave a folha usando luvas.
+- **`pitangueira`**: troque "Uso externo extremamente agradável e seguro." por algo sem exagero, por exemplo "Uso externo suave e bem tolerado. Lave bem as folhas."
+
+### 11.3 Dois banhos novos em `data/banhos.js`
+Use exatamente os campos que os outros banhos usam. Os cuidados vão em `observacao`. **Os nomes das ervas em `ervas` devem bater com `findHerbFor`** (assim o card linka para a erva certa). Confira no painel de detalhes se as 5 ervas aparecem linkadas.
+
+**A) `banho-mamao-corte-vespera`: "Banho de Folha de Mamão (Corte na Véspera do Banho das Onze Horas)"**
+- `objetivo`: limpeza. `intensidade`: media. `cabeca`: **false**. `luas`: minguante e crescente. `horario`: "noite da véspera".
+- `ervas`: 3 folhas de Mamão e, opcionalmente, um ramo de Alecrim.
+- Preparo: lave muito bem as folhas (tirando a seiva), macere em 2 L de água fria e coe. Após o banho de higiene, jogue **do pescoço para baixo**, pedindo que saia o que está parado e pesado. Vista roupa clara e durma cedo.
+- `observacao`: "DO PESCOÇO PARA BAIXO. Primeira etapa do Banho das Onze Horas (veja o card dele). Não use se tiver alergia a látex; gestantes devem evitar; não aplique sobre feridas."
+
+**B) `banho-onze-horas-fartura`: "Banho das Onze Horas (Ora-pro-nóbis, Pitanga, Buganvília & Onze-horas • Fartura e Caminhos Abertos ao Sol)"**
+- `objetivo`: prosperidade. `intensidade`: suave. `cabeca`: **false**. `luas`: crescente e cheia. `dias`: dom e qui. `horario`: "fim da manhã, perto das 11h, com as onze-horas abertas".
+- `ervas`: 7 folhas de Ora-pro-nóbis, 7 folhas de Pitangueira, um punhado de brácteas de Buganvília e um punhado de flores de Onze-horas.
+- Preparo:
+  1. Colha as flores na hora, ainda abertas. Pegue as folhas de ora-pro-nóbis com luvas.
+  2. Em 2 L de água fresca, macere primeiro a ora-pro-nóbis até a água ficar macia.
+  3. Junte a pitanga e, por último, as flores, só apertando de leve. **Não ferva.**
+  4. Deixe a bacia uns minutos ao sol, se puder.
+  5. Coe e jogue do pescoço para baixo, mentalizando sustento, alegria e portas que se abrem no tempo certo.
+  6. As sobras de flores e folhas vão para a terra ou para um vaso, **longe de pets**.
+- `reza` (use esta): "Flor que abre com o sol, folha que sustenta a mesa, pitanga que alegra o caminho: que a fartura chegue simples e na hora certa, que meus passos se abram com o dia e que nada me falte do que é bom."
+- `observacao`: "DO PESCOÇO PARA BAIXO. Se quiser levar algo à cabeça, use só um pouco da água de pitangueira, preparada à parte. Faça na véspera o Banho de Folha de Mamão para limpar antes de chamar a fartura. Espinhos: ora-pro-nóbis e buganvília, colha com luvas. Onze-horas pode fazer mal a cães e gatos se mastigada."
+- **Não** escreva promessas como "garante dinheiro" ou "abre todos os caminhos".
+
+### 11.4 Ligações
+- Na tela de **Colheita** (`colheita.html`), se houver lista de ervas por horário ou estação, inclua a onze-horas com a dica "colher no fim da manhã, com a flor aberta". Se a página não tiver uma lista assim, não crie: só registre no log.
+- **Glossário:** termos novos **PANC** (planta alimentícia não convencional) e **Brácteas**. Confira antes se já não existem.
+
+### 11.5 Regras desta fase
+- Sem cores fixas, sem `style=""` novo, nada de grids próprios. Tudo entra pelo `createCatalog`.
+- Arquivos em UTF-8 sem BOM. Confira os acentos de "nóbis", "buganvília" e "mamão" no navegador.
+- **Testar** a 1440 px e a 375 px, **e offline**: busca por "onze", "nóbis" e "bugan"; filtro `?objetivo=prosperidade`; abrir os dois banhos pelo `#id` e conferir os links para as ervas. Console limpo e sem rolagem lateral.
+- Um commit por subtarefa (11.1 a 11.4), cada um registrado no log (seção 5). No fim, `CACHE_VERSION` → `fv-v13`.
