@@ -4227,3 +4227,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 
 
 
+
+/* Revisão Fase 10: nomes do Dikenga legíveis */
+.dikenga-node__name{ font-size: 11px; }
+.dikenga-node__time{ font-size: 8.5px; }

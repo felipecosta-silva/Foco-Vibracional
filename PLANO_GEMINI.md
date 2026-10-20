@@ -716,3 +716,16 @@ Termos novos (sem duplicar os que já existem): **Dikenga**, **Kalunga**, **Nsek
 - Ao final da aba, uma linha de **fontes**: Fu-Kiau (cosmograma); canal *Umband' Boa*, Márcio Kain, PTD nº 927 (ponto legítimo e mediunidade olfativa); aula sobre a Dikenga (autor não informado).
 - Só tokens de cor; SVGs com `currentColor`; nada de `style=""` novo; classes na camada final do CSS.
 - **Testar** a 1440 px e a 375 px **e offline**, com o console limpo. Um commit por subtarefa (10.1 a 10.6), cada um registrado no log. Ao final, aumentar `CACHE_VERSION`.
+
+---
+
+## 16. Revisão do supervisor — Fase 10 (2026-10-20)
+
+**Resultado: aprovado com pequenos ajustes.** Revisados os 7 commits (`72dd948` a `c588fec`). **Melhor entrega até agora:** um commit por subtarefa, log completo, Dikenga na disposição correta (Tukula em cima, Musoni embaixo, Kala à direita, Luvemba à esquerda, sem a contradição do vídeo), alerta de gás e fiação em destaque, Estrela de Davi tratada com respeito, estrelas de 7 e 8 pontas sem atribuições inventadas, fontes citadas, console limpo e sem rolagem lateral a 1440 px e a 375 px.
+
+**Ajustado pelo supervisor:**
+1. Diagrama Dikenga: os rótulos "LINHA KALUNGA" e "FRONTEIRA DOS PLANOS" ficavam por cima dos círculos de Luvemba e Kala, e os nomes dentro dos círculos tinham 8,5 px (ilegíveis). Círculos ampliados, nomes a 11 px e rótulos reposicionados.
+2. Duas expressões "impenetrável" suavizadas (regra de tom: nada de promessa absoluta).
+3. `CACHE_VERSION` → `fv-v12`.
+
+**Próximo passo:** aguardar a nova tarefa do dono do site. Enquanto isso, continua valendo o backlog da seção 10 e a pendência das 12 fotos originais (seção 14).
