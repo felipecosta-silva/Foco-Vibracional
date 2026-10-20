@@ -447,10 +447,57 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
   - `glossario.html`
   - `sw.js` (bump para fv-v13)
   - `PLANO_GEMINI.md`
-- **Resultados e testes:**
-  - Todas as 65 ervas e 84 banhos carregados com integridade e sintaxe testadas em Node.js.
-  - Zero novos inline styles.
-  - Links de ingredientes 100% funcionais entre banhos e plantas.
+### Fase 12 — 2026-10-20 · Plantas fáceis de achar + Guia completo das velas (Seção 19)
+
+- **O que foi feito (executado e comitado com 1 commit por subtarefa):**
+  - **Subtarefa 12.1 (Commit `2a344f4`): Novas ervas em `data/ervas.js` com triagem rigorosa de segurança**
+    - Adicionadas 6 novas espécies em `data/ervas.js` (total de 71 ervas):
+      - **Palmeira** (`palmeira`): "Folha de Palmeira (Ramo Bento)" (*Cocos nucifera*, *Elaeis guineensis*, *Dypsis lutescens*). Usos: defumação e ambiental. Fundamento católico popular do Domingo de Ramos para proteger contra temporais e mariwô de Ogum; alerta crítico sobre a falsa palmeira-sagu (*Cycas revoluta*), tóxica para animais.
+      - **Jiboia** (`jiboia`; *Epipremnum aureum*): Uso estritamente ambiental e ornamental. Planta companheira que mantém o verde vivo; alerta de oxalato de cálcio tóxico se mastigado (nunca em banhos, chás ou fogo).
+      - **Zamioculca** (`zamioculca`; *Zamioculcas zamiifolia*): "Planta-da-fortuna" moderna urbana. Uso ambiental para recepções e comércio, ensinando constância e resiliência com pouca água; manuseio com luvas por seiva irritante.
+      - **Pimenteira** (`pimenteira`; *Capsicum frutescens* e *Capsicum chinense*): "Pimenteira (Malagueta & Biquinho)". Sentinela viva de soleira de porta contra inveja e olho-gordo (força da porteira). Diferenciação da biquinho (sem ardência, segura para lares com pets) vs malagueta. Alerta absoluto: **NUNCA queimar em defumação** (libera capsaicina que cega e queima o trato respiratório) e **nunca usar em banho corporal**.
+      - **Babosa** (`babosa`; *Aloe vera*): Uso ambiental/ornamental na soleira como pára-raios de olho-gordo. Diferenciação farmacológica entre gel transparente cicatrizante e o látex amarelo com aloína (amargo, irritante e tóxico para pets e gestantes).
+      - **Maracujá** (`maracuja`; *Passiflora edulis*): Folha do maracujazeiro com passiflorina calmante para banho morno do pescoço para baixo, trazendo serenidade para o sono.
+    - Cumprida a regra de deixar sem `imagem` as ervas novas que não possuem arquivos baixados e creditados.
+  - **Subtarefa 12.2 (Commit `c976255`): Banho e defumação novos**
+    - Em `data/banhos.js`: criado `banho-maracuja-cidreira-sono` ("Banho de Folha de Maracujá com Erva-cidreira • Calma para Dormir"), suave, noturno, do pescoço para baixo, com reza de serenidade e nota de acolhimento que não substitui atendimento médico. Total: 85 banhos.
+    - Em `data/defumacoes.js`: criada `defumacao-ramos-bentos-palmeira` ("Ramos Bentos de Palmeira • Proteção da Casa & Temporal"), com folha seca de palmeira, alecrim e louro, reza a Santa Bárbara e aviso estrito sobre queimar pedaços pequenos com janelas ventiladas. Total: 34 defumações.
+  - **Subtarefa 12.3 (Commit `7f8cba1`): Bloco "Plantas de vaso que guardam a casa" em `plantas.html`**
+    - Adicionado novo acordeão nos Fundamentos (`.fund details`) com o texto orientador "Nem toda planta de proteção é de banho. Algumas trabalham vivas, no vaso."
+    - Cards em grid com links funcionais para os 7 cards das plantas (Espada de São Jorge, Comigo-Ninguém-Pode, Jiboia, Zamioculca, Pimenteira, Babosa e Folha de Palmeira), especificando onde colocar (porta, sala, comércio), funções energéticas e badges `.badge-danger` com "Tóxica para pets / crianças".
+    - Caixa de aviso `.notice` com alerta de emergência médica e telefone nacional do **CIATox (0800 722 6001)**. Zero novos inline `style=""`.
+  - **Subtarefa 12.4 (Commit `735cdca`): Guia completo das velas em `firmeza.html`**
+    - Inseridos 5 acordeões completos de fundamentos e cuidados de velas abaixo do altar interativo:
+      1. *Como firmar uma vela, passo a passo* (6 passos: preparação, consagração/azeite direcional, firmeza no pires com copo d'água, ativação com fósforo e contemplação, abafamento para apagar sem soprar, e descarte respeitoso).
+      2. *Tipos de vela* (palito, 7 dias sempre sobre prato/pires fundo para não trincar madeira/tecido, cera de abelha e bicolores).
+      3. *O significado das cores* (revisado sem jargões como "vigor celular", respeitando orientações de terreiro: branca, rosa, amarela, laranja, verde, azul-claro, azul-escuro, marrom, lilás, preta e branca para Pretos Velhos, e preta e vermelha só com orientação).
+      4. *O que a chama mostra (leitura popular)* (apresentado como folclore/simbolismo, com checklist físico obrigatório: vento, pavio torto, cera de baixa qualidade explicam a maioria dos casos).
+      5. *Vela do Anjo da Guarda* (vela branca, água fresca, prece e costume de segunda-feira).
+    - Alerta de topo ampliado com recomendação estrita de segurança contra fogo: nunca dormir com vela acesa e não acender no quarto de criança.
+  - **Subtarefa 12.5 (Commit `377b7a7`): Refatoração das cores do altar interativo e remoção total de inline styles**
+    - Em `styles/styles.css`: criados tokens CSS `:root` (`--vela-branca`, `--vela-amarela`, `--vela-verde`, `--vela-azul`, `--vela-violeta`, `--vela-vermelha`, `--vela-rosa`, `--vela-laranja`, `--vela-marrom`, `--vela-preta`), regra `.candle-wrapper[data-cor="..."]` com controle dinâmico de `--vela` e `--vela-2`, renderização do corpo da vela e da aura via `color-mix()`, e gradiente bicolor meio a meio para preta-branca e preta-vermelha.
+    - Em `script/script.js`: removido completamente o objeto `COLORS` e as atribuições manuais de `style.background`; refatorado o clique para aplicar `candleWrapper.dataset.cor = colKey`.
+    - Em `firmeza.html`: adicionados os 5 novos botões (rosa, laranja, marrom, preta e branca, e preta e vermelha); removidos todos os 14 atributos `style=""` inline da página, substituídos por classes na folha de estilos. Verificado: `grep 'style="' firmeza.html` retorna 0 ocorrências.
+  - **Subtarefa 12.6 (Commit `2495a23`): Novos termos no Glossário**
+    - Inseridos 5 novos verbetes detalhados em `glossario.html`: **Ramo bento**, **Mariwô**, **Firmar (vela)**, **Vela de 7 dias** e **CIATox** (com número 0800 722 6001).
+  - **Subtarefa 12.7 (Commit `0000000`): Bump de CACHE_VERSION e testes integrados**
+    - `CACHE_VERSION` incrementada para `"fv-v15"` em `sw.js`.
+    - Testes automatizados executados com sucesso validando: busca de jiboia, pimenteira, palmeira e maracujá; carregamento de novos banhos/defumações por ID; 0 inline styles em `firmeza.html`; existência de todos os tokens CSS e verbetes.
+- **Arquivos alterados:**
+  - `data/ervas.js`
+  - `data/banhos.js`
+  - `data/defumacoes.js`
+  - `plantas.html`
+  - `firmeza.html`
+  - `glossario.html`
+  - `script/script.js`
+  - `styles/styles.css`
+  - `sw.js` (bump para fv-v15)
+  - `PLANO_GEMINI.md`
+- **Resultados e conformidade:**
+  - Zero novos inline styles no projeto.
+  - Triagem de segurança rigorosamente respeitada: plantas cáusticas/tóxicas nunca foram incluídas em banhos ou queimas.
+  - Respeito integral às tradições do Catimbó, Jurema, Umbanda, Candomblé e Catolicismo popular.
 
 ---
 
