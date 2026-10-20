@@ -1910,5 +1910,101 @@ window.FV_DATA.ervas = [
   "colheita": "Colher folhas verdes sadias ao entardecer, lavando bem em água corrente antes da infusão morna.",
   "cuidados": "Uso externo suave e relaxante. Se preparado como chá medicinal caseiro, possui forte efeito indutor de sono: evite antes de dirigir ou operar máquinas; gestantes e pessoas que fazem uso de ansiolíticos ou sedativos controlados devem consultar orientação médica.",
   "tradicao": "Usada pelas mães e rezadeiras do Brasil para acalmar pessoas nervosas e espíritos atribulados. O banho morno das folhas despejado antes de dormir fecha as portas para pesadelos e traz aconchego ao peito."
+ },
+ {
+  "id": "abacaxi-roxo",
+  "nome": "Abacaxi-Roxo",
+  "nomePopular": "Moisés-no-berço, Barco-de-Moisés, Espadinha-roxa (Tradescantia spathacea / Rhoeo discolor)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "protecao",
+   "limpeza"
+  ],
+  "usos": [
+   "ambiental",
+   "banho-external"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Nunca na cabeça (somente do pescoço para baixo)",
+  "descricao": "Herbácea exuberante de folhas espadas bicolores: verde-esmeralda intenso na face superior e roxo-brilhante na face inferior. Atua como escudo magnético cortante contra inveja pesada, mau-olhado e energias intrusas que tentam romper as defesas do lar.",
+  "diferenciacao": "Diferencia-se pela força da pigmentação roxa sob a folha espessa: na fitoenergia de terreiro, o roxo atua transmutando e desmanchando miasmas colados ao chão astral. Muito plantada em vasos de soleira e canteiros de entrada.",
+  "colheita": "Cortar as folhas inteiras pela manhã com tesoura de poda, usando luvas para evitar contato direto da seiva com a pele.",
+  "cuidados": "ATENÇÃO: A seiva das Tradescantias contém substâncias que podem provocar dermatites e irritação em peles sensíveis. Nunca esfregar nos olhos nem passar no rosto. Uso ritualístico estritamente do pescoço para baixo em infusão ou maceração coada. Manter fora do alcance de cães e gatos (tóxica se mastigada).",
+  "tradicao": "Tradicionalmente plantada à entrada de casas e terreiros como pára-raios vegetal contra demandas. Em rituais de Bate-Folhas e sacudimentos no chão, suas folhas firmes são batidas nas pernas e pés para desmanchar amarras espirituais."
+ },
+ {
+  "id": "trevo-roxo",
+  "nome": "Trevo-Roxo de Três Folhas",
+  "nomePopular": "Trevo-borboleta, Falso-trevo, Trindade-roxa (Oxalis triangularis)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "prosperidade",
+   "harmonizacao"
+  ],
+  "usos": [
+   "ambiental",
+   "banho-external"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Do pescoço para baixo (ou apenas borrifação suave no ambiente)",
+  "descricao": "Delicada planta de folhas triangulares roxo-profundas que se movem com o ciclo solar: abrem-se graciosamente à luz do dia e fecham-se ao anoitecer em recolhimento. Vibra na energia da Trindade sagrada, destrancando caminhos de fartura e transmutando amarguras em boa sorte.",
+  "diferenciacao": "Diferencia-se pelo movimento nictinástico diário (abertura e fechamento das folhas), ensinando a sabedoria do tempo e a harmonia entre ação e recolhimento. Sua tríade foliar atrai magnetismo positivo para o lar e comércio.",
+  "colheita": "Colher folhas tenras pela manhã com delicadeza enquanto estiverem abertas e ensolaradas.",
+  "cuidados": "O gênero Oxalis é naturalmente rico em ácido oxálico solúvel. Banhos suaves de folhas são bem tolerados externamente, mas o consumo interno em mezinhas não deve ser feito em excesso e é contraindicado para pessoas com predisposição a cálculos renais. Manter longe de pets.",
+  "tradicao": "No saber tradicional do Catimbó e das rezadeiras, é empregada em banhos de atração de boa fortuna e mezinhas de limpeza energética. O vaso colocado em aparadores atrai prosperidade constante e serenidade afetiva."
+ },
+ {
+  "id": "peregun-roxo",
+  "nome": "Peregun Roxo (Dracena Roxa)",
+  "nomePopular": "Folha-de-fogo, Dracena-vermelha, Cana-do-índio (Cordyline fruticosa / Dracaena)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "limpeza",
+   "protecao"
+  ],
+  "usos": [
+   "ambiental",
+   "banho-external"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "NUNCA na cabeça (erva de guerra do pescoço para baixo)",
+  "descricao": "Estandarte vegetal sagrado da linha de fogo, consagrado a Ogum e Iansã. Suas folhas largas em tons de vinho, bordô e roxo-avermelhado carregam o vigor da guerra justa, expulsando espíritos obsessores, rompendo feitiços antigos e reerguendo a coragem.",
+  "diferenciacao": "PEREGUN VERDE vs. PEREGUN ROXO:\n• Peregun Verde: Ligado a Oxóssi e Ossaim, vibra na fartura, frescor e rejuvenescimento das matas.\n• Peregun Roxo: Ligado à espada de ferro de Ogum e ao fogo de Iansã, atua no confronto enérgico e sacudimento de forças densas.",
+  "colheita": "Colher folhas maduras e firmes pedindo licença aos Guardiões da Lei e às forças guerreiras das matas.",
+  "cuidados": "Erva quente de grande voltagem espiritual: uso exclusivamente externo do pescoço para baixo. Não utilize na coroa (Ori). Lave as mãos após o manuseio das folhas.",
+  "tradicao": "Primordial nos terreiros de Candomblé e Umbanda para o ritual de Bate-Folhas (sacudimento), onde seus feixes varrem as larvas astrais coladas à aura. Cultivada nas divisas e cantos do terreno como sentinela que impede a entrada de energias destrutivas."
+ },
+ {
+  "id": "hibisco",
+  "nome": "Hibisco",
+  "nomePopular": "Flor-de-graxa, Mimo-de-vênus, Hibisco-vermelho (Hibiscus rosa-sinensis & Hibiscus sabdariffa)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "amor",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao"
+  ],
+  "partes": [
+   "flor"
+  ],
+  "cabeca": "Pétalas frescas e puras podem ir na cabeça em banhos de flores; para atração afetiva, focar no cardíaco do pescoço para baixo",
+  "descricao": "Flor solar de pétalas aveludadas rubras e centro radiante, símbolo do amor-próprio restaurado, da coragem de brilhar e do magnetismo afetivo limpo. Acolhe o coração magoado, afasta a melancolia e estimula o despertar do encanto pessoal.",
+  "diferenciacao": "Diferencia-se pela doçura magnética: não faz amarrações, mas expande a autoestima e a autoconfiança de dentro para fora, atraindo relações recíprocas e respeito.",
+  "colheita": "Colher as flores recém-abertas nas primeiras horas da manhã. Para defumação, secar as pétalas à sombra sobre papel limpo.",
+  "cuidados": "Uso externo suave e relaxante. Em chás medicinais, possui leve efeito hipotensor (reduz a pressão arterial) e diurético: pessoas hipotensas e gestantes devem consumir com orientação médica.",
+  "tradicao": "Consagrada às Ciganas, Pombagiras de luz e à doçura dourada de Oxum. Suas pétalas secas queimadas em brasa com açúcar e louro criam uma das mais acolhedoras defumações para paz conjugal e harmonia familiar."
  }
 ];

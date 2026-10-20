@@ -834,5 +834,30 @@ window.FV_DATA.defumacoes = [
   "reza": "Ramo bento que a fé guardou: cobri esta casa, afastai o perigo e o mal, e que Santa Bárbara e todos os protetores desta morada nos guardem do raio e do vendaval.",
   "servePara": "Proteção do lar e serenidade em dias de tempestade, seguindo o costume tradicional de queimar o ramo bento guardado.",
   "cuidados": "A folha seca queima rápido e solta faíscas: use pedaços pequenos, sobre brasa num turíbulo ou pires de barro, longe de cortinas. Em temporal, fique dentro de casa, longe de tomadas e aparelhos ligados. Janelas entreabertas para ventilar."
+ },
+ {
+  "id": "defumacao-hibisco-harmonia-afeto",
+  "nome": "Defumação de Pétalas de Hibisco com Louro e Açúcar (Harmonia Afetiva & Acolhimento)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "seg",
+   "sex",
+   "dom"
+  ],
+  "horario": "ao entardecer ou início da noite",
+  "ervas": [
+   "Pétalas secas de Hibisco",
+   "Louro",
+   "Canela em pó"
+  ],
+  "sentido": "Da porta da rua para o fundo da casa, circulando amorosamente pela sala e quartos",
+  "reza": "Doçura que acolhe, calor que une: que a fumaça bendita do hibisco perfume este lar, dissipe as amarguras e mágoas, e faça reinar a paz, a alegria e a concórdia entre todos.",
+  "servePara": "Harmonização de lares com brigas ou desânimo afetivo; atrai clima de romance, carinho, calor humano e reconciliação entre casais e familiares.",
+  "cuidados": "As pétalas devem estar bem secas à sombra para não chiar na brasa. Use brasa incandescente no turíbulo ou caldeirão de ferro e ventile suavemente os cômodos."
  }
 ];

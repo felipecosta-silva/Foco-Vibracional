@@ -480,7 +480,7 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
     - Em `firmeza.html`: adicionados os 5 novos botões (rosa, laranja, marrom, preta e branca, e preta e vermelha); removidos todos os 14 atributos `style=""` inline da página, substituídos por classes na folha de estilos. Verificado: `grep 'style="' firmeza.html` retorna 0 ocorrências.
   - **Subtarefa 12.6 (Commit `2495a23`): Novos termos no Glossário**
     - Inseridos 5 novos verbetes detalhados em `glossario.html`: **Ramo bento**, **Mariwô**, **Firmar (vela)**, **Vela de 7 dias** e **CIATox** (com número 0800 722 6001).
-  - **Subtarefa 12.7 (Commit `0000000`): Bump de CACHE_VERSION e testes integrados**
+  - **Subtarefa 12.7 (Commit `ab40d1f`): Bump de CACHE_VERSION e testes integrados**
     - `CACHE_VERSION` incrementada para `"fv-v15"` em `sw.js`.
     - Testes automatizados executados com sucesso validando: busca de jiboia, pimenteira, palmeira e maracujá; carregamento de novos banhos/defumações por ID; 0 inline styles em `firmeza.html`; existência de todos os tokens CSS e verbetes.
 - **Arquivos alterados:**
@@ -498,6 +498,26 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
   - Zero novos inline styles no projeto.
   - Triagem de segurança rigorosamente respeitada: plantas cáusticas/tóxicas nunca foram incluídas em banhos ou queimas.
   - Respeito integral às tradições do Catimbó, Jurema, Umbanda, Candomblé e Catolicismo popular.
+
+### Expansão a pedido do usuário — 2026-10-20 · Abacaxi-roxo, Trevo-roxo, Peregun roxo e Hibisco
+
+- **O que foi feito:**
+  - **4 novas ervas em `data/ervas.js` (total: 75 ervas):**
+    - `abacaxi-roxo`: Abacaxi-Roxo (*Tradescantia spathacea* / *Rhoeo discolor*), quente, corte de demanda, vaso de soleira e bate-folhas, alerta de seiva irritante.
+    - `trevo-roxo`: Trevo-Roxo de Três Folhas (*Oxalis triangularis*), equilibradora, prosperidade e transmutação, movimento nictinástico, mezinhas e alerta de ácido oxálico.
+    - `peregun-roxo`: Peregun Roxo / Dracena Roxa (*Cordyline fruticosa* / *Dracaena*), quente, guerra espiritual e sacudimento de Ogum e Iansã, sentinela de limites territoriais, nunca na cabeça.
+    - `hibisco`: Hibisco (*Hibiscus rosa-sinensis* / *Hibiscus sabdariffa*), flor solar de amor-próprio, autoestima, banhos afetivos e defumação acolhedora.
+  - **4 novos banhos em `data/banhos.js` (total: 89 banhos):**
+    - `banho-hibisco-autoestima-brilho`: auto-estima, amor-próprio, hibisco com rosas e canela.
+    - `banho-peregun-roxo-descarrego-guerra`: descarrego pesado de guerra com peregun roxo, guiné e arruda.
+    - `banho-trevo-roxo-prosperidade-caminhos`: abertura de caminhos e boa fortuna com louro e alecrim.
+    - `banho-abacaxi-roxo-corte-demanda`: corte de inveja e escudo do lar com abacaxi-roxo e espada de são jorge.
+  - **1 nova defumação em `data/defumacoes.js` (total: 35 defumações):**
+    - `defumacao-hibisco-harmonia-afeto`: pétalas secas de hibisco com louro e canela para harmonia e união afetiva do lar.
+  - **Glossário (`glossario.html`):**
+    - Adicionado o verbete **Mezinha** (a farmácia viva e os remédios ancestrais de rezadeiras e mestres do Catimbó e Jurema).
+  - **PWA Cache (`sw.js`):**
+    - `CACHE_VERSION` atualizada para `"fv-v16"`.
 
 ---
 

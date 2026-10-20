@@ -2205,5 +2205,108 @@ window.FV_DATA.banhos = [
   "reza": "Folha que acalma, água que acolhe: desatai a pressa do meu peito, aquietai meus pensamentos e me dai um sono de paz.",
   "observacao": "DO PESCOÇO PARA BAIXO. Se a insônia ou a ansiedade forem frequentes, procure também um médico. O banho acolhe, mas não substitui o tratamento.",
   "versaoCha": ""
+ },
+ {
+  "id": "banho-hibisco-autoestima-brilho",
+  "nome": "Banho de Hibisco com Canela e Rosa Vermelha (Autoestima, Amor-Próprio & Brilho)",
+  "objetivo": "amor",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "sex",
+   "sab",
+   "dom"
+  ],
+  "horario": "ao entardecer ou antes de um momento especial",
+  "ervas": [
+   "Pétalas de Hibisco",
+   "Pétalas de Rosa Vermelha",
+   "Canela em pau"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva 2 litros de água com 1 pau de canela por 3 minutos. Desligue o fogo, adicione as pétalas de 3 flores de hibisco e um punhado de pétalas de rosa vermelha bem lavadas. Abafe por 15 minutos até a água ganhar um tom rubro acolhedor. Coe e espere amornar. Despeje do pescoço para baixo após o banho de higiene, banhando com especial carinho a região do peito e do coração. Deixe o corpo secar naturalmente ou com toalha macia, vestindo roupa clara ou vibrante.",
+  "reza": "Flor do encanto, fogo do coração: despertai em mim a beleza de quem sou, curai mágoas antigas e fazei brilhar o amor e a dignidade em meu caminhar.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Focado no despertar do amor-próprio e da autoconfiança de dentro para fora.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-peregun-roxo-descarrego-guerra",
+  "nome": "Banho de Peregun Roxo com Guiné (Descarrego de Guerra & Força de Ogum)",
+  "objetivo": "limpeza",
+  "intensidade": "forte",
+  "luas": [
+   "minguante",
+   "nova"
+  ],
+  "dias": [
+   "ter",
+   "qui",
+   "sex"
+  ],
+  "horario": "à noite, antes de recolher os pensamentos",
+  "ervas": [
+   "Folhas de Peregun Roxo",
+   "Guiné",
+   "Arruda"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Em uma bacia limpa com 2 litros de água fresca da fonte ou mineral, macere vigorosamente com as duas mãos as folhas de peregun roxo picadas, as folhas de guiné e a arruda, clamando pela força e espada de Ogum e pela justiça das matas. Deixe descansar por 20 minutos e coe. Tome seu banho de higiene e despeje a água macerada rigorosamente dos ombros para baixo, sentindo o corte de qualquer influência espiritual pesada. Deixe secar naturalmente e vista roupas limpas.",
+  "reza": "Pelo ferro de Ogum e pelo sopro das tempestades: quebre-se a demanda, desfaça-se o laço e caia por terra todo olho-gordo que tentar derrubar minha fé. Ogunhê!",
+  "observacao": "NUNCA NA CABEÇA (Ori). Erva de corte pesado de guerra. Lave bem as mãos após o manuseio. As folhas coadas devem ser devolvidas à terra ou a um jardim.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-trevo-roxo-prosperidade-caminhos",
+  "nome": "Banho de Trevo-Roxo com Louro & Alecrim (Abertura de Caminhos & Boa Fortuna)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "seg",
+   "qui",
+   "dom"
+  ],
+  "horario": "pela manhã, ao raiar do sol",
+  "ervas": [
+   "Trevo-Roxo de Três Folhas",
+   "Louro",
+   "Alecrim"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Aqueça 2 litros de água até levantar as primeiras bolhas e desligue o fogo. Acrescente um punhado de folhas de trevo-roxo abertas e colhidas na luz, 7 folhas secas de louro e um raminho fresco de alecrim. Abafe a panela por 10 a 15 minutos até a infusão liberar seu aroma solar e acolhedor. Coe, espere amornar e jogue do pescoço para baixo após o banho matinal, respirando profundamente e visualizando clareza em suas finanças e bons caminhos abertos.",
+  "reza": "Tríade sagrada que se abre para o sol: abri meus caminhos, afastai o desânimo e a escassez, e fazei florescer a fartura justa em meu lar e em meu trabalho.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Banho manso de atração, ideal para iniciar semanas de novos projetos, entrevistas ou negócios.",
+  "versaoCha": ""
+ },
+ {
+  "id": "banho-abacaxi-roxo-corte-demanda",
+  "nome": "Banho de Abacaxi-Roxo com Espada de São Jorge (Corte de Inveja & Escudo do Lar)",
+  "objetivo": "protecao",
+  "intensidade": "media",
+  "luas": [
+   "minguante",
+   "cheia"
+  ],
+  "dias": [
+   "ter",
+   "sex"
+  ],
+  "horario": "ao entardecer ou antes de dormir",
+  "ervas": [
+   "Folhas de Abacaxi-Roxo",
+   "Espada de São Jorge"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Lave com cuidado 3 folhas frescas de abacaxi-roxo e corte em pedaços médios 1 folha de espada de são jorge (usando luvas ou tesoura limpa). Ferva 2 litros de água, desligue o fogo e adicione as ervas. Abafe por 15 minutos. Coe com muito cuidado para não levar resíduos de seiva aos olhos. Espere esfriar até ficar morno e despeje dos ombros para baixo, sentindo as lâminas vegetais criando um escudo impenetrável contra invejas e cobranças energéticas externas.",
+  "reza": "Escudo de duas cores, lâmina de proteção: cortai o olho-gordo que me cerca, secai a inveja que me mira e deixai meu corpo e meu lar sob a guarda dos bons espíritos.",
+  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. Cuidado ao manipular a seiva do abacaxi-roxo: não passe as mãos nos olhos nem na boca. Restos vegetais vão para o lixo comum ou compostagem longe do alcance de animais.",
+  "versaoCha": ""
  }
 ];
