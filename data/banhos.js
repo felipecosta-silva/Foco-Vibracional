@@ -2110,10 +2110,10 @@ window.FV_DATA.banhos = [
    "crescente"
   ],
   "dias": [
-   "sex",
+   "qua",
    "sab"
   ],
-  "horario": "noite da véspera",
+  "horario": "noite da véspera (quarta ou sábado, se o Banho das Onze Horas for na quinta ou no domingo)",
   "ervas": [
    "3 folhas de Mamão",
    "Alecrim"
@@ -2172,7 +2172,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "1. Selecione rigorosamente apenas as brácteas coloridas da buganvília (as 'folhas de cor') e as flores frescas de jasmim, lavando bem e descartando completamente qualquer caule, espinho ou folha verde.\n2. Em uma bacia com 2 litros de água fresca mineral ou filtrada límpida, macere suavemente as flores e brácteas com as próprias mãos, entoando orações de paz e agradecendo a força acolhedora das Mestras da Jurema.\n3. Tome seu banho de higiene normal e, em seguida, verta a água perfumada DA COROA DA CABEÇA AOS PÉS (lavando o Ori e todo o corpo), respirando com calma e sentindo o desabrochar da clareza íntima e da firmeza da alma.\n4. Seque-se suavemente com toalha clara, vista roupa leve e desfrute de alguns minutos em silêncio de paz.",
   "reza": "Na força da rocha que floresce e no perfume que acalma o pensamento: que a luz clareie minha consciência, que o amor-próprio firme meus passos e que a sabedoria das Mestras guie meu caminho com beleza e dignidade.",
-  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). Fundamental: use exclusivamente as brácteas coloridas despetaladas e as flores puras de jasmim, sem galhos, folhas verdes ou espinhos. Traz serenidade mental, iluminação interior, elevação da autoestima e reconexão profunda com a própria verdade.",
+  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). Fundamental: use exclusivamente as brácteas coloridas despetaladas e as flores puras de jasmim, sem galhos, folhas verdes ou espinhos. Banho de serenidade, autoestima e reencontro com a própria verdade. Jasmim: use só o verdadeiro (Jasminum), nunca dama-da-noite nem jasmim-amarelo.",
   "versaoCha": ""
  }
 ];

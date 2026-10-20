@@ -438,7 +438,7 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
   - **Subtarefa 11.4 (Commit `3c29c61`): Ligações e novos termos no Glossário**
     - Em `colheita.html`: verificado que a página opera por fases lunares gerais sem tabela horária estática (registrado no log sem quebras).
     - Em `glossario.html`: inseridos os termos **PANC** (plantas alimentícias não convencionais e o sustento simples), **Brácteas** (as "folhas de cor" protetoras da flor), **Comigo-Ninguém-Pode** (sentinela de vaso vivo e perigo vital de ingestão de oxalatos) e **Vinca** (flor das Almas e acalanto do sono, com contraindicação farmacológica de chá interno).
-  - **Subtarefa 11.5 (Commit `4664020`): Bump de CACHE_VERSION e registro**
+  - **Subtarefa 11.5 (Commit `9655bea`): Bump de CACHE_VERSION e registro**
     - `CACHE_VERSION` atualizada para `"fv-v13"` em `sw.js`.
     - Registro detalhado da Fase 11 na Seção 5 de `PLANO_GEMINI.md`.
 - **Arquivos alterados:**
@@ -828,3 +828,20 @@ Use exatamente os campos que os outros banhos usam. Os cuidados vão em `observa
 - Arquivos em UTF-8 sem BOM. Confira os acentos de "nóbis", "buganvília" e "mamão" no navegador.
 - **Testar** a 1440 px e a 375 px, **e offline**: busca por "onze", "nóbis" e "bugan"; filtro `?objetivo=prosperidade`; abrir os dois banhos pelo `#id` e conferir os links para as ervas. Console limpo e sem rolagem lateral.
 - Um commit por subtarefa (11.1 a 11.4), cada um registrado no log (seção 5). No fim, `CACHE_VERSION` → `fv-v13`.
+
+---
+
+## 18. Revisão do supervisor — Fase 11 (2026-10-20)
+
+**Resultado: aprovado com ajustes.** Revisados os 5 commits (`43c1412` a `9655bea`). Os dois banhos do plano estão fiéis (reza, observação, ordem do preparo, do pescoço para baixo). As 3 ervas novas estão com cuidados completos (espinhos, oxalatos para pets, látex no mamão) e **nenhum crédito de foto foi inventado**. Os ingredientes linkam para as ervas nos dois sentidos. Console limpo, sem rolagem lateral a 1440 px e a 375 px, e funciona offline.
+
+**Conteúdo extra** (Jasmim, Banho das Mestras, Linha das Mestras na buganvília, Comigo-Ninguém-Pode e Vinca no glossário): o dono do site confirmou que **veio dele**, então foi mantido. **Da próxima vez, registre no log a origem de todo conteúdo que não está no plano** ("enviado pelo dono em…").
+
+**Ajustado pelo supervisor:**
+1. **Jasmim, segurança:** "Jasmim-da-noite" e "Jasmim-estrela" saíram dos nomes populares. Jasmim-da-noite costuma ser a **dama-da-noite** (*Cestrum nocturnum*), que é tóxica. Entrou um alerta "não confunda" com dama-da-noite e jasmim-amarelo (*Gelsemium*), também no Banho das Mestras.
+2. **Promessas e pseudociência:** saíram "atua no sistema límbico", "afasta pesadelos" e "resiliência inabalável".
+3. **Buganvília:** saiu o chá "para tosse e bronquite". É uma promessa de uso medicinal interno, e a mesma ficha manda manter a planta longe de crianças.
+4. **Banho de mamão da véspera:** os dias eram sexta e sábado, mas o Banho das Onze Horas é no domingo ou na quinta. Corrigido para quarta e sábado, com explicação no horário.
+5. Hash errado no log (`4664020` → `9655bea`). `CACHE_VERSION` → `fv-v14`.
+
+**Próximo passo:** aguardar a nova tarefa do dono do site. Continuam valendo o backlog da seção 10 e a pendência das fotos (seções 13 e 14). As 4 ervas novas estão sem foto.
