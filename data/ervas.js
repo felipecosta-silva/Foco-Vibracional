@@ -628,7 +628,7 @@ window.FV_DATA.ervas = [
   "descricao": "Erva de corte e quebra de energias mortas e paradas, muito respeitada na Linha das Almas e dos Pretos Velhos. As enzimas e a seiva viva da folha de mamão decompõem miasmas pesados que pesavam sobre a coluna e as costas.",
   "diferenciacao": "FOLHA DO MAMÃO MACHO vs. FÊMEA:\n• Mamão Macho (que não produz frutos, apenas flores em cachos longos): A folha é considerada mais cortante e rápida para quebrar mau-olhado de rua e descarrego repentino.\n• Mamão Fêmea (que dá os frutos carnosos): Ação mais acolhedora de alívio de esgotamento físico e dores crônicas de cansaço no corpo.",
   "colheita": "Colher folhas verdes grandes sem manchas amarelas, lavando bem a seiva leitosa.",
-  "cuidados": "A seiva branca pode ser levemente cáustica em peles muito finas. Lavar a folha antes de macerar em bastante água.",
+  "cuidados": "Quem tem alergia a látex não deve usar (a seiva leitosa branca contém látex e pode provocar reação alérgica cruzada). Gestantes devem evitar. Teste antes numa área pequena do antebraço e nunca aplique sobre feridas abertas. Colha e lave muito bem a folha usando luvas para retirar o excesso de seiva antes da maceração.",
   "tradicao": "Muito utilizada pelas benzedeiras para sacudir o quarto de enfermos e convalescentes, retirando a atmosfera estagnada de sofrimento e trazendo ar fresco renovado.",
   "imagem": "./images/mamao.jpg"
  },
@@ -945,7 +945,7 @@ window.FV_DATA.ervas = [
   "descricao": "A árvore da alegria e da dinamização dos caminhos. Suas folhas aromáticas quebram a lentidão de negócios travados, aceleram processos burocráticos e devolvem o brilho da mocidade ao coração.",
   "diferenciacao": "FOLHAS FRESCAS TRITURADAS vs. DEFUMAÇÃO SECA:\n• Folhas Frescas Maceradas com Hortelã: Banho da cabeça aos pés para tirar a sensação de estagnação na rotina e despertar a proatividade.\n• Seca com Açúcar na Brasa: Atrai compradores, movimento de rua e dinheiro de giro rápido em pequenos comércios.",
   "colheita": "Colher folhas verdes e brilhantes de manhã cedo sentindo o perfume adocicado característico.",
-  "cuidados": "Uso externo extremamente agradável e seguro.",
+  "cuidados": "Uso externo suave e bem tolerado. Lave bem as folhas.",
   "tradicao": "Consagrada a Oxum e aos Ibejis (Erês). É o banho do 'sorriso no rosto': tira o peso das obrigações e torna o trabalho prazeroso.",
   "imagem": "./images/pitangueira.jpg"
  },
