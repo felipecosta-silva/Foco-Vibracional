@@ -1770,5 +1770,145 @@ window.FV_DATA.ervas = [
   "colheita": "Colher as flores preferencialmente ao anoitecer ou nas primeiras horas da manhã, momentos em que a concentração de óleos aromáticos nas pétalas é máxima.",
   "cuidados": "Uso externo suave. Utilize apenas as flores bem lavadas, sem ramos e folhas. NÃO CONFUNDA: dama-da-noite (Cestrum nocturnum, às vezes chamada de jasmim-da-noite) e jasmim-amarelo ou jasmim-da-carolina (Gelsemium) são plantas tóxicas e não servem para este uso. Na dúvida sobre a espécie, não use.",
   "tradicao": "Consagrada a Oxalá, Iemanjá e Oxum nos terreiros de Umbanda e às Mestras Encantadas na Jurema Sagrada. Suas flores são usadas para banhos de cabeça de iniciação de paz e para perfumar a água das quartinhas."
+ },
+ {
+  "id": "palmeira",
+  "nome": "Folha de Palmeira (Ramo Bento)",
+  "nomePopular": "Coqueiro, Dendezeiro, Areca-bambu (Cocos nucifera, Elaeis guineensis, Dypsis lutescens)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "protecao",
+   "harmonizacao"
+  ],
+  "usos": [
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Não. Usada apenas em defumação e proteção de ambiente",
+  "descricao": "Símbolo ancestral de vitória, acolhimento e proteção de espaços sagrados. Presente tanto na tradição cristã popular quanto nos cultos de matriz africana, onde a folha desfiada do dendezeiro (mariwô) guarda os portais contra negatividades.",
+  "diferenciacao": "RAMO BENTO DO DOMINGO DE RAMOS vs. MARIWÔ:\n• Ramo Bento: Guardado atrás de portas e crucifixos; na tradição católica popular, queima-se um pedaço seco na brasa durante temporais com preces a Santa Bárbara.\n• Mariwô de Ogum: No candomblé e na umbanda, as folhas desfiadas do dendezeiro coroam portais e janelas como insígnia sagrada de sentinela e corte de invasões espirituais.",
+  "colheita": "Coleta sustentável das palhas secas já caídas da árvore, ou ramos bentos abençoados em celebrações pascais.",
+  "cuidados": "ATENÇÃO: Não confunda com a palmeira-sagu (Cycas revoluta). Ela parece palmeira, mas não é, e é EXTREMAMENTE TÓXICA para cães e gatos (pode ser fatal). A folha seca de palmeira queima com facilidade e estala faíscas: queime sempre em pedaços pequenos, em turíbulo ou recipiente de cerâmica/barro longe de tecidos e cortinas.",
+  "tradicao": "No Domingo de Ramos, ramos bentos levados da missa são guardados atrás da porta ou do quadro de santo. Em dias de temporal, é costume popular queimar um pedacinho e rezar a Santa Bárbara. Na tradição afro-brasileira, o mariwô de Ogum protege o terreiro."
+ },
+ {
+  "id": "jiboia",
+  "nome": "Jiboia",
+  "nomePopular": "Era-do-diabo, Jiboia-verde, Jiboia-rajada (Epipremnum aureum)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "protecao"
+  ],
+  "usos": [
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+  "descricao": "Planta ornamental de folhagem exuberante e resistente que ocupa cantos de sombra e purifica o ar. Muito cultivada em vasos suspensos no lar para acompanhar o ritmo da casa e manter o ambiente vivo e acolhedor.",
+  "diferenciacao": "Uso exclusivamente ornamental e de ambiente doméstico. Não possui fundamento ritualístico de terreiro tradicional: sua presença atua na harmonização visual e psicológica dos cômodos através da biofilia e do verde constante.",
+  "colheita": "Para propagação em água ou terra, corte estacas abaixo do nó foliar usando tesoura limpa e luvas de proteção.",
+  "cuidados": "PLANTA TÓXICA SE MASTIGADA. Contém cristais de oxalato de cálcio que provocam queimação intensa na boca, inchaço de lábios e irritação de mucosas. Cultive sempre em vasos altos ou prateleiras fora do alcance de crianças e de cães e gatos. Use luvas ao podar, pois a seiva pode irritar a pele sensível.",
+  "tradicao": "Cultivo popular urbano de vasos em salas, corredores e escritórios, associada ao acolhimento e à persistência por sua capacidade de crescer mesmo com pouca luz natural."
+ },
+ {
+  "id": "zamioculca",
+  "nome": "Zamioculca",
+  "nomePopular": "Planta-da-fortuna, Planta-da-prosperidade, Dólar-verde (Zamioculcas zamiifolia)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "prosperidade",
+   "protecao"
+  ],
+  "usos": [
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+  "descricao": "Suculenta de folhas verdes profundas e brilhantes, famosa pela sua extrema resiliência e baixa exigência de água e luz. No costume popular urbano e no Feng Shui, simboliza firmeza, constância e prosperidade que resiste a tempos difíceis.",
+  "diferenciacao": "Diferencia-se pela solidez: armazena água em suas batatas subterrâneas (rizomas), ensinando a poupar energia e crescer com firmeza. Muito colocada em recepções, entradas de lojas, escritórios e salas de estar.",
+  "colheita": "Propagação por divisão de touceira ou estacas de folhas em terra aerada, sempre com luvas.",
+  "cuidados": "PLANTA TÓXICA POR INGESTÃO. Contém oxalato de cálcio e seiva irritante para a pele e olhos. Nunca use para banhos, chás ou defumações. Mantenha em mesas ou aparadores fora do alcance de crianças pequenas e animais domésticos. Lave as mãos com sabão após a manutenção.",
+  "tradicao": "Tornou-se a 'planta da fortuna' nos comércios modernos do Brasil. Seu vigor silencioso representa a paciência de quem constrói patrimônio passo a passo sem desperdício."
+ },
+ {
+  "id": "pimenteira",
+  "nome": "Pimenteira (Malagueta & Biquinho)",
+  "nomePopular": "Pimenta-malagueta, Pimenta-biquinho, Pimenta-de-cheiro (Capsicum frutescens & Capsicum chinense)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "protecao",
+   "limpeza"
+  ],
+  "usos": [
+   "ambiental"
+  ],
+  "partes": [
+   "fruto",
+   "folha"
+  ],
+  "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+  "descricao": "A clássica sentinela viva do portal. O fogo rubro de suas pimentas atua como um escudo magnético que desmancha olho-gordo, inveja e atritos antes de cruzarem a soleira da porta.",
+  "diferenciacao": "MALAGUETA vs. BIQUINHO:\n• Pimenta Malagueta: Ardida e picante, o arquétipo tradicional de guarda e choque energético na porta de entrada.\n• Pimenta Biquinho: Aromática e quase sem ardência (capsaicina branda), ideal para quem tem crianças e pets e busca a mesma firmeza de proteção com menor risco de acidentes de contato.",
+  "colheita": "Colher os frutos maduros com luvas ou tesoura, evitando o contato dos dedos com os olhos.",
+  "cuidados": "ATENÇÃO CRÍTICA: NUNCA USAR EM BANHOS E NUNCA QUEIMAR EM DEFUMAÇÃO. A queima de pimenta na brasa libera fumaça cáustica com capsaicina aerossolizada que queima os olhos e as vias respiratórias (princípio do spray de pimenta). No banho, queima a pele e as mucosas sensíveis. Lave as mãos após mexer na planta e mantenha longe de crianças e pets.",
+  "tradicao": "Vaso clássico da entrada de casas e comércios no Brasil, ligado à força dos Guardiões da esquerda e à sentinela de porteira. A crença popular diz que quando a pimenteira seca de repente, ela 'segurou' uma carga de olho-gordo (embora falta de sol, excesso de água ou ácaros sejam causas físicas frequentes)."
+ },
+ {
+  "id": "babosa",
+  "nome": "Babosa (Aloe Vera)",
+  "nomePopular": "Aloe-vera, Caraguatá-de-jardim, Erva-babosa (Aloe vera / Aloe barbadensis)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "protecao",
+   "limpeza"
+  ],
+  "usos": [
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Nunca. Não usar em banho ritualístico tradicional",
+  "descricao": "Suculenta lendária de folhas espessas com espinhos laterais suaves e polpa gelatinosa transparente. Cultivada em canteiros e vasos na entrada da casa como escudo vegetal que neutraliza inveja e atrai regeneração física e espiritual.",
+  "diferenciacao": "GEL TRANSPARENTE vs. LÁTEX AMARELO (ALOÍNA):\n• Gel transparente interno: Emoliente, calmante e cicatrizante comprovado da pele em uso cosmético e dermatológico.\n• Látex amarelo junto à casca: Rico em aloína, substância amarga e irritante que pode provocar dermatites em peles sensíveis e intoxicação em cães e gatos se ingerido.",
+  "colheita": "Cortar folhas basais maduras rente ao caule com faca afiada. Deixar escorrer o látex amarelo verticalmente antes de manipular.",
+  "cuidados": "USO RESTRITO A VASO DE AMBIENTE OU APLICAÇÃO DERMATOLÓGICA TÓPICA DO GEL PURO. Não ingerir (o látex é laxativo drástico e tóxico para gestantes e pets). Não utilizar folhas inteiras maceradas em banhos corporais.",
+  "tradicao": "Cultivada na porta de entrada no interior do Brasil como pára-raios de olho-gordo: o formato pontiagudo das folhas é tido popularmente como lâmina que 'corta' as más intenções de quem chega."
+ },
+ {
+  "id": "maracuja",
+  "nome": "Folha de Maracujá",
+  "nomePopular": "Maracujazeiro, Flor-da-paixão, Passiflora (Passiflora edulis)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "calma",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Do pescoço para baixo (traz sonolência e relaxamento profundo)",
+  "descricao": "Trepadeira vigorosa de folhas recortadas e flor espetacular, riquíssima em passiflorina e flavonoides calmantes. Na fitoenergia, é o bálsamo que desata a ansiedade, desacelera pensamentos angustiantes e prepara o corpo para um sono restaurador.",
+  "diferenciacao": "FOLHA DO MARACUJAZEIRO vs. FRUTO:\n• As folhas concentram a ação sedativa e calmante para banhos noturnos de serenidade.\n• Combinação clássica: Com erva-cidreira (melissa) e camomila, forma o mais suave e eficaz banho caseiro contra insônia e estresse acumulado.",
+  "colheita": "Colher folhas verdes sadias ao entardecer, lavando bem em água corrente antes da infusão morna.",
+  "cuidados": "Uso externo suave e relaxante. Se preparado como chá medicinal caseiro, possui forte efeito indutor de sono: evite antes de dirigir ou operar máquinas; gestantes e pessoas que fazem uso de ansiolíticos ou sedativos controlados devem consultar orientação médica.",
+  "tradicao": "Usada pelas mães e rezadeiras do Brasil para acalmar pessoas nervosas e espíritos atribulados. O banho morno das folhas despejado antes de dormir fecha as portas para pesadelos e traz aconchego ao peito."
  }
 ];
