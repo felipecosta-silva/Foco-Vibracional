@@ -4208,6 +4208,20 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   line-height: 1.5;
 }
 
+/* Rodapé de referências e fontes da aba de pontos */
+.ponto-fontes {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.ponto-fontes p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+
 
 
 

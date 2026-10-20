@@ -362,6 +362,63 @@ Não incluir plantas de alta toxicidade para uso em banho de cabeça. Se incluir
 - **Pendências / dúvidas para o supervisor:**
   - Todas as 7 tarefas da Fase 9 foram executadas e comitadas de forma estritamente isolada e verificada, sem criação de `style=""` novo, mantendo todos os tokens de cores do design system e cumprindo todas as diretrizes da Seção 13.
 
+### Fase 10 — 2026-10-20 · Ponto riscado: leitura, fundamentos e estrelas sagradas (Seção 15)
+
+- **O que foi feito (executado e comitado com 1 commit por subtarefa):**
+  - **Subtarefa 10.1 (Commit `72dd948`): Como ler um ponto: o cosmograma Dikenga**
+    - Criado bloco interativo em `simbolos.html` (`#dikenga`) com diagrama SVG desenhado à mão no código com visual Noite na Mata (círculo com traço dourado `var(--accent)`, fundo com gradiente sutil, cruz central e a linha horizontal **Kalunga** que divide Ku Nseke e Ku Mpemba).
+    - Conforme K. K. Bunseki Fu-Kiau (*African Cosmology of the Bântu-Kôngo*):
+      - Ku Nseke (topo) = mundo físico dos vivos; Ku Mpemba (base) = mundo espiritual dos ancestrais.
+      - 4 momentos solares interativos com nós clicáveis e pills de seleção: **Musoni** (meia-noite / concepção no espiritual), **Kala** (nascer do sol / nascimento físico), **Tukula** (meio-dia / ápice da maturidade material) e **Luvemba** (pôr do sol / passagem de retorno ao plano espiritual).
+      - Card de detalhe dinâmico (`#dikengaDetailCard`) com troca de abas animada, nota sobre variações regionais e leitura aplicada (como a posição no quadrante orienta a ação do símbolo e reforço de que o guia é quem explica o ponto).
+    - Adicionado o aviso orientador de leitura no topo da página: o ponto é a assinatura/RG da entidade e firmeza sagrada; quem explica o ponto é a própria entidade.
+  - **Subtarefa 10.2 (Commit `dab5eca`): Ampliar a Gramática dos Símbolos**
+    - Ampliada a seção de símbolos de 6 para 8 cards em `simbolos.html`, sem repetições e sem inline `style=""`:
+      - **Tridente (Linha de Exu):** distinção clara entre tridente reto (força ativa e expansiva) e tridente curvo (força passiva e receptiva).
+      - **Espiral:** banimento, descarrego e esgotamento de energias densas, integrada com a regra da Bússola Sagrada (horário atrai movimento/fartura, anti-horário desfaz nós e larvas).
+      - **Cruz:** encruzilhada de caminhos ou ligação com as Almas e ancestrais conforme a posição.
+      - **Flechas & Setas (Linha de Caboclo):** a ponta da flecha como vetor da direção da força (do espiritual para a matéria ou vice-versa).
+      - **Luas e Estrelas:** ciclo/tempo do trabalho (fases da lua) e força estelar/magia (estrelas), interpretadas pelo quadrante da Dikenga.
+  - **Subtarefa 10.3 (Commit `7c8d3d0`): Como reconhecer um ponto legítimo**
+    - Criada a seção com os 4 pilares fundamentais segundo Márcio Kain (*Umband' Boa*, PTD nº 927):
+      1. Símbolo do Orixá regente + símbolo da linha de trabalho/falange (com exemplos práticos e ressalva de variação por terreiro).
+      2. Sem "firulas": todo traço tem fundamento e utilidade vibracional; enfeite desnecessário é sinal de alerta.
+      3. A entidade sabe explicar com clareza a razão de cada elemento desenhado.
+      4. Ninguém deve ser pressionado a riscar ponto: o médium risca quando amadurece com a espiritualidade.
+    - Destaque ético do lar: em casa, praticar apenas firmezas temáticas e orações; nunca riscar ponto de entidade específica por conta própria.
+    - Removidos estilos inline de alerta/segurança nos cards de firmeza temática vs entidade, substituídos por classes `.ponto-card--alerta` e `.ponto-card--seguro`.
+  - **Subtarefa 10.4 (Commit `c1cfd61`): Estrelas sagradas**
+    - Criada a seção com 7 cards didáticos e SVGs geométricos limpos desenhados com precisão matemática (`currentColor`, `fill:none`):
+      - **Estrela de 5 pontas:** luz, perfeição, renascimento, proteção, equilíbrio e aspiração espiritual.
+      - **Pentagrama:** traço contínuo no círculo; espírito sobre os 4 elementos, 5 sentidos e virtudes de proteção no ocultismo.
+      - **Hexagrama:** dualidade, masculino e feminino, carne e espírito, os 4 elementos na alquimia e a completude do número 7.
+      - **Hexagrama Unicursal:** glifo de traço único contínuo entrelaçado.
+      - **Estrela de Davi:** apresentada com respeito como símbolo do povo judeu e do judaísmo, união dos opostos e conexão céu-terra (sem tratamento de 'amuleto').
+      - **Selo de Salomão:** os dois triângulos entrelaçados em traço sagrado geométrico, proteção tradicional e simbolismo de Deus, criação e perfeição na maçonaria.
+      - **Heptagrama (7 pontas) & Octograma (8 pontas):** ciclos cósmicos, completude, quatro pontos cardeais e colaterais, mantendo estrito consenso histórico.
+    - Vinculação direta com âncora ao bloco de Pentagrama & Banhos de Proteção (`#pentagrama-banhos`), limpando styles inline residuais.
+  - **Subtarefa 10.5 (Commit `9970764`): Mediunidade olfativa no glossário e defumação completa passo a passo**
+    - Em `glossario.html`: inserido o termo "Mediunidade olfativa" explicando odores agradáveis (protetores) e desagradáveis (obsessores), com aviso obrigatório em destaque em `.glossario-alerta` sobre descarte de causas físicas (fiação, vazamento de gás) e problemas de saúde médica antes de atribuir a razões espirituais.
+    - Em `defumacao.html`: inserido o acordeão "Defumação completa da casa, passo a passo" com os 5 passos detalhados (abrir portas/janelas; arruda e alecrim no turíbulo com brasa; fundo para a frente / cima para baixo; término no portão à esquerda de quem entra; descarte na terra após frias) e aviso de segurança com o fogo/brasa.
+  - **Subtarefa 10.6 (Commit `9597b38`): Novos termos ancestrais e ritualísticos no glossário**
+    - Adicionados 7 termos em `glossario.html`: **Dikenga**, **Kalunga** (Grande e Pequena), **Ku Nseke**, **Ku Mpemba**, **Turíbulo**, **Linha de trabalho** e **Falange**, com fundamentação respeitosa e linguagem acessível.
+  - **Subtarefa 10.7 (Commit a seguir): Rodapé de fontes em símbolos, bump de CACHE_VERSION e registro**
+    - Inserido rodapé de fontes ao final da aba Pontos Riscados em `simbolos.html`: K. K. Bunseki Fu-Kiau, Márcio Kain / Umband' Boa (PTD nº 927), aula sobre Dikenga e tradição oral.
+    - Incrementada a versão do Service Worker em `sw.js` para `"fv-v11"`.
+    - Registro detalhado da Fase 10 no plano de execução.
+- **Arquivos alterados:**
+  - `simbolos.html`
+  - `glossario.html`
+  - `defumacao.html`
+  - `styles/styles.css`
+  - `script/script.js`
+  - `sw.js` (bump para fv-v11)
+  - `PLANO_GEMINI.md`
+- **Resultados e testes:**
+  - Zero novos `style=""` inline inseridos em todas as subtarefas.
+  - Todos os SVGs em conformidade vetorial, traço fino e responsivo.
+  - Acessibilidade e hierarquia semântica preservadas.
+
 ---
 
 ## 6. Revisões do Supervisor (preenchido pelo Claude)
