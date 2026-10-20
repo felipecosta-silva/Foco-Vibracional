@@ -4231,3 +4231,15 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 /* Revisão Fase 10: nomes do Dikenga legíveis */
 .dikenga-node__name{ font-size: 11px; }
 .dikenga-node__time{ font-size: 8.5px; }
+
+/* Links nos itens de destaque nos fundamentos */
+.spotlight-item h4 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.spotlight-item h4 a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
