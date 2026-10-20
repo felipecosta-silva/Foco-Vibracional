@@ -3509,3 +3509,80 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 }
 .ph-moon{ overflow: hidden; }
 .ph-moon__shadow{ position: absolute; inset: -1px; border-radius: 999px; background: #0d1410; box-shadow: inset 0 0 18px rgba(0,0,0,.6); }
+
+/* Calendário lunar: Timeline horizontal e Orb */
+.grid--cal {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .grid--cal {
+    grid-template-columns: 1fr;
+  }
+}
+.moon-orb--cal {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 14px;
+}
+.moon-now-card {
+  display: flex;
+  flex-direction: column;
+}
+.moon-now__info {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.moon-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 6px;
+}
+@media (max-width: 900px) {
+  .moon-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .moon-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+.moon-timeline__card {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 14px);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.moon-timeline__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.moon-timeline__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(227,184,103,.3));
+  margin-bottom: 2px;
+}
+.moon-timeline__date {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.moon-timeline__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 2px 0;
+}

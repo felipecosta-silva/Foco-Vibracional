@@ -53,15 +53,21 @@
       </div>
     </section>
 
-    <section class="grid">
-      <article class="card">
+    <section class="grid grid--cal">
+      <article class="card moon-now-card">
         <div class="card__header">
           <h2 class="card__title">Agora</h2>
           <span class="badge" id="moonNowBadge">—</span>
         </div>
 
-        <p class="big" id="moonNowName">Carregando…</p>
-        <p class="muted" id="moonNowDetails">—</p>
+        <div class="moon-orb moon-orb--cal" aria-hidden="true">
+          <div class="moon-orb__shadow" id="calMoonOrbShadow"></div>
+        </div>
+
+        <div class="moon-now__info">
+          <h3 class="moon-card__name" id="moonNowName">Carregando…</h3>
+          <p class="moon-card__meta" id="moonNowDetails">—</p>
+        </div>
 
         <div class="divider"></div>
 
@@ -70,15 +76,15 @@
         </p>
       </article>
 
-      <article class="card">
+      <article class="card moon-next-card">
         <div class="card__header">
           <h2 class="card__title">Próximas fases</h2>
           <span class="badge" id="nextCount">4</span>
         </div>
 
-        <div id="nextPhases" class="stack"></div>
+        <div id="nextPhases" class="moon-timeline"></div>
 
-        <p class="muted small advanced-only" style="margin-top:10px;">
+        <p class="muted small advanced-only" style="margin-top:14px;">
           As datas são aproximadas (variam por fuso/local). Para precisão absoluta, use um serviço astronômico por cidade.
         </p>
       </article>

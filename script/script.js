@@ -2317,11 +2317,13 @@ async function initCalendarioLunar() {
 
   const today = new Date();
   let major = null;
+  let illumVal = null;
 
   try {
     const item = await fetchFarmSense(today);
     const phase = item.Phase || "—";
     const illum = typeof item.Illumination === "number" ? Math.round(item.Illumination * 100) : null;
+    illumVal = illum;
 
     let label = phase.replace("Waxing", "Crescente")
                      .replace("Waning", "Minguante")
@@ -2354,18 +2356,35 @@ async function initCalendarioLunar() {
     nowDetails.textContent = `Estimativa local (offline) • idade lunar: ${age.toFixed(1)} dias`;
   }
 
+  // Sombra real da lua no card Agora
+  const shadow = $("#calMoonOrbShadow");
+  if (shadow) {
+    const age = moonAgeDays(today);
+    const waxing = age < SYNODIC_DAYS / 2;
+    const finalIllum = illumVal !== null ? illumVal : Math.round(moonIllumFraction(age) * 100);
+    shadow.style.transform = `translateX(${(waxing ? -1 : 1) * Math.min(100, finalIllum)}%)`;
+  }
+
   if (nextWrap) {
     const next = nextMajorPhases(today, 4);
     nextWrap.innerHTML = "";
+    const phaseIcons = {
+      "Lua Nova": "🌑",
+      "Quarto Crescente": "🌓",
+      "Lua Cheia": "🌕",
+      "Quarto Minguante": "🌗"
+    };
     next.forEach(p => {
-      const div = document.createElement("div");
-      div.className = "item";
-      div.innerHTML = `
-        <b>${p.name}</b>
-        <div class="muted small">${formatDateBR(p.date)} • ${phaseIntention(p.name)}</div>
+      const card = document.createElement("div");
+      card.className = "moon-timeline__card";
+      card.innerHTML = `
+        <div class="moon-timeline__icon" aria-hidden="true">${phaseIcons[p.name] || "🌕"}</div>
+        <div class="moon-timeline__date">${formatDateBR(p.date)}</div>
+        <b class="moon-timeline__name">${p.name}</b>
+        <div class="muted small">${phaseIntention(p.name)}</div>
         <div class="muted small advanced-only" style="margin-top:6px;">${banhoTipoSugestao(p.name)}</div>
       `;
-      nextWrap.appendChild(div);
+      nextWrap.appendChild(card);
     });
   }
 
