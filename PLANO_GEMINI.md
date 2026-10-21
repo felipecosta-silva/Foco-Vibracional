@@ -1068,4 +1068,27 @@ Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **V
 3. `styles/styles.css`: Criação das classes utilitárias `.fund-grid`, `.fund-card` e variações (`.fund-card--warn`, `.fund-card--paz`, `.fund-card--jurema`, `.fund-card--resguardo`, `.fund-step-list`) sem nenhum inline style.
 4. `sw.js`: Bump de cache para `fv-v19`.
 
+---
+
+## 23. Adição dos Pontos Sagrados dos Guias de Trabalho (A pedido do usuário — 2026-10-21)
+
+**Solicitação:** Adicionar os pontos cantados dos guias de trabalho que não podem faltar:
+- Caboclo Treme Terra (Caboclos)
+- Caboclo Cobra Coral (Caboclos)
+- Boiadeiro Zé do Laço (Boiadeiros)
+- Exu Tranca Ruas das 7 Encruzilhadas (Guardiões)
+- Mestre Galo Cego (Cangaceiro / Mestres da Jurema)
+- Tata Miroxa (Pajelança / Encantaria / Mestres da Jurema)
+- Povo Cigano & Cigana Maria Rosa (Povo Cigano)
+- Mestra chamada Jurema (Mestras da Jurema)
+
+**Arquivos alterados:**
+1. `data/pontos.js`: Adicionados 8 novos pontos tradicionais com letras completas, toques, saudações consagradas, significados profundos, ervas associadas e descrição dos pontos riscados correspondentes (total de pontos elevado de 20 para 28).
+2. `script/script.js`:
+   - Inclusão da linha `ciganos` (`Povo Cigano`) em `LINHAS_PONTOS` com o ícone 🎴.
+   - Adição da classe de badge `badge--cigano` na função `linhaBadgeClass`.
+3. `styles/styles.css`: Adicionada a estilização temática `.badge--cigano` (rosa / magenta suave com borda luminosa).
+4. `sw.js`: Elevação do cache para `fv-v20`.
+
+
 

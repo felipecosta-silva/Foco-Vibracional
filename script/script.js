@@ -2104,6 +2104,7 @@ const LINHAS_PONTOS = [
   { k: "baianos", label: "Baianos", icon: "🥥" },
   { k: "boiadeiros", label: "Boiadeiros", icon: "🪢" },
   { k: "marinheiros", label: "Marinheiros", icon: "⚓" },
+  { k: "ciganos", label: "Povo Cigano", icon: "🎴" },
   { k: "guardioes", label: "Guardiões", icon: "🔥" }
 ];
 
@@ -2127,6 +2128,7 @@ function linhaBadgeClass(linha) {
     case "baianos": return "badge--baiano";
     case "boiadeiros": return "badge--boiadeiro";
     case "marinheiros": return "badge--mar";
+    case "ciganos": return "badge--cigano";
     case "guardioes": return "badge--guardiao";
     default: return "";
   }

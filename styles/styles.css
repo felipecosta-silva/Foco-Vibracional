@@ -4505,6 +4505,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 .badge--boiadeiro { background: rgba(237, 137, 54, 0.15); border-color: rgba(237, 137, 54, 0.4); color: #fed7aa; }
 .badge--mar { background: rgba(99, 179, 237, 0.15); border-color: rgba(99, 179, 237, 0.4); color: #bae6fd; }
 .badge--guardiao { background: rgba(245, 101, 101, 0.15); border-color: rgba(245, 101, 101, 0.4); color: #fecaca; }
+.badge--cigano { background: rgba(236, 72, 153, 0.15); border-color: rgba(236, 72, 153, 0.4); color: #f472b6; }
 
 /* Detalhes do ponto dentro do Drawer */
 .ponto-detail {
