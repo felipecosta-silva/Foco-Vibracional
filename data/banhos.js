@@ -2,7 +2,7 @@ window.FV_DATA = window.FV_DATA || {};
 window.FV_DATA.banhos = [
  {
   "id": "banho-boldo-puro-ori",
-  "nome": "Banho Puro de Tapete de Oxalá (Boldo Baiano Macerado Vivo • A Purificação do Ori)",
+  "nome": "Banho da Paz de Oxalá (Boldo Baiano Macerado em Água Fria • A Purificação do Ori)",
   "objetivo": "harmonizacao",
   "intensidade": "suave",
   "luas": [
@@ -16,15 +16,15 @@ window.FV_DATA.banhos = [
    "sex",
    "dom"
   ],
-  "horario": "qualquer horário (ideal antes de dormir ou ao acordar)",
+  "horario": "qualquer horário (ideal na sexta-feira à noite antes de dormir ou ao acordar)",
   "ervas": [
    "7 a 14 Folhas frescas de Boldo-baiano (Tapete de Oxalá)",
-   "Água mineral ou filtrada fresca"
+   "Água mineral ou filtrada fria/fresca"
   ],
   "cabeca": true,
-  "modoPreparo": "Lave as folhas frescas de boldo com respeito. Coloque a água fria ou tépida em bacia ritual limpa. Com as duas mãos, macere e esfregue as folhas na água com pensamento elevado, cantando ou rezando pelo seu anjo da guarda até a água ficar verde e aveludada. Não ferver. Deixe descansar 15 minutos. Coe e despeje DA COROA DA CABEÇA AOS PÉS após o banho comum. Coloque um pano branco ou toalha clara na cabeça e descanse em silêncio.",
+  "modoPreparo": "Lave as folhas frescas de boldo com respeito. Coloque água mineral fresca ou fria em bacia ritual limpa. Com as duas mãos, macere e esfregue as folhas na água fria com pensamento elevado, cantando ou rezando a Oxalá e ao seu anjo da guarda até a água ficar verde e aveludada. Não ferver: o boldo de Oxalá pede água fresca para serenar a quentura da mente. Deixe descansar 15 minutos. Coe e despeje DA COROA DA CABEÇA AOS PÉS após o banho de higiene comum, idealmente na sexta-feira. Coloque um pano branco ou toalha clara na cabeça e descanse em silêncio.",
   "reza": "Epà Babá! Salve a paz de Oxalá, salve meu Anjo da Guarda e a firmeza da minha coroa. Lava todo pensamento ruim, silencia a perturbação e renova a alvura do meu espírito.",
-  "observacao": "O REI DOS BANHOS DE CABEÇA. É o banho preparatório essencial que antecede qualquer ritual de desenvolvimento mediúnico, prosperidade ou tomada de decisões difíceis.",
+  "observacao": "O SAGRADO BANHO DA PAZ DE OXALÁ E REI DOS BANHOS DE ORI. Deve ser tomado com água fria ou fresca para apaziguar a mente. Diferente do descarrego que esvazia o corpo, o banho de Oxalá preenche a aura com serenidade, equilíbrio e luz divina.",
   "versaoCha": "CHÁ DE FOLHA DE BOLDO: Para digestão difícil e fígado sobrecarregado, faça infusão de 1 folha média fresca em 200ml de água quente apagada por 10 minutos. (Evitar em gestação)."
  },
  {
@@ -48,7 +48,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Macerar as ervas frescas com as mãos em água fria ou tépida mentalizando o corte de tudo o que for pesado. Coar. Tomar seu banho de higiene normal e, em seguida, despejar do pescoço para baixo.",
   "reza": "Que a força das matas leve para o mar e para o vento toda carga, cansaço e maledicência. Que fique apenas a paz e o meu caminho desimpedido.",
-  "observacao": "ATENÇÃO: NUNCA jogar na cabeça. Vista roupa clara e descanse. Se puder, tome um banho doce de manjericão no dia seguinte para harmonizar."
+  "observacao": "ATENÇÃO: NUNCA jogar na cabeça. O descarrego forte arranca miasmas e deixa o corpo vazio, desativando temporariamente os filtros habituais. EXIGE RESGUARDO OBRIGATÓRIO: abstenha-se de locais cheios de pessoas (bares, shoppings, aglomerações), evite relações íntimas/sexuais nas primeiras horas, nada de álcool ou discussões. Vista roupa clara e, no dia seguinte, tome um banho equilibrador (manjericão ou boldo) para preencher o corpo com luz."
  },
  {
   "id": "banho-casca-alho-sal",

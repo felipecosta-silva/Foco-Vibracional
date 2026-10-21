@@ -1049,3 +1049,23 @@ Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **V
    - Carregamento em `Promise.all` com fallback offline e vinculação das ervas às fichas via `linkHerb`.
 5. `sw.js`: Inclusão de `pontos.html` e `data/pontos.js` no `PRECACHE`, elevação da `CACHE_VERSION` para `fv-v18`.
 
+---
+
+## 22. Fundamentos de Banhos: Descarrego, Purificação, Banho da Paz de Oxalá & Resguardo (A pedido do usuário — 2026-10-20)
+
+**Solicitação:** Ensinar a diferença crucial entre banho de descarrego (que esvazia o corpo e exige abstenção/resguardo estrito), banho de purificação (que troca energias) e o banho da paz de Oxalá com boldo e água fria tomado na cabeça numa sexta-feira. Detalhar o que fazer antes, durante e depois de cada banho.
+
+**Arquivos alterados:**
+1. `banhos.html`:
+   - Remoção de todos os estilos inline remanescentes (`style=""` count: 0).
+   - Inclusão de 3 novos blocos em acordeão:
+     - *Descarrego × Purificação × Banho da Paz (Oxalá): As 3 Funções das Ervas* (distinção teológica e prática de como cada banho atua no corpo sutil).
+     - *O Resguardo Sagrado pós-Descarrego: O Que Fazer e o Que Evitar* (abstenção de locais cheios, aglomerações, relações íntimas, álcool e discussões; uso de roupas claras, oração e o 2º tempo de reconstrução).
+     - *Guia Ritual: O Passo a Passo Antes, Durante e Depois* (banho de higiene primeiro, preparo calmo, maceração viva, temperatura correta e descarte sagrado na terra).
+2. `data/banhos.js`:
+   - Atualização de `banho-boldo-puro-ori`: destacado como *Banho da Paz de Oxalá*, com maceração a frio em água fresca na sexta-feira para o Ori.
+   - Atualização de `banho-descarrego-forte`: inclusão explícita na observação de que o banho esvazia o corpo e exige resguardo obrigatório de ambientes cheios e trocas íntimas.
+3. `styles/styles.css`: Criação das classes utilitárias `.fund-grid`, `.fund-card` e variações (`.fund-card--warn`, `.fund-card--paz`, `.fund-card--jurema`, `.fund-card--resguardo`, `.fund-step-list`) sem nenhum inline style.
+4. `sw.js`: Bump de cache para `fv-v19`.
+
+

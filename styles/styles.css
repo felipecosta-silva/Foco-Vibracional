@@ -4557,3 +4557,83 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   Fundamentos de Banhos, Resguardo e Categorias (.fund-grid & .fund-card)
+   ========================================================================== */
+.fund-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.fund-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fund-card--warn {
+  border-color: rgba(232, 160, 124, 0.3);
+  background: rgba(232, 160, 124, 0.06);
+}
+.fund-card--paz {
+  border-color: rgba(147, 197, 253, 0.3);
+  background: rgba(147, 197, 253, 0.06);
+}
+.fund-card--jurema {
+  border-color: rgba(159, 208, 154, 0.3);
+  background: rgba(159, 208, 154, 0.06);
+}
+.fund-card--resguardo {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.07);
+}
+.fund-card__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  margin: 0;
+}
+.fund-card__title--head { color: var(--accent2); }
+.fund-card__title--neck { color: var(--clay); }
+.fund-card__title--hands { color: var(--accent); }
+.fund-card__title--paz { color: #93c5fd; }
+.fund-card__title--prosper { color: #86efac; }
+.fund-card__title--amor { color: #f0a39a; }
+.fund-card__title--warn { color: var(--clay); }
+.fund-card__text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+.fund-step-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.fund-step-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+  padding-left: 20px;
+  position: relative;
+}
+.fund-step-list li::before {
+  content: "✦";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.75rem;
+}
+
