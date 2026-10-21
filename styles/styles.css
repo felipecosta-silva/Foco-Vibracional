@@ -3251,11 +3251,96 @@ body.drawer-open{ overflow: hidden; }
 .firmeza-intention-display{
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.08rem;
+  font-size: 1.02rem;
   color: var(--text);
-  max-width: 420px;
+  max-width: 440px;
+  width: 100%;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: center;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 10px 14px;
+  border-radius: var(--radius2);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(227, 184, 103, 0.2);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3);
+  transition: all .25s ease;
+}
+.firmeza-intention-display:empty{
+  display: none;
+}
+.firmeza-intention-display::-webkit-scrollbar {
+  width: 5px;
+}
+.firmeza-intention-display::-webkit-scrollbar-thumb {
+  background: rgba(227, 184, 103, 0.35);
+  border-radius: 4px;
+}
+
+.firmeza-textarea {
+  min-height: 110px;
+  line-height: 1.55;
+  font-size: .95rem;
+  padding: 12px 14px;
+  resize: vertical;
+  border-radius: var(--radius2);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.firmeza-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(227, 184, 103, 0.18);
+}
+
+.firmeza-input-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.firmeza-char-count {
+  font-size: .78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+.firmeza-quick-prayers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(239, 231, 214, 0.08);
+}
+.pill--sm {
+  font-size: .76rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--text);
+  transition: all .2s ease;
+}
+.pill--sm:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+.pill--ghost {
+  background: transparent;
+  opacity: .8;
+}
+.pill--ghost:hover {
+  opacity: 1;
+  border-color: var(--danger);
+  color: #ff9d8b;
 }
 
 .firmeza-timer-box{

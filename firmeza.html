@@ -99,8 +99,18 @@
 
         <div class="form-group form-group--spaced">
           <label for="inputIntencao" class="form-label">2. Qual é a sua intenção ou pedido de coração?</label>
-          <input type="text" id="inputIntencao" class="form-input" placeholder="Ex.: Clareza mental para uma decisão; Paz na minha casa; Proteção..." maxlength="120" />
-          <p class="muted small form-hint">Mentalize com clareza enquanto digita. O pensamento firme é a verdadeira vela acesa.</p>
+          <textarea id="inputIntencao" class="form-input form-textarea firmeza-textarea" rows="4" placeholder="Escreva aqui tudo o que seu coração precisa colocar para fora: seus pedidos, orações, desabafos, nomes para cura e proteção, transmutação e quebra de demandas... Não há limite: expresse com verdade tudo o que você quer e precisa."></textarea>
+          <div class="firmeza-input-meta">
+            <span class="muted small form-hint" id="intencaoHint">Mentalize com clareza enquanto digita. O pensamento firme é a verdadeira vela acesa.</span>
+            <span class="firmeza-char-count" id="intencaoCount">0 palavras</span>
+          </div>
+          <div class="firmeza-quick-prayers" aria-label="Preces e intenções prontas">
+            <span class="muted small">Preces prontas:</span>
+            <button class="pill pill--sm" type="button" id="btnPreceDemanda" title="Prece para Quebra de Demandas e Transmutação de Energias">🛡️ Quebra de Demandas &amp; Luz</button>
+            <button class="pill pill--sm" type="button" id="btnPreceJurema" title="Usar a Prece Sagrada da Jurema">✨ Prece da Jurema</button>
+            <button class="pill pill--sm" type="button" id="btnPreceAnjo" title="Prece para o Anjo da Guarda e Paz no Ori">🕊️ Paz &amp; Anjo da Guarda</button>
+            <button class="pill pill--sm pill--ghost" type="button" id="btnLimparIntencao" title="Limpar texto">🗑️ Limpar</button>
+          </div>
         </div>
 
         <div class="dsec dsec--tea firmeza-prece">

@@ -1189,6 +1189,7 @@ function initFirmezaPage() {
   const candleLabel = $("#candleLabel");
   const intentionDisplay = $("#firmezaIntentionDisplay");
   const inputIntencao = $("#inputIntencao");
+  const intencaoCount = $("#intencaoCount");
   const timerDisplay = $("#timerDisplay");
   const btnToggle = $("#btnTimerToggle");
   const btnReset = $("#btnTimerReset");
@@ -1326,12 +1327,65 @@ function initFirmezaPage() {
   });
 
   if (inputIntencao) {
-    inputIntencao.addEventListener("input", () => {
-      const val = inputIntencao.value.trim();
+    function updateIntencaoUI() {
+      const val = inputIntencao.value;
+      const trimmed = val.trim();
       if (intentionDisplay) {
-        intentionDisplay.textContent = val ? `“${val}”` : "“Abençoada seja a luz que guia meus passos em serenidade.”";
+        intentionDisplay.textContent = trimmed ? `“${trimmed}”` : "“Abençoada seja a luz que guia meus passos em serenidade.”";
+      }
+      if (intencaoCount) {
+        const words = trimmed ? trimmed.split(/\s+/).filter(Boolean).length : 0;
+        const chars = val.length;
+        intencaoCount.textContent = words > 0 ? `${words} palavra${words > 1 ? "s" : ""} • ${chars} letras` : "0 palavras";
+      }
+      try {
+        if (trimmed) {
+          localStorage.setItem("fv_firmeza_intencao", val);
+        } else {
+          localStorage.removeItem("fv_firmeza_intencao");
+        }
+      } catch (e) {}
+    }
+
+    // Carregar intenção salva anteriormente se existir
+    try {
+      const savedIntencao = localStorage.getItem("fv_firmeza_intencao");
+      if (savedIntencao) {
+        inputIntencao.value = savedIntencao;
+      }
+    } catch (e) {}
+    updateIntencaoUI();
+
+    inputIntencao.addEventListener("input", updateIntencaoUI);
+
+    // Botões de preces prontas para inspirar ou preencher rapidamente
+    const PRECES_PRONTAS = {
+      btnPreceDemanda: "Que a força desta chama sagrada quebre toda a maldição, toda a amarra e toda a energia negativa lançada contra mim ou minha casa. Que toda inveja seja consumida no fogo sagrado e transmutada em luz, em energia de movimento, saúde e prosperidade. Onde havia peso, agora reina a vitória. Que assim seja e assim se faça!",
+      btnPreceJurema: "Em nome de Deus todo-poderoso, dos Mestres e Mestras da Jurema Sagrada e de todas as forças benfazejas que guardam meus caminhos: firmo esta chama viva em meu favor. Que onde houver trevas, se faça a luz. Que onde houver dúvida, reine a clareza. Que meu anjo da guarda seja fortalecido e que a paz habite meu ser. Amém, Axé!",
+      btnPreceAnjo: "Meu Santo Anjo da Guarda, fiel guardião de minha alma e mensageiro da paz divina: firmo esta vela para clarear teus passos ao meu redor. Fortalece o meu Ori, serena meus pensamentos, livra-me de todo tropeço e envolve minha casa num manto de pureza e harmonia. Amém!"
+    };
+
+    Object.keys(PRECES_PRONTAS).forEach(btnId => {
+      const btn = $(`#${btnId}`);
+      if (btn) {
+        btn.addEventListener("click", () => {
+          inputIntencao.value = PRECES_PRONTAS[btnId];
+          updateIntencaoUI();
+          inputIntencao.focus();
+          toast("Prece inserida na sua firmeza ✨");
+        });
       }
     });
+
+    const btnLimpar = $("#btnLimparIntencao");
+    if (btnLimpar) {
+      btnLimpar.addEventListener("click", () => {
+        inputIntencao.value = "";
+        updateIntencaoUI();
+        inputIntencao.focus();
+        toast("Campo limpo. Escreva sua intenção com liberdade.");
+      });
+    }
   }
 
   updateTimerDisplay();
