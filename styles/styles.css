@@ -69,6 +69,7 @@ html{
   background-color: var(--bg);
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: calc(var(--header-h) + 56px);
+  overflow-x: hidden;
 }
 
 body{
@@ -77,6 +78,7 @@ body{
   font-family: var(--font-body);
   font-size: 16px;
   background-color: var(--bg);
+  overflow-x: hidden;
   background-image:
     radial-gradient(1200px 600px at 15% -10%, rgba(159,208,154,.10), transparent 60%),
     radial-gradient(900px 500px at 95% 0%, rgba(227,184,103,.08), transparent 60%);
@@ -3469,18 +3471,99 @@ body.drawer-open{ overflow: hidden; }
   .stat:nth-child(n+3){ border-top: 1px solid var(--line); }
 }
 
-/* Carrossel horizontal */
+/* Carrossel horizontal contido */
 .rail{
-  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(270px, 300px);
-  gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 4px max(16px, calc(50vw - 590px)) 16px;
-  margin: 0 calc(50% - 50vw);
-  scrollbar-width: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(270px, 300px);
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 4px 18px;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  scroll-padding-inline: 4px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(227,184,103,.35) rgba(239,231,214,.04);
+  -webkit-overflow-scrolling: touch;
 }
-.rail::-webkit-scrollbar{ display: none; }
-.rail > *{ scroll-snap-align: start; }
-.rail-nav{ display: flex; gap: 8px; }
+.rail::-webkit-scrollbar{
+  height: 6px;
+}
+.rail::-webkit-scrollbar-track{
+  background: rgba(239,231,214,.04);
+  border-radius: 999px;
+}
+.rail::-webkit-scrollbar-thumb{
+  background: rgba(227,184,103,.35);
+  border-radius: 999px;
+  transition: background .2s ease;
+}
+.rail::-webkit-scrollbar-thumb:hover{
+  background: var(--accent);
+}
+.rail > *{
+  scroll-snap-align: start;
+}
+
+.home-section__actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.rail-nav{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.rail-nav__btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .2s cubic-bezier(.2,.8,.2,1);
+  user-select: none;
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+}
+.rail-nav__btn:hover:not(:disabled){
+  background: var(--surface-2);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(227,184,103,.2);
+}
+.rail-nav__btn:disabled{
+  opacity: .3;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
 .home-section__head a.btn{ white-space: nowrap; }
+
+@media (max-width: 600px){
+  .home-section__head{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .home-section__actions{
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+}
 
 /* Carta do dia (home) */
 .feature{
@@ -3722,8 +3805,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 }
 
 
-/* Revisão Fase 9: snap respeita o recuo do carrossel; vela não disputa com o texto no celular */
-.rail{ scroll-padding-inline: max(16px, calc(50vw - 590px)); }
+/* Revisão Fase 9: vela não disputa com o texto no celular */
 @media (max-width: 760px){ .ph-candle{ opacity: .45; right: 2px; } }
 
 /* ==========================================================================

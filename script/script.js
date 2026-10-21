@@ -2246,6 +2246,7 @@ function initPontosPage() {
         location.hash = `#${encodeURIComponent(card.dataset.open)}`;
       }
     });
+    initRailsNavigation();
   }
 }
 
@@ -4289,6 +4290,7 @@ function initHomeRails() {
     if (title) title.textContent = `Banhos para a ${moon.name}`;
     const all = $("#moonRailAll");
     if (all) all.href = `banhos.html?lua=${moon.key}`;
+    initRailsNavigation();
   }
 
   const feat = $("#homeCard");
@@ -4349,6 +4351,77 @@ function initRitualRails() {
       }
     });
   }
+  initRailsNavigation();
+}
+
+/* Navegação, scroll com a roda do mouse e estado dos botões dos carrosséis (.rail) */
+function initRailsNavigation() {
+  const rails = $all(".rail");
+  if (!rails.length) return;
+
+  rails.forEach(rail => {
+    // 1. Suporte a rolagem com o scroll do mouse (vertical -> horizontal no carrossel)
+    if (!rail.dataset.hasWheel) {
+      rail.dataset.hasWheel = "true";
+      rail.addEventListener("wheel", e => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // rolagem horizontal nativa
+        if (rail.scrollWidth > rail.clientWidth) {
+          const canRight = e.deltaY > 0 && rail.scrollLeft < (rail.scrollWidth - rail.clientWidth - 2);
+          const canLeft = e.deltaY < 0 && rail.scrollLeft > 2;
+          if (canRight || canLeft) {
+            e.preventDefault();
+            rail.scrollBy({ left: e.deltaY * 1.6, behavior: "auto" });
+          }
+        }
+      }, { passive: false });
+    }
+
+    // 2. Atualizar estado dos botões prev / next vinculados
+    const id = rail.id;
+    if (!id) return;
+    const prevBtn = $(`[data-rail-prev="#${id}"]`);
+    const nextBtn = $(`[data-rail-next="#${id}"]`);
+
+    function updateNavState() {
+      if (!prevBtn && !nextBtn) return;
+      const atStart = rail.scrollLeft <= 6;
+      const atEnd = rail.scrollLeft >= (rail.scrollWidth - rail.clientWidth - 6);
+      if (prevBtn) prevBtn.disabled = atStart;
+      if (nextBtn) nextBtn.disabled = atEnd;
+    }
+
+    if (!rail.dataset.hasScrollNav) {
+      rail.dataset.hasScrollNav = "true";
+      rail.addEventListener("scroll", updateNavState, { passive: true });
+    }
+    updateNavState();
+    setTimeout(updateNavState, 150);
+  });
+}
+
+// Delegação de cliques nos botões de navegação dos trilhos
+if (!window._railNavDelegated) {
+  window._railNavDelegated = true;
+  document.addEventListener("click", e => {
+    const prev = e.target.closest("[data-rail-prev]");
+    if (prev) {
+      const target = $(prev.dataset.railPrev);
+      if (target) {
+        const step = Math.min(680, Math.max(280, target.clientWidth * 0.82));
+        target.scrollBy({ left: -step, behavior: "smooth" });
+      }
+      return;
+    }
+    const next = e.target.closest("[data-rail-next]");
+    if (next) {
+      const target = $(next.dataset.railNext);
+      if (target) {
+        const step = Math.min(680, Math.max(280, target.clientWidth * 0.82));
+        target.scrollBy({ left: step, behavior: "smooth" });
+      }
+      return;
+    }
+  });
 }
 
 /* Revelação suave ao rolar (só elementos estáticos; catálogos têm animação própria) */
@@ -4427,6 +4500,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initHomeHero();
   initHomeRails();
   initRitualRails();
+  initRailsNavigation();
   initCountUp();
   initFireflies();
   initHojePage();
