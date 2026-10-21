@@ -1030,3 +1030,22 @@ Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **V
 **Pendência antiga, para uma próxima fase:** 12 ervas antigas usam o objetivo `foco`, que também não existe em `OBJETIVOS`.
 
 **Próximo passo:** aguardar a nova tarefa do dono do site. As 14 ervas novas das Fases 11 e 12 estão sem foto.
+
+---
+
+## 21. Adição da Curimba & Pontos Cantados (A pedido do usuário — 2026-10-20)
+
+**Solicitação:** Adicionar um lugar para pontos cantados separados por Mestre, Mestras, Caboclos, Pretos Velhos, Baianos, Boiadeiros, Marinheiros e Guardiões, com letras, toques, saudações, significados e conexão com pontos riscados.
+
+**Arquivos criados e alterados:**
+1. `data/pontos.js`: 20 cantigas tradicionais estruturadas com `id`, `titulo`, `linha`, `linhaNome`, `entidade`, `tipo`, `toque`, `saudacao`, `letra`, `significado`, `ervasAssociadas` e `pontoRiscadoDescricao`.
+2. `pontos.html`: Página dedicada da curimba e tradição oral, integrada ao cabeçalho único (em Saberes) e rodapé, com trilho de destaque dos Mestres e Mestras da Jurema, catálogo com filtros por linha e tipo, acordeões de fundamentos da curimba (o que é curimba, os toques tradicionais e conexão com o ponto riscado) e aviso ético sobre respeito à tradição oral.
+3. `styles/styles.css`: Classes estilizadas para `.pcard`, badges temáticas por falange (`.badge--jurema`, `.badge--mestras`, `.badge--caboclo`, `.badge--almas`, `.badge--baiano`, `.badge--boiadeiro`, `.badge--aguas`, `.badge--guardiao`) e visual da letra e fundamentos no Drawer (`.ponto-detail`, `.ponto-letra`, `.ponto-detail__saudacao`).
+4. `script/script.js`:
+   - `PONTOS = []` e `loadPontos()`.
+   - Adição de `Pontos Cantados` em `NAV` dentro de `saberes`.
+   - Renderizador `pontoCardHtml`, `pontoDetailHtml` e `initPontosPage()` com motor `createCatalog`.
+   - Integração completa na busca global (`searchGlobal` com atalho `/`).
+   - Carregamento em `Promise.all` com fallback offline e vinculação das ervas às fichas via `linkHerb`.
+5. `sw.js`: Inclusão de `pontos.html` e `data/pontos.js` no `PRECACHE`, elevação da `CACHE_VERSION` para `fv-v18`.
+

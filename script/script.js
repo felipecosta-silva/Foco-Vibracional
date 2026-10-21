@@ -17,6 +17,7 @@ let DAILY_MANTRAS = [];
 let ERVAS = [];
 let BANHOS = [];
 let DEFUMACOES = [];
+let PONTOS = [];
 
 const ICONS = {
   hoje: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M5.6 5.6l1.4 1.4M3 12h2M19 12h2M17 7l1.4-1.4"/><path d="M7 16a5 5 0 0 1 10 0"/><path d="M3 20h18"/></svg>',
@@ -57,6 +58,7 @@ const NAV = [
     id: "saberes", label: "Saberes", url: "simbolos.html",
     children: [
       { label: "Tarot & Cigano", url: "tarot.html" },
+      { label: "Pontos Cantados", url: "pontos.html" },
       { label: "Símbolos & Runas", url: "simbolos.html" },
       { label: "Glossário", url: "glossario.html" }
     ]
@@ -379,6 +381,14 @@ function loadDefumacoes() {
     DEFUMACOES = window.FV_DATA.defumacoes;
   } else {
     DEFUMACOES = [];
+  }
+}
+
+function loadPontos() {
+  if (window.FV_DATA && Array.isArray(window.FV_DATA.pontos) && window.FV_DATA.pontos.length) {
+    PONTOS = window.FV_DATA.pontos;
+  } else {
+    PONTOS = [];
   }
 }
 
@@ -2081,6 +2091,160 @@ function initTarotPage() {
   });
   initTarotDaily();
   initTarotSpread();
+}
+
+/* ==========================================================================
+   PONTOS CANTADOS & CURIMBA (pontos.html) — Hinário e Cantigas Tradicionais
+   ========================================================================== */
+const LINHAS_PONTOS = [
+  { k: "mestres", label: "Mestres da Jurema", icon: "🌿" },
+  { k: "mestras", label: "Mestras da Jurema", icon: "🌹" },
+  { k: "caboclos", label: "Caboclos", icon: "🏹" },
+  { k: "pretos-velhos", label: "Pretos Velhos", icon: "☕" },
+  { k: "baianos", label: "Baianos", icon: "🥥" },
+  { k: "boiadeiros", label: "Boiadeiros", icon: "🪢" },
+  { k: "marinheiros", label: "Marinheiros", icon: "⚓" },
+  { k: "guardioes", label: "Guardiões", icon: "🔥" }
+];
+
+const TIPOS_PONTOS = [
+  { k: "chamada", label: "Chamada" },
+  { k: "firmeza", label: "Firmeza" },
+  { k: "cura", label: "Cura" },
+  { k: "descarrego", label: "Descarrego" },
+  { k: "defumacao", label: "Defumação" },
+  { k: "bencao", label: "Bênção" },
+  { k: "louvacao", label: "Louvação" },
+  { k: "despedida", label: "Despedida" }
+];
+
+function linhaBadgeClass(linha) {
+  switch (linha) {
+    case "mestres": return "badge--jurema";
+    case "mestras": return "badge--mestras";
+    case "caboclos": return "badge--caboclo";
+    case "pretos-velhos": return "badge--almas";
+    case "baianos": return "badge--baiano";
+    case "boiadeiros": return "badge--boiadeiro";
+    case "marinheiros": return "badge--mar";
+    case "guardioes": return "badge--guardiao";
+    default: return "";
+  }
+}
+
+function pontoCardHtml(p) {
+  const badgeCls = linhaBadgeClass(p.linha);
+  const firstLines = p.letra.split("\n\n")[0].split("\n").slice(0, 2).join(" / ");
+  return `
+    <button class="pcard" type="button" data-open="${escapeHtml(p.id)}">
+      <span class="pcard__head">
+        <span class="badge ${badgeCls}">${escapeHtml(p.linhaNome)}</span>
+        <span class="pcard__toque">🥁 ${escapeHtml(p.toque)}</span>
+      </span>
+      <h3 class="pcard__title">${escapeHtml(p.titulo)}</h3>
+      <p class="pcard__entidade">✦ ${escapeHtml(p.entidade)}</p>
+      <p class="pcard__preview">“${escapeHtml(firstLines)}…”</p>
+      <span class="pcard__foot">
+        <span class="pcard__saudacao">${escapeHtml(p.saudacao || p.tipo)}</span>
+        <span class="pcard__action">Ver cantiga →</span>
+      </span>
+    </button>`;
+}
+
+function pontoDetailHtml(p) {
+  const badgeCls = linhaBadgeClass(p.linha);
+  const letraId = "letra_" + p.id.replace(/[^a-z0-9_-]/gi, "");
+  const ervasLinks = (p.ervasAssociadas || []).map(linkHerb).join(" · ");
+  return `
+    <div class="ponto-detail">
+      <div class="ponto-detail__top">
+        <span class="badge ${badgeCls}">${escapeHtml(p.linhaNome)}</span>
+        <span class="badge">🥁 ${escapeHtml(p.toque)}</span>
+        <span class="badge badge--tea">Ponto de ${escapeHtml(p.tipo)}</span>
+      </div>
+      <h2 class="drawer__title">${escapeHtml(p.titulo)}</h2>
+      <p class="pcard__entidade">Falange / Entidade: <strong>${escapeHtml(p.entidade)}</strong></p>
+      ${p.saudacao ? `<div class="ponto-saudacao-banner">“${escapeHtml(p.saudacao)}”</div>` : ""}
+
+      <div class="dsec">
+        <div class="ponto-letra-header">
+          <h3>Letra Tradicional</h3>
+          <span class="muted small">${escapeHtml(p.toque)}</span>
+        </div>
+        <div class="ponto-letra-card">
+          <blockquote class="ponto-letra" id="${letraId}">“${escapeHtml(p.letra)}”</blockquote>
+        </div>
+        <div class="row wrap-row" style="margin-top:10px;">
+          <button class="btn btn--ghost" data-copy="#${letraId}" type="button">📋 Copiar letra</button>
+          <button class="btn btn--ghost" data-speak="#${letraId}" type="button">🔊 Ouvir letra</button>
+        </div>
+      </div>
+
+      <div class="dsec">
+        <h3>Significado &amp; Fundamento</h3>
+        <p>${escapeHtml(p.significado || "")}</p>
+      </div>
+
+      ${ervasLinks ? `
+        <div class="dsec">
+          <h3>Ervas &amp; Fumaças Associadas</h3>
+          <p class="ponto-detail__herbs">🌿 ${ervasLinks}</p>
+        </div>
+      ` : ""}
+
+      ${p.pontoRiscadoDescricao ? `
+        <div class="dsec">
+          <h3>Conexão com Ponto Riscado</h3>
+          <p class="muted">${escapeHtml(p.pontoRiscadoDescricao)}</p>
+          <a class="btn btn--ghost" href="simbolos.html">Ver fundamentos de pontos riscados →</a>
+        </div>
+      ` : ""}
+    </div>`;
+}
+
+function initPontosPage() {
+  const mount = $("#catalog[data-catalog='pontos']");
+  if (!mount) return;
+  loadPontos();
+
+  createCatalog({
+    mount,
+    items: PONTOS,
+    perPage: 24,
+    unit: ["ponto", "pontos"],
+    eyebrow: "Ponto Cantado",
+    placeholder: "Buscar ponto por letra, entidade, toque ou linha…",
+    searchText: p => `${p.titulo} ${p.entidade} ${p.linhaNome} ${p.toque} ${p.saudacao || ""} ${p.letra} ${p.significado || ""} ${(p.ervasAssociadas || []).join(" ")}`,
+    filters: [
+      {
+        key: "linha",
+        label: "Linha",
+        options: LINHAS_PONTOS.map(l => ({ k: l.k, label: l.label, icon: l.icon })),
+        test: (p, v) => p.linha === v
+      },
+      {
+        key: "tipo",
+        label: "Tipo",
+        options: TIPOS_PONTOS.map(t => ({ k: t.k, label: t.label })),
+        test: (p, v) => p.tipo === v
+      }
+    ],
+    renderCard: pontoCardHtml,
+    detail: pontoDetailHtml
+  });
+
+  // Trilho de Destaque da Jurema Sagrada
+  const juremaRail = $("#pontosJuremaRail");
+  if (juremaRail && PONTOS.length) {
+    const juremaList = PONTOS.filter(p => p.linha === "mestres" || p.linha === "mestras");
+    juremaRail.innerHTML = juremaList.slice(0, 10).map(pontoCardHtml).join("");
+    juremaRail.addEventListener("click", e => {
+      const card = e.target.closest("[data-open]");
+      if (card) {
+        location.hash = `#${encodeURIComponent(card.dataset.open)}`;
+      }
+    });
+  }
 }
 
 /* ==========================================================================
@@ -3807,7 +3971,8 @@ const SEARCH_PAGES = [
   { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
   { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
-  { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" }
+  { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" },
+  { t: "Pontos Cantados & Curimba — cantigas tradicionais", u: "pontos.html", k: "pontos cantados curimba toques jurema mestres mestras caboclos pretos velhos atabaque" }
 ];
 
 function loadDataScript(name) {
@@ -3821,11 +3986,12 @@ function loadDataScript(name) {
 }
 
 async function ensureAllData() {
-  await Promise.all(["ervas", "banhos", "defumacoes", "mantras", "tarot"].map(loadDataScript));
+  await Promise.all(["ervas", "banhos", "defumacoes", "mantras", "tarot", "pontos"].map(loadDataScript));
   if (!ERVAS.length) loadErvas();
   if (!BANHOS.length) loadBanhos();
   if (!DEFUMACOES.length) loadDefumacoes();
   if (!DAILY_MANTRAS.length) loadMantras();
+  if (!PONTOS.length) loadPontos();
 }
 
 function initGlobalSearch() {
@@ -3874,6 +4040,8 @@ function initGlobalSearch() {
         .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +
       group("🃏 Tarot & Cigano", ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => has(c.nome, (c.palavrasChave || []).join(" "), c.significado || "", c.correspondencia || ""))
         .map(c => row(`tarot.html#${encodeURIComponent(c.id)}`, c.nome, c.baralho === "cigano" ? `Baralho Cigano • ${c.correspondencia || ""}` : (c.arcano === "maior" ? "Arcano Maior" : `Arcano Menor • ${(NAIPES.find(n => n.k === c.naipe) || {}).label || ""}`)))) +
+      group("🥁 Pontos Cantados", PONTOS.filter(p => has(p.titulo, p.linhaNome, p.entidade, p.toque, p.saudacao, p.letra, p.significado))
+        .map(p => row(`pontos.html#${encodeURIComponent(p.id)}`, `${p.titulo} • ${p.entidade}`, `${p.linhaNome} (${p.toque})`))) +
       group("📄 Páginas", SEARCH_PAGES.filter(p => has(p.t, p.k)).map(p => row(p.u, p.t, "")));
     results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
   }
@@ -3996,6 +4164,7 @@ const PAGE_HERO = {
   "calendario.html": { art: "moon" },
   "portais.html": { art: "numbers" },
   "tarot.html": { art: "cards" },
+  "pontos.html": { img: "images/jurema.jpg" },
   "simbolos.html": { art: "geo" }
 };
 
@@ -4229,7 +4398,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadMantras(),
     loadErvas(),
     loadBanhos(),
-    loadDefumacoes()
+    loadDefumacoes(),
+    loadPontos()
   ]);
 
   // Inicializar páginas específicas se seus elementos existirem
@@ -4243,6 +4413,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Módulos com novos seletores
   initPlantasPage();
   initTarotPage();
+  initPontosPage();
   initBanhosPage();
   initDefumacaoPage();
   initColheitaPage();

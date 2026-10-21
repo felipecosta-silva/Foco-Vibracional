@@ -4406,3 +4406,154 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   Página de Pontos Cantados & Curimba (pontos.html)
+   ========================================================================== */
+.pcard {
+  --c: var(--accent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  width: 100%;
+  padding: 18px 18px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(220px 110px at 100% 0%, color-mix(in srgb, var(--c) 14%, transparent), transparent 70%),
+    var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.pcard:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--c) 45%, var(--line));
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--c) 30%, transparent);
+}
+.pcard:active {
+  transform: scale(0.98);
+}
+.pcard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pcard__toque {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.02em;
+}
+.pcard__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--text);
+  margin: 0;
+}
+.pcard__entidade {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+.pcard__preview {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+}
+.pcard__saudacao {
+  color: var(--accent2);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 65%;
+}
+.pcard__action {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Badges temáticas das linhas */
+.badge--jurema { background: rgba(72, 187, 120, 0.15); border-color: rgba(72, 187, 120, 0.4); color: #9ae6b4; }
+.badge--mestras { background: rgba(244, 114, 182, 0.15); border-color: rgba(244, 114, 182, 0.4); color: #fbcfe8; }
+.badge--caboclo { background: rgba(56, 178, 172, 0.15); border-color: rgba(56, 178, 172, 0.4); color: #81e6d9; }
+.badge--almas { background: rgba(183, 148, 244, 0.15); border-color: rgba(183, 148, 244, 0.4); color: #e9d8fd; }
+.badge--baiano { background: rgba(246, 224, 94, 0.15); border-color: rgba(246, 224, 94, 0.4); color: #fef08a; }
+.badge--boiadeiro { background: rgba(237, 137, 54, 0.15); border-color: rgba(237, 137, 54, 0.4); color: #fed7aa; }
+.badge--mar { background: rgba(99, 179, 237, 0.15); border-color: rgba(99, 179, 237, 0.4); color: #bae6fd; }
+.badge--guardiao { background: rgba(245, 101, 101, 0.15); border-color: rgba(245, 101, 101, 0.4); color: #fecaca; }
+
+/* Detalhes do ponto dentro do Drawer */
+.ponto-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ponto-detail__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ponto-saudacao-banner {
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(227, 184, 103, 0.12), rgba(0, 0, 0, 0.25));
+  border: 1px solid rgba(227, 184, 103, 0.3);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  text-align: center;
+}
+.ponto-letra-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.ponto-letra-card {
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--line);
+}
+.ponto-letra {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #fff;
+  white-space: pre-wrap;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.ponto-detail__herbs {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
