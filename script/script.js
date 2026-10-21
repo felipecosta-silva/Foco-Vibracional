@@ -1483,7 +1483,7 @@ const MOON_ICONS = {
 
 const OBJETIVOS = [
   { k: "descarrego", label: "Descarrego", icon: OBJ_ICONS.descarrego },
-  { k: "limpeza", label: "Purificação", icon: OBJ_ICONS.limpeza },
+  { k: "limpeza", label: "Limpeza", icon: OBJ_ICONS.limpeza },
   { k: "harmonizacao", label: "Harmonização", icon: OBJ_ICONS.harmonizacao },
   { k: "protecao", label: "Proteção", icon: OBJ_ICONS.protecao },
   { k: "calma", label: "Calma", icon: OBJ_ICONS.calma },
@@ -1558,7 +1558,7 @@ function ritualCardHtml(kind, it) {
       foot = `<span class="ori ori--yes">✓ Pode na cabeça</span>`;
     } else {
       foot = `<span class="ori ori--no">⚠️ Pescoço p/ baixo</span>`;
-      alertBadge = `<button class="card-alert-btn" type="button" data-quick-alert="${escapeHtml(it.id)}" title="Aviso importante: Não vai na cabeça e exige resguardo. Clique para ver" aria-label="Aviso de segurança: pescoço para baixo">⚠️ Cuidado</button>`;
+      alertBadge = `<span class="rcard-alert-icon" data-quick-alert="${escapeHtml(it.id)}" role="button" tabindex="0" title="Atenção espiritual: pescoço para baixo. Toque para ver os cuidados deste banho" aria-label="Aviso de segurança: pescoço para baixo">⚠️</span>`;
     }
   } else {
     const s = sentidoCurto(it.sentido);
@@ -3979,7 +3979,7 @@ function initSimbolosPage() {
    ========================================================================== */
 const WEEKDAY_KEYS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
 const OBJETIVO_LABEL = {
-  descarrego: "descarrego", harmonizacao: "harmonização", limpeza: "purificação", prosperidade: "prosperidade",
+  descarrego: "descarrego", harmonizacao: "harmonização", limpeza: "limpeza", prosperidade: "prosperidade",
   protecao: "proteção", calma: "calma", energia: "energia"
 };
 
