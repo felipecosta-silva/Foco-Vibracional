@@ -1411,6 +1411,7 @@ function usedInHtml(erva) {
    Filtros ficam na URL (?q=&objetivo=&lua=…) e cada item abre por #id.
    ========================================================================== */
 const OBJ_ICONS = {
+  descarrego: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
   limpeza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m19 5-8 8"/><path d="m14 14-6 6a2 2 0 0 1-2.8-2.8l6-6"/><path d="M17 3l4 4"/></svg>',
   protecao: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
   calma: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7l5.6 5.6a8 8 0 1 1-11.3 0z"/><path d="M12 12a3 3 0 0 0-3 3"/></svg>',
@@ -1427,12 +1428,13 @@ const MOON_ICONS = {
 };
 
 const OBJETIVOS = [
-  { k: "limpeza", label: "Limpeza", icon: OBJ_ICONS.limpeza },
+  { k: "descarrego", label: "Descarrego", icon: OBJ_ICONS.descarrego },
+  { k: "limpeza", label: "Purificação", icon: OBJ_ICONS.limpeza },
+  { k: "harmonizacao", label: "Harmonização", icon: OBJ_ICONS.harmonizacao },
   { k: "protecao", label: "Proteção", icon: OBJ_ICONS.protecao },
   { k: "calma", label: "Calma", icon: OBJ_ICONS.calma },
   { k: "energia", label: "Energia", icon: OBJ_ICONS.energia },
-  { k: "prosperidade", label: "Prosperidade", icon: OBJ_ICONS.prosperidade },
-  { k: "harmonizacao", label: "Harmonização", icon: OBJ_ICONS.harmonizacao }
+  { k: "prosperidade", label: "Prosperidade", icon: OBJ_ICONS.prosperidade }
 ];
 const LUAS = [
   { k: "nova", label: "Nova", icon: MOON_ICONS.nova },
@@ -1496,8 +1498,14 @@ function ritualCardHtml(kind, it) {
   const subN = normalizeSpiritualSearch(sub);
   const herbs = names.length && !names.every(n => subN.includes(normalizeSpiritualSearch(n))) ? names.slice(0, 5).join(" · ") : "";
   let foot;
+  let alertBadge = "";
   if (kind === "banho") {
-    foot = it.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça</span>` : `<span class="ori ori--no">Pescoço p/ baixo</span>`;
+    if (it.cabeca) {
+      foot = `<span class="ori ori--yes">✓ Pode na cabeça</span>`;
+    } else {
+      foot = `<span class="ori ori--no">⚠️ Pescoço p/ baixo</span>`;
+      alertBadge = `<button class="card-alert-btn" type="button" data-quick-alert="${escapeHtml(it.id)}" title="Aviso importante: Não vai na cabeça e exige resguardo. Clique para ver" aria-label="Aviso de segurança: pescoço para baixo">⚠️ Cuidado</button>`;
+    }
   } else {
     const s = sentidoCurto(it.sentido);
     foot = s ? `<span class="badge">${s}</span>` : "";
@@ -1506,7 +1514,10 @@ function ritualCardHtml(kind, it) {
     <button class="rcard" type="button" data-open="${escapeHtml(it.id)}" style="--c:var(--c-${o.k})">
       <span class="rcard__top">
         <span class="rcard__kind">${o.icon} ${o.label}</span>
-        ${intensityHtml(it.intensidade)}
+        <span class="rcard__top-right">
+          ${alertBadge}
+          ${intensityHtml(it.intensidade)}
+        </span>
       </span>
       <h3 class="rcard__title">${escapeHtml(titulo)}</h3>
       ${sub ? `<p class="rcard__sub">${escapeHtml(sub)}</p>` : ""}
@@ -1566,6 +1577,46 @@ function heroForRitual(it) {
   return "";
 }
 
+function banhoTopAlertHtml(b) {
+  const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte" || !b.cabeca;
+  if (!isDescarrego && b.cabeca) {
+    return `
+      <div class="drawer-alert drawer-alert--safe">
+        <div class="drawer-alert__head">
+          <span class="drawer-alert__icon" aria-hidden="true">👑</span>
+          <div>
+            <b class="drawer-alert__title">BANHO DE COROA (PODE IR À CABEÇA / ORI)</b>
+            <span class="drawer-alert__sub">Folhas mansas e pacificadoras. Pode ser vertido suavemente da coroa aos pés para serenar a mente, fortalecer o Ori e ancorar a bênção do seu Anjo da Guarda.</span>
+          </div>
+        </div>
+      </div>`;
+  }
+  return `
+    <div class="drawer-alert drawer-alert--danger" id="drawerTopAlert">
+      <div class="drawer-alert__head">
+        <span class="drawer-alert__icon" aria-hidden="true">⚠️</span>
+        <div>
+          <b class="drawer-alert__title">${b.objetivo === "descarrego" ? "CUIDADO CRÍTICO • BANHO DE DESCARREGO PESADO" : "ATENÇÃO • APENAS DO PESCOÇO PARA BAIXO"}</b>
+          <span class="drawer-alert__sub">${b.objetivo === "descarrego" ? "Este banho utiliza ervas quentes e de choque para cortar demandas pesadas. Ele deixa o corpo vazio e exige 3 regras sagradas para sua segurança:" : "Este banho utiliza folhas fortes ou mornas de limpeza e nunca deve tocar a coroa sagrada (Ori)."}</span>
+        </div>
+      </div>
+      <ul class="drawer-alert__list">
+        <li>
+          <strong>🚫 1. NUNCA JOGAR NA CABEÇA (ORI):</strong>
+          Verta estritamente do pescoço para baixo. O Ori é a sede do anjo da guarda e das forças sutis; ervas quentes na coroa causam dor de cabeça, tonturas, peso e perturbação.
+        </li>
+        <li>
+          <strong>⚡ 2. O CORPO FICA VAZIO — TOME HARMONIZAÇÃO LOGO EM SEGUIDA:</strong>
+          O descarrego quebra o mal, mas deixa a sua aura zerada. <em>Tome logo a seguir um banho de harmonização</em> (manjericão, boldo ou camomila) para preencher seu campo com luz e não virar "esponja aberta".
+        </li>
+        <li>
+          <strong>🚪 3. RESGUARDO E ABSTENÇÃO OBRIGATÓRIOS:</strong>
+          Após o descarrego, permaneça em casa e vista roupas claras. Evite locais cheios e aglomerações (bares, shoppings, transporte lotado), nada de álcool, sexo ou discussões nas horas seguintes.
+        </li>
+      </ul>
+    </div>`;
+}
+
 function banhoDetailHtml(b) {
   const [titulo, sub] = splitName(b.nome);
   const o = objInfo(b.objetivo);
@@ -1576,8 +1627,9 @@ function banhoDetailHtml(b) {
     <div class="drawer__chips">
       <span class="badge" style="color:var(--c-${o.k})">${o.icon} ${o.label}</span>
       <span class="badge">Intensidade ${INTENSIDADE_LABEL[b.intensidade] || b.intensidade}</span>
-      ${b.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça (Ori)</span>` : `<span class="ori ori--no">⚠ Do pescoço para baixo</span>`}
+      ${b.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça (Ori)</span>` : `<span class="ori ori--no">⚠️ Do pescoço para baixo</span>`}
     </div>
+    ${banhoTopAlertHtml(b)}
     <div class="facts">
       <div class="fact"><span>Luas</span><b>${moonsHtml(b.luas)}</b></div>
       <div class="fact"><span>Dias</span><b>${(b.dias || []).map(d => DIAS_LABEL[d] || d).join(", ") || "Qualquer dia"}</b></div>
@@ -1586,7 +1638,7 @@ function banhoDetailHtml(b) {
     <div class="dsec"><h3>Ingredientes</h3>${ingredientsHtml(b.ervas)}</div>
     <div class="dsec"><h3>Modo de preparo</h3><p>${escapeHtml(b.modoPreparo || "")}</p></div>
     ${rezaHtml(b)}
-    <div class="dsec ${b.cabeca ? "" : "dsec--warn"}"><h3>Atenção & fundamento</h3><p>${escapeHtml(b.observacao || "")}</p></div>
+    <div class="dsec ${b.cabeca ? "" : "dsec--warn"}"><h3>Atenção & fundamento detalhado</h3><p>${escapeHtml(b.observacao || "")}</p></div>
     ${b.versaoCha ? `<div class="dsec dsec--tea"><h3>☕ Versão em chá</h3><p>${escapeHtml(b.versaoCha)}</p></div>` : ""}`;
 }
 
@@ -1658,6 +1710,7 @@ function getDrawer() {
       <div class="drawer__bar">
         <span class="eyebrow" id="drawerEyebrow"></span>
         <div class="drawer__actions">
+          <button class="drawer-alert-pill" id="drawerAlertPill" type="button" data-scroll-alert style="display:none;" title="Ver cuidados e resguardo">⚠️ Ver Cuidados</button>
           <button class="icon-btn" type="button" data-fav aria-label="Favoritar" title="Salvar nos favoritos">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fav-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
           </button>
@@ -1681,6 +1734,11 @@ function getDrawer() {
       body.scrollTop = 0;
       body.querySelector(".drawer__title")?.setAttribute("id", "drawerTitle");
 
+      const pill = el.querySelector("#drawerAlertPill");
+      if (pill) {
+        pill.style.display = html.includes('id="drawerTopAlert"') ? "inline-flex" : "none";
+      }
+
       const favBtn = el.querySelector("[data-fav]");
       if (favBtn) {
         favBtn.classList.toggle("icon-btn--active", isCatalogFavorite(id));
@@ -1703,6 +1761,14 @@ function getDrawer() {
 
   el.addEventListener("click", e => {
     if (e.target.closest("[data-close]")) api.close();
+    if (e.target.closest("[data-scroll-alert]")) {
+      const topAlert = el.querySelector("#drawerTopAlert");
+      if (topAlert) {
+        topAlert.scrollIntoView({ behavior: "smooth", block: "start" });
+        topAlert.style.transform = "scale(1.02)";
+        setTimeout(() => topAlert.style.transform = "none", 300);
+      }
+    }
     if (e.target.closest("[data-fav]")) {
       const title = el.querySelector(".drawer__title")?.textContent || "";
       const isNowFav = toggleCatalogFavorite({
@@ -1725,6 +1791,76 @@ function getDrawer() {
   DRAWER = api;
   return api;
 }
+
+/* Modal de Alerta Rápido ao tocar no ícone de perigo/cuidado do card */
+function openQuickAlert(id) {
+  const b = BANHOS.find(x => x.id === id);
+  if (!b) return;
+  let dialog = $("#quickAlertDialog");
+  if (!dialog) {
+    dialog = document.createElement("div");
+    dialog.id = "quickAlertDialog";
+    dialog.className = "quick-alert-dialog";
+    dialog.hidden = true;
+    dialog.innerHTML = `
+      <div class="quick-alert-dialog__backdrop" data-close-alert></div>
+      <div class="quick-alert-dialog__box" role="alertdialog" aria-modal="true" aria-labelledby="quickAlertTitle">
+        <button class="icon-btn quick-alert-dialog__close" type="button" data-close-alert aria-label="Fechar">${ICONS.close}</button>
+        <div id="quickAlertContent"></div>
+      </div>`;
+    document.body.appendChild(dialog);
+    dialog.addEventListener("click", e => {
+      if (e.target.closest("[data-close-alert]")) dialog.hidden = true;
+    });
+  }
+  const [titulo, sub] = splitName(b.nome);
+  const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte" || !b.cabeca;
+  const content = $("#quickAlertContent");
+  content.innerHTML = `
+    <div class="drawer-alert drawer-alert--danger" style="margin-bottom:16px;">
+      <div class="drawer-alert__head">
+        <span class="drawer-alert__icon">⚠️</span>
+        <div>
+          <b class="drawer-alert__title" id="quickAlertTitle">${isDescarrego ? "AVISO CRÍTICO • BANHO DE DESCARREGO" : "CUIDADOS RITUAIS DESTE BANHO"}</b>
+          <span class="drawer-alert__sub">${escapeHtml(titulo)} ${sub ? `• ${escapeHtml(sub)}` : ""}</span>
+        </div>
+      </div>
+      <ul class="drawer-alert__list" style="margin-top:12px;">
+        <li>
+          <strong>🚫 1. NUNCA JOGAR NA CABEÇA (ORI):</strong>
+          Verta estritamente do pescoço para baixo. O Ori não deve receber folhas quentes ou de corte pesado para não provocar tonturas, dores e agitação mental.
+        </li>
+        <li>
+          <strong>⚡ 2. O CORPO FICA VAZIO — TOME HARMONIZAÇÃO LOGO EM SEGUIDA:</strong>
+          O descarrego quebra demandas e arranca miasmas, mas deixa sua aura zerada. <em>Tome logo a seguir um banho de harmonização</em> (manjericão, boldo ou camomila) para preencher seu campo com luz e não virar esponja aberta.
+        </li>
+        <li>
+          <strong>🚪 3. RESGUARDO E ABSTENÇÃO OBRIGATÓRIOS:</strong>
+          Evite sair de casa, recuse bares, festas e aglomerações, abstenha-se de álcool, sexo e discussões nas horas seguintes. Vista roupas brancas ou claras.
+        </li>
+      </ul>
+      ${b.observacao ? `<p class="muted small" style="margin-top:12px; border-top:1px solid rgba(239,231,214,.1); padding-top:8px;"><strong>Fundamento:</strong> ${escapeHtml(b.observacao)}</p>` : ""}
+    </div>
+    <div class="row wrap-row" style="justify-content:flex-end; gap:8px;">
+      <button class="btn btn--ghost" type="button" data-close-alert>Fechar aviso</button>
+      <button class="btn btn--primary" type="button" id="btnGoToFullBath">Ver receita completa →</button>
+    </div>`;
+  $("#btnGoToFullBath")?.addEventListener("click", () => {
+    dialog.hidden = true;
+    getDrawer().open("Banho", banhoDetailHtml(b), b.id);
+  });
+  dialog.hidden = false;
+}
+
+// Delegação de cliques para botões de alerta rápido nos cards
+document.addEventListener("click", e => {
+  const alertBtn = e.target.closest("[data-quick-alert]");
+  if (alertBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    openQuickAlert(alertBtn.dataset.quickAlert);
+  }
+});
 
 /* ---------- Motor do catálogo ---------- */
 function createCatalog(cfg) {
@@ -3789,7 +3925,7 @@ function initSimbolosPage() {
    ========================================================================== */
 const WEEKDAY_KEYS = ["dom", "seg", "ter", "qua", "qui", "sex", "sab"];
 const OBJETIVO_LABEL = {
-  harmonizacao: "harmonização", limpeza: "limpeza", prosperidade: "prosperidade",
+  descarrego: "descarrego", harmonizacao: "harmonização", limpeza: "purificação", prosperidade: "prosperidade",
   protecao: "proteção", calma: "calma", energia: "energia"
 };
 
@@ -3879,13 +4015,13 @@ const ICONS_ORACULO = {
 };
 
 const ORACULO = [
-  { id: "cansaco", label: "Cansaço / peso nas costas", icon: ICONS_ORACULO.cansaco, defumacao: ["limpeza"], banho1: ["limpeza", "protecao"], banho2: ["harmonizacao", "calma"], mantra: ["leveza", "energia", "equilíbrio"],
-    palavra: "Peso acumulado pede dois tempos: primeiro limpar, depois reconstruir. Nunca deixe o corpo 'aberto' depois de um descarrego." },
+  { id: "cansaco", label: "Cansaço / peso nas costas", icon: ICONS_ORACULO.cansaco, defumacao: ["limpeza"], banho1: ["descarrego", "limpeza", "protecao"], banho2: ["harmonizacao", "calma"], mantra: ["leveza", "energia", "equilíbrio"],
+    palavra: "Peso acumulado pede dois tempos: primeiro descarregar ou purificar, depois reconstruir. Nunca deixe o corpo 'aberto' depois de um descarrego." },
   { id: "ansiedade", label: "Ansiedade / insônia", icon: ICONS_ORACULO.ansiedade, defumacao: ["harmonizacao"], banho1: ["calma"], mantra: ["calma", "paz", "presença"],
     palavra: "Prefira banhos mornos, à noite, e respire 4-2-6 antes de deitar. Folha mansa acalma a cabeça (Ori)." },
   { id: "caminhos", label: "Caminhos fechados / trabalho travado", icon: ICONS_ORACULO.caminhos, defumacao: ["prosperidade"], banho1: ["prosperidade"], mantra: ["prosperidade", "oportunidades", "fluxo"],
     palavra: "Abra caminhos de preferência na lua crescente, e faça uma ação concreta no mesmo dia: o Axé acompanha quem se move." },
-  { id: "inveja", label: "Inveja / olho-gordo", icon: ICONS_ORACULO.inveja, defumacao: ["limpeza", "protecao"], banho1: ["protecao", "limpeza"], banho2: ["harmonizacao"], mantra: ["proteção", "limites", "confiança"],
+  { id: "inveja", label: "Inveja / olho-gordo", icon: ICONS_ORACULO.inveja, defumacao: ["limpeza", "protecao"], banho1: ["descarrego", "protecao", "limpeza"], banho2: ["harmonizacao"], mantra: ["proteção", "limites", "confiança"],
     palavra: "Corte primeiro, feche o corpo depois. Erva quente (arruda, guiné) sempre do pescoço para baixo." },
   { id: "desanimo", label: "Desânimo / sem força", icon: ICONS_ORACULO.desanimo, defumacao: ["energia", "prosperidade"], banho1: ["energia"], mantra: ["energia", "coragem", "crescimento"],
     palavra: "Sol da manhã, água fresca e um banho de vitalidade. Comece pequeno: uma tarefa de cada vez." },

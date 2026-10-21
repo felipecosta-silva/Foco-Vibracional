@@ -55,7 +55,8 @@
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* Cores por objetivo */
-  --c-limpeza: #b9a8e8;
+  --c-descarrego: #e87058;    /* fogo, corte, choque e alerta sagrado */
+  --c-limpeza: #7eb3d8;       /* purificação, higiene e águas límpidas */
   --c-protecao: #e48f74;
   --c-calma: #8fc1e3;
   --c-energia: #f0b35a;
@@ -2650,6 +2651,158 @@ body.drawer-open{ overflow: hidden; }
 .fact span{ display: block; font-size: .72rem; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
 .fact b{ font-weight: 600; font-size: .92rem; }
 .drawer .used-in{ margin-top: 0; }
+
+/* ---------- Alerta Prioritário e Cuidados Litúrgicos (Drawer & Cards) ---------- */
+.drawer-alert{
+  border-radius: var(--radius2);
+  padding: 16px 18px;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn .3s ease;
+}
+.drawer-alert--danger{
+  background: radial-gradient(circle at 10% 0%, rgba(232,112,88,.22), transparent 70%), rgba(32, 19, 17, 0.7);
+  border: 1.5px solid rgba(232, 112, 88, 0.45);
+  box-shadow: 0 8px 24px rgba(232, 112, 88, 0.15);
+}
+.drawer-alert--safe{
+  background: radial-gradient(circle at 10% 0%, rgba(159,208,154,.18), transparent 70%), rgba(19, 29, 22, 0.65);
+  border: 1.5px solid rgba(159, 208, 154, 0.35);
+}
+.drawer-alert__head{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.drawer-alert__icon{
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.drawer-alert__title{
+  display: block;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: #ff9d8b;
+  line-height: 1.25;
+}
+.drawer-alert--safe .drawer-alert__title{
+  color: #bbf0b6;
+}
+.drawer-alert__sub{
+  display: block;
+  font-size: .84rem;
+  color: rgba(239, 231, 214, 0.85);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+.drawer-alert__list{
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(239, 231, 214, 0.1);
+  padding-top: 10px;
+}
+.drawer-alert__list li{
+  font-size: .84rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.drawer-alert__list li strong{
+  color: #ffb4a6;
+  display: block;
+  font-size: .82rem;
+  margin-bottom: 2px;
+}
+.drawer-alert--safe .drawer-alert__list li strong{
+  color: var(--accent2);
+}
+.drawer-alert-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 112, 88, 0.45);
+  background: rgba(232, 112, 88, 0.16);
+  color: #ff9d8b;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.drawer-alert-pill:hover{
+  background: rgba(232, 112, 88, 0.3);
+  border-color: #ffb4a6;
+  transform: translateY(-1px);
+}
+.card-alert-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 112, 88, 0.38);
+  background: rgba(232, 112, 88, 0.14);
+  color: #ff9d8b;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s ease;
+  z-index: 2;
+}
+.card-alert-btn:hover{
+  background: rgba(232, 112, 88, 0.28);
+  border-color: #ffb4a6;
+  transform: scale(1.05);
+}
+.rcard__top-right{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Modal de Alerta Rápido */
+.quick-alert-dialog{
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+.quick-alert-dialog[hidden]{ display: none; }
+.quick-alert-dialog__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 8, 6, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.quick-alert-dialog__box{
+  position: relative;
+  z-index: 1;
+  width: min(520px, 100%);
+  background: var(--surface);
+  border: 1.5px solid rgba(232, 112, 88, 0.45);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: cardIn .25s cubic-bezier(.2,.8,.2,1);
+}
+.quick-alert-dialog__close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
 
 @keyframes slideIn{ from{ transform: translateX(40px); opacity: 0; } to{ transform: none; opacity: 1; } }
 @keyframes slideUp{ from{ transform: translateY(60px); opacity: 0; } to{ transform: none; opacity: 1; } }

@@ -30,7 +30,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-descarrego-forte",
   "nome": "Descarrego e Corte de Pesos (Arruda, Guiné & Alecrim)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -53,7 +53,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-casca-alho-sal",
   "nome": "Banho de Casca de Alho & Alecrim (Corte Rápido de Mau-Olhado nos Pés)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "media",
   "luas": [
    "minguante",
@@ -72,7 +72,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Ferva 1 litro de água, desligue e adicione as cascas de alho, o alecrim e o sal. Abafe por 15 minutos. Deixe amornar. Despeje dos joelhos para baixo ou faça escalda-pés.",
   "reza": "Corta o rastro do invejoso, desfaz a praga no caminho. Meus pés pisam em terra limpa e meu corpo está protegido.",
-  "observacao": "Perfeito para escalda-pés após chegar da rua exausto ou sentindo que pisou em ambiente carregado."
+  "observacao": "Perfeito para escalda-pés após chegar da rua exausto ou sentindo que pisou em ambiente carregado. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-paz-cabeca",
@@ -179,7 +179,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-guine-arruda-corte",
   "nome": "Banho de Guiné com Arruda (Corte de Amarrações & Olho Gordo)",
-  "objetivo": "protecao",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -196,7 +196,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Macerar um punhado de guiné e um ramo de arruda em água fria. Mentalize o corte de todo olho gordo. Despeje dos ombros para baixo.",
   "reza": "Tipi que corta, arruda que limpa: o que mandaram contra mim volta desfeito na lei da terra santa.",
-  "observacao": "NUNCA NA CABEÇA. Banho de corte pesado; tome um banho doce de manjericão no dia seguinte."
+  "observacao": "NUNCA NA CABEÇA. Banho de corte pesado; tome um banho doce de manjericão no dia seguinte. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-calma-sono",
@@ -327,7 +327,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-samambaia-caboclo",
   "nome": "Banho de Samambaia das Matas (Aterramento, Quebra de Olho-Gordo & Força de Oxóssi)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "media",
   "luas": [
    "minguante",
@@ -346,7 +346,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Cortar ramos de samambaia fresca com tesoura limpa. Macerar em água fresca pedindo licença aos Caboclos das Matas para que a samambaia puxe para a terra todo olho-gordo e carga pesada. Coar e verter do pescoço para baixo.",
   "reza": "Folha que cai e curva para a terra, puxai para o chão o peso que não é meu. Que a mata virgem me cubra de verde e desfaça toda inveja lançada em meus passos.",
-  "observacao": "DO PESCOÇO PARA BAIXO. A samambaia atua como uma esponja vegetal que aterra fluidos negativos e descarrega quizilas acumuladas nos ombros."
+  "observacao": "DO PESCOÇO PARA BAIXO. A samambaia atua como uma esponja vegetal que aterra fluidos negativos e descarrega quizilas acumuladas nos ombros. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-folha-manga-boiadeiro",
@@ -535,7 +535,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-forca-exu-guardioes",
   "nome": "Banho de Porteira na Força de Exu e Guardiões (Quebra de Demanda Pesada & Limpeza)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -554,7 +554,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Em água fresca ou levemente tépida, rasgar as folhas com as mãos com intenção firme de quebra e descarrego. Despejar dos ombros para baixo. Enxaguar os pés com água limpa logo em seguida.",
   "reza": "Laroyê Exu, Exu é Mojubá! Guardião das encruzilhadas e sentinela da porteira: quebrai a feitiçaria, rebatei a inveja e trancai meu corpo contra espíritos zombeteiros e olhos ruins.",
-  "observacao": "NUNCA NA CABEÇA. Banho de corte severo de terreiro. Não saia para a rua após tomar este banho. Descanse com roupa limpa e clara."
+  "observacao": "NUNCA NA CABEÇA. Banho de corte severo de terreiro. Não saia para a rua após tomar este banho. Descanse com roupa limpa e clara. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-forca-boiadeiro-laco",
@@ -587,7 +587,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-descarrego-reenergizacao-2em1",
   "nome": "Banho 2 em 1: Descarrego e Reenergização Simultânea (O Segredo Alquímico do Terreiro)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "media",
   "luas": [
    "minguante",
@@ -611,7 +611,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "O segredo deste banho clássico está no equilíbrio das proporções: as ervas quentes de corte (Arruda e Guiné em pouca quantidade) varrem as energias densas, enquanto as ervas equilibradoras e frias (Alecrim, Manjericão e Alfazema em maior quantidade) no mesmo instante preenchem a aura de luz, evitando o esvaziamento energético. Macerar juntas em água fresca. Despejar do pescoço para baixo.",
   "reza": "O que for ruim sai na correnteza; o que for bom se assenta na firmeza. Limpo meu corpo de todo mal e recebo no mesmo instante a bênção da luz celestial.",
-  "observacao": "DO PESCOÇO PARA BAIXO. A solução ideal para quem não tem tempo de tomar dois banhos separados em dias diferentes: limpa o campo e já sela a aura fortalecida."
+  "observacao": "DO PESCOÇO PARA BAIXO. A solução ideal para quem não tem tempo de tomar dois banhos separados em dias diferentes: limpa o campo e já sela a aura fortalecida. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-revitalizacao-pos-doenca",
@@ -997,7 +997,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-arnica-cicatrizacao",
   "nome": "Banho de Arnica com Casca de Alho (Cicatrização Espiritual Pós-Choques e Brigas)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1016,7 +1016,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Fazer infusão morna com as cascas de alho e folhas de arnica e alecrim. Deixar amornar bem. Despejar dos ombros para baixo mentalizando o alívio das feridas da alma provocadas por palavras rudes.",
   "reza": "Arnica que estanca a dor, alho que corta o veneno: cicatriza meu campo áurico, dissolve as marcas das ofensas e devolve a inteireza ao meu ser.",
-  "observacao": "NUNCA NA CABEÇA. Excelente para tomar logo após um confronto violento de trabalho ou ambiente carregado de discórdia."
+  "observacao": "NUNCA NA CABEÇA. Excelente para tomar logo após um confronto violento de trabalho ou ambiente carregado de discórdia. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-coentro-agilidade-metas",
@@ -1045,7 +1045,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-limao-descarrego-acido",
   "nome": "Banho de Casca de Limão com Eucalipto (Descarrego Cítrico Adstringente & Corte)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -1063,7 +1063,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Ferver 1,5L de água, desligar o fogo e adicionar as cascas finas de limão e o eucalipto. Abafar por 15 minutos. Deixar amornar bem. Despejar dos ombros para baixo após a higiene.",
   "reza": "Ácido que dissolve a impureza, aroma que varre o mal: corto a quizila pegajosa, desfaço o laço da inveja e deixo meu corpo leve como o ar das matas.",
-  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. Jamais se expor ao sol após contato com casca de limão. Tome à noite e vista roupa limpa para descansar."
+  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. Jamais se expor ao sol após contato com casca de limão. Tome à noite e vista roupa limpa para descansar. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-salsa-canela-vendas",
@@ -1121,7 +1121,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-espada-sao-jorge-pura",
   "nome": "Banho de Espada de São Jorge Pura (Corte Incisivo de Demandas & Força de Ogum)",
-  "objetivo": "protecao",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1141,12 +1141,12 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Com uma tesoura limpa, corte a folha de espada em 7 pedaços transversais (simbolizando as sete espadas de ferro de Ogum). Coloque em bacia com água morna junto com o alecrim e o sal grosso, macerando levemente com respeito. Deixe amornar. Coe e despeje rigorosamente do pescoço para baixo após a higiene.",
   "reza": "Patacori Ogum! Corta a língua de fogo, quebra o laço do inimigo, rebate a feitiçaria e estraçalha toda inveja. Meus caminhos são guardados pela lâmina do guerreiro de Deus!",
-  "observacao": "ATENÇÃO ABSOLUTA: NUNCA JOGAR NA CABEÇA. Banho de corte severo e quebra de demandas pesadas. Vista roupa clara e descanse. No dia seguinte, tome um banho doce de manjericão para selar a proteção em harmonia."
+  "observacao": "ATENÇÃO ABSOLUTA: NUNCA JOGAR NA CABEÇA. Banho de corte severo e quebra de demandas pesadas. Vista roupa clara e descanse. No dia seguinte, tome um banho doce de manjericão para selar a proteção em harmonia. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-comigo-ninguem-pode-porteira",
   "nome": "Banho Severo de Comigo-Ninguém-Pode (A Quebra Máxima de Inveja & Subjugação)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -1164,7 +1164,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "CUIDADOS ESSENCIAIS: A planta possui oxalato de cálcio, portanto manuseie com luvas ou corte a folha com tesoura para que a seiva não toque na sua pele ou olhos. Pique a folha em água fria com a arruda e o sal. Despeje EXCLUSIVAMENTE DOS JOELHOS PARA BAIXO (ou pescoço para baixo com extrema cautela). Lave as mãos com água corrente e sabão imediatamente.",
   "reza": "Comigo ninguém pode, com meu lar ninguém mexe, com meu destino ninguém brinca! O que mandaram para me dobrar se quebra na terra. Eu sou firme, sou protegido e sou guardado no poder de Deus.",
-  "observacao": "PERIGO: PLANTA ALTAMENTE TÓXICA POR INGESTÃO. Mantenha longe de crianças e animais de estimação. JAMAIS jogar na cabeça nem passar a mão nos olhos. Banho fulminante para quebrar tentativas de domínio psíquico e inveja destrutiva."
+  "observacao": "PERIGO: PLANTA ALTAMENTE TÓXICA POR INGESTÃO. Mantenha longe de crianças e animais de estimação. JAMAIS jogar na cabeça nem passar a mão nos olhos. Banho fulminante para quebrar tentativas de domínio psíquico e inveja destrutiva. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-trio-magico-fartura-especiarias",
@@ -1333,7 +1333,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-pretos-velhos-cafe-ervas",
   "nome": "Banho de Ervas na Força dos Pretos-Velhos (Manjericão, Alecrim, Guiné, Arruda & Café sem Açúcar)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1356,7 +1356,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Se as ervas forem frescas, coloque-as em 2L de água fresca/tépida e macere com as mãos, cantando para os velhos. Se forem secas, faça infusão com água quente apagada. Prepare à parte uma xícara de café bem forte, passado na hora, RIGOROSAMENTE SEM AÇÚCAR. Misture o café líquido ao banho de ervas já morno. Tome seu banho de higiene normal e despeje do pescoço para baixo, firmando o pensamento na sabedoria, humildade e força dos avós e avós da Umbanda.",
   "reza": "Que os Pretos-Velhos nos abençoem com sabedoria, proteção e bons caminhos. Que a fumaça do cachimbo e o aroma do café desfaçam toda mandinga, cansaço e peso dos meus ombros. Adorei as Almas! Saravá Vovô, Saravá Vovó!",
-  "observacao": "DO PESCOÇO PARA BAIXO. Fórmula magistral que equilibra ervas quentes de descarrego pesado (Arruda e Guiné) com ervas equilibradoras (Manjericão e Alecrim), potencializado pelo café sem açúcar que movimenta a energia estagnada e combate a apatia espiritual.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Fórmula magistral que equilibra ervas quentes de descarrego pesado (Arruda e Guiné) com ervas equilibradoras (Manjericão e Alecrim), potencializado pelo café sem açúcar que movimenta a energia estagnada e combate a apatia espiritual. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": "CHÁ DE MANJERICÃO COM ALECRIM (SEPARADO DO BANHO): 1 colher de chá de folhas de manjericão e 1 pequeno raminho de alecrim em 250ml de água fervente por 8 minutos abafado. Traz clareza mental e ânimo. (O café é para a firmeza do banho; JAMAIS ingerir arruda ou guiné em chá)."
  },
  {
@@ -1498,7 +1498,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-aroeira-descarrego",
   "nome": "Banho de Aroeira (Descarrego Forte do Sertão)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1517,7 +1517,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Ferva a água, desligue o fogo e abafe a aroeira por 10 minutos. Coe, espere ficar morno e acrescente o sal se quiser. Tome seu banho de higiene e jogue o banho do pescoço para baixo, pedindo que tudo que é pesado escorra para a terra.",
   "reza": "Aroeira braba do sertão, leva o que não é meu, corta o que me pesa e devolve à terra o que a terra pode transformar.",
-  "observacao": "SOMENTE do pescoço para baixo. Teste antes na pele (a aroeira pode irritar). No mesmo dia ou no seguinte, tome um banho de reconstrução (ex.: Alfavaca & Manjericão)."
+  "observacao": "SOMENTE do pescoço para baixo. Teste antes na pele (a aroeira pode irritar). No mesmo dia ou no seguinte, tome um banho de reconstrução (ex.: Alfavaca & Manjericão). O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-cidreira-camomila-criancas",
@@ -1702,7 +1702,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-sal-grosso-alecrim-seguro",
   "nome": "Banho de Sal Grosso & Alecrim (Versão Segura)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante"
@@ -1720,7 +1720,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Dissolva o sal na água morna e junte o alecrim já abafado (5 minutos em água quente). Jogue do pescoço para baixo. No dia seguinte, tome obrigatoriamente um banho de ervas mansas.",
   "reza": "Sal da terra, alecrim do sol: levem o que pesa e deixem só o que é luz.",
-  "observacao": "NUNCA na cabeça. O sal limpa tudo, inclusive o que é bom: por isso sempre feche com um banho de reconstrução. Evite em pele ferida ou ressecada."
+  "observacao": "NUNCA na cabeça. O sal limpa tudo, inclusive o que é bom: por isso sempre feche com um banho de reconstrução. Evite em pele ferida ou ressecada. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool."
  },
  {
   "id": "banho-inicio-ciclo-aniversario",
@@ -1887,7 +1887,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-triade-sagrada-arruda-guine-alecrim",
   "nome": "Banho da Tríade Sagrada (Arruda, Guiné & Alecrim • Corte, Aterramento & Ativação Solar)",
-  "objetivo": "protecao",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1908,13 +1908,13 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "1. Em uma bacia com 2 litros de água fresca ou tépida, macere com firmeza os ramos de Arruda e Guiné, intencionando a quebra de olhos-gordos, miasmas e nós energéticos.\\n2. Em seguida, acrescente o Alecrim fresco, esfregando-o suavemente para liberar seus óleos dourados, consagrando a entrada da luz solar e da vitalidade.\\n3. Deixe descansar por 30 minutos e coe. Tome seu banho habitual de higiene e despeje do pescoço para baixo. Não enxágue; vista roupa clara e descanse.",
   "reza": "Pela força do Guiné, todo nó se desfaz. Pelo fogo da Arruda, toda inveja se desmancha. Pela luz do Alecrim, meu campo se reergue, brilha e caminha em vitória. Salve as matas sagradas!",
-  "observacao": "ATENÇÃO: Não vai à cabeça. A Arruda corta a larva espiritual; o Guiné aterra e desfaz o feitiço; o Alecrim atua com o calor do Sol, recompondo a aura e impedindo que o descarrego deixe a pessoa sem energia.",
+  "observacao": "ATENÇÃO: Não vai à cabeça. A Arruda corta a larva espiritual; o Guiné aterra e desfaz o feitiço; o Alecrim atua com o calor do Sol, recompondo a aura e impedindo que o descarrego deixe a pessoa sem energia. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": ""
  },
  {
   "id": "banho-peregum-vence-tudo-batalha",
   "nome": "Banho de Desatar Nós e Vencer Demandas (Peregum Roxo, Vence-Demanda & Alecrim)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -1933,7 +1933,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Rasgar as folhas de Peregum Roxo e Vence-Demanda em pedaços pequenos dentro de 2 litros de água morna (após desligar a fervura). Abafar por 20 minutos. Ao amornar, macere o Alecrim fresco junto para levantar a vibração de vitória. Despejar do pescoço para baixo mentalizando todas as amarras invisíveis caindo por terra.",
   "reza": "Com a força do Peregum, o que estava podre é arrancado. Com a força do Vence-Demanda, nenhuma injustiça prevalece sobre meu caminho. Eu ando de cabeça erguida e corpo fechado.",
-  "observacao": "Banho de impacto para épocas de forte opressão, disputas judiciais, perseguição profissional ou sensação de que tudo travou. Não vai à cabeça.",
+  "observacao": "Banho de impacto para épocas de forte opressão, disputas judiciais, perseguição profissional ou sensação de que tudo travou. Não vai à cabeça. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": ""
  },
  {
@@ -2103,7 +2103,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-mamao-corte-vespera",
   "nome": "Banho de Folha de Mamão (Corte na Véspera do Banho das Onze Horas)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "media",
   "luas": [
    "minguante",
@@ -2121,7 +2121,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Lave muito bem as folhas de mamão retirando o excesso de seiva leitosa com água corrente e luvas. Em uma bacia com 2 litros de água fresca ou tépida, macere as folhas de mamão e o alecrim com as mãos, mentalizando o corte de miasmas estagnados e pesos da coluna. Coe. Após o banho comum de higiene, despeje do pescoço para baixo, pedindo que saia tudo o que está parado e pesado. Vista roupa clara e durma cedo.",
   "reza": "Que a força da terra e a foice das matas cortem as amarras e o peso que não me pertencem. Que saia a estagnação e que meu corpo fique limpo, leve e preparado para a luz do novo dia.",
-  "observacao": "DO PESCOÇO PARA BAIXO. Primeira etapa do Banho das Onze Horas (veja o card dele). Não use se tiver alergia a látex; gestantes devem evitar; não aplique sobre feridas abertas.",
+  "observacao": "DO PESCOÇO PARA BAIXO. Primeira etapa do Banho das Onze Horas (veja o card dele). Não use se tiver alergia a látex; gestantes devem evitar; não aplique sobre feridas abertas. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": ""
  },
  {
@@ -2235,7 +2235,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-peregun-roxo-descarrego-guerra",
   "nome": "Banho de Peregun Roxo com Guiné (Descarrego de Guerra & Força de Ogum)",
-  "objetivo": "limpeza",
+  "objetivo": "descarrego",
   "intensidade": "forte",
   "luas": [
    "minguante",
@@ -2255,7 +2255,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Em uma bacia limpa com 2 litros de água fresca da fonte ou mineral, macere vigorosamente com as duas mãos as folhas de peregun roxo picadas, as folhas de guiné e a arruda, clamando pela força e espada de Ogum e pela justiça das matas. Deixe descansar por 20 minutos e coe. Tome seu banho de higiene e despeje a água macerada rigorosamente dos ombros para baixo, sentindo o corte de qualquer influência espiritual pesada. Deixe secar naturalmente e vista roupas limpas.",
   "reza": "Pelo ferro de Ogum e pelo sopro das tempestades: quebre-se a demanda, desfaça-se o laço e caia por terra todo olho-gordo que tentar derrubar minha fé. Ogunhê!",
-  "observacao": "NUNCA NA CABEÇA (Ori). Erva de corte pesado de guerra. Lave bem as mãos após o manuseio. As folhas coadas devem ser devolvidas à terra ou a um jardim.",
+  "observacao": "NUNCA NA CABEÇA (Ori). Erva de corte pesado de guerra. Lave bem as mãos após o manuseio. As folhas coadas devem ser devolvidas à terra ou a um jardim. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": ""
  },
  {
@@ -2288,7 +2288,7 @@ window.FV_DATA.banhos = [
  {
   "id": "banho-abacaxi-roxo-corte-demanda",
   "nome": "Banho de Abacaxi-Roxo com Espada de São Jorge (Corte de Inveja & Escudo do Lar)",
-  "objetivo": "protecao",
+  "objetivo": "descarrego",
   "intensidade": "media",
   "luas": [
    "minguante",
@@ -2306,7 +2306,88 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Lave com cuidado 3 folhas frescas de abacaxi-roxo e corte em pedaços médios 1 folha de espada de são jorge (usando luvas ou tesoura limpa). Ferva 2 litros de água, desligue o fogo e adicione as ervas. Abafe por 15 minutos. Coe com muito cuidado para não levar resíduos de seiva aos olhos. Espere esfriar até ficar morno e despeje dos ombros para baixo, sentindo as lâminas vegetais formando um escudo contra invejas e cobranças energéticas externas.",
   "reza": "Escudo de duas cores, lâmina de proteção: cortai o olho-gordo que me cerca, secai a inveja que me mira e deixai meu corpo e meu lar sob a guarda dos bons espíritos.",
-  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. A seiva do abacaxi-roxo pode causar dermatite: teste antes numa área pequena do antebraço; crianças, gestantes e peles sensíveis não usam. Cuidado ao manipular: não passe as mãos nos olhos nem na boca. Restos vegetais vão para o lixo comum ou compostagem longe do alcance de animais.",
+  "observacao": "RIGOROSAMENTE DO PESCOÇO PARA BAIXO. A seiva do abacaxi-roxo pode causar dermatite: teste antes numa área pequena do antebraço; crianças, gestantes e peles sensíveis não usam. Cuidado ao manipular: não passe as mãos nos olhos nem na boca. Restos vegetais vão para o lixo comum ou compostagem longe do alcance de animais. O descarrego esvazia o corpo: tome logo a seguir um banho de harmonização para selar sua aura. Resguardo obrigatório: abstenha-se de locais cheios, sexo e álcool.",
   "versaoCha": ""
+ },
+ {
+  "id": "banho-purificacao-diaria-alecrim-salvia",
+  "nome": "Banho de Purificação e Alívio Diário (Alecrim, Sálvia & Eucalipto)",
+  "objetivo": "limpeza",
+  "intensidade": "suave",
+  "luas": [
+   "minguante",
+   "nova",
+   "crescente"
+  ],
+  "dias": [
+   "seg",
+   "qua",
+   "sex"
+  ],
+  "horario": "fim de tarde ou noite após o trabalho",
+  "ervas": [
+   "1 ramo fresco de Alecrim",
+   "5 folhas de Sálvia fresca",
+   "3 folhas de Eucalipto medicinal (ou Hortelã)"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva 1,5L de água, desligue o fogo e acrescente o alecrim, a sálvia e o eucalipto. Tampe e deixe em infusão por 15 minutos até amornar. Coe com carinho. Após seu banho higiênico normal, despeje do pescoço para baixo, respirando profundamente os vapores aromáticos das ervas.",
+  "reza": "Que a sálvia clareie o meu campo, que o alecrim devolva meu brilho e que o eucalipto leve embora a fadiga do dia. Meu corpo é limpo, renovado e guardado na luz.",
+  "observacao": "PURIFICAÇÃO SUAVE • TROCA ENERGÉTICA: Diferente do descarrego pesado de corte que esvazia a aura, este banho de purificação atua como uma troca suave: dissolve miasmas de cansaço e recarrega sua vitalidade natural. Não exige isolamento severo, apenas recolhimento tranquilo."
+ },
+ {
+  "id": "banho-renovacao-manga-hortela",
+  "nome": "Banho de Renovação e Purificação de Águas Claras (Folhas de Manga & Hortelã Fresca)",
+  "objetivo": "limpeza",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "seg",
+   "ter",
+   "qui",
+   "sex"
+  ],
+  "horario": "manhã ou tarde",
+  "ervas": [
+   "5 folhas jovens e frescas de Mangueira",
+   "1 punhado de Hortelã fresca",
+   "Água mineral ou de nascente"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Em uma bacia limpa com água fresca ou ligeiramente morna, macere as folhas de mangueira e de hortelã com as próprias mãos, cantando para os Caboclos das Matas até a água liberar aroma refrescante. Deixe descansar 10 minutos. Despeje da cabeça aos pés após o banho comum.",
+  "reza": "Okê Caboclo! Salve as matas sagradas e as águas límpidas da cura. Leva embora a poeira da caminhada e banha minha mente e meu peito com o frescor da floresta.",
+  "observacao": "PODE SER JOGADO NA CABEÇA (ORI). Folhas mornas e aromáticas que promovem purificação desobstruindo os poros espirituais, varrendo a preguiça mental e oxigenando a coroa com alegria."
+ },
+ {
+  "id": "banho-purificacao-matas-capim-limao",
+  "nome": "Banho de Purificação das Matas (Capim-Limão, Folha de Pitanga & Manjericão)",
+  "objetivo": "limpeza",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [
+   "qua",
+   "sex",
+   "dom"
+  ],
+  "horario": "qualquer horário",
+  "ervas": [
+   "1 punhado de Capim-Limão (Capim-Santo)",
+   "7 folhas frescas de Pitangueira",
+   "1 ramo de Manjericão fresco"
+  ],
+  "cabeca": true,
+  "modoPreparo": "Macere as folhas verdes frescas delicadamente com as duas mãos em água fresca, sem ferver. Deixe descansar por 15 minutos e coe. Banhe-se da cabeça aos pés sentindo o aroma cítrico e balsâmico das matas desfazendo tensões acumuladas.",
+  "reza": "Na força da Jurema e dos Encantados, purifico meu corpo e minha alma. Que a doçura do capim-santo e a firmeza da pitanga façam morada em mim.",
+  "observacao": "PODE SER JOGADO NA CABEÇA. Banho de higiene sutil que realiza a reciclagem dos fluidos vitais. Excelente para pessoas sensíveis e médiuns antes de trabalhos espirituais."
  }
 ];
