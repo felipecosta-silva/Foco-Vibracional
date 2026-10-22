@@ -1507,7 +1507,7 @@ const INTENSIDADE_NIVEL = { suave: 1, media: 2, forte: 3 };
 const INTENSIDADE_LABEL = { suave: "Suave", media: "Média", forte: "Forte" };
 const DIAS_LABEL = { dom: "Dom", seg: "Seg", ter: "Ter", qua: "Qua", qui: "Qui", sex: "Sex", sab: "Sáb" };
 
-const objInfo = k => OBJETIVOS.find(o => o.k === k) || { k, label: k || "—", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg>' };
+const objInfo = k => OBJETIVOS.find(o => o.k === k) || { k, label: k ? k[0].toUpperCase() + k.slice(1) : "—", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15 8.5 22 9.5 17 14.5 18.5 21.5 12 18 5.5 21.5 7 14.5 2 9.5 9 8.5 12 2"/></svg>' };
 
 function splitName(nome) {
   const m = String(nome || "").match(/^(.*?)\s*\((.*)\)\s*$/);
@@ -2338,6 +2338,7 @@ function pontoCardHtml(p) {
         <span class="badge ${badgeCls}">${escapeHtml(p.linhaNome)}</span>
         <span class="pcard__toque">🥁 ${escapeHtml(p.toque)}</span>
       </span>
+      ${p.origem === "composto" ? `<span class="badge badge--composto">Louvação composta</span>` : ""}
       <h3 class="pcard__title">${escapeHtml(p.titulo)}</h3>
       <p class="pcard__entidade">✦ ${escapeHtml(p.entidade)}</p>
       <p class="pcard__preview">“${escapeHtml(firstLines)}…”</p>
@@ -2374,18 +2375,19 @@ function pontoDetailHtml(p) {
 
       <div class="dsec">
         <div class="ponto-letra-header">
-          <h3>Letra Tradicional</h3>
+          <h3>${p.origem === "composto" ? "Louvação composta para o site" : "Letra tradicional"}</h3>
           <span class="muted small">${escapeHtml(p.toque)}</span>
         </div>
+        ${p.origem === "composto" ? `<p class="ponto-aviso">Esta letra <strong>não é ponto de raiz</strong>: foi composta para o site, para estudo e louvação. ${p.guiaDaCasa ? "Ela será trocada pelo ponto que se canta no terreiro." : ""} Na gira, cante os pontos ensinados pela curimba da sua casa.</p>` : ""}
         <div class="ponto-letra-card">
           <blockquote class="ponto-letra" id="${letraId}">“${escapeHtml(p.letra)}”</blockquote>
         </div>
-        <div class="row wrap-row" style="margin-top:10px;">
+        <div class="row wrap-row ponto-acoes">
           <button class="btn btn--ghost" data-copy="#${letraId}" type="button">📋 Copiar letra</button>
           <button class="btn btn--ghost" data-speak="#${letraId}" type="button">🔊 Ouvir letra</button>
-          <a class="btn" href="${escapeHtml(pontoYoutubeUrl(p))}" target="_blank" rel="noopener noreferrer" title="Abre o YouTube em nova aba">▶️ Escutar no YouTube</a>
+          ${p.origem === "composto" ? "" : `<a class="btn" href="${escapeHtml(pontoYoutubeUrl(p))}" target="_blank" rel="noopener noreferrer" title="Abre o YouTube em nova aba">▶️ Escutar no YouTube</a>`}
         </div>
-        ${p.nota ? `<p class="muted small" style="margin-top:10px;">📝 ${escapeHtml(p.nota)}</p>` : ""}
+        ${p.nota ? `<p class="muted small ponto-acoes">📝 ${escapeHtml(p.nota)}</p>` : ""}
       </div>
 
       <div class="dsec">

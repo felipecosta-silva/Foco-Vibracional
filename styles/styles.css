@@ -4962,3 +4962,7 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   font-size: 0.75rem;
 }
 
+/* Pontos: origem da letra (tradicional x composta para o site) */
+.ponto-acoes { margin-top: 10px; }
+.badge--composto { color: var(--muted); border-color: var(--line); background: transparent; font-weight: 500; align-self: flex-start; margin-top: 6px; }
+.ponto-aviso { margin: 0 0 10px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .9rem; line-height: 1.5; }

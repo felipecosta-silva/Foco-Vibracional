@@ -11,8 +11,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve a Jurema Sagrada! Salve Mestre Carlos!",
     "letra": "Ô meu Senhor Carlos, meu bom Mestre Carlos,\nQue vem da Jurema no romper do dia!\nÔ meu Senhor Carlos, meu bom Mestre Carlos,\nQue vem da Jurema trazendo alegria!\n\nEle vem curando, ele vem rezando,\nCom a sua fumaça de bom Catimbó.\nNa folha verde, no tronco sagrado,\nMestre Carlos não deixa ninguém ficar só!",
     "significado": "Ponto clássico de evocação e abertura na mesa de Jurema Sagrada. Mestre Carlos é reverenciado como o sábio rezador e médico do plano sutil que chega desfazendo dores com a fumaça de seu cachimbo e a bênção das matas.",
-    "ervasAssociadas": ["Folha de Palmeira", "Alecrim", "Guiné"],
-    "pontoRiscadoDescricao": "Cruz de pemba branca assentada sobre folha estilizada de Jurema, com três raios apontando para o nascente."
+    "ervasAssociadas": [
+      "Folha de Palmeira",
+      "Alecrim",
+      "Guiné"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestre-ze-pelintra-doutor-da-jurema",
@@ -25,8 +29,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve Seu Zé Pelintra! Salve a Malandragem de Luz!",
     "letra": "Seu Doutor, Seu Doutor, bravo Senhor,\nZé Pelintra chegou, bravo Senhor!\nCom seu chapéu de palha, seu terno de linho,\nEle vem abrindo todos os meus caminhos!\n\nMulher, mulher, não tenha medo do seu marido,\nSe ele é bom na faca, Seu Zé é no facão,\nEle não faz o mal, só pratica o perdão,\nCom a força de Deus e a fé no coração!",
     "significado": "Cantiga de chegada de Seu Zé Pelintra das Almas e da Jurema. O arquétipo do malandro caridoso que protege os humildes, quebra feitiços de perseguição e acolhe quem foi desprezado pelo mundo.",
-    "ervasAssociadas": ["Arruda", "Aroeira", "Espada de São Jorge"],
-    "pontoRiscadoDescricao": "Triângulo de pemba vermelha e branca com ponteiro central e o corte de um punhal consagrado."
+    "ervasAssociadas": [
+      "Arruda",
+      "Aroeira",
+      "Espada de São Jorge"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestre-manoel-maior-tronco-jurema",
@@ -39,8 +47,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve o Tronco Velho da Jurema!",
     "letra": "Manoel Maior que vem da Jurema,\nSegura esse ponto, não deixa tombar!\nCom sua ciência, com sua coroa,\nEle manda na terra, ele manda no ar!\n\nBalança a folha do juremeiro,\nBalança o maracá no terreiro,\nManoel Maior é mestre de fé,\nTraz força, saúde e traz axé!",
     "significado": "Ponto de sustentação e firmeza de corrente espiritual. Invocado quando a sessão precisa de peso ancestral para desmanchar energias teimosas e equilibrar os médiuns da casa.",
-    "ervasAssociadas": ["Peregun Roxo", "Guiné", "Arruda"],
-    "pontoRiscadoDescricao": "Circunferência com a cruz de malta no centro e quatro folhas abertas nos pontos cardeais."
+    "ervasAssociadas": [
+      "Peregun Roxo",
+      "Guiné",
+      "Arruda"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestre-junqueiro-mata-fechada",
@@ -53,8 +65,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve as Matas do Junco! Salve Mestre Junqueiro!",
     "letra": "Na mata fechada onde o vento zuniu,\nOuvi um assobio e a folha caiu.\nÉ Mestre Junqueiro que vem trabalhar,\nCom a raiz amarga para nos curar!\n\nTira a quizila, tira a aflição,\nDerrama a saúde no meu coração.\nCom a casca do junco e a flor do araçá,\nMestre Junqueiro veio abençoar!",
     "significado": "Ponto de cura e mezinha espiritual. Junqueiro é conhecido por trabalhar com raízes amargas de pântano e junco, drenando dores crônicas e inflamações do corpo físico e perispiritual.",
-    "ervasAssociadas": ["Espinheira-Santa", "Boldo", "Erva-Baleeira"],
-    "pontoRiscadoDescricao": "Duas flechas cruzadas envoltas por três feixes de junco verde com uma estrela guia no topo."
+    "ervasAssociadas": [
+      "Espinheira-Santa",
+      "Boldo",
+      "Erva-Baleeira"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestra-pauliana-menina-jurema",
@@ -67,8 +83,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve a Menina da Jurema! Salve Mestra Pauliana!",
     "letra": "Pauliana na Jurema é uma moça tão bonita,\nVeste saia de chita e laço de fita!\nEla pisa no chão sem fazer poeira,\nPauliana é a rainha da nossa trincheira!\n\nEla traz o perfume das flores do mato,\nEla quebra a mandinga no primeiro trato.\nCom seu riso suave e seu meigo olhar,\nMestra Pauliana veio nos salvar!",
     "significado": "Ponto de acolhimento e alegria maternal. Mestra Pauliana desfaz estados de melancolia profunda, trazendo leveza e proteção para crianças e lares atribulados.",
-    "ervasAssociadas": ["Buganvília", "Jasmim", "Alfazema"],
-    "pontoRiscadoDescricao": "Flor de cinco pétalas estilizada com um laço na base e uma cruz serena acima."
+    "ervasAssociadas": [
+      "Buganvília",
+      "Jasmim",
+      "Alfazema"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestra-aninha-beira-mar",
@@ -81,8 +101,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve as Águas Doces e Salgadas! Salve Mestra Aninha!",
     "letra": "Quem viu Aninha na beira da praia,\nLavando suas rendas, secando sua saia?\nEla é da Jurema, ela é do mar,\nMestra Aninha veio trabalhar!\n\nLeva pras ondas a dor e o pesar,\nTraz pras areias a paz do luar.\nCom perfume de rosa e água serena,\nAninha desmancha qualquer desavença!",
     "significado": "Cantiga de apaziguamento emocional e cura de dores amorosas. Atua nas mágoas guardadas no peito, limpando ressentimentos nas águas purificadoras.",
-    "ervasAssociadas": ["Rosa Branca", "Hibisco", "Folha de Maracujá"],
-    "pontoRiscadoDescricao": "Três linhas onduladas de água com uma rosa sobreposta e uma estrela do mar radiante."
+    "ervasAssociadas": [
+      "Rosa Branca",
+      "Hibisco",
+      "Folha de Maracujá"
+    ],
+    "origem": "composto"
   },
   {
     "id": "mestra-ritinha-pedra-da-mina",
@@ -95,8 +119,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve Mestra Ritinha das Alagoas!",
     "letra": "Eu vi Ritinha sentada na pedra,\nTrançando os cabelos com fita amarela.\nEla olhou pras matas, ela deu um sinal:\nNa Jurema Sagrada não entra o mal!\n\nCom seu colar de contas e seu maracá,\nRitinha é curandeira aqui neste congá.\nSe a tristeza aperta e o pranto desce,\nMestra Ritinha atende quem pede e quem prece!",
     "significado": "Evocação de firmeza feminina e corte de falsidade. Mestra Ritinha defende as mulheres trabalhadoras e traz coragem para vencer perseguições.",
-    "ervasAssociadas": ["Manjericão", "Pitangueira", "Canela em casca"],
-    "pontoRiscadoDescricao": "Espiral com uma flor amarela central e duas setas apontadas para as extremidades."
+    "ervasAssociadas": [
+      "Manjericão",
+      "Pitangueira",
+      "Canela em casca"
+    ],
+    "origem": "composto"
   },
   {
     "id": "caboclo-pena-branca-matas-virgens",
@@ -109,8 +137,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Caboclo! Salve o Caboclo Pena Branca!",
     "letra": "Nas matas virgens onde o vento assovia,\nOuvi o brado da sua soberania.\nEle é Caboclo, ele é guerreiro de fé,\nPena Branca é flecheiro de Tupã e Oxalé!\n\nEle atirou a sua flecha cerceira,\nFirmou seu ponto no pé da laranjeira.\nCom a pena de luz e o arco na mão,\nPena Branca espalha a paz e o perdão!",
     "significado": "Ponto sagrado de elevação vibracional. Caboclo Pena Branca irradia pureza espiritual, verdade e desobsessão de mentes perturbadas.",
-    "ervasAssociadas": ["Boldo", "Manjericão Branco", "Alecrim"],
-    "pontoRiscadoDescricao": "Arco e flecha apontados para o alto, encimados por três estrelas alinhadas e uma pena branca."
+    "ervasAssociadas": [
+      "Boldo",
+      "Manjericão Branco",
+      "Alecrim"
+    ],
+    "origem": "composto"
   },
   {
     "id": "caboclo-tupinamba-estrela-dalva",
@@ -123,8 +155,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Bamboclim! Salve o Caboclo Tupinambá!",
     "letra": "Estrela d'Alva é sua guia,\nTupinambá é guerreiro valente!\nNa sua aldeia não há covardia,\nEle defende e guarda sua gente!\n\nNo romper da mata, no estalo do chão,\nTupinambá traz a cura na mão.\nCom folha de fumo e casca de pau,\nTupinambá quebra a força do mal!",
     "significado": "Ponto de guerra defensiva e proteção coletiva do terreiro. Rompe demandas pesadas com a força das flechas virgens de Oxóssi.",
-    "ervasAssociadas": ["Espada de São Jorge", "Peregun Verde", "Samambaia"],
-    "pontoRiscadoDescricao": "Sol nascente circundado por sete flechas radiais e um arco de caça armado."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Peregun Verde",
+      "Samambaia"
+    ],
+    "origem": "composto"
   },
   {
     "id": "cabocla-jurema-rainha-das-matas",
@@ -137,8 +173,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Cabocla! Salve a Cabocla Jurema!",
     "letra": "Ô Jurema preta, senhora rainha,\nQue mora nas matas, que reina sozinha!\nSeus olhos clareiam a escuridão,\nSua flecha certeira nos dá proteção!\n\nEla vem montada em cavalo de vento,\nEla sabe curar todo sofrimento.\nOrixá guerreira, flor de araçá,\nSalve a Cabocla Jurema em nosso congá!",
     "significado": "Ponto místico consagrado à grande protetora das matas virgens e mestra das curas vegetais. Restaura a dignidade e a fertilidade da vida.",
-    "ervasAssociadas": ["Ora-pro-nóbis", "Arruda", "Capim-Limão"],
-    "pontoRiscadoDescricao": "Cruz de ramos entrelaçados com uma flecha dourada horizontal e uma lua crescente."
+    "ervasAssociadas": [
+      "Ora-pro-nóbis",
+      "Arruda",
+      "Capim-Limão"
+    ],
+    "origem": "composto"
   },
   {
     "id": "caboclo-sete-flechas-mata-virgem",
@@ -151,8 +191,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Sete Flechas! Salve a falange das matas!",
     "letra": "Sete flechas cruzadas no ar,\nSete estrelas no céu a brilhar!\nOgum mandou a espada de aço,\nSete Flechas firmou o seu laço!\n\nFlecha uma pra saúde,\nFlecha duas pro amor,\nFlecha três pra firmeza,\nFlecha quatro pro valor!\nCinco, seis e a sete pra coroar,\nO Caboclo Sete Flechas que veio nos guardar!",
     "significado": "Ponto de ancoragem total dos sete chacras e das sete linhas de Umbanda. Cada flecha atua em um vórtice vital do consulente.",
-    "ervasAssociadas": ["Guiné", "Alecrim", "Peregun Roxo"],
-    "pontoRiscadoDescricao": "Feixe simétrico de sete flechas entrelaçadas em leque, com a ponta central orientada para o Norte."
+    "ervasAssociadas": [
+      "Guiné",
+      "Alecrim",
+      "Peregun Roxo"
+    ],
+    "origem": "composto"
   },
   {
     "id": "preto-velho-pai-joaquim-lagrimas",
@@ -165,8 +209,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Adorei as Almas! Salve Pai Joaquim!",
     "letra": "Lágrimas de preto velho,\nNão é pranto de dor!\nÉ orvalho bendito das Almas,\nQue cai em semente de amor!\n\nPai Joaquim sentou no seu toco,\nPitou seu cachimbo, benzeu com carinho.\nCom água de cheiro e ramo de arruda,\nPai Joaquim clareou meu caminho!",
     "significado": "Cantiga de profunda consolação e alívio do sofrimento espiritual. Ensina a transformar mágoas passadas em perdão e sabedoria silenciosa.",
-    "ervasAssociadas": ["Arruda", "Guiné", "Manjericão Roxo"],
-    "pontoRiscadoDescricao": "Cruzeiro das Almas sobre três degraus de pemba branca, com um cachimbo fumegante na base."
+    "ervasAssociadas": [
+      "Arruda",
+      "Guiné",
+      "Manjericão Roxo"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "vovo-maria-conga-rosario-bencao",
@@ -179,8 +228,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Adorei as Almas! Salve a Vovó Maria Conga!",
     "letra": "Maria Conga, o que é que você quer?\nQuero pemba, quero toco, quero água de beber!\nMas Maria Conga, o que é que você faz?\nFaço o bem, quebro o mal, trago a luz e a paz!\n\nDesce do céu, vem de Aruanda,\nVovó Maria Conga curar nessa Umbanda!\nCom seu rosário de contas benditas,\nDesata os nós das almas aflitas!",
     "significado": "Invocação da vovó curandeira para desatar nós espirituais, aliviar angústias no peito e benzer a família com água e arruda.",
-    "ervasAssociadas": ["Vinca", "Mamão", "Alecrim"],
-    "pontoRiscadoDescricao": "Coração de pemba com uma cruz interna e contas de rosário desenhadas ao redor."
+    "ervasAssociadas": [
+      "Vinca",
+      "Mamão",
+      "Alecrim"
+    ],
+    "origem": "composto"
   },
   {
     "id": "pai-benedito-veio-de-luanda",
@@ -193,8 +246,12 @@ window.FV_DATA.pontos = [
     "saudacao": "As Almas vos guardem! Salve Pai Benedito!",
     "letra": "Pai Benedito veio de Luanda,\nPisou no terreiro, cruzou toda a banda.\nEle trouxe mirra, ele trouxe alecrim,\nPai Benedito reza por mim!\n\nAdeus, meus filhos, que a noite já cai,\nFiquem nos braços de Deus nosso Pai.\nLevanto a minha pemba, fecho a minha oração,\nDeixo a minha bênção em cada coração!",
     "significado": "Ponto tradicional de encerramento da gira das Almas. Deixa no ambiente a irradiação da serenidade e o fechamento seguro dos trabalhos.",
-    "ervasAssociadas": ["Alfazema", "Boldo", "Camomila"],
-    "pontoRiscadoDescricao": "Sol poente no horizonte com uma cruz central e duas espirais de descarrego na terra."
+    "ervasAssociadas": [
+      "Alfazema",
+      "Boldo",
+      "Camomila"
+    ],
+    "origem": "composto"
   },
   {
     "id": "baiano-ze-do-coco-terra-bahia",
@@ -207,8 +264,12 @@ window.FV_DATA.pontos = [
     "saudacao": "É da Bahia, meu Pai! Salve o Povo Baiano!",
     "letra": "Quem tem coco me dá um,\nQuem não tem me dá pedaço!\nZé do Coco na Bahia,\nNão tem medo de embaraço!\n\nEle quebra a quizila no meio do chão,\nEle traz a alegria pro meu coração.\nBalança a palmeira, sacode o ganzá,\nZé do Coco chegou pra trabalhar!",
     "significado": "Ponto de sacudimento alegre e corte de energias estagnadas. A linha dos baianos atua no 'jogo de cintura', ensinando a contornar tempestades com ânimo e fé.",
-    "ervasAssociadas": ["Folha de Palmeira", "Pimenteira", "Arruda"],
-    "pontoRiscadoDescricao": "Círculo com um coqueiro inclinado pelo vento e dois ponteiros cortantes de pemba amarela."
+    "ervasAssociadas": [
+      "Folha de Palmeira",
+      "Pimenteira",
+      "Arruda"
+    ],
+    "origem": "composto"
   },
   {
     "id": "baiano-severino-vento-do-sertao",
@@ -221,8 +282,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Saravá a Bahia! Salve Seu Severino!",
     "letra": "Vadeia meu povo, vadeia com fé,\nSeverino na Umbanda é homem de pé!\nEle veio do sertão com chapéu de couro,\nSeu feitiço é a verdade, sua palavra é ouro!\n\nBate palma no compasso,\nQuebra a inveja em mil pedaço!\nCom fumo de rolo e dendê na moringa,\nSeverino desfaz qualquer quizila e mandinga!",
     "significado": "Ponto de proteção e abertura de coragem. Dissipa o cansaço mental e a preguiça espiritual, impulsionando a pessoa a trabalhar com brio.",
-    "ervasAssociadas": ["Pimenteira", "Aroeira", "Louro"],
-    "pontoRiscadoDescricao": "Estrela de seis pontas com um chapéu de vaqueiro ao centro e duas setas em círculo."
+    "ervasAssociadas": [
+      "Pimenteira",
+      "Aroeira",
+      "Louro"
+    ],
+    "origem": "composto"
   },
   {
     "id": "boiadeiro-navizala-laco-de-couro",
@@ -235,8 +300,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Chetruá, Seu Boiadeiro! Ô Boi!",
     "letra": "O meu laço de couro trançado no chão,\nSegura o boi brabo e desata a ilusão!\nEu venho tangendo boiada do além,\nNeste terreiro só fica o que é do bem!\n\nChetruá, chetruá, boiadeiro de lei,\nEu laço o perigo que o homem não vê!\nCom chicote de couro e berrante a tocar,\nBoiadeiro Navizala veio descarregar!",
     "significado": "Evocação de firmeza, contenção de espíritos desordeiros e laço astral. Boiadeiro recolhe energias dispersas e reequilibra a disciplina da pessoa.",
-    "ervasAssociadas": ["Espada de São Jorge", "Peregun Roxo", "Guiné"],
-    "pontoRiscadoDescricao": "Laço aberto em elipse com uma cruz no centro e uma estrela de sete pontas no topo."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Peregun Roxo",
+      "Guiné"
+    ],
+    "origem": "composto"
   },
   {
     "id": "marinheiro-martim-pescador-mar",
@@ -249,8 +318,12 @@ window.FV_DATA.pontos = [
     "saudacao": "É do Mar, Marujo! Salve a Marinhagem!",
     "letra": "O navio apitou no porto,\nMarinheiro chegou do mar!\nBalança pra cá, balança pra lá,\nNas ondas serenas de Iemanjá!\n\nMartim Pescador tirou a rede da água,\nTrouxe a esperança e levou a mágoa.\nQuem não sabe nadar não entra na praia,\nMas na fé de Martim ninguém se desmaia!",
     "significado": "Ponto de balanço e purificação pelo elemento água salgada. A marinhagem remove o peso das dores emocionais e desintoxica o corpo astral.",
-    "ervasAssociadas": ["Rosa Branca", "Folha de Maracujá", "Jasmim"],
-    "pontoRiscadoDescricao": "Âncora de pemba azul com ondas revoltas na base e uma estrela guia luminosa no cume."
+    "ervasAssociadas": [
+      "Rosa Branca",
+      "Folha de Maracujá",
+      "Jasmim"
+    ],
+    "origem": "composto"
   },
   {
     "id": "tranca-ruas-das-almas-guardiao-porteira",
@@ -263,8 +336,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Laroyê Tranca Ruas! É mojubá!",
     "letra": "O sino da igrejinha faz belém, blém, blom!\nDeu meia-noite, o galo já cantou!\nSeu Tranca Ruas é o dono da gira,\nCorre a gira que Ogum mandou!\n\nEle é guardião que não dorme no ponto,\nSegura a cancela, desfaz todo engano.\nQuem bate na porta pedindo justiça,\nEncontra na lei o que estava buscando!",
     "significado": "Ponto de sentinela e segurança espiritual da porteira. Tranca Ruas atua na guarda dos caminhos, neutralizando correntes densas que tentam atacar a casa.",
-    "ervasAssociadas": ["Pimenteira", "Abacaxi-Roxo", "Aroeira"],
-    "pontoRiscadoDescricao": "Tridente reto de fogo cruzado com uma chave de ferro assentada sobre a porteira."
+    "ervasAssociadas": [
+      "Pimenteira",
+      "Abacaxi-Roxo",
+      "Aroeira"
+    ],
+    "origem": "composto"
   },
   {
     "id": "maria-padilha-rainha-das-encruzilhadas",
@@ -277,8 +354,12 @@ window.FV_DATA.pontos = [
     "saudacao": "Laroyê Maria Padilha! Padilha é mojubá!",
     "letra": "De vermelho e negro, vestindo a noite,\nUm clarão de lua que ilumina a rua!\nEla dá gargalhada, ela corta o açoite,\nMaria Padilha é rainha na encruza nua!\n\nQuem pensou que a rainha ia cair,\nSe enganou com a força do seu caminhar.\nEla traz o perfume da rosa vermelha,\nE quebra o feitiço que tentou me assombrar!",
     "significado": "Ponto de proteção feminina, desmanche de amarrações e resgate do magnetismo pessoal sob a bênção da justiça da lei.",
-    "ervasAssociadas": ["Rosa Vermelha", "Hibisco", "Canela em casca"],
-    "pontoRiscadoDescricao": "Tridente curvo entrelaçado com uma rosa desabrochada e um punhal flamejante."
+    "ervasAssociadas": [
+      "Rosa Vermelha",
+      "Hibisco",
+      "Canela em casca"
+    ],
+    "origem": "composto"
   },
   {
     "id": "caboclo-treme-terra-trovao-serra",
@@ -291,8 +372,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Caboclo! Salve o Caboclo Treme Terra!",
     "letra": "Estava no alto da serra,\nQuando a terra estremeceu!\nEra o Caboclo Treme Terra,\nQue a flecha de fogo no chão bateu!\n\nTreme a terra, estremece a mata,\nTreme a folha do juremeiro!\nTreme Terra é guerreiro de fé,\nVeio firmar o nosso terreiro!\n\nEle quebra a demanda pesada,\nEle corta a corrente do mal.\nCom a força de Ogum e Tupã,\nTreme Terra é caboclo real!",
     "significado": "Ponto de firmeza telúrica, peso ancestral e contenção espiritual. O Caboclo Treme Terra atua no choque vibracional, desintegrando miasmas petrificados, quebrando obsessões antigas e restaurando a firmeza dos pés e da coroa.",
-    "ervasAssociadas": ["Espada de São Jorge", "Peregun Roxo", "Guiné"],
-    "pontoRiscadoDescricao": "Montanha de três picos encimada por um raio de pemba vermelha, com duas flechas fincadas no solo e uma estrela de seis pontas no zênite."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Peregun Roxo",
+      "Guiné"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "caboclo-cobra-coral-segredo-veneno",
@@ -305,8 +391,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Okê Caboclo! Salve o Caboclo Cobra Coral!",
     "letra": "No fundo da mata virgem,\nUma cobra coral piou!\nNo tronco da juremeira,\nA folha verde brotou!\n\nCobra Coral, Caboclo de fama,\nEle não teme veneno de ninguém!\nCorta a mandinga, desfaz a quizila,\nCom a bênção de Deus e a força do bem!\n\nEle é Caboclo da Cobra Coral,\nCobra Coral, Cobra Coral!\nEle veio de longe das matas virgens,\nPara nos livrar de todo mal!",
     "significado": "Ponto sagrado de transmutação de venenos em remédios. O Caboclo Cobra Coral trabalha no domínio das peçonhas astrais, limpando o sangue espiritual do consulente, drenando inflamações sutis e cortando falsidades.",
-    "ervasAssociadas": ["Guiné", "Arruda", "Espinheira-Santa"],
-    "pontoRiscadoDescricao": "Cobra estilizada enrolada em uma flecha vertical ascendente, contornada por anéis de pemba branca e vermelha."
+    "ervasAssociadas": [
+      "Guiné",
+      "Arruda",
+      "Espinheira-Santa"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "boiadeiro-ze-do-laco-sertao",
@@ -319,8 +410,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Chetruá, Seu Zé do Laço! Ô Boi!",
     "letra": "Eu sou Zé do Laço, sou laçador,\nVenho da chapada com fé no Senhor!\nEu laço o boi bravo no meio do mato,\nNão tem demandista que quebre o meu trato!\n\nChetruá, boiadeiro, estala o chicote,\nZé do Laço na Umbanda não erra no bote!\nPuxa a rédea ligeira, segura o mourão,\nBoiadeiro Zé do Laço é o rei do sertão!\n\nSe o caminho tá torto eu passo o trançado,\nDeixo o inimigo no chão amarrado.\nTrago a força da terra, a poeira e o estalo,\nBoiadeiro de fé nunca perde o cavalo!",
     "significado": "Evocação de contenção de espíritos desordeiros e proteção contra ciladas. O laço de Zé do Laço amarra perturbações, 'laça' a boa sorte e a estabilidade material, e devolve a ordem para lares desgovernados.",
-    "ervasAssociadas": ["Espada de São Jorge", "Pimenteira", "Aroeira"],
-    "pontoRiscadoDescricao": "Laço aberto de couro desenhado em ferradura com chicote cruzado e estrela de cinco pontas ao centro."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Pimenteira",
+      "Aroeira"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "tranca-ruas-das-7-encruzilhadas",
@@ -333,8 +429,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Laroyê Tranca Ruas das 7 Encruzilhadas! É Mojubá!",
     "letra": "Sete facas de ponta na mesa,\nSete velas acesas no chão!\nTranca Ruas das Sete Encruzilhadas,\nSegura a cancela e dá proteção!\n\nDeu meia-noite na encruza escura,\nUm clarão de fogo brilhou!\nQuem tem fé nesse grande guerreiro,\nNunca teme feitiço e pavor!\n\nEle tranca a boca do invejoso,\nEle abre a estrada de quem é do bem.\nTranca Ruas das Sete Encruzilhadas,\nNa sua lei não pisa ninguém!",
     "significado": "Ponto de segurança máxima da encruzilhada e defesa das sete passagens da vida (física, mental, emocional, financeira, espiritual, relacional e familiar). Corta traições e desfaz nós de feitiçaria antiga.",
-    "ervasAssociadas": ["Arruda", "Pimenteira", "Aroeira"],
-    "pontoRiscadoDescricao": "Tridente de três pontas cruzado em X com chave mestra e sete pequenos ponteiros apontados para fora das encruzas."
+    "ervasAssociadas": [
+      "Arruda",
+      "Pimenteira",
+      "Aroeira"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "mestre-galo-cego-cangaceiro",
@@ -347,22 +448,31 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve a Jurema Sagrada! Salve Mestre Galo Cego!",
     "letra": "No romper da madrugada,\nO sertão todo ouviu cantar!\nÉ Mestre Galo Cego,\nQue na Jurema veio pisar!\n\nCom seu gibão de couro e facão na bainha,\nDefende a porteira da nossa trincheira!\nGalo Cego é guerreiro de bom Catimbó,\nQuebra a mandinga e não deixa ficar só!\n\nEle não enxerga a maldade da terra,\nMas vê no escuro a alma que erra!\nTira o chapéu, bate o pé com firmeza,\nMestre Galo Cego espanta a tristeza!",
     "significado": "Ponto de defesa guerreira do sertão e da Jurema de Cangaço. Mestre Galo Cego tem o dom da visão espiritual profunda — mesmo 'cego' para as ilusões da matéria, enxerga as armadilhas no invisível e corta a falsidade com seu facão justiceiro.",
-    "ervasAssociadas": ["Pimenteira", "Aroeira", "Peregun Roxo"],
-    "pontoRiscadoDescricao": "Facão de ponta deitada sobre cruz de espinhos com um chapéu de cangaceiro estilizado em pemba amarela e vermelha."
+    "ervasAssociadas": [
+      "Pimenteira",
+      "Aroeira",
+      "Peregun Roxo"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "tata-miroxa-pajelanca-jurema",
-    "titulo": "A Fumaça Curadora de Tata Miroxa",
-    "linha": "mestres",
-    "linhaNome": "Mestres da Jurema",
-    "entidade": "Tata Miroxa",
-    "tipo": "cura",
-    "toque": "Toada da Jurema / Pajelança",
-    "saudacao": "Salve a Encantaria e a Pajelança! Salve Tata Miroxa!",
-    "letra": "Tata Miroxa vem das matas sagradas,\nCom seu maracá e sua pemba riscada!\nEle sopra a fumaça de bom juremeiro,\nTata Miroxa desce no terreiro!\n\nEle vem de longe, da aldeia encantada,\nTraz a mezinha para a hora amarga!\nSopra a fumaça pro alto subir,\nTata Miroxa não deixa ninguém cair!\n\nCom a raiz da mata e o sumo da flor,\nTata Miroxa tira a febre e a dor!\nBalança o maracá no meio do chão,\nTata Miroxa derrama a bênção!",
-    "significado": "Ponto sagrado de pajelança, medicina vegetal e fumaça curativa da Jurema e da Encantaria de Mina. Tata Miroxa opera cirurgias sutis, desmanchando miasmas nos pulmões espirituais e devolvendo a respiração e a paz vital.",
-    "ervasAssociadas": ["Espinheira-Santa", "Alecrim", "Guiné"],
-    "pontoRiscadoDescricao": "Espiral ascendente com três círculos concêntricos e um maracá de penas cruzado com um cachimbo sagrado."
+    "titulo": "Louvação a Pombagira Tata Miroxa",
+    "linha": "guardioes",
+    "linhaNome": "Guardiões & Esquerda",
+    "entidade": "Pombagira Tata Miroxa",
+    "tipo": "chamada",
+    "toque": "Barravento",
+    "saudacao": "Laroyê, Pombagira! Salve a Tata Miroxa!",
+    "letra": "Na porteira da noite uma rosa se abriu,\nFoi a Tata Miroxa que a casa pediu!\nEla chega sorrindo, ela vem trabalhar,\nTata Miroxa, Laroyê, vem nos guardar!",
+    "significado": "Pombagira que trabalha nesta casa. Esta é uma louvação curta composta para o site, para não deixar a guia sem lugar no hinário. O ponto de raiz será trocado pelo que se canta no terreiro.",
+    "ervasAssociadas": [
+      "Rosa Vermelha",
+      "Canela"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "povo-cigano-maria-rosa",
@@ -375,8 +485,14 @@ window.FV_DATA.pontos = [
     "saudacao": "Optchá, Povo Cigano! Salve a Cigana Maria Rosa!",
     "letra": "O sol brilhou no acampamento,\nA fogueira acendeu ao luar!\nPovo Cigano que vem pelo vento,\nCom violino e pandeiro a tocar!\n\nMaria Rosa é uma cigana formosa,\nQue vem caminhando no meio das rosas!\nCom suas fitas de todas as cores,\nEla vem curando as nossas dores!\n\nGira a saia, estala a castanhola,\nCigana Maria Rosa na Umbanda vigora!\nEla lê na palma, ela vê no olhar,\nMaria Rosa tem axé pra nos dar!",
     "significado": "Ponto de alegria, prosperidade, clareza intuitiva e amor próprio sob a bênção de Santa Sara Kali. Maria Rosa abre a visão pelas cartas, afasta a miséria espiritual e perfuma a vida com pétalas de esperança.",
-    "ervasAssociadas": ["Rosa Vermelha", "Rosa Amarela", "Canela em casca", "Alfazema"],
-    "pontoRiscadoDescricao": "Roda de carroça cigana de oito raios com uma rosa aberta no centro e um punhal dourado em diagonal."
+    "ervasAssociadas": [
+      "Rosa Vermelha",
+      "Rosa Amarela",
+      "Canela em casca",
+      "Alfazema"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "mestra-jurema-pe-do-juazeiro",
@@ -389,8 +505,13 @@ window.FV_DATA.pontos = [
     "saudacao": "Salve a Jurema Sagrada! Salve a Mestra Jurema!",
     "letra": "O meu juremeiro me chamou,\nEu fui ver quem era!\nEra uma mestra que estava debaixo,\nDebaixo da juremeira!\n\nEu vi uma moça bonita,\nChamada Jurema no pé do juazeiro!\nCom sua saia rendada e fitas de seda,\nA Mestra Jurema desceu no terreiro!\n\nEla é rainha, ela é curadeira,\nEla é a dona da nossa trincheira!\nBalança o maracá, acende a fumaça,\nA Mestra Jurema derrama sua graça!",
     "significado": "Ponto primordial da Mestra Jurema, senhora das ciências das cidades encantadas e do tronco sagrado. Concede a força do assentamento juremeiro, trazendo luz, intuição e vitória sobre todas as provações.",
-    "ervasAssociadas": ["Alfazema", "Manjericão", "Alecrim"],
-    "pontoRiscadoDescricao": "Árvore da Jurema frondosa com raízes aparentes, sete estrelas brilhando na copa e uma lua cheia no cimo."
+    "ervasAssociadas": [
+      "Alfazema",
+      "Manjericão",
+      "Alecrim"
+    ],
+    "origem": "composto",
+    "guiaDaCasa": true
   },
   {
     "id": "malunguinho-sentei-na-jurema-maraca",
@@ -405,8 +526,12 @@ window.FV_DATA.pontos = [
     "significado": "Toada de pedido e descarrego na mesa de Jurema. Malunguinho é o Reis das matas da Jurema, guardião das porteiras e dos caminhos — ancestral ligado à resistência dos quilombos (Catucá, Pernambuco). É chamado para levar embora os 'contrários': inimigos, demandas e energias que atrapalham a corrente.",
     "nota": "Toada curta, cantada repetindo cada par de versos. A letra pode variar de casa para casa.",
     "youtubeBusca": "eu sentei na minha jurema balancei meu maracá malunguinho",
-    "ervasAssociadas": ["Jurema Preta", "Arruda", "Guiné"],
-    "pontoRiscadoDescricao": "Chave de Malunguinho cruzada com um maracá sobre o tronco da Jurema, com três pontos de pemba na raiz."
+    "ervasAssociadas": [
+      "Jurema Preta",
+      "Arruda",
+      "Guiné"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "caboclo-treme-terra-relampejou-na-mata",
@@ -421,8 +546,12 @@ window.FV_DATA.pontos = [
     "significado": "Ponto de chegada do Caboclo Treme Terra. O relâmpago e o estremecer da mata anunciam a descida da falange; o ponto pede que a corrente se mantenha firme, alegre e unida para sustentar a chegada do caboclo.",
     "nota": "Letra registrada como é cantada na casa, com pontuação ajustada para o canto. Pode haver variações de terreiro para terreiro.",
     "youtubeBusca": "ponto caboclo treme terra relampejou lá na mata",
-    "ervasAssociadas": ["Espada de São Jorge", "Guiné", "Alecrim"],
-    "pontoRiscadoDescricao": "Raio de pemba descendo sobre a mata, com uma flecha fincada no chão."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Guiné",
+      "Alecrim"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "caboclo-treme-terra-subida-do-monte",
@@ -437,8 +566,12 @@ window.FV_DATA.pontos = [
     "significado": "Ponto de firmeza do terreno. Treme Terra é o 'dono do chão': sua flecha assenta a gira, segura a banda e o congá e equilibra força e serenidade — caboclo forte que não perde a calma.",
     "nota": "Ajustes feitos: 'Na subida do monte' (em vez de 'ba subida'), 'congá' (o altar do terreiro, em vez de 'conga') e a última frase dividida em versos. Algumas casas cantam 'ele é rei aqui' ou 'ele é o rei daqui'.",
     "youtubeBusca": "ponto caboclo treme terra na subida do monte eu vi um clarão",
-    "ervasAssociadas": ["Espada de São Jorge", "Peregun Roxo", "Guiné"],
-    "pontoRiscadoDescricao": "Monte estilizado com um clarão no topo e uma flecha atravessando a linha do chão."
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Peregun Roxo",
+      "Guiné"
+    ],
+    "origem": "composto"
   },
   {
     "id": "boiadeiro-por-aqui-choveu",
@@ -453,7 +586,12 @@ window.FV_DATA.pontos = [
     "significado": "Um dos pontos de Boiadeiro mais cantados nos terreiros. A chuva e o relâmpago são a força da natureza que o boiadeiro atravessa sem medo; a boiada que 'falta' representa os filhos e as almas que ele vai buscar e reunir de volta ao rebanho.",
     "nota": "Variações comuns: 'Foi nessa água que seu boi nadou' ou 'Choveu que a água rolou'. A estrofe 'Na minha boiada ainda me falta um boi' é cantada em muitas casas como continuação.",
     "youtubeBusca": "ponto boiadeiro seu boiadeiro por aqui choveu",
-    "ervasAssociadas": ["Espada de São Jorge", "Guiné", "Arruda"]
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Guiné",
+      "Arruda"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "boiadeiro-meu-boi-tava-dormindo",
@@ -468,7 +606,11 @@ window.FV_DATA.pontos = [
     "significado": "Ponto de chamada e despertar. O 'boi dormindo' é a força parada, o médium ou a corrente desanimada; Santo Antônio (sincretizado com Ogum ou Exu em várias casas) manda levantar e pôr para trabalhar — é a hora de sair da preguiça e firmar a gira.",
     "nota": "Toada curta, cantada em repetição. Algumas casas acrescentam versos próprios.",
     "youtubeBusca": "ponto boiadeiro o meu boi tava dormindo santo antônio mandou chamar",
-    "ervasAssociadas": ["Espada de São Jorge", "Pimenteira"]
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Pimenteira"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "preta-velha-vovo-maria-redonda",
@@ -483,7 +625,12 @@ window.FV_DATA.pontos = [
     "significado": "Ponto de acolhimento: ensina que basta pensar na Vovó com fé para que ela venha amparar. A casinha branca, o banquinho e o rosário são a imagem da paciência, da humildade e da reza que cura.",
     "nota": "Variação também cantada para Maria Redonda: 'Ô, lá vem ela, arrastando sua chinela, avental todo branco e a colher de pau na mão. Ela é cozinheira, ela é mucamba, é Maria Redonda que segura a nossa banda!'",
     "youtubeBusca": "ponto preta velha vovó maria redonda fio se suncê precisá",
-    "ervasAssociadas": ["Arruda", "Alecrim", "Manjericão"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Alecrim",
+      "Manjericão"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "preto-velho-pai-cipriano-angola",
@@ -497,7 +644,12 @@ window.FV_DATA.pontos = [
     "letra": "Pai Cipriano, Pai Cipriano veio de Angola,\nDe Angola, de Angola!\nCom sua tesoura de aço\nAs mirongas ele vem cortar!\n\nPreto velho, tu és africano,\nÉ da linha de Congo, nosso Pai Cipriano!",
     "significado": "Ponto de corte de mirongas (feitiços e amarrações). A tesoura de aço de Pai Cipriano corta o que foi feito contra a pessoa. É preto velho mandingueiro e rezador, de grande ciência nas Almas.",
     "youtubeBusca": "ponto pai cipriano veio de angola tesoura de aço",
-    "ervasAssociadas": ["Arruda", "Guiné", "Peregun Roxo"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Guiné",
+      "Peregun Roxo"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "preto-velho-cipriano-chorou-no-cativeiro",
@@ -511,7 +663,11 @@ window.FV_DATA.pontos = [
     "letra": "Cipriano quimbandeiro chorou no cativeiro,\nHoje chora de alegria com seu rosário de Maria!\nCipriano quimbandeiro chorou no cativeiro,\nHoje chora de alegria com seu rosário de Maria!",
     "significado": "Louvação curta que lembra a dor do cativeiro transformada em fé e alegria. O preto velho que sofreu agora usa o rosário para abençoar e curar.",
     "youtubeBusca": "ponto pai cipriano quimbandeiro chorou no cativeiro",
-    "ervasAssociadas": ["Arruda", "Alecrim"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Alecrim"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "preto-velho-pai-manoel-estrela",
@@ -526,7 +682,11 @@ window.FV_DATA.pontos = [
     "significado": "Louvação a Pai Manoel: todas as forças (caboclos, pedreira, sereia) se movem para buscar a estrela que vai enfeitar o congá do preto velho — imagem de respeito e carinho por sua sabedoria.",
     "nota": "LETRA A CONFIRMAR: encontrada em gravações atribuídas a Pai Manoel (de Angola), mas é pouco padronizada. Se na sua casa se canta outro ponto para Pai Manoel, me envie para registrar.",
     "youtubeBusca": "ponto pai manoel eu fui ao céu vi uma estrela correr",
-    "ervasAssociadas": ["Arruda", "Guiné"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Guiné"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "preta-velha-casca-de-coco",
@@ -541,7 +701,12 @@ window.FV_DATA.pontos = [
     "significado": "Um dos pontos de Preta Velha mais conhecidos. A casca de coco (usada como cuia no tempo da escravidão) traz a memória da dor; o ponto honra a ancestralidade e pede respeito à história das Almas.",
     "nota": "A segunda estrofe ('Vovó é filha de um Ventre Livre…') não é cantada em todas as casas.",
     "youtubeBusca": "ponto vovó não quer casca de coco no terreiro",
-    "ervasAssociadas": ["Arruda", "Alecrim", "Manjericão Roxo"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Alecrim",
+      "Manjericão Roxo"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "orixa-ogum-jurou-bandeira-beira-mar",
@@ -556,7 +721,12 @@ window.FV_DATA.pontos = [
     "significado": "Louvação ao guerreiro que vence demandas. 'Jurar bandeira' é o compromisso de proteger os filhos; os campos do Humaitá lembram a batalha vencida.",
     "nota": "Outra versão comum: 'Ogum já jurou bandeira, Rompe-Mato tornou a jurar, ele tem o peito de aço, venceu demanda lá no Humaitá!'",
     "youtubeBusca": "ponto ogum beira mar ogum já jurou bandeira nos campos do humaitá",
-    "ervasAssociadas": ["Espada de São Jorge", "Peregun Verde", "Aroeira"]
+    "ervasAssociadas": [
+      "Espada de São Jorge",
+      "Peregun Verde",
+      "Aroeira"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "orixa-oxala-tem-pena-de-nos",
@@ -571,7 +741,12 @@ window.FV_DATA.pontos = [
     "significado": "Um dos pontos mais cantados da Umbanda, geralmente na abertura ou no encerramento. Reconhece a grandeza de Oxalá e pede sua misericórdia e paz sobre a corrente.",
     "nota": "Ponto curto, repetido várias vezes. Variação: 'O teu poder é bem maior'.",
     "youtubeBusca": "ponto oxalá meu pai tem pena de nós tem dó",
-    "ervasAssociadas": ["Boldo", "Alfazema", "Manjericão Branco"]
+    "ervasAssociadas": [
+      "Boldo",
+      "Alfazema",
+      "Manjericão Branco"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "eres-cosme-damiao-santa-ja-chegou",
@@ -586,7 +761,12 @@ window.FV_DATA.pontos = [
     "significado": "Ponto alegre de chamada da Ibejada (as crianças). Traz leveza, pureza e riso para a gira, desfazendo o peso e a tristeza.",
     "nota": "Variações: 'que Santa Bárbara chamou' e 'Dois-dois, Papai Oxalá'.",
     "youtubeBusca": "ponto cosme e damião sua santa já chegou veio do fundo do mar",
-    "ervasAssociadas": ["Alfazema", "Camomila", "Rosa Branca"]
+    "ervasAssociadas": [
+      "Alfazema",
+      "Camomila",
+      "Rosa Branca"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "gira-defuma-ervas-da-jurema",
@@ -601,7 +781,13 @@ window.FV_DATA.pontos = [
     "significado": "Ponto cantado durante a defumação do terreiro, da casa ou das pessoas. As ervas citadas são o próprio fundamento: arruda e guiné cortam, benjoim, alecrim e alfazema elevam e harmonizam.",
     "nota": "A estrofe 'Defumei, defumei…' é uma continuação usada em várias casas.",
     "youtubeBusca": "ponto de defumação defuma com as ervas da jurema",
-    "ervasAssociadas": ["Arruda", "Guiné", "Alecrim", "Alfazema"]
+    "ervasAssociadas": [
+      "Arruda",
+      "Guiné",
+      "Alecrim",
+      "Alfazema"
+    ],
+    "origem": "tradicional"
   },
   {
     "id": "gira-eu-abro-a-nossa-gira",
@@ -616,6 +802,10 @@ window.FV_DATA.pontos = [
     "significado": "Ponto de abertura dos trabalhos: a gira é aberta pedindo a bênção de Deus e de Nossa Senhora, e a pemba de Angola firma o chão para a chegada das entidades.",
     "nota": "Ponto curto, repetido. Muitas casas emendam com outros pontos de abertura próprios.",
     "youtubeBusca": "ponto de abertura eu abro a nossa gira com deus e nossa senhora",
-    "ervasAssociadas": ["Alecrim", "Guiné"]
+    "ervasAssociadas": [
+      "Alecrim",
+      "Guiné"
+    ],
+    "origem": "tradicional"
   }
 ];

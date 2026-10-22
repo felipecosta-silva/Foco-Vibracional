@@ -1092,3 +1092,25 @@ Termos novos (sem duplicar): **Ramo bento**, **Mariwô**, **Firmar (vela)**, **V
 
 
 
+
+---
+
+## 24. Revisão do supervisor — Pontos cantados e preparação para publicar (2026-10-21)
+
+**Resultado: aprovado com correções importantes.** Revisados `7fde656`, `0c41f61`, `09b0e23` a `a764c9b` e o trabalho que estava pendente (Ajébó, ritual de artemísia, firmeza de brilho, 15 pontos tradicionais e botão do YouTube). O último lote de pontos (Ogum jurou bandeira, Eu abro a nossa gira, Oxalá tem pena de nós, Defuma com as ervas da Jurema, Vovó não quer casca de coco etc.) é de **pontos de raiz reais**. Muito bom.
+
+**Problemas corrigidos pelo supervisor:**
+1. **Pontos inventados apresentados como tradicionais.** Os 28 pontos dos primeiros lotes, incluindo os dos guias da casa, são letras compostas (longas, rimadas, genéricas), mas apareciam como "Letra tradicional". Agora todo ponto tem o campo `origem: "tradicional" | "composto"`. Os compostos mostram o selo "Louvação composta", um aviso no detalhe e **não têm o botão do YouTube** (a busca traria outro ponto). Os guias da casa têm `guiaDaCasa: true`: o dono do site vai mandar as letras que se cantam no terreiro.
+2. **Tata Miroxa é Pombagira**, não Mestre. Ela estava na linha "Mestres", no masculino, com texto de pajelança. Foi movida para "Guardiões & Esquerda", com a saudação "Laroyê" e uma louvação curta (marcada como composta).
+3. **Pontos riscados inventados:** 31 pontos descreviam o ponto riscado de entidades específicas (ex.: "tridente curvo com rosa" para Maria Padilha). Isso contradiz a regra da Fase 10 (o ponto é o RG da entidade e quem explica é ela). O campo `pontoRiscadoDescricao` foi removido de todos.
+4. `git add` pegou a pasta `scratch/` (53 scripts temporários, alguns de outro projeto). Ela foi retirada do commit e entrou no `.gitignore`. **Nunca grave rascunhos dentro do projeto.**
+5. Detalhes: `style=""` dos botões do ponto virou a classe `.ponto-acoes`; objetivo desconhecido (`foco`) aparece com inicial maiúscula; `.nojekyll` criado para o GitHub Pages; `CACHE_VERSION` → `fv-v28`.
+
+**Regras novas para o executor (valem para sempre):**
+- **Nunca componha ponto cantado e apresente como tradicional.** Ponto de raiz só se você tiver a letra conhecida em domínio público, ou se o dono do site mandar. Se precisar compor, marque `origem: "composto"`.
+- **Nunca descreva o ponto riscado de uma entidade específica.**
+- Não troque o gênero nem a linha de uma entidade sem confirmar com o dono do site.
+
+**Revisão geral:** as 18 páginas foram abertas a 1440 px e a 375 px. Console limpo, sem arquivos faltando, sem rolagem lateral e todos os arquivos offline existem. A única falha foi a API externa da lua, que tem cálculo local de reserva.
+
+**Próximo passo:** publicar no GitHub Pages (o dono do site precisa deixar o repositório público e ligar o Pages). Depois, trocar as louvações compostas dos guias pelas letras que o dono do site enviar e descobrir o nome do cigano.
