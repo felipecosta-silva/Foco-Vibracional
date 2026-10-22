@@ -1,6 +1,6 @@
 # Spec 001 — Fotos das ervas com créditos verdadeiros
 
-> **Status:** aprovada (aguarda 1 resposta do dono, ver §7)
+> **Status:** aprovada
 > **Pedido por:** dono do site em 2026-10-22 · **Escrita por:** Claude
 > Regras: `.specify/memory/constitution.md`
 
@@ -22,7 +22,7 @@
 - **RF-01** As 14 ervas sem foto ganham foto do Wikimedia Commons: `ora-pro-nobis`, `buganvilia`, `onze-horas`, `jasmim`, `palmeira`, `jiboia`, `zamioculca`, `pimenteira`, `babosa`, `maracuja`, `abacaxi-roxo`, `trevo-roxo`, `peregun-roxo`, `hibisco`.
 - **RF-02** Autor, licença e link de **todo** crédito são lidos da API do Commons pela ferramenta. **Ninguém digita crédito à mão.**
 - **RF-03** As 49 fotos da Fase 9 (seção 2 do `CREDITOS.md`) são conferidas: a foto local precisa ser visualmente o arquivo citado. Se não for, é trocada.
-- **RF-04** As 12 fotos originais (arruda, guiné, alecrim, espada, manjericão, boldo, alfazema, camomila, hortelã, louro, capim-limão, jurema), de origem não documentada, são tratadas conforme a §7.
+- **RF-04** As 12 fotos originais (arruda, guiné, alecrim, espada, manjericão, boldo, alfazema, camomila, hortelã, louro, capim-limão, jurema) **são imagens geradas por IA** (Nano Banana, do Gemini) e são **trocadas por fotos reais do Commons**. Imagem de IA pode errar detalhes da planta, e o site serve para reconhecer a erva certa.
 - **RF-05** O crédito aparece na ficha da erva (painel de detalhes), abaixo da foto, com link para a página do arquivo.
 - **RF-06** Só licenças livres que permitem uso: CC0, Domínio Público, CC BY e CC BY-SA (qualquer versão). **Proibido:** NC, ND e "fair use".
 - **RF-07** A foto mostra a **espécie da ficha**, de preferência a parte usada (folha, flor ou bráctea), sem marca-d'água, sem pessoas e nítida. Se a ficha cita duas espécies (ex.: malagueta e biquinho), use a primeira.
@@ -33,12 +33,12 @@
 - Mudar os textos das ervas.
 
 ## 6. Critérios de aceite
-- [ ] **CA-01** `python tools/fotos/verificar.py` termina com **0 falhas** e lista 75 ervas com foto conferida (ou as exceções aprovadas na §7).
+- [ ] **CA-01** `python tools/fotos/verificar.py` termina com **0 falhas** e lista as 75 ervas com foto conferida.
 - [ ] **CA-02** Abrir `plantas.html#jiboia` mostra a foto e, abaixo dela, o crédito com link que abre a página certa no Commons.
 - [ ] **CA-03** Nenhuma foto passa de 150 KB nem de 900 px de largura.
 - [ ] **CA-04** `images/CREDITOS.md` é gerado pela ferramenta e bate com os dados.
 - [ ] **CA-05** Offline (modo avião), as fotos novas aparecem.
 - [ ] **CA-06** Console limpo e sem rolagem lateral a 1440 px e a 375 px.
 
-## 7. Dúvidas em aberto
-- [NEEDS CLARIFICATION: as 12 fotos originais são suas (tiradas ou geradas por você) ou devem ser trocadas por fotos do Commons?] → **padrão até a resposta: trocar pelo Commons.** Se forem do dono, ficam e o crédito vira "Acervo do Foco Vibracional".
+## 7. Dúvidas resolvidas
+- **As 12 fotos originais são do dono?** Não: foram geradas por IA (Nano Banana). Resposta do dono em 2026-10-22 → trocar pelo Commons (RF-04).

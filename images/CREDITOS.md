@@ -10,7 +10,7 @@ As imagens foram redimensionadas para resolução máxima de 900 px e otimizadas
 
 > **Correção do supervisor (2026-10-20):** as 12 fotos originais (`arruda`, `guine`, `alecrim`, `espada`, `manjericao`, `boldo`, `alfazema`, `camomila`, `hortela`, `louro`, `capim_limao`, `jurema`) **já estavam no projeto antes da Fase 9 e não foram baixadas do Wikimedia Commons**. Na Fase 9, `guine.jpg` e `capim_limao.jpg` só foram recomprimidas. A tabela anterior as atribuía a fotógrafos do Commons (H. Zell, Forest & Kim Starr etc.) sem que isso fosse verdade, e por isso foi removida.
 >
-> **Origem real: não documentada.** O estilo indica imagens geradas por IA. **Pendência:** o autor do site confirma a origem, ou essas fotos são trocadas por arquivos do Commons de verdade, com o link do arquivo baixado.
+> **Origem confirmada pelo dono do site (2026-10-22):** imagens geradas por IA (Nano Banana, do Gemini). Serão trocadas por fotos reais do Commons na spec 001 (`specs/001-fotos-das-ervas/`).
 
 
 ---

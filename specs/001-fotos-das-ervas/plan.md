@@ -52,7 +52,6 @@ Para buscar candidatos: `action=query&list=search&srnamespace=6&srsearch=<nome c
   }
 }
 ```
-Para as fotos que forem do acervo do dono (se §7 da spec decidir assim): `"commons": null, "autor": "Acervo do Foco Vibracional", "licenca": "Uso próprio"`. O `verificar.py` aceita esses registros sem consultar a API.
 
 **Licença aceita** (RF-06): `LicenseShortName` casando com `^(CC0|Public domain|PD.*|CC BY(-SA)? [0-9.]+.*)$`. O `baixar.py` **recusa** o arquivo se não casar.
 
@@ -64,7 +63,7 @@ Para as fotos que forem do acervo do dono (se §7 da spec decidir assim): `"comm
 ```html
 <p class="drawer__credit">Foto: <autor> · <a href="<pagina>" target="_blank" rel="noopener">licença <licenca></a> · Wikimedia Commons</p>
 ```
-Sempre com `escapeHtml`. Para o acervo próprio: "Foto: Acervo do Foco Vibracional".
+Sempre com `escapeHtml`. 
 
 ## 4. Riscos e cuidados
 - **Espécie errada** (o risco maior). Confira o nome científico na página do arquivo e nas categorias. Palmeira: prefira folha de *Cocos nucifera* ou de *Dypsis lutescens*, e **nunca** a *Cycas revoluta* (palmeira-sagu, a planta do alerta).

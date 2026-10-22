@@ -13,7 +13,7 @@
 - [ ] T005 Importar as 49 fotos da Fase 9: para cada linha da seção 2 do `CREDITOS.md` atual, crie o registro com o arquivo citado **pela API** (não copie o autor da tabela) e rode o `verificar.py`. Liste no registro quais passaram e quais falharam. Atende RF-03. · commit: ``
 - [ ] T006 Para cada foto que falhou na T005: rode `baixar.py` com o arquivo citado, se ele mostrar a espécie certa, ou com outro arquivo escolhido por você. Atende RF-03 e RF-07. · commit: ``
 - [ ] T007 As 14 ervas sem foto: escolha um arquivo do Commons por erva (veja os riscos no plano §4) e rode `baixar.py`. Preencha `"imagem"` em `data/ervas.js`. Atende RF-01 e RF-07. · commit: ``
-- [ ] T008 As 12 fotos originais, conforme a §7 da spec: troca pelo Commons (padrão) ou registro como acervo próprio. Atende RF-04. · commit: ``
+- [ ] T008 As 12 fotos originais (geradas por IA): trocar todas por fotos do Commons com `baixar.py`, seguindo os mesmos critérios da T007. Atende RF-04. · commit: ``
 
 ## Fase 3 — Site
 - [ ] T009 Crédito na ficha: em `script/script.js`, renderizar `.drawer__credit` abaixo do `drawer__hero`. Em `styles/styles.css`, a classe na camada final (`font-size: .78rem; color: var(--muted)`; link com `var(--accent)`). Incluir `data/creditos-fotos.js` em todo HTML que inclui `data/ervas.js`. Atende RF-05. · commit: ``
