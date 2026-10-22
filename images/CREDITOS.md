@@ -12,19 +12,6 @@ As imagens foram redimensionadas para resolução máxima de 900 px e otimizadas
 >
 > **Origem real: não documentada.** O estilo indica imagens geradas por IA. **Pendência:** o autor do site confirma a origem, ou essas fotos são trocadas por arquivos do Commons de verdade, com o link do arquivo baixado.
 
---- | :--- | :--- | :--- | :--- | :--- |
-| arruda | `arruda.jpg` | *Ruta graveolens* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ruta_graveolens_001.JPG) |
-| guine | `guine.jpg` | *Petiveria alliacea* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_080117-1555_Petiveria_alliacea.jpg) |
-| alecrim | `alecrim.jpg` | *Salvia rosmarinus* | Margrit Manz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_flowers.jpg) |
-| espada | `espada.jpg` | *Dracaena trifasciata* | Peter A. Mansfeld | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sansevieria_trifasciata.jpg) |
-| manjericao | `manjericao.jpg` | *Ocimum basilicum* | Goldlocki | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Basilikum_Genovese.jpg) |
-| boldo | `boldo.jpg` | *Plectranthus barbatus* | Atamari | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plectranthus_barbatus.jpg) |
-| alfazema | `alfazema.jpg` | *Lavandula angustifolia* | Georges Jansoone | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lavandula_angustifolia_001.jpg) |
-| camomila | `camomila.jpg` | *Matricaria chamomilla* | Fir0002 | GFDL 1.2 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chamomile@original_size.jpg) |
-| hortela | `hortela.jpg` | *Mentha* | Mattes | Public Domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mentha_sp.jpg) |
-| louro | `louro.jpg` | *Laurus nobilis* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Laurus_nobilis_001.JPG) |
-| capim_limao | `capim_limao.jpg` | *Cymbopogon citratus* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_010214-0010_Cymbopogon_citratus.jpg) |
-| jurema | `jurema.jpg` | *Mimosa tenuiflora* | Wikimedia Commons | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mimosa_tenuiflora.jpg) |
 
 ---
 

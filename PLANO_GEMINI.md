@@ -1,5 +1,7 @@
 # PLANO DE EXECUÇÃO — Reestruturação do Foco Vibracional
 
+> ⚠️ **ARQUIVO HISTÓRICO (somente leitura desde 2026-10-22).** O trabalho novo segue o fluxo Spec → Plan → Build em `specs/`. As regras permanentes estão em `.specify/memory/constitution.md`. Veja `AGENTS.md`.
+
 > **Executor:** Gemini (Antigravity) — faz todo o trabalho braçal.
 > **Supervisor:** Claude — define a estratégia, revisa cada fase e faz os ajustes finos.
 > **Contexto do projeto:** leia antes `DOCUMENTACAO_JUREMA_FOCO.md` (propósito, tom de voz e regras de ouro).
