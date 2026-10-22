@@ -1164,11 +1164,11 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Sim (a erva mestra do Terceiro Olho e da visão espiritual)",
-  "descricao": "A planta lunar por excelência, dedicada à deusa grega Ártemis e às curandeiras ancestrais. Estimula a clarividência, desperta sonhos premonitórios lúcidos, protege viajantes e abre os canais intuitivos antes de consultas de oráculos.",
-  "diferenciacao": "BANHO DA COROA vs. DEFUMAÇÃO LUNAR:\n• Banho Suave na Cabeça com Alfazema e Anis: Purifica o chakra frontal, desfaz confusão psíquica e sintoniza a intuição.\n• Defumação na Lua Cheia: Queima com aroma canforado herbal que consagra espaços de meditação e afasta energias densas.",
+  "descricao": "A ERVA-PORTAL: planta lunar por excelência, cujo nome remete a Ártemis, divindade grega da natureza, da Lua e do sagrado feminino. Ligada à intuição, aos sonhos, à adivinhação, à proteção e à sabedoria interior. É chamada de 'erva-portal' por reger os momentos de TRANSIÇÃO — o fim de um ciclo, a passagem, o espaço entre quem você era e quem está se tornando (não se trata de abrir portais literais). Ajuda a deixar ciclos para trás, limpar a estagnação e entrar numa nova fase com mais consciência. Chakras: Frontal (percepção, sonhos, clareza interior) e Coronário (espiritualidade, conexão e expansão da consciência).",
+  "diferenciacao": "BANHO DA COROA vs. DEFUMAÇÃO LUNAR vs. RITUAL DE INTUIÇÃO:\n• Banho Suave na Cabeça com Alfazema e Anis: Purifica o chakra frontal, desfaz confusão psíquica e sintoniza a intuição.\n• Defumação na Lua Cheia: Queima com aroma canforado herbal que consagra espaços de meditação e afasta energias densas (sempre com ventilação).\n• Ritual de Intuição (vela branca + copo d'água + pergunta escrita no papel sob o ramo seco): veja o passo a passo completo na página Firmeza de Vela.",
   "colheita": "Colher preferencialmente nas fases de Lua Crescente ou Cheia ao entardecer.",
-  "cuidados": "Uso externo muito seguro. Mulheres grávidas NÃO devem consumir chá de artemísia devido ao efeito emenagogo.",
-  "tradicao": "Fundamental nas tradições xamânicas, juremeiras e celtas. Colocada debaixo do travesseiro para revelar respostas em sonhos.",
+  "cuidados": "Uso externo muito seguro. Mulheres grávidas NÃO devem consumir chá de artemísia devido ao efeito emenagogo. Na defumação, mantenha o ambiente bem ventilado e evite a fumaça perto de gestantes, crianças, pets e pessoas com asma ou alergia.",
+  "tradicao": "Fundamental nas tradições xamânicas, juremeiras e celtas. Nas tradições europeias era levada em viagens e usada em momentos de passagem como proteção. Colocada debaixo do travesseiro para revelar respostas em sonhos.",
   "cha": "CHÁ DE ARTEMÍSIA: Infusão de 1 colher de café em 250ml de água fervente por 5 a 7 minutos. Usado pelas raizeiras tradicionais para alívio de cólicas e regulação do ciclo menstrual. (ESTRITAMENTE PROIBIDO PARA GESTANTES).",
   "imagem": "./images/artemisia.jpg"
  },

@@ -1362,7 +1362,9 @@ function initFirmezaPage() {
     const PRECES_PRONTAS = {
       btnPreceDemanda: "Que a força desta chama sagrada quebre toda a maldição, toda a amarra e toda a energia negativa lançada contra mim ou minha casa. Que toda inveja seja consumida no fogo sagrado e transmutada em luz, em energia de movimento, saúde e prosperidade. Onde havia peso, agora reina a vitória. Que assim seja e assim se faça!",
       btnPreceJurema: "Em nome de Deus todo-poderoso, dos Mestres e Mestras da Jurema Sagrada e de todas as forças benfazejas que guardam meus caminhos: firmo esta chama viva em meu favor. Que onde houver trevas, se faça a luz. Que onde houver dúvida, reine a clareza. Que meu anjo da guarda seja fortalecido e que a paz habite meu ser. Amém, Axé!",
-      btnPreceAnjo: "Meu Santo Anjo da Guarda, fiel guardião de minha alma e mensageiro da paz divina: firmo esta vela para clarear teus passos ao meu redor. Fortalece o meu Ori, serena meus pensamentos, livra-me de todo tropeço e envolve minha casa num manto de pureza e harmonia. Amém!"
+      btnPreceAnjo: "Meu Santo Anjo da Guarda, fiel guardião de minha alma e mensageiro da paz divina: firmo esta vela para clarear teus passos ao meu redor. Fortalece o meu Ori, serena meus pensamentos, livra-me de todo tropeço e envolve minha casa num manto de pureza e harmonia. Amém!",
+      btnPreceIntuicao: "Que aquilo que preciso compreender se revele com clareza. Que minha intuição seja fortalecida e meu caminho protegido. Que eu reconheça a resposta quando ela chegar.",
+      btnPreceBrilho: "Antes de pedir que os caminhos se abram, acendo a força que habita em mim. Que esta chama reacenda meu brilho, minha garra e minha coragem de me posicionar. Que meu campo esteja aquecido, visível e pronto para atrair e sustentar tudo aquilo que desejo. Que a doçura chegue e que eu tenha vigor para recebê-la."
     };
 
     Object.keys(PRECES_PRONTAS).forEach(btnId => {
@@ -2295,7 +2297,10 @@ const LINHAS_PONTOS = [
   { k: "boiadeiros", label: "Boiadeiros", icon: "🪢" },
   { k: "marinheiros", label: "Marinheiros", icon: "⚓" },
   { k: "ciganos", label: "Povo Cigano", icon: "🎴" },
-  { k: "guardioes", label: "Guardiões", icon: "🔥" }
+  { k: "guardioes", label: "Guardiões", icon: "🔥" },
+  { k: "orixas", label: "Orixás", icon: "👑" },
+  { k: "eres", label: "Erês & Crianças", icon: "🍬" },
+  { k: "gira", label: "Abertura & Defumação", icon: "🕯️" }
 ];
 
 const TIPOS_PONTOS = [
@@ -2343,6 +2348,15 @@ function pontoCardHtml(p) {
     </button>`;
 }
 
+/* Link para escutar o ponto: usa p.youtube (vídeo conferido) ou, na falta, uma busca no YouTube
+   pelo primeiro verso + entidade (ou p.youtubeBusca, quando definido). */
+function pontoYoutubeUrl(p) {
+  if (p.youtube) return p.youtube;
+  const firstVerse = String(p.letra || "").split("\n")[0].replace(/[!,.;:…]+$/g, "");
+  const termo = p.youtubeBusca || `ponto ${p.entidade || ""} ${firstVerse}`;
+  return "https://www.youtube.com/results?search_query=" + encodeURIComponent(termo.trim());
+}
+
 function pontoDetailHtml(p) {
   const badgeCls = linhaBadgeClass(p.linha);
   const letraId = "letra_" + p.id.replace(/[^a-z0-9_-]/gi, "");
@@ -2369,7 +2383,9 @@ function pontoDetailHtml(p) {
         <div class="row wrap-row" style="margin-top:10px;">
           <button class="btn btn--ghost" data-copy="#${letraId}" type="button">📋 Copiar letra</button>
           <button class="btn btn--ghost" data-speak="#${letraId}" type="button">🔊 Ouvir letra</button>
+          <a class="btn" href="${escapeHtml(pontoYoutubeUrl(p))}" target="_blank" rel="noopener noreferrer" title="Abre o YouTube em nova aba">▶️ Escutar no YouTube</a>
         </div>
+        ${p.nota ? `<p class="muted small" style="margin-top:10px;">📝 ${escapeHtml(p.nota)}</p>` : ""}
       </div>
 
       <div class="dsec">

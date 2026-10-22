@@ -2389,5 +2389,30 @@ window.FV_DATA.banhos = [
   "modoPreparo": "Macere as folhas verdes frescas delicadamente com as duas mãos em água fresca, sem ferver. Deixe descansar por 15 minutos e coe. Banhe-se da cabeça aos pés sentindo o aroma cítrico e balsâmico das matas desfazendo tensões acumuladas.",
   "reza": "Na força da Jurema e dos Encantados, purifico meu corpo e minha alma. Que a doçura do capim-santo e a firmeza da pitanga façam morada em mim.",
   "observacao": "PODE SER JOGADO NA CABEÇA. Banho de higiene sutil que realiza a reciclagem dos fluidos vitais. Excelente para pessoas sensíveis e médiuns antes de trabalhos espirituais."
+ },
+ {
+  "id": "banho-ajebo-quiabo-quebra-demandas",
+  "nome": "Banho de Ajébó (12 Quiabos Batidos • Quebra de Demandas & Energias Densas)",
+  "objetivo": "descarrego",
+  "intensidade": "forte",
+  "luas": [
+   "minguante"
+  ],
+  "dias": [
+   "ter",
+   "sex",
+   "sab"
+  ],
+  "horario": "noite, com tempo livre para recolhimento depois",
+  "ervas": [
+   "12 quiabos frescos, bem lavados",
+   "1 recipiente/bacia com um pouco de água",
+   "1 copo de leite (SOMENTE para iniciados no Santo) OU 2 colheres de açúcar (para não iniciados)",
+   "1 vela branca acesa durante o preparo"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Em ambiente tranquilo, acenda uma vela e mantenha a concentração e a fé. Retire as pontas e as coroas dos 12 quiabos, corte-os em rodelas e coloque no recipiente com um pouco de água. Bata bem o quiabo com as mãos até soltar a 'baba', mentalizando a limpeza do campo energético e a quebra de demandas, inveja, feitiços e de tudo o que bloqueia seus caminhos. Acrescente o leite (iniciados) ou o açúcar (não iniciados). Tome seu banho de higiene normal, desligue o chuveiro e passe o Ajébó do pescoço para baixo, esfregando suavemente e pedindo descarrego e renovação. Deixe agir alguns minutos, enxágue e FINALIZE com um banho de ervas de energização/harmonização.",
+  "reza": "Que a força do Ajébó envolva e faça escorregar de mim toda demanda, toda inveja, todo feitiço e toda energia que não me pertence. O que estava preso se solta, o que estava pesado se desfaz. Meu campo está limpo e meus caminhos, livres.",
+  "observacao": "DESCARREGO PROFUNDO • EXIGE REPOSIÇÃO: A mucilagem (a 'baba') do quiabo tem a propriedade de envolver, anular e fazer escorregar as energias densas agarradas à aura. Por isso deixa o campo 'vazio' — finalize SEMPRE com um banho de harmonização (ex.: boldo de Oxalá, alfazema, manjericão ou rosa branca). LEITE x AÇÚCAR: o leite é elemento frio e apaziguador, ligado a Oxalá e a preceitos de iniciados; o açúcar equilibra o banho de forma universal e evita que o não iniciado fique vulnerável. CABEÇA: não jogue na cabeça sem orientação do seu zelador(a) de santo. Quiabo é ligado a Xangô em muitas casas — se você tem quizila/restrição, consulte antes. Vela acesa só sob vigilância."
  }
 ];
