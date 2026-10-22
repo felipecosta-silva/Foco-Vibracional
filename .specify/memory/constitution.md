@@ -2,7 +2,7 @@
 
 > Regras permanentes do projeto. Toda spec, plano e tarefa obedece a este arquivo.
 > Em caso de conflito, **a constituição vence**. Só o dono do site muda estas regras.
-> Versão 1.0 · 2026-10-22 · substitui as seções 0 e 8 do antigo `PLANO_GEMINI.md`.
+> Substitui as seções 0 e 8 do antigo `PLANO_GEMINI.md`.
 
 ## Papéis
 
@@ -12,7 +12,8 @@
 | **Claude (supervisor)** | Escreve `spec.md`, `plan.md` e `tasks.md`; revisa o que foi construído; corrige detalhes; escreve `review.md`. |
 | **Gemini (executor)** | Lê a spec e o plano, executa `tasks.md` na ordem, marca cada tarefa e registra o que fez. **Não muda a spec nem o plano.** |
 
-**Fluxo:** `/speckit.specify` → `/speckit.plan` → `/speckit.tasks` → `/speckit.implement` → revisão.
+**Fluxo (GitHub Spec Kit, no Antigravity):** `/speckit-specify` → `/speckit-clarify` (se houver dúvidas) → `/speckit-plan` → `/speckit-tasks` → `/speckit-analyze` → `/speckit-implement` → revisão do Claude (`review.md`).
+Specs, planos e tarefas são escritos **em português**.
 Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 
 ## I. Verdade antes de tudo (inegociável)
@@ -61,3 +62,7 @@ Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 1. Teste a **1440 px e a 375 px**, e **offline**. Console limpo e sem rolagem lateral.
 2. Um commit por tarefa (ou grupo pequeno), mensagem em português com o id da spec: `feat(001-T03): ...`.
 3. **`git push` só quando o dono disser "atualize o git".** O site é público em https://felipecosta-silva.github.io/Foco-Vibracional/, e cada push publica.
+
+---
+
+**Version**: 1.0.0 | **Ratified**: 2026-10-22 | **Last Amended**: 2026-10-22
