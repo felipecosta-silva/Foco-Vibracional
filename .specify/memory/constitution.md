@@ -4,6 +4,15 @@
 > Em caso de conflito, **a constituição vence**. Só o dono do site muda estas regras.
 > Substitui as seções 0 e 8 do antigo `PLANO_GEMINI.md`.
 
+## 0. Para quem é o site (missão)
+
+- **Público:** iniciantes que estão começando na **Umbanda com Jurema** (a base da casa do dono do site). Usam quase sempre pelo celular.
+- **Objetivo:** que a pessoa (1) **entenda os fundamentos** sem medo e (2) **pratique no dia a dia**, com segurança, o que é de casa.
+- **O site complementa a casa de santo, nunca a substitui.** O fundamento de verdade se aprende com um(a) zelador(a) ou um(a) mais velho(a).
+- **Voz:** guia neutro, como um professor gentil e claro. Explica o porquê; sem primeira pessoa do dono, sem "meu filho" e sem sensacionalismo.
+- **Vocabulário:** use as palavras do terreiro (Ori, axé, quizila, descarrego…) e explique cada uma na primeira vez em que aparece na página, com link para o glossário.
+- **Filtro de toda melhoria:** "isso ajuda o iniciante a entender ou a praticar com segurança?"
+
 ## Papéis
 
 | Quem | Faz |
@@ -25,6 +34,8 @@ Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 5. **Conteúdo fora da spec:** registre a origem ("enviado pelo dono em…"). Se não houver origem, não entra.
 
 ## II. Segurança de quem usa o site
+
+0. **O iniciante não faz sozinho** (sem instrução ou sem um mais velho acompanhando): riscar ponto de entidade; chamar ou firmar entidade específica; trabalho de esquerda (velas preta e vermelha, encruzilhada, oferendas a Exu e Pombagira); banho de cabeça forte e preceitos de iniciado. O site pode **explicar** essas práticas, sempre com o selo **"Só com orientação de um(a) zelador(a)"**, e elas **nunca** entram nas sugestões do dia nem na trilha "Comece aqui". Conteúdo de Candomblé ou de iniciados recebe o mesmo selo.
 
 1. Toda erva, banho e defumação tem cuidados: toxicidade, gestantes e lactantes, crianças, pets e se vai ou não na cabeça. **Na dúvida: do pescoço para baixo.**
 2. Planta tóxica (oxalatos, látex, seiva cáustica) não vira banho, chá nem defumação sem aviso em destaque. Pimenta **nunca** vai ao fogo.
@@ -65,4 +76,4 @@ Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 
 ---
 
-**Version**: 1.0.0 | **Ratified**: 2026-10-22 | **Last Amended**: 2026-10-22
+**Version**: 1.1.0 | **Ratified**: 2026-10-22 | **Last Amended**: 2026-10-23
