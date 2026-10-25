@@ -188,24 +188,31 @@ def comprimir(img_bytes: bytes) -> bytes:
             nova_altura = int(img.height * (MAX_WIDTH / img.width))
             img = img.resize((MAX_WIDTH, nova_altura), Image.Resampling.LANCZOS)
 
-        # Compressao iterativa
-        qualidades = [85, 80, 75, 70, 65, 60, 55, 50, 45]
-        buffer_final = None
+        # Compressao iterativa por qualidade
+        qualidades = [85, 80, 75, 70, 65, 60, 55, 50, 45, 40, 35]
         for q in qualidades:
             buf = io.BytesIO()
             img.save(buf, format="JPEG", quality=q, progressive=True, optimize=True)
-            tamanho = buf.tell()
-            if tamanho <= MAX_BYTES:
-                buffer_final = buf.getvalue()
-                break
+            if buf.tell() <= MAX_BYTES:
+                return buf.getvalue()
 
-        if buffer_final is None:
-            # Forca com qualidade 40 se necessario
-            buf = io.BytesIO()
-            img.save(buf, format="JPEG", quality=40, progressive=True, optimize=True)
-            buffer_final = buf.getvalue()
+        # Se ainda exceder (ex: imagem muito alta), reduz resolucao gradualmente
+        escala = 0.9
+        while escala >= 0.2:
+            nw = max(100, int(img.width * escala))
+            nh = max(100, int(img.height * escala))
+            img_res = img.resize((nw, nh), Image.Resampling.LANCZOS)
+            for q in [75, 65, 55, 45, 35]:
+                buf = io.BytesIO()
+                img_res.save(buf, format="JPEG", quality=q, progressive=True, optimize=True)
+                if buf.tell() <= MAX_BYTES:
+                    return buf.getvalue()
+            escala *= 0.85
 
-        return buffer_final
+        # Ultimo recurso: qualidade 30 na menor escala
+        buf = io.BytesIO()
+        img_res.save(buf, format="JPEG", quality=30, progressive=True, optimize=True)
+        return buf.getvalue()
 
 
 def dhash(imagem: Union[Image.Image, bytes]) -> str:

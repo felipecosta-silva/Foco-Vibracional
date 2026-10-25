@@ -1,13 +1,13 @@
 {
   "girassol": {
     "arquivo": "images/girassol.jpg",
-    "commons": "File:Sunflower_macro_wide.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Sunflower_macro_wide.jpg",
-    "autor": "Muhammad Mahdi Karim",
-    "licenca": "GFDL 1.2",
-    "licencaUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-    "dhash": "b22c26666767360e",
-    "baixadoEm": "2026-10-22"
+    "commons": "File:Sunflower head 2026 G1.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Sunflower_head_2026_G1.jpg",
+    "autor": "George Chernilevsky",
+    "licenca": "CC BY 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/4.0",
+    "dhash": "9379296160264f0f",
+    "baixadoEm": "2026-10-25"
   },
   "canela": {
     "arquivo": "images/canela.jpg",
@@ -16,8 +16,8 @@
     "autor": "Simon A. Eugster",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "dhash": "11c8c2f4ccb47005",
-    "baixadoEm": "2026-10-22"
+    "dhash": "238e7cd8b4c8d918",
+    "baixadoEm": "2026-10-25"
   },
   "mamona": {
     "arquivo": "images/mamona.jpg",
@@ -26,8 +26,8 @@
     "autor": "H. Zell",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "dhash": "63e3b1a96f74b431",
-    "baixadoEm": "2026-10-22"
+    "dhash": "4473531163336343",
+    "baixadoEm": "2026-10-25"
   },
   "comigo-ninguem-pode": {
     "arquivo": "images/comigo-ninguem-pode.jpg",
@@ -121,13 +121,13 @@
   },
   "salsa": {
     "arquivo": "images/salsa.jpg",
-    "commons": "File:Petroselinum.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Petroselinum.jpg",
-    "autor": "Jonathunder",
-    "licenca": "GFDL 1.2",
-    "licencaUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-    "dhash": "081b0c2c0a0f0c0c",
-    "baixadoEm": "2026-10-22"
+    "commons": "File:Petroselinum crispum 003.JPG",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Petroselinum_crispum_003.JPG",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "762787395337242d",
+    "baixadoEm": "2026-10-25"
   },
   "oregano": {
     "arquivo": "images/oregano.jpg",
@@ -256,8 +256,8 @@
     "autor": "H. Zell",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "dhash": "c492e5cd5a1c9252",
-    "baixadoEm": "2026-10-22"
+    "dhash": "431b8f5238568561",
+    "baixadoEm": "2026-10-25"
   },
   "espada-santa-barbara": {
     "arquivo": "images/espada-santa-barbara.jpg",
@@ -338,5 +338,155 @@
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "dhash": "960f0b2331170f4d",
     "baixadoEm": "2026-10-22"
+  },
+  "brilhantina": {
+    "arquivo": "images/brilhantina.jpg",
+    "commons": "File:Starr 030807-0140 Pilea microphylla.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr_030807-0140_Pilea_microphylla.jpg",
+    "autor": "Forest & Kim Starr",
+    "licenca": "CC BY 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0",
+    "dhash": "064f856b699ddad3",
+    "baixadoEm": "2026-10-25"
+  },
+  "samambaia": {
+    "arquivo": "images/samambaia.jpg",
+    "commons": "File:Nephrolepis exaltata indoor0705c.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Nephrolepis_exaltata_indoor0705c.jpg",
+    "autor": "Jaknouse",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "dhash": "3bf8e0c2daaaae2e",
+    "baixadoEm": "2026-10-25"
+  },
+  "manga": {
+    "arquivo": "images/manga.jpg",
+    "commons": "File:Mangos - single and halved.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Mangos_-_single_and_halved.jpg",
+    "autor": "Ivar Leidus",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "0f13636133e2cc33",
+    "baixadoEm": "2026-10-25"
+  },
+  "amora": {
+    "arquivo": "images/amora.jpg",
+    "commons": "File:Black Mulberry Female Flowers.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Black_Mulberry_Female_Flowers.jpg",
+    "autor": "JJ Harrison ( https://www.jjharrison.com.au/ )",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "660c0f220616869c",
+    "baixadoEm": "2026-10-25"
+  },
+  "anis-estrelado": {
+    "arquivo": "images/anis-estrelado.jpg",
+    "commons": "File:Dried Star Anise Fruit Seeds.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Dried_Star_Anise_Fruit_Seeds.jpg",
+    "autor": "Sanjay Acharya",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "10d44ce8d055b250",
+    "baixadoEm": "2026-10-25"
+  },
+  "pinhao-roxo": {
+    "arquivo": "images/pinhao-roxo.jpg",
+    "commons": "File:Jatropha gossypiifolia I.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Jatropha_gossypiifolia_I.jpg",
+    "autor": "Rjcastillo",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "07961899cc66b33b",
+    "baixadoEm": "2026-10-25"
+  },
+  "peregum": {
+    "arquivo": "images/peregum.jpg",
+    "commons": "File:Dracaena fragrans - Jardín Botánico Canario Viera y Clavijo - Gran Canaria.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Dracaena_fragrans_-_Jard%C3%ADn_Bot%C3%A1nico_Canario_Viera_y_Clavijo_-_Gran_Canaria.jpg",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "908c2016d2420420",
+    "baixadoEm": "2026-10-25"
+  },
+  "cravo-da-india": {
+    "arquivo": "images/cravo-da-india.jpg",
+    "commons": "File:Syzygium aromaticum - Köhler–s Medizinal-Pflanzen-030.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Syzygium_aromaticum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-030.jpg",
+    "autor": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+    "licenca": "Public domain",
+    "licencaUrl": "",
+    "dhash": "7cd6e6cab4ccc9cb",
+    "baixadoEm": "2026-10-25"
+  },
+  "pitangueira": {
+    "arquivo": "images/pitangueira.jpg",
+    "commons": "File:Pitanga-eugenia-uniflora.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Pitanga-eugenia-uniflora.jpg",
+    "autor": "Miguel Axcar",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "2929ed6d62820507",
+    "baixadoEm": "2026-10-25"
+  },
+  "coentro": {
+    "arquivo": "images/coentro.jpg",
+    "commons": "File:(MHNT) Coriandrum sativum - inflorescence.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:(MHNT)_Coriandrum_sativum_-_inflorescence.jpg",
+    "autor": "Didier Descouens",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "b0180b656d571c68",
+    "baixadoEm": "2026-10-25"
+  },
+  "eucalipto": {
+    "arquivo": "images/eucalipto.jpg",
+    "commons": "File:Eucalyptus globulus - Levada da Serra do Faial - Madeira 01.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Eucalyptus_globulus_-_Levada_da_Serra_do_Faial_-_Madeira_01.jpg",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "8e91b1a594f29747",
+    "baixadoEm": "2026-10-25"
+  },
+  "aroeira": {
+    "arquivo": "images/aroeira.jpg",
+    "commons": "File:Schinus terebinthifolius 00537.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_00537.jpg",
+    "autor": "Juan Carlos Fonseca Mata",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "d34b6ddbdbbba6ae",
+    "baixadoEm": "2026-10-25"
+  },
+  "pata-de-vaca": {
+    "arquivo": "images/pata-de-vaca.jpg",
+    "commons": "File:Bauhinia forficata 01.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bauhinia_forficata_01.jpg",
+    "autor": "Valentino Liberali",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "dhash": "ce5a543c9c587594",
+    "baixadoEm": "2026-10-25"
+  },
+  "vence-demanda": {
+    "arquivo": "images/vence-demanda.jpg",
+    "commons": "File:Justicia pectoralis by Scott Zona - 001.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Justicia_pectoralis_by_Scott_Zona_-_001.jpg",
+    "autor": "scott.zona from Miami, Florida, USA",
+    "licenca": "CC BY 2.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/2.0",
+    "dhash": "244697a72726e597",
+    "baixadoEm": "2026-10-25"
+  },
+  "cana-do-brejo": {
+    "arquivo": "images/cana-do-brejo.jpg",
+    "commons": "File:Costus pulverulentus.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Costus_pulverulentus.jpg",
+    "autor": "Hans Hillewaert",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "75459b6ac0707162",
+    "baixadoEm": "2026-10-25"
   }
 }
