@@ -70,10 +70,11 @@ Fluxo: GitHub Spec Kit (/speckit-*). O Gemini executa, o Claude escreve e revisa
 
 Rumo combinado (próximas specs, nesta ordem):
   001 Fotos das ervas com créditos verdadeiros (em andamento)
-  002 Fundamentos da Jurema para iniciantes: o que é a Jurema, a árvore, os Mestres e as Mestras, as cidades encantadas, a ciência, o que é uma gira e como se portar
-  003 Trilha "Comece aqui": a porta de entrada do iniciante, o caminho dos primeiros dias, apontando para os fundamentos e para práticas de casa
-  004 Revisão para iniciante: marcar em todo o site o que é "Pode fazer em casa" e o que é "Só com orientação"
-  005 Pontos da casa: trocar as louvações compostas pelos pontos reais dos guias (quando o dono enviar as letras)
+  002 Pedido certo, erva certa: Mapa do benzimento com ervas, como fazer um pedido bem feito e defumação de pitanga com louro (spec pronta)
+  003 Fundamentos da Jurema para iniciantes: o que é a Jurema, a árvore, os Mestres e as Mestras, as cidades encantadas, a ciência, o que é uma gira e como se portar
+  004 Trilha "Comece aqui": a porta de entrada do iniciante, o caminho dos primeiros dias, apontando para os fundamentos e para práticas de casa
+  005 Revisão para iniciante: marcar em todo o site o que é "Pode fazer em casa" e o que é "Só com orientação"
+  006 Pontos da casa: trocar as louvações compostas pelos pontos reais dos guias (quando o dono enviar as letras)
 
 Leia ANTES de começar:
 - .specify/memory/constitution.md (regras permanentes; vence qualquer outra instrução)
@@ -139,13 +140,13 @@ TAREFA DE AGORA:
 - Material que eu envio: nenhum.
 ```
 
-## Exemplo do bloco "TAREFA DE AGORA" — spec 002 (próxima)
+## Exemplo do bloco "TAREFA DE AGORA" — spec 003 (Fundamentos)
 
 ```text
 TAREFA DE AGORA:
 - Objetivo: uma seção "Fundamentos da Jurema" que explique ao iniciante o que é a Jurema, a árvore sagrada, os Mestres e as Mestras, as cidades encantadas, o que é uma gira e como se portar num terreiro.
 - Por que importa para o iniciante: sem a base, as práticas de casa ficam soltas e cheias de medo.
-- Spec: criar nova com /speckit-specify ("002-fundamentos-da-jurema")
+- Spec: criar nova com /speckit-specify ("003-fundamentos-da-jurema")
 - Pronto quando: o iniciante lê em até 10 minutos; cada termo técnico tem explicação e link para o glossário; o texto lembra que o site complementa a casa.
 - Material que eu envio: ⟦o que a sua casa ensina sobre cada tema, se quiser⟧
 ```
