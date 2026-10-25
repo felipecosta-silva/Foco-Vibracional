@@ -4966,3 +4966,20 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 .ponto-acoes { margin-top: 10px; }
 .badge--composto { color: var(--muted); border-color: var(--line); background: transparent; font-weight: 500; align-self: flex-start; margin-top: 6px; }
 .ponto-aviso { margin: 0 0 10px; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+
+/* Créditos fotográficos no painel de detalhes (Spec 001) */
+.drawer__credit {
+  font-size: .78rem;
+  color: var(--muted);
+  margin: -10px 0 14px;
+  line-height: 1.4;
+}
+.drawer__credit a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.drawer__credit a:hover {
+  filter: brightness(1.15);
+}
+

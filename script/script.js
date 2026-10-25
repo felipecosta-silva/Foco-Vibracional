@@ -1721,6 +1721,15 @@ function defumacaoDetailHtml(d) {
     <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(d.cuidados || "Ventile bem; cuidado com fogo, crianças e animais.")}</p></div>`;
 }
 
+function herbCreditHtml(e) {
+  const c = window.FV_DATA && window.FV_DATA.creditosFotos && window.FV_DATA.creditosFotos[e.id];
+  if (!c) return "";
+  const autor = escapeHtml(c.autor || "");
+  const licenca = escapeHtml(c.licenca || "");
+  const pagina = escapeHtml(c.pagina || "");
+  return `<p class="drawer__credit">Foto: ${autor} · <a href="${pagina}" target="_blank" rel="noopener">licença ${licenca}</a> · Wikimedia Commons</p>`;
+}
+
 function ervaDetailHtml(e) {
   const [titulo, sub] = splitName(e.nome);
   const en = ENERGIAS.find(x => x.k === e.energia);
@@ -1729,6 +1738,7 @@ function ervaDetailHtml(e) {
   const used = usedInHtml(e);
   return `
     <div class="drawer__hero">${herbThumbHtml(e)}</div>
+    ${herbCreditHtml(e)}
     <h2 class="drawer__title">${escapeHtml(titulo)}</h2>
     <p class="drawer__sub">${escapeHtml(e.nomePopular || sub)}</p>
     <div class="drawer__chips">
