@@ -16,8 +16,8 @@
 - [x] T008 As 12 fotos originais (geradas por IA): trocar todas por fotos do Commons com `baixar.py`, seguindo os mesmos critérios da T007. Atende RF-04. · commit: `4978d2f`
 
 ## Fase 3 — Site
-- [x] T009 Crédito na ficha: em `script/script.js`, renderizar `.drawer__credit` abaixo do `drawer__hero`. Em `styles/styles.css`, a classe na camada final (`font-size: .78rem; color: var(--muted)`; link com `var(--accent)`). Incluir `data/creditos-fotos.js` em todo HTML que inclui `data/ervas.js`. Atende RF-05. · commit: ``
-- [ ] T010 `sw.js`: `data/creditos-fotos.js` e as fotos novas no `PRECACHE`; `CACHE_VERSION` +1. Atende RF-08 e CA-05. · commit: ``
+- [x] T009 Crédito na ficha: em `script/script.js`, renderizar `.drawer__credit` abaixo do `drawer__hero`. Em `styles/styles.css`, a classe na camada final (`font-size: .78rem; color: var(--muted)`; link com `var(--accent)`). Incluir `data/creditos-fotos.js` em todo HTML que inclui `data/ervas.js`. Atende RF-05. · commit: `f016fd9`
+- [x] T010 `sw.js`: `data/creditos-fotos.js` e as fotos novas no `PRECACHE`; `CACHE_VERSION` +1. Atende RF-08 e CA-05. · commit: ``
 
 ## Fase 4 — Verificação e entrega
 - [ ] T011 Rodar `verificar.py` (0 falhas) e `gerar.py` (sem diferença no git). Abrir `plantas.html#jiboia`, `#palmeira` e `#hibisco` a 1440 px e a 375 px e offline; console limpo e sem rolagem lateral. Atende CA-01 a CA-06. · commit: ``
