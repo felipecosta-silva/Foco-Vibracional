@@ -628,5 +628,125 @@
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "dhash": "7bce9a79fb8f96b4",
     "baixadoEm": "2026-10-25"
+  },
+  "arruda": {
+    "arquivo": "images/arruda.jpg",
+    "commons": "File:Starr-120403-4108-Ruta graveolens-leaves-Kula-Maui (24770751639).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-120403-4108-Ruta_graveolens-leaves-Kula-Maui_(24770751639).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+    "dhash": "a4c924e16366ceac",
+    "baixadoEm": "2026-10-25"
+  },
+  "guine": {
+    "arquivo": "images/guine.jpg",
+    "commons": "File:Petiveria alliacea leaves in West Bengal, India.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Petiveria_alliacea_leaves_in_West_Bengal,_India.jpg",
+    "autor": "Billjones94",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "838b312589d95961",
+    "baixadoEm": "2026-10-25"
+  },
+  "alecrim": {
+    "arquivo": "images/alecrim.jpg",
+    "commons": "File:Rosmarinus officinalis (1).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_(1).jpg",
+    "autor": "T137",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "0b3b7d1cd4852586",
+    "baixadoEm": "2026-10-25"
+  },
+  "manjericao": {
+    "arquivo": "images/manjericao.jpg",
+    "commons": "File:Ocimum basilicum (Leaves).JPG",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Ocimum_basilicum_(Leaves).JPG",
+    "autor": "Eric Chan W.C.",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "59687451d32a290c",
+    "baixadoEm": "2026-10-25"
+  },
+  "espada-sao-jorge": {
+    "arquivo": "images/espada-sao-jorge.jpg",
+    "commons": "File:Sansevieria trifasciata Plant 3264px.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Sansevieria_trifasciata_Plant_3264px.jpg",
+    "autor": "Photo by and (c)2006 Derek Ramsey ( Ram-Man ). Location credit to the Chanticleer Garden.",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "dhash": "db5ac683cacad3c9",
+    "baixadoEm": "2026-10-25"
+  },
+  "boldo": {
+    "arquivo": "images/boldo.jpg",
+    "commons": "File:Plectranthus barbatus kz01.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Plectranthus_barbatus_kz01.jpg",
+    "autor": "Krzysztof Ziarnek, Kenraiz",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "8482a61dc2e7e766",
+    "baixadoEm": "2026-10-25"
+  },
+  "alfazema": {
+    "arquivo": "images/alfazema.jpg",
+    "commons": "File:Lavandula dentata 2.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Lavandula_dentata_2.jpg",
+    "autor": "Nanosanchez",
+    "licenca": "Public domain",
+    "licencaUrl": "",
+    "dhash": "b18687b9490f27ab",
+    "baixadoEm": "2026-10-25"
+  },
+  "camomila": {
+    "arquivo": "images/camomila.jpg",
+    "commons": "File:Matricaria recutita inflorescence.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Matricaria_recutita_inflorescence.jpg",
+    "autor": "Nefronus",
+    "licenca": "CC0",
+    "licencaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "dhash": "62b2294d1699954d",
+    "baixadoEm": "2026-10-25"
+  },
+  "louro": {
+    "arquivo": "images/louro.jpg",
+    "commons": "File:Laurus-nobilis-Sitia-Crete.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Laurus-nobilis-Sitia-Crete.jpg",
+    "autor": "Petro Stelte",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "276d4c4a5ad16666",
+    "baixadoEm": "2026-10-25"
+  },
+  "capim-limao": {
+    "arquivo": "images/capim-limao.jpg",
+    "commons": "File:Lemongrass (Cymbopogon citratus).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Lemongrass_(Cymbopogon_citratus).jpg",
+    "autor": "Mokkie",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "c36aac6424e5b112",
+    "baixadoEm": "2026-10-25"
+  },
+  "hortela": {
+    "arquivo": "images/hortela.jpg",
+    "commons": "File:Mint leaves (Mentha spicata).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Mint_leaves_(Mentha_spicata).jpg",
+    "autor": "Commonists",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "c5f732891e93c90d",
+    "baixadoEm": "2026-10-25"
+  },
+  "jurema-preta": {
+    "arquivo": "images/jurema-preta.jpg",
+    "commons": "File:Mimosa -tenuiflora-Jurema.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Mimosa_-tenuiflora-Jurema.jpg",
+    "autor": "Drewpiter",
+    "licenca": "CC BY 2.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/2.0",
+    "dhash": "672d42cba3979795",
+    "baixadoEm": "2026-10-25"
   }
 }

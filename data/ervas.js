@@ -132,7 +132,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (apenas do pescoço para baixo)",
-  "imagem": "./images/espada.jpg",
+  "imagem": "./images/espada-sao-jorge.jpg",
   "descricao": "Escudo de corte contra inveja, demandas e línguas de fogo. Corta os laços fluídicos nocivos e ancora a coragem de um guerreiro.",
   "diferenciacao": "ESPADA DE OGUM vs. ESPADA DE SANTA BÁRBARA:\n• Espada de São Jorge (Ogum): Folha verde-escura pura com estrias acinzentadas, sem bordas amarelas. Simboliza a lâmina de ferro e o corte de demandas na porteira.\n• Espada de Santa Bárbara (Iansã): Folha com bordas amarelas douradas marcantes. Simboliza o raio, a velocidade dos ventos e o fogo que transmuta e limpa o ambiente.",
   "colheita": "Cortar em 7 pedaços transversais (simbolismo guerreiro) ao colher para banho, com tesoura limpa.",
@@ -271,7 +271,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sim (clareza mental e desobstrução)",
-  "imagem": "./images/capim_limao.jpg",
+  "imagem": "./images/capim-limao.jpg",
   "descricao": "Proporciona desanuviamento da mente cheia de problemas. Refresca o campo áurico e traz equilíbrio para quem sofre de estresse crônico.",
   "diferenciacao": "CAPIM-SANTO (Capim) vs. ERVA-CIDREIRA (Melisso): Ambas calmantes com aroma cítrico, mas o capim-santo possui folhas em navalha compridas com ação mais rápida de desanuviamento mental.",
   "colheita": "Cortar as folhas verdes com cuidado para não ferir as mãos.",
@@ -330,7 +330,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Sob orientação tradicional de um Juremeiro",
-  "imagem": "./images/jurema.jpg",
+  "imagem": "./images/jurema-preta.jpg",
   "descricao": "A árvore mestra da tradição nordestina, o portal sagrado dos Mestres, Caboclos e Encantados. Ensina a firmeza, a resiliência na seca e a comunhão com o invisível.",
   "diferenciacao": "JUREMA PRETA vs. JUREMA BRANCA:\n• Jurema-Preta: Tronco escuro com espinhos fortes, casca rica em substâncias sagradas; é o tronco mestre de assentamento, firmeza e cura profunda.\n• Jurema-Branca: Tronco mais claro, folhas menores, energia mais branda e acolhedora de paz e oração.",
   "colheita": "Feita exclusivamente com preceito, cantiga de licença e respeito à raiz e ao tronco da Jurema Sagrada.",
