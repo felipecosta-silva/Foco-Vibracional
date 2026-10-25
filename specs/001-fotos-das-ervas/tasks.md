@@ -7,7 +7,7 @@
 - [x] T001 Instalar `pillow` e `requests`. Criar `tools/fotos/commons.py` com: `info(arquivo)` (consulta à API, licença validada, autor sem HTML), `baixar_thumb(url)`, `comprimir(bytes) -> bytes` (≤ 150 KB, ≤ 900 px, sem EXIF) e `dhash(imagem) -> hex`. Atende RF-02, RF-06, RF-08. · commit: `81d1c3c`
 - [x] T002 `tools/fotos/baixar.py <id> "File:..."`: usa `commons.py`, salva `images/<id>.jpg` e grava ou atualiza o registro em `creditos.json`. Recusa licença não aceita. Atende RF-02. · commit: `08be40d`
 - [x] T003 `tools/fotos/verificar.py`: para cada erva de `data/ervas.js`, checa (a) foto existe, (b) ≤ 150 KB e ≤ 900 px, (c) registro em `creditos.json`, (d) API: arquivo existe, autor e licença iguais, (e) dHash ≤ 10. Imprime uma tabela e sai com código 1 se houver falha. Atende RF-03 e CA-01. · commit: `cb60365`
-- [ ] T004 `tools/fotos/gerar.py`: gera `data/creditos-fotos.js` e `images/CREDITOS.md` (tabela: erva, arquivo, autor, licença, link). Criar `tools/fotos/README.md`. Atende CA-04. · commit: ``
+- [x] T004 `tools/fotos/gerar.py`: gera `data/creditos-fotos.js` e `images/CREDITOS.md` (tabela: erva, arquivo, autor, licença, link). Criar `tools/fotos/README.md`. Atende CA-04. · commit: `c338e2e`
 
 ## Fase 2 — Fotos
 - [ ] T005 Importar as 49 fotos da Fase 9: para cada linha da seção 2 do `CREDITOS.md` atual, crie o registro com o arquivo citado **pela API** (não copie o autor da tabela) e rode o `verificar.py`. Liste no registro quais passaram e quais falharam. Atende RF-03. · commit: ``

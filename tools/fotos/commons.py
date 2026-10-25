@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional, Tuple, Union
 from PIL import Image
 import requests
 
-USER_AGENT = "FocoVibracional/1.0 (felipecosta-silva.github.io)"
+USER_AGENT = "FocoVibracionalBot/1.0 (https://felipecosta-silva.github.io/Foco-Vibracional/; tascom@gmail.com)"
 API_ENDPOINT = "https://commons.wikimedia.org/w/api.php"
 MAX_WIDTH = 900
 MAX_BYTES = 150 * 1024  # 153.600 bytes (150 KB)
@@ -27,13 +27,39 @@ LICENCA_REGEX = re.compile(
 _LAST_REQUEST_TIME = 0.0
 
 
-def _rate_limit(min_interval: float = 1.0):
+def _rate_limit(min_interval: float = 1.2):
     global _LAST_REQUEST_TIME
     now = time.time()
     elapsed = now - _LAST_REQUEST_TIME
     if elapsed < min_interval:
         time.sleep(min_interval - elapsed)
     _LAST_REQUEST_TIME = time.time()
+
+
+def _request_com_retry(url: str, params: Optional[dict] = None, timeout: int = 25, max_retries: int = 5) -> requests.Response:
+    headers = {"User-Agent": USER_AGENT}
+    resp = None
+    for tentativa in range(max_retries):
+        _rate_limit(1.2)
+        try:
+            resp = requests.get(url, params=params, headers=headers, timeout=timeout)
+            if resp.status_code in (429, 502, 503, 504):
+                espera = int(resp.headers.get("Retry-After", 2 ** (tentativa + 1) + 2))
+                print(f"[!] Commons retornou status {resp.status_code}. Aguardando {espera}s para tentar novamente...")
+                time.sleep(espera)
+                continue
+            resp.raise_for_status()
+            return resp
+        except (requests.exceptions.RequestException) as e:
+            if tentativa == max_retries - 1:
+                raise
+            espera = 2 ** (tentativa + 1) + 1
+            print(f"[!] Erro de conexao ({e}). Aguardando {espera}s...")
+            time.sleep(espera)
+    if resp is not None:
+        resp.raise_for_status()
+        return resp
+    raise RuntimeError("Falha na requisicao apos retries")
 
 
 def normalizar_nome_arquivo(nome: str) -> str:
@@ -85,10 +111,7 @@ def info(arquivo: str) -> Dict[str, Any]:
         "iiprop": "url|size|mime|extmetadata|user",
         "iiurlwidth": str(MAX_WIDTH)
     }
-    headers = {"User-Agent": USER_AGENT}
-
-    resp = requests.get(API_ENDPOINT, params=params, headers=headers, timeout=15)
-    resp.raise_for_status()
+    resp = _request_com_retry(API_ENDPOINT, params=params, timeout=25)
     data = resp.json()
 
     pages = data.get("query", {}).get("pages", {})
@@ -140,11 +163,8 @@ def info(arquivo: str) -> Dict[str, Any]:
 
 
 def baixar_thumb(url: str) -> bytes:
-    """Baixa o arquivo da URL com User-Agent apropriado."""
-    _rate_limit(1.0)
-    headers = {"User-Agent": USER_AGENT}
-    resp = requests.get(url, headers=headers, timeout=30)
-    resp.raise_for_status()
+    """Baixa o arquivo da URL com User-Agent apropriado e retry automatico."""
+    resp = _request_com_retry(url, timeout=35)
     return resp.content
 
 
