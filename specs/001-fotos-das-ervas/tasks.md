@@ -11,8 +11,8 @@
 
 ## Fase 2 — Fotos
 - [x] T005 Importar as 49 fotos da Fase 9: para cada linha da seção 2 do `CREDITOS.md` atual, crie o registro com o arquivo citado **pela API** (não copie o autor da tabela) e rode o `verificar.py`. Liste no registro quais passaram e quais falharam. Atende RF-03. · commit: `ae62145`
-- [ ] T006 Para cada foto que falhou na T005: rode `baixar.py` com o arquivo citado, se ele mostrar a espécie certa, ou com outro arquivo escolhido por você. Atende RF-03 e RF-07. · commit: ``
-- [ ] T007 As 14 ervas sem foto: escolha um arquivo do Commons por erva (veja os riscos no plano §4) e rode `baixar.py`. Preencha `"imagem"` em `data/ervas.js`. Atende RF-01 e RF-07. · commit: ``
+- [x] T006 Para cada foto que falhou na T005: rode `baixar.py` com o arquivo citado, se ele mostrar a espécie certa, ou com outro arquivo escolhido por você. Atende RF-03 e RF-07. · commit: `d098f64`
+- [x] T007 As 14 ervas sem foto: escolha um arquivo do Commons por erva (veja os riscos no plano §4) e rode `baixar.py`. Preencha `"imagem"` em `data/ervas.js`. Atende RF-01 e RF-07. · commit: ``
 - [ ] T008 As 12 fotos originais (geradas por IA): trocar todas por fotos do Commons com `baixar.py`, seguindo os mesmos critérios da T007. Atende RF-04. · commit: ``
 
 ## Fase 3 — Site

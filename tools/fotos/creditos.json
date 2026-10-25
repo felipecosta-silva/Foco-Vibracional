@@ -488,5 +488,145 @@
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "dhash": "75459b6ac0707162",
     "baixadoEm": "2026-10-25"
+  },
+  "ora-pro-nobis": {
+    "arquivo": "images/ora-pro-nobis.jpg",
+    "commons": "File:Starr-120522-6247-Pereskia aculeata-leaves-Iao Tropical Gardens of Maui-Maui (24512700604).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-120522-6247-Pereskia_aculeata-leaves-Iao_Tropical_Gardens_of_Maui-Maui_(24512700604).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+    "dhash": "a31f6d2d3d1a99de",
+    "baixadoEm": "2026-10-25"
+  },
+  "buganvilia": {
+    "arquivo": "images/buganvilia.jpg",
+    "commons": "File:Bougainvillea spectabilis 01.JPG",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bougainvillea_spectabilis_01.JPG",
+    "autor": "Prenn",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "270d4e6b391b9f2a",
+    "baixadoEm": "2026-10-25"
+  },
+  "onze-horas": {
+    "arquivo": "images/onze-horas.jpg",
+    "commons": "File:Portulaca grandiflora 26032014.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Portulaca_grandiflora_26032014.jpg",
+    "autor": "Joydeep",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "9a2e46c64a78f2d2",
+    "baixadoEm": "2026-10-25"
+  },
+  "jasmim": {
+    "arquivo": "images/jasmim.jpg",
+    "commons": "File:Jasminum officinale (2464481307).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Jasminum_officinale_(2464481307).jpg",
+    "autor": "Dinesh Valke from Thane, India",
+    "licenca": "CC BY-SA 2.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "dhash": "ed75b3abce75352c",
+    "baixadoEm": "2026-10-25"
+  },
+  "palmeira": {
+    "arquivo": "images/palmeira.jpg",
+    "commons": "File:Dypsis lutescens (Family Arecaceae) - leaves close-up.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Dypsis_lutescens_(Family_Arecaceae)_-_leaves_close-up.jpg",
+    "autor": "Juan Carlos Fonseca Mata",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "b5d5e232852ac7de",
+    "baixadoEm": "2026-10-25"
+  },
+  "jiboia": {
+    "arquivo": "images/jiboia.jpg",
+    "commons": "File:Epipremnum aureum 31082012.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_31082012.jpg",
+    "autor": "Joydeep",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "645653272737320e",
+    "baixadoEm": "2026-10-25"
+  },
+  "zamioculca": {
+    "arquivo": "images/zamioculca.jpg",
+    "commons": "File:Zamioculcas zamiifolia 1.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Zamioculcas_zamiifolia_1.jpg",
+    "autor": "User:WeFt",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "dhash": "606958dcc47879f1",
+    "baixadoEm": "2026-10-25"
+  },
+  "pimenteira": {
+    "arquivo": "images/pimenteira.jpg",
+    "commons": "File:Capsicum frutescens Tabasco.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_Tabasco.jpg",
+    "autor": "Schubbay",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "a1b11088c8ccca42",
+    "baixadoEm": "2026-10-25"
+  },
+  "babosa": {
+    "arquivo": "images/babosa.jpg",
+    "commons": "File:Aloe vera Lanzarote.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Aloe_vera_Lanzarote.jpg",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "60a89d05c2b1e039",
+    "baixadoEm": "2026-10-25"
+  },
+  "maracuja": {
+    "arquivo": "images/maracuja.jpg",
+    "commons": "File:Passiflora edulis flower and fruit.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Passiflora_edulis_flower_and_fruit.jpg",
+    "autor": "Heydew",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "101c7643397085d4",
+    "baixadoEm": "2026-10-25"
+  },
+  "abacaxi-roxo": {
+    "arquivo": "images/abacaxi-roxo.jpg",
+    "commons": "File:Moses in the cradle (Tradescantia spathacea).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Moses_in_the_cradle_(Tradescantia_spathacea).jpg",
+    "autor": "Mokkie",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "dhash": "9482c266ec98ac64",
+    "baixadoEm": "2026-10-25"
+  },
+  "trevo-roxo": {
+    "arquivo": "images/trevo-roxo.jpg",
+    "commons": "File:(MHNT) Oxalis triangularis - Leaves.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:(MHNT)_Oxalis_triangularis_-_Leaves.jpg",
+    "autor": "Didier Descouens",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "673169cf8e37b44c",
+    "baixadoEm": "2026-10-25"
+  },
+  "peregun-roxo": {
+    "arquivo": "images/peregun-roxo.jpg",
+    "commons": "File:Red Cordyline fruticosa.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Red_Cordyline_fruticosa.jpg",
+    "autor": "Aaron Lucas",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "02444d6360b333a4",
+    "baixadoEm": "2026-10-25"
+  },
+  "hibisco": {
+    "arquivo": "images/hibisco.jpg",
+    "commons": "File:Red Hibiscus rosa-sinensis flower close-up.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Red_Hibiscus_rosa-sinensis_flower_close-up.jpg",
+    "autor": "Saadtitan12",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "dhash": "7bce9a79fb8f96b4",
+    "baixadoEm": "2026-10-25"
   }
 }

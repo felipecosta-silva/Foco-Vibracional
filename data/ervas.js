@@ -1692,6 +1692,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Não recomendado na cabeça (uso do pescoço para baixo devido à mucilagem densa)",
+   "imagem": "./images/ora-pro-nobis.jpg",
   "descricao": "Cacto trepadeira de folhas verdes e carnudas, altamente nutritivo (PANC). Traz o arquétipo do sustento que brota do chão simples, a firmeza física e a fartura duradoura.",
   "diferenciacao": "Ao ser macerada em água fresca, sua folha libera uma baba (mucilagem) rica em proteínas e polissacarídeos que amacia profundamente a água do banho, envolvendo o corpo em sensação de nutrição e acolhimento.",
   "colheita": "Colher com luvas grossas devido aos espinhos pontiagudos nos caules. Selecionar folhas verdes, viçosas e limpas, preferencialmente pela manhã.",
@@ -1716,6 +1717,7 @@ window.FV_DATA.ervas = [
    "brácteas"
   ],
   "cabeca": "Sim, quando preparado exclusivamente com as brácteas coloridas despetaladas e limpas (sem galhos, sem espinhos e sem folhas verdes)",
+   "imagem": "./images/buganvilia.jpg",
   "descricao": "Trepadeira rústica e vigorosa que floresce no sol forte e escala muros e rochas com resiliência. Suas cores vivas transmitem alegria, beleza, doçura e a capacidade de fazer brotar luz mesmo nos terrenos mais áridos.",
   "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.",
   "colheita": "Colher as brácteas coloridas com delicadeza, usando luvas para se proteger dos espinhos dos caules. Descartar caules e folhas verdes.",
@@ -1740,6 +1742,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Não (banho solar feito do pescoço para baixo)",
+   "imagem": "./images/onze-horas.jpg",
   "descricao": "Suculenta rasteira de flores coloridas e brilhantes que só se abrem plenamente sob o sol alto do meio do dia. Traz o ensinamento do tempo certo: a flor que espera a luz para se abrir, despertando paciência, alegria solar e sincronia com as oportunidades.",
   "diferenciacao": "As flores abrem por volta das 11h da manhã e se fecham à tarde ou em dias nublados e chuvosos. Essa dança com a luz solar faz dela um condensador natural de vitalidade e bom humor.",
   "colheita": "Colher as flores abertas no fim da manhã (perto das 11h), em dia ensolarado, para uso imediato no banho fresco.",
@@ -1765,6 +1768,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Sim (excelente para a coroa/Ori, acalma os pensamentos e clareia a visão íntima)",
+   "imagem": "./images/jasmim.jpg",
   "descricao": "Flor aristocrática de perfume inebriante e doce, reverenciada pela espiritualidade como símbolo da pureza, elevação de consciência e nobreza da alma. Ajuda a silenciar o barulho mental, serena o sono e favorece a percepção espiritual com calma.",
   "diferenciacao": "• Com Buganvília (Primavera): Forma o banho clássico de encanto, autoestima e firmeza íntima na Linha das Mestras da Jurema.\n• Com Rosa Branca: Alinha a paz da mente e o sono reparador sob a luz de Oxalá e Iemanjá.\n• Sozinho: o perfume ajuda a desfazer amargura e sensação de abandono.",
   "colheita": "Colher as flores preferencialmente ao anoitecer ou nas primeiras horas da manhã, momentos em que a concentração de óleos aromáticos nas pétalas é máxima.",
@@ -1789,6 +1793,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Não. Usada apenas em defumação e proteção de ambiente",
+   "imagem": "./images/palmeira.jpg",
   "descricao": "Símbolo ancestral de vitória, acolhimento e proteção de espaços sagrados. Presente tanto na tradição cristã popular quanto nos cultos de matriz africana, onde a folha desfiada do dendezeiro (mariwô) guarda os portais contra negatividades.",
   "diferenciacao": "RAMO BENTO DO DOMINGO DE RAMOS vs. MARIWÔ:\n• Ramo Bento: Guardado atrás de portas e crucifixos; na tradição católica popular, queima-se um pedaço seco na brasa durante temporais com preces a Santa Bárbara.\n• Mariwô de Ogum: No candomblé e na umbanda, as folhas desfiadas do dendezeiro coroam portais e janelas como insígnia sagrada de sentinela e corte de invasões espirituais.",
   "colheita": "Coleta sustentável das palhas secas já caídas da árvore, ou ramos bentos abençoados em celebrações pascais.",
@@ -1812,6 +1817,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+   "imagem": "./images/jiboia.jpg",
   "descricao": "Planta ornamental de folhagem exuberante e resistente que ocupa cantos de sombra e deixa o ambiente mais vivo. Muito cultivada em vasos suspensos no lar para acompanhar o ritmo da casa e manter o ambiente vivo e acolhedor.",
   "diferenciacao": "Uso exclusivamente ornamental e de ambiente doméstico. Não possui fundamento ritualístico de terreiro tradicional: sua presença atua na harmonização visual e psicológica dos cômodos através da biofilia e do verde constante.",
   "colheita": "Para propagação em água ou terra, corte estacas abaixo do nó foliar usando tesoura limpa e luvas de proteção.",
@@ -1835,6 +1841,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+   "imagem": "./images/zamioculca.jpg",
   "descricao": "Suculenta de folhas verdes profundas e brilhantes, famosa pela sua extrema resiliência e baixa exigência de água e luz. No costume popular urbano e no Feng Shui, simboliza firmeza, constância e prosperidade que resiste a tempos difíceis.",
   "diferenciacao": "Diferencia-se pela solidez: armazena água em suas batatas subterrâneas (rizomas), ensinando a poupar energia e crescer com firmeza. Muito colocada em recepções, entradas de lojas, escritórios e salas de estar.",
   "colheita": "Propagação por divisão de touceira ou estacas de folhas em terra aerada, sempre com luvas.",
@@ -1859,6 +1866,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
+   "imagem": "./images/pimenteira.jpg",
   "descricao": "A clássica sentinela viva do portal. O fogo rubro de suas pimentas atua como um escudo magnético que desmancha olho-gordo, inveja e atritos antes de cruzarem a soleira da porta.",
   "diferenciacao": "MALAGUETA vs. BIQUINHO:\n• Pimenta Malagueta: Ardida e picante, o arquétipo tradicional de guarda e choque energético na porta de entrada.\n• Pimenta Biquinho: Aromática e quase sem ardência (capsaicina branda), ideal para quem tem crianças e pets e busca a mesma firmeza de proteção com menor risco de acidentes de contato.",
   "colheita": "Colher os frutos maduros com luvas ou tesoura, evitando o contato dos dedos com os olhos.",
@@ -1882,6 +1890,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho ritualístico tradicional",
+   "imagem": "./images/babosa.jpg",
   "descricao": "Suculenta lendária de folhas espessas com espinhos laterais suaves e polpa gelatinosa transparente. Cultivada em canteiros e vasos na entrada da casa como escudo vegetal que neutraliza inveja e atrai regeneração física e espiritual.",
   "diferenciacao": "GEL TRANSPARENTE vs. LÁTEX AMARELO (ALOÍNA):\n• Gel transparente interno: Emoliente, calmante e cicatrizante comprovado da pele em uso cosmético e dermatológico.\n• Látex amarelo junto à casca: Rico em aloína, substância amarga e irritante que pode provocar dermatites em peles sensíveis e intoxicação em cães e gatos se ingerido.",
   "colheita": "Cortar folhas basais maduras rente ao caule com faca afiada. Deixar escorrer o látex amarelo verticalmente antes de manipular.",
@@ -1905,6 +1914,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Do pescoço para baixo (traz sonolência e relaxamento profundo)",
+   "imagem": "./images/maracuja.jpg",
   "descricao": "Trepadeira vigorosa de folhas recortadas e flor espetacular, tradicionalmente usada como calmante. Na fitoenergia, é o bálsamo que ajuda a desatar a ansiedade, desacelerar os pensamentos e preparar o corpo para o sono.",
   "diferenciacao": "FOLHA DO MARACUJAZEIRO vs. FRUTO:\n• As folhas concentram a ação sedativa e calmante para banhos noturnos de serenidade.\n• Combinação clássica: Com erva-cidreira (melissa) e camomila, forma uma combinação clássica e suave para a hora de dormir.",
   "colheita": "Colher folhas verdes sadias ao entardecer, lavando bem em água corrente antes da infusão morna.",
@@ -1929,6 +1939,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca na cabeça (somente do pescoço para baixo)",
+   "imagem": "./images/abacaxi-roxo.jpg",
   "descricao": "Herbácea exuberante de folhas espadas bicolores: verde-esmeralda intenso na face superior e roxo-brilhante na face inferior. Atua como escudo magnético cortante contra inveja pesada, mau-olhado e energias intrusas que tentam romper as defesas do lar.",
   "diferenciacao": "Diferencia-se pela força da pigmentação roxa sob a folha espessa: na fitoenergia de terreiro, o roxo atua transmutando e desmanchando miasmas colados ao chão astral. Muito plantada em vasos de soleira e canteiros de entrada.",
   "colheita": "Cortar as folhas inteiras pela manhã com tesoura de poda, usando luvas para evitar contato direto da seiva com a pele.",
@@ -1953,6 +1964,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Do pescoço para baixo (ou apenas borrifação suave no ambiente)",
+   "imagem": "./images/trevo-roxo.jpg",
   "descricao": "Delicada planta de folhas triangulares roxo-profundas que se movem com o ciclo solar: abrem-se graciosamente à luz do dia e fecham-se ao anoitecer em recolhimento. Vibra na energia da Trindade sagrada, destrancando caminhos de fartura e transmutando amarguras em boa sorte.",
   "diferenciacao": "Diferencia-se pelo movimento nictinástico diário (abertura e fechamento das folhas), ensinando a sabedoria do tempo e a harmonia entre ação e recolhimento. Sua tríade foliar atrai magnetismo positivo para o lar e comércio.",
   "colheita": "Colher folhas tenras pela manhã com delicadeza enquanto estiverem abertas e ensolaradas.",
@@ -1977,6 +1989,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (erva de guerra do pescoço para baixo)",
+   "imagem": "./images/peregun-roxo.jpg",
   "descricao": "Estandarte vegetal sagrado da linha de fogo, consagrado a Ogum e Iansã. Suas folhas largas em tons de vinho, bordô e roxo-avermelhado carregam o vigor da guerra justa, ajudando a afastar energias densas e a reerguer a coragem.",
   "diferenciacao": "PEREGUN VERDE vs. PEREGUN ROXO:\n• Peregun Verde: Ligado a Oxóssi e Ossaim, vibra na fartura, frescor e rejuvenescimento das matas.\n• Peregun Roxo: Ligado à espada de ferro de Ogum e ao fogo de Iansã, atua no confronto enérgico e sacudimento de forças densas.",
   "colheita": "Colher folhas maduras e firmes pedindo licença aos Guardiões da Lei e às forças guerreiras das matas.",
@@ -2001,6 +2014,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Pétalas frescas e puras podem ir na cabeça em banhos de flores; para atração afetiva, focar no cardíaco do pescoço para baixo",
+   "imagem": "./images/hibisco.jpg",
   "descricao": "Flor solar de pétalas aveludadas rubras e centro radiante, símbolo do amor-próprio restaurado, da coragem de brilhar e do magnetismo afetivo limpo. Acolhe o coração magoado, afasta a melancolia e estimula o despertar do encanto pessoal.",
   "diferenciacao": "Diferencia-se pela doçura magnética: não faz amarrações, mas expande a autoestima e a autoconfiança de dentro para fora, atraindo relações recíprocas e respeito.",
   "colheita": "Colher as flores recém-abertas nas primeiras horas da manhã. Para defumação, secar as pétalas à sombra sobre papel limpo.",
