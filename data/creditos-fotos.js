@@ -42,11 +42,11 @@ window.FV_DATA.creditosFotos = {
   },
   "amora": {
     "arquivo": "images/amora.jpg",
-    "commons": "File:Black Mulberry Female Flowers.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Black_Mulberry_Female_Flowers.jpg",
-    "autor": "JJ Harrison ( https://www.jjharrison.com.au/ )",
-    "licenca": "CC BY-SA 3.0",
-    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    "commons": "File:Morus nigra - Leaf upside.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Morus_nigra_-_Leaf_upside.jpg",
+    "autor": "Clonewayx",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   "anis-estrelado": {
     "arquivo": "images/anis-estrelado.jpg",
@@ -66,11 +66,11 @@ window.FV_DATA.creditosFotos = {
   },
   "aroeira": {
     "arquivo": "images/aroeira.jpg",
-    "commons": "File:Schinus terebinthifolius 00537.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_00537.jpg",
-    "autor": "Juan Carlos Fonseca Mata",
-    "licenca": "CC BY-SA 4.0",
-    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    "commons": "File:Schinus terebinthifolius - La Gomera 03.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_-_La_Gomera_03.jpg",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "arruda": {
     "arquivo": "images/arruda.jpg",
@@ -90,11 +90,11 @@ window.FV_DATA.creditosFotos = {
   },
   "babosa": {
     "arquivo": "images/babosa.jpg",
-    "commons": "File:Aloe vera Lanzarote.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Aloe_vera_Lanzarote.jpg",
-    "autor": "H. Zell",
-    "licenca": "CC BY-SA 3.0",
-    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    "commons": "File:Aloe vera plant in flower pot.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Aloe_vera_plant_in_flower_pot.jpg",
+    "autor": "Praneethpjv",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
   "boldo": {
     "arquivo": "images/boldo.jpg",
@@ -122,9 +122,9 @@ window.FV_DATA.creditosFotos = {
   },
   "calendula": {
     "arquivo": "images/calendula.jpg",
-    "commons": "File:Calendula_officinalis_003.JPG",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Calendula_officinalis_003.JPG",
-    "autor": "H. Zell",
+    "commons": "File:Calendula (Calendula officinalis).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Calendula_(Calendula_officinalis).jpg",
+    "autor": "Ввласенко",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
@@ -268,7 +268,7 @@ window.FV_DATA.creditosFotos = {
     "arquivo": "images/goiabeira.jpg",
     "commons": "File:Psidium_guajava_fruit.jpg",
     "pagina": "https://commons.wikimedia.org/wiki/File:Psidium_guajava_fruit.jpg",
-    "autor": "Own work",
+    "autor": "A-giâu",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
   },
@@ -370,11 +370,11 @@ window.FV_DATA.creditosFotos = {
   },
   "manga": {
     "arquivo": "images/manga.jpg",
-    "commons": "File:Mangos - single and halved.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Mangos_-_single_and_halved.jpg",
-    "autor": "Ivar Leidus",
-    "licenca": "CC BY-SA 4.0",
-    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    "commons": "File:Leaves of Mangifera indica, plant in Ratnagiri, Maharashtra, India.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Leaves_of_Mangifera_indica,_plant_in_Ratnagiri,_Maharashtra,_India.jpg",
+    "autor": "IND123456",
+    "licenca": "CC BY 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/4.0"
   },
   "manjericao": {
     "arquivo": "images/manjericao.jpg",
@@ -474,11 +474,11 @@ window.FV_DATA.creditosFotos = {
   },
   "pimenteira": {
     "arquivo": "images/pimenteira.jpg",
-    "commons": "File:Capsicum frutescens Tabasco.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_Tabasco.jpg",
-    "autor": "Schubbay",
-    "licenca": "CC BY-SA 4.0",
-    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    "commons": "File:Capsicum frutescens 'Hidalgo' 003.JPG",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_%27Hidalgo%27_003.JPG",
+    "autor": "H. Zell",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
   "pinhao-roxo": {
     "arquivo": "images/pinhao-roxo.jpg",
@@ -530,11 +530,11 @@ window.FV_DATA.creditosFotos = {
   },
   "rosa-vermelha": {
     "arquivo": "images/rosa-vermelha.jpg",
-    "commons": "File:Wild_Rosa_gallica_Romania.jpg",
-    "pagina": "https://commons.wikimedia.org/wiki/File:Wild_Rosa_gallica_Romania.jpg",
-    "autor": "Bogdan",
-    "licenca": "CC BY-SA 3.0",
-    "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+    "commons": "File:Rose flower at the Lalbaghgarden Bangalore.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg",
+    "autor": "Rameshng at Malayalam Wikipedia",
+    "licenca": "CC BY 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0"
   },
   "saiao": {
     "arquivo": "images/saiao.jpg",

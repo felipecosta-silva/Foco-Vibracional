@@ -12,17 +12,17 @@
 | Alecrim | `alecrim.jpg` | Alecrim-da-horta, Alecrim do campo | T137 | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_(1).jpg) |
 | Alfavaca | `alfavaca.jpg` | *Ocimum gratissimum* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_030202-0053_Ocimum_gratissimum.jpg) |
 | Alfazema (Lavanda) | `alfazema.jpg` | Lavanda, Alfazema de cheiro | Nanosanchez | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lavandula_dentata_2.jpg) |
-| Folha de Amora | `amora.jpg` | *Morus nigra* | JJ Harrison ( https://www.jjharrison.com.au/ ) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Black_Mulberry_Female_Flowers.jpg) |
+| Folha de Amora | `amora.jpg` | *Morus nigra* | Clonewayx | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Morus_nigra_-_Leaf_upside.jpg) |
 | Anis Estrelado | `anis-estrelado.jpg` | *Illicium verum* | Sanjay Acharya | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dried_Star_Anise_Fruit_Seeds.jpg) |
 | Arnica da Horta | `arnica.jpg` | *Lychnophora / Sphagneticola* | Zimbres | CC BY-SA 2.5 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wedelia.jpg) |
-| Aroeira | `aroeira.jpg` | *Schinus terebinthifolia* | Juan Carlos Fonseca Mata | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_00537.jpg) |
+| Aroeira | `aroeira.jpg` | *Schinus terebinthifolia* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_-_La_Gomera_03.jpg) |
 | Arruda | `arruda.jpg` | *Ruta graveolens* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-120403-4108-Ruta_graveolens-leaves-Kula-Maui_(24770751639).jpg) |
 | Artemísia | `artemisia.jpg` | *Artemisia vulgaris* | Fice | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ArtemisiaVulgaris.jpg) |
-| Babosa (Aloe Vera) | `babosa.jpg` | *Aloe vera / Aloe barbadensis* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aloe_vera_Lanzarote.jpg) |
+| Babosa (Aloe Vera) | `babosa.jpg` | *Aloe vera / Aloe barbadensis* | Praneethpjv | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aloe_vera_plant_in_flower_pot.jpg) |
 | Boldo (Tapete de Oxalá) | `boldo.jpg` | Boldo-do-chile, Boldo-baiano, Alumã | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plectranthus_barbatus_kz01.jpg) |
 | Brilhantina | `brilhantina.jpg` | *Pilea microphylla* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_030807-0140_Pilea_microphylla.jpg) |
 | Buganvília | `buganvilia.jpg` | *Bougainvillea spp.* | Prenn | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bougainvillea_spectabilis_01.JPG) |
-| Calêndula | `calendula.jpg` | *Calendula officinalis* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calendula_officinalis_003.JPG) |
+| Calêndula | `calendula.jpg` | *Calendula officinalis* | Ввласенко | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calendula_(Calendula_officinalis).jpg) |
 | Camomila | `camomila.jpg` | Camomila-vulgar, Marcela | Nefronus | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Matricaria_recutita_inflorescence.jpg) |
 | Cana-do-Brejo | `cana-do-brejo.jpg` | *Costus spicatus* | Hans Hillewaert | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Costus_pulverulentus.jpg) |
 | Canela | `canela.jpg` | *Cinnamomum verum* | Simon A. Eugster | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cinnamomum_verum_spices.jpg) |
@@ -40,7 +40,7 @@
 | Folha de Bananeira | `folha-bananeira.jpg` | *Musa spp.* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_050826-4195_Musa_sp..jpg) |
 | Gengibre | `gengibre.jpg` | *Zingiber officinale* | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Koeh-146-no_text.jpg) |
 | Girassol | `girassol.jpg` | Flor do Sol, Ouro Vivo, Flor de Oxum e Oxalá | George Chernilevsky | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunflower_head_2026_G1.jpg) |
-| Folha de Goiabeira | `goiabeira.jpg` | *Psidium guajava* | Own work | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Psidium_guajava_fruit.jpg) |
+| Folha de Goiabeira | `goiabeira.jpg` | *Psidium guajava* | A-giâu | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Psidium_guajava_fruit.jpg) |
 | Guiné | `guine.jpg` | *fêmea* | Billjones94 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Petiveria_alliacea_leaves_in_West_Bengal,_India.jpg) |
 | Hibisco | `hibisco.jpg` | *Hibiscus rosa-sinensis & Hibiscus sabdariffa* | Saadtitan12 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Hibiscus_rosa-sinensis_flower_close-up.jpg) |
 | Hortelã | `hortela.jpg` | Hortelã-pimenta, Hortelã da horta | Commonists | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mint_leaves_(Mentha_spicata).jpg) |
@@ -53,7 +53,7 @@
 | Malva | `malva.jpg` | *Malva sylvestris & Plectranthus spp.* | Alvesgaspar | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mallow_January_2008-1.jpg) |
 | Folha de Mamão | `mamao.jpg` | *Carica papaya* | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carica_papaya_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-029.jpg) |
 | Folha de Mamona | `mamona.jpg` | *Ricinus communis* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ricinus_communis_003.JPG) |
-| Folha de Manga | `manga.jpg` | *Mangifera indica* | Ivar Leidus | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mangos_-_single_and_halved.jpg) |
+| Folha de Manga | `manga.jpg` | *Mangifera indica* | IND123456 | CC BY 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leaves_of_Mangifera_indica,_plant_in_Ratnagiri,_Maharashtra,_India.jpg) |
 | Manjericão | `manjericao.jpg` | Alfavaca cheirosa, Manjericão branco, Manjericão roxo | Eric Chan W.C. | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ocimum_basilicum_(Leaves).JPG) |
 | Manjericão-Roxo | `manjericao-roxo.jpg` | *Ocimum basilicum var. purpurascens* | Megalibrarygirl | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Purple_Basil.jpg) |
 | Manjerona | `manjerona.jpg` | *Origanum majorana* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Origanum_majorana_002.JPG) |
@@ -66,14 +66,14 @@
 | Pata-de-Vaca | `pata-de-vaca.jpg` | *Bauhinia forficata* | Valentino Liberali | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bauhinia_forficata_01.jpg) |
 | Peregum (Peregún) | `peregum.jpg` | *Dracaena fragrans* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dracaena_fragrans_-_Jard%C3%ADn_Bot%C3%A1nico_Canario_Viera_y_Clavijo_-_Gran_Canaria.jpg) |
 | Peregun Roxo (Dracena Roxa) | `peregun-roxo.jpg` | *Cordyline fruticosa / Dracaena* | Aaron Lucas | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Cordyline_fruticosa.jpg) |
-| Pimenteira (Malagueta & Biquinho) | `pimenteira.jpg` | *Capsicum frutescens & Capsicum chinense* | Schubbay | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_Tabasco.jpg) |
+| Pimenteira (Malagueta & Biquinho) | `pimenteira.jpg` | *Capsicum frutescens & Capsicum chinense* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_%27Hidalgo%27_003.JPG) |
 | Pinhão Roxo (Pião Roxo) | `pinhao-roxo.jpg` | *Jatropha gossypiifolia* | Rjcastillo | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jatropha_gossypiifolia_I.jpg) |
 | Folha de Pitangueira | `pitangueira.jpg` | *Eugenia uniflora* | Miguel Axcar | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pitanga-eugenia-uniflora.jpg) |
 | Rosa Amarela | `rosa-amarela.jpg` | *Rosa foetida / Rosa banksiae* | A. Barra | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosa_foetida.jpg) |
 | Rosa Branca | `rosa-branca.jpg` | *Rosa alba* | rosier | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosa_alba_resized.JPG) |
 | Rosa Champanhe | `rosa-champanhe.jpg` | *Rosa sp.* | Hobbykafe | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rose.A.Mailend1.jpg) |
 | Rosa Cor-de-Rosa | `rosa-cor-de-rosa.jpg` | *Rosa centifolia / damascena* | Pierre-Joseph Redouté | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosa_centifolia_foliacea_17.jpg) |
-| Rosa Vermelha | `rosa-vermelha.jpg` | *Rosa gallica* | Bogdan | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wild_Rosa_gallica_Romania.jpg) |
+| Rosa Vermelha | `rosa-vermelha.jpg` | *Rosa gallica* | Rameshng at Malayalam Wikipedia | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg) |
 | Saião (Folha-da-Fortuna) | `saiao.jpg` | *Kalanchoe pinnata / brasiliensis* | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kalanchoe_pinnata_kz1.JPG) |
 | Salsa (Salsinha) | `salsa.jpg` | *Petroselinum crispum* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Petroselinum_crispum_003.JPG) |
 | Sálvia | `salvia.jpg` | *Salvia officinalis* | Kurt Stüber [1] | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Salvia_officinalis0.jpg) |

@@ -12,7 +12,7 @@ from typing import Any, Dict, Optional, Tuple, Union
 from PIL import Image
 import requests
 
-USER_AGENT = "FocoVibracionalBot/1.0 (https://felipecosta-silva.github.io/Foco-Vibracional/; tascom@gmail.com)"
+USER_AGENT = "FocoVibracionalBot/1.0 (https://felipecosta-silva.github.io/Foco-Vibracional/)"
 API_ENDPOINT = "https://commons.wikimedia.org/w/api.php"
 MAX_WIDTH = 900
 MAX_BYTES = 150 * 1024  # 153.600 bytes (150 KB)
@@ -139,7 +139,8 @@ def info(arquivo: str) -> Dict[str, Any]:
     if not autor or autor.lower() in ("wikimedia commons", "unknown", "desconhecido"):
         credit_raw = extmetadata.get("Credit", {}).get("value", "")
         autor = limpar_texto(credit_raw)
-    if not autor:
+    # "Own work" / "Trabalho próprio" descrevem a origem, não o autor: usa quem enviou o arquivo
+    if not autor or autor.lower().strip(" .") in ("own work", "trabalho próprio", "obra própria", "self-photographed"):
         autor = info0.get("user", "")
 
     # Licenca

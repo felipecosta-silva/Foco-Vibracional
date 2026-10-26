@@ -1,6 +1,6 @@
 # Spec 001 — Fotos das ervas com créditos verdadeiros
 
-> **Status:** aprovada
+> **Status:** concluída (ver review.md)
 > **Pedido por:** dono do site em 2026-10-22 · **Escrita por:** Claude
 > Regras: `.specify/memory/constitution.md`
 
@@ -33,12 +33,12 @@
 - Mudar os textos das ervas.
 
 ## 6. Critérios de aceite
-- [ ] **CA-01** `python tools/fotos/verificar.py` termina com **0 falhas** e lista as 75 ervas com foto conferida.
-- [ ] **CA-02** Abrir `plantas.html#jiboia` mostra a foto e, abaixo dela, o crédito com link que abre a página certa no Commons.
-- [ ] **CA-03** Nenhuma foto passa de 150 KB nem de 900 px de largura.
-- [ ] **CA-04** `images/CREDITOS.md` é gerado pela ferramenta e bate com os dados.
-- [ ] **CA-05** Offline (modo avião), as fotos novas aparecem.
-- [ ] **CA-06** Console limpo e sem rolagem lateral a 1440 px e a 375 px.
+- [x] **CA-01** `python tools/fotos/verificar.py` termina com **0 falhas** e lista as 75 ervas com foto conferida.
+- [x] **CA-02** Abrir `plantas.html#jiboia` mostra a foto e, abaixo dela, o crédito com link que abre a página certa no Commons.
+- [x] **CA-03** Nenhuma foto passa de 150 KB nem de 900 px de largura.
+- [x] **CA-04** `images/CREDITOS.md` é gerado pela ferramenta e bate com os dados.
+- [x] **CA-05** Offline (modo avião), as fotos novas aparecem.
+- [x] **CA-06** Console limpo e sem rolagem lateral a 1440 px e a 375 px.
 
 ## 7. Dúvidas resolvidas
 - **As 12 fotos originais são do dono?** Não: foram geradas por IA (Nano Banana). Resposta do dono em 2026-10-22 → trocar pelo Commons (RF-04).
