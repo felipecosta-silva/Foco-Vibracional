@@ -7,6 +7,7 @@
 
 | Erva | Arquivo | Identificação Botânica | Autor / Crédito | Licença | Fonte |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| Folha de Abacateiro | `abacateiro.jpg` | *Persea americana* | Vitaium | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Green_avocado_foliage_(Persea_americana).jpg) |
 | Abacaxi-Roxo | `abacaxi-roxo.jpg` | *Tradescantia spathacea / Rhoeo discolor* | Mokkie | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moses_in_the_cradle_(Tradescantia_spathacea).jpg) |
 | Abre-Caminho | `abre-caminho.jpg` | *Justicia gendarussa* | Vinayaraj | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Justicia_gendarussa_07.JPG) |
 | Alecrim | `alecrim.jpg` | Alecrim-da-horta, Alecrim do campo | T137 | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosmarinus_officinalis_(1).jpg) |
@@ -14,6 +15,7 @@
 | Alfazema (Lavanda) | `alfazema.jpg` | Lavanda, Alfazema de cheiro | Nanosanchez | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lavandula_dentata_2.jpg) |
 | Folha de Amora | `amora.jpg` | *Morus nigra* | Clonewayx | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Morus_nigra_-_Leaf_upside.jpg) |
 | Anis Estrelado | `anis-estrelado.jpg` | *Illicium verum* | Sanjay Acharya | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dried_Star_Anise_Fruit_Seeds.jpg) |
+| Folha de Araçá | `araca.jpg` | *Psidium cattleianum / Psidium spp.* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-030405-0019-Psidium_cattleianum-leaves-Makawao_Forest_Reserve-Maui_(24001246814).jpg) |
 | Arnica da Horta | `arnica.jpg` | *Lychnophora / Sphagneticola* | Zimbres | CC BY-SA 2.5 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wedelia.jpg) |
 | Aroeira | `aroeira.jpg` | *Schinus terebinthifolia* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schinus_terebinthifolius_-_La_Gomera_03.jpg) |
 | Arruda | `arruda.jpg` | *Ruta graveolens* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-120403-4108-Ruta_graveolens-leaves-Kula-Maui_(24770751639).jpg) |
@@ -22,11 +24,14 @@
 | Boldo (Tapete de Oxalá) | `boldo.jpg` | Boldo-do-chile, Boldo-baiano, Alumã | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plectranthus_barbatus_kz01.jpg) |
 | Brilhantina | `brilhantina.jpg` | *Pilea microphylla* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_030807-0140_Pilea_microphylla.jpg) |
 | Buganvília | `buganvilia.jpg` | *Bougainvillea spp.* | Prenn | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bougainvillea_spectabilis_01.JPG) |
+| Folha de Cajá | `caja.jpg` | *Spondias mombin* | Krzysztof Ziarnek, Kenraiz | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spondias_mombin_kz01.jpg) |
+| Folha de Cajueiro | `cajueiro.jpg` | *Anacardium occidentale* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-090618-1281-Anacardium_occidentale-flowers_and_leaves-Haiku-Maui_(24966131915).jpg) |
 | Calêndula | `calendula.jpg` | *Calendula officinalis* | Ввласенко | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Calendula_(Calendula_officinalis).jpg) |
 | Camomila | `camomila.jpg` | Camomila-vulgar, Marcela | Nefronus | CC0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Matricaria_recutita_inflorescence.jpg) |
 | Cana-do-Brejo | `cana-do-brejo.jpg` | *Costus spicatus* | Hans Hillewaert | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Costus_pulverulentus.jpg) |
 | Canela | `canela.jpg` | *Cinnamomum verum* | Simon A. Eugster | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cinnamomum_verum_spices.jpg) |
 | Capim-limão (Capim-santo) | `capim-limao.jpg` | Erva-cidreira de capim, Capim-cidró | Mokkie | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lemongrass_(Cymbopogon_citratus).jpg) |
+| Folha de Caramboleira | `carambola.jpg` | *Averrhoa carambola* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-110330-3832-Averrhoa_carambola-leaves-Garden_of_Eden_Keanae-Maui_(24713135229).jpg) |
 | Coentro | `coentro.jpg` | *Coriandrum sativum* | Didier Descouens | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:(MHNT)_Coriandrum_sativum_-_inflorescence.jpg) |
 | Colônia | `colonia.jpg` | *Alpinia zerumbet* | Semnoz | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:200410_Alpinia_zerumbet_1.JPG) |
 | Comigo-Ninguém-Pode | `comigo-ninguem-pode.jpg` | *Dieffenbachia seguine* | Forest & Kim Starr | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr_061212-2331_Dieffenbachia_seguine.jpg) |
@@ -44,11 +49,14 @@
 | Guiné | `guine.jpg` | *fêmea* | Billjones94 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Petiveria_alliacea_leaves_in_West_Bengal,_India.jpg) |
 | Hibisco | `hibisco.jpg` | *Hibiscus rosa-sinensis & Hibiscus sabdariffa* | Saadtitan12 | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Hibiscus_rosa-sinensis_flower_close-up.jpg) |
 | Hortelã | `hortela.jpg` | Hortelã-pimenta, Hortelã da horta | Commonists | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mint_leaves_(Mentha_spicata).jpg) |
+| Folha de Jambo | `jambo.jpg` | *Syzygium jambos / Syzygium malaccense* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-110330-3878-Syzygium_malaccense-leaves-Garden_of_Eden_Keanae-Maui_(25080877765).jpg) |
 | Jasmim | `jasmim.jpg` | *Jasminum spp.* | Dinesh Valke from Thane, India | CC BY-SA 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jasminum_officinale_(2464481307).jpg) |
+| Folha de Jenipapeiro | `jenipapo.jpg` | *Genipa americana* | Alex Popovkin, Bahia, Brazil from Brazil | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Genipa_americana_L._-_Flickr_-_Alex_Popovkin,_Bahia,_Brazil_(12).jpg) |
 | Jiboia | `jiboia.jpg` | *Epipremnum aureum* | Joydeep | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Epipremnum_aureum_31082012.jpg) |
 | Jurema-Preta | `jurema-preta.jpg` | Mimosa tenuiflora, Pau de Jurema | Drewpiter | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mimosa_-tenuiflora-Jurema.jpg) |
 | Folha e Flor de Laranjeira | `laranjeira.jpg` | *Citrus sinensis* | Ellen Levy Finch ( Elf ) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:OrangeBloss_wb.jpg) |
 | Levante (Alevante) | `levante.jpg` | *Mentha spicata / crispa* | Simon Eugster -- Simon 13:07, 2 July 2006 (UTC) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Minze.jpg) |
+| Folha de Limão (Limoeiro) | `limoeiro.jpg` | *Citrus limon / Citrus latifolia* | Jean-Pol GRANDMONT | CC BY 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Citrus_x_Limon_JPG1b.jpg) |
 | Louro | `louro.jpg` | Loureiro, Folha de louro | Petro Stelte | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Laurus-nobilis-Sitia-Crete.jpg) |
 | Malva | `malva.jpg` | *Malva sylvestris & Plectranthus spp.* | Alvesgaspar | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mallow_January_2008-1.jpg) |
 | Folha de Mamão | `mamao.jpg` | *Carica papaya* | Franz Eugen Köhler, Köhler's Medizinal-Pflanzen | Public domain | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carica_papaya_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-029.jpg) |
@@ -67,6 +75,7 @@
 | Peregum (Peregún) | `peregum.jpg` | *Dracaena fragrans* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dracaena_fragrans_-_Jard%C3%ADn_Bot%C3%A1nico_Canario_Viera_y_Clavijo_-_Gran_Canaria.jpg) |
 | Peregun Roxo (Dracena Roxa) | `peregun-roxo.jpg` | *Cordyline fruticosa / Dracaena* | Aaron Lucas | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Cordyline_fruticosa.jpg) |
 | Pimenteira (Malagueta & Biquinho) | `pimenteira.jpg` | *Capsicum frutescens & Capsicum chinense* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Capsicum_frutescens_%27Hidalgo%27_003.JPG) |
+| Folha de Pinha (Ata / Fruta-do-Conde) | `pinha.jpg` | *Annona squamosa* | Adityamadhav83 | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Annona_squamosa_leaves_at_Madhurawada.JPG) |
 | Pinhão Roxo (Pião Roxo) | `pinhao-roxo.jpg` | *Jatropha gossypiifolia* | Rjcastillo | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jatropha_gossypiifolia_I.jpg) |
 | Folha de Pitangueira | `pitangueira.jpg` | *Eugenia uniflora* | Miguel Axcar | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pitanga-eugenia-uniflora.jpg) |
 | Rosa Amarela | `rosa-amarela.jpg` | *Rosa foetida / Rosa banksiae* | A. Barra | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosa_foetida.jpg) |
@@ -78,6 +87,7 @@
 | Salsa (Salsinha) | `salsa.jpg` | *Petroselinum crispum* | H. Zell | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Petroselinum_crispum_003.JPG) |
 | Sálvia | `salvia.jpg` | *Salvia officinalis* | Kurt Stüber [1] | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Salvia_officinalis0.jpg) |
 | Samambaia | `samambaia.jpg` | *Nephrolepis / Polypodium* | Jaknouse | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nephrolepis_exaltata_indoor0705c.jpg) |
+| Folha de Seriguela (Ciriguela) | `seriguela.jpg` | *Spondias purpurea* | Forest and Kim Starr | CC BY 3.0 us | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starr-090713-2585-Spondias_purpurea-leaves-Lahaina-Maui_(24673869140).jpg) |
 | Tomilho | `tomilho.jpg` | *Thymus vulgaris* | Henry Brisse (upload by user:Abalg ) | CC BY-SA 3.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Thymus_vulgaris1.JPG) |
 | Trevo-Roxo de Três Folhas | `trevo-roxo.jpg` | *Oxalis triangularis* | Didier Descouens | CC BY-SA 4.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:(MHNT)_Oxalis_triangularis_-_Leaves.jpg) |
 | Vence-Demanda | `vence-demanda.jpg` | *Justicia gendarussa e plantas afins, conforme a região* | scott.zona from Miami, Florida, USA | CC BY 2.0 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Justicia_pectoralis_by_Scott_Zona_-_001.jpg) |

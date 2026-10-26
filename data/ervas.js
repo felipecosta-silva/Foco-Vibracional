@@ -915,7 +915,7 @@ window.FV_DATA.ervas = [
   ],
   "cabeca": "NUNCA na cabeça (erva adstringente de chão e descarrego)",
   "descricao": "Uma das plantas mais tradicionais nos terreiros brasileiros. Suas folhas ricas em taninos atuam como um poderoso 'fechamento de corpo' contra vampirismo energético, drenos de vitalidade e feitiços de enfraquecimento.",
-  "diferenciacao": "BROTOS VERDES vs. FOLHAS MADURAS:\n• Brotos Verdes com Alecrim: Banho morno revigorante que estanca o vazamento de energia de quem se sente exaurido sem explicação médica.\n• Folhas Maduras em Decocção: Banhos de assento e lavagens de chão de terreiro para firmar a linha de Ogum e Oxóssi.",
+  "diferenciacao": "BROTOS VERDES vs. FOLHAS MADURAS:\n• Brotos Verdes com Alecrim: Banho morno revigorante que estanca o vazamento de energia de quem se sente exaurido sem explicação médica.\n• Folhas Maduras em Decocção: Banhos de assento e lavagens de chão de terreiro para firmar a linha de Ogum e Oxóssi.\n• Goiabeira vs. Araçá: Ambas de Oxóssi e Caboclos, ricas em taninos curativos. A goiabeira atua na cura mansa do quintal e do lar; o araçá carrega a energia bruta da mata virgem para cortes mais selvagens.",
   "colheita": "Colher brotos e folhas sadias na parte média da árvore com pedido de licença aos Caboclos.",
   "cuidados": "Adstringente; indicada rigorosamente do pescoço para baixo.",
   "tradicao": "Erva de assentamento e firmeza dos Caboclos das matas. Fecha as frestas da aura como se passasse uma cera protetora natural.",
@@ -1620,7 +1620,8 @@ window.FV_DATA.ervas = [
   "descricao": "Folha larga e fresca que serve de 'toalha sagrada': forra o chão de oferendas, embrulha comidas e cobre os trabalhos com frescor e acolhimento.",
   "colheita": "Pedir licença e cortar a folha com faca limpa, sem ferir o 'umbigo' (coração) da bananeira.",
   "cuidados": "Uso ambiental. Lave bem antes de usar com alimentos.",
-  "tradicao": "Na Jurema de chão, a folha de bananeira acolhe as obrigações e refresca o ambiente. Também é usada para passar no corpo em limpezas leves."
+  "tradicao": "Na Jurema de chão, a folha de bananeira acolhe as obrigações e refresca o ambiente. Também é usada para passar no corpo em limpezas leves.",
+  "diferenciacao": "ISOLANTE E ESTABILIZADOR MAGNÉTICO:\n• Não é fervida para banhos comuns: Atua como leito sagrado de decantação onde oferendas descansam e pessoas deitam em resguardos profundos.\n• Esfriamento de Cargas: Absorve e dissipa o impacto de demandas pesadas sem deixar a terra nem o corpo absorverem o choque bruto."
  },
  {
   "id": "cana-do-brejo",
@@ -1692,7 +1693,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Não recomendado na cabeça (uso do pescoço para baixo devido à mucilagem densa)",
-   "imagem": "./images/ora-pro-nobis.jpg",
+  "imagem": "./images/ora-pro-nobis.jpg",
   "descricao": "Cacto trepadeira de folhas verdes e carnudas, altamente nutritivo (PANC). Traz o arquétipo do sustento que brota do chão simples, a firmeza física e a fartura duradoura.",
   "diferenciacao": "Ao ser macerada em água fresca, sua folha libera uma baba (mucilagem) rica em proteínas e polissacarídeos que amacia profundamente a água do banho, envolvendo o corpo em sensação de nutrição e acolhimento.",
   "colheita": "Colher com luvas grossas devido aos espinhos pontiagudos nos caules. Selecionar folhas verdes, viçosas e limpas, preferencialmente pela manhã.",
@@ -1717,9 +1718,9 @@ window.FV_DATA.ervas = [
    "brácteas"
   ],
   "cabeca": "Sim, quando preparado exclusivamente com as brácteas coloridas despetaladas e limpas (sem galhos, sem espinhos e sem folhas verdes)",
-   "imagem": "./images/buganvilia.jpg",
+  "imagem": "./images/buganvilia.jpg",
   "descricao": "Trepadeira rústica e vigorosa que floresce no sol forte e escala muros e rochas com resiliência. Suas cores vivas transmitem alegria, beleza, doçura e a capacidade de fazer brotar luz mesmo nos terrenos mais áridos.",
-  "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.",
+  "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.\n• A beleza que sabe se defender: Na vibração dos Ciganos e Guardiãs (Pombagiras), suas brácteas atraentes combinadas com os espinhos do caule ensinam sobre magnetismo, autoestima e o dever sagrado de estabelecer limites e se defender.",
   "colheita": "Colher as brácteas coloridas com delicadeza, usando luvas para se proteger dos espinhos dos caules. Descartar caules e folhas verdes.",
   "cuidados": "Os galhos contêm espinhos pontiagudos e a seiva verde pode causar irritação em peles sensíveis. Utilize rigorosamente apenas as brácteas coloridas bem lavadas. Manter longe de crianças e animais de estimação.",
   "tradicao": "Muito presente em muros e quintais do Brasil inteiro. Na ciência da Jurema e na Linha das Mestras, o banho de suas brácteas com flores de jasmim é ritual de encanto, resgate do amor-próprio e iluminação íntima da consciência."
@@ -1742,7 +1743,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Não (banho solar feito do pescoço para baixo)",
-   "imagem": "./images/onze-horas.jpg",
+  "imagem": "./images/onze-horas.jpg",
   "descricao": "Suculenta rasteira de flores coloridas e brilhantes que só se abrem plenamente sob o sol alto do meio do dia. Traz o ensinamento do tempo certo: a flor que espera a luz para se abrir, despertando paciência, alegria solar e sincronia com as oportunidades.",
   "diferenciacao": "As flores abrem por volta das 11h da manhã e se fecham à tarde ou em dias nublados e chuvosos. Essa dança com a luz solar faz dela um condensador natural de vitalidade e bom humor.",
   "colheita": "Colher as flores abertas no fim da manhã (perto das 11h), em dia ensolarado, para uso imediato no banho fresco.",
@@ -1768,7 +1769,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Sim (excelente para a coroa/Ori, acalma os pensamentos e clareia a visão íntima)",
-   "imagem": "./images/jasmim.jpg",
+  "imagem": "./images/jasmim.jpg",
   "descricao": "Flor aristocrática de perfume inebriante e doce, reverenciada pela espiritualidade como símbolo da pureza, elevação de consciência e nobreza da alma. Ajuda a silenciar o barulho mental, serena o sono e favorece a percepção espiritual com calma.",
   "diferenciacao": "• Com Buganvília (Primavera): Forma o banho clássico de encanto, autoestima e firmeza íntima na Linha das Mestras da Jurema.\n• Com Rosa Branca: Alinha a paz da mente e o sono reparador sob a luz de Oxalá e Iemanjá.\n• Sozinho: o perfume ajuda a desfazer amargura e sensação de abandono.",
   "colheita": "Colher as flores preferencialmente ao anoitecer ou nas primeiras horas da manhã, momentos em que a concentração de óleos aromáticos nas pétalas é máxima.",
@@ -1793,7 +1794,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Não. Usada apenas em defumação e proteção de ambiente",
-   "imagem": "./images/palmeira.jpg",
+  "imagem": "./images/palmeira.jpg",
   "descricao": "Símbolo ancestral de vitória, acolhimento e proteção de espaços sagrados. Presente tanto na tradição cristã popular quanto nos cultos de matriz africana, onde a folha desfiada do dendezeiro (mariwô) guarda os portais contra negatividades.",
   "diferenciacao": "RAMO BENTO DO DOMINGO DE RAMOS vs. MARIWÔ:\n• Ramo Bento: Guardado atrás de portas e crucifixos; na tradição católica popular, queima-se um pedaço seco na brasa durante temporais com preces a Santa Bárbara.\n• Mariwô de Ogum: No candomblé e na umbanda, as folhas desfiadas do dendezeiro coroam portais e janelas como insígnia sagrada de sentinela e corte de invasões espirituais.",
   "colheita": "Coleta sustentável das palhas secas já caídas da árvore, ou ramos bentos abençoados em celebrações pascais.",
@@ -1817,7 +1818,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
-   "imagem": "./images/jiboia.jpg",
+  "imagem": "./images/jiboia.jpg",
   "descricao": "Planta ornamental de folhagem exuberante e resistente que ocupa cantos de sombra e deixa o ambiente mais vivo. Muito cultivada em vasos suspensos no lar para acompanhar o ritmo da casa e manter o ambiente vivo e acolhedor.",
   "diferenciacao": "Uso exclusivamente ornamental e de ambiente doméstico. Não possui fundamento ritualístico de terreiro tradicional: sua presença atua na harmonização visual e psicológica dos cômodos através da biofilia e do verde constante.",
   "colheita": "Para propagação em água ou terra, corte estacas abaixo do nó foliar usando tesoura limpa e luvas de proteção.",
@@ -1841,7 +1842,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
-   "imagem": "./images/zamioculca.jpg",
+  "imagem": "./images/zamioculca.jpg",
   "descricao": "Suculenta de folhas verdes profundas e brilhantes, famosa pela sua extrema resiliência e baixa exigência de água e luz. No costume popular urbano e no Feng Shui, simboliza firmeza, constância e prosperidade que resiste a tempos difíceis.",
   "diferenciacao": "Diferencia-se pela solidez: armazena água em suas batatas subterrâneas (rizomas), ensinando a poupar energia e crescer com firmeza. Muito colocada em recepções, entradas de lojas, escritórios e salas de estar.",
   "colheita": "Propagação por divisão de touceira ou estacas de folhas em terra aerada, sempre com luvas.",
@@ -1866,7 +1867,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho, chá nem defumação",
-   "imagem": "./images/pimenteira.jpg",
+  "imagem": "./images/pimenteira.jpg",
   "descricao": "A clássica sentinela viva do portal. O fogo rubro de suas pimentas atua como um escudo magnético que desmancha olho-gordo, inveja e atritos antes de cruzarem a soleira da porta.",
   "diferenciacao": "MALAGUETA vs. BIQUINHO:\n• Pimenta Malagueta: Ardida e picante, o arquétipo tradicional de guarda e choque energético na porta de entrada.\n• Pimenta Biquinho: Aromática e quase sem ardência (capsaicina branda), ideal para quem tem crianças e pets e busca a mesma firmeza de proteção com menor risco de acidentes de contato.",
   "colheita": "Colher os frutos maduros com luvas ou tesoura, evitando o contato dos dedos com os olhos.",
@@ -1890,7 +1891,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca. Não usar em banho ritualístico tradicional",
-   "imagem": "./images/babosa.jpg",
+  "imagem": "./images/babosa.jpg",
   "descricao": "Suculenta lendária de folhas espessas com espinhos laterais suaves e polpa gelatinosa transparente. Cultivada em canteiros e vasos na entrada da casa como escudo vegetal que neutraliza inveja e atrai regeneração física e espiritual.",
   "diferenciacao": "GEL TRANSPARENTE vs. LÁTEX AMARELO (ALOÍNA):\n• Gel transparente interno: Emoliente, calmante e cicatrizante comprovado da pele em uso cosmético e dermatológico.\n• Látex amarelo junto à casca: Rico em aloína, substância amarga e irritante que pode provocar dermatites em peles sensíveis e intoxicação em cães e gatos se ingerido.",
   "colheita": "Cortar folhas basais maduras rente ao caule com faca afiada. Deixar escorrer o látex amarelo verticalmente antes de manipular.",
@@ -1914,7 +1915,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Do pescoço para baixo (traz sonolência e relaxamento profundo)",
-   "imagem": "./images/maracuja.jpg",
+  "imagem": "./images/maracuja.jpg",
   "descricao": "Trepadeira vigorosa de folhas recortadas e flor espetacular, tradicionalmente usada como calmante. Na fitoenergia, é o bálsamo que ajuda a desatar a ansiedade, desacelerar os pensamentos e preparar o corpo para o sono.",
   "diferenciacao": "FOLHA DO MARACUJAZEIRO vs. FRUTO:\n• As folhas concentram a ação sedativa e calmante para banhos noturnos de serenidade.\n• Combinação clássica: Com erva-cidreira (melissa) e camomila, forma uma combinação clássica e suave para a hora de dormir.",
   "colheita": "Colher folhas verdes sadias ao entardecer, lavando bem em água corrente antes da infusão morna.",
@@ -1939,7 +1940,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Nunca na cabeça (somente do pescoço para baixo)",
-   "imagem": "./images/abacaxi-roxo.jpg",
+  "imagem": "./images/abacaxi-roxo.jpg",
   "descricao": "Herbácea exuberante de folhas espadas bicolores: verde-esmeralda intenso na face superior e roxo-brilhante na face inferior. Atua como escudo magnético cortante contra inveja pesada, mau-olhado e energias intrusas que tentam romper as defesas do lar.",
   "diferenciacao": "Diferencia-se pela força da pigmentação roxa sob a folha espessa: na fitoenergia de terreiro, o roxo atua transmutando e desmanchando miasmas colados ao chão astral. Muito plantada em vasos de soleira e canteiros de entrada.",
   "colheita": "Cortar as folhas inteiras pela manhã com tesoura de poda, usando luvas para evitar contato direto da seiva com a pele.",
@@ -1964,7 +1965,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "Do pescoço para baixo (ou apenas borrifação suave no ambiente)",
-   "imagem": "./images/trevo-roxo.jpg",
+  "imagem": "./images/trevo-roxo.jpg",
   "descricao": "Delicada planta de folhas triangulares roxo-profundas que se movem com o ciclo solar: abrem-se graciosamente à luz do dia e fecham-se ao anoitecer em recolhimento. Vibra na energia da Trindade sagrada, destrancando caminhos de fartura e transmutando amarguras em boa sorte.",
   "diferenciacao": "Diferencia-se pelo movimento nictinástico diário (abertura e fechamento das folhas), ensinando a sabedoria do tempo e a harmonia entre ação e recolhimento. Sua tríade foliar atrai magnetismo positivo para o lar e comércio.",
   "colheita": "Colher folhas tenras pela manhã com delicadeza enquanto estiverem abertas e ensolaradas.",
@@ -1989,7 +1990,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "NUNCA na cabeça (erva de guerra do pescoço para baixo)",
-   "imagem": "./images/peregun-roxo.jpg",
+  "imagem": "./images/peregun-roxo.jpg",
   "descricao": "Estandarte vegetal sagrado da linha de fogo, consagrado a Ogum e Iansã. Suas folhas largas em tons de vinho, bordô e roxo-avermelhado carregam o vigor da guerra justa, ajudando a afastar energias densas e a reerguer a coragem.",
   "diferenciacao": "PEREGUN VERDE vs. PEREGUN ROXO:\n• Peregun Verde: Ligado a Oxóssi e Ossaim, vibra na fartura, frescor e rejuvenescimento das matas.\n• Peregun Roxo: Ligado à espada de ferro de Ogum e ao fogo de Iansã, atua no confronto enérgico e sacudimento de forças densas.",
   "colheita": "Colher folhas maduras e firmes pedindo licença aos Guardiões da Lei e às forças guerreiras das matas.",
@@ -2014,11 +2015,282 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Pétalas frescas e puras podem ir na cabeça em banhos de flores; para atração afetiva, focar no cardíaco do pescoço para baixo",
-   "imagem": "./images/hibisco.jpg",
+  "imagem": "./images/hibisco.jpg",
   "descricao": "Flor solar de pétalas aveludadas rubras e centro radiante, símbolo do amor-próprio restaurado, da coragem de brilhar e do magnetismo afetivo limpo. Acolhe o coração magoado, afasta a melancolia e estimula o despertar do encanto pessoal.",
   "diferenciacao": "Diferencia-se pela doçura magnética: não faz amarrações, mas expande a autoestima e a autoconfiança de dentro para fora, atraindo relações recíprocas e respeito.",
   "colheita": "Colher as flores recém-abertas nas primeiras horas da manhã. Para defumação, secar as pétalas à sombra sobre papel limpo.",
   "cuidados": "Uso externo suave e relaxante. Em chás medicinais, possui leve efeito hipotensor (reduz a pressão arterial) e diurético: pessoas hipotensas e gestantes devem consumir com orientação médica.",
   "tradicao": "Consagrada às Ciganas, Pombagiras de luz e à doçura dourada de Oxum. Suas pétalas secas queimadas em brasa com açúcar e louro criam uma das mais acolhedoras defumações para paz conjugal e harmonia familiar."
+ },
+ {
+  "id": "limoeiro",
+  "nome": "Folha de Limão (Limoeiro)",
+  "nomePopular": "Folha de limoeiro, Limão-taiti, Limão-cravo (Citrus limon / Citrus latifolia)",
+  "energia": "quentes",
+  "intensidade": "media",
+  "objetivos": [
+   "limpeza",
+   "energia",
+   "protecao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "NUNCA na cabeça (erva adstringente e solar do pescoço para baixo)",
+  "imagem": "./images/limoeiro.jpg",
+  "descricao": "Adstringente espiritual e choque de vitalidade. Dissolve viscosidades e miasmas astrais incrustados na aura, clareia pensamentos confusos e ancora a coragem e a força guerreira de Ogum.",
+  "diferenciacao": "FOLHA vs. CASCA DO FRUTO:\n• Folhas de Limoeiro: Menos cáusticas que o fruto puro; seu óleo essencial na água morna asseptiza a aura de miasmas finos e afasta pensamentos densos sem ressecar o campo magnético.\n• Cascas Secas com Alho: Tradicional em defumações de terreiro para quebrar viscosidades pesadas nos cantos da casa.\n• Transmutação Espiritual: O limoeiro ensina que onde há o azedume das demandas da vida, extrai-se o néctar da coragem e da renovação íntima.",
+  "colheita": "Colher folhas verdes sadias ao sol da manhã, pedindo licença aos Guardiões e às forças guerreiras das matas.",
+  "cuidados": "Fototóxica: não se exponha ao sol após o banho sem lavar bem a pele com sabão neutro. Uso estritamente externo do pescoço para baixo. Evitar sobre áreas de pele lesionada.",
+  "tradicao": "Ligada a Ogum e aos Caboclos de Jurema. Muito usada em banhos de defesa combinada com espada-de-são-jorge e cravo-da-índia para cortar a demanda, asseptizar a aura e selar o corpo."
+ },
+ {
+  "id": "jambo",
+  "nome": "Folha de Jambo",
+  "nomePopular": "Jambo-rosa, Jambo-vermelho, Jambeiro (Syzygium jambos / Syzygium malaccense)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "harmonizacao",
+   "calma",
+   "prosperidade"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (folha mansa e doce, excelente para banho de coroa / Ori)",
+  "imagem": "./images/jambo.jpg",
+  "descricao": "Erva apaziguadora de grande doçura e atração afetiva. Acalma corações magoados, 'esfria' a cabeça quente tomada por irritação, atrai a concórdia familiar e adoça os caminhos da vida.",
+  "diferenciacao": "BANHO DE CABEÇA vs. BANHO DE CORPO:\n• Na Coroa (Ori): Macerada fresca em água fria, serenando o espírito e desanuviando a mente após discussões.\n• Do Pescoço para Baixo: Combinada com camomila ou pétalas de rosa para atrair prosperidade suave e relações amorosas saudáveis.",
+  "colheita": "Colher folhas viçosas pela manhã, pedindo licença às Mães d'Água e às forças do amor sincero.",
+  "cuidados": "Uso externo suave e seguro. Para chá medicinal popular, consumir com moderação e sob orientação médica.",
+  "tradicao": "Consagrada a Oxum e às Mestras do Catimbó-Jurema. O banho de folha de jambo é tradicionalmente preparado para adoçar o ambiente doméstico e restabelecer a paz conjugal."
+ },
+ {
+  "id": "pinha",
+  "nome": "Folha de Pinha (Ata / Fruta-do-Conde)",
+  "nomePopular": "Ata, Fruta-do-conde, Araticum, Pinheiro (Annona squamosa)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "calma",
+   "harmonizacao",
+   "limpeza"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "escalda-pes"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (da cabeça aos pés: promove silêncio interior e elevação)",
+  "imagem": "./images/pinha.jpg",
+  "descricao": "Folha de recolhimento espiritual, paz e elevação da consciência. Acalma a tempestade de pensamentos, combate a insônia crônica e reconecta o ser com o sagrado.",
+  "diferenciacao": "FOLHA FRESCA MACERADA vs. FOLHA SECA EM DEFUMAÇÃO:\n• Macerada Fresca: Banho calmante profundo para noites de descanso reparador e reconexão com a intuição.\n• Folha Seca na Brasa: Defumação suave para quartos de pessoas doentes, idosos ou crianças inquietas, dissipando pesadelos e angústias.",
+  "colheita": "Colher ao entardecer ou início da manhã, escolhendo folhas sadias e lavando-as com reverência.",
+  "cuidados": "Uso externo tranquilo e relaxante. Em chás medicinais populares, possui ação sedativa leve; gestantes devem evitar sem consulta prévia.",
+  "tradicao": "Associada à sabedoria ancestral de Pai Oxalá e Nanã Buruquê. É a folha indicada pelos mais velhos para 'lavar a cabeça' de quem está desorientado ou sem sono."
+ },
+ {
+  "id": "caja",
+  "nome": "Folha de Cajá",
+  "nomePopular": "Cajazeiro, Taperebá, Cajá-mirim (Spondias mombin)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "limpeza",
+   "energia",
+   "protecao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "NUNCA na cabeça (erva de movimento e corte do pescoço para baixo)",
+  "imagem": "./images/caja.jpg",
+  "descricao": "Força de vento e corte rápido contra estagnação. Sacode energias paradas, espanta fluidos de espíritos obsessores (eguns) e devolve a disposição para caminhar.",
+  "diferenciacao": "CAJÁ vs. SERIGUELA:\n• Folha de Cajá: Ação mais combativa e cortante, voltada para expulsar fluidos pesados e afastar presenças desarmônicas.\n• Folha de Seriguela: Ação de fogo brando e vitalidade alegre, voltada para aquecer o ânimo e desatar a timidez.",
+  "colheita": "Colher folhas sadias pedindo licença aos Ventos de Iansã e aos Caboclos Guerreiros.",
+  "cuidados": "Uso estritamente do pescoço para baixo. Lavar bem as mãos após manusear.",
+  "tradicao": "Muito respeitada no Nordeste e nos terreiros de Jurema. Usada em sacudimentos e banhos fortes de descarga para quebrar amarras que paralisam a vida financeira e profissional."
+ },
+ {
+  "id": "seriguela",
+  "nome": "Folha de Seriguela (Ciriguela)",
+  "nomePopular": "Ciriguela, Ceriguela, Ameixa-da-espanha (Spondias purpurea)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "energia",
+   "prosperidade",
+   "harmonizacao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Do pescoço para baixo (ou leve orvalhamento)",
+  "imagem": "./images/seriguela.jpg",
+  "descricao": "Vibração de calor brando, vitalidade e alegria sertaneja. Reacende o entusiasmo, desperta o dinamismo corporal e desmancha a sensação de apatia.",
+  "diferenciacao": "BANHO MORNO vs. INFUSÃO RECREATIVA:\n• Banho de Folhas Verdes: Estimula a circulação áurica e afasta a tristeza persistente.\n• Chá Popular: Tradicionalmente conhecido por ação anti-inflamatória e diurética suave.",
+  "colheita": "Colher folhas frescas e tenras em dias de sol pleno, com alegria no coração.",
+  "cuidados": "Uso externo seguro. Gestantes e pessoas com sensibilidade digestiva devem ter cautela com ingestão.",
+  "tradicao": "Planta típica dos sertões e quintais nordestinos. Na fitoenergia popular, sua árvore generosa representa fartura resiliente e a coragem de florescer no calor."
+ },
+ {
+  "id": "araca",
+  "nome": "Folha de Araçá",
+  "nomePopular": "Araçazeiro, Araçá-do-campo, Araçá-amarelo, Araçá-vermelho (Psidium cattleianum / Psidium spp.)",
+  "energia": "quentes",
+  "intensidade": "forte",
+  "objetivos": [
+   "limpeza",
+   "protecao",
+   "foco"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha",
+   "brote"
+  ],
+  "cabeca": "NUNCA na cabeça (erva de mata fechada do pescoço para baixo)",
+  "imagem": "./images/araca.jpg",
+  "descricao": "A energia virgem e rústica da mata profunda. Carrega adstringência concentrada para cortar demandas antigas, desmanchar miasmas físicos e estancar vazamentos de energia vital.",
+  "diferenciacao": "ARAÇÁ vs. GOIABEIRA:\n• Araçazeiro: Primo silvestre da goiabeira. Menos domesticado, carrega o instinto caçador e selvagem das matas virgens, ideal para defumações de quebra profunda de demandas.\n• Goiabeira: Mais mansa e familiar, voltada para recomposição energética do lar e cura acolhedora.",
+  "colheita": "Colher folhas maduras e firmes, pedindo licença aos Caboclos e Guardiões de Oxóssi.",
+  "cuidados": "Forte adstringência natural. Uso exclusivamente externo do pescoço para baixo.",
+  "tradicao": "Instrumento dos Caboclos das matas mais cerradas. Sua queima em brasa liberta aroma penetrante e purificador que limpa o ambiente de formas-pensamento hostis."
+ },
+ {
+  "id": "carambola",
+  "nome": "Folha de Caramboleira",
+  "nomePopular": "Carambola, Caramboleiro, Fruta-estrela (Averrhoa carambola)",
+  "energia": "equilibradoras",
+  "intensidade": "suave",
+  "objetivos": [
+   "prosperidade",
+   "harmonizacao",
+   "calma"
+  ],
+  "usos": [
+   "banho-external",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (folha estelar apaziguadora, traz clareza mental)",
+  "imagem": "./images/carambola.jpg",
+  "descricao": "A folha da 'árvore estrela'. Seu arquétipo celeste atrai ordenação aos pensamentos confusos, irradia magnetismo de prosperidade luminosa e harmoniza o ambiente com leveza.",
+  "diferenciacao": "GEOMETRIA ESTELAR & EQUILÍBRIO:\n• O fruto cortado em estrela de cinco pontas confere à planta o simbolismo do equilíbrio dos cinco elementos (éter, fogo, ar, água e terra).\n• Banho das Folhas: Desperta foco cristalino, dissipa a desordem mental e ancora boas oportunidades financeiras sem desespero.",
+  "colheita": "Colher folhas sadias durante a manhã ensolarada com intenção de clareza e abundância.",
+  "cuidados": "Uso externo suave e seguro. ATENÇÃO MÉDICA: Na ingestão (chá/suco), contém caramboxina e oxalatos solúveis: terminantemente proibida para pessoas com insuficiência renal.",
+  "tradicao": "Associada à Linha do Oriente, às energias solares e à doçura de Oxum. Cultivada próxima a residências para inspirar criatividade, brilho pessoal e generosidade."
+ },
+ {
+  "id": "jenipapo",
+  "nome": "Folha de Jenipapeiro",
+  "nomePopular": "Jenipapeiro, Jenipapo-da-mata (Genipa americana)",
+  "energia": "equilibradoras",
+  "intensidade": "forte",
+  "objetivos": [
+   "protecao",
+   "limpeza",
+   "energia"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "ambiental"
+  ],
+  "partes": [
+   "folha",
+   "casca"
+  ],
+  "cabeca": "Do pescoço para baixo (foco nas pernas, tronco e raízes)",
+  "imagem": "./images/jenipapo.jpg",
+  "descricao": "Árvore mítica das florestas brasileiras e das tradições indígenas. Suas folhas largas ancoram firmeza ancestral de solo, vigor físico e blindagem contra fraquezas espirituais.",
+  "diferenciacao": "FOLHA SAGRADA vs. TINTURA DO FRUTO:\n• Tintura Negra do Fruto (Genipina): Na tradição indígena e cabocla, usada para pinturas corporais de proteção, guerra e rituais de passagem.\n• Banho das Folhas: Fortalece a conexão com a terra (chakra básico), elimina a sensação de vulnerabilidade e ancora estabilidade emocional nos pés.",
+  "colheita": "Pedir licença aos Mestres e Caboclos das Matas ao retirar folhas sadias caídas ou ramos baixos.",
+  "cuidados": "Uso externo consciente do pescoço para baixo. A seiva verde de galhos pode manchar tecidos temporariamente.",
+  "tradicao": "Fundamento da ancestralidade tupi e do Catimbó-Jurema. A árvore do jenipapo é sentinela de rios e matas de várzea, simbolizando permanência e resistência contra o esquecimento."
+ },
+ {
+  "id": "cajueiro",
+  "nome": "Folha de Cajueiro",
+  "nomePopular": "Caju, Cajueiro, Acajaíba (Anacardium occidentale)",
+  "energia": "equilibradoras",
+  "intensidade": "media",
+  "objetivos": [
+   "energia",
+   "prosperidade",
+   "protecao"
+  ],
+  "usos": [
+   "banho-external",
+   "defumacao",
+   "escalda-pes"
+  ],
+  "partes": [
+   "folha",
+   "casca"
+  ],
+  "cabeca": "Do pescoço para baixo (revigora o corpo e dissipa fadiga)",
+  "imagem": "./images/cajueiro.jpg",
+  "descricao": "Símbolo de resistência, generosidade e abundância do solo nordestino. Suas folhas ricas em taninos e resinas curativas estancam fraquezas e renovam o ânimo de quem labuta.",
+  "diferenciacao": "FOLHAS FRESCAS vs. CASCA EM DECOCÇÃO:\n• Folhas Frescas Maceradas: Banho revigorante que restaura a força após esforço extenuante físico ou emocional.\n• Casca do Tronco: Uso tradicional adstringente para firmeza de assentamentos e lavagens de solo sagrado.",
+  "colheita": "Colher folhas coriáceas limpas sob a luz solar, reverenciando a força nutridora da terra.",
+  "cuidados": "Uso externo. ATENÇÃO: Nunca queime o óleo da castanha de caju crua (cardol/ácido anacárdico), que é cáustico e altamente tóxico ao fogo. Utilize estritamente as folhas secas para defumação.",
+  "tradicao": "Sagrado aos Caboclos e Mestres da Jurema Nordestina (Mestre Carlos, Mestre Zé Pelintra, Caboclo Tupinambá). O cajueiro abriga sob sua copa frondosa o descanso e a partilha dos frutos."
+ },
+ {
+  "id": "abacateiro",
+  "nome": "Folha de Abacateiro",
+  "nomePopular": "Abacateiro, Louro-abacate (Persea americana)",
+  "energia": "frias",
+  "intensidade": "suave",
+  "objetivos": [
+   "limpeza",
+   "harmonizacao",
+   "calma"
+  ],
+  "usos": [
+   "banho-external",
+   "escalda-pes",
+   "ambiental"
+  ],
+  "partes": [
+   "folha"
+  ],
+  "cabeca": "Sim (desanuviante suave do Ori e relaxamento do plexo)",
+  "imagem": "./images/abacateiro.jpg",
+  "descricao": "A folha do alívio e da drenagem sutil. Drena mágoas represadas, alivia o peso do plexo solar e desobstrui caminhos emocionais saturados de mágoa e rancor.",
+  "diferenciacao": "DRENAGEM FÍSICA vs. ESPIRITUAL:\n• Ação Diurética: Na medicina popular, o chá de folhas secas é célebre por drenar os rins e eliminar ácido úrico.\n• Ação Fitoenergética: Da mesma forma que drena o corpo físico, drena do corpo sutil a 'urina astral' (ressentimentos, mágoas e venenos emocionais retidos).",
+  "colheita": "Colher folhas maduras verde-escuras, preferencialmente secando à sombra antes de preparar o banho morno.",
+  "cuidados": "Uso externo suave. Em uso interno (chá), gestantes devem evitar devido a possíveis efeitos estimulantes uterinos.",
+  "tradicao": "Consagrada aos Caboclos curadores de Oxóssi e à vibração serena de Nanã. É o banho recomendado quando o peito está apertado de mágoa não dita."
  }
 ];

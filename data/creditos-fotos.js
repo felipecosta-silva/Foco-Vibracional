@@ -1,5 +1,13 @@
 window.FV_DATA = window.FV_DATA || {};
 window.FV_DATA.creditosFotos = {
+  "abacateiro": {
+    "arquivo": "images/abacateiro.jpg",
+    "commons": "File:Green avocado foliage (Persea americana).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Green_avocado_foliage_(Persea_americana).jpg",
+    "autor": "Vitaium",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
   "abacaxi-roxo": {
     "arquivo": "images/abacaxi-roxo.jpg",
     "commons": "File:Moses in the cradle (Tradescantia spathacea).jpg",
@@ -55,6 +63,14 @@ window.FV_DATA.creditosFotos = {
     "autor": "Sanjay Acharya",
     "licenca": "CC BY-SA 4.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "araca": {
+    "arquivo": "images/araca.jpg",
+    "commons": "File:Starr-030405-0019-Psidium cattleianum-leaves-Makawao Forest Reserve-Maui (24001246814).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-030405-0019-Psidium_cattleianum-leaves-Makawao_Forest_Reserve-Maui_(24001246814).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en"
   },
   "arnica": {
     "arquivo": "images/arnica.jpg",
@@ -120,6 +136,22 @@ window.FV_DATA.creditosFotos = {
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
+  "caja": {
+    "arquivo": "images/caja.jpg",
+    "commons": "File:Spondias mombin kz01.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Spondias_mombin_kz01.jpg",
+    "autor": "Krzysztof Ziarnek, Kenraiz",
+    "licenca": "CC BY-SA 4.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "cajueiro": {
+    "arquivo": "images/cajueiro.jpg",
+    "commons": "File:Starr-090618-1281-Anacardium occidentale-flowers and leaves-Haiku-Maui (24966131915).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-090618-1281-Anacardium_occidentale-flowers_and_leaves-Haiku-Maui_(24966131915).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en"
+  },
   "calendula": {
     "arquivo": "images/calendula.jpg",
     "commons": "File:Calendula (Calendula officinalis).jpg",
@@ -159,6 +191,14 @@ window.FV_DATA.creditosFotos = {
     "autor": "Mokkie",
     "licenca": "CC BY-SA 4.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "carambola": {
+    "arquivo": "images/carambola.jpg",
+    "commons": "File:Starr-110330-3832-Averrhoa carambola-leaves-Garden of Eden Keanae-Maui (24713135229).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-110330-3832-Averrhoa_carambola-leaves-Garden_of_Eden_Keanae-Maui_(24713135229).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en"
   },
   "coentro": {
     "arquivo": "images/coentro.jpg",
@@ -296,6 +336,14 @@ window.FV_DATA.creditosFotos = {
     "licenca": "CC BY-SA 4.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   },
+  "jambo": {
+    "arquivo": "images/jambo.jpg",
+    "commons": "File:Starr-110330-3878-Syzygium malaccense-leaves-Garden of Eden Keanae-Maui (25080877765).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-110330-3878-Syzygium_malaccense-leaves-Garden_of_Eden_Keanae-Maui_(25080877765).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en"
+  },
   "jasmim": {
     "arquivo": "images/jasmim.jpg",
     "commons": "File:Jasminum officinale (2464481307).jpg",
@@ -303,6 +351,14 @@ window.FV_DATA.creditosFotos = {
     "autor": "Dinesh Valke from Thane, India",
     "licenca": "CC BY-SA 2.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+  "jenipapo": {
+    "arquivo": "images/jenipapo.jpg",
+    "commons": "File:Genipa americana L. - Flickr - Alex Popovkin, Bahia, Brazil (12).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Genipa_americana_L._-_Flickr_-_Alex_Popovkin,_Bahia,_Brazil_(12).jpg",
+    "autor": "Alex Popovkin, Bahia, Brazil from Brazil",
+    "licenca": "CC BY 2.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/2.0"
   },
   "jiboia": {
     "arquivo": "images/jiboia.jpg",
@@ -335,6 +391,14 @@ window.FV_DATA.creditosFotos = {
     "autor": "Simon Eugster -- Simon 13:07, 2 July 2006 (UTC)",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "limoeiro": {
+    "arquivo": "images/limoeiro.jpg",
+    "commons": "File:Citrus x Limon JPG1b.jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Citrus_x_Limon_JPG1b.jpg",
+    "autor": "Jean-Pol GRANDMONT",
+    "licenca": "CC BY 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0"
   },
   "louro": {
     "arquivo": "images/louro.jpg",
@@ -480,6 +544,14 @@ window.FV_DATA.creditosFotos = {
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
   },
+  "pinha": {
+    "arquivo": "images/pinha.jpg",
+    "commons": "File:Annona squamosa leaves at Madhurawada.JPG",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Annona_squamosa_leaves_at_Madhurawada.JPG",
+    "autor": "Adityamadhav83",
+    "licenca": "CC BY-SA 3.0",
+    "licencaUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
   "pinhao-roxo": {
     "arquivo": "images/pinhao-roxo.jpg",
     "commons": "File:Jatropha gossypiifolia I.jpg",
@@ -567,6 +639,14 @@ window.FV_DATA.creditosFotos = {
     "autor": "Jaknouse",
     "licenca": "CC BY-SA 3.0",
     "licencaUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "seriguela": {
+    "arquivo": "images/seriguela.jpg",
+    "commons": "File:Starr-090713-2585-Spondias purpurea-leaves-Lahaina-Maui (24673869140).jpg",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Starr-090713-2585-Spondias_purpurea-leaves-Lahaina-Maui_(24673869140).jpg",
+    "autor": "Forest and Kim Starr",
+    "licenca": "CC BY 3.0 us",
+    "licencaUrl": "https://creativecommons.org/licenses/by/3.0/us/deed.en"
   },
   "tomilho": {
     "arquivo": "images/tomilho.jpg",
