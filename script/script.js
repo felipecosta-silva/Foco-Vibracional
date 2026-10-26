@@ -4378,14 +4378,14 @@ const PAGE_HERO = {
   "banhos.html": { img: "images/camomila.jpg" },
   "defumacao.html": { img: "images/alecrim.jpg" },
   "plantas.html": { img: "images/manjericao.jpg" },
-  "colheita.html": { img: "images/capim_limao.jpg" },
-  "glossario.html": { img: "images/jurema.jpg" },
+  "colheita.html": { img: "images/capim-limao.jpg" },
+  "glossario.html": { img: "images/jurema-preta.jpg" },
   "mantras.html": { art: "candle" },
   "firmeza.html": { art: "candle" },
   "calendario.html": { art: "moon" },
   "portais.html": { art: "numbers" },
   "tarot.html": { art: "cards" },
-  "pontos.html": { img: "images/jurema.jpg" },
+  "pontos.html": { img: "images/jurema-preta.jpg" },
   "simbolos.html": { art: "geo" }
 };
 
