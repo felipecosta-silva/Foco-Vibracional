@@ -5083,3 +5083,115 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   text-decoration: underline;
 }
 
+/* Spec 002 — Como fazer um pedido bem feito */
+.pedido {
+  margin-bottom: 2rem;
+}
+.pedido__intro p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.pedido__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 760px) {
+  .pedido__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.pedido__card {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pedido__tema {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+.pedido__comparacao {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pedido__vago,
+.pedido__bom {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.pedido__vago {
+  background: rgba(239, 231, 214, 0.03);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.pedido__vago p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+.pedido__bom {
+  background: var(--accent2-soft);
+  border: 1px solid var(--accent2);
+  color: var(--text);
+}
+.pedido__bom p {
+  margin: 0.35rem 0 0;
+  color: var(--text);
+}
+.pedido__badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.pedido__badge--vago {
+  color: var(--muted);
+}
+.pedido__badge--bom {
+  color: var(--accent2);
+}
+.pedido__nota {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+.pedido__checklist-wrap {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface-3);
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+}
+.pedido__checklist-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+.pedido__check {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.pedido__check li {
+  margin-bottom: 0.4rem;
+}
+.pedido__check li strong {
+  color: var(--accent);
+}
+
+
