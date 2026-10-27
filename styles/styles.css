@@ -5194,4 +5194,17 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   color: var(--accent);
 }
 
+.firmeza-pedido-link {
+  margin: 6px 0 10px;
+  font-size: 0.85rem;
+}
+.firmeza-pedido-link a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.firmeza-pedido-link a:hover {
+  filter: brightness(1.15);
+}
+
 
