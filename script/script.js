@@ -1698,6 +1698,19 @@ function banhoDetailHtml(b) {
     ${b.versaoCha ? `<div class="dsec dsec--tea"><h3>☕ Versão em chá</h3><p>${escapeHtml(b.versaoCha)}</p></div>` : ""}`;
 }
 
+function ritualPedidosHtml(d) {
+  if (!d.pedidos || !Array.isArray(d.pedidos) || !d.pedidos.length) return "";
+  const items = d.pedidos.map(p =>
+    `<li><b>${escapeHtml(p.caminho)}:</b> “${escapeHtml(p.exemplo)}”</li>`
+  ).join("");
+  return `
+    <div class="dsec ritual-pedidos">
+      <h3>Escolha o seu pedido</h3>
+      <ul class="ritual-pedidos__list">${items}</ul>
+      <p class="ritual-pedidos__footer"><a href="firmeza.html#pedido-bem-feito">Como fazer um pedido bem feito →</a></p>
+    </div>`;
+}
+
 function defumacaoDetailHtml(d) {
   const [titulo, sub] = splitName(d.nome);
   const o = objInfo(d.objetivo);
@@ -1717,6 +1730,7 @@ function defumacaoDetailHtml(d) {
     </div>
     <div class="dsec"><h3>Ervas e resinas</h3>${ingredientsHtml(d.ervas)}</div>
     <div class="dsec"><h3>Para que serve</h3><p>${escapeHtml(d.servePara || "")}</p></div>
+    ${ritualPedidosHtml(d)}
     ${rezaHtml(d)}
     <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(d.cuidados || "Ventile bem; cuidado com fogo, crianças e animais.")}</p></div>`;
 }
@@ -4243,6 +4257,8 @@ const SEARCH_PAGES = [
   { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
   { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
+  { t: "Como fazer um pedido bem feito", u: "firmeza.html#pedido-bem-feito", k: "pedido bem feito firmeza intencao prosperidade amor saude checklist" },
+  { t: "Mapa do benzimento com ervas", u: "plantas.html#mapa-ervas", k: "mapa benzimento proverbio arruda guine espada porta corte blindar" },
   { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" },
   { t: "Pontos Cantados & Curimba — cantigas tradicionais", u: "pontos.html", k: "pontos cantados curimba toques jurema mestres mestras caboclos pretos velhos atabaque" }
 ];
@@ -4306,7 +4322,7 @@ function initGlobalSearch() {
         .map(e => row(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.nomePopular))) +
       group("🛁 Banhos", BANHOS.filter(b => has(b.nome, (b.ervas || []).join(" "), b.objetivo, b.observacao))
         .map(b => row(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, (b.ervas || []).slice(0, 4).join(" + ")))) +
-      group("💨 Defumações", DEFUMACOES.filter(d => has(d.nome, (d.ervas || []).join(" "), d.objetivo, d.servePara))
+      group("💨 Defumações", DEFUMACOES.filter(d => has(d.nome, (d.ervas || []).join(" "), d.objetivo, d.servePara, (d.pedidos || []).map(p => `${p.caminho} ${p.exemplo}`).join(" ")))
         .map(d => row(`defumacao.html#${encodeURIComponent(d.id)}`, d.nome, (d.ervas || []).slice(0, 4).join(" + ")))) +
       group("🙏 Mantras", DAILY_MANTRAS.filter(m => has(m.text, m.tag))
         .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +

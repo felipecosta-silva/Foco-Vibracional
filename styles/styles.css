@@ -5207,4 +5207,44 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
   filter: brightness(1.15);
 }
 
+/* Defumação com direção — Escolha o seu pedido */
+.ritual-pedidos {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.ritual-pedidos h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.ritual-pedidos__list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ritual-pedidos__list li {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.ritual-pedidos__list li b {
+  color: var(--accent2);
+}
+.ritual-pedidos__footer a {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ritual-pedidos__footer a:hover {
+  filter: brightness(1.15);
+}
+
 
