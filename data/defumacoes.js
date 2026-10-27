@@ -859,5 +859,42 @@ window.FV_DATA.defumacoes = [
   "reza": "Doçura que acolhe, calor que une: que a fumaça bendita do hibisco perfume este lar, dissipe as amarguras e mágoas, e faça reinar a paz, a alegria e a concórdia entre todos.",
   "servePara": "Harmonização de lares com brigas ou desânimo afetivo; atrai clima de romance, carinho, calor humano e reconciliação entre casais e familiares.",
   "cuidados": "As pétalas devem estar bem secas à sombra para não chiar na brasa. Use brasa incandescente no turíbulo ou caldeirão de ferro e ventile suavemente os cômodos."
+ },
+ {
+  "id": "defumacao-pitanga-louro-prosperidade",
+  "nome": "Pitanga com Louro (Prosperidade com Direção)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [
+   "qui",
+   "dom"
+  ],
+  "horario": "manhã ou fim da tarde, com a casa arrumada",
+  "ervas": [
+   "Folhas secas de Pitangueira",
+   "Folhas secas de Louro"
+  ],
+  "sentido": "Da porta da rua para o fundo da casa (para atrair)",
+  "servePara": "Prosperidade com direção. A mesma fumaça serve a três caminhos, e é a sua intenção que escolhe qual. Antes de acender, escolha o seu pedido e diga-o com clareza.",
+  "reza": "Pitanga que alegra, louro que coroa a vitória: levai o meu pedido com clareza e abri o caminho certo para ele. (Diga aqui o seu pedido específico.)",
+  "cuidados": "Folhas bem secas, para não chiar na brasa. Turíbulo ou pires de barro, longe de cortinas, crianças e pets. Janelas entreabertas para ventilar.",
+  "pedidos": [
+   {
+    "caminho": "Oportunidade e promoção",
+    "exemplo": "Peço ser lembrado(a) e chamado(a) para uma oportunidade melhor no trabalho, onde meu esforço seja reconhecido."
+   },
+   {
+    "caminho": "Fartura no lar",
+    "exemplo": "Peço que o dinheiro que entra nesta casa renda, fique e não falte na mesa de ninguém aqui."
+   },
+   {
+    "caminho": "Vitória e firmeza",
+    "exemplo": "Peço força para concluir o que comecei e fechar esta etapa com justiça."
+   }
+  ]
  }
 ];
