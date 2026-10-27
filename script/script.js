@@ -2071,7 +2071,58 @@ function initDefumacaoPage() {
   });
 }
 
+const MAPA_ERVAS = [
+  { k: "cortar",     icone: "✂️", titulo: "Cortar",            paraQue: "Corte rápido: mau-olhado, inveja, quebranto", ids: ["arruda"] },
+  { k: "blindar",    icone: "🛡️", titulo: "Blindar",           paraQue: "Fechar o corpo para o mal não voltar",        ids: ["guine"] },
+  { k: "porta",      icone: "🚪", titulo: "Guardar a porta",   paraQue: "Vaso vivo na entrada da casa",                ids: ["espada-sao-jorge", "comigo-ninguem-pode", "pimenteira"], nota: "Planta de vaso: não vai em banho nem no fogo." },
+  { k: "descarrego", icone: "🔥", titulo: "Descarrego pesado", paraQue: "Só quando é necessário",                      ids: ["aroeira"], selo: "Só com orientação de um(a) zelador(a)" },
+  { k: "harmonizar", icone: "🌿", titulo: "Harmonizar",        paraQue: "Depois do corte, o doce",                     ids: ["manjericao", "boldo", "rosa-branca"] },
+  { k: "acalmar",    icone: "🌙", titulo: "Acalmar",           paraQue: "Serenar a mente e o sono",                    ids: ["alfazema", "camomila", "erva-cidreira", "maracuja"] },
+  { k: "atrair",     icone: "✨", titulo: "Atrair e prosperar", paraQue: "Fartura, oportunidade, vitória",             ids: ["louro", "pitangueira", "canela", "girassol"] },
+  { k: "caminhos",   icone: "🧭", titulo: "Abrir caminhos",    paraQue: "Destravar o que está parado",                 ids: ["abre-caminho", "levante"] }
+];
+
+function initMapaErvas() {
+  const mount = document.querySelector("[data-mapa-ervas]");
+  if (!mount) return;
+  mount.innerHTML = MAPA_ERVAS.map(g => {
+    const chips = g.ids.map(id => {
+      const e = ERVAS.find(x => x.id === id);
+      if (!e) {
+        console.warn(`[mapa-ervas] Erva não encontrada: ${id}`);
+        return "";
+      }
+      const nomeCurto = splitName(e.nome)[0];
+      return `<a class="mapa-chip" href="#${encodeURIComponent(e.id)}">${escapeHtml(nomeCurto)}</a>`;
+    }).filter(Boolean).join("");
+
+    return `
+      <div class="mapa-grupo" data-grupo="${escapeHtml(g.k)}">
+        <div class="mapa-grupo__head">
+          <span class="mapa-grupo__icon">${g.icone}</span>
+          <h3 class="mapa-grupo__title">${escapeHtml(g.titulo)}</h3>
+          ${g.selo ? `<span class="badge-danger">${escapeHtml(g.selo)}</span>` : ""}
+        </div>
+        <p class="mapa-grupo__para">${escapeHtml(g.paraQue)}</p>
+        <div class="mapa-grupo__chips">${chips}</div>
+        ${g.nota ? `<p class="mapa-grupo__nota"><small class="muted">${escapeHtml(g.nota)}</small></p>` : ""}
+      </div>`;
+  }).join("");
+
+  mount.addEventListener("click", e => {
+    const chip = e.target.closest(".mapa-chip");
+    if (!chip) return;
+    const href = chip.getAttribute("href");
+    if (href && href.startsWith("#")) {
+      const id = decodeURIComponent(href.slice(1));
+      const it = ERVAS.find(x => x.id === id);
+      if (it) getDrawer().open("Erva", ervaDetailHtml(it), it.id);
+    }
+  });
+}
+
 function initPlantasPage() {
+  initMapaErvas();
   const mount = $("#catalog[data-catalog='ervas']");
   if (!mount) return;
   createCatalog({
