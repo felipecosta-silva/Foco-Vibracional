@@ -5248,3 +5248,43 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 }
 
 
+
+/* ==========================================================================
+   Auditoria 2026-10-31: acessibilidade e pequenos refinamentos
+   ========================================================================== */
+/* Link "Pular para o conteúdo": aparece só ao navegar pelo teclado */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform .2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+main:focus { outline: none; }
+
+/* Planejador semanal: destaca o dia de hoje */
+.day--today {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-soft);
+}
+
+/* Alvos de toque confortáveis no celular (mínimo de 44 px) */
+@media (pointer: coarse) {
+  button.pill, button.chip { min-height: 44px; }
+  a.pill, .subnav__link { display: inline-flex; align-items: center; min-height: 44px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .mapa-chip { min-height: 44px; }
+  .site-footer__col a { padding-block: 6px; }
+}
+
+/* Rodapé: a frase final não fica embaixo do botão "voltar ao topo" no celular */
+@media (max-width: 760px) {
+  .site-footer__copy { display: block; padding-inline: 56px; }
+}
