@@ -205,7 +205,7 @@ function renderPaginationControls({ container, totalItems, currentPage, perPage,
     <div class="pagination-info">
       <span>Exibindo <b>${startIdx}–${endIdx}</b> de <b>${totalItems}</b> ${unitName}</span>
       ${totalItems > perPage ? `
-        <button class="page-btn page-btn--nav" type="button" id="btnToggleAllPages" style="font-size: 0.82rem; height: 32px;">
+        <button class="page-btn page-btn--nav u-fs-82 u-h-32" type="button" id="btnToggleAllPages">
           ${viewAll ? "📄 Dividir em Páginas" : `👁️ Ver Todos (${totalItems})`}
         </button>
       ` : ""}
@@ -221,11 +221,11 @@ function renderPaginationControls({ container, totalItems, currentPage, perPage,
     for (let p = 1; p <= totalPages; p++) {
       if (totalPages > 7) {
         if (p > 1 && p < currentPage - 1 && p !== 1) {
-          if (p === 2) html += `<span style="color: var(--muted); padding: 0 4px;">…</span>`;
+          if (p === 2) html += `<span class="u-muted u-px-4">…</span>`;
           continue;
         }
         if (p < totalPages && p > currentPage + 1 && p !== totalPages) {
-          if (p === totalPages - 1) html += `<span style="color: var(--muted); padding: 0 4px;">…</span>`;
+          if (p === totalPages - 1) html += `<span class="u-muted u-px-4">…</span>`;
           continue;
         }
       }
@@ -318,26 +318,12 @@ function toast(message) {
 
   const el = document.createElement("div");
   el.className = "toast-notification";
-  el.textContent = message;
-  el.style.position = "fixed";
-  el.style.left = "50%";
-  el.style.bottom = "24px";
-  el.style.transform = "translateX(-50%)";
-  el.style.background = "rgba(11, 23, 19, 0.95)";
-  el.style.border = "1px solid rgba(159,208,154, 0.35)";
-  el.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.4)";
-  el.style.backdropFilter = "blur(12px)";
-  el.style.color = "#ffffff";
-  el.style.padding = "10px 18px";
-  el.style.borderRadius = "999px";
-  el.style.fontSize = "0.92rem";
-  el.style.fontWeight = "500";
-  el.style.letterSpacing = "0.2px";
-  el.style.zIndex = "9999";
-  el.style.transition = "opacity 0.25s ease";
+  el.setAttribute("role", "status");
   document.body.appendChild(el);
+  // O texto entra depois da região viva existir, para o leitor de tela anunciar
+  requestAnimationFrame(() => { el.textContent = message; });
   setTimeout(() => {
-    el.style.opacity = "0";
+    el.classList.add("toast-notification--out");
     setTimeout(() => el.remove(), 250);
   }, 1600);
 }
@@ -835,7 +821,7 @@ function renderAllMantras(filter = "") {
 
   countBadge.textContent = String(filtered.length);
   list.innerHTML = "";
-  empty.style.display = filtered.length ? "none" : "block";
+  empty.hidden = filtered.length > 0;
 
   filtered.forEach(m => {
     const wrap = document.createElement("div");
@@ -1000,7 +986,7 @@ function renderFavorites() {
   const catalogItems = loadCatalogFavorites();
 
   const totalCount = mantraItems.length + catalogItems.length;
-  if (empty) empty.style.display = totalCount === 0 ? "block" : "none";
+  if (empty) empty.hidden = totalCount > 0;
 
   // Catalog items (Banhos, Ervas, Cartas, Defumações)
   if (catalogList && catalogSection) {
@@ -1012,10 +998,10 @@ function renderFavorites() {
         card.className = "fav-catalog-card";
         card.innerHTML = `
           <div>
-            <span class="badge" style="font-size:0.75rem;">${escapeHtml(item.eyebrow || "Item")}</span>
+            <span class="badge u-fs-75">${escapeHtml(item.eyebrow || "Item")}</span>
             <b class="fav-catalog-title">${escapeHtml(item.title || item.id)}</b>
           </div>
-          <div class="row wrap-row" style="gap:8px; align-items:center;">
+          <div class="row wrap-row u-gap-8 u-items-center">
             <a class="btn btn--ghost small" href="${escapeHtml(item.url || "#")}">Abrir ficha →</a>
             <button class="btn btn--ghost small" type="button" data-del-catfav="${escapeHtml(item.id)}">Remover</button>
           </div>
@@ -1130,10 +1116,10 @@ function initCadernoFirmeza() {
 
       card.innerHTML = `
         <div class="caderno-card__header">
-          <div class="row wrap-row" style="gap:6px; align-items:center;">
+          <div class="row wrap-row u-gap-6 u-items-center">
             <span class="badge badge--tea">${escapeHtml(tipoLabel)}</span>
             ${entry.moon ? `<span class="badge">${escapeHtml(entry.moon)}</span>` : ""}
-            <span class="muted small" style="margin-left:4px;">${escapeHtml(formattedDate)}</span>
+            <span class="muted small u-ml-4">${escapeHtml(formattedDate)}</span>
           </div>
           <button class="btn-micro" type="button" data-del-entry="${entry.id}" title="Excluir este relato">🗑️</button>
         </div>
@@ -1735,7 +1721,7 @@ function banhoDetailHtml(b) {
     <div class="facts">
       <div class="fact"><span>Luas</span><b>${moonsHtml(b.luas)}</b></div>
       <div class="fact"><span>Dias</span><b>${(b.dias || []).map(d => DIAS_LABEL[d] || d).join(", ") || "Qualquer dia"}</b></div>
-      <div class="fact" style="grid-column: 1 / -1"><span>Horário</span><b>${escapeHtml(b.horario || "Livre")}</b></div>
+      <div class="fact u-span-all"><span>Horário</span><b>${escapeHtml(b.horario || "Livre")}</b></div>
     </div>
     <div class="dsec"><h3>Ingredientes</h3>${ingredientsHtml(b.ervas)}</div>
     <div class="dsec"><h3>Modo de preparo</h3><p>${escapeHtml(b.modoPreparo || "")}</p></div>
@@ -1771,8 +1757,8 @@ function defumacaoDetailHtml(d) {
     <div class="facts">
       <div class="fact"><span>Luas</span><b>${moonsHtml(d.luas)}</b></div>
       <div class="fact"><span>Dias</span><b>${(d.dias || []).map(x => DIAS_LABEL[x] || x).join(", ") || "Qualquer dia"}</b></div>
-      <div class="fact" style="grid-column: 1 / -1"><span>Sentido</span><b>${escapeHtml(d.sentido || "Por todos os cômodos, com ventilação")}</b></div>
-      <div class="fact" style="grid-column: 1 / -1"><span>Horário</span><b>${escapeHtml(d.horario || "Livre")}</b></div>
+      <div class="fact u-span-all"><span>Sentido</span><b>${escapeHtml(d.sentido || "Por todos os cômodos, com ventilação")}</b></div>
+      <div class="fact u-span-all"><span>Horário</span><b>${escapeHtml(d.horario || "Livre")}</b></div>
     </div>
     <div class="dsec"><h3>Ervas e resinas</h3>${ingredientsHtml(d.ervas)}</div>
     <div class="dsec"><h3>Para que serve</h3><p>${escapeHtml(d.servePara || "")}</p></div>
@@ -1806,7 +1792,7 @@ function ervaDetailHtml(e) {
       <span class="badge">Intensidade ${INTENSIDADE_LABEL[e.intensidade] || e.intensidade || "—"}</span>
       ${(e.objetivos || []).map(k => `<span class="badge">${objInfo(k).icon} ${objInfo(k).label}</span>`).join("")}
     </div>
-    <div class="dsec ${cab === "no" ? "dsec--warn" : ""}" style="border-top:0; padding-top:0;">
+    <div class="dsec u-bt-0 u-pt-0 ${cab === "no" ? "dsec--warn" : ""}">
       <h3>Na cabeça (Ori)</h3><p>${escapeHtml(e.cabeca || "")}</p>
     </div>
     <div class="dsec"><h3>Sobre</h3><p>${escapeHtml(e.descricao || "")}</p></div>
@@ -1846,7 +1832,7 @@ function getDrawer() {
       <div class="drawer__bar">
         <span class="eyebrow" id="drawerEyebrow"></span>
         <div class="drawer__actions">
-          <button class="drawer-alert-pill" id="drawerAlertPill" type="button" data-scroll-alert style="display:none;" title="Ver cuidados e resguardo">⚠️ Ver Cuidados</button>
+          <button hidden class="drawer-alert-pill" id="drawerAlertPill" type="button" data-scroll-alert title="Ver cuidados e resguardo">⚠️ Ver Cuidados</button>
           <button class="icon-btn" type="button" data-fav aria-label="Favoritar" title="Salvar nos favoritos">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fav-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
           </button>
@@ -1872,7 +1858,7 @@ function getDrawer() {
 
       const pill = el.querySelector("#drawerAlertPill");
       if (pill) {
-        pill.style.display = html.includes('id="drawerTopAlert"') ? "inline-flex" : "none";
+        pill.hidden = !html.includes('id="drawerTopAlert"');
       }
 
       const favBtn = el.querySelector("[data-fav]");
@@ -1957,7 +1943,7 @@ function openQuickAlert(id) {
   const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte";
   const content = $("#quickAlertContent");
   content.innerHTML = `
-    <div class="drawer-alert drawer-alert--danger" style="margin-bottom:16px;">
+    <div class="drawer-alert drawer-alert--danger u-mb-16">
       <div class="drawer-alert__head">
         <span class="drawer-alert__icon">⚠️</span>
         <div>
@@ -1965,7 +1951,7 @@ function openQuickAlert(id) {
           <span class="drawer-alert__sub">${escapeHtml(titulo)} ${sub ? `• ${escapeHtml(sub)}` : ""}</span>
         </div>
       </div>
-      <ul class="drawer-alert__list" style="margin-top:12px;">
+      <ul class="drawer-alert__list u-mt-12">
         <li>
           <strong>1. Do pescoço para baixo:</strong>
           este banho não vai na cabeça (Ori). Por tradição, folhas de corte e de força ficam do pescoço para baixo.
@@ -1980,9 +1966,9 @@ function openQuickAlert(id) {
           nas horas seguintes, prefira ficar em casa, com roupas claras, longe de álcool, festas e discussões.
         </li>` : ""}
       </ul>
-      ${b.observacao ? `<p class="muted small" style="margin-top:12px; border-top:1px solid rgba(239,231,214,.1); padding-top:8px;"><strong>Fundamento:</strong> ${escapeHtml(b.observacao)}</p>` : ""}
+      ${b.observacao ? `<p class="muted small u-mt-12 u-divider-top u-pt-8"><strong>Fundamento:</strong> ${escapeHtml(b.observacao)}</p>` : ""}
     </div>
-    <div class="row wrap-row" style="justify-content:flex-end; gap:8px;">
+    <div class="row wrap-row u-justify-end u-gap-8">
       <button class="btn btn--ghost" type="button" data-close-alert>Fechar aviso</button>
       <button class="btn btn--primary" type="button" id="btnGoToFullBath">Ver receita completa →</button>
     </div>`;
@@ -2037,6 +2023,7 @@ function createCatalog(cfg) {
       </div>`;
 
   mount.innerHTML = `
+    <h2 class="sr-only">${escapeHtml(mount.getAttribute("aria-label") || "Catálogo")}</h2>
     <label class="cat-search">
       ${ICONS.search}
       <input class="input" type="search" placeholder="${cfg.placeholder}" value="${escapeHtml(state.q)}" aria-label="${cfg.placeholder}" />
@@ -2284,11 +2271,11 @@ function tarotDetailHtml(c) {
     <div class="dsec"><h3>Significado</h3><p>${escapeHtml(c.significado || "")}</p></div>
     ${c.invertida ? `<div class="dsec"><h3>Invertida</h3><p>${escapeHtml(c.invertida)}</p></div>` : ""}
     <div class="facts">
-      ${c.amor ? `<div class="fact" style="grid-column:1/-1"><span>❤️ Amor</span><b>${escapeHtml(c.amor)}</b></div>` : ""}
-      ${c.trabalho ? `<div class="fact" style="grid-column:1/-1"><span>💼 Trabalho</span><b>${escapeHtml(c.trabalho)}</b></div>` : ""}
+      ${c.amor ? `<div class="fact u-span-all"><span>❤️ Amor</span><b>${escapeHtml(c.amor)}</b></div>` : ""}
+      ${c.trabalho ? `<div class="fact u-span-all"><span>💼 Trabalho</span><b>${escapeHtml(c.trabalho)}</b></div>` : ""}
     </div>
-    ${c.conselho ? `<div class="dsec dsec--tea" style="margin-top:14px;"><h3>✨ Conselho</h3><p>${escapeHtml(c.conselho)}</p></div>` : ""}
-    <p class="muted small" style="margin-top:18px;">O baralho é uma ferramenta de reflexão e autoconhecimento, não uma sentença sobre o futuro.</p>`;
+    ${c.conselho ? `<div class="dsec dsec--tea u-mt-14"><h3>✨ Conselho</h3><p>${escapeHtml(c.conselho)}</p></div>` : ""}
+    <p class="muted small u-mt-18">O baralho é uma ferramenta de reflexão e autoconhecimento, não uma sentença sobre o futuro.</p>`;
 }
 
 /* Carta do dia (determinística por data, muda à meia-noite) */
@@ -2344,14 +2331,14 @@ function initTarotSpread() {
       <div class="tspread__header">
         <div>
           <span class="eyebrow">Tiragem de 3 Cartas • ${deckNome}</span>
-          <h3 style="margin:2px 0 0; font-family:var(--font-display);">Passado • Presente • Conselho</h3>
+          <h3 class="u-m0 u-mt-2 u-font-display">Passado • Presente • Conselho</h3>
         </div>
         <button class="btn btn--ghost small" type="button" id="btnResortearSpread">Sortear Novamente 🔀</button>
       </div>
       <div class="tspread__grid">
         <div class="tspread__slot">
           <span class="tspread__pos">1. Passado / Raízes</span>
-          <button class="tcard" type="button" data-open-card="${escapeHtml(cPassado.id)}" style="width:100%;">
+          <button class="tcard u-w100" type="button" data-open-card="${escapeHtml(cPassado.id)}">
             <span class="tcard__face">${tarotFaceHtml(cPassado)}</span>
             <span class="tcard__body">
               <b class="tcard__title">${escapeHtml(cPassado.nome)}</b>
@@ -2362,7 +2349,7 @@ function initTarotSpread() {
         </div>
         <div class="tspread__slot">
           <span class="tspread__pos">2. Presente / O Momento</span>
-          <button class="tcard" type="button" data-open-card="${escapeHtml(cPresente.id)}" style="width:100%;">
+          <button class="tcard u-w100" type="button" data-open-card="${escapeHtml(cPresente.id)}">
             <span class="tcard__face">${tarotFaceHtml(cPresente)}</span>
             <span class="tcard__body">
               <b class="tcard__title">${escapeHtml(cPresente.nome)}</b>
@@ -2373,7 +2360,7 @@ function initTarotSpread() {
         </div>
         <div class="tspread__slot">
           <span class="tspread__pos">3. Conselho / Caminho</span>
-          <button class="tcard" type="button" data-open-card="${escapeHtml(cConselho.id)}" style="width:100%;">
+          <button class="tcard u-w100" type="button" data-open-card="${escapeHtml(cConselho.id)}">
             <span class="tcard__face">${tarotFaceHtml(cConselho)}</span>
             <span class="tcard__body">
               <b class="tcard__title">${escapeHtml(cConselho.nome)}</b>
@@ -2383,7 +2370,7 @@ function initTarotSpread() {
           <p class="tspread__advice"><b>O conselho:</b> ${escapeHtml(cConselho.conselho)}</p>
         </div>
       </div>
-      <p class="muted small" style="text-align:center; margin-top:16px;">
+      <p class="muted small u-center u-mt-16">
         Clique em qualquer carta para abrir o significado completo, aspectos de amor e trabalho.
       </p>
     `;
@@ -2712,7 +2699,7 @@ function initColheitaPage() {
 
     count.textContent = String(filtered.length);
     grid.innerHTML = "";
-    if (empty) empty.style.display = filtered.length ? "none" : "block";
+    if (empty) empty.hidden = filtered.length > 0;
 
     filtered.forEach(c => {
       const card = document.createElement("div");
@@ -2814,7 +2801,7 @@ function initWeekPlanner() {
         <span class="pill">${moon.icon} ${moon.name.replace("Lua ", "")}</span>
       </div>
       <div class="muted small">${phaseIntention(major)}</div>
-      <div class="muted small" style="margin-top:6px;">${banhoTipoSugestao(major)}</div>
+      <div class="muted small u-mt-6">${banhoTipoSugestao(major)}</div>
     `;
     wrap.appendChild(card);
   }
@@ -2843,7 +2830,7 @@ function initCalendarioLunar() {
         <div class="moon-timeline__date">${formatDateBR(p.date)} • ${formatTimeBR(p.date)}</div>
         <b class="moon-timeline__name">${p.name}</b>
         <div class="muted small">${phaseIntention(p.name)}</div>
-        <div class="muted small advanced-only" style="margin-top:6px;">${banhoTipoSugestao(p.name)}</div>
+        <div class="muted small advanced-only u-mt-6">${banhoTipoSugestao(p.name)}</div>
       </div>`).join("");
   }
 
@@ -2936,7 +2923,7 @@ function initPortaisPage() {
       el.innerHTML = `
         <b>${portalName(m)} • ${formatDateBR(d)}</b>
         <div class="muted small">${meaning.tema}</div>
-        <div class="muted small advanced-only" style="margin-top:6px;"><b>Intenção:</b> ${meaning.fazer}</div>
+        <div class="muted small advanced-only u-mt-6"><b>Intenção:</b> ${meaning.fazer}</div>
       `;
       nextWrap.appendChild(el);
     });
@@ -3002,13 +2989,13 @@ function initPortaisPage() {
       el.className = "item";
       const id = "seq_" + s.seq.replace(/\s/g, "_");
       el.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-          <b class="mono" style="font-size:1.15rem; color:#fff;">${s.seq}</b>
+        <div class="u-flex u-between u-wrap u-gap-8">
+          <b class="mono u-fs-115 u-white">${s.seq}</b>
           <span class="badge">${s.cat}</span>
         </div>
-        <div class="muted small" style="margin-top:4px; font-weight:600; color:#e2e8f0;">${s.titulo}</div>
-        <div class="muted small" id="${id}" style="margin-top:4px;">${s.uso}</div>
-        <div class="row wrap-row" style="margin-top:10px; gap:8px;">
+        <div class="muted small u-mt-4 u-fw-600 u-text">${s.titulo}</div>
+        <div class="muted small u-mt-4" id="${id}">${s.uso}</div>
+        <div class="row wrap-row u-mt-10 u-gap-8">
           <button class="btn btn--ghost" data-copy-text="${s.seq}" type="button">📋 Copiar</button>
           <button class="btn" data-speak="#${id}" type="button">🔊 Ouvir</button>
         </div>
@@ -3201,7 +3188,7 @@ function initDikenga() {
         <div class="dikenga-detail-ponto">
           <strong>Como atua no ponto riscado:</strong><br>
           ${escapeHtml(d.ponto)}<br>
-          <span class="small muted" style="display:block; margin-top:6px;"><b>Exemplos comuns:</b> ${escapeHtml(d.exemplo)}</span>
+          <span class="small muted u-block u-mt-6"><b>Exemplos comuns:</b> ${escapeHtml(d.exemplo)}</span>
         </div>
       `;
     }
@@ -3240,10 +3227,10 @@ function initSimbolosPage() {
 
   function switchSimboloTab(activeTab, activePane) {
     [tabBtnPontos, tabBtnRunas, tabBtnMandalas, tabBtnSigilos].forEach(t => t?.classList.remove("tab--active"));
-    [panePontos, paneRunas, paneMandalas, paneSigilos].forEach(p => { if (p) p.style.display = "none"; });
+    [panePontos, paneRunas, paneMandalas, paneSigilos].forEach(p => { if (p) p.hidden = true; });
 
     activeTab.classList.add("tab--active");
-    if (activePane) activePane.style.display = "block";
+    if (activePane) activePane.hidden = false;
   }
 
   tabBtnPontos.addEventListener("click", () => switchSimboloTab(tabBtnPontos, panePontos));
@@ -3295,9 +3282,9 @@ function initSimbolosPage() {
           <span class="runa-glyph-mini">${r.glyph}</span>
           <span class="badge">${r.cat}</span>
         </div>
-        <h4 class="runa-name">${r.nome}</h4>
-        <p class="muted small" style="margin:0; font-size:0.82rem; color:var(--accent);">${r.traducao}</p>
-        <p class="muted small" style="margin:4px 0 0; line-height:1.4;">${r.palavra}</p>
+        <h3 class="runa-name">${r.nome}</h3>
+        <p class="muted small u-m0 u-fs-82 tone-gold tone-text">${r.traducao}</p>
+        <p class="muted small u-m0 u-mt-4 u-lh-140">${r.palavra}</p>
       `;
       card.addEventListener("click", () => showOracleResult(r));
       runasGrid.appendChild(card);
@@ -3335,7 +3322,7 @@ function initSimbolosPage() {
     if (oracleArchetype) oracleArchetype.textContent = `Significado: ${r.traducao} (${r.palavra})`;
     if (oracleAdvice) oracleAdvice.textContent = r.conselho;
 
-    runaResultado.style.display = "block";
+    runaResultado.hidden = false;
     runaResultado.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
@@ -4087,7 +4074,7 @@ function ritualItemHtml(kind, item, href) {
   if (!item) return "";
   const icon = kind === "banho" ? "🛁" : "💨";
   const cabeca = kind === "banho"
-    ? (item.cabeca ? ' • <span style="color:#9fd09a;">pode na cabeça</span>' : ' • <span style="color:#e8a07c;">do pescoço para baixo</span>')
+    ? (item.cabeca ? ' • <span class="tone-leaf tone-text">pode na cabeça</span>' : ' • <span class="tone-clay tone-text">do pescoço para baixo</span>')
     : "";
   return `
     <a class="item ritual-link" href="${href}#${encodeURIComponent(item.id)}">
@@ -4114,7 +4101,7 @@ function initHojePage() {
     const b = banhos.length ? banhos[(dailyIndexByDate(today, banhos.length) + offset) % banhos.length] : null;
     const d = defs.length ? defs[(dailyIndexByDate(today, defs.length) + offset) % defs.length] : null;
     wrap.innerHTML = ritualItemHtml("defumacao", d, "defumacao.html") + ritualItemHtml("banho", b, "banhos.html") +
-      `<p class="muted small" style="margin:6px 0 0;">${escapeHtml(moon.orientacao || "")}</p>`;
+      `<p class="muted small u-m0 u-mt-6">${escapeHtml(moon.orientacao || "")}</p>`;
   }
   $("#todaySuggestNext")?.addEventListener("click", () => { offset++; render(); });
   render();
@@ -4209,7 +4196,7 @@ function initOraculo() {
     if (def) steps.push({ t: "Limpe o ambiente", html: ritualItemHtml("defumacao", def, "defumacao.html") });
     if (b1) steps.push({ t: o.banho2 ? "1º tempo — descarrego" : "Tome o banho", html: ritualItemHtml("banho", b1, "banhos.html") });
     if (b2) steps.push({ t: "2º tempo — reconstrução (no mesmo dia ou no seguinte)", html: ritualItemHtml("banho", b2, "banhos.html") });
-    if (mantra) steps.push({ t: "Firme o pensamento", html: `<div class="item"><span class="muted small">🙏 Mantra • ${escapeHtml(mantra.tag)}</span><b id="oracleMantra">“${escapeHtml(mantra.text)}”</b><div class="row wrap-row" style="margin-top:8px;"><button class="btn-micro" data-copy="#oracleMantra" type="button">📋 Copiar</button><button class="btn-micro" data-speak="#oracleMantra" type="button">🔊 Ouvir</button></div></div>` });
+    if (mantra) steps.push({ t: "Firme o pensamento", html: `<div class="item"><span class="muted small">🙏 Mantra • ${escapeHtml(mantra.tag)}</span><b id="oracleMantra">“${escapeHtml(mantra.text)}”</b><div class="row wrap-row u-mt-8"><button class="btn-micro" data-copy="#oracleMantra" type="button">📋 Copiar</button><button class="btn-micro" data-speak="#oracleMantra" type="button">🔊 Ouvir</button></div></div>` });
 
     out.innerHTML = `
       <div class="notice"><strong>Palavra do Juremeiro:</strong> ${escapeHtml(o.palavra)}</div>
@@ -4308,7 +4295,7 @@ function initGlobalSearch() {
   function run() {
     const q = normalizeSpiritualSearch(input.value);
     if (q.length < 2) {
-      results.innerHTML = `<p class="muted small" style="padding:8px 4px;">Digite pelo menos 2 letras. Dica: tecle <b>/</b> em qualquer página para abrir a busca.</p>`;
+      results.innerHTML = `<p class="muted small u-pad-8-4">Digite pelo menos 2 letras. Dica: tecle <b>/</b> em qualquer página para abrir a busca.</p>`;
       return;
     }
     const has = (...parts) => normalizeSpiritualSearch(parts.join(" ")).includes(q);
@@ -4326,7 +4313,7 @@ function initGlobalSearch() {
       group("🥁 Pontos Cantados", PONTOS.filter(p => has(p.titulo, p.linhaNome, p.entidade, p.toque, p.saudacao, p.letra, p.significado))
         .map(p => row(`pontos.html#${encodeURIComponent(p.id)}`, `${p.titulo} • ${p.entidade}`, `${p.linhaNome} (${p.toque})`))) +
       group("📄 Páginas", SEARCH_PAGES.filter(p => has(p.t, p.k)).map(p => row(p.u, p.t, "")));
-    results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
+    results.innerHTML = html || `<p class="muted small u-pad-8-4">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
   }
 
   let lastFocus = null;
@@ -4335,7 +4322,7 @@ function initGlobalSearch() {
     overlay.hidden = false;
     document.body.classList.add("gsearch-open");
     input.focus();
-    if (!ready) { results.innerHTML = `<p class="muted small" style="padding:8px 4px;">Carregando…</p>`; await ensureAllData(); ready = true; }
+    if (!ready) { results.innerHTML = `<p class="muted small u-pad-8-4">Carregando…</p>`; await ensureAllData(); ready = true; }
     run();
   }
   function close() {
@@ -4467,9 +4454,9 @@ function heroArtHtml(kind) {
     const dx = moonShadowShift(m);
     return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-moon"><div class="ph-moon__shadow" style="transform:translateX(${dx}%)"></div></div></div>`;
   }
-  if (kind === "candle") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars" style="opacity:.35"></div><div class="ph-candle"></div></div>`;
+  if (kind === "candle") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div><div class="ph-candle"></div></div>`;
   if (kind === "numbers") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-numbers">11:11</div></div>`;
-  if (kind === "geo") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars" style="opacity:.4"></div><div class="ph-geo">${GEO_SVG}</div></div>`;
+  if (kind === "geo") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-40"></div><div class="ph-geo">${GEO_SVG}</div></div>`;
   if (kind === "cards") {
     const imgs = ["images/tarot/classico/classico-maior-17-estrela.jpg", "images/tarot/classico/classico-maior-19-sol.jpg", "images/tarot/classico/classico-maior-18-lua.jpg"];
     return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-cards">${imgs.map(s => `<img src="${s}" alt="" onerror="this.remove()">`).join("")}</div></div>`;

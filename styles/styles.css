@@ -970,7 +970,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   border-radius: 12px;
   padding: 14px;
 }
-.spotlight-item h4 {
+.spotlight-item :is(h3, h4) {
   margin: 0 0 8px;
   color: var(--accent2);
   font-size: 1rem;
@@ -1451,7 +1451,7 @@ body[data-mode="advanced"] .advanced-only{ display:block; }
   background: rgba(255, 255, 255, 0.06);
 }
 
-.cartografia-quadrante-item h4 {
+.cartografia-quadrante-item :is(h3, h4) {
   margin: 0 0 4px;
   font-size: 0.95rem;
   display: flex;
@@ -4557,13 +4557,13 @@ body.is-home:not(.scrolled) .topbar{ background: linear-gradient(180deg, rgba(10
 .dikenga-node__time{ font-size: 8.5px; }
 
 /* Links nos itens de destaque nos fundamentos */
-.spotlight-item h4 a {
+.spotlight-item :is(h3, h4) a {
   color: inherit;
   text-decoration: underline;
   text-decoration-color: rgba(255, 255, 255, 0.25);
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
-.spotlight-item h4 a:hover {
+.spotlight-item :is(h3, h4) a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
 }
@@ -5288,3 +5288,183 @@ main:focus { outline: none; }
 @media (max-width: 760px) {
   .site-footer__copy { display: block; padding-inline: 56px; }
 }
+
+/* =========================================================
+   Auditoria 2026-10-31 (2): estilos que estavam escritos direto no HTML
+   Paleta de tons: cada .tone-* define --tone; os componentes usam --tone.
+   As classes u-* substituem atributos style="" e por isso usam !important,
+   para manter o mesmo peso que o estilo inline tinha.
+   ========================================================= */
+:root {
+  --white: #fff;
+  --c-sky: #8fc1e3;
+  --c-lilac: #b9a8e8;
+  --c-violet: #d8b4fe;
+  --c-rose: #f472b6;
+  --c-red: #ef4444;
+  --c-ruby: #f87171;
+  --c-earth: #d4a373;
+  --c-sun: #f1c40f;
+  --c-amber: #f59e0b;
+  --c-coral: #ff9d8b;
+  --c-mint: #bbf0b6;
+  --ember-1: #d97706;
+  --ember-2: #b45309;
+}
+
+[hidden] { display: none !important; }
+
+.tone-gold   { --tone: var(--accent); }
+.tone-leaf   { --tone: var(--accent2); }
+.tone-plain  { --tone: var(--text); }
+.tone-sky    { --tone: var(--c-sky); }
+.tone-lilac  { --tone: var(--c-lilac); }
+.tone-violet { --tone: var(--c-violet); }
+.tone-rose   { --tone: var(--c-rose); }
+.tone-red    { --tone: var(--c-red); }
+.tone-ruby   { --tone: var(--c-ruby); }
+.tone-earth  { --tone: var(--c-earth); }
+.tone-sun    { --tone: var(--c-sun); }
+.tone-amber  { --tone: var(--c-amber); }
+.tone-coral  { --tone: var(--c-coral); }
+.tone-mint   { --tone: var(--c-mint); }
+
+.tone-text { color: var(--tone) !important; }
+.tone-bar  { border-left: 3px solid var(--tone) !important; }
+.tone-box {
+  border-color: color-mix(in srgb, var(--tone) 40%, transparent) !important;
+  background: color-mix(in srgb, var(--tone) 8%, transparent) !important;
+}
+.badge--tone {
+  background: color-mix(in srgb, var(--tone) 15%, transparent) !important;
+  border-color: color-mix(in srgb, var(--tone) 35%, transparent) !important;
+  color: var(--tone) !important;
+}
+.color-dot-btn[class*="tone-"] { background: var(--tone); }
+.color-dot-btn:focus-visible { box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent); }
+
+.firmeza-title { color: var(--white) !important; margin: 8px 0 4px !important; font-size: 1.15rem !important; }
+.section-title { font-size: 1.35rem !important; margin: 0 0 4px !important; }
+.subhead-accent {
+  font-size: 1.05rem !important; margin: 16px 0 10px !important;
+  font-family: var(--font-display) !important; color: var(--accent) !important;
+}
+.field-label { font-weight: 600 !important; display: block !important; margin-bottom: 6px !important; }
+.soft-box {
+  background: var(--panel) !important; border: 1px solid var(--line) !important;
+  border-radius: 12px !important; padding: 14px !important;
+}
+.soft-box--tight { padding: 12px !important; }
+.btn--ember {
+  background: linear-gradient(135deg, var(--ember-1), var(--ember-2)) !important;
+  border-color: var(--c-amber) !important; color: var(--white) !important; font-weight: 700 !important;
+}
+.btn--lg { padding: 12px 24px !important; font-size: 1.05rem !important; }
+.oracle-lead { max-width: 600px !important; margin: 0 auto 14px !important; }
+.oracle-advice {
+  text-align: left !important; max-width: 680px !important; margin: 0 auto !important;
+  background: color-mix(in srgb, var(--accent) 8%, transparent) !important;
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent) !important;
+}
+.sigil-input { font-size: 1.05rem !important; font-weight: 600 !important; letter-spacing: .5px !important; text-transform: uppercase !important; }
+
+.u-m0 { margin: 0 !important; }
+.u-my-12 { margin-block: 12px !important; }
+.u-my-14 { margin-block: 14px !important; }
+.u-my-16 { margin-block: 16px !important; }
+.u-mt-4 { margin-top: 4px !important; }
+.u-mt-6 { margin-top: 6px !important; }
+.u-mt-8 { margin-top: 8px !important; }
+.u-mt-10 { margin-top: 10px !important; }
+.u-mt-12 { margin-top: 12px !important; }
+.u-mt-14 { margin-top: 14px !important; }
+.u-mt-16 { margin-top: 16px !important; }
+.u-mt-20 { margin-top: 20px !important; }
+.u-mt-22 { margin-top: 22px !important; }
+.u-mt-28 { margin-top: 28px !important; }
+.u-mt-auto { margin-top: auto !important; }
+.u-mb-4 { margin-bottom: 4px !important; }
+.u-mb-10 { margin-bottom: 10px !important; }
+.u-mb-12 { margin-bottom: 12px !important; }
+.u-mb-14 { margin-bottom: 14px !important; }
+.u-mb-16 { margin-bottom: 16px !important; }
+.u-mb-24 { margin-bottom: 24px !important; }
+.u-pt-8 { padding-top: 8px !important; }
+.u-pt-10 { padding-top: 10px !important; }
+.u-py-10 { padding-block: 10px !important; }
+.u-flex { display: flex !important; }
+.u-flex1 { flex: 1 !important; }
+.u-wrap { flex-wrap: wrap !important; }
+.u-between { justify-content: space-between !important; align-items: center !important; }
+.u-justify-center { justify-content: center !important; }
+.u-gap-8 { gap: 8px !important; }
+.u-gap-10 { gap: 10px !important; }
+.u-grid-280 { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)) !important; gap: 14px !important; }
+.u-center { text-align: center !important; }
+.u-w100 { width: 100% !important; }
+.u-maxw-340 { max-width: 340px !important; }
+.u-minh-42 { min-height: 42px !important; }
+.u-white { color: var(--white) !important; }
+.u-text { color: var(--text) !important; }
+.u-fs-82 { font-size: .82rem !important; }
+.u-fs-95 { font-size: .95rem !important; }
+.u-fs-98 { font-size: .98rem !important; }
+.u-fs-115 { font-size: 1.15rem !important; }
+.u-fs-125 { font-size: 1.25rem !important; }
+.u-fs-135 { font-size: 1.35rem !important; }
+.u-fs-140 { font-size: 1.4rem !important; }
+.u-fs-fluid { font-size: clamp(1.5rem, 3.4vw, 2.1rem) !important; }
+.u-lh-145 { line-height: 1.45 !important; }
+.u-lh-160 { line-height: 1.6 !important; }
+
+/* Aviso rápido ("Copiado!"): anunciado por leitores de tela e acima da barra inferior no celular */
+.toast-notification {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  z-index: 9999;
+  width: max-content; max-width: calc(100vw - 32px);
+  padding: 10px 18px; border-radius: 999px;
+  background: rgba(11, 23, 19, .95);
+  border: 1px solid color-mix(in srgb, var(--accent2) 35%, transparent);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .4);
+  backdrop-filter: blur(12px);
+  color: var(--white);
+  font-family: var(--font-body); font-size: .92rem; font-weight: 500; letter-spacing: .2px;
+  transition: opacity .25s ease;
+}
+.toast-notification--out { opacity: 0; }
+@media (max-width: 900px) {
+  .toast-notification { bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom) + 14px); }
+}
+
+/* Utilidades usadas pelos templates do script.js */
+.tone-clay { --tone: var(--clay); }
+.u-mt-2 { margin-top: 2px !important; }
+.u-mt-18 { margin-top: 18px !important; }
+.u-ml-4 { margin-left: 4px !important; }
+.u-pt-0 { padding-top: 0 !important; }
+.u-px-4 { padding-inline: 4px !important; }
+.u-pad-8-4 { padding: 8px 4px !important; }
+.u-bt-0 { border-top: 0 !important; }
+.u-divider-top { border-top: 1px solid var(--line) !important; }
+.u-block { display: block !important; }
+.u-items-center { align-items: center !important; }
+.u-justify-end { justify-content: flex-end !important; }
+.u-gap-6 { gap: 6px !important; }
+.u-span-all { grid-column: 1 / -1 !important; }
+.u-h-32 { height: 32px !important; }
+.u-fs-75 { font-size: .75rem !important; }
+.u-fw-600 { font-weight: 600 !important; }
+.u-muted { color: var(--muted) !important; }
+.u-font-display { font-family: var(--font-display) !important; }
+.u-lh-140 { line-height: 1.4 !important; }
+.u-o-35 { opacity: .35 !important; }
+.u-o-40 { opacity: .4 !important; }
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Títulos que passaram de H4 para H3 (hierarquia) mantêm a fonte de texto */
+.cartografia-quadrante-item :is(h3, h4), .spotlight-item :is(h3, h4), .runa-name { font-family: var(--font-body); font-weight: 700; letter-spacing: normal; }

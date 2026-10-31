@@ -128,14 +128,14 @@
         <span class="badge" id="countBadge">0</span>
       </div>
 
-      <div class="row wrap-row" style="margin-bottom: 12px;">
+      <div class="row wrap-row u-mb-12">
         <input id="searchInput" class="input" type="search" aria-label="Buscar mantras" placeholder="Buscar (ex.: gratidão, foco, receber…)" />
         <button class="btn btn--ghost" id="clearSearchBtn" type="button">Limpar</button>
         <button class="btn" id="randomFromListBtn" type="button">Sortear da lista</button>
       </div>
 
       <div id="allMantrasList" class="mantra-list"></div>
-      <p class="muted small" id="emptySearch" style="display:none;">Nenhum mantra encontrado com essa busca.</p>
+      <p class="muted small" id="emptySearch" hidden>Nenhum mantra encontrado com essa busca.</p>
     </section>
 
     <section class="card section-gap">
@@ -735,11 +735,11 @@
 
         <form id="cadernoForm" class="caderno-form">
           <div class="form-row">
-            <label class="form-group" style="flex:1;">
+            <label class="form-group u-flex1">
               <span class="form-label">Data</span>
               <input type="date" id="cadernoData" class="form-input" required />
             </label>
-            <label class="form-group" style="flex:1;">
+            <label class="form-group u-flex1">
               <span class="form-label">Tipo de Prática</span>
               <select id="cadernoTipo" class="form-select">
                 <option value="banho">🌿 Banho de Ervas</option>
@@ -753,17 +753,17 @@
             </label>
           </div>
 
-          <label class="form-group" style="margin-top:12px;">
+          <label class="form-group u-mt-12">
             <span class="form-label">Qual ritual, erva, firmeza ou carta foi utilizada?</span>
             <input type="text" id="cadernoTitulo" class="form-input" placeholder="Ex.: Banho de Arruda, Guiné e Alecrim; Carta A Estrela; Vela Branca..." required />
           </label>
 
-          <label class="form-group" style="margin-top:12px;">
+          <label class="form-group u-mt-12">
             <span class="form-label">Como você se sentiu? (sensações físicas, sonhos, intuições, alívio)</span>
             <textarea id="cadernoRelato" class="form-textarea" rows="4" placeholder="Escreva com o coração: o alívio que sentiu no corpo, sonhos que teve na noite seguinte, clareza mental ou sinais observados..."></textarea>
           </label>
 
-          <div class="row wrap-row" style="margin-top:16px; justify-content:space-between; align-items:center;">
+          <div class="row wrap-row u-mt-16 u-between">
             <button class="btn" type="submit">Salvar no Caderno ✍️</button>
             <button class="btn btn--ghost small" type="button" id="btnExportCaderno">📥 Exportar Diário (.txt)</button>
           </div>
@@ -789,21 +789,21 @@
           <span class="badge">guardados no seu aparelho</span>
         </div>
 
-        <div id="favoritesEmpty" class="muted small" style="margin-bottom:16px;">
+        <div id="favoritesEmpty" class="muted small u-mb-16">
           Ainda não há favoritos salvos. Você pode salvar mantras clicando em “Salvar nos favoritos” ou clicar no ícone de coração (❤️) dentro da gaveta de qualquer Banho, Erva, Defumação ou Carta de Tarot.
         </div>
 
-        <div id="catalogFavoritesSection" hidden style="margin-bottom:24px;">
-          <h3 style="font-size:1.05rem; margin:16px 0 10px; font-family:var(--font-display); color:var(--accent);">Rituais, Ervas & Cartas Salvas</h3>
+        <div class="u-mb-24" id="catalogFavoritesSection" hidden>
+          <h3 class="subhead-accent">Rituais, Ervas & Cartas Salvas</h3>
           <div id="catalogFavoritesList" class="fav-catalog-grid"></div>
         </div>
 
         <div id="mantraFavoritesSection" hidden>
-          <h3 style="font-size:1.05rem; margin:16px 0 10px; font-family:var(--font-display); color:var(--accent);">Mantras Salvos</h3>
+          <h3 class="subhead-accent">Mantras Salvos</h3>
           <div id="favoritesList" class="favorites"></div>
         </div>
 
-        <div class="row" style="margin-top:20px;">
+        <div class="row u-mt-20">
           <button class="btn btn--ghost" id="clearFavsBtn" type="button">Limpar todos os favoritos</button>
         </div>
       </article>
