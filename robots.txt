@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://felipecosta-silva.github.io/Foco-Vibracional/sitemap.xml
