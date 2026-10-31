@@ -91,7 +91,12 @@ function renderHeader() {
       </div>
     </nav>` : "";
 
+  const main = document.querySelector("main");
+  if (main && !main.id) main.id = "conteudo";
+  if (main) main.setAttribute("tabindex", "-1");
+
   container.innerHTML = `
+    <a class="skip-link" href="#${main ? main.id : "conteudo"}">Pular para o conteúdo</a>
     <header class="topbar">
       <div class="wrap topbar__inner">
         <a class="brand" href="index.html" aria-label="Foco Vibracional — início">
@@ -524,37 +529,101 @@ function initCopySpeak() {
 }
 
 /* ==========================================================================
-   Motor Lunar Central (Cálculo Sinódico & Fases em Tempo Real)
-   Permite saber exatamente em qual lua estamos hoje e o que é propício fazer
+   Motor Lunar Central (fases verdadeiras, cálculo local)
+   Horários das fases pelo método de Jean Meeus ("Astronomical Algorithms",
+   cap. 49, precisão de minutos) e iluminação pelo cap. 48. Roda offline e
+   não depende de serviço externo.
    ========================================================================== */
-const FARM_API = "https://api.farmsense.net/v1/moonphases/?d=";
 const SYNODIC_DAYS = 29.530588853;
-const REF_NEW_MOON_UTC = Date.UTC(2000, 0, 6, 18, 14, 0);
-
-function toUnixSeconds(d) { return Math.floor(d.getTime() / 1000); }
+const MOON_WINDOW_DAYS = 1.5; // dias, antes e depois do instante exato, em que a fase "principal" vale
+const PHASE_NAMES = ["Lua Nova", "Quarto Crescente", "Lua Cheia", "Quarto Minguante"];
 
 /* Data local no formato AAAA-MM-DD (toISOString usa UTC e "pula" o dia à noite no Brasil) */
 function localISODate(d = new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-function moonAgeDays(date) {
-  const diffDays = (date.getTime() - REF_NEW_MOON_UTC) / 86400000;
-  let age = diffDays % SYNODIC_DAYS;
-  if (age < 0) age += SYNODIC_DAYS;
-  return age;
+const rad = deg => deg * Math.PI / 180;
+const jdToDate = jd => new Date((jd - 2440587.5) * 86400000 - 69000); // TT → UTC (ΔT ≈ 69 s)
+const dateToJd = d => d.getTime() / 86400000 + 2440587.5;
+
+/* Instante verdadeiro de uma fase. q: 0 nova, 1 crescente, 2 cheia, 3 minguante; k: lunação desde jan/2000 */
+function truePhaseDate(k, q) {
+  k += q / 4;
+  const T = k / 1236.85, T2 = T * T, T3 = T2 * T, T4 = T3 * T;
+  let jde = 2451550.09766 + 29.530588861 * k + 0.00015437 * T2 - 0.00000015 * T3 + 0.00000000073 * T4;
+  const E = 1 - 0.002516 * T - 0.0000074 * T2;
+  const M = rad(2.5534 + 29.1053567 * k - 0.0000014 * T2 - 0.00000011 * T3);
+  const Mp = rad(201.5643 + 385.81693528 * k + 0.0107582 * T2 + 0.00001238 * T3 - 0.000000058 * T4);
+  const F = rad(160.7108 + 390.67050284 * k - 0.0016118 * T2 - 0.00000227 * T3 + 0.000000011 * T4);
+  const Om = rad(124.7746 - 1.56375588 * k + 0.0020672 * T2 + 0.00000215 * T3);
+  const s = Math.sin;
+  if (q === 0 || q === 2) {
+    const [a, b, c, d, e] = q === 0 ? [-0.4072, 0.17241, 0.01608, 0.01039, 0.00739] : [-0.40614, 0.17302, 0.01614, 0.01043, 0.00734];
+    jde += a * s(Mp) + b * E * s(M) + c * s(2 * Mp) + d * s(2 * F) + e * E * s(Mp - M)
+      - 0.00514 * E * s(Mp + M) + 0.00208 * E * E * s(2 * M) - 0.00111 * s(Mp - 2 * F) - 0.00057 * s(Mp + 2 * F)
+      + 0.00056 * E * s(2 * Mp + M) - 0.00042 * s(3 * Mp) + 0.00042 * E * s(M + 2 * F) + 0.00038 * E * s(M - 2 * F)
+      - 0.00024 * E * s(2 * Mp - M) - 0.00017 * s(Om) - 0.00007 * s(Mp + 2 * M) + 0.00004 * s(2 * Mp - 2 * F)
+      + 0.00004 * s(3 * M) + 0.00003 * s(Mp + M - 2 * F) + 0.00003 * s(2 * Mp + 2 * F) - 0.00003 * s(Mp + M + 2 * F)
+      + 0.00003 * s(Mp - M + 2 * F) - 0.00002 * s(Mp - M - 2 * F) - 0.00002 * s(3 * Mp + M) + 0.00002 * s(4 * Mp);
+  } else {
+    const c = Math.cos;
+    jde += -0.62801 * s(Mp) + 0.17172 * E * s(M) - 0.01183 * E * s(Mp + M) + 0.00862 * s(2 * Mp) + 0.00804 * s(2 * F)
+      + 0.00454 * E * s(Mp - M) + 0.00204 * E * E * s(2 * M) - 0.0018 * s(Mp - 2 * F) - 0.0007 * s(Mp + 2 * F)
+      - 0.0004 * s(3 * Mp) - 0.00034 * E * s(2 * Mp - M) + 0.00032 * E * s(M + 2 * F) + 0.00032 * E * s(M - 2 * F)
+      - 0.00028 * E * E * s(Mp + 2 * M) + 0.00027 * E * s(2 * Mp + M) - 0.00017 * s(Om) - 0.00005 * s(Mp - M - 2 * F)
+      + 0.00004 * s(2 * Mp + 2 * F) - 0.00004 * s(Mp + M + 2 * F) + 0.00004 * s(Mp - 2 * M) + 0.00003 * s(Mp + M - 2 * F)
+      + 0.00003 * s(3 * M) + 0.00002 * s(2 * Mp - 2 * F) + 0.00002 * s(Mp - M + 2 * F) - 0.00002 * s(3 * Mp + M);
+    const W = 0.00306 - 0.00038 * E * c(M) + 0.00026 * c(Mp) - 0.00002 * c(Mp - M) + 0.00002 * c(Mp + M) + 0.00002 * c(2 * F);
+    jde += q === 1 ? W : -W;
+  }
+  return jdToDate(jde);
 }
 
-function majorPhaseFromAge(age) {
-  if (age < 1.5 || age > SYNODIC_DAYS - 1.5) return "Lua Nova";
-  if (Math.abs(age - SYNODIC_DAYS / 2) < 1.5) return "Lua Cheia";
-  if (Math.abs(age - SYNODIC_DAYS / 4) < 1.5) return "Quarto Crescente";
-  if (Math.abs(age - 3 * SYNODIC_DAYS / 4) < 1.5) return "Quarto Minguante";
+/* Todas as fases principais entre duas datas, em ordem: [{ name, q, date }] */
+function moonEventsBetween(from, to) {
+  const k0 = Math.floor((dateToJd(from) - 2451550.09766) / SYNODIC_DAYS) - 1;
+  const events = [];
+  for (let k = k0; ; k++) {
+    for (let q = 0; q < 4; q++) {
+      const date = truePhaseDate(k, q);
+      if (date > to) return events;
+      if (date >= from) events.push({ name: PHASE_NAMES[q], q, date });
+    }
+  }
+}
 
-  if (age < SYNODIC_DAYS / 4) return "Crescente (entre Nova e Crescente)";
-  if (age < SYNODIC_DAYS / 2) return "Crescente (entre Crescente e Cheia)";
-  if (age < 3 * SYNODIC_DAYS / 4) return "Minguante (entre Cheia e Minguante)";
-  return "Minguante (entre Minguante e Nova)";
+/* Fase anterior e próxima em torno de uma data */
+function moonEventsAround(date) {
+  const events = moonEventsBetween(new Date(date.getTime() - 9 * 86400000), new Date(date.getTime() + 9 * 86400000));
+  const next = events.find(e => e.date > date);
+  return { prev: events[events.indexOf(next) - 1], next };
+}
+
+/* Idade da lua: dias desde a última lua nova verdadeira */
+function moonAgeDays(date) {
+  const newMoons = moonEventsBetween(new Date(date.getTime() - 32 * 86400000), date).filter(e => e.q === 0);
+  return (date - newMoons[newMoons.length - 1].date) / 86400000;
+}
+
+/* Fração iluminada (0 a 1), pelo ângulo de fase aproximado */
+function moonIllumination(date) {
+  const T = (dateToJd(date) - 2451545) / 36525;
+  const D = rad(297.8501921 + 445267.1114034 * T);
+  const M = rad(357.5291092 + 35999.0502909 * T);
+  const Mp = rad(134.9633964 + 477198.8675055 * T);
+  const i = rad(180 - D * 180 / Math.PI - 6.289 * Math.sin(Mp) + 2.1 * Math.sin(M) - 1.274 * Math.sin(2 * D - Mp)
+    - 0.658 * Math.sin(2 * D) - 0.214 * Math.sin(2 * Mp) - 0.11 * Math.sin(D));
+  return (1 + Math.cos(i)) / 2;
+}
+
+/* Nome da fase de uma data: "Lua Cheia" se estiver a até 1,5 dia do instante exato; senão, o intervalo */
+function majorPhaseAt(date) {
+  const { prev, next } = moonEventsAround(date);
+  const near = [prev, next].filter(Boolean).find(e => Math.abs(date - e.date) <= MOON_WINDOW_DAYS * 86400000);
+  if (near) return near.name;
+  return ["Crescente (entre Nova e Crescente)", "Crescente (entre Crescente e Cheia)",
+    "Minguante (entre Cheia e Minguante)", "Minguante (entre Minguante e Nova)"][prev.q];
 }
 
 function phaseIntention(major) {
@@ -577,59 +646,36 @@ function banhoTipoSugestao(major) {
   return map[major] || "Banho sugerido: Calma e serenidade (Camomila / Lavanda)";
 }
 
+/* Fases do ciclo: 4 principais (perto do instante exato) e 4 intermediárias (entre elas) */
+const MOON_STAGES = {
+  "Lua Nova": { key: "nova", icon: "🌑", orientacao: "Ciclo de recomeço e semeadura pura. Ideal para banhos suaves de acalento e firmar intenções de paz, novos hábitos e prosperidade." },
+  "Quarto Crescente": { key: "crescente", icon: "🌓", orientacao: "Força motriz, disciplina e expansão. Momento propício para banhos de alecrim, louro e atração de fartura." },
+  "Lua Cheia": { key: "cheia", icon: "🌕", orientacao: "Potência máxima, plenitude e harmonização. O Ori pede luz suave (Boldo, Manjericão, Alfazema) e agradecimento aos Mestres." },
+  "Quarto Minguante": { key: "minguante", icon: "🌗", orientacao: "Corte de pesos, faxina espiritual e descarrego. Momento de arruda e guiné, sempre do pescoço para baixo." },
+  "Lua Crescente": { key: "crescente", icon: "🌒", orientacao: "A luz começa a expandir. Perfeita para movimentar novos projetos, estudar e dar o primeiro passo com coragem." },
+  "Lua Gibosa Crescente": { key: "crescente", icon: "🌔", orientacao: "Fase de refinamento e amadurecimento dos propósitos antes do ápice da Cheia." },
+  "Lua Gibosa Minguante": { key: "minguante", icon: "🌖", orientacao: "Início do recolhimento, reflexão e desapego do que não serve mais." },
+  "Lua Balsâmica Minguante": { key: "minguante", icon: "🌘", orientacao: "Limpeza profunda e encerramento de ciclos para purificar o terreno antes da Nova." }
+};
+const BETWEEN_STAGES = ["Lua Crescente", "Lua Gibosa Crescente", "Lua Gibosa Minguante", "Lua Balsâmica Minguante"];
+
+/* Desenho da lua como se vê do Brasil (hemisfério sul): a crescente acende pela esquerda ("C"),
+   a minguante pela direita. Devolve o deslocamento, em %, do disco de sombra. */
+function moonShadowShift(moon) {
+  return (moon.waxing ? 1 : -1) * Math.min(100, moon.illum);
+}
+
 function getLiveMoonData(date = new Date()) {
   const age = moonAgeDays(date);
-  const illum = Math.round((1 - Math.cos((2 * Math.PI * age) / SYNODIC_DAYS)) / 2 * 100);
-
-  let key = "nova";
-  let name = "Lua Nova";
-  let icon = "🌑";
-  let orientacao = "Ciclo de recomeço e semeadura pura. Ideal para banhos suaves de acalento e firmar intenções de paz, novos hábitos e prosperidade.";
-
-  if (age < 1.5 || age > SYNODIC_DAYS - 1.5) {
-    key = "nova";
-    name = "Lua Nova";
-    icon = "🌑";
-    orientacao = "Ciclo de recomeço e semeadura pura. Ideal para banhos suaves de acalento e firmar intenções de paz, novos hábitos e prosperidade.";
-  } else if (age < (SYNODIC_DAYS / 4) - 1.5) {
-    key = "crescente";
-    name = "Lua Crescente";
-    icon = "🌒";
-    orientacao = "A luz começa a expandir. Perfeita para movimentar novos projetos, estudar e dar o primeiro passo com coragem.";
-  } else if (Math.abs(age - SYNODIC_DAYS / 4) <= 1.5) {
-    key = "crescente";
-    name = "Quarto Crescente";
-    icon = "🌓";
-    orientacao = "Força motriz, disciplina e expansão. Momento propício para banhos de alecrim, louro e atração de fartura.";
-  } else if (age < (SYNODIC_DAYS / 2) - 1.5) {
-    key = "crescente";
-    name = "Lua Gibosa Crescente";
-    icon = "🌔";
-    orientacao = "Fase de refinamento e amadurecimento dos propósitos antes do ápice da Cheia.";
-  } else if (Math.abs(age - SYNODIC_DAYS / 2) <= 1.5) {
-    key = "cheia";
-    name = "Lua Cheia";
-    icon = "🌕";
-    orientacao = "Potência máxima, plenitude e harmonização. O Ori pede luz suave (Boldo, Manjericão, Alfazema) e agradecimento aos Mestres.";
-  } else if (age < (3 * SYNODIC_DAYS / 4) - 1.5) {
-    key = "minguante";
-    name = "Lua Gibosa Minguante";
-    icon = "🌖";
-    orientacao = "Início do recolhimento, reflexão e desapego do que não serve mais.";
-  } else if (Math.abs(age - 3 * SYNODIC_DAYS / 4) <= 1.5) {
-    key = "minguante";
-    name = "Quarto Minguante";
-    icon = "🌗";
-    orientacao = "Corte de pesos, faxina espiritual e descarrego. Momento sagrado de arruda e guiné (SEMPRE do pescoço para baixo).";
-  } else {
-    key = "minguante";
-    name = "Lua Balsâmica Minguante";
-    icon = "🌘";
-    orientacao = "Limpeza profunda e encerramento de ciclos para purificar o terreno antes da Nova.";
-  }
+  const illum = Math.round(moonIllumination(date) * 100);
+  const { prev, next } = moonEventsAround(date);
+  const near = [prev, next].filter(Boolean).find(e => Math.abs(date - e.date) <= MOON_WINDOW_DAYS * 86400000);
+  const name = near ? near.name : BETWEEN_STAGES[prev.q];
+  const { key, icon, orientacao } = MOON_STAGES[name];
 
   return {
     age: Number(age.toFixed(1)),
+    waxing: prev.q < 2,
     illum,
     key, // 'nova' | 'crescente' | 'cheia' | 'minguante'
     name,
@@ -1560,7 +1606,7 @@ function ritualCardHtml(kind, it) {
       foot = `<span class="ori ori--yes">✓ Pode na cabeça</span>`;
     } else {
       foot = `<span class="ori ori--no">⚠️ Pescoço p/ baixo</span>`;
-      alertBadge = `<span class="rcard-alert-icon" data-quick-alert="${escapeHtml(it.id)}" role="button" tabindex="0" title="Atenção espiritual: pescoço para baixo. Toque para ver os cuidados deste banho" aria-label="Aviso de segurança: pescoço para baixo">⚠️</span>`;
+      alertBadge = `<span class="rcard-alert-icon" data-quick-alert="${escapeHtml(it.id)}" title="Toque para ver os cuidados deste banho" aria-hidden="true">⚠️</span>`;
     }
   } else {
     const s = sentidoCurto(it.sentido);
@@ -1779,6 +1825,16 @@ function ervaDetailHtml(e) {
 /* ---------- Painel de detalhes ---------- */
 let DRAWER = null;
 
+/* Mantém o foco do teclado dentro de um painel aberto (Tab e Shift+Tab circulam) */
+function trapFocus(e, panel) {
+  const items = [...panel.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+    .filter(x => x.offsetParent !== null);
+  if (!items.length) return;
+  const first = items[0], last = items[items.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
 function getDrawer() {
   if (DRAWER) return DRAWER;
   const el = document.createElement("div");
@@ -1867,7 +1923,11 @@ function getDrawer() {
       else copyText(url);
     }
   });
-  document.addEventListener("keydown", e => { if (e.key === "Escape" && api.isOpen) api.close(); });
+  document.addEventListener("keydown", e => {
+    if (!api.isOpen) return;
+    if (e.key === "Escape") api.close();
+    if (e.key === "Tab") trapFocus(e, el.querySelector(".drawer__panel"));
+  });
   DRAWER = api;
   return api;
 }
@@ -1890,34 +1950,35 @@ function openQuickAlert(id) {
       </div>`;
     document.body.appendChild(dialog);
     dialog.addEventListener("click", e => {
-      if (e.target.closest("[data-close-alert]")) dialog.hidden = true;
+      if (e.target.closest("[data-close-alert]")) closeQuickAlert();
     });
   }
   const [titulo, sub] = splitName(b.nome);
-  const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte" || !b.cabeca;
+  const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte";
   const content = $("#quickAlertContent");
   content.innerHTML = `
     <div class="drawer-alert drawer-alert--danger" style="margin-bottom:16px;">
       <div class="drawer-alert__head">
         <span class="drawer-alert__icon">⚠️</span>
         <div>
-          <b class="drawer-alert__title" id="quickAlertTitle">${isDescarrego ? "AVISO CRÍTICO • BANHO DE DESCARREGO" : "CUIDADOS RITUAIS DESTE BANHO"}</b>
+          <b class="drawer-alert__title" id="quickAlertTitle">${isDescarrego ? "Cuidados deste banho de descarrego" : "Cuidados deste banho"}</b>
           <span class="drawer-alert__sub">${escapeHtml(titulo)} ${sub ? `• ${escapeHtml(sub)}` : ""}</span>
         </div>
       </div>
       <ul class="drawer-alert__list" style="margin-top:12px;">
         <li>
-          <strong>🚫 1. NUNCA JOGAR NA CABEÇA (ORI):</strong>
-          Verta estritamente do pescoço para baixo. O Ori não deve receber folhas quentes ou de corte pesado para não provocar tonturas, dores e agitação mental.
+          <strong>1. Do pescoço para baixo:</strong>
+          este banho não vai na cabeça (Ori). Por tradição, folhas de corte e de força ficam do pescoço para baixo.
+        </li>
+        ${isDescarrego ? `
+        <li>
+          <strong>2. Depois, um banho doce:</strong>
+          o descarrego limpa o que pesa. Em seguida, um banho de harmonização (manjericão, boldo ou camomila) ajuda a trazer calma e equilíbrio.
         </li>
         <li>
-          <strong>⚡ 2. O CORPO FICA VAZIO — TOME HARMONIZAÇÃO LOGO EM SEGUIDA:</strong>
-          O descarrego quebra demandas e arranca miasmas, mas deixa sua aura zerada. <em>Tome logo a seguir um banho de harmonização</em> (manjericão, boldo ou camomila) para preencher seu campo com luz e não virar esponja aberta.
-        </li>
-        <li>
-          <strong>🚪 3. RESGUARDO E ABSTENÇÃO OBRIGATÓRIOS:</strong>
-          Evite sair de casa, recuse bares, festas e aglomerações, abstenha-se de álcool, sexo e discussões nas horas seguintes. Vista roupas brancas ou claras.
-        </li>
+          <strong>3. Resguardo recomendado:</strong>
+          nas horas seguintes, prefira ficar em casa, com roupas claras, longe de álcool, festas e discussões.
+        </li>` : ""}
       </ul>
       ${b.observacao ? `<p class="muted small" style="margin-top:12px; border-top:1px solid rgba(239,231,214,.1); padding-top:8px;"><strong>Fundamento:</strong> ${escapeHtml(b.observacao)}</p>` : ""}
     </div>
@@ -1926,11 +1987,27 @@ function openQuickAlert(id) {
       <button class="btn btn--primary" type="button" id="btnGoToFullBath">Ver receita completa →</button>
     </div>`;
   $("#btnGoToFullBath")?.addEventListener("click", () => {
-    dialog.hidden = true;
+    closeQuickAlert();
     getDrawer().open("Banho", banhoDetailHtml(b), b.id);
   });
+  quickAlertReturn = document.activeElement;
   dialog.hidden = false;
+  $("#btnGoToFullBath")?.focus({ preventScroll: true });
 }
+
+let quickAlertReturn = null;
+function closeQuickAlert() {
+  const dialog = $("#quickAlertDialog");
+  if (!dialog || dialog.hidden) return;
+  dialog.hidden = true;
+  quickAlertReturn?.focus?.({ preventScroll: true });
+}
+document.addEventListener("keydown", e => {
+  const dialog = $("#quickAlertDialog");
+  if (!dialog || dialog.hidden) return;
+  if (e.key === "Escape") closeQuickAlert();
+  if (e.key === "Tab") trapFocus(e, dialog.querySelector(".quick-alert-dialog__box"));
+});
 
 // Delegação de cliques para botões de alerta rápido nos cards
 document.addEventListener("click", e => {
@@ -2697,41 +2774,25 @@ function initColheitaPage() {
 }
 
 /* ==========================================================================
-   Página: Calendário Lunar (Online + Fallback Aritmético)
+   Página: Calendário Lunar (fases verdadeiras, cálculo local)
    ========================================================================== */
 
+/* Próximas fases principais a partir de uma data: [{ name, q, date }] */
 function nextMajorPhases(startDate, count = 4) {
-  const targets = [
-    { name: "Lua Nova", targetAge: 0 },
-    { name: "Quarto Crescente", targetAge: SYNODIC_DAYS / 4 },
-    { name: "Lua Cheia", targetAge: SYNODIC_DAYS / 2 },
-    { name: "Quarto Minguante", targetAge: 3 * SYNODIC_DAYS / 4 }
-  ];
-
-  const results = [];
-  const baseAge = moonAgeDays(startDate);
-
-  for (const t of targets) {
-    let delta = t.targetAge - baseAge;
-    if (delta <= 0) delta += SYNODIC_DAYS;
-    const date = new Date(startDate.getTime() + delta * 86400000);
-    results.push({ name: t.name, date });
-  }
-
-  results.sort((a, b) => a.date - b.date);
-  return results.slice(0, count);
+  return moonEventsBetween(startDate, new Date(startDate.getTime() + 40 * 86400000)).slice(0, count);
 }
 
-async function fetchFarmSense(date) {
-  const url = FARM_API + toUnixSeconds(date);
-  const res = await fetch(url, { cache: "no-store" });
-  const data = await res.json();
-  const item = Array.isArray(data) ? data[0] : null;
-  if (!item || item.Error !== 0) throw new Error("FarmSense error");
-  return item;
+/* Fase "principal" da semana a que um nome de fase pertence (para intenção e banho sugeridos) */
+function majorOf(name) {
+  return name.includes("Nova") ? "Lua Nova"
+    : name.includes("Cheia") ? "Lua Cheia"
+    : name.includes("Crescente") ? "Quarto Crescente"
+    : "Quarto Minguante";
 }
 
-function initWeekPlanner(major) {
+const formatTimeBR = d => d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+
+function initWeekPlanner() {
   const wrap = $("#weekPlanner");
   if (!wrap) return;
 
@@ -2739,122 +2800,54 @@ function initWeekPlanner(major) {
   wrap.innerHTML = "";
 
   const today = new Date();
-  const day = (today.getDay() + 6) % 7;
-  const monday = new Date(today);
-  monday.setDate(today.getDate() - day);
+  const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - (today.getDay() + 6) % 7, 12);
 
   for (let i = 0; i < 7; i++) {
-    const d = new Date(monday);
-    d.setDate(monday.getDate() + i);
-
-    const age = moonAgeDays(d);
-    const m = majorPhaseFromAge(age);
+    const d = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i, 12);
+    const moon = getLiveMoonData(d);
+    const major = majorOf(moon.name);
     const card = document.createElement("div");
-    card.className = "day";
+    card.className = "day" + (localISODate(d) === localISODate(today) ? " day--today" : "");
     card.innerHTML = `
       <div class="top">
         <b>${days[i]} • ${formatDateBR(d)}</b>
-        <span class="pill">${m.replace("Lua ", "")}</span>
+        <span class="pill">${moon.icon} ${moon.name.replace("Lua ", "")}</span>
       </div>
-      <div class="muted small">${phaseIntention(
-        m.includes("Nova") ? "Lua Nova" :
-        m.includes("Cheia") ? "Lua Cheia" :
-        m.includes("Crescente") ? "Quarto Crescente" :
-        m.includes("Minguante") ? "Quarto Minguante" : ""
-      )}</div>
-      <div class="muted small" style="margin-top:6px;">${banhoTipoSugestao(
-        m.includes("Nova") ? "Lua Nova" :
-        m.includes("Cheia") ? "Lua Cheia" :
-        m.includes("Crescente") ? "Quarto Crescente" :
-        m.includes("Minguante") ? "Quarto Minguante" : ""
-      )}</div>
+      <div class="muted small">${phaseIntention(major)}</div>
+      <div class="muted small" style="margin-top:6px;">${banhoTipoSugestao(major)}</div>
     `;
     wrap.appendChild(card);
   }
 }
 
-async function initCalendarioLunar() {
+function initCalendarioLunar() {
   const nowName = $("#moonNowName");
   if (!nowName) return;
 
-  const nowBadge = $("#moonNowBadge");
-  const nowDetails = $("#moonNowDetails");
-  const nextWrap = $("#nextPhases");
-
   const today = new Date();
-  let major = null;
-  let illumVal = null;
-
-  try {
-    const item = await fetchFarmSense(today);
-    const phase = item.Phase || "—";
-    const illum = typeof item.Illumination === "number" ? Math.round(item.Illumination * 100) : null;
-    illumVal = illum;
-
-    let label = phase.replace("Waxing", "Crescente")
-                     .replace("Waning", "Minguante")
-                     .replace("Crescent", "Crescente")
-                     .replace("Gibbous", "Gibosa")
-                     .replace("Quarter", "Quarto");
-
-    const age = moonAgeDays(today);
-    const m = majorPhaseFromAge(age);
-    major = m.includes("Nova") ? "Lua Nova"
-          : m.includes("Cheia") ? "Lua Cheia"
-          : m.includes("Crescente") ? "Quarto Crescente"
-          : m.includes("Minguante") ? "Quarto Minguante"
-          : "—";
-
-    nowName.textContent = label;
-    nowBadge.textContent = `Hoje • ${major}`;
-    nowDetails.textContent = illum !== null ? `Iluminação aprox.: ${illum}% (online)` : `(online)`;
-  } catch {
-    const age = moonAgeDays(today);
-    const m = majorPhaseFromAge(age);
-    major = m.includes("Nova") ? "Lua Nova"
-          : m.includes("Cheia") ? "Lua Cheia"
-          : m.includes("Crescente") ? "Quarto Crescente"
-          : m.includes("Minguante") ? "Quarto Minguante"
-          : "—";
-
-    nowName.textContent = m;
-    nowBadge.textContent = `Hoje • ${major}`;
-    nowDetails.textContent = `Estimativa local (offline) • idade lunar: ${age.toFixed(1)} dias`;
-  }
+  const moon = getLiveMoonData(today);
+  nowName.textContent = moon.name;
+  $("#moonNowBadge").textContent = `Hoje • ${majorOf(moon.name)}`;
+  $("#moonNowDetails").textContent = `Iluminação: ${moon.illum}% • idade lunar: ${moon.age.toFixed(1).replace(".", ",")} dias`;
 
   // Sombra real da lua no card Agora
   const shadow = $("#calMoonOrbShadow");
-  if (shadow) {
-    const age = moonAgeDays(today);
-    const waxing = age < SYNODIC_DAYS / 2;
-    const finalIllum = illumVal !== null ? illumVal : Math.round((1 - Math.cos((2 * Math.PI * age) / SYNODIC_DAYS)) / 2 * 100);
-    shadow.style.transform = `translateX(${(waxing ? -1 : 1) * Math.min(100, finalIllum)}%)`;
-  }
+  if (shadow) shadow.style.transform = `translateX(${moonShadowShift(moon)}%)`;
 
+  const nextWrap = $("#nextPhases");
   if (nextWrap) {
-    const next = nextMajorPhases(today, 4);
-    nextWrap.innerHTML = "";
-    const phaseIcons = {
-      "Lua Nova": "🌑",
-      "Quarto Crescente": "🌓",
-      "Lua Cheia": "🌕",
-      "Quarto Minguante": "🌗"
-    };
-    next.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "moon-timeline__card";
-      card.innerHTML = `
-        <div class="moon-timeline__icon" aria-hidden="true">${phaseIcons[p.name] || "🌕"}</div>
-        <div class="moon-timeline__date">${formatDateBR(p.date)}</div>
+    const phaseIcons = { "Lua Nova": "🌑", "Quarto Crescente": "🌓", "Lua Cheia": "🌕", "Quarto Minguante": "🌗" };
+    nextWrap.innerHTML = nextMajorPhases(today, 4).map(p => `
+      <div class="moon-timeline__card">
+        <div class="moon-timeline__icon" aria-hidden="true">${phaseIcons[p.name]}</div>
+        <div class="moon-timeline__date">${formatDateBR(p.date)} • ${formatTimeBR(p.date)}</div>
         <b class="moon-timeline__name">${p.name}</b>
         <div class="muted small">${phaseIntention(p.name)}</div>
         <div class="muted small advanced-only" style="margin-top:6px;">${banhoTipoSugestao(p.name)}</div>
-      `;
-      nextWrap.appendChild(card);
-    });
+      </div>`).join("");
   }
 
-  initWeekPlanner(major);
+  initWeekPlanner();
 }
 
 /* ==========================================================================
@@ -3128,7 +3121,7 @@ function initHomeGrabovoi() {
       const title = titleEl ? titleEl.textContent : "Sequência";
       const code = codeEl ? codeEl.textContent : "520 741 777 888";
       const spokenCode = code.split("").map(c => c === " " ? "..." : c).join(" ");
-      speakText(`${title}. Números: ${spokenCode}`);
+      speak(`${title}. Números: ${spokenCode}`);
     });
   }
 }
@@ -3371,7 +3364,7 @@ function initSimbolosPage() {
   if (oracleSpeakBtn) {
     oracleSpeakBtn.addEventListener("click", () => {
       if (!currentOracleRuna) return;
-      speakText(`Runa ${currentOracleRuna.nome}. ${currentOracleRuna.palavra}. Conselho do Velho Juremeiro: ${currentOracleRuna.conselho}`);
+      speak(`Runa ${currentOracleRuna.nome}. ${currentOracleRuna.palavra}. Conselho do Velho Juremeiro: ${currentOracleRuna.conselho}`);
     });
   }
 
@@ -4294,7 +4287,7 @@ function initGlobalSearch() {
   overlay.innerHTML = `
     <div class="gsearch__panel" role="dialog" aria-modal="true" aria-label="Buscar no site">
       <div class="gsearch__bar">
-        <input class="input gsearch__input" type="search" placeholder="Buscar ervas, banhos, defumações, mantras…" autocomplete="off" />
+        <input class="input gsearch__input" type="search" placeholder="Buscar ervas, banhos, defumações, mantras…" aria-label="Buscar no site" autocomplete="off" enterkeyhint="search" />
         <button class="btn btn--ghost gsearch__close" type="button" aria-label="Fechar busca">Esc</button>
       </div>
       <div class="gsearch__results" aria-live="polite"></div>
@@ -4336,7 +4329,9 @@ function initGlobalSearch() {
     results.innerHTML = html || `<p class="muted small" style="padding:8px 4px;">Nada encontrado para “${escapeHtml(input.value)}”.</p>`;
   }
 
+  let lastFocus = null;
   async function open() {
+    lastFocus = document.activeElement;
     overlay.hidden = false;
     document.body.classList.add("gsearch-open");
     input.focus();
@@ -4346,6 +4341,7 @@ function initGlobalSearch() {
   function close() {
     overlay.hidden = true;
     document.body.classList.remove("gsearch-open");
+    lastFocus?.focus?.({ preventScroll: true });
   }
 
   btn.addEventListener("click", open);
@@ -4353,6 +4349,7 @@ function initGlobalSearch() {
 
   // Setas ↑ ↓ percorrem os resultados; Enter abre
   overlay.addEventListener("keydown", e => {
+    if (e.key === "Tab") trapFocus(e, overlay.querySelector(".gsearch__panel"));
     if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
     const items = [...results.querySelectorAll(".gsearch__item")];
     if (!items.length) return;
@@ -4425,8 +4422,7 @@ function initHomeHero() {
   const shadow = $("#moonOrbShadow");
   if (shadow) {
     // crescente: luz à direita (sombra sai pela esquerda); minguante: o contrário
-    const waxing = moon.age < SYNODIC_DAYS / 2;
-    shadow.style.transform = `translateX(${(waxing ? -1 : 1) * Math.min(100, moon.illum)}%)`;
+    shadow.style.transform = `translateX(${moonShadowShift(moon)}%)`;
   }
   const baths = $("#heroMoonBaths");
   if (baths) baths.href = `banhos.html?lua=${moon.key}`;
@@ -4468,7 +4464,7 @@ function heroArtHtml(kind) {
   if (kind === "moon") {
     // mesma sombra de fase usada no card da home
     const m = getLiveMoonData(new Date());
-    const dx = (m.age < SYNODIC_DAYS / 2 ? -1 : 1) * Math.min(100, m.illum);
+    const dx = moonShadowShift(m);
     return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-moon"><div class="ph-moon__shadow" style="transform:translateX(${dx}%)"></div></div></div>`;
   }
   if (kind === "candle") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars" style="opacity:.35"></div><div class="ph-candle"></div></div>`;
@@ -4797,6 +4793,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   initBackToTop();
   initReveal();
 });
+
+/* Pré-carrega a página de um link quando o dedo ou o mouse para sobre ele (Chrome/Edge; nos demais, nada muda) */
+if (HTMLScriptElement.supports?.("speculationrules")) {
+  const rules = document.createElement("script");
+  rules.type = "speculationrules";
+  rules.textContent = JSON.stringify({ prefetch: [{ where: { href_matches: "*.html" }, eagerness: "moderate" }] });
+  document.head.appendChild(rules);
+}
 
 /* PWA: registra o service worker (só funciona em http/https, não em file://) */
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
