@@ -61,7 +61,6 @@ window.FV_DATA.ervas = [
   "intensidade": "media",
   "objetivos": [
    "energia",
-   "foco",
    "protecao",
    "prosperidade"
   ],
@@ -232,8 +231,7 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "prosperidade",
    "protecao",
-   "energia",
-   "foco"
+   "energia"
   ],
   "usos": [
    "ambiental",
@@ -260,7 +258,7 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "calma",
    "harmonizacao",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -288,7 +286,6 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "calma",
    "harmonizacao",
-   "foco",
    "energia"
   ],
   "usos": [
@@ -481,7 +478,7 @@ window.FV_DATA.ervas = [
    "harmonizacao",
    "prosperidade",
    "calma",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -699,7 +696,6 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "energia",
    "protecao",
-   "foco",
    "calma"
   ],
   "usos": [
@@ -757,7 +753,6 @@ window.FV_DATA.ervas = [
   "intensidade": "forte",
   "objetivos": [
    "prosperidade",
-   "foco",
    "energia",
    "protecao"
   ],
@@ -872,7 +867,7 @@ window.FV_DATA.ervas = [
   "intensidade": "media",
   "objetivos": [
    "limpeza",
-   "foco",
+   "energia",
    "protecao",
    "harmonizacao"
   ],
@@ -915,7 +910,7 @@ window.FV_DATA.ervas = [
   ],
   "cabeca": "NUNCA na cabeça (erva adstringente de chão e descarrego)",
   "descricao": "Uma das plantas mais tradicionais nos terreiros brasileiros. Suas folhas ricas em taninos atuam como um poderoso 'fechamento de corpo' contra vampirismo energético, drenos de vitalidade e feitiços de enfraquecimento.",
-  "diferenciacao": "BROTOS VERDES vs. FOLHAS MADURAS:\n• Brotos Verdes com Alecrim: Banho morno revigorante que estanca o vazamento de energia de quem se sente exaurido sem explicação médica.\n• Folhas Maduras em Decocção: Banhos de assento e lavagens de chão de terreiro para firmar a linha de Ogum e Oxóssi.\n• Goiabeira vs. Araçá: Ambas de Oxóssi e Caboclos, ricas em taninos curativos. A goiabeira atua na cura mansa do quintal e do lar; o araçá carrega a energia bruta da mata virgem para cortes mais selvagens.",
+  "diferenciacao": "BROTOS VERDES vs. FOLHAS MADURAS:\n• Brotos Verdes com Alecrim: Banho morno revigorante que estanca o vazamento de energia de quem se sente exaurido sem explicação médica.\n• Folhas Maduras em Decocção: Banhos de assento e lavagens de chão de terreiro para firmar a linha de Ogum e Oxóssi.\n• Goiabeira vs. Araçá: Ambas ligadas a Oxóssi e aos Caboclos, ricas em taninos (adstringentes). A goiabeira é mais mansa, de quintal e de lar; o araçá carrega a energia bruta da mata virgem para cortes mais selvagens.",
   "colheita": "Colher brotos e folhas sadias na parte média da árvore com pedido de licença aos Caboclos.",
   "cuidados": "Adstringente; indicada rigorosamente do pescoço para baixo.",
   "tradicao": "Erva de assentamento e firmeza dos Caboclos das matas. Fecha as frestas da aura como se passasse uma cera protetora natural.",
@@ -930,7 +925,6 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "prosperidade",
    "energia",
-   "foco",
    "harmonizacao"
   ],
   "usos": [
@@ -1066,8 +1060,7 @@ window.FV_DATA.ervas = [
   "intensidade": "media",
   "objetivos": [
    "prosperidade",
-   "energia",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -1134,7 +1127,7 @@ window.FV_DATA.ervas = [
    "folha"
   ],
   "cabeca": "JAMAIS NA CABEÇA (erva altamente tóxica e cáustica)",
-  "descricao": "A sentinela de ferro de porteiras e terreiros. Uma das folhas mais respeitadas do Brasil para quebra de feitiços de subjugação, anulação de domínio psíquico e escudo impenetrável contra inveja destrutiva de patrimônio.",
+  "descricao": "A sentinela de ferro de porteiras e terreiros. Uma das folhas mais respeitadas do Brasil para quebra de feitiços de subjugação, anulação de domínio psíquico e escudo protetor contra a inveja que mira o que você conquistou.",
   "diferenciacao": "VASO NA ENTRADA vs. USO RITUALÍSTICO EM BANHO:\n• No Vaso na Porta: Absorve cargas pesadas de visitas antes que elas pisem na sala; se a folha murchar repentinamente, reteve olho-gordo.\n• No Banho Severo: 1 folha média cortada com tesoura, macerada em água fria com sal grosso para banhos EXCLUSIVAMENTE dos joelhos para baixo.",
   "colheita": "Colher com tesoura ou luvas com oração firme de respeito aos Guardiões da porteira.",
   "cuidados": "ATENÇÃO MÁXIMA E ABSOLUTA: PLANTA ALTAMENTE TÓXICA (contém cristais de oxalato de cálcio). JAMAIS INGERIR. Não encostar nas mucosas, boca ou olhos. Lavar as mãos imediatamente após o manuseio. Mantenha longe de crianças e pets.",
@@ -1152,7 +1145,7 @@ window.FV_DATA.ervas = [
    "harmonizacao",
    "protecao",
    "calma",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -1348,7 +1341,7 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "limpeza",
    "protecao",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -1720,7 +1713,7 @@ window.FV_DATA.ervas = [
   "cabeca": "Sim, quando preparado exclusivamente com as brácteas coloridas despetaladas e limpas (sem galhos, sem espinhos e sem folhas verdes)",
   "imagem": "./images/buganvilia.jpg",
   "descricao": "Trepadeira rústica e vigorosa que floresce no sol forte e escala muros e rochas com resiliência. Suas cores vivas transmitem alegria, beleza, doçura e a capacidade de fazer brotar luz mesmo nos terrenos mais áridos.",
-  "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.\n• A beleza que sabe se defender: Na vibração dos Ciganos e Guardiãs (Pombagiras), suas brácteas atraentes combinadas com os espinhos do caule ensinam sobre magnetismo, autoestima e o dever sagrado de estabelecer limites e se defender.",
+  "diferenciacao": "BRÁCTEAS vs. FLORES & CORES:\n• As 'pétalas' coloridas são botanicamente brácteas (folhas modificadas finas como papel que protegem a florzinha branca verdadeira do centro).\n• Cores e vibração popular: Rosa e magenta vibram no afeto, autoestima e encanto; branca vibra na paz e serenidade do Ori; laranja e amarela vibram na alegria, prosperidade e calor solar.\n• 'A Buganvília é a rocha': Conhecida por quebrar a dureza das pedras e subir em paredes áridas, ancora firmeza íntima, consciência de si e transmutação do sofrimento em beleza.\n• A beleza que sabe se defender: em algumas casas é associada aos Ciganos e às Pombagiras (isso varia de casa para casa); suas brácteas atraentes combinadas com os espinhos do caule ensinam sobre magnetismo, autoestima e o dever sagrado de estabelecer limites e se defender.",
   "colheita": "Colher as brácteas coloridas com delicadeza, usando luvas para se proteger dos espinhos dos caules. Descartar caules e folhas verdes.",
   "cuidados": "Os galhos contêm espinhos pontiagudos e a seiva verde pode causar irritação em peles sensíveis. Utilize rigorosamente apenas as brácteas coloridas bem lavadas. Manter longe de crianças e animais de estimação.",
   "tradicao": "Muito presente em muros e quintais do Brasil inteiro. Na ciência da Jurema e na Linha das Mestras, o banho de suas brácteas com flores de jasmim é ritual de encanto, resgate do amor-próprio e iluminação íntima da consciência."
@@ -2046,7 +2039,7 @@ window.FV_DATA.ervas = [
   "descricao": "Adstringente espiritual e choque de vitalidade. Dissolve viscosidades e miasmas astrais incrustados na aura, clareia pensamentos confusos e ancora a coragem e a força guerreira de Ogum.",
   "diferenciacao": "FOLHA vs. CASCA DO FRUTO:\n• Folhas de Limoeiro: Menos cáusticas que o fruto puro; seu óleo essencial na água morna asseptiza a aura de miasmas finos e afasta pensamentos densos sem ressecar o campo magnético.\n• Cascas Secas com Alho: Tradicional em defumações de terreiro para quebrar viscosidades pesadas nos cantos da casa.\n• Transmutação Espiritual: O limoeiro ensina que onde há o azedume das demandas da vida, extrai-se o néctar da coragem e da renovação íntima.",
   "colheita": "Colher folhas verdes sadias ao sol da manhã, pedindo licença aos Guardiões e às forças guerreiras das matas.",
-  "cuidados": "Fototóxica: não se exponha ao sol após o banho sem lavar bem a pele com sabão neutro. Uso estritamente externo do pescoço para baixo. Evitar sobre áreas de pele lesionada.",
+  "cuidados": "Fototóxica: não se exponha ao sol após o banho sem lavar bem a pele com sabão neutro. Uso estritamente externo do pescoço para baixo. Evitar sobre áreas de pele lesionada. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
   "tradicao": "Ligada a Ogum e aos Caboclos de Jurema. Muito usada em banhos de defesa combinada com espada-de-são-jorge e cravo-da-índia para cortar a demanda, asseptizar a aura e selar o corpo."
  },
  {
@@ -2068,12 +2061,12 @@ window.FV_DATA.ervas = [
   "partes": [
    "folha"
   ],
-  "cabeca": "Sim (folha mansa e doce, excelente para banho de coroa / Ori)",
+  "cabeca": "Do pescoço para baixo (na dúvida, a tradição recomenda não levar à cabeça)",
   "imagem": "./images/jambo.jpg",
   "descricao": "Erva apaziguadora de grande doçura e atração afetiva. Acalma corações magoados, 'esfria' a cabeça quente tomada por irritação, atrai a concórdia familiar e adoça os caminhos da vida.",
-  "diferenciacao": "BANHO DE CABEÇA vs. BANHO DE CORPO:\n• Na Coroa (Ori): Macerada fresca em água fria, serenando o espírito e desanuviando a mente após discussões.\n• Do Pescoço para Baixo: Combinada com camomila ou pétalas de rosa para atrair prosperidade suave e relações amorosas saudáveis.",
+  "diferenciacao": "FOLHA FRESCA vs. COMBINAÇÕES:\n• Macerada fresca em água fria: banho de corpo para serenar o espírito depois de discussões.\n• Com camomila ou pétalas de rosa: banho doce para atrair harmonia e relações saudáveis.",
   "colheita": "Colher folhas viçosas pela manhã, pedindo licença às Mães d'Água e às forças do amor sincero.",
-  "cuidados": "Uso externo suave e seguro. Para chá medicinal popular, consumir com moderação e sob orientação médica.",
+  "cuidados": "Uso externo suave e seguro. Para chá medicinal popular, consumir com moderação e sob orientação médica. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
   "tradicao": "Consagrada a Oxum e às Mestras do Catimbó-Jurema. O banho de folha de jambo é tradicionalmente preparado para adoçar o ambiente doméstico e restabelecer a paz conjugal."
  },
  {
@@ -2095,13 +2088,13 @@ window.FV_DATA.ervas = [
   "partes": [
    "folha"
   ],
-  "cabeca": "Sim (da cabeça aos pés: promove silêncio interior e elevação)",
+  "cabeca": "Do pescoço para baixo (na dúvida, a tradição recomenda não levar à cabeça)",
   "imagem": "./images/pinha.jpg",
-  "descricao": "Folha de recolhimento espiritual, paz e elevação da consciência. Acalma a tempestade de pensamentos, combate a insônia crônica e reconecta o ser com o sagrado.",
+  "descricao": "Folha de recolhimento espiritual, paz e elevação da consciência. Acalma a tempestade de pensamentos, ajuda a serenar antes de dormir e reconecta o ser com o sagrado.",
   "diferenciacao": "FOLHA FRESCA MACERADA vs. FOLHA SECA EM DEFUMAÇÃO:\n• Macerada Fresca: Banho calmante profundo para noites de descanso reparador e reconexão com a intuição.\n• Folha Seca na Brasa: Defumação suave para quartos de pessoas doentes, idosos ou crianças inquietas, dissipando pesadelos e angústias.",
   "colheita": "Colher ao entardecer ou início da manhã, escolhendo folhas sadias e lavando-as com reverência.",
-  "cuidados": "Uso externo tranquilo e relaxante. Em chás medicinais populares, possui ação sedativa leve; gestantes devem evitar sem consulta prévia.",
-  "tradicao": "Associada à sabedoria ancestral de Pai Oxalá e Nanã Buruquê. É a folha indicada pelos mais velhos para 'lavar a cabeça' de quem está desorientado ou sem sono."
+  "cuidados": "Uso externo tranquilo e relaxante. Em chás medicinais populares, possui ação sedativa leve; gestantes devem evitar sem consulta prévia. Mantenha longe do alcance de crianças e de pets.",
+  "tradicao": "Associada à sabedoria ancestral de Pai Oxalá e Nanã Buruquê. Muito usada em banhos de corpo para quem anda agitado ou com o sono leve. As correspondências variam de casa para casa."
  },
  {
   "id": "caja",
@@ -2127,7 +2120,7 @@ window.FV_DATA.ervas = [
   "descricao": "Força de vento e corte rápido contra estagnação. Sacode energias paradas, espanta fluidos de espíritos obsessores (eguns) e devolve a disposição para caminhar.",
   "diferenciacao": "CAJÁ vs. SERIGUELA:\n• Folha de Cajá: Ação mais combativa e cortante, voltada para expulsar fluidos pesados e afastar presenças desarmônicas.\n• Folha de Seriguela: Ação de fogo brando e vitalidade alegre, voltada para aquecer o ânimo e desatar a timidez.",
   "colheita": "Colher folhas sadias pedindo licença aos Ventos de Iansã e aos Caboclos Guerreiros.",
-  "cuidados": "Uso estritamente do pescoço para baixo. Lavar bem as mãos após manusear.",
+  "cuidados": "Uso estritamente do pescoço para baixo. Lavar bem as mãos após manusear. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
   "tradicao": "Muito respeitada no Nordeste e nos terreiros de Jurema. Usada em sacudimentos e banhos fortes de descarga para quebrar amarras que paralisam a vida financeira e profissional."
  },
  {
@@ -2153,7 +2146,7 @@ window.FV_DATA.ervas = [
   "descricao": "Vibração de calor brando, vitalidade e alegria sertaneja. Reacende o entusiasmo, desperta o dinamismo corporal e desmancha a sensação de apatia.",
   "diferenciacao": "BANHO MORNO vs. INFUSÃO RECREATIVA:\n• Banho de Folhas Verdes: Estimula a circulação áurica e afasta a tristeza persistente.\n• Chá Popular: Tradicionalmente conhecido por ação anti-inflamatória e diurética suave.",
   "colheita": "Colher folhas frescas e tenras em dias de sol pleno, com alegria no coração.",
-  "cuidados": "Uso externo seguro. Gestantes e pessoas com sensibilidade digestiva devem ter cautela com ingestão.",
+  "cuidados": "Uso externo seguro. Gestantes e pessoas com sensibilidade digestiva devem ter cautela com ingestão. Mantenha longe do alcance de crianças e de pets.",
   "tradicao": "Planta típica dos sertões e quintais nordestinos. Na fitoenergia popular, sua árvore generosa representa fartura resiliente e a coragem de florescer no calor."
  },
  {
@@ -2165,7 +2158,7 @@ window.FV_DATA.ervas = [
   "objetivos": [
    "limpeza",
    "protecao",
-   "foco"
+   "energia"
   ],
   "usos": [
    "banho-external",
@@ -2174,14 +2167,14 @@ window.FV_DATA.ervas = [
   ],
   "partes": [
    "folha",
-   "brote"
+   "broto"
   ],
   "cabeca": "NUNCA na cabeça (erva de mata fechada do pescoço para baixo)",
   "imagem": "./images/araca.jpg",
   "descricao": "A energia virgem e rústica da mata profunda. Carrega adstringência concentrada para cortar demandas antigas, desmanchar miasmas físicos e estancar vazamentos de energia vital.",
-  "diferenciacao": "ARAÇÁ vs. GOIABEIRA:\n• Araçazeiro: Primo silvestre da goiabeira. Menos domesticado, carrega o instinto caçador e selvagem das matas virgens, ideal para defumações de quebra profunda de demandas.\n• Goiabeira: Mais mansa e familiar, voltada para recomposição energética do lar e cura acolhedora.",
+  "diferenciacao": "ARAÇÁ vs. GOIABEIRA:\n• Araçazeiro: Primo silvestre da goiabeira. Menos domesticado, carrega o instinto caçador e selvagem das matas virgens, ideal para defumações de quebra profunda de demandas.\n• Goiabeira: Mais mansa e familiar, voltada para recomposição energética do lar e recomposição acolhedora.",
   "colheita": "Colher folhas maduras e firmes, pedindo licença aos Caboclos e Guardiões de Oxóssi.",
-  "cuidados": "Forte adstringência natural. Uso exclusivamente externo do pescoço para baixo.",
+  "cuidados": "Forte adstringência natural. Uso exclusivamente externo do pescoço para baixo. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
   "tradicao": "Instrumento dos Caboclos das matas mais cerradas. Sua queima em brasa liberta aroma penetrante e purificador que limpa o ambiente de formas-pensamento hostis."
  },
  {
@@ -2202,13 +2195,13 @@ window.FV_DATA.ervas = [
   "partes": [
    "folha"
   ],
-  "cabeca": "Sim (folha estelar apaziguadora, traz clareza mental)",
+  "cabeca": "Do pescoço para baixo (na dúvida, a tradição recomenda não levar à cabeça)",
   "imagem": "./images/carambola.jpg",
   "descricao": "A folha da 'árvore estrela'. Seu arquétipo celeste atrai ordenação aos pensamentos confusos, irradia magnetismo de prosperidade luminosa e harmoniza o ambiente com leveza.",
   "diferenciacao": "GEOMETRIA ESTELAR & EQUILÍBRIO:\n• O fruto cortado em estrela de cinco pontas confere à planta o simbolismo do equilíbrio dos cinco elementos (éter, fogo, ar, água e terra).\n• Banho das Folhas: Desperta foco cristalino, dissipa a desordem mental e ancora boas oportunidades financeiras sem desespero.",
   "colheita": "Colher folhas sadias durante a manhã ensolarada com intenção de clareza e abundância.",
-  "cuidados": "Uso externo suave e seguro. ATENÇÃO MÉDICA: Na ingestão (chá/suco), contém caramboxina e oxalatos solúveis: terminantemente proibida para pessoas com insuficiência renal.",
-  "tradicao": "Associada à Linha do Oriente, às energias solares e à doçura de Oxum. Cultivada próxima a residências para inspirar criatividade, brilho pessoal e generosidade."
+  "cuidados": "Uso externo suave e seguro. ATENÇÃO MÉDICA: Na ingestão (chá/suco), contém caramboxina e oxalatos solúveis: terminantemente proibida para pessoas com insuficiência renal. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
+  "tradicao": "Em algumas casas, é associada às energias solares e à doçura de Oxum; as correspondências variam de casa para casa. Cultivada próxima a residências para inspirar criatividade, brilho pessoal e generosidade."
  },
  {
   "id": "jenipapo",
@@ -2235,7 +2228,7 @@ window.FV_DATA.ervas = [
   "descricao": "Árvore mítica das florestas brasileiras e das tradições indígenas. Suas folhas largas ancoram firmeza ancestral de solo, vigor físico e blindagem contra fraquezas espirituais.",
   "diferenciacao": "FOLHA SAGRADA vs. TINTURA DO FRUTO:\n• Tintura Negra do Fruto (Genipina): Na tradição indígena e cabocla, usada para pinturas corporais de proteção, guerra e rituais de passagem.\n• Banho das Folhas: Fortalece a conexão com a terra (chakra básico), elimina a sensação de vulnerabilidade e ancora estabilidade emocional nos pés.",
   "colheita": "Pedir licença aos Mestres e Caboclos das Matas ao retirar folhas sadias caídas ou ramos baixos.",
-  "cuidados": "Uso externo consciente do pescoço para baixo. A seiva verde de galhos pode manchar tecidos temporariamente.",
+  "cuidados": "Uso externo consciente do pescoço para baixo. A seiva verde de galhos pode manchar tecidos temporariamente. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
   "tradicao": "Fundamento da ancestralidade tupi e do Catimbó-Jurema. A árvore do jenipapo é sentinela de rios e matas de várzea, simbolizando permanência e resistência contra o esquecimento."
  },
  {
@@ -2263,8 +2256,8 @@ window.FV_DATA.ervas = [
   "descricao": "Símbolo de resistência, generosidade e abundância do solo nordestino. Suas folhas ricas em taninos e resinas curativas estancam fraquezas e renovam o ânimo de quem labuta.",
   "diferenciacao": "FOLHAS FRESCAS vs. CASCA EM DECOCÇÃO:\n• Folhas Frescas Maceradas: Banho revigorante que restaura a força após esforço extenuante físico ou emocional.\n• Casca do Tronco: Uso tradicional adstringente para firmeza de assentamentos e lavagens de solo sagrado.",
   "colheita": "Colher folhas coriáceas limpas sob a luz solar, reverenciando a força nutridora da terra.",
-  "cuidados": "Uso externo. ATENÇÃO: Nunca queime o óleo da castanha de caju crua (cardol/ácido anacárdico), que é cáustico e altamente tóxico ao fogo. Utilize estritamente as folhas secas para defumação.",
-  "tradicao": "Sagrado aos Caboclos e Mestres da Jurema Nordestina (Mestre Carlos, Mestre Zé Pelintra, Caboclo Tupinambá). O cajueiro abriga sob sua copa frondosa o descanso e a partilha dos frutos."
+  "cuidados": "Uso externo. O cajueiro é da mesma família da aroeira: a casca e a resina podem causar alergia de contato em peles sensíveis. A casca não vai na brasa. ATENÇÃO: Nunca queime o óleo da castanha de caju crua (cardol/ácido anacárdico), que é cáustico e altamente tóxico ao fogo. Utilize estritamente as folhas secas para defumação. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",
+  "tradicao": "Muito respeitado pelos Caboclos e Mestres da Jurema nordestina; as correspondências variam de casa para casa. O cajueiro abriga sob sua copa frondosa o descanso e a partilha dos frutos."
  },
  {
   "id": "abacateiro",
@@ -2285,12 +2278,12 @@ window.FV_DATA.ervas = [
   "partes": [
    "folha"
   ],
-  "cabeca": "Sim (desanuviante suave do Ori e relaxamento do plexo)",
+  "cabeca": "Do pescoço para baixo (na dúvida, a tradição recomenda não levar à cabeça)",
   "imagem": "./images/abacateiro.jpg",
-  "descricao": "A folha do alívio e da drenagem sutil. Drena mágoas represadas, alivia o peso do plexo solar e desobstrui caminhos emocionais saturados de mágoa e rancor.",
-  "diferenciacao": "DRENAGEM FÍSICA vs. ESPIRITUAL:\n• Ação Diurética: Na medicina popular, o chá de folhas secas é célebre por drenar os rins e eliminar ácido úrico.\n• Ação Fitoenergética: Da mesma forma que drena o corpo físico, drena do corpo sutil a 'urina astral' (ressentimentos, mágoas e venenos emocionais retidos).",
+  "descricao": "A folha do alívio e da drenagem sutil. Ajuda a soltar mágoas guardadas e a aliviar o peito apertado de rancor.",
+  "diferenciacao": "DRENAGEM FÍSICA vs. ESPIRITUAL:\n• No uso popular: o chá das folhas é conhecido como diurético (só com orientação médica).\n• No banho: assim como o chá ajuda o corpo a eliminar o que sobra, o banho é usado para soltar ressentimentos e mágoas retidas.",
   "colheita": "Colher folhas maduras verde-escuras, preferencialmente secando à sombra antes de preparar o banho morno.",
-  "cuidados": "Uso externo suave. Em uso interno (chá), gestantes devem evitar devido a possíveis efeitos estimulantes uterinos.",
+  "cuidados": "Uso externo suave. As folhas contêm persina, tóxica para animais (principalmente aves, coelhos e cavalos, e também cães e gatos): mantenha longe de pets. Em uso interno (chá), gestantes devem evitar devido a possíveis efeitos estimulantes uterinos. Mantenha longe do alcance de crianças.",
   "tradicao": "Consagrada aos Caboclos curadores de Oxóssi e à vibração serena de Nanã. É o banho recomendado quando o peito está apertado de mágoa não dita."
  }
 ];
