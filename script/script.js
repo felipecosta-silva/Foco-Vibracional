@@ -2414,6 +2414,7 @@ function pontoCardHtml(p) {
         <span class="pcard__toque">🥁 ${escapeHtml(p.toque)}</span>
       </span>
       ${p.origem === "composto" ? `<span class="badge badge--composto">Louvação composta</span>` : ""}
+      ${p.linha === "guardioes" ? `<span class="badge-danger">Só com orientação de um(a) zelador(a)</span>` : ""}
       <h3 class="pcard__title">${escapeHtml(p.titulo)}</h3>
       <p class="pcard__entidade">✦ ${escapeHtml(p.entidade)}</p>
       <p class="pcard__preview">“${escapeHtml(firstLines)}…”</p>
@@ -2443,6 +2444,7 @@ function pontoDetailHtml(p) {
         <span class="badge ${badgeCls}">${escapeHtml(p.linhaNome)}</span>
         <span class="badge">🥁 ${escapeHtml(p.toque)}</span>
         <span class="badge badge--tea">Ponto de ${escapeHtml(p.tipo)}</span>
+        ${p.linha === "guardioes" ? `<span class="badge-danger">Só com orientação de um(a) zelador(a)</span>` : ""}
       </div>
       <h2 class="drawer__title">${escapeHtml(p.titulo)}</h2>
       <p class="pcard__entidade">Falange / Entidade: <strong>${escapeHtml(p.entidade)}</strong></p>
