@@ -5564,3 +5564,34 @@ main:focus { outline: none; }
 
 /* Selo "Só com orientação" dentro do cartão do catálogo: do tamanho do texto */
 .rcard .badge-danger { align-self: flex-start; }
+
+/* =========================================================
+   Spec 007: leitura da vela (firmeza.html#leitura-da-vela)
+   ========================================================= */
+.vela-leitura h2 { margin: 6px 0 8px; }
+.vela-leitura > .muted { line-height: 1.6; max-width: 72ch; }
+.vela-fisico { margin: 16px 0 6px; }
+.vela-fisico h3, .vela-mais h3, .vela-entidade h3 { margin: 0 0 8px; font-size: 1.15rem; }
+.vela-grupo {
+  margin: 26px 0 10px; font-size: 1.2rem;
+  padding-bottom: 6px; border-bottom: 1px solid var(--line);
+}
+.vela-sinais {
+  margin: 0; display: grid; gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
+.vela-sinal {
+  padding: 14px; border-radius: var(--radius2);
+  background: var(--panel); border: 1px solid var(--line);
+}
+.vela-sinal dt { font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.vela-sinal dd { margin: 0; }
+.vela-sinal dd p { margin: 0; line-height: 1.55; }
+.vela-sinal dd p + p { margin-top: 6px; font-size: .92rem; }
+.vela-mais, .vela-entidade {
+  margin-top: 22px; padding: 16px; border-radius: var(--radius2);
+  border: 1px solid var(--line); background: var(--panel);
+}
+.vela-mais p, .vela-entidade p { line-height: 1.6; }
+.vela-entidade { border-color: color-mix(in srgb, var(--danger) 35%, transparent); }
+.vela-entidade h3 { margin-top: 10px; }

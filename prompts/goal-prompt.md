@@ -75,6 +75,7 @@ Rumo combinado (próximas specs, nesta ordem):
   004 Trilha "Comece aqui": a porta de entrada do iniciante, o caminho dos primeiros dias, apontando para os fundamentos e para práticas de casa (feita em 2026-10-31, antes da 003; a 003 entra como passo novo da trilha)
   005 Revisão para iniciante: marcar em todo o site o que é "Pode fazer em casa" e o que é "Só com orientação"
   006 Pontos da casa: trocar as louvações compostas pelos pontos reais dos guias (quando o dono enviar as letras)
+  007 Leitura da vela: chama, fumaça, cera e quando a vela pede mais (feita em 2026-11-01; o dono confere as leituras)
 
 Leia ANTES de começar:
 - .specify/memory/constitution.md (regras permanentes; vence qualquer outra instrução)

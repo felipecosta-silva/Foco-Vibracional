@@ -23,6 +23,7 @@ const SEARCH_PAGES = [
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
   { t: "Comece aqui — primeiros passos", u: "comece.html", k: "comece comecar iniciante primeiros passos trilha inicio" },
   { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
+  { t: "Leitura da vela — chama, fumaça e cera", u: "firmeza.html#leitura-da-vela", k: "leitura vela chama cera chora fumaca pavio apagou queimou sobra entidade" },
   { t: "Como fazer um pedido bem feito", u: "firmeza.html#pedido-bem-feito", k: "pedido bem feito firmeza intencao prosperidade amor saude checklist" },
   { t: "Mapa do benzimento com ervas", u: "plantas.html#mapa-ervas", k: "mapa benzimento proverbio arruda guine espada porta corte blindar" },
   { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" },
@@ -82,7 +83,9 @@ function initGlobalSearch() {
       results.innerHTML = `<p class="muted small u-pad-8-4">Digite pelo menos 2 letras. Dica: tecle <b>/</b> em qualquer página para abrir a busca.</p>`;
       return;
     }
-    const has = (...parts) => normalizeSpiritualSearch(parts.join(" ")).includes(q);
+    // Cada palavra precisa aparecer, em qualquer ordem ("vela chora", "banho calma")
+    const terms = q.split(/\s+/).filter(Boolean);
+    const has = (...parts) => { const t = normalizeSpiritualSearch(parts.join(" ")); return terms.every(w => t.includes(w)); };
     const html =
       group("🌿 Ervas", ERVAS.filter(e => has(e.nome, e.nomePopular, (e.objetivos || []).join(" "), e.descricao))
         .map(e => row(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.nomePopular))) +
