@@ -5489,3 +5489,75 @@ main:focus { outline: none; }
 .mstop-gold { stop-color: var(--accent); }
 .mstop-sky { stop-color: var(--m-sky); }
 .mstop-sky-deep { stop-color: var(--m-sky-deep); }
+
+/* =========================================================
+   Spec 004: trilha "Comece aqui" (comece.html)
+   ========================================================= */
+.trail-progress {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+  margin-top: 18px;
+}
+.trail-progress__text { margin: 0; color: var(--muted); }
+.trail-progress__text b { color: var(--accent); font-size: 1.1rem; }
+.trail-progress__bar {
+  flex: 1 1 160px; height: 6px; border-radius: 999px;
+  background: var(--line); overflow: hidden;
+}
+.trail-progress__bar span {
+  display: block; width: 0; height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  transition: width .35s ease;
+}
+
+.trail {
+  list-style: none; margin: 22px 0 0; padding: 0;
+  display: grid; gap: 14px;
+  counter-reset: passo;
+}
+.trail-step {
+  position: relative;
+  padding-left: 68px;
+  counter-increment: passo;
+}
+.trail-step::before {
+  content: counter(passo);
+  position: absolute; left: 18px; top: 20px;
+  width: 34px; height: 34px; border-radius: 999px;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 600;
+  color: var(--accent); background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.trail-step__title { font-size: 1.25rem; margin: 4px 0 8px; }
+.trail-step p { line-height: 1.6; }
+.trail-step__done { margin-top: 12px; }
+.trail-step__done[aria-pressed="true"] {
+  color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 45%, transparent);
+  background: var(--accent2-soft);
+}
+.trail-step--done { border-color: color-mix(in srgb, var(--accent2) 35%, transparent); }
+.trail-step--done::before {
+  content: "✓";
+  color: var(--accent2); background: var(--accent2-soft);
+  border-color: color-mix(in srgb, var(--accent2) 45%, transparent);
+}
+
+.trail-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.trail-list { margin: 8px 0 0; padding-left: 20px; line-height: 1.6; }
+.trail-list li + li { margin-top: 6px; }
+.trail-list a { color: var(--accent); }
+
+.trail-terms { margin: 10px 0 0; display: grid; gap: 10px; }
+.trail-terms div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: baseline; }
+.trail-terms dt { font-weight: 700; }
+.trail-terms dt a { color: var(--accent); }
+.trail-terms dd { margin: 0; color: var(--muted); line-height: 1.55; }
+
+.trail-warn { border-color: color-mix(in srgb, var(--danger) 35%, transparent); }
+.trail-warn h2 { margin: 10px 0 8px; }
+
+@media (max-width: 560px) {
+  .trail-step { padding-left: 18px; padding-top: 62px; }
+  .trail-step::before { top: 18px; }
+  .trail-terms div { grid-template-columns: 1fr; gap: 2px; }
+}

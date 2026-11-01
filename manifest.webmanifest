@@ -38,6 +38,16 @@
   ],
   "shortcuts": [
     {
+      "name": "Comece aqui",
+      "url": "./comece.html",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
       "name": "Lua de hoje",
       "url": "./calendario.html",
       "icons": [

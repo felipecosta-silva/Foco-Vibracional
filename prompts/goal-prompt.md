@@ -62,17 +62,17 @@ A casa do dono do site: Umbanda com Jurema. Guias com que ele trabalha:
 
 O site:
 - Estático (HTML, CSS e JS puro), PWA offline, no GitHub Pages: https://felipecosta-silva.github.io/Foco-Vibracional/
-- Páginas: index (Hoje), banhos, defumacao, plantas (Ervas), colheita, firmeza (Velas), mantras, calendario (Lua), portais, tarot, simbolos (Pontos riscados e Estrelas), pontos (Pontos cantados), glossario.
+- Páginas: index (Hoje), comece (Comece aqui), banhos, defumacao, plantas (Ervas), colheita, firmeza (Velas), mantras, calendario (Lua), portais, tarot, simbolos (Pontos riscados e Estrelas), pontos (Pontos cantados), glossario.
 - Dados (window.FV_DATA): data/ervas.js (85), banhos.js (93), defumacoes.js (36), mantras.js (40), tarot.js (114), pontos.js (60).
 - Motor: script/ em 11 arquivos com ordem fixa, descrita em script/ORDEM.md (NAV em nucleo.js; createCatalog, getDrawer e findHerbFor em catalogo.js), styles/styles.css (tokens "Noite na Mata") e sw.js (PRECACHE + CACHE_VERSION).
 
 Fluxo: GitHub Spec Kit (/speckit-*). O Gemini executa, o Claude escreve e revisa as specs, e o dono aprova e publica.
 
 Rumo combinado (próximas specs, nesta ordem):
-  001 Fotos das ervas com créditos verdadeiros (em andamento)
-  002 Pedido certo, erva certa: Mapa do benzimento com ervas, como fazer um pedido bem feito e defumação de pitanga com louro (spec pronta)
+  001 Fotos das ervas com créditos verdadeiros (feita)
+  002 Pedido certo, erva certa: Mapa do benzimento com ervas, como fazer um pedido bem feito e defumação de pitanga com louro (feita)
   003 Fundamentos da Jurema para iniciantes: o que é a Jurema, a árvore, os Mestres e as Mestras, as cidades encantadas, a ciência, o que é uma gira e como se portar
-  004 Trilha "Comece aqui": a porta de entrada do iniciante, o caminho dos primeiros dias, apontando para os fundamentos e para práticas de casa
+  004 Trilha "Comece aqui": a porta de entrada do iniciante, o caminho dos primeiros dias, apontando para os fundamentos e para práticas de casa (feita em 2026-10-31, antes da 003; a 003 entra como passo novo da trilha)
   005 Revisão para iniciante: marcar em todo o site o que é "Pode fazer em casa" e o que é "Só com orientação"
   006 Pontos da casa: trocar as louvações compostas pelos pontos reais dos guias (quando o dono enviar as letras)
 

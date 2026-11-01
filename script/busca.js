@@ -21,6 +21,7 @@ const SEARCH_PAGES = [
   { t: "Símbolos — Pemba e ponto riscado", u: "simbolos.html", k: "pemba ponto riscado simbolos" },
   { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
+  { t: "Comece aqui — primeiros passos", u: "comece.html", k: "comece comecar iniciante primeiros passos trilha inicio" },
   { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
   { t: "Como fazer um pedido bem feito", u: "firmeza.html#pedido-bem-feito", k: "pedido bem feito firmeza intencao prosperidade amor saude checklist" },
   { t: "Mapa do benzimento com ervas", u: "plantas.html#mapa-ervas", k: "mapa benzimento proverbio arruda guine espada porta corte blindar" },

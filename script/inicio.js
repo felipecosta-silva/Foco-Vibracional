@@ -337,6 +337,68 @@ function initHomeTopbar() {
   onScroll();
 }
 
+/* =========================
+   Trilha "Comece aqui" (comece.html): progresso guardado só no aparelho
+========================= */
+const TRILHA_KEY = "foco.trilha.v1";
+
+function initTrilha() {
+  const trail = $("#trail");
+  if (!trail) return;
+  const steps = [...trail.querySelectorAll(".trail-step")];
+  const count = $("#trailCount");
+  const bar = $("#trailBar");
+
+  let done = [];
+  try { done = JSON.parse(localStorage.getItem(TRILHA_KEY) || "[]"); } catch { done = []; }
+  if (!Array.isArray(done)) done = [];
+
+  const save = () => { try { localStorage.setItem(TRILHA_KEY, JSON.stringify(done)); } catch { /* janela anônima: segue sem guardar */ } };
+
+  const render = () => {
+    steps.forEach(step => {
+      const on = done.includes(step.dataset.step);
+      const btn = step.querySelector(".trail-step__done");
+      step.classList.toggle("trail-step--done", on);
+      btn.setAttribute("aria-pressed", String(on));
+      btn.textContent = on ? "Feito ✓" : "Marcar como feito";
+    });
+    const n = steps.filter(s => done.includes(s.dataset.step)).length;
+    if (count) count.innerHTML = `<b>${n}</b> de ${steps.length} passos feitos`;
+    if (bar) bar.style.width = `${Math.round((n / steps.length) * 100)}%`;
+  };
+
+  trail.addEventListener("click", e => {
+    const btn = e.target.closest(".trail-step__done");
+    if (!btn) return;
+    const id = btn.closest(".trail-step").dataset.step;
+    done = done.includes(id) ? done.filter(x => x !== id) : [...done, id];
+    save();
+    render();
+  });
+
+  $("#trailReset")?.addEventListener("click", () => {
+    done = [];
+    save();
+    render();
+  });
+
+  render();
+}
+
+/* Link com #id de um <details> (ex.: glossario.html#dois-tempos) abre o item e rola até ele */
+function initHashDetails() {
+  const open = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const el = id && document.getElementById(id);
+    if (!el || el.tagName !== "DETAILS") return;
+    el.open = true;
+    el.scrollIntoView({ block: "start" });
+  };
+  open();
+  window.addEventListener("hashchange", open);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Renderizar Cabeçalho e Rodapé únicos
   renderHeader();
@@ -391,7 +453,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   initFireflies();
   initHojePage();
   initOraculo();
+  initTrilha();
   initPageToc();
+  initHashDetails();
   // após renderizar tudo, para medir a altura real da página
   initBackToTop();
   initReveal();
