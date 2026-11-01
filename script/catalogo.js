@@ -155,6 +155,13 @@ function herbThumbHtml(e, cls = "") {
 }
 
 /* ---------- Cards ---------- */
+/* Constituição II.0: trabalho de esquerda leva o selo e nunca entra nas sugestões automáticas */
+const ESQUERDA_RE = /\b(exu|pombagira|pomba-gira|guardi[õo]es|encruzilhada)\b/i;
+function isEsquerda(item) {
+  return ESQUERDA_RE.test(item?.nome || "");
+}
+const SELO_ORIENTACAO = `<span class="badge-danger">Só com orientação de um(a) zelador(a)</span>`;
+
 function ritualCardHtml(kind, it) {
   const [titulo, sub] = splitName(it.nome);
   const o = objInfo(it.objetivo);
@@ -188,6 +195,7 @@ function ritualCardHtml(kind, it) {
       <h3 class="rcard__title">${escapeHtml(titulo)}</h3>
       ${sub ? `<p class="rcard__sub">${escapeHtml(sub)}</p>` : ""}
       ${herbs ? `<span class="rcard__herbs">🌿 ${escapeHtml(herbs)}</span>` : ""}
+      ${isEsquerda(it) ? SELO_ORIENTACAO : ""}
       <span class="rcard__foot">${moonsHtml(it.luas)}${foot}</span>
     </button>`;
 }
@@ -294,6 +302,7 @@ function banhoDetailHtml(b) {
       <span class="badge" style="color:var(--c-${o.k})">${o.icon} ${o.label}</span>
       <span class="badge">Intensidade ${INTENSIDADE_LABEL[b.intensidade] || b.intensidade}</span>
       ${b.cabeca ? `<span class="ori ori--yes">✓ Pode na cabeça (Ori)</span>` : `<span class="ori ori--no">⚠️ Do pescoço para baixo</span>`}
+      ${isEsquerda(b) ? SELO_ORIENTACAO : ""}
     </div>
     ${banhoTopAlertHtml(b)}
     <div class="facts">
@@ -331,6 +340,7 @@ function defumacaoDetailHtml(d) {
     <div class="drawer__chips">
       <span class="badge" style="color:var(--c-${o.k})">${o.icon} ${o.label}</span>
       <span class="badge">Intensidade ${INTENSIDADE_LABEL[d.intensidade] || d.intensidade}</span>
+      ${isEsquerda(d) ? SELO_ORIENTACAO : ""}
     </div>
     <div class="facts">
       <div class="fact"><span>Luas</span><b>${moonsHtml(d.luas)}</b></div>

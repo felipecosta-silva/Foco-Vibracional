@@ -5561,3 +5561,6 @@ main:focus { outline: none; }
   .trail-step::before { top: 18px; }
   .trail-terms div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* Selo "Só com orientação" dentro do cartão do catálogo: do tamanho do texto */
+.rcard .badge-danger { align-self: flex-start; }

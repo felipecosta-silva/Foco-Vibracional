@@ -24,9 +24,8 @@ function escapeHtml(str) {
 /* Itens compatíveis com a lua e o dia de hoje (com recuo gradual se não houver) */
 /* Constituição II.0: o que o site sugere sozinho (Hoje, oráculo, faixa da capa)
    nunca traz prática forte nem de esquerda. Elas continuam no catálogo, com seus avisos. */
-const ESQUERDA_RE = /\b(exu|pombagira|pomba-gira|guardi[õo]es|encruzilhada)\b/i;
 function isSuggestible(item) {
-  return !!item && item.intensidade !== "forte" && !ESQUERDA_RE.test(item.nome || "");
+  return !!item && item.intensidade !== "forte" && !isEsquerda(item);
 }
 
 function itemsForToday(all, moonKey, dayKey) {
