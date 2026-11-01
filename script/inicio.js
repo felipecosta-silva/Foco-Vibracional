@@ -164,7 +164,7 @@ function initHomeRails() {
   const rail = $("#moonRail");
   if (rail) {
     const moon = getLiveMoonData(new Date());
-    const list = BANHOS.filter(b => (b.luas || []).includes(moon.key));
+    const list = BANHOS.filter(b => isSuggestible(b) && (b.luas || []).includes(moon.key));
     const start = dailyIndexByDate(new Date(), Math.max(1, list.length));
     const pick = list.slice(start).concat(list.slice(0, start)).slice(0, 12);
     rail.innerHTML = pick.map(b => ritualCardHtml("banho", b)).join("");

@@ -22,7 +22,15 @@ function escapeHtml(str) {
 }
 
 /* Itens compatíveis com a lua e o dia de hoje (com recuo gradual se não houver) */
-function itemsForToday(list, moonKey, dayKey) {
+/* Constituição II.0: o que o site sugere sozinho (Hoje, oráculo, faixa da capa)
+   nunca traz prática forte nem de esquerda. Elas continuam no catálogo, com seus avisos. */
+const ESQUERDA_RE = /\b(exu|pombagira|pomba-gira|guardi[õo]es|encruzilhada)\b/i;
+function isSuggestible(item) {
+  return !!item && item.intensidade !== "forte" && !ESQUERDA_RE.test(item.nome || "");
+}
+
+function itemsForToday(all, moonKey, dayKey) {
+  const list = all.filter(isSuggestible);
   const both = list.filter(x => (x.luas || []).includes(moonKey) && (x.dias || []).includes(dayKey));
   if (both.length) return both;
   const byMoon = list.filter(x => (x.luas || []).includes(moonKey));
@@ -122,8 +130,9 @@ const ORACULO = [
 ];
 
 function pickByObjectives(list, objetivos, moonKey, seed, extraFilter) {
-  let pool = list.filter(x => objetivos.includes(x.objetivo) && (!extraFilter || extraFilter(x)));
-  if (!pool.length) pool = list.filter(x => objetivos.includes(x.objetivo));
+  const safe = list.filter(isSuggestible);
+  let pool = safe.filter(x => objetivos.includes(x.objetivo) && (!extraFilter || extraFilter(x)));
+  if (!pool.length) pool = safe.filter(x => objetivos.includes(x.objetivo));
   const withMoon = pool.filter(x => (x.luas || []).includes(moonKey));
   if (withMoon.length) pool = withMoon;
   return pool.length ? pool[seed % pool.length] : null;
