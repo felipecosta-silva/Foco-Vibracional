@@ -198,7 +198,7 @@ window.FV_DATA.tarot = [
   ],
   "significado": "O sábio que caminha na noite guiado pela lanterna da própria verdade. Um período de introspecção fecunda para buscar respostas dentro de si, e não no alvoroço alheio.",
   "invertida": "Isolamento amargo, solidão involuntária, teimosia em pedir ajuda ou medo de conviver.",
-  "amor": "Tempo de autodescoberta e solitude curativa. Nas relações, pede respeito aos espaços individuais.",
+  "amor": "Tempo de autodescoberta e solitude restauradora. Nas relações, pede respeito aos espaços individuais.",
   "trabalho": "Especialização profunda, consultoria, reflexão antes de assinar contratos e trabalho independente.",
   "conselho": "Ilumine apenas o próximo passo; a estrada inteira se revelará no momento certo."
  },
@@ -291,16 +291,16 @@ window.FV_DATA.tarot = [
   "nome": "A Temperança",
   "imagem": "images/tarot/classico/classico-maior-14-temperanca.jpg",
   "palavrasChave": [
-   "cura",
+   "restauração",
    "moderação",
    "harmonia",
    "alquimia"
   ],
-  "significado": "O anjo que mistura a água de dois jarros com infinita delicadeza. A arte do equilíbrio, da paciência e da conciliação dos opostos, trazendo cura suave ao corpo e ao espírito.",
+  "significado": "O anjo que mistura a água de dois jarros com infinita delicadeza. A arte do equilíbrio, da paciência e da conciliação dos opostos, trazendo alívio suave ao corpo e ao espírito.",
   "invertida": "Exageros, impaciência destrutiva, falta de moderação nos hábitos ou conflitos por teimosia.",
   "amor": "Harmonia cotidiana, carinho tranquilo e convivência pacífica sem sobressaltos.",
   "trabalho": "Mediação de acordos, integração de equipes e progresso constante e seguro.",
-  "conselho": "O tempo cura o que a pressa estraga: tempere a vida com paz e moderação."
+  "conselho": "O tempo conserta o que a pressa estraga: tempere a vida com paz e moderação."
  },
  {
   "id": "classico-maior-15-diabo",
@@ -537,7 +537,7 @@ window.FV_DATA.tarot = [
    "esperança restante"
   ],
   "significado": "Três taças caídas no chão e o olhar fixo na perda. Mas atrás de você, duas taças continuam de pé e há uma ponte sólida para atravessar o rio.",
-  "invertida": "Superação do luto, cura de mágoas passadas e decisão de seguir em frente com coragem.",
+  "invertida": "Superação do luto, alívio de mágoas passadas e decisão de seguir em frente com coragem.",
   "amor": "Tristeza por rompimento ou desilusão; hora de acolher a dor sem se afogar nela.",
   "trabalho": "Perda de uma oportunidade que parecia certa; mantenha o foco no que restou e reconstrua.",
   "conselho": "Vire as costas para o que derramou e honre as taças que continuam cheias."
@@ -680,7 +680,7 @@ window.FV_DATA.tarot = [
   "invertida": "Ilusões amorosas, promessas vazias de sedutores ou fuga da realidade em devaneios.",
   "amor": "Proposta sincera de namoro ou noivado, gestos de carinho e reconciliação calorosa.",
   "trabalho": "Parcerias baseadas em confiança mútua e projetos que unem trabalho e sensibilidade artística.",
-  "conselho": "Traga suas boas intenções para o mundo: o afeto expresso com dignidade cura corações."
+  "conselho": "Traga suas boas intenções para o mundo: o afeto expresso com dignidade acalma corações."
  },
  {
   "id": "classico-copas-13-rainha",
@@ -1053,7 +1053,7 @@ window.FV_DATA.tarot = [
   "palavrasChave": [
    "dor da verdade",
    "desilusão",
-   "cura do peito",
+   "alívio do peito",
    "liberação"
   ],
   "significado": "O coração transpassado por três espadas sob nuvens de tempestade. Uma dor emocional inevitável, mas necessária: a ilusão se desfaz para que a ferida possa ser limpa e cicatrizada de verdade.",
@@ -1073,10 +1073,10 @@ window.FV_DATA.tarot = [
   "palavrasChave": [
    "repouso",
    "recolhimento",
-   "cura mental",
+   "descanso mental",
    "pausa sagrada"
   ],
-  "significado": "O cavaleiro que repousa em prece no santuário sob vitrais de paz. Pede pausa estratégica, sono reparador e silêncio para curar a mente cansada de tantas batalhas diárias.",
+  "significado": "O cavaleiro que repousa em prece no santuário sob vitrais de paz. Pede pausa estratégica, sono reparador e silêncio para descansar a mente cansada de tantas batalhas diárias.",
   "invertida": "Retorno gradual às atividades após convalescença, ou inquietação que impede o descanso necessário.",
   "amor": "Tempo de acalmar os ânimos após brigas; evite discutir temas pesados antes de recuperar o equilíbrio.",
   "trabalho": "Férias merecidas, pausa produtiva e recuperação do esgotamento antes de iniciar novos desafios.",
@@ -1116,7 +1116,7 @@ window.FV_DATA.tarot = [
    "travessia",
    "deixar a tempestade"
   ],
-  "significado": "O barqueiro que conduz a mulher e a criança das águas agitadas para um porto de águas mansas. A travessia serena para longe do sofrimento, em direção à cura e à paz mental.",
+  "significado": "O barqueiro que conduz a mulher e a criança das águas agitadas para um porto de águas mansas. A travessia serena para longe do sofrimento, em direção ao alívio e à paz mental.",
   "invertida": "Resistência à transição, carregar bagagens pesadas demais ou viagem atrasada.",
   "amor": "Superação de fase turbulenta a dois ou alívio após decidir seguir em frente em paz.",
   "trabalho": "Mudança benéfica de ambiente profissional, transferência para setor mais tranquilo e projetos em calmaria.",

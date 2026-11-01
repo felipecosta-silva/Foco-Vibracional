@@ -100,7 +100,7 @@ window.FV_DATA.pontos = [
     "toque": "Ijexá / Toada",
     "saudacao": "Salve as Águas Doces e Salgadas! Salve Mestra Aninha!",
     "letra": "Quem viu Aninha na beira da praia,\nLavando suas rendas, secando sua saia?\nEla é da Jurema, ela é do mar,\nMestra Aninha veio trabalhar!\n\nLeva pras ondas a dor e o pesar,\nTraz pras areias a paz do luar.\nCom perfume de rosa e água serena,\nAninha desmancha qualquer desavença!",
-    "significado": "Cantiga de apaziguamento emocional e cura de dores amorosas. Atua nas mágoas guardadas no peito, limpando ressentimentos nas águas purificadoras.",
+    "significado": "Cantiga de apaziguamento emocional e alívio de dores amorosas. Atua nas mágoas guardadas no peito, limpando ressentimentos nas águas purificadoras.",
     "ervasAssociadas": [
       "Rosa Branca",
       "Hibisco",

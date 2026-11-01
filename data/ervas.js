@@ -108,7 +108,7 @@ window.FV_DATA.ervas = [
   "cabeca": "Sim (a variedade branca/verde é perfeita para o Ori)",
   "imagem": "./images/manjericao.jpg",
   "descricao": "A bênção da paz e da doçura. Harmoniza a aura, acalma o espírito agitado e atrai vibrações de prosperidade e amor sincero.",
-  "diferenciacao": "MANJERICÃO BRANCO/VERDE vs. MANJERICÃO ROXO:\n• Branco/Verde: Folhas verde-claras doces. Erva de Oxalá e dos Mestres de cura. Pode e deve ir na cabeça para acalmar pensamentos e trazer paz.\n• Roxo (Alfavaca de folha escura): Folhas roxas com aroma mais acentuado. Possui função de limpeza energética e descarrego leve, geralmente usado do pescoço para baixo.",
+  "diferenciacao": "MANJERICÃO BRANCO/VERDE vs. MANJERICÃO ROXO:\n• Branco/Verde: Folhas verde-claras doces. Erva de Oxalá e dos Mestres da Jurema. Pode e deve ir na cabeça para acalmar pensamentos e trazer paz.\n• Roxo (Alfavaca de folha escura): Folhas roxas com aroma mais acentuado. Possui função de limpeza energética e descarrego leve, geralmente usado do pescoço para baixo.",
   "colheita": "Melhor colhida fresca, macerada com as próprias mãos em água fresca ou tépida.",
   "cuidados": "Geralmente muito seguro e suave para uso externo.",
   "tradicao": "Erva de Oxalá e dos Mestres curadores. Ideal após qualquer banho forte de descarrego para selar a proteção com harmonia."
@@ -329,7 +329,7 @@ window.FV_DATA.ervas = [
   "cabeca": "Sob orientação tradicional de um Juremeiro",
   "imagem": "./images/jurema-preta.jpg",
   "descricao": "A árvore mestra da tradição nordestina, o portal sagrado dos Mestres, Caboclos e Encantados. Ensina a firmeza, a resiliência na seca e a comunhão com o invisível.",
-  "diferenciacao": "JUREMA PRETA vs. JUREMA BRANCA:\n• Jurema-Preta: Tronco escuro com espinhos fortes, casca rica em substâncias sagradas; é o tronco mestre de assentamento, firmeza e cura profunda.\n• Jurema-Branca: Tronco mais claro, folhas menores, energia mais branda e acolhedora de paz e oração.",
+  "diferenciacao": "JUREMA PRETA vs. JUREMA BRANCA:\n• Jurema-Preta: Tronco escuro com espinhos fortes, casca rica em substâncias sagradas; é o tronco mestre de assentamento, firmeza e fundamento profundo.\n• Jurema-Branca: Tronco mais claro, folhas menores, energia mais branda e acolhedora de paz e oração.",
   "colheita": "Feita exclusivamente com preceito, cantiga de licença e respeito à raiz e ao tronco da Jurema Sagrada.",
   "cuidados": "Planta sagrada de fundamentação; requer respeito e consciência de suas raízes ancestrais.",
   "tradicao": "O pilar central do Catimbó-Jurema: 'Jurema é árvore sagrada onde Jesus descansou; deu sombra e deu abrigo, a quem o Pai consagrou'."
@@ -1101,7 +1101,7 @@ window.FV_DATA.ervas = [
    "flor"
   ],
   "cabeca": "Sim (a flor dourada que ativa o brilho pessoal e a fé nos sonhos)",
-  "descricao": "A flor solar da autoconfiança, do otimismo radiante e da cura áurica. Suas pétalas amarelo-alaranjadas aquecem o plexo solar, dissolvem sentimentos de incapacidade, cicatrizam feridas emocionais e renovam a fé na realização dos sonhos.",
+  "descricao": "A flor solar da autoconfiança, do otimismo radiante e da renovação áurica. Suas pétalas amarelo-alaranjadas aquecem o plexo solar, dissolvem sentimentos de incapacidade, cicatrizam feridas emocionais e renovam a fé na realização dos sonhos.",
   "diferenciacao": "PÉTALAS SECAS vs. FLORES FRESCAS:\n• Pétalas Frescas Maceradas: Trazem o orvalho solar vivo para banhos da cabeça aos pés, despertando simpatia imediata e viço pessoal.\n• Flores Secas em Infusão: Excelente para infusões aromáticas e banhos noturnos de serenidade com anis-estrelado.",
   "colheita": "Colher pela manhã em dias claros assim que as flores se abrirem em direção ao sol nascente.",
   "cuidados": "Uso externo extremamente seguro e suave. Pessoas alérgicas a plantas da família Asteraceae devem fazer teste prévio.",
@@ -1210,8 +1210,8 @@ window.FV_DATA.ervas = [
   "partes": [
    "flor"
   ],
-  "cabeca": "Sim (cura feridas do coração e acalma pensamentos amargos)",
-  "descricao": "O perfume da ternura e da reconciliação. Dissolve ressentimentos acumulados, cura traumas amorosos, afasta o ciúme doentio e reconecta o ser humano à pureza infantil dos Ibejis.",
+  "cabeca": "Sim (acolhe as feridas do coração e acalma pensamentos amargos)",
+  "descricao": "O perfume da ternura e da reconciliação. Dissolve ressentimentos acumulados, alivia mágoas amorosas, afasta o ciúme doentio e reconecta o ser humano à pureza infantil dos Ibejis.",
   "diferenciacao": "COM MANJERICÃO vs. COM CAMOMILA:\n• Com Manjericão: Reconciliação de casais e pacificação de conflitos entre pais e filhos.\n• Com Camomila: Banho de acalento maternal que proporciona noites de sono serenas e alívio do desespero.",
   "colheita": "Colher de manhã cedo com o orvalho ainda presente nas pétalas.",
   "cuidados": "Suave, nobre e sem qualquer contraindicação externa.",
@@ -2253,7 +2253,7 @@ window.FV_DATA.ervas = [
   ],
   "cabeca": "Do pescoço para baixo (revigora o corpo e dissipa fadiga)",
   "imagem": "./images/cajueiro.jpg",
-  "descricao": "Símbolo de resistência, generosidade e abundância do solo nordestino. Suas folhas ricas em taninos e resinas curativas estancam fraquezas e renovam o ânimo de quem labuta.",
+  "descricao": "Símbolo de resistência, generosidade e abundância do solo nordestino. Na tradição, suas folhas ricas em taninos e resinas fortalecem e renovam o ânimo de quem labuta.",
   "diferenciacao": "FOLHAS FRESCAS vs. CASCA EM DECOCÇÃO:\n• Folhas Frescas Maceradas: Banho revigorante que restaura a força após esforço extenuante físico ou emocional.\n• Casca do Tronco: Uso tradicional adstringente para firmeza de assentamentos e lavagens de solo sagrado.",
   "colheita": "Colher folhas coriáceas limpas sob a luz solar, reverenciando a força nutridora da terra.",
   "cuidados": "Uso externo. O cajueiro é da mesma família da aroeira: a casca e a resina podem causar alergia de contato em peles sensíveis. A casca não vai na brasa. ATENÇÃO: Nunca queime o óleo da castanha de caju crua (cardol/ácido anacárdico), que é cáustico e altamente tóxico ao fogo. Utilize estritamente as folhas secas para defumação. Mantenha longe do alcance de crianças e de pets. Gestantes e lactantes: só com orientação.",

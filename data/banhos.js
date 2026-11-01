@@ -297,7 +297,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "Macerar delicadamente as pétalas amarelas de girassol com água fresca de quartinha, acrescentando um punhado de sementes e um raminho de alecrim. Não ferver. Deixar a bacia tomar 15 minutos de sol da manhã para imantar a energia solar de Oxum e Oxalá. Coar e verter da coroa aos pés.",
   "reza": "Sol que ilumina a terra, flor que segue a claridade: cobri meu corpo de ouro, enchei meu peito de coragem e fazei brilhar minha estrela onde quer que eu vá.",
-  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). É o banho supremo de autoconfiança, magnetismo para entrevistas, brilho pessoal, abertura de caminhos financeiros e cura de sentimentos de menosprezo."
+  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). É o banho supremo de autoconfiança, magnetismo para entrevistas, brilho pessoal, abertura de caminhos financeiros e alívio de sentimentos de menosprezo."
  },
  {
   "id": "banho-brilhantina-oxum",
@@ -375,7 +375,7 @@ window.FV_DATA.banhos = [
  },
  {
   "id": "banho-folha-amora-nana",
-  "nome": "Banho e Chá Ancestral de Folha de Amora (Acolhimento de Nanã • Cura da Alma & Equilíbrio Feminino)",
+  "nome": "Banho e Chá Ancestral de Folha de Amora (Acolhimento de Nanã • Consolo da Alma & Equilíbrio Feminino)",
   "objetivo": "calma",
   "intensidade": "suave",
   "luas": [
@@ -502,7 +502,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "Em água morna, macerar as pétalas e folhas com perfume suave de anis e alfazema. Mentalizar o olhar sábio e generoso das Mestras Paulina, Laura e Luziara. Verter da cabeça aos pés.",
   "reza": "Salve as Mestras da Jurema! Salve Mestra Paulina e Mestra Laura! Desatai os nós da minha vida, adocicai meu caminho e dai-me a firmeza de quem caminha na luz sem temer a escuridão.",
-  "observacao": "PODE IR NA CABEÇA. Excelente para cura de desgostos no amor, restauração do amor-próprio e firmeza da mulher que precisa comandar sua própria vida."
+  "observacao": "PODE IR NA CABEÇA. Excelente para aliviar desgostos no amor, restauração do amor-próprio e firmeza da mulher que precisa comandar sua própria vida."
  },
  {
   "id": "banho-forca-mestres-catimbo",
@@ -636,7 +636,7 @@ window.FV_DATA.banhos = [
   ],
   "cabeca": true,
   "modoPreparo": "Macerar as folhas com carinho em água tépida. Coar e verter da coroa até os pés com intenção pura de restauração da saúde e da força vital.",
-  "reza": "Pelas folhas da cura e pelo orvalho da vida: reconstruí minhas células, renovai meu fôlego e dai-me a saúde forte e serena dos filhos de fé.",
+  "reza": "Pelas folhas sagradas e pelo orvalho da vida: renovai meu fôlego e dai-me a força serena dos filhos de fé.",
   "observacao": "PODE IR NA CABEÇA. Excelente para recuperação após febres, cirurgias, esgotamento mental profundo ou sensação de corpo drenado."
  },
  {
@@ -846,7 +846,7 @@ window.FV_DATA.banhos = [
  },
  {
   "id": "banho-laranjeira-camomila-paz",
-  "nome": "Banho de Laranjeira com Camomila (A Doçura da Esperança & Cura da Tristeza)",
+  "nome": "Banho de Laranjeira com Camomila (A Doçura da Esperança & Alívio da Tristeza)",
   "objetivo": "calma",
   "intensidade": "suave",
   "luas": [
@@ -2096,7 +2096,7 @@ window.FV_DATA.banhos = [
   ],
   "cabeca": true,
   "modoPreparo": "Misture 500ml de água de coco natural com 1 litro de água mineral morna. Macere delicadamente as pétalas de rosa branca e as folhas de manjericão. Não ferva. Despeje de maneira acolhedora da coroa da cabeça aos pés, mentalizando a vida, a circulação sanguínea e os fluidos vitais se restabelecendo.",
-  "reza": "Na doçura das águas e na brancura das pétalas, recebo o fôlego da cura e a paz para o meu corpo e espírito. Que a saúde se firme e a força retorne. Axé!",
+  "reza": "Na doçura das águas e na brancura das pétalas, recebo o fôlego da calma e a paz para o meu corpo e espírito. Que a saúde se firme e a força retorne. Axé!",
   "observacao": "Só depois de liberação médica. Use água morna e evite molhar pontos de cirurgia, curativos, cateteres ou feridas abertas. Este banho acolhe o espírito e não substitui nenhum tratamento. Pode ir na cabeça.",
   "versaoCha": ""
  },
@@ -2360,7 +2360,7 @@ window.FV_DATA.banhos = [
   ],
   "cabeca": true,
   "modoPreparo": "Em uma bacia limpa com água fresca ou ligeiramente morna, macere as folhas de mangueira e de hortelã com as próprias mãos, cantando para os Caboclos das Matas até a água liberar aroma refrescante. Deixe descansar 10 minutos. Despeje da cabeça aos pés após o banho comum.",
-  "reza": "Okê Caboclo! Salve as matas sagradas e as águas límpidas da cura. Leva embora a poeira da caminhada e banha minha mente e meu peito com o frescor da floresta.",
+  "reza": "Okê Caboclo! Salve as matas sagradas e as águas límpidas. Leva embora a poeira da caminhada e banha minha mente e meu peito com o frescor da floresta.",
   "observacao": "PODE SER JOGADO NA CABEÇA (ORI). Folhas mornas e aromáticas que promovem purificação desobstruindo os poros espirituais, varrendo a preguiça mental e oxigenando a coroa com alegria."
  },
  {
