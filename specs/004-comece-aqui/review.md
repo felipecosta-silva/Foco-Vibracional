@@ -19,3 +19,6 @@
 - O filtro "Defumações de harmonização" também mostra a `defumacao-resinas-magos` (consagração do altar, intensidade forte). Ela não é de esquerda, e o texto do passo 5 já aponta alecrim e manjericão. Se o dono preferir, uma spec futura pode criar um filtro por intensidade.
 - O banho `banho-forca-mestras-jurema` (intensidade média) aparece em "Banhos de harmonização". Ele não é de esquerda nem de cabeça forte.
 - Quando a spec 003 (Fundamentos da Jurema) existir, ela entra como passo novo, entre o 2 e o 3.
+
+## Atualização 2026-11-01
+Os catálogos de banhos e defumações ganharam o filtro "Força" (suave, média, forte). Os links da trilha passaram a pedir `intensidade=suave`, e as duas observações acima ficaram resolvidas.

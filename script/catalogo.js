@@ -709,6 +709,7 @@ function createCatalog(cfg) {
 
 const OBJ_FILTER = { key: "objetivo", label: "Para", options: OBJETIVOS.map(o => ({ ...o, c: `var(--c-${o.k})` })), test: (it, v) => it.objetivo === v };
 const LUA_FILTER = { key: "lua", label: "Lua", options: LUAS, test: (it, v) => (it.luas || []).includes(v) };
+const INT_FILTER = { key: "intensidade", label: "Força", options: Object.entries(INTENSIDADE_LABEL).map(([k, label]) => ({ k, label })), test: (it, v) => it.intensidade === v };
 
 function initBanhosPage() {
   const mount = $("#catalog[data-catalog='banhos']");
@@ -717,7 +718,7 @@ function initBanhosPage() {
     mount, items: BANHOS, perPage: 24, unit: ["banho", "banhos"], eyebrow: "Banho",
     placeholder: "Buscar banho, erva ou intenção…",
     searchText: b => `${b.nome} ${(b.ervas || []).join(" ")} ${b.objetivo} ${b.observacao} ${b.modoPreparo}`,
-    filters: [OBJ_FILTER, LUA_FILTER],
+    filters: [OBJ_FILTER, LUA_FILTER, INT_FILTER],
     toggles: [{ key: "cabeca", label: "👑 Pode na cabeça", test: b => b.cabeca === true }],
     renderCard: b => ritualCardHtml("banho", b),
     detail: banhoDetailHtml
@@ -731,7 +732,7 @@ function initDefumacaoPage() {
     mount, items: DEFUMACOES, perPage: 24, unit: ["defumação", "defumações"], eyebrow: "Defumação",
     placeholder: "Buscar defumação, erva ou intenção…",
     searchText: d => `${d.nome} ${(d.ervas || []).join(" ")} ${d.objetivo} ${d.servePara} ${d.sentido}`,
-    filters: [OBJ_FILTER, LUA_FILTER],
+    filters: [OBJ_FILTER, LUA_FILTER, INT_FILTER],
     renderCard: d => ritualCardHtml("defumacao", d),
     detail: defumacaoDetailHtml
   });

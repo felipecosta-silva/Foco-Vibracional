@@ -55,12 +55,12 @@ A trilha é a porta de entrada que faz isso: 7 passos curtos, na ordem certa.
   **4. Primeira prática: um banho leve**
   > Comece por um banho suave de calma ou de harmonização. Tome o seu banho de higiene normal e, depois, despeje o banho de ervas do pescoço para baixo, com calma. Antes, leia a ficha inteira, inclusive os cuidados de cada erva.
   > Os banhos de descarrego ficam para depois, quando você já conhecer os dois tempos, e de preferência com orientação.
-  - Links: "Banhos de calma" (`banhos.html?objetivo=calma`) · "Banhos de harmonização" (`banhos.html?objetivo=harmonizacao`).
+  - Links: "Banhos de calma" (`banhos.html?objetivo=calma&intensidade=suave`) · "Banhos de harmonização" (`banhos.html?objetivo=harmonizacao&intensidade=suave`).
 
   **5. Uma defumação suave da casa**
   > A defumação leva a fumaça das ervas pelos cômodos. Para começar, escolha uma defumação doce, de harmonização, com ervas que você já conhece da cozinha, como alecrim e manjericão.
   > Use um recipiente próprio sobre pires firme, deixe as janelas abertas e mantenha crianças, pets e quem tem problema respiratório longe da fumaça.
-  - Links: "Defumações de harmonização" (`defumacao.html?objetivo=harmonizacao`) · "Alecrim e manjericão" (`defumacao.html#defumacao-alecrim-manjericao-bencao`).
+  - Links: "Defumações de harmonização" (`defumacao.html?objetivo=harmonizacao&intensidade=suave`) · "Alecrim e manjericão" (`defumacao.html#defumacao-alecrim-manjericao-bencao`).
 
   **6. Firmar o pensamento**
   > Toda prática começa pela intenção. Antes de um banho ou de uma vela, saiba exatamente o que você está pedindo: um pedido vago pode abrir caminhos que você não quer.
