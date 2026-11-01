@@ -1,6 +1,6 @@
 /* Service Worker — Foco Vibracional
    Funciona offline (na mata ou na estrada). Ao publicar mudanças, aumente CACHE_VERSION. */
-const CACHE_VERSION = "fv-v34";
+const CACHE_VERSION = "fv-v35";
 const PRECACHE = [
   "./",
   "banhos.html",
@@ -18,7 +18,17 @@ const PRECACHE = [
   "tarot.html",
   "404.html",
   "styles/styles.css",
-  "script/script.js",
+  "script/nucleo.js",
+  "script/lua.js",
+  "script/praticas.js",
+  "script/catalogo.js",
+  "script/tarot-pontos.js",
+  "script/colheita-calendario.js",
+  "script/portais.js",
+  "script/simbolos.js",
+  "script/hoje.js",
+  "script/busca.js",
+  "script/inicio.js",
   "data/banhos.js",
   "data/creditos-fotos.js",
   "data/defumacoes.js",

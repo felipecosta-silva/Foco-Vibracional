@@ -5468,3 +5468,24 @@ main:focus { outline: none; }
 
 /* Títulos que passaram de H4 para H3 (hierarquia) mantêm a fonte de texto */
 .cartografia-quadrante-item :is(h3, h4), .spotlight-item :is(h3, h4), .runa-name { font-family: var(--font-body); font-weight: 700; letter-spacing: normal; }
+
+/* Mandalas (simbolos.html): cores dos desenhos por token. Classe vence o atributo de cor do SVG. */
+:root {
+  --m-sky: #38bdf8; --m-sky-deep: #0284c7; --m-sky-light: #7dd3fc; --m-sky-pale: #bae6fd; --m-ocean: #0ea5e9;
+  --m-emerald: #10b981; --m-emerald-light: #34d399; --m-emerald-pale: #a7f3d0;
+}
+.mf-emerald-pale { fill: var(--m-emerald-pale); }
+.mf-white { fill: var(--white); }
+.ms-amber { stroke: var(--c-amber); }
+.ms-ember { stroke: var(--ember-1); }
+.ms-emerald { stroke: var(--m-emerald); }
+.ms-emerald-light { stroke: var(--m-emerald-light); }
+.ms-gold { stroke: var(--accent); }
+.ms-leaf { stroke: var(--accent2); }
+.ms-ocean { stroke: var(--m-ocean); }
+.ms-sky { stroke: var(--m-sky); }
+.ms-sky-light { stroke: var(--m-sky-light); }
+.ms-sky-pale { stroke: var(--m-sky-pale); }
+.mstop-gold { stop-color: var(--accent); }
+.mstop-sky { stop-color: var(--m-sky); }
+.mstop-sky-deep { stop-color: var(--m-sky-deep); }

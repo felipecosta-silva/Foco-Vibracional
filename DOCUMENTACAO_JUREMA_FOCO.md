@@ -43,6 +43,8 @@ Ao revisar detalhadamente o repositório (`Foco-Vibracional`), identificamos a s
 Todas as correções técnicas e elevações conceituais foram implementadas de ponta a ponta:
 
 ### 3.1. Motor JavaScript Unificado e Blindado (`script/script.js`)
+> Em 2026-10-31 o `script.js` foi dividido em 11 arquivos dentro de `script/`. Veja `script/ORDEM.md`.
+
 - **Implementação dos Módulos Faltantes:**
   - `initPlantasPage()`: Renderização dinâmica, busca em tempo real e filtros múltiplos (energia, uso, objetivo, parte da planta e intensidade).
   - `initBanhosPage()`: Renderização completa com badges de permissão na cabeça, orações consagradas, cópia de reza em 1 clique e leitura por voz (Web Speech API).

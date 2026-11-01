@@ -55,7 +55,7 @@ Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 1. Cores só por tokens de `styles/styles.css` (`--bg`, `--surface`, `--accent`, `--c-<objetivo>`, `--vela-*` …). **Proibido:** hex no `style=""` ou no JS; ciano `#9ef0ff`; menta `#b1ffcc`.
 2. **Nenhum `style=""` novo.** Estilo novo vai no fim do CSS, na camada final.
 3. Fontes locais: Fraunces (títulos) e Inter (texto).
-4. Página nova = uma entrada em `NAV` (`script/script.js`), nunca HTML de menu.
+4. Página nova = uma entrada em `NAV` (`script/nucleo.js`), nunca HTML de menu. O motor fica em `script/`, em 11 arquivos com ordem fixa (`script/ORDEM.md`).
 5. Catálogos usam `createCatalog` e o painel `getDrawer`. Nada de grids ou paginação próprios.
 6. Objetivos válidos: `descarrego`, `limpeza`, `harmonizacao`, `protecao`, `calma`, `energia`, `prosperidade`. Não invente outros.
 
@@ -76,4 +76,4 @@ Cada funcionalidade vive em `specs/NNN-nome-curto/`.
 
 ---
 
-**Version**: 1.1.0 | **Ratified**: 2026-10-22 | **Last Amended**: 2026-10-23
+**Version**: 1.1.1 | **Ratified**: 2026-10-22 | **Last Amended**: 2026-10-31 (só o caminho do motor, que foi dividido em `script/`; nenhuma regra mudou)

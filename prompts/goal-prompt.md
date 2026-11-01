@@ -63,8 +63,8 @@ A casa do dono do site: Umbanda com Jurema. Guias com que ele trabalha:
 O site:
 - Estático (HTML, CSS e JS puro), PWA offline, no GitHub Pages: https://felipecosta-silva.github.io/Foco-Vibracional/
 - Páginas: index (Hoje), banhos, defumacao, plantas (Ervas), colheita, firmeza (Velas), mantras, calendario (Lua), portais, tarot, simbolos (Pontos riscados e Estrelas), pontos (Pontos cantados), glossario.
-- Dados (window.FV_DATA): data/ervas.js (75), banhos.js (93), defumacoes.js (35), mantras.js (40), tarot.js (114), pontos.js (43).
-- Motor: script/script.js (NAV, createCatalog, getDrawer, findHerbFor), styles/styles.css (tokens "Noite na Mata") e sw.js (PRECACHE + CACHE_VERSION).
+- Dados (window.FV_DATA): data/ervas.js (85), banhos.js (93), defumacoes.js (36), mantras.js (40), tarot.js (114), pontos.js (60).
+- Motor: script/ em 11 arquivos com ordem fixa, descrita em script/ORDEM.md (NAV em nucleo.js; createCatalog, getDrawer e findHerbFor em catalogo.js), styles/styles.css (tokens "Noite na Mata") e sw.js (PRECACHE + CACHE_VERSION).
 
 Fluxo: GitHub Spec Kit (/speckit-*). O Gemini executa, o Claude escreve e revisa as specs, e o dono aprova e publica.
 
