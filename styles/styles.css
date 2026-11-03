@@ -5595,3 +5595,9 @@ main:focus { outline: none; }
 .vela-mais p, .vela-entidade p { line-height: 1.6; }
 .vela-entidade { border-color: color-mix(in srgb, var(--danger) 35%, transparent); }
 .vela-entidade h3 { margin-top: 10px; }
+
+/* =========================================================
+   Spec 003: Fundamentos da Jurema (jurema.html)
+   ========================================================= */
+.home-section__actions { flex-wrap: wrap; }
+

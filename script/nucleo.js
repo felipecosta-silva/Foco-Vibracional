@@ -63,6 +63,7 @@ const NAV = [
     id: "saberes", label: "Saberes", url: "simbolos.html",
     children: [
       { label: "Comece aqui", url: "comece.html" },
+      { label: "Fundamentos da Jurema", url: "jurema.html" },
       { label: "Tarot & Cigano", url: "tarot.html" },
       { label: "Pontos Cantados", url: "pontos.html" },
       { label: "Símbolos & Runas", url: "simbolos.html" },

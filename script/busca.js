@@ -22,6 +22,7 @@ const SEARCH_PAGES = [
   { t: "Runas (Elder Futhark)", u: "simbolos.html", k: "runas futhark oraculo" },
   { t: "Sigilos & Roda dos Números", u: "simbolos.html", k: "sigilo roda numeros pitagorica" },
   { t: "Comece aqui — primeiros passos", u: "comece.html", k: "comece comecar iniciante primeiros passos trilha inicio" },
+  { t: "Fundamentos da Jurema — árvore, Mestres e primeira sessão", u: "jurema.html", k: "jurema fundamentos catimbo mestres mestras caboclos encantados cidades reinos tronco maraca cachimbo princesa juremado gira primeira sessao vinho" },
   { t: "Glossário", u: "glossario.html", k: "glossario termos ori firmeza descarrego" },
   { t: "Leitura da vela — chama, fumaça e cera", u: "firmeza.html#leitura-da-vela", k: "leitura vela chama cera chora fumaca pavio apagou queimou sobra entidade" },
   { t: "Como fazer um pedido bem feito", u: "firmeza.html#pedido-bem-feito", k: "pedido bem feito firmeza intencao prosperidade amor saude checklist" },
