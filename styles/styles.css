@@ -5601,3 +5601,24 @@ main:focus { outline: none; }
    ========================================================= */
 .home-section__actions { flex-wrap: wrap; }
 
+
+/* =========================================================
+   Spec 008: Contas da casa (contas.html)
+   ========================================================= */
+.contas-resumo__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.contas-resumo__head h2 { margin: 0; }
+.contas-mes { min-width: 170px; }
+.contas-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0 0; }
+.contas-stats div { padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); }
+.contas-stats dt { font-size: .82rem; color: var(--muted); }
+.contas-stats dd { margin: 4px 0 0; font-family: "Fraunces", serif; font-size: 1.35rem; color: var(--accent); }
+.contas-lista { display: flex; flex-direction: column; gap: 14px; margin: 12px 0 16px; }
+.contas-item .form-row { margin-bottom: 12px; }
+.contas-item .form-group { flex: 1 1 130px; min-width: 0; }
+.contas-sub:not([hidden]) { display: contents; }
+.contas-item__conta { margin: 4px 0 12px; line-height: 1.6; }
+.contas-item__conta b { color: var(--accent); }
+.contas-compra { white-space: pre-wrap; font: inherit; line-height: 1.7; margin: 0 0 12px; }
+.contas-import { position: relative; cursor: pointer; }
+.contas-import input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.contas-import:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }

@@ -1,5 +1,5 @@
 /* Foco Vibracional • praticas.js
-   Início (relógio e modo foco), mantras, caderno de firmeza e firmeza de vela.
+   Início (relógio e modo foco), mantras, caderno de firmeza, firmeza de vela e contas da casa.
    Arquivo comum (não é módulo): compartilha o escopo global com os outros
    arquivos de script/ e deve ser carregado na ordem de script/ORDEM.md. */
 
@@ -708,3 +708,259 @@ function initFirmezaPage() {
   updateTimerDisplay();
 }
 
+
+/* ==========================================================================
+   Contas da casa (contas.html, spec 008): velas, incensos e outros itens do mês.
+   Os dados ficam só no aparelho (localStorage); nada vai para a internet.
+   ========================================================================== */
+const CONTAS_KEY = "foco.contas.v1";
+const DIA_MS = 864e5;
+
+function loadContas() {
+  try {
+    const itens = JSON.parse(localStorage.getItem(CONTAS_KEY) || "[]");
+    return Array.isArray(itens) ? itens : [];
+  } catch { return []; }
+}
+function saveContas(itens) {
+  try { localStorage.setItem(CONTAS_KEY, JSON.stringify(itens)); } catch { /* janela anônima: segue sem guardar */ }
+}
+
+/* Aceita "12,50", "12.50" e "1.234,50" */
+function parseValor(v) {
+  let s = String(v ?? "").trim().replace(/\s|R\$/g, "");
+  if (s.includes(",")) s = s.replace(/\./g, "").replace(",", ".");
+  const n = Number(s);
+  return Number.isFinite(n) && n > 0 ? n : 0;
+}
+function parseInteiro(v, min = 0) {
+  const n = Math.floor(Number(v));
+  return Number.isFinite(n) && n >= min ? n : min;
+}
+const fmtReal = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const dataLocal = iso => { const [y, m, d] = String(iso).split("-").map(Number); return new Date(y, (m || 1) - 1, d || 1); };
+
+function novoItemConta() {
+  return { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), nome: "", para: "", modo: "cada", dias: 7, proxima: localISODate(), vezesMes: 4, porVez: 1, compra: "unidade", preco: "", porCaixa: 12, precoCaixa: "", estoque: 0 };
+}
+
+/* Quantas vezes o item é usado no mês "AAAA-MM" */
+function vezesNoMes(it, mes) {
+  if (it.modo === "mes") return parseInteiro(it.vezesMes);
+  const n = parseInteiro(it.dias, 1);
+  const [y, m] = mes.split("-").map(Number);
+  const ini = new Date(y, m - 1, 1);
+  const fim = new Date(y, m, 0);
+  let primeira = dataLocal(it.proxima || localISODate());
+  if (primeira < ini) {
+    const passos = Math.ceil(Math.round((ini - primeira) / DIA_MS) / n);
+    primeira = new Date(primeira.getFullYear(), primeira.getMonth(), primeira.getDate() + passos * n);
+  }
+  if (primeira > fim) return 0;
+  return Math.floor(Math.round((fim - primeira) / DIA_MS) / n) + 1;
+}
+
+function precoUnidade(it) {
+  if (it.compra === "caixa") {
+    const un = parseInteiro(it.porCaixa, 1);
+    return parseValor(it.precoCaixa) / un;
+  }
+  return parseValor(it.preco);
+}
+
+function contaDoItem(it, mes) {
+  const vezes = vezesNoMes(it, mes);
+  const usa = vezes * parseInteiro(it.porVez, 1);
+  const pu = precoUnidade(it);
+  const porAno = it.modo === "mes"
+    ? parseInteiro(it.vezesMes) * 12 * parseInteiro(it.porVez, 1) * pu
+    : (365 / parseInteiro(it.dias, 1)) * parseInteiro(it.porVez, 1) * pu;
+  return { vezes, usa, gasto: usa * pu, porAno };
+}
+
+/* Itens com o mesmo nome são comprados juntos, com o jeito de comprar do primeiro */
+function comprasDoMes(itens, mes) {
+  const grupos = new Map();
+  itens.forEach(it => {
+    const chave = (it.nome || "").trim().toLowerCase() || `#${it.id}`;
+    const g = grupos.get(chave) || { base: it, nome: (it.nome || "").trim() || "Item sem nome", usa: 0, estoque: 0 };
+    g.usa += contaDoItem(it, mes).usa;
+    g.estoque += parseInteiro(it.estoque);
+    grupos.set(chave, g);
+  });
+  return [...grupos.values()].map(g => {
+    const comprar = Math.max(0, g.usa - g.estoque);
+    if (g.base.compra === "caixa") {
+      const un = parseInteiro(g.base.porCaixa, 1);
+      const caixas = Math.ceil(comprar / un);
+      return { ...g, comprar, caixas, un, sobra: caixas * un - comprar, paga: caixas * parseValor(g.base.precoCaixa) };
+    }
+    return { ...g, comprar, paga: comprar * parseValor(g.base.preco) };
+  });
+}
+
+function initContas() {
+  const lista = $("#contasLista");
+  if (!lista) return;
+  const mesInput = $("#contasMes");
+  let itens = loadContas();
+  mesInput.value = localISODate().slice(0, 7);
+  const mes = () => mesInput.value || localISODate().slice(0, 7);
+  const mesNome = () => dataLocal(mes() + "-01").toLocaleDateString("pt-BR", { month: "long", year: "numeric" });
+
+  const campo = (it, k, rotulo, attrs = "") => `
+    <label class="form-group">
+      <span class="form-label">${rotulo}</span>
+      <input class="form-input" data-k="${k}" value="${escapeHtml(String(it[k] ?? ""))}" ${attrs} />
+    </label>`;
+
+  function cardHtml(it) {
+    return `
+      <article class="card contas-item" data-id="${it.id}">
+        <div class="form-row">
+          ${campo(it, "nome", "Item", 'type="text" placeholder="Ex.: Vela de 7 dias branca"')}
+          ${campo(it, "para", "Para quê (opcional)", 'type="text" placeholder="Ex.: firmeza do altar"')}
+        </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Frequência</span>
+            <select class="form-select" data-k="modo">
+              <option value="cada"${it.modo === "cada" ? " selected" : ""}>A cada N dias</option>
+              <option value="mes"${it.modo === "mes" ? " selected" : ""}>N vezes por mês</option>
+            </select>
+          </label>
+          <div class="form-row contas-sub" data-modo="cada"${it.modo === "cada" ? "" : " hidden"}>
+            ${campo(it, "dias", "A cada (dias)", 'type="number" min="1" inputmode="numeric"')}
+            ${campo(it, "proxima", "Próxima troca", 'type="date"')}
+          </div>
+          <div class="form-row contas-sub" data-modo="mes"${it.modo === "mes" ? "" : " hidden"}>
+            ${campo(it, "vezesMes", "Vezes por mês", 'type="number" min="0" inputmode="numeric"')}
+          </div>
+          ${campo(it, "porVez", "Quantos por vez", 'type="number" min="1" inputmode="numeric"')}
+        </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Como compra</span>
+            <select class="form-select" data-k="compra">
+              <option value="unidade"${it.compra === "unidade" ? " selected" : ""}>Por unidade</option>
+              <option value="caixa"${it.compra === "caixa" ? " selected" : ""}>Por caixa</option>
+            </select>
+          </label>
+          <div class="form-row contas-sub" data-compra="unidade"${it.compra === "unidade" ? "" : " hidden"}>
+            ${campo(it, "preco", "Preço da unidade (R$)", 'type="text" inputmode="decimal" placeholder="0,00"')}
+          </div>
+          <div class="form-row contas-sub" data-compra="caixa"${it.compra === "caixa" ? "" : " hidden"}>
+            ${campo(it, "porCaixa", "Unidades na caixa", 'type="number" min="1" inputmode="numeric"')}
+            ${campo(it, "precoCaixa", "Preço da caixa (R$)", 'type="text" inputmode="decimal" placeholder="0,00"')}
+          </div>
+          ${campo(it, "estoque", "Já tenho em casa", 'type="number" min="0" inputmode="numeric"')}
+        </div>
+        <p class="contas-item__conta" aria-live="polite"></p>
+        <button class="btn btn--ghost small" type="button" data-remover>Remover</button>
+      </article>`;
+  }
+
+  function contaTexto(it) {
+    const c = contaDoItem(it, mes());
+    const vezes = it.modo === "mes" ? "" : `${c.vezes} ${c.vezes === 1 ? "troca" : "trocas"} no mês · `;
+    return `${vezes}usa <b>${c.usa}</b> · gasto do mês <b>${fmtReal(c.gasto)}</b> · por ano ${fmtReal(c.porAno)}`;
+  }
+
+  function listaCompras() {
+    const compras = comprasDoMes(itens, mes()).filter(g => g.comprar > 0);
+    if (!compras.length) return `Compras de ${mesNome()}: nada a comprar.`;
+    const linhas = compras.map(g => g.caixas !== undefined
+      ? `• ${g.nome}: ${g.caixas} ${g.caixas === 1 ? "caixa" : "caixas"} de ${g.un} (precisa de ${g.comprar}${g.sobra ? `, sobram ${g.sobra}` : ""}) — ${fmtReal(g.paga)}`
+      : `• ${g.nome}: ${g.comprar} un. — ${fmtReal(g.paga)}`);
+    const total = compras.reduce((s, g) => s + g.paga, 0);
+    return `Compras de ${mesNome()}:\n${linhas.join("\n")}\nTotal: ${fmtReal(total)}`;
+  }
+
+  function atualizarContas() {
+    lista.querySelectorAll(".contas-item").forEach(card => {
+      const it = itens.find(x => x.id === card.dataset.id);
+      if (it) card.querySelector(".contas-item__conta").innerHTML = contaTexto(it);
+    });
+    const m = mes();
+    const somas = itens.reduce((s, it) => { const c = contaDoItem(it, m); s.gasto += c.gasto; s.ano += c.porAno; return s; }, { gasto: 0, ano: 0 });
+    $("#contasPagar").textContent = fmtReal(comprasDoMes(itens, m).reduce((s, g) => s + g.paga, 0));
+    $("#contasGasto").textContent = fmtReal(somas.gasto);
+    $("#contasAno").textContent = fmtReal(somas.ano);
+    $("#contasCompra").textContent = listaCompras();
+    $("#contasVazio").hidden = itens.length > 0;
+  }
+
+  function render() {
+    lista.innerHTML = itens.map(cardHtml).join("");
+    atualizarContas();
+  }
+
+  lista.addEventListener("input", e => {
+    const el = e.target.closest("[data-k]");
+    const card = e.target.closest(".contas-item");
+    if (!el || !card) return;
+    const it = itens.find(x => x.id === card.dataset.id);
+    it[el.dataset.k] = el.value;
+    if (el.dataset.k === "modo" || el.dataset.k === "compra") {
+      card.querySelectorAll(`[data-${el.dataset.k}]`).forEach(sub => { sub.hidden = sub.dataset[el.dataset.k] !== el.value; });
+    }
+    saveContas(itens);
+    atualizarContas();
+  });
+
+  lista.addEventListener("click", e => {
+    const btn = e.target.closest("[data-remover]");
+    if (!btn) return;
+    const id = btn.closest(".contas-item").dataset.id;
+    const it = itens.find(x => x.id === id);
+    if (!confirm(`Remover "${it.nome || "item sem nome"}"?`)) return;
+    itens = itens.filter(x => x.id !== id);
+    saveContas(itens);
+    render();
+  });
+
+  $("#contasAdd").addEventListener("click", () => {
+    itens.push(novoItemConta());
+    saveContas(itens);
+    render();
+    lista.lastElementChild?.querySelector("[data-k='nome']")?.focus();
+  });
+
+  mesInput.addEventListener("change", atualizarContas);
+
+  $("#contasCopiar").addEventListener("click", e => copyText(listaCompras(), e.currentTarget));
+  const shareBtn = $("#contasShare");
+  if (navigator.share) {
+    shareBtn.hidden = false;
+    shareBtn.addEventListener("click", () => navigator.share({ title: "Lista de compras", text: listaCompras() }).catch(() => {}));
+  }
+
+  $("#contasExport").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify({ app: "foco-contas", versao: 1, itens }, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `contas-da-casa-${localISODate()}.json`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+
+  $("#contasImport").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const dados = JSON.parse(await file.text());
+      const novos = Array.isArray(dados) ? dados : dados.itens;
+      if (!Array.isArray(novos)) throw new Error("formato");
+      if (!confirm(`Trocar os itens atuais pelos ${novos.length} da cópia?`)) return;
+      itens = novos.map(x => ({ ...novoItemConta(), ...x }));
+      saveContas(itens);
+      render();
+      toast("Cópia restaurada.");
+    } catch {
+      toast("Este arquivo não é uma cópia das Contas da casa.");
+    }
+  });
+
+  render();
+}
