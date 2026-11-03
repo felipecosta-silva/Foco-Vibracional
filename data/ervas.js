@@ -326,12 +326,12 @@ window.FV_DATA.ervas = [
    "casca",
    "folha"
   ],
-  "cabeca": "Sob orientação tradicional de um Juremeiro",
+  "cabeca": "Só com orientação de um(a) zelador(a)",
   "imagem": "./images/jurema-preta.jpg",
   "descricao": "A árvore mestra da tradição nordestina, o portal sagrado dos Mestres, Caboclos e Encantados. Ensina a firmeza, a resiliência na seca e a comunhão com o invisível.",
   "diferenciacao": "JUREMA PRETA vs. JUREMA BRANCA:\n• Jurema-Preta: Tronco escuro com espinhos fortes, casca rica em substâncias sagradas; é o tronco mestre de assentamento, firmeza e fundamento profundo.\n• Jurema-Branca: Tronco mais claro, folhas menores, energia mais branda e acolhedora de paz e oração.",
   "colheita": "Feita exclusivamente com preceito, cantiga de licença e respeito à raiz e ao tronco da Jurema Sagrada.",
-  "cuidados": "Planta sagrada de fundamentação; requer respeito e consciência de suas raízes ancestrais.",
+  "cuidados": "Não é planta de chá: a casca tem substâncias que agem na mente e no corpo. A bebida sagrada da Jurema é preparada e servida só pela casa, dentro do ritual. Na cabeça, só com orientação de um(a) zelador(a).",
   "tradicao": "O pilar central do Catimbó-Jurema: 'Jurema é árvore sagrada onde Jesus descansou; deu sombra e deu abrigo, a quem o Pai consagrou'."
  },
  {
