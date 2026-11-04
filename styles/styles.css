@@ -5656,3 +5656,10 @@ main:focus { outline: none; }
 .livros-item--capa { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 14px; align-items: start; }
 .livros-item--capa > .livros-capa { grid-row: 1 / span 4; }
 .livros-item--capa > .trail-links { grid-column: 1 / -1; }
+
+/* =========================================================
+   Spec 010: Sincronizar entre aparelhos (livros.html e contas.html)
+   ========================================================= */
+.nuvem-form { align-items: flex-end; margin: 10px 0 6px; }
+.nuvem-form .form-group { flex: 1 1 220px; min-width: 0; }
+.nuvem-erro { color: var(--danger); }

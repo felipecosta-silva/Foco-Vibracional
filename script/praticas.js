@@ -724,6 +724,7 @@ function loadContas() {
 }
 function saveContas(itens) {
   try { localStorage.setItem(CONTAS_KEY, JSON.stringify(itens)); } catch { /* janela anônima: segue sem guardar */ }
+  document.dispatchEvent(new CustomEvent("foco:salvo"));
 }
 
 /* Aceita "12,50", "12.50" e "1.234,50" */
@@ -927,6 +928,7 @@ function initContas() {
   });
 
   mesInput.addEventListener("change", atualizarContas);
+  document.addEventListener("foco:nuvem", e => { if (e.detail === CONTAS_KEY) { itens = loadContas(); render(); } });
 
   $("#contasCopiar").addEventListener("click", e => copyText(listaCompras(), e.currentTarget));
   const shareBtn = $("#contasShare");
@@ -1015,8 +1017,10 @@ function loadLivros() {
   } catch { return []; }
 }
 function saveLivros(livros) {
-  try { localStorage.setItem(LIVROS_KEY, JSON.stringify(livros)); return true; }
+  try { localStorage.setItem(LIVROS_KEY, JSON.stringify(livros)); }
   catch { return false; /* janela anônima ou aparelho sem espaço: segue sem guardar */ }
+  document.dispatchEvent(new CustomEvent("foco:salvo"));
+  return true;
 }
 
 const LIVROS_FORMATO = { digital: "Digital", audio: "Audiolivro" };
@@ -1326,8 +1330,259 @@ function initLivros() {
     toast([novos.length ? `${novos.length} acrescentado(s)` : "", completar.length ? `${completar.length} completado(s)` : ""].filter(Boolean).join(", ") + ".");
   }
 
+  document.addEventListener("foco:nuvem", e => { if (e.detail === LIVROS_KEY) { livros = loadLivros(); render(); } });
   ajustarEmprestimo();
   render();
   aplicarLink();
   window.addEventListener("hashchange", aplicarLink);
+}
+
+/* ==========================================================================
+   Sincronizar entre aparelhos (spec 010): Meus livros e Contas da casa num
+   repositório PRIVADO do dono no GitHub (livros.json e contas.json).
+   O nome do repositório e a chave ficam só no aparelho (localStorage);
+   nada disso entra no código publicado.
+   Mescla em três vias: o que mudou aqui, o que mudou na nuvem e a última
+   versão sincronizada (base). Assim nenhum aparelho apaga o que o outro fez.
+   ========================================================================== */
+const NUVEM_KEY = "foco.nuvem.v1";
+const NUVEM_ARQUIVOS = {
+  "livros.json": { key: LIVROS_KEY, chave: chaveLivro },
+  "contas.json": { key: CONTAS_KEY }
+};
+
+function nuvemConfig() {
+  try {
+    const c = JSON.parse(localStorage.getItem(NUVEM_KEY) || "null");
+    return c && c.repo && c.token ? c : null;
+  } catch { return null; }
+}
+function lerLista(k) {
+  try { const v = JSON.parse(localStorage.getItem(k) || "[]"); return Array.isArray(v) ? v : []; } catch { return []; }
+}
+const igualJson = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
+function b64DeTexto(texto) {
+  const bytes = new TextEncoder().encode(texto);
+  let s = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+const textoDeB64 = b64 => new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\s/g, "")), c => c.charCodeAt(0)));
+const b64url = texto => b64DeTexto(texto).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+
+async function nuvemApi(cfg, caminho, opcoes = {}) {
+  const r = await fetch(`https://api.github.com/repos/${cfg.repo}${caminho ? `/${caminho}` : ""}`, {
+    cache: "no-store",
+    ...opcoes,
+    headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${cfg.token}`, "X-GitHub-Api-Version": "2022-11-28" }
+  });
+  if (r.status === 404 && !opcoes.method && caminho) return null;
+  if (!r.ok) { const e = new Error(`GitHub ${r.status}`); e.status = r.status; throw e; }
+  return r.json();
+}
+
+async function nuvemLer(cfg, arquivo) {
+  const f = await nuvemApi(cfg, `contents/${arquivo}`);
+  if (!f) return { itens: null, sha: null };
+  /* Arquivo acima de 1 MB (muitas fotos de capa) vem sem conteúdo: busca pelo blob */
+  const conteudo = f.encoding === "base64" && f.content ? f.content : (await nuvemApi(cfg, `git/blobs/${f.sha}`)).content;
+  const dados = JSON.parse(textoDeB64(conteudo));
+  return { itens: Array.isArray(dados) ? dados : (dados.itens || []), sha: f.sha };
+}
+
+function nuvemGravar(cfg, arquivo, itens, sha) {
+  const corpo = {
+    message: `Atualiza ${arquivo}`,
+    content: b64DeTexto(JSON.stringify({ app: "foco-vibracional", versao: 1, itens }, null, 1)),
+    ...(sha ? { sha } : {})
+  };
+  return nuvemApi(cfg, `contents/${arquivo}`, { method: "PUT", body: JSON.stringify(corpo) });
+}
+
+/* Mescla em três vias, item por item (pelo id) e campo por campo */
+function mesclar3(local, base, remoto, chave) {
+  const mapa = lista => new Map(lista.map(x => [x.id, x]));
+  const L = mapa(local), B = mapa(base), R = mapa(remoto);
+  const fim = [];
+  [...new Set([...L.keys(), ...R.keys(), ...B.keys()])].forEach(id => {
+    const l = L.get(id), b = B.get(id), r = R.get(id);
+    const mudouAqui = !igualJson(l, b), mudouLa = !igualJson(r, b);
+    let x;
+    if (!mudouAqui) x = r;
+    else if (!mudouLa) x = l;
+    else if (!l || !r) x = l || r; /* apagado de um lado e editado do outro: fica a edição */
+    else {
+      x = { ...r };
+      Object.keys({ ...l, ...r }).forEach(k => { if (!igualJson(l[k], b?.[k])) x[k] = l[k]; });
+    }
+    if (x) fim.push(x);
+  });
+  if (!chave) return fim;
+  /* O mesmo livro criado nos dois aparelhos (ex.: pelo mesmo link): fica o que já estava na nuvem */
+  const naNuvem = new Set(fim.filter(x => R.has(x.id)).map(chave));
+  return fim.filter(x => R.has(x.id) || B.has(x.id) || !naNuvem.has(chave(x)));
+}
+
+let nuvemRodando = null;
+let nuvemDeNovo = false;
+let nuvemMudouDurante = false;
+document.addEventListener("foco:salvo", () => { if (nuvemRodando) nuvemMudouDurante = true; });
+
+async function sincronizarArquivo(cfg, arquivo, conf, tentativa = 0) {
+  const baseKey = `foco.nuvem.base.${arquivo}`;
+  nuvemMudouDurante = false;
+  const remoto = await nuvemLer(cfg, arquivo);
+  const local = lerLista(conf.key);
+  const fim = remoto.itens ? mesclar3(local, lerLista(baseKey), remoto.itens, conf.chave) : local;
+  if (!remoto.itens || !igualJson(fim, remoto.itens)) {
+    try { await nuvemGravar(cfg, arquivo, fim, remoto.sha); }
+    catch (e) {
+      /* Outro aparelho gravou no meio do caminho: lê de novo e mescla outra vez */
+      if ((e.status === 409 || e.status === 422) && tentativa < 2) return sincronizarArquivo(cfg, arquivo, conf, tentativa + 1);
+      throw e;
+    }
+  }
+  /* Se o dono mexeu enquanto sincronizava, não sobrescreve: roda de novo logo depois */
+  if (nuvemMudouDurante) { nuvemDeNovo = true; return; }
+  try {
+    if (!igualJson(fim, local)) {
+      localStorage.setItem(conf.key, JSON.stringify(fim));
+      document.dispatchEvent(new CustomEvent("foco:nuvem", { detail: conf.key }));
+    }
+    localStorage.setItem(baseKey, JSON.stringify(fim));
+  } catch { /* aparelho sem espaço: a nuvem já tem tudo */ }
+}
+
+function nuvemErro(e) {
+  if (!navigator.onLine || e instanceof TypeError) return "Sem internet: as mudanças ficam neste aparelho e sobem quando a internet voltar.";
+  if (e.status === 401) return "A chave não foi aceita (errada, vencida ou apagada). Confira ou crie outra.";
+  if (e.status === 403 || e.status === 404) return "Sem acesso ao repositório. Confira o nome e se a chave tem a permissão Contents: Read and write.";
+  return `Não consegui sincronizar (${e.message}). Tento de novo na próxima mudança.`;
+}
+
+function nuvemStatus(texto, erro = false) {
+  const el = $("#nuvemStatus");
+  if (!el) return;
+  el.textContent = texto;
+  el.classList.toggle("nuvem-erro", erro);
+}
+
+function sincronizar() {
+  const cfg = nuvemConfig();
+  if (!cfg) return Promise.resolve();
+  if (nuvemRodando) { nuvemDeNovo = true; return nuvemRodando; }
+  nuvemStatus("Sincronizando…");
+  nuvemRodando = (async () => {
+    try {
+      for (const [arquivo, conf] of Object.entries(NUVEM_ARQUIVOS)) await sincronizarArquivo(cfg, arquivo, conf);
+      nuvemStatus(`Sincronizado às ${new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}.`);
+    } catch (e) {
+      nuvemStatus(nuvemErro(e), true);
+    } finally {
+      nuvemRodando = null;
+      if (nuvemDeNovo) { nuvemDeNovo = false; setTimeout(sincronizar, 300); }
+    }
+  })();
+  return nuvemRodando;
+}
+
+/* Confere o repositório antes de guardar: precisa existir, aceitar a chave e ser PRIVADO */
+async function nuvemConectar(cfg) {
+  const repo = await nuvemApi(cfg, "");
+  if (!repo.private) throw Object.assign(new Error("público"), { publico: true });
+  localStorage.setItem(NUVEM_KEY, JSON.stringify({ repo: repo.full_name, token: cfg.token }));
+}
+
+function initNuvem() {
+  const caixa = $("#nuvem");
+  if (!caixa) return;
+
+  function desenhar() {
+    const cfg = nuvemConfig();
+    caixa.innerHTML = `
+      <h2 id="nuvemTitle">Sincronizar entre aparelhos</h2>
+      ${cfg ? `
+        <p class="muted small">Conectado ao repositório privado <b>${escapeHtml(cfg.repo)}</b>. Livros e contas ficam iguais em todos os aparelhos conectados.</p>
+        <p class="small" id="nuvemStatus" aria-live="polite"></p>
+        <div class="trail-links">
+          <button class="pill" type="button" id="nuvemAgora">🔄 Sincronizar agora</button>
+          <button class="pill" type="button" id="nuvemLink">🔗 Copiar link de conexão</button>
+          <button class="pill" type="button" id="nuvemSair">Desconectar este aparelho</button>
+        </div>
+        <p class="muted small">O link de conexão leva a chave junto. Mande só para você mesmo (por exemplo, no seu próprio WhatsApp) e abra no outro aparelho.</p>` : `
+        <p class="muted small">Para ver e mudar a mesma lista no computador e no celular, conecte um repositório <b>privado</b> seu no GitHub. Os dados ficam lá, em <code>livros.json</code> e <code>contas.json</code>, e não aparecem no site.</p>
+        <form class="form-row nuvem-form" id="nuvemForm">
+          <label class="form-group">
+            <span class="form-label">Repositório (dono/nome)</span>
+            <input type="text" id="nuvemRepo" class="form-input" placeholder="felipecosta-silva/foco-dados" autocomplete="off" spellcheck="false" required />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Chave de acesso (token)</span>
+            <input type="password" id="nuvemToken" class="form-input" placeholder="github_pat_…" autocomplete="off" required />
+          </label>
+          <button class="btn" type="submit">Conectar</button>
+        </form>
+        <p class="small" id="nuvemStatus" aria-live="polite"></p>`}`;
+  }
+
+  async function conectar(cfg) {
+    nuvemStatus("Conferindo o repositório…");
+    try {
+      await nuvemConectar(cfg);
+    } catch (e) {
+      nuvemStatus(e.publico ? "Esse repositório é público: qualquer um veria seus dados. Use um repositório privado." : nuvemErro(e), true);
+      return false;
+    }
+    desenhar();
+    toast("Aparelho conectado.");
+    await sincronizar();
+    return true;
+  }
+
+  caixa.addEventListener("submit", e => {
+    if (e.target.id !== "nuvemForm") return;
+    e.preventDefault();
+    const repo = $("#nuvemRepo").value.trim().replace(/^https:\/\/github\.com\//, "").replace(/\.git$|\/$/g, "");
+    const token = $("#nuvemToken").value.trim();
+    if (!/^[\w.-]+\/[\w.-]+$/.test(repo)) { nuvemStatus("Escreva o repositório como dono/nome.", true); return; }
+    conectar({ repo, token });
+  });
+
+  caixa.addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.id === "nuvemAgora") sincronizar();
+    if (b.id === "nuvemLink") {
+      const cfg = nuvemConfig();
+      copyText(`${location.origin}${location.pathname}#conectar=${b64url(JSON.stringify({ repo: cfg.repo, token: cfg.token }))}`, b);
+    }
+    if (b.id === "nuvemSair" && confirm("Desconectar este aparelho? A lista continua aqui e na nuvem, só para de sincronizar.")) {
+      localStorage.removeItem(NUVEM_KEY);
+      Object.keys(NUVEM_ARQUIVOS).forEach(a => localStorage.removeItem(`foco.nuvem.base.${a}`));
+      desenhar();
+    }
+  });
+
+  /* Link "#conectar=…" vindo do outro aparelho (o trecho depois do # não sai do aparelho) */
+  async function conectarPeloLink() {
+    const m = location.hash.match(/^#conectar=([\w-]+)$/);
+    if (!m) return;
+    history.replaceState(null, "", location.pathname + location.search);
+    let cfg;
+    try {
+      cfg = JSON.parse(textoDeB64(m[1].replace(/-/g, "+").replace(/_/g, "/")));
+      if (!cfg.repo || !cfg.token) throw new Error("link");
+    } catch { toast("Link de conexão inválido."); return; }
+    if (confirm(`Conectar este aparelho ao repositório ${cfg.repo}?`)) await conectar(cfg);
+  }
+
+  let espera;
+  document.addEventListener("foco:salvo", () => { clearTimeout(espera); espera = setTimeout(sincronizar, 1500); });
+  window.addEventListener("online", sincronizar);
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") sincronizar(); });
+  window.addEventListener("hashchange", conectarPeloLink);
+
+  desenhar();
+  conectarPeloLink();
+  sincronizar();
 }
