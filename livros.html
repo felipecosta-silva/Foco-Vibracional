@@ -75,6 +75,22 @@
             <input type="text" id="livroPreco" class="form-input" inputmode="decimal" placeholder="0,00" />
           </label>
         </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Categoria</span>
+            <input type="text" id="livroCategoria" class="form-input" list="livrosCategorias" placeholder="Ex.: Romance espírita" />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Série ou coleção (opcional)</span>
+            <input type="text" id="livroSerie" class="form-input" list="livrosSeries" />
+          </label>
+          <label class="form-group livros-curto">
+            <span class="form-label">Volume</span>
+            <input type="number" id="livroVolume" class="form-input" min="1" inputmode="numeric" />
+          </label>
+        </div>
+        <datalist id="livrosCategorias"></datalist>
+        <datalist id="livrosSeries"></datalist>
         <div class="form-row" id="livroEmprestimo">
           <label class="form-group">
             <span class="form-label">Emprestado para</span>
@@ -99,9 +115,20 @@
     <section class="section-gap" aria-labelledby="livrosListaTitle">
       <h2 id="livrosListaTitle">Biblioteca</h2>
       <div class="chip-row" id="livrosFiltros" role="group" aria-label="Filtrar livros"></div>
-      <input type="search" id="livrosBusca" class="form-input livros-busca" placeholder="Buscar por título, autor ou pessoa" aria-label="Buscar livros" />
+      <div class="form-row livros-busca">
+        <input type="search" id="livrosBusca" class="form-input" placeholder="Buscar por título, autor, categoria ou pessoa" aria-label="Buscar livros" />
+        <label class="form-group livros-agrupar">
+          <span class="form-label">Agrupar por</span>
+          <select id="livrosAgrupar" class="form-select">
+            <option value="categoria">Categoria</option>
+            <option value="autor">Autor</option>
+            <option value="serie">Série</option>
+            <option value="nenhum">Não agrupar</option>
+          </select>
+        </label>
+      </div>
       <p class="muted small" id="livrosContagem" aria-live="polite"></p>
-      <div id="livrosLista" class="livros-lista"></div>
+      <div id="livrosLista"></div>
     </section>
 
     <section class="card section-gap" aria-labelledby="livrosCompraTitle">

@@ -982,6 +982,31 @@ const LIVROS_FILTROS = [
   { k: "nao", label: "Não li", test: l => l.situacao === "tenho" && l.leitura !== "li" },
   { k: "li", label: "Li", test: l => l.leitura === "li" }
 ];
+const LIVROS_CATEGORIAS = ["Romance espírita", "Estudo espírita", "Umbanda", "Jurema", "Candomblé", "Ervas e plantas", "Outros"];
+const LIVROS_GRUPOS = {
+  categoria: { vazio: "Sem categoria", chave: l => (l.categoria || "").trim() },
+  autor: { vazio: "Sem autor", chave: l => (l.autor || "").trim() },
+  serie: { vazio: "Fora de série", chave: l => (l.serie || "").trim() },
+  nenhum: { vazio: "", chave: () => "" }
+};
+const chaveLivro = l => `${(l.titulo || "").trim().toLowerCase()}|${(l.autor || "").trim().toLowerCase()}`;
+const ordemLivro = (a, b) =>
+  (a.serie || "").localeCompare(b.serie || "", "pt-BR") ||
+  (parseInteiro(a.volume) || 999) - (parseInteiro(b.volume) || 999) ||
+  a.titulo.localeCompare(b.titulo, "pt-BR");
+
+/* Link "livros.html#adicionar=<base64url de uma lista JSON>": acrescenta livros sem apagar os que já existem.
+   O trecho depois do # não sai do aparelho (o navegador não o envia ao servidor). */
+function livrosDoLink() {
+  const m = location.hash.match(/^#adicionar=([\w-]+)$/);
+  if (!m) return null;
+  try {
+    const b64 = m[1].replace(/-/g, "+").replace(/_/g, "/");
+    const bytes = Uint8Array.from(atob(b64 + "=".repeat((4 - b64.length % 4) % 4)), c => c.charCodeAt(0));
+    const lista = JSON.parse(new TextDecoder().decode(bytes));
+    return Array.isArray(lista) ? lista.filter(l => l && l.titulo) : null;
+  } catch { return null; }
+}
 
 function loadLivros() {
   try {
@@ -1008,8 +1033,19 @@ function initLivros() {
   let editando = null;
   const f = {
     titulo: $("#livroTitulo"), autor: $("#livroAutor"), situacao: $("#livroSituacao"), leitura: $("#livroLeitura"),
-    preco: $("#livroPreco"), pessoa: $("#livroPessoa"), desde: $("#livroDesde"), notas: $("#livroNotas")
+    preco: $("#livroPreco"), pessoa: $("#livroPessoa"), desde: $("#livroDesde"), notas: $("#livroNotas"),
+    categoria: $("#livroCategoria"), serie: $("#livroSerie"), volume: $("#livroVolume")
   };
+  const agrupar = $("#livrosAgrupar");
+  const novoId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+
+  /* Sugestões de categoria e série: as padrão mais as que já foram usadas */
+  function atualizarSugestoes() {
+    const opcoes = valores => [...new Set(valores.filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt-BR"))
+      .map(v => `<option value="${escapeHtml(v)}"></option>`).join("");
+    $("#livrosCategorias").innerHTML = opcoes([...LIVROS_CATEGORIAS, ...livros.map(l => (l.categoria || "").trim())]);
+    $("#livrosSeries").innerHTML = opcoes(livros.map(l => (l.serie || "").trim()));
+  }
 
   const ajustarEmprestimo = () => { $("#livroEmprestimo").hidden = f.situacao.value !== "tenho"; };
   f.situacao.addEventListener("change", ajustarEmprestimo);
@@ -1046,7 +1082,7 @@ function initLivros() {
       livros = livros.map(l => l.id === editando ? { ...l, ...dados } : l);
       toast("Livro atualizado.");
     } else {
-      livros.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ...dados });
+      livros.push({ id: novoId(), ...dados });
       toast("Livro adicionado.");
     }
     saveLivros(livros);
@@ -1069,10 +1105,12 @@ function initLivros() {
       `<button class="pill" type="button" data-acao="editar">Editar</button>`,
       `<button class="pill" type="button" data-acao="remover">Remover</button>`
     ].join("");
+    const serie = l.serie ? `${l.serie}${parseInteiro(l.volume) ? `, vol. ${parseInteiro(l.volume)}` : ""}` : "";
+    const meta = [l.autor, l.categoria, serie].filter(Boolean).map(escapeHtml).join(" · ");
     return `
       <article class="card livros-item" data-id="${l.id}">
         <h3 class="livros-item__titulo">${escapeHtml(l.titulo)}</h3>
-        ${l.autor ? `<p class="muted small">${escapeHtml(l.autor)}</p>` : ""}
+        ${meta ? `<p class="muted small">${meta}</p>` : ""}
         <div class="livros-item__selos">${selos.join("")}</div>
         ${l.notas ? `<p class="livros-item__notas">${escapeHtml(l.notas)}</p>` : ""}
         <div class="trail-links">${acoes}</div>
@@ -1094,9 +1132,21 @@ function initLivros() {
     const teste = LIVROS_FILTROS.find(x => x.k === filtro).test;
     const vistos = livros
       .filter(teste)
-      .filter(l => !termo || [l.titulo, l.autor, l.pessoa].some(v => (v || "").toLowerCase().includes(termo)))
-      .sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR"));
-    lista.innerHTML = vistos.map(cardHtml).join("");
+      .filter(l => !termo || [l.titulo, l.autor, l.pessoa, l.categoria, l.serie].some(v => (v || "").toLowerCase().includes(termo)))
+      .sort(ordemLivro);
+    const g = LIVROS_GRUPOS[agrupar.value] || LIVROS_GRUPOS.categoria;
+    const grupos = new Map();
+    vistos.forEach(l => {
+      const nome = g.chave(l) || g.vazio;
+      grupos.set(nome, [...(grupos.get(nome) || []), l]);
+    });
+    const nomes = [...grupos.keys()].sort((a, b) => (a === g.vazio) - (b === g.vazio) || a.localeCompare(b, "pt-BR"));
+    lista.innerHTML = nomes.map(nome => `
+      <section class="livros-grupo">
+        ${nome ? `<h3 class="livros-grupo__titulo">${escapeHtml(nome)} <span class="muted small">(${grupos.get(nome).length})</span></h3>` : ""}
+        <div class="livros-lista">${grupos.get(nome).map(cardHtml).join("")}</div>
+      </section>`).join("");
+    atualizarSugestoes();
     $("#livrosContagem").textContent = livros.length
       ? `${vistos.length} de ${livros.length} ${livros.length === 1 ? "livro" : "livros"}`
       : "Nenhum livro ainda. Comece pelo formulário acima.";
@@ -1110,6 +1160,7 @@ function initLivros() {
     render();
   });
   $("#livrosBusca").addEventListener("input", render);
+  agrupar.addEventListener("change", render);
 
   lista.addEventListener("click", e => {
     const b = e.target.closest("[data-acao]");
@@ -1145,7 +1196,7 @@ function initLivros() {
       const novos = Array.isArray(dados) ? dados : dados.livros;
       if (!Array.isArray(novos) || novos.some(l => !l || !l.titulo)) throw new Error("formato");
       if (!confirm(`Trocar a lista atual pelos ${novos.length} livros da cópia?`)) return;
-      livros = novos.map(l => ({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), situacao: "tenho", leitura: "nao", ...l }));
+      livros = novos.map(l => ({ id: novoId(), situacao: "tenho", leitura: "nao", ...l }));
       saveLivros(livros);
       limparForm();
       render();
@@ -1155,6 +1206,23 @@ function initLivros() {
     }
   });
 
+  function aplicarLink() {
+    const doLink = livrosDoLink();
+    if (!doLink) return;
+    history.replaceState(null, "", location.pathname + location.search);
+    const existentes = new Set(livros.map(chaveLivro));
+    const novos = doLink.filter(l => !existentes.has(chaveLivro(l)));
+    if (!novos.length) toast("Esses livros já estão na sua lista.");
+    else if (confirm(`Acrescentar ${novos.length} ${novos.length === 1 ? "livro" : "livros"} à sua lista? Nada do que já existe será apagado.`)) {
+      livros.push(...novos.map(l => ({ situacao: "tenho", leitura: "nao", ...l, id: novoId() })));
+      saveLivros(livros);
+      render();
+      toast(`${novos.length} ${novos.length === 1 ? "livro acrescentado" : "livros acrescentados"}.`);
+    }
+  }
+
   ajustarEmprestimo();
   render();
+  aplicarLink();
+  window.addEventListener("hashchange", aplicarLink);
 }

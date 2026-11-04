@@ -16,3 +16,11 @@
 
 ## Observações
 - Livro em "Quero comprar" não mostra o selo de leitura, que só faz sentido para o que você já tem.
+
+## Emenda de 2026-11-04
+| Critério | Resultado |
+|---|---|
+| CA-06 Link com 9 livros | ✅ Pergunta, acrescenta 9 e mantém o que existia; aberto de novo, fica em 10 |
+| CA-07 Agrupar por série | ✅ "O Reino das Sombras (2): Legião, A Marca da Besta" e "Segredos de Aruanda (3): Tambores de Angola, Aruanda, Corpo Fechado" |
+
+- Os títulos dos livros do dono foram conferidos em livrarias e no Skoob. O link com eles **não** está no repositório, porque tudo o que está no repositório é publicado.

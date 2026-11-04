@@ -5631,7 +5631,12 @@ main:focus { outline: none; }
 .livros-form .livros-largo { flex-grow: 2; }
 .livros-form > .form-group { margin-bottom: 12px; }
 .livros-form .form-row[hidden] { display: none; }
-.livros-busca { margin: 10px 0 6px; }
+.livros-busca { margin: 10px 0 6px; align-items: flex-end; }
+.livros-busca > .form-input { flex: 3 1 220px; width: auto; }
+.livros-agrupar { flex: 1 1 150px; }
+.livros-form .livros-curto { flex: 0 1 100px; }
+.livros-grupo + .livros-grupo { margin-top: 22px; }
+.livros-grupo__titulo { margin: 14px 0 0; font-size: 1.15rem; }
 .livros-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
 .livros-item__titulo { margin: 0 0 2px; font-size: 1.1rem; }
 .livros-item__selos { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }

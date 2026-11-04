@@ -39,3 +39,12 @@ Mesmo modelo da spec 008:
 - **CA-03** "Para comprar" lista o livro com R$ 45,90 e o total.
 - **CA-04** Recarregar mantém os livros. A página não está no menu, na busca nem no sitemap.
 - **CA-05** 1440 px e 375 px: console limpo e sem rolagem lateral; `CACHE_VERSION` aumentado.
+
+## 5. Emenda de 2026-11-04: categorias e livros de uma vez
+> **Pedido do dono:** "seria bom categorizar", com os primeiros livros da lista.
+
+- **RF-08** Campos novos no formulário: **Categoria** (com sugestões: Romance espírita, Estudo espírita, Umbanda, Jurema, Candomblé, Ervas e plantas, Outros, mais as já usadas), **Série ou coleção** e **Volume**.
+- **RF-09** "Agrupar por": Categoria (padrão), Autor, Série ou Não agrupar. Cada grupo tem título e contagem. Dentro do grupo, a ordem é série, volume e título. A busca também procura na categoria e na série.
+- **RF-10** Link `livros.html#adicionar=<lista em base64url>`: ao abrir, pergunta e **acrescenta** os livros que ainda não estão na lista (mesmo título e autor), sem apagar nada. O trecho depois do `#` não sai do aparelho. O endereço volta a `livros.html` depois de lido.
+- **CA-06** O link com 9 livros acrescenta 9 e mantém o livro que já existia. Aberto de novo, não duplica.
+- **CA-07** Agrupar por série mostra "O Reino das Sombras (2)" e "Segredos de Aruanda (3)", na ordem dos volumes.

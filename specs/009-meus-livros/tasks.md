@@ -9,3 +9,4 @@
 - [x] **T004** CSS "Spec 009" no fim de `styles/styles.css`, só com tokens.
 - [x] **T005** `sw.js` (`livros.html` no `PRECACHE`, `fv-v44`). Fora do `NAV`, da busca e do sitemap.
 - [x] **T006** Testes (ver `review.md`).
+- [x] **T007** Emenda (RF-08 a RF-10): categoria, série e volume; "Agrupar por"; link `#adicionar=`. `fv-v45`.
