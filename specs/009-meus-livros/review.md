@@ -24,3 +24,8 @@
 | CA-07 Agrupar por série | ✅ "O Reino das Sombras (2): Legião, A Marca da Besta" e "Segredos de Aruanda (3): Tambores de Angola, Aruanda, Corpo Fechado" |
 
 - Os títulos dos livros do dono foram conferidos em livrarias e no Skoob. O link com eles **não** está no repositório, porque tudo o que está no repositório é publicado.
+
+## Emenda de 2026-11-04: capas e formato (Claude)
+- CA-08 a CA-10 conferidos no Chrome sem janela, a 1440 px e 375 px: console limpo, sem rolagem lateral, `CACHE_VERSION` em fv-v46.
+- A busca no Google Livros pode falhar por cota do Google (erro 429 visto no teste). Nesse caso ficam as capas da Open Library, ou a foto.
+- As capas do link de importação foram conferidas uma a uma, olhando a imagem. Nenhum título nem capa está no código publicado.

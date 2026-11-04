@@ -1015,7 +1015,42 @@ function loadLivros() {
   } catch { return []; }
 }
 function saveLivros(livros) {
-  try { localStorage.setItem(LIVROS_KEY, JSON.stringify(livros)); } catch { /* janela anônima: segue sem guardar */ }
+  try { localStorage.setItem(LIVROS_KEY, JSON.stringify(livros)); return true; }
+  catch { return false; /* janela anônima ou aparelho sem espaço: segue sem guardar */ }
+}
+
+const LIVROS_FORMATO = { digital: "Digital", audio: "Audiolivro" };
+
+/* Foto da capa: reduz para 240 px de altura em JPEG, para caber no aparelho (cerca de 15 KB por capa) */
+function capaDeArquivo(file) {
+  return new Promise((ok, falha) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const escala = Math.min(1, 240 / img.naturalHeight);
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.naturalWidth * escala);
+      c.height = Math.round(img.naturalHeight * escala);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(url);
+      ok(c.toDataURL("image/jpeg", 0.8));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); falha(new Error("imagem")); };
+    img.src = url;
+  });
+}
+
+/* "Buscar capa": só quando o dono toca no botão. Envia título e autor à Open Library e ao Google Livros. */
+async function buscarCapas(titulo, autor) {
+  const capas = [];
+  const pedir = url => fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
+  const ol = await pedir(`https://openlibrary.org/search.json?${new URLSearchParams({ title: titulo, ...(autor ? { author: autor } : {}), limit: "8", fields: "title,cover_i" })}`);
+  (ol?.docs || []).filter(d => d.cover_i).forEach(d => capas.push(`https://covers.openlibrary.org/b/id/${d.cover_i}-M.jpg`));
+  const q = `intitle:"${titulo}"${autor ? ` inauthor:"${autor}"` : ""}`;
+  const gb = await pedir(`https://www.googleapis.com/books/v1/volumes?${new URLSearchParams({ q, maxResults: "8" })}`);
+  (gb?.items || []).map(i => i.volumeInfo?.imageLinks?.thumbnail).filter(Boolean)
+    .forEach(u => capas.push(u.replace(/^http:/, "https:").replace("&edge=curl", "")));
+  return [...new Set(capas)].slice(0, 8);
 }
 
 function diasDesde(iso) {
@@ -1034,8 +1069,9 @@ function initLivros() {
   const f = {
     titulo: $("#livroTitulo"), autor: $("#livroAutor"), situacao: $("#livroSituacao"), leitura: $("#livroLeitura"),
     preco: $("#livroPreco"), pessoa: $("#livroPessoa"), desde: $("#livroDesde"), notas: $("#livroNotas"),
-    categoria: $("#livroCategoria"), serie: $("#livroSerie"), volume: $("#livroVolume")
+    categoria: $("#livroCategoria"), serie: $("#livroSerie"), volume: $("#livroVolume"), formato: $("#livroFormato")
   };
+  let capa = "";
   const agrupar = $("#livrosAgrupar");
   const novoId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
@@ -1050,9 +1086,63 @@ function initLivros() {
   const ajustarEmprestimo = () => { $("#livroEmprestimo").hidden = f.situacao.value !== "tenho"; };
   f.situacao.addEventListener("change", ajustarEmprestimo);
 
+  /* Capa: endereço colado, foto do aparelho ou escolha entre as encontradas */
+  const capaPreview = $("#livroCapaPreview");
+  const capaUrl = $("#livroCapaUrl");
+  const capaOpcoes = $("#livroCapaOpcoes");
+  function mostrarCapa(valor) {
+    capa = valor || "";
+    capaPreview.hidden = !capa;
+    if (capa) capaPreview.src = capa; else capaPreview.removeAttribute("src");
+    capaUrl.value = capa.startsWith("data:") ? "" : capa;
+    $("#livroCapaTirar").hidden = !capa;
+  }
+  capaUrl.addEventListener("change", () => {
+    const v = capaUrl.value.trim();
+    mostrarCapa(/^https:\/\//.test(v) ? v : "");
+    if (v && !capa) toast("Use um endereço que comece com https://");
+  });
+  $("#livroCapaFoto").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    try { mostrarCapa(await capaDeArquivo(file)); capaOpcoes.innerHTML = ""; }
+    catch { toast("Não consegui abrir essa imagem."); }
+  });
+  $("#livroCapaTirar").addEventListener("click", () => mostrarCapa(""));
+  $("#livroCapaBuscar").addEventListener("click", async e => {
+    const titulo = f.titulo.value.trim();
+    if (!titulo) { toast("Escreva o título primeiro."); f.titulo.focus(); return; }
+    const botao = e.currentTarget;
+    botao.disabled = true;
+    capaOpcoes.innerHTML = `<p class="muted small">Buscando…</p>`;
+    const capas = await buscarCapas(titulo, f.autor.value.trim());
+    botao.disabled = false;
+    capaOpcoes.innerHTML = capas.length
+      ? `<p class="muted small livros-capa-aviso">Toque na capa certa:</p>` + capas.map(u =>
+        `<button class="livros-capa-opcao" type="button" data-capa="${escapeHtml(u)}"><img class="livros-capa" src="${escapeHtml(u)}" alt="Capa encontrada" loading="lazy" /></button>`).join("")
+      : `<p class="muted small">Nenhuma capa encontrada (ou sem internet). Use "Foto da capa".</p>`;
+  });
+  capaOpcoes.addEventListener("click", e => {
+    const b = e.target.closest("[data-capa]");
+    if (!b) return;
+    mostrarCapa(b.dataset.capa);
+    capaOpcoes.innerHTML = "";
+  });
+  /* Capa que não carrega (sem internet ou endereço quebrado): some, sem quebrar o cartão */
+  const esconderCapaQuebrada = e => {
+    if (!e.target.matches?.("img.livros-capa")) return;
+    const opcao = e.target.closest(".livros-capa-opcao");
+    if (opcao) opcao.remove(); else e.target.hidden = true;
+  };
+  lista.addEventListener("error", esconderCapaQuebrada, true);
+  capaOpcoes.addEventListener("error", esconderCapaQuebrada, true);
+
   function limparForm() {
     editando = null;
     form.reset();
+    mostrarCapa("");
+    capaOpcoes.innerHTML = "";
     ajustarEmprestimo();
     $("#livroFormTitle").textContent = "Adicionar livro";
     $("#livroSalvar").textContent = "Adicionar livro";
@@ -1064,6 +1154,9 @@ function initLivros() {
     if (!l) return;
     editando = id;
     Object.keys(f).forEach(k => { f[k].value = l[k] ?? ""; });
+    if (!f.formato.value) f.formato.value = "fisico";
+    mostrarCapa(l.capa);
+    capaOpcoes.innerHTML = "";
     ajustarEmprestimo();
     $("#livroFormTitle").textContent = "Editar livro";
     $("#livroSalvar").textContent = "Salvar alterações";
@@ -1076,16 +1169,18 @@ function initLivros() {
     e.preventDefault();
     const dados = Object.fromEntries(Object.keys(f).map(k => [k, f[k].value.trim()]));
     if (!dados.titulo) return;
+    dados.capa = capa;
     if (dados.situacao !== "tenho" || !dados.pessoa) { dados.pessoa = ""; dados.desde = ""; }
     else if (!dados.desde) dados.desde = localISODate();
-    if (editando) {
-      livros = livros.map(l => l.id === editando ? { ...l, ...dados } : l);
-      toast("Livro atualizado.");
-    } else {
-      livros.push({ id: novoId(), ...dados });
-      toast("Livro adicionado.");
+    const antes = livros;
+    if (editando) livros = livros.map(l => l.id === editando ? { ...l, ...dados } : l);
+    else livros = [...livros, { id: novoId(), ...dados }];
+    if (!saveLivros(livros)) {
+      livros = antes;
+      toast("Não há espaço no aparelho para guardar. Tente sem a foto da capa.");
+      return;
     }
-    saveLivros(livros);
+    toast(editando ? "Livro atualizado." : "Livro adicionado.");
     limparForm();
     render();
   });
@@ -1106,9 +1201,11 @@ function initLivros() {
       `<button class="pill" type="button" data-acao="remover">Remover</button>`
     ].join("");
     const serie = l.serie ? `${l.serie}${parseInteiro(l.volume) ? `, vol. ${parseInteiro(l.volume)}` : ""}` : "";
-    const meta = [l.autor, l.categoria, serie].filter(Boolean).map(escapeHtml).join(" · ");
+    const meta = [l.autor, l.categoria, serie, LIVROS_FORMATO[l.formato]].filter(Boolean).map(escapeHtml).join(" · ");
+    const capaOk = /^(https:\/\/|data:image\/)/.test(l.capa || "");
     return `
-      <article class="card livros-item" data-id="${l.id}">
+      <article class="card livros-item${capaOk ? " livros-item--capa" : ""}" data-id="${escapeHtml(l.id)}">
+        ${capaOk ? `<img class="livros-capa" src="${escapeHtml(l.capa)}" alt="" loading="lazy" />` : ""}
         <h3 class="livros-item__titulo">${escapeHtml(l.titulo)}</h3>
         ${meta ? `<p class="muted small">${meta}</p>` : ""}
         <div class="livros-item__selos">${selos.join("")}</div>
@@ -1210,15 +1307,23 @@ function initLivros() {
     const doLink = livrosDoLink();
     if (!doLink) return;
     history.replaceState(null, "", location.pathname + location.search);
-    const existentes = new Set(livros.map(chaveLivro));
-    const novos = doLink.filter(l => !existentes.has(chaveLivro(l)));
-    if (!novos.length) toast("Esses livros já estão na sua lista.");
-    else if (confirm(`Acrescentar ${novos.length} ${novos.length === 1 ? "livro" : "livros"} à sua lista? Nada do que já existe será apagado.`)) {
-      livros.push(...novos.map(l => ({ situacao: "tenho", leitura: "nao", ...l, id: novoId() })));
-      saveLivros(livros);
-      render();
-      toast(`${novos.length} ${novos.length === 1 ? "livro acrescentado" : "livros acrescentados"}.`);
-    }
+    const porChave = new Map(livros.map(l => [chaveLivro(l), l]));
+    const novos = doLink.filter(l => !porChave.has(chaveLivro(l)));
+    /* Livro que já existe: o link só preenche campos vazios (capa, formato, série...), nunca troca o que o dono escreveu */
+    const completar = doLink.filter(l => porChave.has(chaveLivro(l)))
+      .map(l => [porChave.get(chaveLivro(l)), Object.entries(l).filter(([k, v]) => k !== "id" && v && !porChave.get(chaveLivro(l))[k])])
+      .filter(([, campos]) => campos.length);
+    if (!novos.length && !completar.length) { toast("Esses livros já estão na sua lista."); return; }
+    const partes = [
+      novos.length ? `acrescentar ${novos.length} ${novos.length === 1 ? "livro" : "livros"}` : "",
+      completar.length ? `completar ${completar.length} que já ${completar.length === 1 ? "existe" : "existem"} (só campos vazios, como a capa)` : ""
+    ].filter(Boolean).join(" e ");
+    if (!confirm(`Deseja ${partes}? Nada do que já existe será apagado.`)) return;
+    livros.push(...novos.map(l => ({ situacao: "tenho", leitura: "nao", ...l, id: novoId() })));
+    completar.forEach(([livro, campos]) => Object.assign(livro, Object.fromEntries(campos)));
+    saveLivros(livros);
+    render();
+    toast([novos.length ? `${novos.length} acrescentado(s)` : "", completar.length ? `${completar.length} completado(s)` : ""].filter(Boolean).join(", ") + ".");
   }
 
   ajustarEmprestimo();

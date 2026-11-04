@@ -48,3 +48,17 @@ Mesmo modelo da spec 008:
 - **RF-10** Link `livros.html#adicionar=<lista em base64url>`: ao abrir, pergunta e **acrescenta** os livros que ainda não estão na lista (mesmo título e autor), sem apagar nada. O trecho depois do `#` não sai do aparelho. O endereço volta a `livros.html` depois de lido.
 - **CA-06** O link com 9 livros acrescenta 9 e mantém o livro que já existia. Aberto de novo, não duplica.
 - **CA-07** Agrupar por série mostra "O Reino das Sombras (2)" e "Segredos de Aruanda (3)", na ordem dos volumes.
+
+## 6. Emenda de 2026-11-04: capas e formato
+> **Pedido do dono:** "se possível coloque as imagens das capas dos livros", com a segunda lista (vários em Kindle).
+
+- **RF-11** Campo **Formato**: Físico (padrão), Digital (Kindle, e-book) ou Audiolivro. Digital e Audiolivro aparecem na linha de dados do cartão.
+- **RF-12** **Capa** de três jeitos:
+  - **Foto da capa:** a imagem do aparelho é reduzida a 240 px de altura em JPEG (cerca de 15 KB) e fica só no aparelho.
+  - **Endereço** `https://` colado.
+  - **Buscar capa:** só quando o dono toca. Envia título e autor à Open Library e ao Google Livros e mostra até 8 capas para escolher. O aviso fica ao lado do botão.
+- **RF-13** O cartão mostra a capa à esquerda. Capa que não carrega (sem internet ou endereço quebrado) some sem quebrar o cartão. Se faltar espaço no aparelho, o livro não é salvo e aparece um aviso.
+- **RF-14** O link `#adicionar=` também **completa campos vazios** de livros que já existem (capa, formato, série...), sem trocar o que o dono escreveu.
+- **CA-08** Foto de capa salva como `data:image/jpeg` (≈15 KB) e formato "Digital" aparece no cartão.
+- **CA-09** "Buscar capa" para "Há dois mil anos" / "Xavier" mostra a capa da Open Library; ao tocar, ela vai para o livro.
+- **CA-10** Link com 24 livros sobre uma lista que já tem "Há Dois Mil Anos" sem capa: acrescenta 23, completa 1 (capa ganha, nota e leitura do dono mantidas). Aberto de novo, nada muda.

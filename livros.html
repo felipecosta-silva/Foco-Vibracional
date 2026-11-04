@@ -89,6 +89,32 @@
             <input type="number" id="livroVolume" class="form-input" min="1" inputmode="numeric" />
           </label>
         </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Formato</span>
+            <select id="livroFormato" class="form-select">
+              <option value="fisico">Físico</option>
+              <option value="digital">Digital (Kindle, e-book)</option>
+              <option value="audio">Audiolivro</option>
+            </select>
+          </label>
+          <label class="form-group livros-largo">
+            <span class="form-label">Endereço da imagem da capa (opcional)</span>
+            <input type="url" id="livroCapaUrl" class="form-input" placeholder="https://… ou use os botões abaixo" />
+          </label>
+        </div>
+        <div class="livros-capa-editor">
+          <img id="livroCapaPreview" class="livros-capa" alt="Capa escolhida" hidden />
+          <div class="trail-links">
+            <label class="pill contas-import">📷 Foto da capa
+              <input type="file" id="livroCapaFoto" accept="image/*" />
+            </label>
+            <button class="pill" type="button" id="livroCapaBuscar">🔎 Buscar capa</button>
+            <button class="pill" type="button" id="livroCapaTirar" hidden>Tirar capa</button>
+          </div>
+          <p class="muted small livros-capa-aviso">A foto fica guardada só neste aparelho. "Buscar capa" envia apenas o título e o autor para a Open Library e o Google Livros.</p>
+          <div class="livros-capa-opcoes" id="livroCapaOpcoes" aria-live="polite"></div>
+        </div>
         <datalist id="livrosCategorias"></datalist>
         <datalist id="livrosSeries"></datalist>
         <div class="form-row" id="livroEmprestimo">

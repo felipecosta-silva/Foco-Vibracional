@@ -5643,3 +5643,16 @@ main:focus { outline: none; }
 .livros-item__notas { margin: 0 0 10px; color: var(--muted); line-height: 1.6; white-space: pre-wrap; }
 .livros-emprestado { border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
 .livros-comprar { border-color: color-mix(in srgb, var(--c-prosperidade) 55%, transparent); color: var(--c-prosperidade); }
+/* Capas (emenda de 2026-11-04) */
+.livros-capa { display: block; width: 64px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); background: var(--surface-2); }
+.livros-capa[hidden] { display: none; }
+.livros-capa-editor { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 12px; }
+.livros-capa-editor .livros-capa { width: 72px; }
+.livros-capa-aviso { flex: 1 1 100%; margin: 0; }
+.livros-capa-opcoes { flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 10px; }
+.livros-capa-opcoes:empty { display: none; }
+.livros-capa-opcao { padding: 0; border: 2px solid transparent; border-radius: 8px; background: none; cursor: pointer; }
+.livros-capa-opcao:hover, .livros-capa-opcao:focus-visible { border-color: var(--accent); }
+.livros-item--capa { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 14px; align-items: start; }
+.livros-item--capa > .livros-capa { grid-row: 1 / span 4; }
+.livros-item--capa > .trail-links { grid-column: 1 / -1; }
