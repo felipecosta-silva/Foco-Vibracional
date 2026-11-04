@@ -5622,3 +5622,19 @@ main:focus { outline: none; }
 .contas-import { position: relative; cursor: pointer; }
 .contas-import input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 .contas-import:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* =========================================================
+   Spec 009: Meus livros (livros.html)
+   ========================================================= */
+.livros-form .form-row { margin-bottom: 12px; }
+.livros-form .form-group { flex: 1 1 140px; min-width: 0; }
+.livros-form .livros-largo { flex-grow: 2; }
+.livros-form > .form-group { margin-bottom: 12px; }
+.livros-form .form-row[hidden] { display: none; }
+.livros-busca { margin: 10px 0 6px; }
+.livros-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 8px; }
+.livros-item__titulo { margin: 0 0 2px; font-size: 1.1rem; }
+.livros-item__selos { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.livros-item__notas { margin: 0 0 10px; color: var(--muted); line-height: 1.6; white-space: pre-wrap; }
+.livros-emprestado { border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
+.livros-comprar { border-color: color-mix(in srgb, var(--c-prosperidade) 55%, transparent); color: var(--c-prosperidade); }

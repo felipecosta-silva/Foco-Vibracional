@@ -15,7 +15,7 @@ Toda página carrega os 11 arquivos, nesta ordem, depois dos arquivos de `data/`
 |---|---|---|
 | 1 | `nucleo.js` | `NAV` (menu, fonte única), `ICONS`, utilitários (`$`, `escapeHtml`, `toast`, `speak`), carga de `window.FV_DATA`, favoritos, modo iniciante/avançado e eventos globais de copiar/ouvir |
 | 2 | `lua.js` | Motor lunar: fases verdadeiras e iluminação (Meeus), `getLiveMoonData` |
-| 3 | `praticas.js` | Início (relógio e modo foco), mantras, caderno de firmeza, firmeza de vela e contas da casa |
+| 3 | `praticas.js` | Início (relógio e modo foco), mantras, caderno de firmeza, firmeza de vela, contas da casa e meus livros |
 | 4 | `catalogo.js` | `createCatalog`, `getDrawer`, cartões e fichas de banhos, ervas e defumações, mapa das ervas e ligações cruzadas |
 | 5 | `tarot-pontos.js` | Tarot, baralho cigano e pontos cantados |
 | 6 | `colheita-calendario.js` | Colheita pela lua e calendário lunar |

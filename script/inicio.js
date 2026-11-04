@@ -455,6 +455,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initOraculo();
   initTrilha();
   initContas();
+  initLivros();
   initPageToc();
   initHashDetails();
   // após renderizar tudo, para medir a altura real da página

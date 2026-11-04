@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foco Vibracional • Meus livros</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0d1310" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+  <noscript>
+    <header class="topbar">
+      <div class="wrap topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span>Foco Vibracional</span>
+        </a>
+      </div>
+    </header>
+    <p class="wrap">Esta página precisa de JavaScript para guardar os livros.</p>
+  </noscript>
+
+  <main class="wrap page">
+    <section class="pagehead">
+      <span class="eyebrow">Só neste aparelho</span>
+      <h1>Meus livros</h1>
+      <p class="muted">
+        Os livros que você tem, o que já leu, o que quer comprar e o que está emprestado, e com quem.
+      </p>
+      <div class="notice">
+        Esta página não aparece no menu nem na busca. O que você digita fica guardado só neste aparelho e não vai para a internet. Se os dados do navegador forem apagados, a lista some: use "Salvar cópia" de vez em quando.
+      </div>
+      <div class="trail-links">
+        <span class="muted small">Minhas páginas:</span>
+        <a class="pill" href="contas.html">🕯️ Contas da casa</a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="livroFormTitle">
+      <h2 id="livroFormTitle">Adicionar livro</h2>
+      <form id="livroForm" class="livros-form">
+        <div class="form-row">
+          <label class="form-group livros-largo">
+            <span class="form-label">Título</span>
+            <input type="text" id="livroTitulo" class="form-input" required />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Autor</span>
+            <input type="text" id="livroAutor" class="form-input" />
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="form-group">
+            <span class="form-label">Situação</span>
+            <select id="livroSituacao" class="form-select">
+              <option value="tenho">Tenho</option>
+              <option value="comprar">Quero comprar</option>
+            </select>
+          </label>
+          <label class="form-group">
+            <span class="form-label">Leitura</span>
+            <select id="livroLeitura" class="form-select">
+              <option value="nao">Não li</option>
+              <option value="lendo">Lendo</option>
+              <option value="li">Li</option>
+            </select>
+          </label>
+          <label class="form-group">
+            <span class="form-label">Preço (R$, opcional)</span>
+            <input type="text" id="livroPreco" class="form-input" inputmode="decimal" placeholder="0,00" />
+          </label>
+        </div>
+        <div class="form-row" id="livroEmprestimo">
+          <label class="form-group">
+            <span class="form-label">Emprestado para</span>
+            <input type="text" id="livroPessoa" class="form-input" placeholder="Ninguém" />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Desde</span>
+            <input type="date" id="livroDesde" class="form-input" />
+          </label>
+        </div>
+        <label class="form-group">
+          <span class="form-label">Anotações (opcional)</span>
+          <textarea id="livroNotas" class="form-textarea" rows="2"></textarea>
+        </label>
+        <div class="trail-links">
+          <button class="btn" type="submit" id="livroSalvar">Adicionar livro</button>
+          <button class="btn btn--ghost" type="button" id="livroCancelar" hidden>Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="section-gap" aria-labelledby="livrosListaTitle">
+      <h2 id="livrosListaTitle">Biblioteca</h2>
+      <div class="chip-row" id="livrosFiltros" role="group" aria-label="Filtrar livros"></div>
+      <input type="search" id="livrosBusca" class="form-input livros-busca" placeholder="Buscar por título, autor ou pessoa" aria-label="Buscar livros" />
+      <p class="muted small" id="livrosContagem" aria-live="polite"></p>
+      <div id="livrosLista" class="livros-lista"></div>
+    </section>
+
+    <section class="card section-gap" aria-labelledby="livrosCompraTitle">
+      <h2 id="livrosCompraTitle">Para comprar</h2>
+      <pre class="contas-compra" id="livrosCompra"></pre>
+      <div class="trail-links">
+        <button class="pill" type="button" id="livrosCopiar">📋 Copiar</button>
+        <button class="pill" type="button" id="livrosShare" hidden>📤 Compartilhar</button>
+      </div>
+    </section>
+
+    <section class="card section-gap" aria-labelledby="livrosCopiaTitle">
+      <h2 id="livrosCopiaTitle">Cópia de segurança</h2>
+      <p class="muted small">Guarde o arquivo no celular ou no e-mail. Para passar a lista para outro aparelho, use "Restaurar cópia" nele.</p>
+      <div class="trail-links">
+        <button class="pill" type="button" id="livrosExport">💾 Salvar cópia</button>
+        <label class="pill contas-import">📂 Restaurar cópia
+          <input type="file" id="livrosImport" accept="application/json,.json" />
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="./script/nucleo.js"></script>
+  <script src="./script/lua.js"></script>
+  <script src="./script/praticas.js"></script>
+  <script src="./script/catalogo.js"></script>
+  <script src="./script/tarot-pontos.js"></script>
+  <script src="./script/colheita-calendario.js"></script>
+  <script src="./script/portais.js"></script>
+  <script src="./script/simbolos.js"></script>
+  <script src="./script/hoje.js"></script>
+  <script src="./script/busca.js"></script>
+  <script src="./script/inicio.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /* Foco Vibracional • praticas.js
-   Início (relógio e modo foco), mantras, caderno de firmeza, firmeza de vela e contas da casa.
+   Início (relógio e modo foco), mantras, caderno de firmeza, firmeza de vela, contas da casa e meus livros.
    Arquivo comum (não é módulo): compartilha o escopo global com os outros
    arquivos de script/ e deve ser carregado na ordem de script/ORDEM.md. */
 
@@ -935,14 +935,7 @@ function initContas() {
     shareBtn.addEventListener("click", () => navigator.share({ title: "Lista de compras", text: listaCompras() }).catch(() => {}));
   }
 
-  $("#contasExport").addEventListener("click", () => {
-    const blob = new Blob([JSON.stringify({ app: "foco-contas", versao: 1, itens }, null, 2)], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `contas-da-casa-${localISODate()}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-  });
+  $("#contasExport").addEventListener("click", () => baixarJson(`contas-da-casa-${localISODate()}.json`, { app: "foco-contas", versao: 1, itens }));
 
   $("#contasImport").addEventListener("change", async e => {
     const file = e.target.files[0];
@@ -962,5 +955,206 @@ function initContas() {
     }
   });
 
+  render();
+}
+
+/* Cópia de segurança das páginas pessoais (contas.html e livros.html) */
+function baixarJson(nome, dados) {
+  const blob = new Blob([JSON.stringify(dados, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = nome;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+/* ==========================================================================
+   Meus livros (livros.html, spec 009): biblioteca, leitura, compras e empréstimos.
+   Os dados ficam só no aparelho (localStorage); nada vai para a internet.
+   ========================================================================== */
+const LIVROS_KEY = "foco.livros.v1";
+const LEITURA_LABEL = { nao: "Não li", lendo: "Lendo", li: "Li" };
+const LIVROS_FILTROS = [
+  { k: "todos", label: "Todos", test: () => true },
+  { k: "tenho", label: "Tenho", test: l => l.situacao === "tenho" },
+  { k: "comprar", label: "Quero comprar", test: l => l.situacao === "comprar" },
+  { k: "emprestados", label: "Emprestados", test: l => l.situacao === "tenho" && !!l.pessoa },
+  { k: "nao", label: "Não li", test: l => l.situacao === "tenho" && l.leitura !== "li" },
+  { k: "li", label: "Li", test: l => l.leitura === "li" }
+];
+
+function loadLivros() {
+  try {
+    const livros = JSON.parse(localStorage.getItem(LIVROS_KEY) || "[]");
+    return Array.isArray(livros) ? livros : [];
+  } catch { return []; }
+}
+function saveLivros(livros) {
+  try { localStorage.setItem(LIVROS_KEY, JSON.stringify(livros)); } catch { /* janela anônima: segue sem guardar */ }
+}
+
+function diasDesde(iso) {
+  if (!iso) return null;
+  const hoje = dataLocal(localISODate());
+  return Math.max(0, Math.round((hoje - dataLocal(iso)) / DIA_MS));
+}
+
+function initLivros() {
+  const lista = $("#livrosLista");
+  const form = $("#livroForm");
+  if (!lista || !form) return;
+  let livros = loadLivros();
+  let filtro = "todos";
+  let editando = null;
+  const f = {
+    titulo: $("#livroTitulo"), autor: $("#livroAutor"), situacao: $("#livroSituacao"), leitura: $("#livroLeitura"),
+    preco: $("#livroPreco"), pessoa: $("#livroPessoa"), desde: $("#livroDesde"), notas: $("#livroNotas")
+  };
+
+  const ajustarEmprestimo = () => { $("#livroEmprestimo").hidden = f.situacao.value !== "tenho"; };
+  f.situacao.addEventListener("change", ajustarEmprestimo);
+
+  function limparForm() {
+    editando = null;
+    form.reset();
+    ajustarEmprestimo();
+    $("#livroFormTitle").textContent = "Adicionar livro";
+    $("#livroSalvar").textContent = "Adicionar livro";
+    $("#livroCancelar").hidden = true;
+  }
+
+  function editar(id) {
+    const l = livros.find(x => x.id === id);
+    if (!l) return;
+    editando = id;
+    Object.keys(f).forEach(k => { f[k].value = l[k] ?? ""; });
+    ajustarEmprestimo();
+    $("#livroFormTitle").textContent = "Editar livro";
+    $("#livroSalvar").textContent = "Salvar alterações";
+    $("#livroCancelar").hidden = false;
+    form.scrollIntoView({ block: "start" });
+    f.titulo.focus({ preventScroll: true });
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const dados = Object.fromEntries(Object.keys(f).map(k => [k, f[k].value.trim()]));
+    if (!dados.titulo) return;
+    if (dados.situacao !== "tenho" || !dados.pessoa) { dados.pessoa = ""; dados.desde = ""; }
+    else if (!dados.desde) dados.desde = localISODate();
+    if (editando) {
+      livros = livros.map(l => l.id === editando ? { ...l, ...dados } : l);
+      toast("Livro atualizado.");
+    } else {
+      livros.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), ...dados });
+      toast("Livro adicionado.");
+    }
+    saveLivros(livros);
+    limparForm();
+    render();
+  });
+  $("#livroCancelar").addEventListener("click", limparForm);
+
+  function cardHtml(l) {
+    const selos = l.situacao === "comprar" ? [] : [`<span class="badge">${LEITURA_LABEL[l.leitura] || "Não li"}</span>`];
+    if (l.situacao === "comprar") selos.push(`<span class="badge livros-comprar">Quero comprar${parseValor(l.preco) ? ` · ${fmtReal(parseValor(l.preco))}` : ""}</span>`);
+    if (l.situacao === "tenho" && l.pessoa) {
+      const d = diasDesde(l.desde);
+      const ha = d === null ? "" : d === 0 ? " · desde hoje" : ` · há ${d} ${d === 1 ? "dia" : "dias"}`;
+      selos.push(`<span class="badge livros-emprestado">Emprestado para ${escapeHtml(l.pessoa)}${ha}</span>`);
+    }
+    const acoes = [
+      l.situacao === "tenho" && l.pessoa ? `<button class="pill" type="button" data-acao="devolvido">Devolvido</button>` : "",
+      l.situacao === "comprar" ? `<button class="pill" type="button" data-acao="comprei">Comprei</button>` : "",
+      `<button class="pill" type="button" data-acao="editar">Editar</button>`,
+      `<button class="pill" type="button" data-acao="remover">Remover</button>`
+    ].join("");
+    return `
+      <article class="card livros-item" data-id="${l.id}">
+        <h3 class="livros-item__titulo">${escapeHtml(l.titulo)}</h3>
+        ${l.autor ? `<p class="muted small">${escapeHtml(l.autor)}</p>` : ""}
+        <div class="livros-item__selos">${selos.join("")}</div>
+        ${l.notas ? `<p class="livros-item__notas">${escapeHtml(l.notas)}</p>` : ""}
+        <div class="trail-links">${acoes}</div>
+      </article>`;
+  }
+
+  function listaCompra() {
+    const quero = livros.filter(l => l.situacao === "comprar").sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR"));
+    if (!quero.length) return "Nenhum livro na lista de compras.";
+    const linhas = quero.map(l => `• ${l.titulo}${l.autor ? ` (${l.autor})` : ""}${parseValor(l.preco) ? ` — ${fmtReal(parseValor(l.preco))}` : ""}`);
+    const total = quero.reduce((s, l) => s + parseValor(l.preco), 0);
+    return `Livros para comprar:\n${linhas.join("\n")}${total ? `\nTotal: ${fmtReal(total)}` : ""}`;
+  }
+
+  function render() {
+    $("#livrosFiltros").innerHTML = LIVROS_FILTROS.map(x =>
+      `<button class="pill" type="button" data-filtro="${x.k}" aria-pressed="${x.k === filtro}">${x.label} (${livros.filter(x.test).length})</button>`).join("");
+    const termo = $("#livrosBusca").value.trim().toLowerCase();
+    const teste = LIVROS_FILTROS.find(x => x.k === filtro).test;
+    const vistos = livros
+      .filter(teste)
+      .filter(l => !termo || [l.titulo, l.autor, l.pessoa].some(v => (v || "").toLowerCase().includes(termo)))
+      .sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR"));
+    lista.innerHTML = vistos.map(cardHtml).join("");
+    $("#livrosContagem").textContent = livros.length
+      ? `${vistos.length} de ${livros.length} ${livros.length === 1 ? "livro" : "livros"}`
+      : "Nenhum livro ainda. Comece pelo formulário acima.";
+    $("#livrosCompra").textContent = listaCompra();
+  }
+
+  $("#livrosFiltros").addEventListener("click", e => {
+    const b = e.target.closest("[data-filtro]");
+    if (!b) return;
+    filtro = b.dataset.filtro;
+    render();
+  });
+  $("#livrosBusca").addEventListener("input", render);
+
+  lista.addEventListener("click", e => {
+    const b = e.target.closest("[data-acao]");
+    if (!b) return;
+    const id = b.closest(".livros-item").dataset.id;
+    const l = livros.find(x => x.id === id);
+    if (b.dataset.acao === "editar") return editar(id);
+    if (b.dataset.acao === "remover") {
+      if (!confirm(`Remover "${l.titulo}"?`)) return;
+      livros = livros.filter(x => x.id !== id);
+      if (editando === id) limparForm();
+    }
+    if (b.dataset.acao === "devolvido") { l.pessoa = ""; l.desde = ""; toast("Empréstimo encerrado."); }
+    if (b.dataset.acao === "comprei") { l.situacao = "tenho"; toast("Livro na sua biblioteca."); }
+    saveLivros(livros);
+    render();
+  });
+
+  $("#livrosCopiar").addEventListener("click", e => copyText(listaCompra(), e.currentTarget));
+  const shareBtn = $("#livrosShare");
+  if (navigator.share) {
+    shareBtn.hidden = false;
+    shareBtn.addEventListener("click", () => navigator.share({ title: "Livros para comprar", text: listaCompra() }).catch(() => {}));
+  }
+
+  $("#livrosExport").addEventListener("click", () => baixarJson(`meus-livros-${localISODate()}.json`, { app: "foco-livros", versao: 1, livros }));
+  $("#livrosImport").addEventListener("change", async e => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const dados = JSON.parse(await file.text());
+      const novos = Array.isArray(dados) ? dados : dados.livros;
+      if (!Array.isArray(novos) || novos.some(l => !l || !l.titulo)) throw new Error("formato");
+      if (!confirm(`Trocar a lista atual pelos ${novos.length} livros da cópia?`)) return;
+      livros = novos.map(l => ({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), situacao: "tenho", leitura: "nao", ...l }));
+      saveLivros(livros);
+      limparForm();
+      render();
+      toast("Cópia restaurada.");
+    } catch {
+      toast("Este arquivo não é uma cópia de Meus livros.");
+    }
+  });
+
+  ajustarEmprestimo();
   render();
 }
