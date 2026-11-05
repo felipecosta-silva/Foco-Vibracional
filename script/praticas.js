@@ -1065,6 +1065,49 @@ function diasDesde(iso) {
   return Math.max(0, Math.round((hoje - dataLocal(iso)) / DIA_MS));
 }
 
+/* ISBN: número do código de barras do livro. Dados pela BrasilAPI (catálogo brasileiro) e pela Open Library;
+   capa pelo servidor de imagens da Amazon ou pela Open Library. Só roda quando o dono pede. */
+function isbnDez(i13) {
+  if (!/^978\d{10}$/.test(i13)) return null;
+  const meio = i13.slice(3, 12);
+  const c = (11 - [...meio].reduce((s, d, k) => s + (10 - k) * Number(d), 0) % 11) % 11;
+  return meio + (c === 10 ? "X" : String(c));
+}
+async function dadosPorIsbn(isbn) {
+  const pedir = url => fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
+  const br = await pedir(`https://brasilapi.com.br/api/isbn/v1/${isbn}`);
+  const ol = await pedir(`https://openlibrary.org/search.json?isbn=${isbn}&fields=title,author_name,number_of_pages_median,cover_i`);
+  const doc = ol?.docs?.[0];
+  const titulo = (br?.title || doc?.title || "").split(":")[0].trim();
+  if (!titulo) return null;
+  return {
+    titulo,
+    autor: (br?.authors?.length ? br.authors : doc?.author_name || []).join(", "),
+    paginas: br?.page_count || doc?.number_of_pages_median || "",
+    capa: br?.cover_url || (doc?.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg` : "")
+  };
+}
+/* Testa a imagem antes de usar: a Amazon devolve um pixel vazio quando não tem a capa */
+const imagemExiste = url => new Promise(ok => {
+  const img = new Image();
+  img.onload = () => ok(img.naturalWidth > 10 ? url : "");
+  img.onerror = () => ok("");
+  img.src = url;
+});
+async function capaPorIsbn(isbn, extra) {
+  const dez = isbn.length === 10 ? isbn : isbnDez(isbn);
+  for (const url of [dez && `https://images-na.ssl-images-amazon.com/images/P/${dez}.01.LZZZZZZZ.jpg`,
+    `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg?default=false`, extra].filter(Boolean)) {
+    if (await imagemExiste(url)) return url;
+  }
+  return "";
+}
+const progressoLivro = l => {
+  const total = parseInteiro(l.paginas), pag = Math.min(parseInteiro(l.pagina), total);
+  return total ? { pag, total, pct: Math.round(pag / total * 100) } : null;
+};
+const fmtData = iso => iso ? dataLocal(iso).toLocaleDateString("pt-BR") : "";
+
 function initLivros() {
   const lista = $("#livrosLista");
   const form = $("#livroForm");
@@ -1075,7 +1118,8 @@ function initLivros() {
   const f = {
     titulo: $("#livroTitulo"), autor: $("#livroAutor"), situacao: $("#livroSituacao"), leitura: $("#livroLeitura"),
     preco: $("#livroPreco"), pessoa: $("#livroPessoa"), desde: $("#livroDesde"), notas: $("#livroNotas"),
-    categoria: $("#livroCategoria"), serie: $("#livroSerie"), volume: $("#livroVolume"), formato: $("#livroFormato")
+    categoria: $("#livroCategoria"), serie: $("#livroSerie"), volume: $("#livroVolume"), formato: $("#livroFormato"),
+    isbn: $("#livroIsbn"), pagina: $("#livroPagina"), paginas: $("#livroPaginas"), inicio: $("#livroInicio"), fim: $("#livroFim")
   };
   let capa = "";
   const agrupar = $("#livrosAgrupar");
@@ -1146,6 +1190,72 @@ function initLivros() {
   lista.addEventListener("error", esconderCapaQuebrada, true);
   capaOpcoes.addEventListener("error", esconderCapaQuebrada, true);
 
+  async function buscarIsbn() {
+    const isbn = f.isbn.value.replace(/[^\dXx]/g, "").toUpperCase();
+    if (!/^(97[89]\d{10}|\d{9}[\dX])$/.test(isbn)) { toast("Esse ISBN não parece certo: são 13 números, começando com 978."); f.isbn.focus(); return; }
+    f.isbn.value = isbn;
+    const ja = livros.find(l => l.isbn === isbn && l.id !== editando);
+    if (ja) toast(`Você já tem "${ja.titulo}" na lista.`);
+    const botao = $("#livroIsbnBuscar");
+    botao.disabled = true;
+    botao.textContent = "Buscando…";
+    const dados = await dadosPorIsbn(isbn);
+    const capaAchada = capa ? "" : await capaPorIsbn(isbn, dados?.capa);
+    botao.disabled = false;
+    botao.textContent = "🔎 Buscar pelo ISBN";
+    if (!dados && !capaAchada) { toast("Não achei esse ISBN (ou estou sem internet). Preencha à mão."); return; }
+    if (dados) {
+      if (!f.titulo.value.trim()) f.titulo.value = dados.titulo;
+      if (!f.autor.value.trim() && dados.autor) f.autor.value = dados.autor;
+      if (!f.paginas.value && dados.paginas) f.paginas.value = dados.paginas;
+    }
+    if (capaAchada) mostrarCapa(capaAchada);
+    toast(dados ? `Achei: ${dados.titulo}. Confira e salve.` : "Achei a capa. Preencha o título e salve.");
+  }
+  $("#livroIsbnBuscar").addEventListener("click", buscarIsbn);
+  f.isbn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); buscarIsbn(); } });
+
+  /* Leitor de código de barras (Chrome no Android). Sem suporte, o botão fica escondido e vale digitar o ISBN. */
+  const scanner = $("#livroScanner");
+  const video = $("#livroScanVideo");
+  let camera = null;
+  const pararCamera = () => {
+    camera?.getTracks().forEach(t => t.stop());
+    camera = null;
+    video.srcObject = null;
+  };
+  if ("BarcodeDetector" in window && navigator.mediaDevices?.getUserMedia) {
+    $("#livroScan").hidden = false;
+    $("#livroScan").addEventListener("click", async () => {
+      let detector;
+      try {
+        detector = new BarcodeDetector({ formats: ["ean_13"] });
+        camera = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+      } catch {
+        toast("Não consegui abrir a câmera. Digite o número do código de barras.");
+        return;
+      }
+      video.srcObject = camera;
+      scanner.showModal();
+      video.play().catch(() => {});
+      while (camera && scanner.open) {
+        try {
+          const lido = (await detector.detect(video)).find(c => /^97[89]\d{10}$/.test(c.rawValue));
+          if (lido) {
+            scanner.close();
+            f.isbn.value = lido.rawValue;
+            if (navigator.vibrate) navigator.vibrate(80);
+            buscarIsbn();
+            break;
+          }
+        } catch { /* quadro ainda sem imagem */ }
+        await new Promise(r => setTimeout(r, 250));
+      }
+    });
+  }
+  $("#livroScanFechar").addEventListener("click", () => scanner.close());
+  scanner.addEventListener("close", pararCamera);
+
   function limparForm() {
     editando = null;
     form.reset();
@@ -1178,6 +1288,12 @@ function initLivros() {
     const dados = Object.fromEntries(Object.keys(f).map(k => [k, f[k].value.trim()]));
     if (!dados.titulo) return;
     dados.capa = capa;
+    if (!editando) {
+      const igual = livros.find(l => chaveLivro(l) === chaveLivro(dados) || (dados.isbn && l.isbn === dados.isbn));
+      if (igual && !confirm(`"${igual.titulo}" já está na sua lista. Adicionar outro mesmo assim?`)) return;
+    }
+    if (dados.leitura === "li" && !dados.fim) dados.fim = localISODate();
+    if (dados.leitura === "lendo" && !dados.inicio) dados.inicio = localISODate();
     if (dados.situacao !== "tenho" || !dados.pessoa) { dados.pessoa = ""; dados.desde = ""; }
     else if (!dados.desde) dados.desde = localISODate();
     const antes = livros;
@@ -1219,12 +1335,25 @@ function initLivros() {
           ${l.autor ? `<span class="estante-capa__autor">${escapeHtml(l.autor)}</span>` : ""}
           ${capaValida(l) ? `<img class="livros-capa estante-capa__img" src="${escapeHtml(l.capa)}" alt="" loading="lazy" />` : ""}
           ${fitaHtml(l)}
+          ${(l.leitura === "lendo" || l.leitura === "parei") && progressoLivro(l) ? `<progress class="estante-progresso" max="${progressoLivro(l).total}" value="${progressoLivro(l).pag}" aria-hidden="true"></progress>` : ""}
           ${LIVROS_FORMATO[l.formato] ? `<span class="estante-formato" aria-hidden="true">${LIVROS_FORMATO[l.formato]}</span>` : ""}
           ${emprestado ? `<span class="estante-selo" aria-hidden="true">↗ ${escapeHtml(l.pessoa)}</span>` : ""}
         </span>
         <span class="estante-livro__titulo">${escapeHtml(l.titulo)}</span>
         ${l.autor ? `<span class="estante-livro__autor">${escapeHtml(l.autor)}</span>` : ""}
       </button>`;
+  }
+
+  function progressoLinha(l) {
+    const p = progressoLivro(l);
+    const partes = [];
+    if (p && l.leitura !== "li") partes.push(`Página ${p.pag} de ${p.total} (${p.pct}%)`);
+    else if (p) partes.push(`${p.total} páginas`);
+    if (l.inicio) partes.push(`comecei em ${fmtData(l.inicio)}`);
+    if (l.fim && l.leitura === "li") partes.push(`terminei em ${fmtData(l.fim)}`);
+    if (!partes.length) return "";
+    return `<p class="muted small livros-progresso">${escapeHtml(partes.join(" · "))}</p>
+      ${p && l.leitura !== "li" && l.leitura !== "nao" ? `<progress class="livros-barra" max="${p.total}" value="${p.pag}" aria-label="Progresso da leitura"></progress>` : ""}`;
   }
 
   function cardHtml(l) {
@@ -1241,6 +1370,7 @@ function initLivros() {
       l.situacao === "tenho" && l.leitura !== "li" ? `<button class="pill" type="button" data-acao="li">✓ Marcar como lido</button>` : "",
       l.situacao === "tenho" && l.leitura !== "lendo" && l.leitura !== "li" ? `<button class="pill" type="button" data-acao="lendo">📖 ${l.leitura === "parei" ? "Voltei a ler" : "Estou lendo"}</button>` : "",
       l.situacao === "tenho" && l.leitura === "lendo" ? `<button class="pill" type="button" data-acao="parei">⏸ Parei no meio</button>` : "",
+      l.leitura === "lendo" || l.leitura === "parei" ? `<button class="pill" type="button" data-acao="pagina">📄 Em que página estou</button>` : "",
       `<button class="pill" type="button" data-acao="editar">Editar</button>`,
       `<button class="pill" type="button" data-acao="remover">Remover</button>`
     ].join("");
@@ -1254,6 +1384,7 @@ function initLivros() {
         <h3 class="livros-item__titulo">${escapeHtml(l.titulo)}</h3>
         ${meta ? `<p class="muted small">${meta}</p>` : ""}
         <div class="livros-item__selos">${selos.join("")}</div>
+        ${progressoLinha(l)}
         ${l.notas ? `<p class="livros-item__notas">${escapeHtml(l.notas)}</p>` : ""}
         <div class="trail-links">${acoes}</div>
       </article>`;
@@ -1274,7 +1405,7 @@ function initLivros() {
     const teste = LIVROS_FILTROS.find(x => x.k === filtro).test;
     const vistos = livros
       .filter(teste)
-      .filter(l => !termo || [l.titulo, l.autor, l.pessoa, l.categoria, l.serie].some(v => (v || "").toLowerCase().includes(termo)))
+      .filter(l => !termo || [l.titulo, l.autor, l.pessoa, l.categoria, l.serie, l.isbn].some(v => (v || "").toLowerCase().includes(termo)))
       .sort(ordemLivro);
     const g = LIVROS_GRUPOS[agrupar.value] || LIVROS_GRUPOS.categoria;
     const grupos = new Map();
@@ -1338,8 +1469,22 @@ function initLivros() {
     }
     if (b.dataset.acao === "devolvido") { l.pessoa = ""; l.desde = ""; toast("Empréstimo encerrado."); }
     if (b.dataset.acao === "comprei") { l.situacao = "tenho"; toast("Livro na sua biblioteca."); }
-    if (b.dataset.acao === "li") { l.leitura = "li"; toast("Marcado como lido. ✓"); }
-    if (b.dataset.acao === "lendo") { l.leitura = "lendo"; toast("Boa leitura!"); }
+    if (b.dataset.acao === "li") {
+      l.leitura = "li";
+      if (!l.fim) l.fim = localISODate();
+      if (parseInteiro(l.paginas)) l.pagina = l.paginas;
+      toast("Marcado como lido. ✓");
+    }
+    if (b.dataset.acao === "lendo") { l.leitura = "lendo"; if (!l.inicio) l.inicio = localISODate(); toast("Boa leitura!"); }
+    if (b.dataset.acao === "pagina") {
+      const resp = prompt(`Em que página de "${l.titulo}" você está?${parseInteiro(l.paginas) ? ` (o livro tem ${l.paginas})` : ""}`, l.pagina || "");
+      if (resp === null) return;
+      l.pagina = String(parseInteiro(resp));
+      if (!parseInteiro(l.paginas)) {
+        const total = prompt("Quantas páginas tem o livro? (para mostrar a porcentagem)", "");
+        if (total) l.paginas = String(parseInteiro(total, 1));
+      }
+    }
     if (b.dataset.acao === "parei") { l.leitura = "parei"; toast("Marcado como leitura incompleta."); }
     saveLivros(livros);
     render();

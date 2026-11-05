@@ -27,7 +27,7 @@
 
   <main class="wrap page">
     <section class="pagehead">
-      <span class="eyebrow">Só neste aparelho</span>
+      <span class="eyebrow">Página pessoal</span>
       <h1>Meus livros</h1>
       <p class="muted">
         Os livros que você tem, o que já leu, o que quer comprar e o que está emprestado, e com quem.
@@ -44,6 +44,16 @@
     <section class="card" aria-labelledby="livroFormTitle">
       <h2 id="livroFormTitle">Adicionar livro</h2>
       <form id="livroForm" class="livros-form">
+        <div class="form-row livros-isbn">
+          <label class="form-group">
+            <span class="form-label">ISBN (número do código de barras, opcional)</span>
+            <input type="text" id="livroIsbn" class="form-input" inputmode="numeric" placeholder="978…" autocomplete="off" />
+          </label>
+          <div class="trail-links">
+            <button class="pill" type="button" id="livroScan" hidden>📷 Ler código de barras</button>
+            <button class="pill" type="button" id="livroIsbnBuscar">🔎 Buscar pelo ISBN</button>
+          </div>
+        </div>
         <div class="form-row">
           <label class="form-group livros-largo">
             <span class="form-label">Título</span>
@@ -116,6 +126,24 @@
           <p class="muted small livros-capa-aviso">A foto fica guardada só neste aparelho. "Buscar capa" envia apenas o título e o autor para a Open Library e o Google Livros.</p>
           <div class="livros-capa-opcoes" id="livroCapaOpcoes" aria-live="polite"></div>
         </div>
+        <div class="form-row">
+          <label class="form-group livros-curto">
+            <span class="form-label">Parei na página</span>
+            <input type="number" id="livroPagina" class="form-input" min="0" inputmode="numeric" />
+          </label>
+          <label class="form-group livros-curto">
+            <span class="form-label">Total de páginas</span>
+            <input type="number" id="livroPaginas" class="form-input" min="1" inputmode="numeric" />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Comecei em</span>
+            <input type="date" id="livroInicio" class="form-input" />
+          </label>
+          <label class="form-group">
+            <span class="form-label">Terminei em</span>
+            <input type="date" id="livroFim" class="form-input" />
+          </label>
+        </div>
         <datalist id="livrosCategorias"></datalist>
         <datalist id="livrosSeries"></datalist>
         <div class="form-row" id="livroEmprestimo">
@@ -168,6 +196,11 @@
         <a class="pill" href="#livrosCopiaTitle">Ir para Restaurar cópia</a>
       </div>
       <div id="livrosLista"></div>
+      <dialog class="livros-dialogo" id="livroScanner" aria-label="Ler código de barras">
+        <p class="small">Aponte a câmera para o código de barras atrás do livro (o que começa com 978).</p>
+        <video id="livroScanVideo" class="livros-scan-video" playsinline muted></video>
+        <button class="btn btn--ghost livros-dialogo__fechar" type="button" id="livroScanFechar">Cancelar</button>
+      </dialog>
       <dialog class="livros-dialogo" id="livroDetalhe" aria-label="Detalhes do livro">
         <div id="livroDetalheCorpo"></div>
         <button class="btn btn--ghost livros-dialogo__fechar" type="button" id="livroDetalheFechar">Fechar</button>

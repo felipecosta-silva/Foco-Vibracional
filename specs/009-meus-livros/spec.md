@@ -87,3 +87,18 @@ Mesmo modelo da spec 008:
   - Os atalhos mudam com a situação: "📖 Estou lendo", "⏸ Parei no meio", "📖 Voltei a ler" e "✓ Marcar como lido".
   - A contagem mostra quantos livros estão incompletos.
 - **CA-12** Renúncia passa de Não li para Lendo e depois para Parei. A fita "⏸ Incompleta" aparece e os atalhos mudam. A tela tem 390 px e 1440 px, com o console limpo e `CACHE_VERSION` em fv-v49.
+
+## 9. Emenda de 2026-11-05 (c): ISBN, código de barras e progresso
+- **RF-21** Um campo **ISBN** com o botão "🔎 Buscar pelo ISBN".
+  - Os dados vêm da BrasilAPI (catálogo brasileiro) e da Open Library.
+  - A capa vem do servidor de imagens da Amazon pelo ISBN-10 ou da Open Library, e a imagem é testada antes de ser usada.
+  - Os dados só preenchem campos vazios, e a busca só roda quando o dono toca no botão.
+- **RF-22** "📷 Ler código de barras" usa a câmera e o `BarcodeDetector` (Chrome no Android) para ler o EAN-13 que começa com 978 ou 979, e depois busca pelo ISBN. Sem suporte, o botão fica escondido.
+- **RF-23** "Já tenho?": ao adicionar um livro com o mesmo título e autor, ou com o mesmo ISBN, a página pergunta antes de repetir.
+- **RF-24** **Progresso:** campos "Parei na página", "Total de páginas", "Comecei em" e "Terminei em".
+  - Uma barra aparece na capa e no cartão quando o livro está em leitura ou incompleto, junto com a linha "Página X de Y (Z%)".
+  - Um novo atalho, "📄 Em que página estou", atualiza a página.
+  - "Estou lendo" preenche a data de início, e "Marcar como lido" preenche a data de término e completa as páginas.
+- **RF-25** O rótulo das páginas pessoais passa de "Só neste aparelho" para "Página pessoal", porque agora existe a sincronização.
+- **CA-13** O ISBN 978-85-7328-696-0 traz "Paulo e Estevão", com Francisco Cândido Xavier e a capa da Amazon. O mesmo ISBN de novo dispara o aviso de livro repetido. "Estou lendo" mais "Página 120 de 500" mostram 24%, a barra e a data de início. Na tela de 390 px o console fica limpo, e `CACHE_VERSION` é fv-v50.
+- **Não testado aqui:** o leitor de câmera, porque o Chrome do Windows não tem `BarcodeDetector`. Ele precisa ser conferido no celular Android do dono.
