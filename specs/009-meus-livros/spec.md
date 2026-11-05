@@ -79,3 +79,11 @@ Mesmo modelo da spec 008:
   - "Marcar como lido" na janela põe a fita na janela e na estante.
   - A tela tem 390 px e 1440 px, sem rolagem lateral e com o console limpo.
   - `CACHE_VERSION` é fv-v48.
+
+## 8. Emenda de 2026-11-05 (b): leitura incompleta
+- **RF-20** Uma nova situação de leitura: **"Leitura incompleta"** (`parei`).
+  - A fita é laranja: "⏸ Incompleta".
+  - Os filtros "Lendo" e "Incompleta" são novos.
+  - Os atalhos mudam com a situação: "📖 Estou lendo", "⏸ Parei no meio", "📖 Voltei a ler" e "✓ Marcar como lido".
+  - A contagem mostra quantos livros estão incompletos.
+- **CA-12** Renúncia passa de Não li para Lendo e depois para Parei. A fita "⏸ Incompleta" aparece e os atalhos mudam. A tela tem 390 px e 1440 px, com o console limpo e `CACHE_VERSION` em fv-v49.

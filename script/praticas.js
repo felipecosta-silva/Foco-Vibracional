@@ -975,13 +975,15 @@ function baixarJson(nome, dados) {
    Os dados ficam só no aparelho (localStorage); nada vai para a internet.
    ========================================================================== */
 const LIVROS_KEY = "foco.livros.v1";
-const LEITURA_LABEL = { nao: "Não li", lendo: "Lendo", li: "Li" };
+const LEITURA_LABEL = { nao: "Não li", lendo: "Lendo", parei: "Leitura incompleta", li: "Li" };
 const LIVROS_FILTROS = [
   { k: "todos", label: "Todos", test: () => true },
   { k: "tenho", label: "Tenho", test: l => l.situacao === "tenho" },
   { k: "comprar", label: "Quero comprar", test: l => l.situacao === "comprar" },
   { k: "emprestados", label: "Emprestados", test: l => l.situacao === "tenho" && !!l.pessoa },
-  { k: "nao", label: "Não li", test: l => l.situacao === "tenho" && l.leitura !== "li" },
+  { k: "nao", label: "Não li", test: l => l.situacao === "tenho" && (!l.leitura || l.leitura === "nao") },
+  { k: "lendo", label: "Lendo", test: l => l.leitura === "lendo" },
+  { k: "parei", label: "Incompleta", test: l => l.leitura === "parei" },
   { k: "li", label: "Li", test: l => l.leitura === "li" }
 ];
 const LIVROS_CATEGORIAS = ["Romance espírita", "Estudo espírita", "Umbanda", "Jurema", "Candomblé", "Ervas e plantas", "Outros"];
@@ -1197,6 +1199,7 @@ function initLivros() {
     if (l.situacao === "comprar") return `<span class="livros-fita livros-fita--comprar" aria-hidden="true">🛒 Quero</span>`;
     if (l.leitura === "li") return `<span class="livros-fita livros-fita--li" aria-hidden="true">✓ Lido</span>`;
     if (l.leitura === "lendo") return `<span class="livros-fita livros-fita--lendo" aria-hidden="true">📖 Lendo</span>`;
+    if (l.leitura === "parei") return `<span class="livros-fita livros-fita--parei" aria-hidden="true">⏸ Incompleta</span>`;
     return "";
   }
   const capaValida = l => /^(https:\/\/|data:image\/)/.test(l.capa || "");
@@ -1236,7 +1239,8 @@ function initLivros() {
       l.situacao === "tenho" && l.pessoa ? `<button class="pill" type="button" data-acao="devolvido">Devolvido</button>` : "",
       l.situacao === "comprar" ? `<button class="pill" type="button" data-acao="comprei">Comprei</button>` : "",
       l.situacao === "tenho" && l.leitura !== "li" ? `<button class="pill" type="button" data-acao="li">✓ Marcar como lido</button>` : "",
-      l.situacao === "tenho" && l.leitura === "nao" ? `<button class="pill" type="button" data-acao="lendo">📖 Estou lendo</button>` : "",
+      l.situacao === "tenho" && l.leitura !== "lendo" && l.leitura !== "li" ? `<button class="pill" type="button" data-acao="lendo">📖 ${l.leitura === "parei" ? "Voltei a ler" : "Estou lendo"}</button>` : "",
+      l.situacao === "tenho" && l.leitura === "lendo" ? `<button class="pill" type="button" data-acao="parei">⏸ Parei no meio</button>` : "",
       `<button class="pill" type="button" data-acao="editar">Editar</button>`,
       `<button class="pill" type="button" data-acao="remover">Remover</button>`
     ].join("");
@@ -1292,6 +1296,7 @@ function initLivros() {
       ? [`${vistos.length} de ${livros.length} ${livros.length === 1 ? "livro" : "livros"}`,
         `${conta(l => l.leitura === "li")} lidos`,
         `${conta(l => l.leitura === "lendo")} lendo`,
+        `${conta(l => l.leitura === "parei")} incompletos`,
         `${conta(l => l.situacao === "tenho" && !!l.pessoa)} emprestados`].join(" · ")
       : "";
     $("#livrosVazio").hidden = livros.length > 0;
@@ -1335,6 +1340,7 @@ function initLivros() {
     if (b.dataset.acao === "comprei") { l.situacao = "tenho"; toast("Livro na sua biblioteca."); }
     if (b.dataset.acao === "li") { l.leitura = "li"; toast("Marcado como lido. ✓"); }
     if (b.dataset.acao === "lendo") { l.leitura = "lendo"; toast("Boa leitura!"); }
+    if (b.dataset.acao === "parei") { l.leitura = "parei"; toast("Marcado como leitura incompleta."); }
     saveLivros(livros);
     render();
     if (detalhe.open) abrirDetalhe(id);

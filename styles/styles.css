@@ -5689,7 +5689,7 @@ main:focus { outline: none; }
 .estante-livro:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
 .estante-capa {
   position: relative; display: flex; flex-direction: column; justify-content: space-between;
-  aspect-ratio: 2 / 3; overflow: hidden; padding: 12px 10px;
+  aspect-ratio: 2 / 3; overflow: hidden; padding: 30px 10px 12px;
   border-radius: 4px 8px 8px 4px;
   box-shadow: var(--shadow-sm), inset 6px 0 0 rgba(0, 0, 0, .22);
   transition: transform .18s ease, box-shadow .18s ease;
@@ -5718,6 +5718,7 @@ main:focus { outline: none; }
 }
 .livros-fita--li { background: var(--accent2); }
 .livros-fita--lendo { background: var(--c-energia); }
+.livros-fita--parei { background: var(--c-protecao); }
 .livros-fita--comprar { background: var(--c-prosperidade); }
 .estante-formato, .estante-selo {
   position: absolute; z-index: 2; left: 6px; max-width: calc(100% - 12px);
