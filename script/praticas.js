@@ -1077,6 +1077,8 @@ function initLivros() {
   };
   let capa = "";
   const agrupar = $("#livrosAgrupar");
+  const vista = $("#livrosVista");
+  try { vista.value = localStorage.getItem("foco.livros.vista") === "lista" ? "lista" : "estante"; } catch { /* sem armazenamento */ }
   const novoId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
   /* Sugestões de categoria e série: as padrão mais as que já foram usadas */
@@ -1190,6 +1192,38 @@ function initLivros() {
   });
   $("#livroCancelar").addEventListener("click", limparForm);
 
+  /* Fita no canto da capa ou do cartão: o que já foi lido salta aos olhos */
+  function fitaHtml(l) {
+    if (l.situacao === "comprar") return `<span class="livros-fita livros-fita--comprar" aria-hidden="true">🛒 Quero</span>`;
+    if (l.leitura === "li") return `<span class="livros-fita livros-fita--li" aria-hidden="true">✓ Lido</span>`;
+    if (l.leitura === "lendo") return `<span class="livros-fita livros-fita--lendo" aria-hidden="true">📖 Lendo</span>`;
+    return "";
+  }
+  const capaValida = l => /^(https:\/\/|data:image\/)/.test(l.capa || "");
+  /* Cor da capa desenhada (livro sem foto): fixa para cada título */
+  const corCapa = l => [...(l.titulo || "")].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % 6;
+  const estadoLivro = l => [
+    l.situacao === "comprar" ? "quero comprar" : (LEITURA_LABEL[l.leitura] || "Não li").toLowerCase(),
+    l.situacao === "tenho" && l.pessoa ? `emprestado para ${l.pessoa}` : ""
+  ].filter(Boolean).join(", ");
+
+  function estanteHtml(l) {
+    const emprestado = l.situacao === "tenho" && l.pessoa;
+    return `
+      <button class="estante-livro" type="button" data-abrir="${escapeHtml(l.id)}" aria-label="${escapeHtml(`${l.titulo}${l.autor ? `, de ${l.autor}` : ""}: ${estadoLivro(l)}`)}">
+        <span class="estante-capa estante-cor-${corCapa(l)}">
+          <span class="estante-capa__titulo">${escapeHtml(l.titulo)}</span>
+          ${l.autor ? `<span class="estante-capa__autor">${escapeHtml(l.autor)}</span>` : ""}
+          ${capaValida(l) ? `<img class="livros-capa estante-capa__img" src="${escapeHtml(l.capa)}" alt="" loading="lazy" />` : ""}
+          ${fitaHtml(l)}
+          ${LIVROS_FORMATO[l.formato] ? `<span class="estante-formato" aria-hidden="true">${LIVROS_FORMATO[l.formato]}</span>` : ""}
+          ${emprestado ? `<span class="estante-selo" aria-hidden="true">↗ ${escapeHtml(l.pessoa)}</span>` : ""}
+        </span>
+        <span class="estante-livro__titulo">${escapeHtml(l.titulo)}</span>
+        ${l.autor ? `<span class="estante-livro__autor">${escapeHtml(l.autor)}</span>` : ""}
+      </button>`;
+  }
+
   function cardHtml(l) {
     const selos = l.situacao === "comprar" ? [] : [`<span class="badge">${LEITURA_LABEL[l.leitura] || "Não li"}</span>`];
     if (l.situacao === "comprar") selos.push(`<span class="badge livros-comprar">Quero comprar${parseValor(l.preco) ? ` · ${fmtReal(parseValor(l.preco))}` : ""}</span>`);
@@ -1201,14 +1235,17 @@ function initLivros() {
     const acoes = [
       l.situacao === "tenho" && l.pessoa ? `<button class="pill" type="button" data-acao="devolvido">Devolvido</button>` : "",
       l.situacao === "comprar" ? `<button class="pill" type="button" data-acao="comprei">Comprei</button>` : "",
+      l.situacao === "tenho" && l.leitura !== "li" ? `<button class="pill" type="button" data-acao="li">✓ Marcar como lido</button>` : "",
+      l.situacao === "tenho" && l.leitura === "nao" ? `<button class="pill" type="button" data-acao="lendo">📖 Estou lendo</button>` : "",
       `<button class="pill" type="button" data-acao="editar">Editar</button>`,
       `<button class="pill" type="button" data-acao="remover">Remover</button>`
     ].join("");
     const serie = l.serie ? `${l.serie}${parseInteiro(l.volume) ? `, vol. ${parseInteiro(l.volume)}` : ""}` : "";
     const meta = [l.autor, l.categoria, serie, LIVROS_FORMATO[l.formato]].filter(Boolean).map(escapeHtml).join(" · ");
-    const capaOk = /^(https:\/\/|data:image\/)/.test(l.capa || "");
+    const capaOk = capaValida(l);
     return `
       <article class="card livros-item${capaOk ? " livros-item--capa" : ""}" data-id="${escapeHtml(l.id)}">
+        ${fitaHtml(l)}
         ${capaOk ? `<img class="livros-capa" src="${escapeHtml(l.capa)}" alt="" loading="lazy" />` : ""}
         <h3 class="livros-item__titulo">${escapeHtml(l.titulo)}</h3>
         ${meta ? `<p class="muted small">${meta}</p>` : ""}
@@ -1245,12 +1282,19 @@ function initLivros() {
     lista.innerHTML = nomes.map(nome => `
       <section class="livros-grupo">
         ${nome ? `<h3 class="livros-grupo__titulo">${escapeHtml(nome)} <span class="muted small">(${grupos.get(nome).length})</span></h3>` : ""}
-        <div class="livros-lista">${grupos.get(nome).map(cardHtml).join("")}</div>
+        ${vista.value === "lista"
+          ? `<div class="livros-lista">${grupos.get(nome).map(cardHtml).join("")}</div>`
+          : `<div class="estante">${grupos.get(nome).map(estanteHtml).join("")}</div>`}
       </section>`).join("");
     atualizarSugestoes();
+    const conta = teste => livros.filter(teste).length;
     $("#livrosContagem").textContent = livros.length
-      ? `${vistos.length} de ${livros.length} ${livros.length === 1 ? "livro" : "livros"}`
-      : "Nenhum livro ainda. Comece pelo formulário acima.";
+      ? [`${vistos.length} de ${livros.length} ${livros.length === 1 ? "livro" : "livros"}`,
+        `${conta(l => l.leitura === "li")} lidos`,
+        `${conta(l => l.leitura === "lendo")} lendo`,
+        `${conta(l => l.situacao === "tenho" && !!l.pessoa)} emprestados`].join(" · ")
+      : "";
+    $("#livrosVazio").hidden = livros.length > 0;
     $("#livrosCompra").textContent = listaCompra();
   }
 
@@ -1262,13 +1306,26 @@ function initLivros() {
   });
   $("#livrosBusca").addEventListener("input", render);
   agrupar.addEventListener("change", render);
+  vista.addEventListener("change", () => {
+    try { localStorage.setItem("foco.livros.vista", vista.value); } catch { /* sem armazenamento */ }
+    render();
+  });
 
-  lista.addEventListener("click", e => {
+  const detalhe = $("#livroDetalhe");
+  const abrirDetalhe = id => {
+    const l = livros.find(x => x.id === id);
+    if (!l) { if (detalhe.open) detalhe.close(); return; }
+    $("#livroDetalheCorpo").innerHTML = cardHtml(l);
+    if (!detalhe.open) detalhe.showModal();
+  };
+  function acaoLivro(e) {
+    const aberto = e.target.closest("[data-abrir]");
+    if (aberto) return abrirDetalhe(aberto.dataset.abrir);
     const b = e.target.closest("[data-acao]");
     if (!b) return;
     const id = b.closest(".livros-item").dataset.id;
     const l = livros.find(x => x.id === id);
-    if (b.dataset.acao === "editar") return editar(id);
+    if (b.dataset.acao === "editar") { if (detalhe.open) detalhe.close(); return editar(id); }
     if (b.dataset.acao === "remover") {
       if (!confirm(`Remover "${l.titulo}"?`)) return;
       livros = livros.filter(x => x.id !== id);
@@ -1276,9 +1333,19 @@ function initLivros() {
     }
     if (b.dataset.acao === "devolvido") { l.pessoa = ""; l.desde = ""; toast("Empréstimo encerrado."); }
     if (b.dataset.acao === "comprei") { l.situacao = "tenho"; toast("Livro na sua biblioteca."); }
+    if (b.dataset.acao === "li") { l.leitura = "li"; toast("Marcado como lido. ✓"); }
+    if (b.dataset.acao === "lendo") { l.leitura = "lendo"; toast("Boa leitura!"); }
     saveLivros(livros);
     render();
+    if (detalhe.open) abrirDetalhe(id);
+  }
+  lista.addEventListener("click", acaoLivro);
+  detalhe.addEventListener("click", e => {
+    if (e.target === detalhe) return detalhe.close(); /* toque fora da janela */
+    acaoLivro(e);
   });
+  $("#livroDetalheFechar").addEventListener("click", () => detalhe.close());
+  detalhe.addEventListener("error", e => { if (e.target.matches?.("img.livros-capa")) e.target.hidden = true; }, true);
 
   $("#livrosCopiar").addEventListener("click", e => copyText(listaCompra(), e.currentTarget));
   const shareBtn = $("#livrosShare");

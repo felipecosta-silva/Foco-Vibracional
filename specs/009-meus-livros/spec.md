@@ -62,3 +62,20 @@ Mesmo modelo da spec 008:
 - **CA-08** Foto de capa salva como `data:image/jpeg` (≈15 KB) e formato "Digital" aparece no cartão.
 - **CA-09** "Buscar capa" para "Há dois mil anos" / "Xavier" mostra a capa da Open Library; ao tocar, ela vai para o livro.
 - **CA-10** Link com 24 livros sobre uma lista que já tem "Há Dois Mil Anos" sem capa: acrescenta 23, completa 1 (capa ganha, nota e leitura do dono mantidas). Aberto de novo, nada muda.
+
+## 7. Emenda de 2026-11-05: estante, fitas e estante vazia
+> **Pedido do dono:** "ter um tipo de biblioteca... uma tarja, um ícone ou algo do tipo mostrando que foi lido". Ele abriu a página pelo arquivo do computador e não viu os livros.
+
+- **RF-15** A opção **"Ver como"** tem dois modos:
+  - **Estante (capas)**, o padrão: capas lado a lado com uma prateleira embaixo de cada grupo. Livro sem foto ganha uma capa desenhada com título e autor, numa cor fixa para cada título.
+  - **Lista**: os cartões de antes.
+  - A escolha fica guardada no aparelho.
+- **RF-16** Uma **fita no canto** da capa e do cartão: "✓ Lido" (verde), "📖 Lendo" (âmbar) ou "🛒 Quero" (dourado). Nas capas há também os selos "↗ Pessoa" (emprestado) e "Digital" ou "Audiolivro".
+- **RF-17** Tocar numa capa abre uma janela com os detalhes e as ações. Nos cartões entram dois atalhos novos: "✓ Marcar como lido" e "📖 Estou lendo".
+- **RF-18** A contagem mostra quantos livros foram lidos, quantos estão em leitura e quantos estão emprestados.
+- **RF-19** Com a estante vazia, um aviso explica que cada aparelho e cada endereço guarda a própria lista e leva até "Restaurar cópia".
+- **CA-11** Com 68 livros restaurados da cópia:
+  - A estante mostra 68 capas.
+  - "Marcar como lido" na janela põe a fita na janela e na estante.
+  - A tela tem 390 px e 1440 px, sem rolagem lateral e com o console limpo.
+  - `CACHE_VERSION` é fv-v48.

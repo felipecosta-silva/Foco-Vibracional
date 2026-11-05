@@ -152,9 +152,25 @@
             <option value="nenhum">Não agrupar</option>
           </select>
         </label>
+        <label class="form-group livros-agrupar">
+          <span class="form-label">Ver como</span>
+          <select id="livrosVista" class="form-select">
+            <option value="estante">Estante (capas)</option>
+            <option value="lista">Lista</option>
+          </select>
+        </label>
       </div>
       <p class="muted small" id="livrosContagem" aria-live="polite"></p>
+      <div class="notice livros-vazio" id="livrosVazio" hidden>
+        <p><b>Sua estante está vazia neste aparelho.</b> Cada aparelho e cada endereço (o site publicado ou o arquivo aberto do computador) guarda a sua própria lista.</p>
+        <p>Para trazer seus livros, toque em <b>"📂 Restaurar cópia"</b>, no fim da página, e escolha o arquivo <code>meus-livros-….json</code>. Também dá para conectar "Sincronizar entre aparelhos".</p>
+        <a class="pill" href="#livrosCopiaTitle">Ir para Restaurar cópia</a>
+      </div>
       <div id="livrosLista"></div>
+      <dialog class="livros-dialogo" id="livroDetalhe" aria-label="Detalhes do livro">
+        <div id="livroDetalheCorpo"></div>
+        <button class="btn btn--ghost livros-dialogo__fechar" type="button" id="livroDetalheFechar">Fechar</button>
+      </dialog>
     </section>
 
     <section class="card section-gap" aria-labelledby="livrosCompraTitle">
