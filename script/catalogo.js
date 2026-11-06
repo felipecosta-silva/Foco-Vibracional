@@ -158,7 +158,7 @@ function herbThumbHtml(e, cls = "") {
 /* Constituição II.0: trabalho de esquerda leva o selo e nunca entra nas sugestões automáticas */
 const ESQUERDA_RE = /\b(exu|pombagira|pomba-gira|guardi[õo]es|encruzilhada)\b/i;
 function isEsquerda(item) {
-  return ESQUERDA_RE.test(item?.nome || "");
+  return !!item?.orientacao || ESQUERDA_RE.test(item?.nome || "");
 }
 const SELO_ORIENTACAO = `<span class="badge-danger">Só com orientação de um(a) zelador(a)</span>`;
 
@@ -225,6 +225,11 @@ function linkHerb(txt) {
   return erva ? `<a class="herb-link" href="plantas.html#${encodeURIComponent(erva.id)}">${escapeHtml(txt)}</a>` : escapeHtml(txt);
 }
 
+/* Constituição I.5: conteúdo de fora da tradição da casa mostra de onde veio */
+function origemHtml(it) {
+  return it.origem ? `<p class="muted small"><strong>Origem:</strong> ${escapeHtml(it.origem)}</p>` : "";
+}
+
 function rezaHtml(it) {
   if (!it.reza) return "";
   const id = "reza_" + it.id.replace(/[^a-z0-9_-]/gi, "");
@@ -253,6 +258,7 @@ function heroForRitual(it) {
 
 function banhoTopAlertHtml(b) {
   const isDescarrego = b.objetivo === "descarrego" || b.intensidade === "forte" || !b.cabeca;
+  const pesado = b.objetivo === "descarrego" || b.intensidade === "forte";
   if (!isDescarrego && b.cabeca) {
     return `
       <div class="drawer-alert drawer-alert--safe">
@@ -271,7 +277,7 @@ function banhoTopAlertHtml(b) {
         <span class="drawer-alert__icon" aria-hidden="true">⚠️</span>
         <div>
           <b class="drawer-alert__title">${b.objetivo === "descarrego" ? "CUIDADO CRÍTICO • BANHO DE DESCARREGO PESADO" : "ATENÇÃO • APENAS DO PESCOÇO PARA BAIXO"}</b>
-          <span class="drawer-alert__sub">${b.objetivo === "descarrego" ? "Este banho utiliza ervas quentes e de choque para cortar demandas pesadas. Ele deixa o corpo vazio e exige 3 regras sagradas para sua segurança:" : "Este banho utiliza folhas fortes ou mornas de limpeza e nunca deve tocar a coroa sagrada (Ori)."}</span>
+          <span class="drawer-alert__sub">${b.objetivo === "descarrego" ? "Este banho utiliza ervas quentes e de choque para cortar demandas pesadas. Ele deixa o corpo vazio e exige 3 regras sagradas para sua segurança:" : pesado ? "Este banho utiliza folhas fortes ou mornas de limpeza e nunca deve tocar a coroa sagrada (Ori)." : "Este banho vai do pescoço para baixo e não deve tocar a coroa (Ori)."}</span>
         </div>
       </div>
       <ul class="drawer-alert__list">
@@ -279,14 +285,14 @@ function banhoTopAlertHtml(b) {
           <strong>🚫 1. NUNCA JOGAR NA CABEÇA (ORI):</strong>
           Verta estritamente do pescoço para baixo. O Ori é a sede do anjo da guarda e das forças sutis; ervas quentes na coroa causam dor de cabeça, tonturas, peso e perturbação.
         </li>
-        <li>
+        ${pesado ? `<li>
           <strong>⚡ 2. O CORPO FICA VAZIO — TOME HARMONIZAÇÃO LOGO EM SEGUIDA:</strong>
           O descarrego quebra o mal, mas deixa a sua aura zerada. <em>Tome logo a seguir um banho de harmonização</em> (manjericão, boldo ou camomila) para preencher seu campo com luz e não virar "esponja aberta".
         </li>
         <li>
           <strong>🚪 3. RESGUARDO E ABSTENÇÃO OBRIGATÓRIOS:</strong>
           Após o descarrego, permaneça em casa e vista roupas claras. Evite locais cheios e aglomerações (bares, shoppings, transporte lotado), nada de álcool, sexo ou discussões nas horas seguintes.
-        </li>
+        </li>` : ""}
       </ul>
     </div>`;
 }
@@ -314,7 +320,8 @@ function banhoDetailHtml(b) {
     <div class="dsec"><h3>Modo de preparo</h3><p>${escapeHtml(b.modoPreparo || "")}</p></div>
     ${rezaHtml(b)}
     <div class="dsec ${b.cabeca ? "" : "dsec--warn"}"><h3>Atenção & fundamento detalhado</h3><p>${escapeHtml(b.observacao || "")}</p></div>
-    ${b.versaoCha ? `<div class="dsec dsec--tea"><h3>☕ Versão em chá</h3><p>${escapeHtml(b.versaoCha)}</p></div>` : ""}`;
+    ${b.versaoCha ? `<div class="dsec dsec--tea"><h3>☕ Versão em chá</h3><p>${escapeHtml(b.versaoCha)}</p></div>` : ""}
+    ${origemHtml(b)}`;
 }
 
 function ritualPedidosHtml(d) {
@@ -352,7 +359,8 @@ function defumacaoDetailHtml(d) {
     <div class="dsec"><h3>Para que serve</h3><p>${escapeHtml(d.servePara || "")}</p></div>
     ${ritualPedidosHtml(d)}
     ${rezaHtml(d)}
-    <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(d.cuidados || "Ventile bem; cuidado com fogo, crianças e animais.")}</p></div>`;
+    <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(d.cuidados || "Ventile bem; cuidado com fogo, crianças e animais.")}</p></div>
+    ${origemHtml(d)}`;
 }
 
 function herbCreditHtml(e) {

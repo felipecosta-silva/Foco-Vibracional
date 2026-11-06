@@ -896,5 +896,28 @@ window.FV_DATA.defumacoes = [
     "exemplo": "Peço força para concluir o que comecei e fechar esta etapa com justiça."
    }
   ]
+ },
+ {
+  "id": "defumacao-desatar-nos",
+  "nome": "Defumação para Desatar Nós (Louro & Arruda)",
+  "objetivo": "limpeza",
+  "intensidade": "media",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [],
+  "horario": "quando a casa estiver pesada, parada ou depois de uma briga",
+  "ervas": [
+   "Folhas secas de Louro",
+   "Folhas secas de Arruda"
+  ],
+  "sentido": "Do fundo da casa em direção à porta da frente, para levar o peso para fora",
+  "reza": "",
+  "servePara": "Para ambientes pesados, com energia parada ou depois de conflitos. Na leitura popular, desembaraça o que ficou preso nas paredes e limpa o ambiente. A receita original também usa pedaços secos de cipó; o site deixou o cipó de fora até a casa confirmar qual cipó se usa.",
+  "cuidados": "Brasa ou carvão em turíbulo ou pires de barro firme, longe de cortinas, crianças e pets. Arruda: gestantes e lactantes fora do cômodo até ventilar bem. Quem tem asma ou bronquite fica fora da fumaça. Janelas abertas no fim.",
+  "origem": "Receita popular de rede social, enviada pelo dono do site em 06/11/2026 e revisada. Confira com a sua casa."
  }
 ];

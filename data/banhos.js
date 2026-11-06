@@ -297,7 +297,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "Macerar delicadamente as pétalas amarelas de girassol com água fresca de quartinha, acrescentando um punhado de sementes e um raminho de alecrim. Não ferver. Deixar a bacia tomar 15 minutos de sol da manhã para imantar a energia solar de Oxum e Oxalá. Coar e verter da coroa aos pés.",
   "reza": "Sol que ilumina a terra, flor que segue a claridade: cobri meu corpo de ouro, enchei meu peito de coragem e fazei brilhar minha estrela onde quer que eu vá.",
-  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). É o banho supremo de autoconfiança, magnetismo para entrevistas, brilho pessoal, abertura de caminhos financeiros e alívio de sentimentos de menosprezo."
+  "observacao": "PODE E DEVE IR NA CABEÇA (Ori). Banho de autoconfiança, magnetismo para entrevistas, brilho pessoal, abertura de caminhos financeiros e alívio de sentimentos de menosprezo. Há quem some calêndula e folha de oliveira ao girassol para trabalhar o merecimento."
  },
  {
   "id": "banho-brilhantina-oxum",
@@ -1380,13 +1380,15 @@ window.FV_DATA.banhos = [
    "Brotos ou folhas verdes de Samambaia",
    "5 Estrelas de Anis-Estrelado",
    "Flores de Alfazema (Lavanda)",
-   "Folhas frescas de Manjericão doce"
+   "Folhas frescas de Manjericão doce",
+   "Pétalas de Rosas Brancas (opcional)"
   ],
-  "cabeca": true,
-  "modoPreparo": "Ferva 1,5L de água com o anis-estrelado por 3 minutos. Desligue o fogo e acrescente a samambaia, a alfazema e o manjericão. Tampe e deixe abafado até amornar na temperatura do corpo. Tome seu banho de higiene e, em seguida, despeje este banho suavemente DA COROA DA CABEÇA AOS PÉS, deixando escorrer pela testa, nuca e costas com profunda serenidade. Não enxágue. Seque-se de leve e vista roupas claras.",
+  "cabeca": false,
+  "modoPreparo": "Ferva 1,5L de água com o anis-estrelado por 3 minutos. Desligue o fogo e acrescente a samambaia, a alfazema, o manjericão e, se quiser, as rosas brancas. Tampe e deixe abafado até amornar na temperatura do corpo. Tome seu banho de higiene e, em seguida, despeje este banho do pescoço para baixo, com serenidade. Não enxágue. Seque-se de leve e vista roupas claras.",
   "reza": "Estrela sagrada do anis que clareia a visão, samambaia das matas que capta as ondas sutis, alfazema que purifica meu Ori: abri meus canais espirituais, afinai minha sensibilidade e dai-me a lucidez dos guias de luz. Eu ouço a sabedoria divina e caminho em paz!",
-  "observacao": "PODE E DEVE SER JOGADO NA CABEÇA (Ori). É o banho supremo de desenvolvimento da intuição, equilíbrio da sensibilidade de médiuns e afinação do chakra frontal (Terceiro Olho). Recomenda-se tomar após um banho de purificação de boldo.",
-  "versaoCha": "CHÁ DE ANIS COM ALFAZEMA: Ferva 1 estrela de anis em 250ml de água por 3 minutos, desligue e adicione meia colher de café de alfazema abafando por 7 minutos. Acalma a agitação mental e prepara para sono reparador."
+  "observacao": "Desenvolvimento mediúnico se faz com a casa: este banho ajuda a se preparar, mas não substitui o acompanhamento de um(a) zelador(a). Feito sozinho(a), vai do pescoço para baixo; na cabeça (Ori), só se a sua casa orientar. Busca afinar a intuição e acalmar a sensibilidade de quem é médium. A rosa branca entra para trazer calma e serenidade ao banho. Recomenda-se tomar depois de um banho de purificação de boldo.",
+  "versaoCha": "CHÁ DE ANIS COM ALFAZEMA: Ferva 1 estrela de anis em 250ml de água por 3 minutos, desligue e adicione meia colher de café de alfazema abafando por 7 minutos. Acalma a agitação mental e prepara para sono reparador.",
+  "orientacao": true
  },
  {
   "id": "banho-abre-caminho-levante-louro",
@@ -2414,5 +2416,29 @@ window.FV_DATA.banhos = [
   "modoPreparo": "Em ambiente tranquilo, acenda uma vela e mantenha a concentração e a fé. Retire as pontas e as coroas dos 12 quiabos, corte-os em rodelas e coloque no recipiente com um pouco de água. Bata bem o quiabo com as mãos até soltar a 'baba', mentalizando a limpeza do campo energético e a quebra de demandas, inveja, feitiços e de tudo o que bloqueia seus caminhos. Acrescente o leite (iniciados) ou o açúcar (não iniciados). Tome seu banho de higiene normal, desligue o chuveiro e passe o Ajébó do pescoço para baixo, esfregando suavemente e pedindo descarrego e renovação. Deixe agir alguns minutos, enxágue e FINALIZE com um banho de ervas de energização/harmonização.",
   "reza": "Que a força do Ajébó envolva e faça escorregar de mim toda demanda, toda inveja, todo feitiço e toda energia que não me pertence. O que estava preso se solta, o que estava pesado se desfaz. Meu campo está limpo e meus caminhos, livres.",
   "observacao": "DESCARREGO PROFUNDO • PEDE REPOSIÇÃO: A mucilagem (a 'baba') do quiabo tem a propriedade de envolver, anular e fazer escorregar as energias densas agarradas à aura. Por isso deixa o campo 'vazio' — finalize SEMPRE com um banho de harmonização (ex.: boldo de Oxalá, alfazema, manjericão ou rosa branca). LEITE x AÇÚCAR: o leite é elemento frio e apaziguador, ligado a Oxalá e a preceitos de iniciados; o açúcar equilibra o banho de forma universal e evita que o não iniciado fique vulnerável. CABEÇA: não jogue na cabeça sem orientação do seu zelador(a) de santo. Quiabo é ligado a Xangô em muitas casas — se você tem quizila/restrição, consulte antes. Vela acesa só sob vigilância."
+ },
+ {
+  "id": "banho-roma-rosas-autoestima",
+  "nome": "Banho de Romã e Rosas (Força, Coragem & Autoestima)",
+  "objetivo": "prosperidade",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [],
+  "horario": "qualquer horário (a receita não indica)",
+  "ervas": [
+   "Pétalas de rosas (a receita não diz a cor nem a quantidade)",
+   "Metade de uma romã",
+   "Água em temperatura ambiente e um pouco de água quente"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Macere as pétalas de rosas com as mãos em água em temperatura ambiente. Junte a metade da romã e complete com água quente. Espere ficar morno, na temperatura do corpo, e coe bem. Depois do banho de higiene, despeje do pescoço para baixo.",
+  "reza": "",
+  "observacao": "Na receita, este banho trabalha força, coragem e abertura financeira, e ajuda a resgatar a autoestima e o brilho pessoal. Fica do pescoço para baixo porque a receita não fala da cabeça. As correspondências variam de casa para casa. Coe bem: as sementes de romã mancham a pele, a toalha e o rejunte.",
+  "origem": "Receita popular de rede social, enviada pelo dono do site em 06/11/2026 e revisada. Confira com a sua casa."
  }
 ];
