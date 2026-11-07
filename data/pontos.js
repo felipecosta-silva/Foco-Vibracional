@@ -827,6 +827,22 @@ window.FV_DATA.pontos = [
     "origem": "tradicional"
   },
   {
+    "id": "boiadeiro-amigo-leal",
+    "titulo": "Boiadeiro É, Meu Amigo Leal",
+    "linha": "boiadeiros",
+    "linhaNome": "Boiadeiros & Vaqueiros",
+    "entidade": "Falange dos Boiadeiros",
+    "tipo": "chamada",
+    "toque": "Toada de Boiadeiro",
+    "saudacao": "Getruá, Seu Boiadeiro! Ê, boi!",
+    "letra": "Boiadeiro é, meu amigo leal,\nBoiadeiro é, meu amigo leal.\n\nNa volta da meia-noite, faço o bem, não faço o mal,\nNa volta da meia-noite, faço o bem, não faço o mal.",
+    "significado": "Ponto curto de Boiadeiro, cantado em repetição. O Boiadeiro é chamado de amigo leal, e no verso da meia-noite ele mesmo responde que trabalha para o bem.",
+    "nota": "Letra como é cantada na casa do dono do site (enviada em 06/11/2026). Em outro registro (blog Umbanda Estudo, 2008), o segundo verso aparece como \"Ao passar da meia-noite, faz o bem e faz o mal\". Também foi gravado pela Aldeia de Caboclos, num pot-pourri de pontos de Boiadeiro. Pode haver variações de terreiro para terreiro.",
+    "youtubeBusca": "ponto boiadeiro é meu amigo leal meia noite",
+    "ervasAssociadas": [],
+    "origem": "tradicional"
+  },
+  {
     "id": "preta-velha-vovo-maria-redonda",
     "titulo": "Fio, se Suncê Precisá (Vovó Maria Redonda)",
     "linha": "pretos-velhos",
