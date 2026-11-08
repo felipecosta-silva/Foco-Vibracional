@@ -22,6 +22,7 @@ let DAILY_MANTRAS = [];
 let ERVAS = [];
 let BANHOS = [];
 let DEFUMACOES = [];
+let CHAS = [];
 let PONTOS = [];
 
 const ICONS = {
@@ -46,6 +47,7 @@ const NAV = [
     children: [
       { label: "Banhos", url: "banhos.html" },
       { label: "Defumações", url: "defumacao.html" },
+      { label: "Chás da casa", url: "chas.html" },
       { label: "Ervas", url: "plantas.html" },
       { label: "Colheita", url: "colheita.html" },
       { label: "Firmeza de Vela", url: "firmeza.html" }
@@ -380,6 +382,14 @@ function loadDefumacoes() {
     DEFUMACOES = window.FV_DATA.defumacoes;
   } else {
     DEFUMACOES = [];
+  }
+}
+
+function loadChas() {
+  if (window.FV_DATA && Array.isArray(window.FV_DATA.chas) && window.FV_DATA.chas.length) {
+    CHAS = window.FV_DATA.chas;
+  } else {
+    CHAS = [];
   }
 }
 
