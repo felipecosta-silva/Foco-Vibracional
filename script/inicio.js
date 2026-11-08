@@ -422,6 +422,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadErvas(),
     loadBanhos(),
     loadDefumacoes(),
+    loadChas(),
     loadPontos()
   ]);
 
@@ -439,6 +440,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initPontosPage();
   initBanhosPage();
   initDefumacaoPage();
+  initChasPage();
   initColheitaPage();
   initCalendarioLunar();
   initCadernoFirmeza();

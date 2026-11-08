@@ -363,6 +363,63 @@ function defumacaoDetailHtml(d) {
     ${origemHtml(d)}`;
 }
 
+const MOMENTOS = [
+  { k: "manha", label: "☀️ Manhã" },
+  { k: "noite", label: "🌙 Noite" },
+  { k: "qualquer", label: "Qualquer hora" }
+];
+
+function servirLabel(servir) {
+  const s = Array.isArray(servir) ? servir : [];
+  if (s.includes("quente") && s.includes("gelado")) return "quente / gelado";
+  return s.join(" / ") || "quente";
+}
+
+function chaCardHtml(c) {
+  const o = objInfo(c.objetivo);
+  const mom = (MOMENTOS.find(m => m.k === c.momento) || { label: c.momento || "Qualquer hora" }).label;
+  const serv = servirLabel(c.servir);
+  return `
+    <button class="rcard" type="button" data-open="${escapeHtml(c.id)}" data-obj="${escapeHtml(o.k)}">
+      <span class="rcard__top">
+        <span class="rcard__kind">${o.icon} ${o.label}</span>
+      </span>
+      <h3 class="rcard__title">${escapeHtml(c.nome)}</h3>
+      <p class="rcard__sub">${escapeHtml(c.servePara || "")}</p>
+      <span class="rcard__foot">
+        <span class="badge">${escapeHtml(mom)}</span>
+        <span class="badge">${escapeHtml(serv)}</span>
+      </span>
+    </button>`;
+}
+
+function chaDetailHtml(c) {
+  const o = objInfo(c.objetivo);
+  const mom = (MOMENTOS.find(m => m.k === c.momento) || { label: c.momento || "Qualquer hora" }).label;
+  const serv = servirLabel(c.servir);
+  const variacoes = c.variacoes
+    ? escapeHtml(c.variacoes).replace(/^versão para dormir:/i, "<strong>$&</strong>")
+    : "";
+  return `
+    <h2 class="drawer__title">${escapeHtml(c.nome)}</h2>
+    <div class="drawer__chips">
+      <span class="badge" data-obj="${escapeHtml(o.k)}">${o.icon} ${o.label}</span>
+      <span class="badge">${escapeHtml(mom)}</span>
+      <span class="badge">${escapeHtml(serv)}</span>
+    </div>
+    <div class="facts">
+      <div class="fact"><span>Momento</span><b>${escapeHtml(mom)}</b></div>
+      <div class="fact"><span>Como servir</span><b>${escapeHtml(serv)}</b></div>
+    </div>
+    <div class="dsec"><h3>Ingredientes</h3>${ingredientsHtml(c.ingredientes)}</div>
+    <div class="dsec"><h3>Modo de preparo</h3><ol class="list">${(c.preparo || []).map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ol></div>
+    <div class="dsec"><h3>Guardar</h3><p>${escapeHtml(c.guardar || "")}</p></div>
+    <div class="dsec"><h3>Para que serve</h3><p>${escapeHtml(c.servePara || "")}</p></div>
+    ${variacoes ? `<div class="dsec"><h3>Variações</h3><p>${variacoes}</p></div>` : ""}
+    <div class="dsec dsec--warn"><h3>Cuidados</h3><p>${escapeHtml(c.cuidados || "")}</p></div>
+    ${origemHtml(c)}`;
+}
+
 function herbCreditHtml(e) {
   const c = window.FV_DATA && window.FV_DATA.creditosFotos && window.FV_DATA.creditosFotos[e.id];
   if (!c) return "";
@@ -718,6 +775,7 @@ function createCatalog(cfg) {
 const OBJ_FILTER = { key: "objetivo", label: "Para", options: OBJETIVOS.map(o => ({ ...o, c: `var(--c-${o.k})` })), test: (it, v) => it.objetivo === v };
 const LUA_FILTER = { key: "lua", label: "Lua", options: LUAS, test: (it, v) => (it.luas || []).includes(v) };
 const INT_FILTER = { key: "intensidade", label: "Força", options: Object.entries(INTENSIDADE_LABEL).map(([k, label]) => ({ k, label })), test: (it, v) => it.intensidade === v };
+const MOMENTO_FILTER = { key: "momento", label: "Momento", options: MOMENTOS, test: (it, v) => it.momento === v };
 
 function initBanhosPage() {
   const mount = $("#catalog[data-catalog='banhos']");
@@ -744,6 +802,24 @@ function initDefumacaoPage() {
     renderCard: d => ritualCardHtml("defumacao", d),
     detail: defumacaoDetailHtml
   });
+}
+
+function initChasPage() {
+  const mount = $("#catalog[data-catalog='chas']");
+  if (!mount) return;
+  if (!CHAS.length) loadChas();
+  createCatalog({
+    mount, items: CHAS, perPage: 24, unit: ["chá", "chás"], eyebrow: "Chá da casa",
+    placeholder: "Buscar chá ou ingrediente…",
+    searchText: c => `${c.nome} ${(c.ingredientes || []).join(" ")}`,
+    filters: [OBJ_FILTER, MOMENTO_FILTER],
+    renderCard: chaCardHtml,
+    detail: chaDetailHtml
+  });
+  const fichasMount = $("#chas-das-fichas");
+  if (fichasMount && typeof chasDasFichasHtml === "function") {
+    fichasMount.innerHTML = chasDasFichasHtml();
+  }
 }
 
 const MAPA_ERVAS = [
