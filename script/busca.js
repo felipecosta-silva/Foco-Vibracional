@@ -28,7 +28,8 @@ const SEARCH_PAGES = [
   { t: "Como fazer um pedido bem feito", u: "firmeza.html#pedido-bem-feito", k: "pedido bem feito firmeza intencao prosperidade amor saude checklist" },
   { t: "Mapa do benzimento com ervas", u: "plantas.html#mapa-ervas", k: "mapa benzimento proverbio arruda guine espada porta corte blindar" },
   { t: "Tarot & Baralho Cigano — cartas e significados", u: "tarot.html", k: "tarot cigano cartas arcanos baralho lenormand" },
-  { t: "Pontos Cantados & Curimba — cantigas tradicionais", u: "pontos.html", k: "pontos cantados curimba toques jurema mestres mestras caboclos pretos velhos atabaque" }
+  { t: "Pontos Cantados & Curimba — cantigas tradicionais", u: "pontos.html", k: "pontos cantados curimba toques jurema mestres mestras caboclos pretos velhos atabaque" },
+  { t: "Chás da casa — receitas e chás das fichas", u: "chas.html", k: "chas cha infusao receitas frutas cravo canela gengibre abacaxi limao laranja maca uva" }
 ];
 
 function loadDataScript(name) {
@@ -42,10 +43,11 @@ function loadDataScript(name) {
 }
 
 async function ensureAllData() {
-  await Promise.all(["ervas", "banhos", "defumacoes", "mantras", "tarot", "pontos"].map(loadDataScript));
+  await Promise.all(["ervas", "banhos", "defumacoes", "chas", "mantras", "tarot", "pontos"].map(loadDataScript));
   if (!ERVAS.length) loadErvas();
   if (!BANHOS.length) loadBanhos();
   if (!DEFUMACOES.length) loadDefumacoes();
+  if (!CHAS.length) loadChas();
   if (!DAILY_MANTRAS.length) loadMantras();
   if (!PONTOS.length) loadPontos();
 }
@@ -60,7 +62,7 @@ function initGlobalSearch() {
   overlay.innerHTML = `
     <div class="gsearch__panel" role="dialog" aria-modal="true" aria-label="Buscar no site">
       <div class="gsearch__bar">
-        <input class="input gsearch__input" type="search" placeholder="Buscar ervas, banhos, defumações, mantras…" aria-label="Buscar no site" autocomplete="off" enterkeyhint="search" />
+        <input class="input gsearch__input" type="search" placeholder="Buscar ervas, banhos, defumações, chás, mantras…" aria-label="Buscar no site" autocomplete="off" enterkeyhint="search" />
         <button class="btn btn--ghost gsearch__close" type="button" aria-label="Fechar busca">Esc</button>
       </div>
       <div class="gsearch__results" aria-live="polite"></div>
@@ -94,6 +96,8 @@ function initGlobalSearch() {
         .map(b => row(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, (b.ervas || []).slice(0, 4).join(" + ")))) +
       group("💨 Defumações", DEFUMACOES.filter(d => has(d.nome, (d.ervas || []).join(" "), d.objetivo, d.servePara, (d.pedidos || []).map(p => `${p.caminho} ${p.exemplo}`).join(" ")))
         .map(d => row(`defumacao.html#${encodeURIComponent(d.id)}`, d.nome, (d.ervas || []).slice(0, 4).join(" + ")))) +
+      group("🍵 Chás", CHAS.filter(c => has(c.nome, (c.ingredientes || []).join(" "), c.objetivo, c.servePara, c.variacoes || ""))
+        .map(c => row(`chas.html#${encodeURIComponent(c.id)}`, c.nome, (c.ingredientes || []).slice(0, 4).join(" + ")))) +
       group("🙏 Mantras", DAILY_MANTRAS.filter(m => has(m.text, m.tag))
         .map(m => row("mantras.html#mantras", `“${m.text}”`, m.tag))) +
       group("🃏 Tarot & Cigano", ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => has(c.nome, (c.palavrasChave || []).join(" "), c.significado || "", c.correspondencia || ""))
