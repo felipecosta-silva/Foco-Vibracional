@@ -804,6 +804,54 @@ function initDefumacaoPage() {
   });
 }
 
+/* Constituição II.2: ervas tóxicas cujo campo .cha é aviso de proibição não entram na lista de chás */
+function isChaSeguro(texto) {
+  const t = String(texto || "").trim();
+  if (!t) return false;
+  return !/proibido ingerir|planta t[óo]xica|jamais (consuma|fa[çc]a ch[áa]|ingira)/i.test(t);
+}
+
+function resumoCha(texto, max = 120) {
+  const limpo = String(texto || "").replace(/\s+/g, " ").trim();
+  if (limpo.length <= max) return limpo;
+  const corte = limpo.slice(0, max - 1);
+  const espaco = corte.lastIndexOf(" ");
+  return (espaco > 60 ? corte.slice(0, espaco) : corte).replace(/[.,;:!?-\s]+$/, "") + "…";
+}
+
+function chasDasFichasHtml() {
+  const byNome = (a, b) => String(a.nome || "").localeCompare(String(b.nome || ""), "pt-BR", { sensitivity: "base" });
+  const ervas = ERVAS.filter(e => isChaSeguro(e.cha)).slice().sort(byNome);
+  const banhos = BANHOS.filter(b => isChaSeguro(b.versaoCha)).slice().sort(byNome);
+
+  const renderItem = (href, nome, texto) => `
+    <li class="cha-ficha-item">
+      <a href="${href}">${escapeHtml(nome)}</a>
+      <span class="muted small">${escapeHtml(resumoCha(texto, 120))}</span>
+    </li>`;
+
+  return `
+    <span class="eyebrow">Nas fichas do site</span>
+    <h2 id="chasFichasTitle">Chás das ervas e dos banhos</h2>
+    <p class="muted">Estes chás já estão nas fichas das ervas e dos banhos. Toque no nome para abrir a ficha completa com preparo e cuidados.</p>
+    <details>
+      <summary>Das ervas (${ervas.length})</summary>
+      <div class="fund__content">
+        <ul class="cha-fichas-list">
+          ${ervas.map(e => renderItem(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.cha)).join("")}
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>Dos banhos (${banhos.length})</summary>
+      <div class="fund__content">
+        <ul class="cha-fichas-list">
+          ${banhos.map(b => renderItem(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, b.versaoCha)).join("")}
+        </ul>
+      </div>
+    </details>`;
+}
+
 function initChasPage() {
   const mount = $("#catalog[data-catalog='chas']");
   if (!mount) return;
