@@ -5765,3 +5765,22 @@ main:focus { outline: none; }
 .livros-barra::-moz-progress-bar, .estante-progresso::-moz-progress-bar { background: var(--c-energia); }
 
 .livros-item--capa > .livros-barra, .livros-item--capa > .livros-progresso { grid-column: 2; }
+
+/* Spec 012: Chás da casa */
+[data-obj="descarrego"] { --c: var(--c-descarrego); }
+[data-obj="limpeza"] { --c: var(--c-limpeza); }
+[data-obj="protecao"] { --c: var(--c-protecao); }
+[data-obj="calma"] { --c: var(--c-calma); }
+[data-obj="energia"] { --c: var(--c-energia); }
+[data-obj="prosperidade"] { --c: var(--c-prosperidade); }
+[data-obj="harmonizacao"] { --c: var(--c-harmonizacao); }
+.badge[data-obj] { color: var(--c); }
+.cha-regra { margin: 12px 0 18px; line-height: 1.55; }
+.card.fund > h2 { margin: 4px 0 6px; }
+.card.fund details { background: var(--surface-2); }
+.card.fund details:last-child { margin-bottom: 0; }
+.cha-fichas-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cha-ficha-item { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.cha-ficha-item:last-child { padding-bottom: 0; border-bottom: 0; }
+.cha-ficha-item a { font-weight: 600; text-decoration: none; overflow-wrap: break-word; padding-block: 2px; }
+.cha-ficha-item a:hover { text-decoration: underline; }
