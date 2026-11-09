@@ -5784,3 +5784,4 @@ main:focus { outline: none; }
 .cha-ficha-item:last-child { padding-bottom: 0; border-bottom: 0; }
 .cha-ficha-item a { font-weight: 600; text-decoration: none; overflow-wrap: break-word; padding-block: 2px; }
 .cha-ficha-item a:hover { text-decoration: underline; }
+.cha-ficha-alerta { color: var(--danger); font-weight: 600; }

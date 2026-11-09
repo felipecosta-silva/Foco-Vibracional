@@ -371,8 +371,9 @@ const MOMENTOS = [
 
 function servirLabel(servir) {
   const s = Array.isArray(servir) ? servir : [];
-  if (s.includes("quente") && s.includes("gelado")) return "quente / gelado";
-  return s.join(" / ") || "quente";
+  if (s.includes("quente") && s.includes("gelado")) return "Quente ou gelado";
+  const t = s.join(" ou ") || "quente";
+  return t[0].toUpperCase() + t.slice(1);
 }
 
 function chaCardHtml(c) {
@@ -404,8 +405,6 @@ function chaDetailHtml(c) {
     <h2 class="drawer__title">${escapeHtml(c.nome)}</h2>
     <div class="drawer__chips">
       <span class="badge" data-obj="${escapeHtml(o.k)}">${o.icon} ${o.label}</span>
-      <span class="badge">${escapeHtml(mom)}</span>
-      <span class="badge">${escapeHtml(serv)}</span>
     </div>
     <div class="facts">
       <div class="fact"><span>Momento</span><b>${escapeHtml(mom)}</b></div>
@@ -824,10 +823,13 @@ function chasDasFichasHtml() {
   const ervas = ERVAS.filter(e => isChaSeguro(e.cha)).slice().sort(byNome);
   const banhos = BANHOS.filter(b => isChaSeguro(b.versaoCha)).slice().sort(byNome);
 
-  const renderItem = (href, nome, texto) => `
+  /* Constituição II.1: o resumo corta o texto, então o aviso da ficha precisa aparecer aqui */
+  const CUIDADO_RE = /gestante|gr[áa]vida|\bt[óo]xic|abortiv|n[ãa]o confundir/i;
+  const renderItem = (href, nome, texto, cuidados) => `
     <li class="cha-ficha-item">
       <a href="${href}">${escapeHtml(nome)}</a>
       <span class="muted small">${escapeHtml(resumoCha(texto, 120))}</span>
+      ${CUIDADO_RE.test(`${cuidados || ""} ${texto || ""}`) ? `<span class="cha-ficha-alerta small">⚠️ Tem cuidados importantes: leia a ficha antes de tomar.</span>` : ""}
     </li>`;
 
   return `
@@ -838,7 +840,7 @@ function chasDasFichasHtml() {
       <summary>Das ervas (${ervas.length})</summary>
       <div class="fund__content">
         <ul class="cha-fichas-list">
-          ${ervas.map(e => renderItem(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.cha)).join("")}
+          ${ervas.map(e => renderItem(`plantas.html#${encodeURIComponent(e.id)}`, e.nome, e.cha, e.cuidados)).join("")}
         </ul>
       </div>
     </details>
@@ -846,7 +848,7 @@ function chasDasFichasHtml() {
       <summary>Dos banhos (${banhos.length})</summary>
       <div class="fund__content">
         <ul class="cha-fichas-list">
-          ${banhos.map(b => renderItem(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, b.versaoCha)).join("")}
+          ${banhos.map(b => renderItem(`banhos.html#${encodeURIComponent(b.id)}`, b.nome, b.versaoCha, b.observacao)).join("")}
         </ul>
       </div>
     </details>`;

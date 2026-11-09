@@ -23,9 +23,9 @@ window.FV_DATA.chas = [
       "Coe ainda morno e guarde em garrafa de vidro."
     ],
     "guardar": "3 a 4 dias na geladeira. Não deixe os pedaços de abacaxi na garrafa: a fruta fermenta e o chá azeda.",
-    "servePara": "aquece e dá disposição para começar o dia. O abacaxi adoça e quebra o picante do gengibre.",
-    "variacoes": "gelado, fica refrescante no calor.",
-    "cuidados": "à noite, observe o sono: gengibre e canela deixam algumas pessoas mais despertas. Gengibre: pouco ou nada para quem toma remédio para afinar o sangue, tem gastrite ou pressão descontrolada. Gestantes: canela com moderação.",
+    "servePara": "Aquece e dá disposição para começar o dia. O abacaxi adoça e quebra o picante do gengibre.",
+    "variacoes": "Gelado, fica refrescante no calor.",
+    "cuidados": "À noite, observe o sono: gengibre e canela deixam algumas pessoas mais despertas. Gengibre: pouco ou nada para quem toma remédio para afinar o sangue, tem gastrite ou pressão descontrolada. Gestantes: canela com moderação.",
     "origem": "Receita do dono do site, enviada em 06/11/2026."
   },
   {
@@ -41,17 +41,17 @@ window.FV_DATA.chas = [
       "1 litro de água",
       "5 rodelas de gengibre",
       "1 limão",
-      "folhas de hortelã (opcional)"
+      "Folhas de hortelã (opcional)"
     ],
     "preparo": [
       "Ferva a água com o gengibre por 8 minutos.",
       "Desligue e junte o limão em rodelas finas. Deixe 5 minutos.",
       "Coe."
     ],
-    "guardar": "até 3 dias na geladeira.",
-    "servePara": "refresca e desperta. É o mais fácil de todos.",
-    "variacoes": "gelado, com hortelã. Para mais limão, esprema o suco na hora de beber.",
-    "cuidados": "não ferva o limão com casca: deixa o chá amargo. Limão pode incomodar quem tem refluxo ou gastrite. Gengibre: os mesmos cuidados da receita 1.",
+    "guardar": "Até 3 dias na geladeira.",
+    "servePara": "Refresca e desperta. É o mais fácil de todos.",
+    "variacoes": "Gelado, com hortelã. Para mais limão, esprema o suco na hora de beber.",
+    "cuidados": "Não ferva o limão com casca: deixa o chá amargo. Limão pode incomodar quem tem refluxo ou gastrite. Gengibre: pouco ou nada para quem toma remédio para afinar o sangue, tem gastrite ou pressão descontrolada.",
     "origem": "Receita caseira popular, revisada pelo site."
   },
   {
@@ -65,8 +65,8 @@ window.FV_DATA.chas = [
     ],
     "ingredientes": [
       "1 litro de água",
-      "casca de 1 laranja bem lavada, sem a parte branca",
-      "suco da mesma laranja",
+      "Casca de 1 laranja bem lavada, sem a parte branca",
+      "Suco da mesma laranja",
       "1 pau de canela",
       "5 cravos-da-índia"
     ],
@@ -76,9 +76,9 @@ window.FV_DATA.chas = [
       "Coe."
     ],
     "guardar": "3 a 4 dias na geladeira.",
-    "servePara": "chá de aconchego, com cheiro de casa. Lembra quentão, sem álcool.",
-    "variacoes": "quente nos dias frios, gelado nos quentes.",
-    "cuidados": "a parte branca da casca amarga o chá. Laranja pode incomodar quem tem refluxo. Gestantes: canela com moderação.",
+    "servePara": "Chá de aconchego, com cheiro de casa. Lembra quentão, sem álcool.",
+    "variacoes": "Quente nos dias frios, gelado nos quentes.",
+    "cuidados": "A parte branca da casca amarga o chá. Laranja pode incomodar quem tem refluxo. Gestantes: canela com moderação.",
     "origem": "Receita caseira popular, revisada pelo site."
   },
   {
@@ -101,9 +101,9 @@ window.FV_DATA.chas = [
       "Coe."
     ],
     "guardar": "3 a 4 dias na geladeira.",
-    "servePara": "a maçã adoça sozinha, sem açúcar. Bom para o fim do dia.",
-    "variacoes": "versão para dormir: com o fogo desligado, junte 1 colher de sopa de camomila ou de erva-cidreira e deixe abafado 10 minutos.",
-    "cuidados": "camomila: evite se tiver alergia a margaridas ou crisântemos. Gestantes: canela com moderação.",
+    "servePara": "A maçã adoça sozinha, sem açúcar. Bom para o fim do dia.",
+    "variacoes": "Versão para dormir: com o fogo desligado, junte 1 colher de sopa de camomila ou de erva-cidreira e deixe abafado 10 minutos.",
+    "cuidados": "Camomila: evite se tiver alergia a margaridas ou crisântemos. Gestantes: canela com moderação.",
     "origem": "Receita caseira popular, revisada pelo site."
   },
   {
@@ -118,17 +118,17 @@ window.FV_DATA.chas = [
     "ingredientes": [
       "1 litro de água",
       "1 xícara de uvas roxas amassadas",
-      "casca de meia laranja bem lavada, sem a parte branca"
+      "Casca de meia laranja bem lavada, sem a parte branca"
     ],
     "preparo": [
       "Ferva a água com a casca da laranja por 5 minutos.",
       "Junte as uvas e deixe mais 3 minutos no fogo.",
       "Desligue, deixe 10 minutos e coe bem."
     ],
-    "guardar": "até 3 dias na geladeira.",
-    "servePara": "chá de frutas vermelhas, de cor bonita e gosto suave.",
-    "variacoes": "misture o chá frio com suco de uva integral, meio a meio.",
-    "cuidados": "coe bem, para não ficar semente nem casca de uva. Laranja pode incomodar quem tem refluxo.",
+    "guardar": "Até 3 dias na geladeira.",
+    "servePara": "Chá de frutas vermelhas, de cor bonita e gosto suave.",
+    "variacoes": "Misture o chá frio com suco de uva integral, meio a meio.",
+    "cuidados": "Coe bem, para não ficar semente nem casca de uva. Laranja pode incomodar quem tem refluxo.",
     "origem": "Receita caseira popular, revisada pelo site."
   },
   {
@@ -142,8 +142,8 @@ window.FV_DATA.chas = [
     ],
     "ingredientes": [
       "1 litro de água",
-      "casca e miolo de 1 abacaxi bem lavados",
-      "meia maçã em cubos",
+      "Casca e miolo de 1 abacaxi bem lavados",
+      "Meia maçã em cubos",
       "3 rodelas de gengibre"
     ],
     "preparo": [
@@ -152,9 +152,9 @@ window.FV_DATA.chas = [
       "Coe."
     ],
     "guardar": "3 a 4 dias na geladeira.",
-    "servePara": "aproveita a casca e o miolo do abacaxi, que dão muito sabor.",
-    "variacoes": "junte 1 pau de canela para ficar mais perto do chá da casa.",
-    "cuidados": "lave bem a casca do abacaxi com escovinha antes. Gengibre: os mesmos cuidados da receita 1.",
+    "servePara": "Aproveita a casca e o miolo do abacaxi, que dão muito sabor.",
+    "variacoes": "Junte 1 pau de canela para ficar mais perto do chá da casa.",
+    "cuidados": "Lave bem a casca do abacaxi com escovinha antes. Gengibre: pouco ou nada para quem toma remédio para afinar o sangue, tem gastrite ou pressão descontrolada.",
     "origem": "Receita caseira popular, revisada pelo site."
   }
 ];
