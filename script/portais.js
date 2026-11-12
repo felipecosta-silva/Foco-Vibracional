@@ -312,3 +312,91 @@ function initHomeGrabovoi() {
   }
 }
 
+
+/* ==========================================================================
+   Lembretes na agenda (spec 015): arquivo .ics com as fases da lua e os portais
+   dos próximos 12 meses. Tudo é gerado no aparelho; nada é enviado para fora.
+   ========================================================================== */
+function icsEscape(s) {
+  return String(s).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+}
+
+/* Dobra linhas longas (RFC 5545): no máximo 75 bytes por linha, sem partir caracteres */
+function icsFold(linha) {
+  const enc = new TextEncoder();
+  const out = [];
+  let atual = "", bytes = 0, limite = 75;
+  for (const ch of linha) {
+    const n = enc.encode(ch).length;
+    if (bytes + n > limite) { out.push(atual); atual = " "; bytes = 1; limite = 75; }
+    atual += ch; bytes += n;
+  }
+  out.push(atual);
+  return out.join("\r\n");
+}
+
+function icsData(d) {
+  return `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, "0")}${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function agendaLuaPortaisIcs(hoje = new Date()) {
+  const inicio = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate());
+  const fim = new Date(inicio.getFullYear() + 1, inicio.getMonth(), inicio.getDate());
+  const stamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z");
+  const link = path => new URL(path, location.href).href;
+  const icones = { "Lua Nova": "🌑", "Quarto Crescente": "🌓", "Lua Cheia": "🌕", "Quarto Minguante": "🌗" };
+
+  const eventos = [
+    ...moonEventsBetween(inicio, fim).map(p => ({
+      uid: `lua-${icsData(p.date)}-${p.q}`,
+      dia: p.date,
+      titulo: `${icones[p.name]} ${p.name}`,
+      texto: `${phaseIntention(p.name)}. Prática de 2 minutos: ${link("calendario.html#pratica-da-lua")}`,
+      url: link("calendario.html#pratica-da-lua")
+    })),
+    ...getNextPortals(inicio, 12).filter(d => d < fim).map(d => ({
+      uid: `portal-${icsData(d)}`,
+      dia: d,
+      titulo: `✨ Portal ${portalName(d.getMonth() + 1)}`,
+      texto: `${PORTAL_MEANINGS[d.getMonth() + 1].tema}. Ritual do portal: ${link("portais.html#ritual-do-portal")}`,
+      url: link("portais.html#ritual-do-portal")
+    }))
+  ].sort((a, b) => a.dia - b.dia);
+
+  const linhas = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Foco Vibracional//Lua e portais//PT-BR",
+    "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "X-WR-CALNAME:Foco Vibracional: lua e portais"
+  ];
+  eventos.forEach(e => {
+    const amanha = new Date(e.dia.getFullYear(), e.dia.getMonth(), e.dia.getDate() + 1);
+    linhas.push(
+      "BEGIN:VEVENT",
+      `UID:${e.uid}@foco-vibracional`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${icsData(e.dia)}`,
+      `DTEND;VALUE=DATE:${icsData(amanha)}`,
+      `SUMMARY:${icsEscape(e.titulo)}`,
+      `DESCRIPTION:${icsEscape(e.texto)}`,
+      `URL:${e.url}`,
+      "TRANSP:TRANSPARENT",
+      "BEGIN:VALARM", "ACTION:DISPLAY", `DESCRIPTION:${icsEscape(e.titulo)}`, "TRIGGER:PT9H", "END:VALARM",
+      "END:VEVENT"
+    );
+  });
+  linhas.push("END:VCALENDAR");
+  return linhas.map(icsFold).join("\r\n") + "\r\n";
+}
+
+function initAgendaIcs() {
+  document.addEventListener("click", e => {
+    if (!e.target.closest("[data-agenda-ics]")) return;
+    const blob = new Blob([agendaLuaPortaisIcs()], { type: "text/calendar;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "foco-vibracional-lua-e-portais.ics";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  });
+}

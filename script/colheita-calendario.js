@@ -324,6 +324,7 @@ function initPraticaLua() {
   };
   const tocar = () => {
     rodando = true;
+    telaAcesa.pedir("pratica");
     inicio = performance.now() - decorrido;
     raf = requestAnimationFrame(quadro);
     card.classList.add("pratica-lua--rodando");
@@ -335,6 +336,7 @@ function initPraticaLua() {
   const pausar = () => {
     rodando = false;
     cancelAnimationFrame(raf);
+    telaAcesa.soltar("pratica");
     card.classList.remove("pratica-lua--rodando");
     bPausar.textContent = "Continuar";
   };
@@ -348,6 +350,7 @@ function initPraticaLua() {
   };
   function terminar() {
     rodando = false;
+    telaAcesa.soltar("pratica");
     card.classList.remove("pratica-lua--rodando");
     card.classList.add("pratica-lua--fim");
     fimEl.textContent = "Pronto. Que a luz de hoje siga com você.";

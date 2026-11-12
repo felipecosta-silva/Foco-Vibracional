@@ -486,6 +486,39 @@ function initModeToggle() {
 }
 
 /* =========================
+   Tela acesa (spec 015): Screen Wake Lock por motivo ("timer", "pratica", "gaveta").
+   A tela fica acesa enquanto houver algum motivo; sem suporte, nada acontece.
+========================= */
+const telaAcesa = (() => {
+  const suportado = "wakeLock" in navigator;
+  const motivos = new Set();
+  let lock = null, pedindo = false;
+  async function sync() {
+    if (!suportado || pedindo) return;
+    if (motivos.size && !lock && document.visibilityState === "visible") {
+      pedindo = true;
+      try {
+        lock = await navigator.wakeLock.request("screen");
+        lock.addEventListener("release", () => { lock = null; });
+      } catch { lock = null; }
+      pedindo = false;
+      if (!motivos.size) sync(); // soltaram enquanto o pedido estava em andamento
+    } else if (!motivos.size && lock) {
+      const l = lock; lock = null;
+      l.release().catch(() => {});
+    }
+  }
+  // o navegador solta a trava quando a aba some; pede de novo ao voltar
+  document.addEventListener("visibilitychange", sync);
+  return {
+    suportado,
+    pedir(m) { motivos.add(m); sync(); },
+    soltar(m) { motivos.delete(m); sync(); },
+    tem: m => motivos.has(m)
+  };
+})();
+
+/* =========================
    Eventos Globais de Cópia, Leitura e Navegação
 ========================= */
 function initCopySpeak() {

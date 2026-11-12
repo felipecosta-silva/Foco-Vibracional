@@ -473,6 +473,150 @@ function trapFocus(e, panel) {
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
 }
 
+/* ==========================================================================
+   Temporizador nas receitas (spec 015): "abafe por 15 minutos" ganha "⏱ 15 min"
+   ========================================================================== */
+const TIMER_RE = /\b([1-9]|[1-5]\d|60) minutos?\b/g;
+
+function addRecipeTimers(root, nome) {
+  root.querySelectorAll(".dsec p, .dsec li").forEach(bloco => {
+    const walker = document.createTreeWalker(bloco, NodeFilter.SHOW_TEXT);
+    const textos = [];
+    while (walker.nextNode()) textos.push(walker.currentNode);
+    textos.forEach(no => {
+      const s = no.nodeValue;
+      const achados = [...s.matchAll(TIMER_RE)];
+      if (!achados.length || no.parentElement.closest("a, button")) return;
+      const frag = document.createDocumentFragment();
+      let ultimo = 0;
+      achados.forEach(m => {
+        const fim = m.index + m[0].length;
+        frag.append(s.slice(ultimo, fim), " ");
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "timer-chip";
+        b.dataset.timerMin = m[1];
+        b.dataset.timerNome = nome;
+        b.setAttribute("aria-label", `Iniciar temporizador de ${m[1]} minutos`);
+        b.textContent = `⏱ ${m[1]} min`;
+        frag.append(b);
+        ultimo = fim;
+      });
+      frag.append(s.slice(ultimo));
+      no.replaceWith(frag);
+    });
+  });
+}
+
+const RecipeTimer = (() => {
+  let bar = null, fim = 0, restante = 0, minutos = 0, intervalo = 0, audio = null;
+  const fmt = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+
+  function montar() {
+    if (bar) return bar;
+    bar = document.createElement("div");
+    bar.className = "timer-bar";
+    bar.hidden = true;
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", "Temporizador");
+    bar.innerHTML = `
+      <span class="timer-bar__nome"></span>
+      <b class="timer-bar__tempo"></b>
+      <span class="timer-bar__msg" role="status" aria-live="polite"></span>
+      <span class="timer-bar__botoes">
+        <button class="pill" type="button" data-timer-pausar>Pausar</button>
+        <button class="pill" type="button" data-timer-cancelar>Cancelar</button>
+        <button class="pill" type="button" data-timer-ok hidden>OK</button>
+      </span>`;
+    document.body.appendChild(bar);
+    bar.addEventListener("click", e => {
+      if (e.target.closest("[data-timer-pausar]")) restante ? continuar() : pausar();
+      if (e.target.closest("[data-timer-cancelar], [data-timer-ok]")) fechar();
+    });
+    return bar;
+  }
+  const el = sel => bar.querySelector(sel);
+  function desenhar() {
+    const ms = restante || fim - Date.now();
+    el(".timer-bar__tempo").textContent = fmt(ms);
+    if (!restante && ms <= 0) terminar();
+  }
+  function rodar() {
+    clearInterval(intervalo);
+    intervalo = setInterval(desenhar, 250);
+    telaAcesa.pedir("timer");
+    desenhar();
+  }
+  function iniciar(min, nome) {
+    montar();
+    minutos = min;
+    fim = Date.now() + min * 60000;
+    restante = 0;
+    // o som precisa ser liberado por um toque; prepara agora
+    try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); audio.resume?.(); } catch { audio = null; }
+    el(".timer-bar__nome").textContent = `⏱ ${nome}`;
+    el(".timer-bar__msg").textContent = "";
+    el("[data-timer-pausar]").hidden = false;
+    el("[data-timer-pausar]").textContent = "Pausar";
+    el("[data-timer-cancelar]").hidden = false;
+    el("[data-timer-ok]").hidden = true;
+    bar.classList.remove("timer-bar--fim");
+    bar.hidden = false;
+    rodar();
+  }
+  function pausar() {
+    restante = fim - Date.now();
+    clearInterval(intervalo);
+    telaAcesa.soltar("timer");
+    el("[data-timer-pausar]").textContent = "Continuar";
+    desenhar();
+  }
+  function continuar() {
+    fim = Date.now() + restante;
+    restante = 0;
+    el("[data-timer-pausar]").textContent = "Pausar";
+    rodar();
+  }
+  function sinal() {
+    if (!audio) return;
+    try {
+      const t = audio.currentTime;
+      [0, .45].forEach(d => {
+        const o = audio.createOscillator(), g = audio.createGain();
+        o.type = "sine"; o.frequency.value = 660;
+        g.gain.setValueAtTime(0.0001, t + d);
+        g.gain.exponentialRampToValueAtTime(0.25, t + d + .03);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + d + .4);
+        o.connect(g).connect(audio.destination);
+        o.start(t + d); o.stop(t + d + .42);
+      });
+    } catch {}
+  }
+  function terminar() {
+    clearInterval(intervalo);
+    telaAcesa.soltar("timer");
+    el(".timer-bar__tempo").textContent = "0:00";
+    el(".timer-bar__msg").textContent = `Deu o tempo: ${minutos} ${minutos === 1 ? "minuto" : "minutos"}.`;
+    el("[data-timer-pausar]").hidden = true;
+    el("[data-timer-cancelar]").hidden = true;
+    el("[data-timer-ok]").hidden = false;
+    bar.classList.add("timer-bar--fim");
+    navigator.vibrate?.([200, 100, 200]);
+    sinal();
+  }
+  function fechar() {
+    clearInterval(intervalo);
+    telaAcesa.soltar("timer");
+    restante = 0;
+    bar.hidden = true;
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-timer-min]");
+    if (b) iniciar(Number(b.dataset.timerMin), b.dataset.timerNome || "Receita");
+  });
+  return { iniciar };
+})();
+
 function getDrawer() {
   if (DRAWER) return DRAWER;
   const el = document.createElement("div");
@@ -488,6 +632,7 @@ function getDrawer() {
           <button class="icon-btn" type="button" data-fav aria-label="Favoritar" title="Salvar nos favoritos">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fav-icon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
           </button>
+          ${telaAcesa.suportado ? `<button class="icon-btn" type="button" data-tela aria-pressed="false" aria-label="Manter a tela acesa" title="Manter a tela acesa"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>` : ""}
           <button class="icon-btn" type="button" data-share aria-label="Compartilhar">${ICONS.share}</button>
           <button class="icon-btn" type="button" data-close aria-label="Fechar">${ICONS.close}</button>
         </div>
@@ -507,6 +652,7 @@ function getDrawer() {
       body.innerHTML = html;
       body.scrollTop = 0;
       body.querySelector(".drawer__title")?.setAttribute("id", "drawerTitle");
+      addRecipeTimers(body, body.querySelector(".drawer__title")?.textContent || eyebrow);
 
       const pill = el.querySelector("#drawerAlertPill");
       if (pill) {
@@ -527,14 +673,25 @@ function getDrawer() {
       if (el.hidden) return;
       el.hidden = true;
       document.body.classList.remove("drawer-open");
+      setDrawerTela(false);
       history.replaceState(null, "", location.pathname + location.search);
       lastFocus?.focus?.({ preventScroll: true });
     },
     get isOpen() { return !el.hidden; }
   };
 
+  const telaBtn = el.querySelector("[data-tela]");
+  function setDrawerTela(on, avisar) {
+    if (!telaBtn) return;
+    on ? telaAcesa.pedir("gaveta") : telaAcesa.soltar("gaveta");
+    telaBtn.classList.toggle("icon-btn--active", on);
+    telaBtn.setAttribute("aria-pressed", String(on));
+    if (avisar) toast(on ? "Tela acesa enquanto a ficha estiver aberta." : "A tela volta a apagar normalmente.");
+  }
+
   el.addEventListener("click", e => {
     if (e.target.closest("[data-close]")) api.close();
+    if (e.target.closest("[data-tela]")) setDrawerTela(!telaAcesa.tem("gaveta"), true);
     if (e.target.closest("[data-scroll-alert]")) {
       const topAlert = el.querySelector("#drawerTopAlert");
       if (topAlert) {

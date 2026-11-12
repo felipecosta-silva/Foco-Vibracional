@@ -503,6 +503,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initCadernoFirmeza();
   initFirmezaPage();
   initPortaisPage();
+  initAgendaIcs();
   initSimbolosPage();
   initHomeHero();
   initHomeRails();
