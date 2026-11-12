@@ -5785,3 +5785,303 @@ main:focus { outline: none; }
 .cha-ficha-item a { font-weight: 600; text-decoration: none; overflow-wrap: break-word; padding-block: 2px; }
 .cha-ficha-item a:hover { text-decoration: underline; }
 .cha-ficha-alerta { color: var(--danger); font-weight: 600; }
+
+/* ==========================================================================
+   Spec 014: Luz viva nas aberturas
+   ========================================================================== */
+:root{
+  --chama-nucleo: #fffaf0;
+  --chama: #ffd36b;
+  --chama-borda: #f08a2a;
+  --pavio: #2b1f16;
+  --cera: #f6efdf;
+  --cera-sombra: #cbbfa3;
+  --luz-vela: rgba(255,190,90,.34);
+  --luz-vela-fraca: rgba(255,170,70,.10);
+  --luz-dourada: rgba(255,222,150,.95);
+  --luar: rgba(214,226,255,.24);
+  --luar-fraco: rgba(214,226,255,.07);
+  --vapor: rgba(239,231,214,.34);
+  --fumaca: rgba(225,225,218,.20);
+  --porcelana: #efe7d6;
+  --porcelana-sombra: #b9ae98;
+  --cha-liquido: #b5732f;
+}
+
+/* Pausa todas as animações da abertura quando ela sai da tela */
+.ph-pausado .ph-art *, .ph-pausado .ph-media img{ animation-play-state: paused !important; }
+
+/* ---------- A vela ---------- */
+.ph-candle::before, .ph-candle::after{ content: none; }
+.ph-candle > *{ position: absolute; left: 50%; }
+.ph-candle__corpo{
+  bottom: 0; width: 46px; height: 60%; transform: translateX(-50%);
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(90deg, var(--cera-sombra), var(--cera) 45%, var(--cera-sombra));
+  box-shadow: inset 0 14px 18px -10px var(--luz-vela);
+}
+.ph-candle__cera{ /* cera derretida no topo */
+  position: absolute; left: 3px; right: 3px; top: -3px; height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 40%, var(--chama), var(--cera) 60%);
+  opacity: .9;
+}
+.ph-candle__gota{
+  position: absolute; top: 2px; left: 9px; width: 6px; height: 10px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  background: linear-gradient(180deg, var(--cera), var(--cera-sombra));
+  transform-origin: 50% 0;
+  animation: velaGota 13s ease-in infinite;
+}
+@keyframes velaGota{
+  0%, 20%{ transform: translateY(0) scaleY(.5); opacity: 0; }
+  30%{ opacity: 1; }
+  85%{ transform: translateY(46px) scaleY(1.3); opacity: 1; }
+  100%{ transform: translateY(52px) scaleY(1.3); opacity: 0; }
+}
+.ph-candle__pavio{
+  bottom: 60%; width: 3px; height: 11px; transform: translateX(-50%);
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(180deg, var(--chama-borda), var(--pavio) 45%);
+}
+.ph-candle__chama{ /* recebe a inclinação do ponteiro */
+  bottom: calc(60% + 6px); width: 26px; height: 58px;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) rotate(calc(var(--inclina, 0) * 1deg));
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.ph-candle__fogo{ position: absolute; inset: 0; transform-origin: 50% 100%; }
+.ph-candle__fogo > i{
+  position: absolute; left: 50%; bottom: 0; transform-origin: 50% 100%;
+  border-radius: 50% 50% 50% 50% / 64% 64% 36% 36%;
+}
+.ph-candle__borda{
+  width: 26px; height: 58px; margin-left: -13px;
+  background: radial-gradient(ellipse at 50% 78%, var(--chama-borda) 30%, transparent 72%);
+  filter: blur(1.5px);
+  animation: chamaA 2.3s ease-in-out infinite;
+}
+.ph-candle__amarela{
+  width: 18px; height: 44px; margin-left: -9px;
+  background: radial-gradient(ellipse at 50% 74%, var(--chama) 42%, transparent 72%);
+  animation: chamaB 3.7s ease-in-out infinite;
+}
+.ph-candle__fogo > .ph-candle__nucleo{
+  width: 9px; height: 20px; margin-left: -4.5px; bottom: 2px;
+  background: radial-gradient(ellipse at 50% 70%, var(--chama-nucleo) 45%, transparent 75%);
+  animation: chamaC 5.9s ease-in-out infinite;
+}
+@keyframes chamaA{
+  0%, 100%{ transform: scale(1, 1) rotate(-1deg); opacity: .9; }
+  25%{ transform: scale(.94, 1.08) rotate(2deg); opacity: 1; }
+  55%{ transform: scale(1.05, .93) rotate(-2.5deg); opacity: .85; }
+  80%{ transform: scale(.97, 1.04) rotate(1.5deg); opacity: .95; }
+}
+@keyframes chamaB{
+  0%, 100%{ transform: scale(1, 1) rotate(1deg); }
+  35%{ transform: scale(.92, 1.1) rotate(-2deg); }
+  70%{ transform: scale(1.06, .95) rotate(2.5deg); }
+}
+@keyframes chamaC{
+  0%, 100%{ transform: scale(1); opacity: .95; }
+  40%{ transform: scale(.9, 1.12) rotate(-1deg); opacity: 1; }
+  75%{ transform: scale(1.08, .94) rotate(1deg); opacity: .85; }
+}
+/* toque no celular: a chama treme e volta, nunca apaga */
+.ph-candle--sopro .ph-candle__fogo{ animation: velaSopro .9s cubic-bezier(.3,.7,.3,1); }
+@keyframes velaSopro{
+  0%{ transform: none; }
+  18%{ transform: rotate(-14deg) scale(.82, .78); }
+  40%{ transform: rotate(9deg) scale(.95, .9); }
+  65%{ transform: rotate(-4deg); }
+  100%{ transform: none; }
+}
+.ph-candle__halo{ /* a luz que ilumina */
+  bottom: calc(60% + 22px); width: min(760px, 150vw); aspect-ratio: 1;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--luz-vela) 0%, var(--luz-vela-fraca) 32%, transparent 66%);
+  mix-blend-mode: screen;
+  animation: velaRespira 4.1s ease-in-out infinite;
+}
+@keyframes velaRespira{
+  0%, 100%{ transform: translate(-50%, 50%) scale(1); opacity: .85; }
+  50%{ transform: translate(-50%, 50%) scale(1.08); opacity: 1; }
+}
+.ph-candle__fumaca{ bottom: calc(60% + 52px); width: 0; height: 0; }
+.ph-candle__fumaca i{
+  position: absolute; left: -3px; bottom: 0; width: 6px; height: 70px;
+  border-radius: 999px;
+  background: linear-gradient(0deg, var(--fumaca), transparent);
+  filter: blur(3px);
+  opacity: 0;
+  animation: velaFumaca 11s ease-out infinite;
+}
+.ph-candle__fumaca i:nth-child(2){ animation-duration: 14s; animation-delay: 5s; }
+@keyframes velaFumaca{
+  0%, 70%{ opacity: 0; transform: translateY(10px) scaleY(.4) rotate(0); }
+  78%{ opacity: .9; }
+  100%{ opacity: 0; transform: translateY(-70px) scaleY(1.2) rotate(8deg) translateX(10px); }
+}
+/* o título parece iluminado pela vela, sem mudar a cor do texto */
+.pagehead--vela h1{ text-shadow: 0 2px 24px rgba(0,0,0,.45), 0 0 34px var(--luz-vela-fraca); }
+
+/* ---------- Calendário: luar e estrelas em 3 ritmos ---------- */
+.ph-luar{
+  position: absolute;
+  --lua-w: clamp(150px, 22vw, 260px);
+  width: calc(var(--lua-w) * 2.6); aspect-ratio: 1;
+  right: calc(max(6%, calc(50vw - 560px)) - var(--lua-w) * .8);
+  top: 50%; transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--luar) 0%, var(--luar-fraco) 38%, transparent 68%);
+  animation: luarRespira 10s ease-in-out infinite;
+}
+.ph-luar::after{ /* brilho que desce sobre o fundo */
+  content: ""; position: absolute; left: 30%; right: 30%; top: 50%; height: 120%;
+  background: linear-gradient(180deg, var(--luar-fraco), transparent);
+  filter: blur(18px);
+}
+@keyframes luarRespira{
+  0%, 100%{ opacity: .75; transform: translateY(-50%) scale(1); }
+  50%{ opacity: 1; transform: translateY(-50%) scale(1.06); }
+}
+.ph-stars--b{
+  background-image:
+    radial-gradient(1.2px 1.2px at 18% 40%, #fff9, transparent),
+    radial-gradient(1px 1px at 35% 30%, #fff8, transparent),
+    radial-gradient(1.5px 1.5px at 62% 20%, #fffa, transparent),
+    radial-gradient(1px 1px at 80% 84%, #fff7, transparent),
+    radial-gradient(1.3px 1.3px at 96% 44%, #fff9, transparent);
+  animation-duration: 4.3s;
+}
+.ph-stars--c{
+  background-image:
+    radial-gradient(1px 1px at 6% 52%, #fff8, transparent),
+    radial-gradient(1.4px 1.4px at 38% 84%, #fff9, transparent),
+    radial-gradient(1px 1px at 70% 10%, #fff8, transparent),
+    radial-gradient(1.6px 1.6px at 90% 34%, #fffb, transparent);
+  animation-duration: 7.7s; animation-delay: -2s;
+}
+
+/* ---------- Portais: brilho dourado que percorre o 11:11 ---------- */
+.ph-numbers__brilho{
+  position: absolute; inset: 0;
+  -webkit-text-stroke: 0;
+  background: linear-gradient(110deg, transparent 42%, var(--luz-dourada) 50%, transparent 58%) no-repeat;
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: numerosBrilho 7s ease-in-out infinite;
+}
+@keyframes numerosBrilho{
+  0%, 55%{ background-position: 150% 0; }
+  100%{ background-position: -50% 0; }
+}
+
+/* ---------- Tarot: luz de vela atrás das cartas ---------- */
+.ph-luz-cartas{
+  position: absolute; right: calc(max(4%, calc(50vw - 600px)) - 95px); top: 50%;
+  width: 520px; aspect-ratio: 1; transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--luz-vela) 0%, var(--luz-vela-fraca) 34%, transparent 66%);
+  animation: luzCartas 4.1s ease-in-out infinite;
+}
+@keyframes luzCartas{
+  0%, 100%{ opacity: .8; transform: translateY(-50%) scale(1); }
+  50%{ opacity: 1; transform: translateY(-50%) scale(1.07); }
+}
+
+/* ---------- Símbolos: pulso de luz do centro para fora ---------- */
+.ph-geo__pulso{
+  position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle, var(--luz-vela) 0%, transparent 60%);
+  animation: geoPulso 5s ease-out infinite;
+}
+@keyframes geoPulso{
+  0%{ transform: scale(.25); opacity: 1; }
+  100%{ transform: scale(1.15); opacity: 0; }
+}
+
+/* ---------- Aberturas com foto: vaga-lumes e fumaça ---------- */
+.ph-art--luz{ z-index: 1; }
+/* vaga-lumes só do lado da foto, longe do título */
+.ph-art--luz .fireflies{ -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 60%); mask-image: linear-gradient(90deg, transparent 30%, #000 60%); }
+@media (max-width: 760px){ .ph-art--luz .fireflies{ -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 45%); mask-image: linear-gradient(180deg, #000 0%, transparent 45%); } }
+.ph-fumaca{ position: absolute; right: max(8%, calc(50vw - 520px)); bottom: 0; width: 260px; height: 100%; }
+.ph-fumaca i{
+  position: absolute; bottom: -20px; width: 26px; height: 160px;
+  border-radius: 999px;
+  background: linear-gradient(0deg, var(--fumaca), transparent);
+  filter: blur(10px);
+  opacity: 0;
+  animation: fumacaSobe 12s ease-out infinite;
+}
+.ph-fumaca i:nth-child(1){ left: 10%; }
+.ph-fumaca i:nth-child(2){ left: 38%; animation-duration: 15s; animation-delay: 3s; }
+.ph-fumaca i:nth-child(3){ left: 62%; animation-duration: 13s; animation-delay: 7s; }
+.ph-fumaca i:nth-child(4){ left: 84%; animation-duration: 17s; animation-delay: 10s; }
+@keyframes fumacaSobe{
+  0%{ opacity: 0; transform: translateY(0) scaleX(.6) rotate(0); }
+  20%{ opacity: .9; }
+  100%{ opacity: 0; transform: translateY(-260px) scaleX(1.8) rotate(10deg) translateX(30px); }
+}
+
+/* ---------- Chás: xícara com vapor ---------- */
+.ph-cha{
+  position: absolute; right: max(10%, calc(50vw - 500px)); bottom: 14%;
+  width: 170px; height: 220px;
+}
+.ph-cha > *{ position: absolute; left: 50%; }
+.ph-cha__luz{
+  bottom: 30px; width: 560px; aspect-ratio: 1; transform: translate(-50%, 50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--luz-vela) 0%, var(--luz-vela-fraca) 34%, transparent 66%);
+  animation: velaRespira 4.1s ease-in-out infinite;
+}
+.ph-cha__pires{
+  bottom: 0; width: 170px; height: 22px; transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, var(--porcelana), var(--porcelana-sombra) 75%);
+}
+.ph-cha__xicara{
+  bottom: 10px; width: 112px; height: 78px; transform: translateX(-50%);
+  border-radius: 6px 6px 52px 52px;
+  background: linear-gradient(90deg, var(--porcelana-sombra), var(--porcelana) 42%, var(--porcelana-sombra));
+}
+.ph-cha__xicara::before{ /* o chá */
+  content: ""; position: absolute; left: 4px; right: 4px; top: -5px; height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 45%, var(--chama), var(--cha-liquido) 70%);
+  border: 2px solid var(--porcelana);
+}
+.ph-cha__xicara::after{ /* a asa */
+  content: ""; position: absolute; right: -24px; top: 14px; width: 30px; height: 34px;
+  border: 7px solid var(--porcelana-sombra); border-left: 0;
+  border-radius: 0 50% 50% 0;
+}
+.ph-cha__vapor{ bottom: 72px; width: 0; height: 0; }
+.ph-cha__vapor i{
+  position: absolute; bottom: 0; width: 14px; height: 96px;
+  border-radius: 999px;
+  background: linear-gradient(0deg, var(--vapor), transparent);
+  filter: blur(5px);
+  opacity: 0;
+  animation: chaVapor 4.6s ease-out infinite;
+}
+.ph-cha__vapor i:nth-child(1){ left: -34px; }
+.ph-cha__vapor i:nth-child(2){ left: -7px; animation-duration: 5.3s; animation-delay: 1.4s; }
+.ph-cha__vapor i:nth-child(3){ left: 20px; animation-duration: 6.1s; animation-delay: 2.7s; }
+@keyframes chaVapor{
+  0%{ opacity: 0; transform: translateY(10px) scaleY(.5) rotate(0); }
+  25%{ opacity: .9; }
+  100%{ opacity: 0; transform: translateY(-80px) scaleY(1.3) rotate(-8deg) translateX(-8px); }
+}
+
+@media (max-width: 760px){
+  .ph-luar{ --lua-w: 120px; right: -80px; top: 82px; transform: translateY(-36%); animation: none; }
+  .ph-luz-cartas{ width: 320px; right: -90px; top: 30px; transform: translateY(-20%); }
+  .ph-cha{ right: 6px; bottom: auto; top: 70px; transform: scale(.6); transform-origin: top right; opacity: .7; }
+  .ph-fumaca{ right: 0; width: 180px; }
+}

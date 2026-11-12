@@ -43,19 +43,22 @@ function initHomeHero() {
    carta do dia na home e revelação ao rolar
    ========================================================================== */
 const PAGE_HERO = {
-  "banhos.html": { img: "images/camomila.jpg" },
-  "defumacao.html": { img: "images/alecrim.jpg" },
-  "plantas.html": { img: "images/manjericao.jpg" },
-  "colheita.html": { img: "images/capim-limao.jpg" },
-  "glossario.html": { img: "images/jurema-preta.jpg" },
+  "banhos.html": { img: "images/camomila.jpg", fireflies: true },
+  "defumacao.html": { img: "images/alecrim.jpg", fireflies: true, smoke: true },
+  "plantas.html": { img: "images/manjericao.jpg", fireflies: true },
+  "colheita.html": { img: "images/capim-limao.jpg", fireflies: true },
+  "glossario.html": { img: "images/jurema-preta.jpg", fireflies: true },
   "mantras.html": { art: "candle" },
   "firmeza.html": { art: "candle" },
   "calendario.html": { art: "moon" },
   "portais.html": { art: "numbers" },
   "tarot.html": { art: "cards" },
-  "pontos.html": { img: "images/jurema-preta.jpg" },
-  "simbolos.html": { art: "geo" }
+  "pontos.html": { img: "images/jurema-preta.jpg", fireflies: true },
+  "simbolos.html": { art: "geo" },
+  "chas.html": { art: "steam" }
 };
+
+const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const GEO_SVG = `<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width=".8">${
   [0, 60, 120, 180, 240, 300].map(a => {
@@ -68,17 +71,27 @@ function heroArtHtml(kind) {
     // mesma sombra de fase usada no card da home
     const m = getLiveMoonData(new Date());
     const dx = moonShadowShift(m);
-    return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-moon"><div class="ph-moon__shadow" style="transform:translateX(${dx}%)"></div></div></div>`;
+    return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-stars ph-stars--b"></div><div class="ph-stars ph-stars--c"></div><div class="ph-luar"></div><div class="ph-moon"><div class="ph-moon__shadow" style="transform:translateX(${dx}%)"></div></div></div>`;
   }
-  if (kind === "candle") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div><div class="ph-candle"></div></div>`;
-  if (kind === "numbers") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-numbers">11:11</div></div>`;
-  if (kind === "geo") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-40"></div><div class="ph-geo">${GEO_SVG}</div></div>`;
+  if (kind === "candle") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div>${CANDLE_HTML}</div>`;
+  if (kind === "numbers") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-numbers">11:11<span class="ph-numbers__brilho">11:11</span></div></div>`;
+  if (kind === "geo") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-40"></div><div class="ph-geo"><div class="ph-geo__pulso"></div>${GEO_SVG}</div></div>`;
   if (kind === "cards") {
     const imgs = ["images/tarot/classico/classico-maior-17-estrela.jpg", "images/tarot/classico/classico-maior-19-sol.jpg", "images/tarot/classico/classico-maior-18-lua.jpg"];
-    return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-cards">${imgs.map(s => `<img src="${s}" alt="" onerror="this.remove()">`).join("")}</div></div>`;
+    return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-luz-cartas"></div><div class="ph-cards">${imgs.map(s => `<img src="${s}" alt="" onerror="this.remove()">`).join("")}</div></div>`;
   }
+  if (kind === "steam") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div><div class="ph-cha"><div class="ph-cha__luz"></div><div class="ph-cha__vapor"><i></i><i></i><i></i></div><div class="ph-cha__xicara"></div><div class="ph-cha__pires"></div></div></div>`;
   return "";
 }
+
+/* Vela em camadas (spec 014): halo, fumaça, chama (3 camadas), pavio, corpo com cera e gota */
+const CANDLE_HTML = `<div class="ph-candle">
+  <div class="ph-candle__halo"></div>
+  <div class="ph-candle__fumaca"><i></i><i></i></div>
+  <div class="ph-candle__chama"><div class="ph-candle__fogo"><i class="ph-candle__borda"></i><i class="ph-candle__amarela"></i><i class="ph-candle__nucleo"></i></div></div>
+  <div class="ph-candle__pavio"></div>
+  <div class="ph-candle__corpo"><div class="ph-candle__cera"></div><div class="ph-candle__gota"></div></div>
+</div>`;
 
 function enhancePageHead() {
   const ph = $(".pagehead");
@@ -87,19 +100,62 @@ function enhancePageHead() {
   ph.classList.add("pagehead--hero");
   // avisos saem da abertura e ficam logo abaixo dela
   [...ph.querySelectorAll(":scope > .notice")].reverse().forEach(n => ph.after(n));
-  ph.insertAdjacentHTML("afterbegin", cfg.img
+  if (cfg.art === "candle") ph.classList.add("pagehead--vela");
+  const luz = (cfg.fireflies || cfg.smoke)
+    ? `<div class="ph-art ph-art--luz" aria-hidden="true">${cfg.smoke ? `<div class="ph-fumaca"><i></i><i></i><i></i><i></i></div>` : ""}${cfg.fireflies ? `<canvas class="fireflies ph-fireflies"></canvas>` : ""}</div>`
+    : "";
+  ph.insertAdjacentHTML("afterbegin", (cfg.img
     ? `<div class="ph-media" aria-hidden="true"><img src="${cfg.img}" alt=""></div>`
-    : heroArtHtml(cfg.art));
+    : heroArtHtml(cfg.art)) + luz);
+}
+
+/* Luz viva nas aberturas (spec 014): chama que responde ao ponteiro e ao toque,
+   vaga-lumes nas aberturas com foto e pausa quando a abertura sai da tela */
+function initHeroLuz() {
+  const ph = $(".pagehead--hero");
+  if (!ph || prefersReducedMotion()) return;
+  new IntersectionObserver(([e]) => ph.classList.toggle("ph-pausado", !e.isIntersecting)).observe(ph);
+
+  const ff = ph.querySelector(".ph-fireflies");
+  if (ff) startFireflies(ff, { count: window.innerWidth < 700 ? 10 : 18, alpha: .75 });
+
+  const vela = ph.querySelector(".ph-candle");
+  const chama = vela?.querySelector(".ph-candle__chama");
+  if (!chama) return;
+  let raf = 0, alvo = 0, soproT = 0;
+  ph.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const r = chama.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width / 2);
+    const d = Math.hypot(dx, e.clientY - (r.top + r.height / 2));
+    const raio = 300;
+    // a chama se inclina para longe do ponteiro, mais forte quanto mais perto
+    alvo = d < raio ? -Math.sign(dx) * (1 - d / raio) * 16 : 0;
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; vela.style.setProperty("--inclina", alvo.toFixed(1)); });
+  });
+  ph.addEventListener("pointerleave", () => vela.style.setProperty("--inclina", "0"));
+  ph.addEventListener("pointerdown", e => {
+    if (e.pointerType === "mouse") return;
+    vela.classList.remove("ph-candle--sopro");
+    void vela.offsetWidth; // reinicia a animação se tocar de novo
+    vela.classList.add("ph-candle--sopro");
+    clearTimeout(soproT);
+    soproT = setTimeout(() => vela.classList.remove("ph-candle--sopro"), 900);
+  });
 }
 
 /* Vaga-lumes no herói da home (canvas leve; pausa fora da tela) */
 function initFireflies() {
   const canvas = $("#fireflies");
-  if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!canvas || prefersReducedMotion()) return;
+  startFireflies(canvas, { count: window.innerWidth < 700 ? 22 : 42 });
+}
+
+function startFireflies(canvas, { count, alpha = 1 }) {
   const ctx = canvas.getContext("2d");
   let w = 0, h = 0, running = true, raf = 0;
   const dpr = Math.min(2, window.devicePixelRatio || 1);
-  const flies = Array.from({ length: window.innerWidth < 700 ? 22 : 42 }, () => ({
+  const flies = Array.from({ length: count }, () => ({
     x: Math.random(), y: Math.random(), r: 0.8 + Math.random() * 1.8,
     vx: (Math.random() - .5) * .00035, vy: (Math.random() - .5) * .00035,
     p: Math.random() * Math.PI * 2, s: .6 + Math.random() * 1.4
@@ -116,7 +172,7 @@ function initFireflies() {
       f.y += f.vy + Math.cos(t / 3500 + f.p) * .00012;
       if (f.x < -.02) f.x = 1.02; if (f.x > 1.02) f.x = -.02;
       if (f.y < -.02) f.y = 1.02; if (f.y > 1.02) f.y = -.02;
-      const a = .25 + .75 * Math.max(0, Math.sin(t / (900 / f.s) + f.p));
+      const a = alpha * (.25 + .75 * Math.max(0, Math.sin(t / (900 / f.s) + f.p)));
       const x = f.x * w, y = f.y * h;
       const g = ctx.createRadialGradient(x, y, 0, x, y, f.r * 7);
       g.addColorStop(0, `rgba(255,226,140,${a})`);
@@ -404,6 +460,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderHeader();
   renderFooter();
   enhancePageHead();
+  initHeroLuz();
   initHomeTopbar();
   initGlobalSearch();
 
