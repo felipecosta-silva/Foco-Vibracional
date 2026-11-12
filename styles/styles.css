@@ -6131,3 +6131,18 @@ main:focus { outline: none; }
   .pratica-lua__timer{ min-width: 0; order: -1; }
   .pratica-lua__afirmacoes li{ flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- Spec 013: Ritual do portal ---------- */
+#ritual-do-portal h3{ margin: 22px 0 10px; }
+.portal-luas{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.portal-lua{ display: grid; gap: 4px; align-content: start; }
+.portal-lua .info-title{ margin: 0 0 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.portal-lua--hoje{ border-color: var(--accent); background: var(--accent-soft); }
+.portal-afirmacoes{ list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
+.portal-afirmacoes li{ display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.portal-afirmacoes li:last-child{ border-bottom: 0; }
+.portal-afirmacoes span{ font-family: var(--font-display); font-style: italic; line-height: 1.45; min-width: 0; }
+.portal-afirmacoes .pill{ flex-shrink: 0; }
+@media (max-width: 640px){
+  .portal-afirmacoes li{ flex-direction: column; align-items: flex-start; }
+}

@@ -82,7 +82,7 @@ function initHojePage() {
   const pText = $("#todayPortalText");
   if (isPortalDay(today)) {
     if (pBadge) pBadge.textContent = "✨ Hoje é portal";
-    if (pText) pText.innerHTML = `Hoje é o portal <b>${portalName(today.getMonth() + 1)}</b>. Faça 3 passos: intenção clara, uma ação pequena real e gratidão. <a href="portais.html">Saiba mais →</a>`;
+    if (pText) pText.innerHTML = `Hoje é o portal <b>${portalName(today.getMonth() + 1)}</b>. Faça 3 passos: intenção clara, uma ação pequena real e gratidão. <a href="portais.html#ritual-do-portal">Ver o ritual do portal →</a>`;
   } else {
     const next = getNextPortals(today, 1)[0];
     if (pBadge) pBadge.textContent = "Próximo portal";

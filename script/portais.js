@@ -70,6 +70,37 @@ const GRABOVOI_SEQS = [
   { seq: "999", cat: "limpeza", titulo: "Encerramento de Ciclos & Desapego", uso: "Fechar portas do passado com dignidade e soltar laços que não servem mais à sua evolução." }
 ];
 
+/* Ritual do portal (spec 013): quadro das luas, lua de hoje e sugestões com Copiar */
+function renderPortalRitual(today) {
+  const R = window.FV_DATA?.portalRitual;
+  if (!R) return;
+  const hojeK = getLiveMoonData(today).key;
+  const luaHoje = R.luas.find(l => l.k === hojeK);
+
+  const luasEl = $("#portalLuas");
+  if (luasEl) luasEl.innerHTML = R.luas.map(l => `
+    <div class="info-card portal-lua${l.k === hojeK ? " portal-lua--hoje" : ""}">
+      <h4 class="info-title"><span aria-hidden="true">${l.icone}</span> ${escapeHtml(l.nome)}${l.k === hojeK ? ' <span class="badge">Hoje</span>' : ""}</h4>
+      <p class="small u-m0">${escapeHtml(l.pede)}</p>
+      <p class="muted small u-m0 u-mt-6"><b>No papel:</b> ${escapeHtml(l.papel)}</p>
+    </div>`).join("");
+
+  const temasEl = $("#portalTemas");
+  if (temasEl) temasEl.innerHTML = R.temas.map(t => `
+    <details>
+      <summary>${escapeHtml(t.titulo)}</summary>
+      <div class="fund__content">
+        <ul class="portal-afirmacoes">
+          ${t.afirmacoes.map(a => `<li><span>“${escapeHtml(a)}”</span><button class="pill" type="button" data-copy-text="${escapeHtml(a)}">Copiar</button></li>`).join("")}
+        </ul>
+        ${t.nota ? `<p class="muted small u-m0">${escapeHtml(t.nota)}</p>` : ""}
+      </div>
+    </details>`).join("");
+
+  const luaEl = $("#portalTodayLua");
+  if (luaEl && luaHoje) luaEl.textContent = `Lua de hoje: ${luaHoje.icone} ${luaHoje.nome}. ${luaHoje.pede}`;
+}
+
 function initPortaisPage() {
   const grid = $("#portalGrid");
   if (!grid) return;
@@ -116,6 +147,8 @@ function initPortaisPage() {
       if (todayDo) todayDo.textContent = "Sugestão: faça uma oração de agradecimento, tome um chá ou banho de manjericão e aja com clareza.";
     }
   }
+
+  renderPortalRitual(today);
 
   grid.innerHTML = "";
   for (let m = 1; m <= 12; m++) {
