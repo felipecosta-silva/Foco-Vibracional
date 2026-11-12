@@ -59,6 +59,11 @@ function initHojePage() {
   const banhos = itemsForToday(BANHOS, moon.key, dayKey);
   const defs = itemsForToday(DEFUMACOES, moon.key, dayKey);
   let offset = 0;
+  // Afirmação da lua de hoje e link para a prática de 2 minutos (spec 014)
+  const pratica = luaPraticaFase(moon.key);
+  const praticaHtml = pratica
+    ? `<p class="small u-m0 u-mt-6"><span aria-hidden="true">${pratica.icone}</span> <i>“${escapeHtml(pratica.afirmacoes[0])}”</i> <a href="calendario.html#pratica-da-lua">Fazer a prática de 2 minutos →</a></p>`
+    : "";
 
   const badge = $("#todaySuggestBadge");
   if (badge) badge.textContent = `${moon.icon} ${({ dom: "domingo", seg: "segunda", ter: "terça", qua: "quarta", qui: "quinta", sex: "sexta", sab: "sábado" })[dayKey]}`;
@@ -67,7 +72,7 @@ function initHojePage() {
     const b = banhos.length ? banhos[(dailyIndexByDate(today, banhos.length) + offset) % banhos.length] : null;
     const d = defs.length ? defs[(dailyIndexByDate(today, defs.length) + offset) % defs.length] : null;
     wrap.innerHTML = ritualItemHtml("defumacao", d, "defumacao.html") + ritualItemHtml("banho", b, "banhos.html") +
-      `<p class="muted small u-m0 u-mt-6">${escapeHtml(moon.orientacao || "")}</p>`;
+      `<p class="muted small u-m0 u-mt-6">${escapeHtml(moon.orientacao || "")}</p>` + praticaHtml;
   }
   $("#todaySuggestNext")?.addEventListener("click", () => { offset++; render(); });
   render();
