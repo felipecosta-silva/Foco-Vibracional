@@ -21,6 +21,12 @@
 - "o meu desejo sexual" → "o meu desejo"; "intimidade física" → "intimidade" (tom do site público).
 - "guiado" → "guiado(a)"; acentos e concordância ("têm permissão", "diálogo", "saudáveis").
 
+## Ampliação (2026-11-13, "pode seguir com mais afirmações")
+
+- De 12 para 14 temas e de 71 para 156 afirmações (8 a 12 por tema).
+- Temas novos: **Família e amizades** (Copas agora alterna amor-próprio, relacionamento e família) e **Estudos e foco** (Espadas alterna paz, confiança e estudos; O Hierofante, arcano 5, passou para estudos).
+- Mesmas regras: sem promessas absolutas, sem mexer com terceiros, saúde com a nota do médico. `CACHE_VERSION` fv-v58.
+
 ## Testes (puppeteer, 375 e 1440 px)
 
 Home, Mantras e Tarot com a mesma afirmação e o mesmo tema da carta do dia (13/11: O Mundo → Gratidão e alegria). Dez dias simulados dão dez cartas e oito temas diferentes. 12 temas e 71 frases na aba Afirmações, tema do dia aberto. Sorteio funciona. Sem rolagem lateral; console limpo. `CACHE_VERSION` fv-v57, `data/afirmacoes.js` no `PRECACHE`.
