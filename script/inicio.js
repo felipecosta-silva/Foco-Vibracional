@@ -44,7 +44,7 @@ function initHomeHero() {
    ========================================================================== */
 const PAGE_HERO = {
   "banhos.html": { img: "images/camomila.jpg", fireflies: true },
-  "defumacao.html": { img: "images/alecrim.jpg", fireflies: true, smoke: true },
+  "defumacao.html": { img: "images/alecrim.jpg", fireflies: true, defumador: true },
   "plantas.html": { img: "images/manjericao.jpg", fireflies: true },
   "colheita.html": { img: "images/capim-limao.jpg", fireflies: true },
   "glossario.html": { img: "images/jurema-preta.jpg", fireflies: true },
@@ -84,13 +84,20 @@ function heroArtHtml(kind) {
   return "";
 }
 
-/* Vela em camadas (spec 014): halo, fumaça, chama (3 camadas), pavio, corpo com cera e gota */
+/* Vela em camadas (spec 014) no castiçal, queimando com o relógio (spec 017):
+   halo, castiçal (prato, haste, copo com a cera que escorreu), corpo com escorridos e gota,
+   fumaça, pavio e duas chamas (a segunda só aparece quando o pavio "duplica") */
+const FOGO_HTML = `<i class="ph-candle__borda"></i><i class="ph-candle__amarela"></i><i class="ph-candle__nucleo"></i>`;
 const CANDLE_HTML = `<div class="ph-candle">
   <div class="ph-candle__halo"></div>
-  <div class="ph-candle__fumaca"><i></i><i></i></div>
-  <div class="ph-candle__chama"><div class="ph-candle__fogo"><i class="ph-candle__borda"></i><i class="ph-candle__amarela"></i><i class="ph-candle__nucleo"></i></div></div>
+  <div class="ph-castical__prato"></div>
+  <div class="ph-castical__haste"></div>
+  <div class="ph-candle__corpo"><div class="ph-candle__cera"></div><div class="ph-candle__escorre"><i></i><i></i><i></i></div><div class="ph-candle__gota"></div></div>
+  <div class="ph-castical__copo"><i class="ph-castical__poca"></i></div>
+  <div class="ph-candle__fumaca"><i></i><i></i><i></i></div>
   <div class="ph-candle__pavio"></div>
-  <div class="ph-candle__corpo"><div class="ph-candle__cera"></div><div class="ph-candle__gota"></div></div>
+  <div class="ph-candle__chama"><div class="ph-candle__fogo">${FOGO_HTML}</div><div class="ph-candle__fogo ph-candle__fogo--2">${FOGO_HTML}</div></div>
+  <span class="ph-vela-legenda"></span>
 </div>`;
 
 function enhancePageHead() {
@@ -101,8 +108,11 @@ function enhancePageHead() {
   // avisos saem da abertura e ficam logo abaixo dela
   [...ph.querySelectorAll(":scope > .notice")].reverse().forEach(n => ph.after(n));
   if (cfg.art === "candle") ph.classList.add("pagehead--vela");
-  const luz = (cfg.fireflies || cfg.smoke)
-    ? `<div class="ph-art ph-art--luz" aria-hidden="true">${cfg.smoke ? `<div class="ph-fumaca"><i></i><i></i><i></i><i></i></div>` : ""}${cfg.fireflies ? `<canvas class="fireflies ph-fireflies"></canvas>` : ""}</div>`
+  const defumador = cfg.defumador
+    ? `<div class="ph-defumador"><div class="ph-defumador__luz"></div><div class="ph-defumador__fumaca"><i></i><i></i><i></i><i></i><i></i></div><div class="ph-defumador__pote"><i class="ph-defumador__brasa"></i></div><div class="ph-defumador__pes"></div></div>`
+    : "";
+  const luz = (cfg.fireflies || cfg.smoke || cfg.defumador)
+    ? `<div class="ph-art ph-art--luz" aria-hidden="true">${cfg.smoke ? `<div class="ph-fumaca"><i></i><i></i><i></i><i></i></div>` : ""}${cfg.fireflies ? `<canvas class="fireflies ph-fireflies"></canvas>` : ""}${defumador}</div>`
     : "";
   ph.insertAdjacentHTML("afterbegin", (cfg.img
     ? `<div class="ph-media" aria-hidden="true"><img src="${cfg.img}" alt=""></div>`
@@ -142,6 +152,203 @@ function initHeroLuz() {
     clearTimeout(soproT);
     soproT = setTimeout(() => vela.classList.remove("ph-candle--sopro"), 900);
   });
+}
+
+/* ==========================================================================
+   Spec 017: efeitos vivos. A vela queima com o relógio, as cartas embaralham,
+   a defumação solta fumaça pela página e o banho respinga na tela.
+   ========================================================================== */
+const VELA_CICLO = 8 * 3600e3; // uma vela comum queima cerca de 8 horas; novas velas à 0h, 8h e 16h
+
+function velaHash(n) {
+  n = (n ^ 0x9e3779b9) >>> 0;
+  n = Math.imul(n ^ (n >>> 16), 0x85ebca6b) >>> 0;
+  n = Math.imul(n ^ (n >>> 13), 0xc2b2ae35) >>> 0;
+  return ((n ^ (n >>> 16)) >>> 0) / 4294967296;
+}
+
+/* Estado da vela num instante: altura, jeito da chama e cera escorrida.
+   Tudo sai do relógio, então todo mundo vê a mesma vela na mesma hora. */
+function velaEstado(date = new Date()) {
+  const meiaNoite = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+  const idx = Math.min(2, Math.floor((date.getTime() - meiaNoite) / VELA_CICLO));
+  const inicio = meiaNoite + idx * VELA_CICLO;
+  const ms = date.getTime() - inicio;
+  const p = ms / VELA_CICLO;
+  const resta = VELA_CICLO - ms;
+  const ciclo = ((date.getFullYear() * 13 + date.getMonth()) * 32 + date.getDate()) * 3 + idx;
+
+  let modo;
+  if (resta < 2 * 60e3) modo = "apagada";
+  else if (ms < 50e3) modo = "acendendo";
+  else if (resta < 12 * 60e3) modo = "baixa";
+  else {
+    const r = velaHash(Math.floor(date.getTime() / 90e3)); // muda de jeito a cada minuto e meio
+    modo = r < .38 ? "calma" : r < .58 ? "alta" : r < .8 ? "danca" : r < .92 ? "dupla" : "baixa";
+  }
+
+  // até 3 escorridos por vela; a cera que desce fica até a vela acabar
+  const min = ms / 60e3;
+  const lados = [3, 17, 33];
+  const giro = Math.floor(velaHash(ciclo * 13) * 3);
+  const escorridos = [0, 1, 2]
+    .filter(i => i === 0 || velaHash(ciclo * 11 + i) < .65)
+    .map(i => {
+      const iniMin = (.08 + velaHash(ciclo * 7 + i) * .72) * VELA_CICLO / 60e3;
+      const desde = min - iniMin;
+      return {
+        x: lados[(i + giro) % 3] + Math.round(velaHash(ciclo * 17 + i) * 6),
+        desde,
+        len: desde <= 0 ? 0 : Math.round(10 + (26 + velaHash(ciclo * 19 + i) * 34) * (1 - Math.exp(-desde / 10)))
+      };
+    });
+  const escorrendo = escorridos.some(e => e.desde > 0 && e.desde < 14);
+  const poca = Math.min(1, escorridos.reduce((s, e) => s + (e.desde > 0 ? Math.min(1, e.desde / 40) : 0), 0) / 2.2);
+
+  return { p, h: 1 - .86 * p, ms, inicio: new Date(inicio), fim: new Date(inicio + VELA_CICLO), modo, escorridos, escorrendo, poca };
+}
+
+const VELA_MODOS = ["calma", "alta", "danca", "dupla", "baixa", "apagada", "acendendo"];
+
+function aplicarVela(vela, date = new Date()) {
+  const e = velaEstado(date);
+  VELA_MODOS.forEach(m => vela.classList.toggle(`ph-vela--${m}`, m === e.modo));
+  vela.classList.toggle("ph-vela--escorrendo", e.escorrendo && e.modo !== "apagada");
+  vela.style.setProperty("--h", e.h.toFixed(4));
+  vela.style.setProperty("--poca", e.poca.toFixed(3));
+  vela.querySelectorAll(".ph-candle__escorre i").forEach((i, n) => {
+    const s = e.escorridos[n];
+    i.hidden = !s || !s.len;
+    i.style.setProperty("--len", `${s ? s.len : 0}px`);
+    i.style.setProperty("--x", `${s ? s.x : 0}px`);
+  });
+  const leg = vela.querySelector(".ph-vela-legenda");
+  if (leg) {
+    const hh = d => `${d.getHours()}h`;
+    const q = Math.floor(e.ms / 60e3);
+    leg.textContent = e.modo === "apagada"
+      ? `A vela terminou. Outra acende às ${hh(e.fim)}.`
+      : e.modo === "acendendo"
+        ? `Vela nova acesa às ${hh(e.inicio)}.`
+        : `Acesa às ${hh(e.inicio)} · ${Math.floor(q / 60)}h${String(q % 60).padStart(2, "0")} de 8h`;
+  }
+  return e;
+}
+
+function initVelaRelogio() {
+  const vela = $(".pagehead .ph-candle");
+  if (!vela) return;
+  aplicarVela(vela);
+  setInterval(() => { if (!document.hidden) aplicarVela(vela); }, 15000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) aplicarVela(vela); });
+}
+
+/* Tarot: as três cartas da abertura se embaralham e trocam de rosto */
+function embaralharCartasHero() {
+  const box = $(".pagehead .ph-cards");
+  if (!box || prefersReducedMotion() || box.classList.contains("ph-cards--embaralha")) return;
+  box.classList.add("ph-cards--embaralha");
+  const deck = ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => c.baralho === "classico" && c.imagem);
+  setTimeout(() => { // no meio do embaralho, quando as cartas se cruzam
+    if (deck.length >= 3) {
+      const pick = [...deck].sort(() => Math.random() - .5).slice(0, 3);
+      box.querySelectorAll("img").forEach((img, i) => { img.src = pick[i].imagem; });
+    }
+  }, 520);
+  setTimeout(() => box.classList.remove("ph-cards--embaralha"), 1150);
+}
+
+/* Banho: respingos de água na tela, como na hora do preparo */
+function respingarTela(n = 26) {
+  if (prefersReducedMotion()) return;
+  const cv = document.createElement("canvas");
+  cv.className = "respingos";
+  cv.setAttribute("aria-hidden", "true");
+  document.body.append(cv);
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const w = innerWidth, h = innerHeight;
+  cv.width = w * dpr; cv.height = h * dpr;
+  const ctx = cv.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const escala = Math.min(1.2, Math.max(.7, w / 1100));
+  const gotas = Array.from({ length: n }, () => {
+    const r = (2.5 + Math.random() ** 2 * 10) * escala;
+    return { x: Math.random() * w, y: Math.random() * h * .85, r, t0: Math.random() * 450, desce: r > 6 && Math.random() < .55, v: 0, rastro: [] };
+  });
+  // gotinhas de borda em volta das maiores, como num esguicho
+  gotas.slice(0, 8).forEach(g => {
+    for (let k = 0; k < 3; k++) gotas.push({ x: g.x + (Math.random() - .5) * g.r * 7, y: g.y + (Math.random() - .5) * g.r * 7, r: 1 + Math.random() * 1.6, t0: g.t0 + 40, desce: false, v: 0, rastro: [] });
+  });
+  const DUR = 3400, t0 = performance.now();
+  function gota(x, y, r, sy, a) {
+    ctx.save();
+    ctx.globalAlpha = a;
+    ctx.translate(x, y); ctx.scale(1, sy);
+    const g = ctx.createRadialGradient(-r * .3, -r * .35, r * .1, 0, 0, r);
+    g.addColorStop(0, "rgba(255,255,255,.30)");
+    g.addColorStop(.55, "rgba(190,225,235,.06)");
+    g.addColorStop(.9, "rgba(255,255,255,.18)");
+    g.addColorStop(1, "rgba(255,255,255,.32)");
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "rgba(0,0,0,.22)"; ctx.lineWidth = Math.max(.6, r * .14);
+    ctx.beginPath(); ctx.arc(0, 0, r * .92, Math.PI * .15, Math.PI * .85); ctx.stroke();
+    ctx.fillStyle = "rgba(255,255,255,.85)";
+    ctx.beginPath(); ctx.ellipse(-r * .35, -r * .4, r * .22, r * .14, -.6, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+  function frame(t) {
+    const dt = t - t0;
+    ctx.clearRect(0, 0, w, h);
+    const fade = dt < DUR - 900 ? 1 : Math.max(0, (DUR - dt) / 900);
+    for (const g of gotas) {
+      const k = (dt - g.t0) / 120;
+      if (k <= 0) continue;
+      const nasce = Math.min(1, k);
+      if (g.desce && dt > g.t0 + 600) {
+        g.v = Math.min(5, g.v + .045);
+        g.y += g.v;
+        if (Math.random() < .25) g.rastro.push({ x: g.x + (Math.random() - .5) * 1.5, y: g.y - g.r, r: g.r * (.18 + Math.random() * .2) });
+        g.x += (Math.random() - .5) * .6;
+      }
+      for (const p of g.rastro) gota(p.x, p.y, p.r, 1, fade * .9);
+      gota(g.x, g.y, g.r * nasce, g.desce && g.v > 0 ? 1.18 : 1, fade);
+    }
+    if (dt < DUR) requestAnimationFrame(frame); else cv.remove();
+  }
+  requestAnimationFrame(frame);
+}
+
+/* Defumação: a fumaça do defumador paira sobre a página */
+function initFumacaPagina() {
+  if (prefersReducedMotion()) return;
+  const f = document.createElement("div");
+  f.className = "fumaca-pagina";
+  f.setAttribute("aria-hidden", "true");
+  f.innerHTML = "<i></i><i></i><i></i><i></i><b></b>";
+  document.body.append(f);
+  let t = 0;
+  document.addEventListener("fv:ficha", () => {
+    f.classList.remove("fumaca-pagina--sopro");
+    void f.offsetWidth;
+    f.classList.add("fumaca-pagina--sopro");
+    clearTimeout(t);
+    t = setTimeout(() => f.classList.remove("fumaca-pagina--sopro"), 7000);
+  });
+}
+
+function initEfeitosVivos() {
+  initVelaRelogio();
+  const pg = currentPage();
+  const ph = $(".pagehead--hero");
+  if (pg === "tarot.html" && ph) {
+    ph.addEventListener("click", e => { if (!e.target.closest("a, button, input, select, textarea")) embaralharCartasHero(); });
+  }
+  if (pg === "banhos.html") {
+    document.addEventListener("fv:ficha", () => respingarTela());
+    ph?.addEventListener("click", e => { if (!e.target.closest("a, button, input, select, textarea")) respingarTela(14); });
+  }
+  if (pg === "defumacao.html") initFumacaPagina();
 }
 
 /* Vaga-lumes no herói da home (canvas leve; pausa fora da tela) */
@@ -461,6 +668,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderFooter();
   enhancePageHead();
   initHeroLuz();
+  initEfeitosVivos();
   initHomeTopbar();
   initGlobalSearch();
 

@@ -169,6 +169,11 @@ function initTarotSpread() {
     `;
 
     spreadBox.querySelector("#btnResortearSpread")?.addEventListener("click", runSpread);
+    // spec 017: as cartas chegam uma a uma e viram
+    spreadBox.classList.remove("tspread--dando");
+    void spreadBox.offsetWidth;
+    spreadBox.classList.add("tspread--dando");
+    if (typeof embaralharCartasHero === "function") embaralharCartasHero();
     spreadBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 

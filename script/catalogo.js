@@ -653,6 +653,8 @@ function getDrawer() {
       body.scrollTop = 0;
       body.querySelector(".drawer__title")?.setAttribute("id", "drawerTitle");
       addRecipeTimers(body, body.querySelector(".drawer__title")?.textContent || eyebrow);
+      // spec 017: as páginas reagem à ficha aberta (gotas no banho, fumaça na defumação)
+      document.dispatchEvent(new CustomEvent("fv:ficha", { detail: { eyebrow, id } }));
 
       const pill = el.querySelector("#drawerAlertPill");
       if (pill) {

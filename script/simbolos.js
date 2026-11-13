@@ -890,6 +890,136 @@ function initSimbolosPage() {
     });
   }
 
+  // Ação: Queimar o sigilo na tela (spec 017). Simbólico: nada é salvo nem enviado.
+  const btnQueimarSigil = $("#btnQueimarSigil");
+  const sigilSvgWrap = $("#sigilSvgWrap");
+  let queimando = false;
+  if (btnQueimarSigil && sigilSvgWrap && sigilSvgCanvas) {
+    btnQueimarSigil.addEventListener("click", () => {
+      if (queimando) return;
+      if (!currentSigilData || currentSigilData.numberSequence.length === 0) {
+        toast("Escreva uma intenção para traçar o sigilo primeiro.");
+        return;
+      }
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        toast("Sigilo entregue. Na vida real, queime num prato fundo, longe de cortinas.");
+        return;
+      }
+      queimando = true;
+      btnQueimarSigil.disabled = true;
+      queimarSigilo().finally(() => { queimando = false; btnQueimarSigil.disabled = false; });
+    });
+  }
+
+  function queimarSigilo() {
+    return new Promise(resolve => {
+      let src = new XMLSerializer().serializeToString(sigilSvgCanvas);
+      if (!/^<svg[^>]+xmlns=/.test(src)) src = src.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+      const url = URL.createObjectURL(new Blob([src], { type: "image/svg+xml;charset=utf-8" }));
+      const img = new Image();
+      img.onerror = () => { URL.revokeObjectURL(url); resolve(); };
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        const S = sigilSvgWrap.clientWidth || 290;
+        const cv = document.createElement("canvas");
+        cv.className = "sigilo-queima";
+        cv.width = S; cv.height = S;
+        sigilSvgWrap.append(cv);
+        const ctx = cv.getContext("2d");
+
+        // 1. o papel com o sigilo em traço de carvão
+        const papel = document.createElement("canvas");
+        papel.width = S; papel.height = S;
+        const pc = papel.getContext("2d");
+        const m = S * .06;
+        const pg = pc.createRadialGradient(S / 2, S / 2, S * .1, S / 2, S / 2, S * .72);
+        pg.addColorStop(0, "#f3e8cf"); pg.addColorStop(1, "#d9c6a0");
+        pc.fillStyle = pg;
+        pc.fillRect(m, m, S - 2 * m, S - 2 * m);
+        const tinta = document.createElement("canvas");
+        tinta.width = S; tinta.height = S;
+        const tc = tinta.getContext("2d");
+        tc.drawImage(img, m, m, S - 2 * m, S - 2 * m);
+        tc.globalCompositeOperation = "source-in";
+        tc.fillStyle = "#2a1a10";
+        tc.fillRect(0, 0, S, S);
+        pc.globalAlpha = .9;
+        pc.drawImage(tinta, 0, 0);
+        const base = pc.getImageData(0, 0, S, S).data;
+
+        // 2. mapa de queima: começa num canto de baixo e sobe com bordas irregulares
+        const ox = S * (.25 + Math.random() * .5), oy = S - m;
+        const ruido = (x, y) => Math.sin(x * .09 + 1.7) * Math.cos(y * .07) * .5 + Math.sin(x * .023 + y * .031) * .8 + Math.sin(x * .21 - y * .17) * .18;
+        const campo = new Float32Array(S * S);
+        let max = 0;
+        for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+          const v = Math.hypot(x - ox, (y - oy) * 1.15) + ruido(x, y) * S * .08;
+          campo[y * S + x] = v;
+          if (v > max) max = v;
+        }
+
+        const brasas = [];
+        const saida = ctx.createImageData(S, S);
+        const o = saida.data;
+        const DUR = 4200, t0 = performance.now();
+        sigilSvgCanvas.classList.add("sigilo-svg--oculto");
+
+        function frame(t) {
+          const k = Math.min(1, (t - t0) / DUR);
+          const T = (k * k * .4 + k * .6) * (max + S * .1); // começa devagar e pega
+          for (let i = 0, j = 0; i < campo.length; i++, j += 4) {
+            const d = campo[i] - T;
+            if (base[j + 3] === 0 || d < -S * .05) { o[j + 3] = 0; continue; }
+            let r = base[j], g = base[j + 1], b = base[j + 2], a = base[j + 3];
+            if (d < 0) { // já queimou: carvão que se desfaz
+              const q = 1 + d / (S * .05);
+              r = 30 + 90 * q; g = 14 + 30 * q; b = 8; a = 255 * q * q;
+            } else if (d < S * .025) { // a borda acesa
+              const q = 1 - d / (S * .025);
+              r = r + (255 - r) * q; g = g + (150 - g) * q; b = b * (1 - q) + 40 * q;
+            } else if (d < S * .08) { // o papel escurece antes do fogo chegar
+              const q = 1 - d / (S * .08);
+              r *= 1 - .45 * q; g *= 1 - .55 * q; b *= 1 - .65 * q;
+            }
+            o[j] = r; o[j + 1] = g; o[j + 2] = b; o[j + 3] = a;
+          }
+          ctx.putImageData(saida, 0, 0);
+
+          // faíscas e cinzas que sobem da borda
+          if (k < 1) for (let n = 0; n < 4; n++) {
+            const ang = Math.random() * Math.PI * 2;
+            const x = ox + Math.cos(ang) * T, y = oy + Math.sin(ang) * T / 1.15;
+            if (x > m && x < S - m && y > m && y < S - m) brasas.push({ x, y, vx: (Math.random() - .5) * .6, vy: -.6 - Math.random() * 1.4, vida: 1, cinza: Math.random() < .35 });
+          }
+          ctx.globalCompositeOperation = "lighter";
+          for (const p of brasas) {
+            p.x += p.vx + Math.sin(p.y * .05) * .3; p.y += p.vy; p.vida -= .018;
+            if (p.vida <= 0) continue;
+            ctx.fillStyle = p.cinza ? `rgba(160,150,140,${p.vida * .5})` : `rgba(255,${150 + 80 * p.vida | 0},60,${p.vida})`;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.cinza ? 1.6 : 1.2, 0, Math.PI * 2); ctx.fill();
+          }
+          ctx.globalCompositeOperation = "source-over";
+          for (let i = brasas.length - 1; i >= 0; i--) if (brasas[i].vida <= 0) brasas.splice(i, 1);
+
+          if (k < 1 || brasas.length) requestAnimationFrame(frame);
+          else {
+            cv.remove();
+            sigilSvgWrap.insertAdjacentHTML("beforeend", `<p class="sigilo-entregue">Entregue. ✨</p>`);
+            toast("Sigilo entregue. Na vida real, queime num prato fundo, longe de cortinas.");
+            setTimeout(() => {
+              sigilSvgWrap.querySelector(".sigilo-entregue")?.remove();
+              sigilSvgCanvas.classList.remove("sigilo-svg--oculto");
+              updateSigilUI(true);
+              resolve();
+            }, 2200);
+          }
+        }
+        requestAnimationFrame(frame);
+      };
+      img.src = url;
+    });
+  }
+
   // Ação: Copiar Dados do Sigilo
   if (btnCopySigilData) {
     btnCopySigilData.addEventListener("click", () => {
