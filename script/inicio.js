@@ -44,7 +44,7 @@ function initHomeHero() {
    ========================================================================== */
 const PAGE_HERO = {
   "banhos.html": { img: "images/camomila.jpg", fireflies: true },
-  "defumacao.html": { img: "images/alecrim.jpg", fireflies: true, defumador: true },
+  "defumacao.html": { img: "images/alecrim.jpg", fireflies: true },
   "plantas.html": { img: "images/manjericao.jpg", fireflies: true },
   "colheita.html": { img: "images/capim-limao.jpg", fireflies: true },
   "glossario.html": { img: "images/jurema-preta.jpg", fireflies: true },
@@ -80,19 +80,40 @@ function heroArtHtml(kind) {
     const imgs = ["images/tarot/classico/classico-maior-17-estrela.jpg", "images/tarot/classico/classico-maior-19-sol.jpg", "images/tarot/classico/classico-maior-18-lua.jpg"];
     return `<div class="ph-art" aria-hidden="true"><div class="ph-stars"></div><div class="ph-luz-cartas"></div><div class="ph-cards">${imgs.map(s => `<img src="${s}" alt="" onerror="this.remove()">`).join("")}</div></div>`;
   }
-  if (kind === "steam") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div><div class="ph-cha"><div class="ph-cha__luz"></div><div class="ph-cha__vapor"><i></i><i></i><i></i></div><div class="ph-cha__xicara"></div><div class="ph-cha__pires"></div></div></div>`;
+  if (kind === "steam") return `<div class="ph-art" aria-hidden="true"><div class="ph-stars u-o-35"></div><div class="ph-cha"><div class="ph-cha__luz"></div><div class="ph-cha__vapor"><i></i><i></i><i></i></div>${XICARA_SVG}</div></div>`;
   return "";
 }
 
+/* Xícara de porcelana com pires, asa, filete dourado e o chá com reflexo (spec 017) */
+const XICARA_SVG = `<svg class="ph-cha__svg" viewBox="0 0 220 150" aria-hidden="true">
+  <defs>
+    <linearGradient id="xcPorc" x1="0" x2="1" y1="0" y2="0"><stop class="xc-p0" offset="0"/><stop class="xc-p1" offset=".38"/><stop class="xc-p2" offset=".62"/><stop class="xc-p3" offset="1"/></linearGradient>
+    <radialGradient id="xcPires" cx=".5" cy=".35" r=".6"><stop class="xc-p1" offset="0"/><stop class="xc-p2" offset=".55"/><stop class="xc-p3" offset="1"/></radialGradient>
+    <radialGradient id="xcCha" cx=".42" cy=".4" r=".7"><stop class="xc-c0" offset="0"/><stop class="xc-c1" offset=".55"/><stop class="xc-c2" offset="1"/></radialGradient>
+  </defs>
+  <ellipse class="xc-sombra" cx="110" cy="138" rx="96" ry="9"/>
+  <ellipse fill="url(#xcPires)" cx="110" cy="130" rx="98" ry="15"/>
+  <ellipse class="xc-pires-fundo" cx="110" cy="128" rx="54" ry="7.5"/>
+  <path class="xc-asa" d="M156 62 C186 56 194 92 160 100" />
+  <path class="xc-asa-brilho" d="M159 66 C181 63 186 88 161 95" />
+  <path fill="url(#xcPorc)" d="M50 46 C50 92 74 124 110 124 C146 124 170 92 170 46 Z"/>
+  <ellipse class="xc-pe" cx="110" cy="124" rx="26" ry="4.5"/>
+  <path class="xc-filete" d="M53 58 C60 62 84 66 110 66 C136 66 160 62 167 58"/>
+  <ellipse class="xc-borda" cx="110" cy="46" rx="60" ry="11"/>
+  <ellipse fill="url(#xcCha)" cx="110" cy="47.5" rx="55" ry="8.6"/>
+  <ellipse class="xc-reflexo" cx="92" cy="45.5" rx="17" ry="2.2"/>
+  <path class="xc-brilho" d="M62 60 C64 84 74 102 88 112"/>
+</svg>`;
+
 /* Vela em camadas (spec 014) no castiçal, queimando com o relógio (spec 017):
-   halo, castiçal (prato, haste, copo com a cera que escorreu), corpo com escorridos e gota,
-   fumaça, pavio e duas chamas (a segunda só aparece quando o pavio "duplica") */
+   halo, castiçal (prato, haste, copo com a cera que escorreu), corpo em SVG (borda derretida
+   e escorridos), fumaça, pavio e a chama (a segunda camada abre a ponta em duas) */
 const FOGO_HTML = `<i class="ph-candle__borda"></i><i class="ph-candle__amarela"></i><i class="ph-candle__nucleo"></i>`;
 const CANDLE_HTML = `<div class="ph-candle">
   <div class="ph-candle__halo"></div>
   <div class="ph-castical__prato"></div>
   <div class="ph-castical__haste"></div>
-  <div class="ph-candle__corpo"><div class="ph-candle__cera"></div><div class="ph-candle__escorre"><i></i><i></i><i></i></div><div class="ph-candle__gota"></div></div>
+  <svg class="ph-candle__svg" aria-hidden="true"></svg>
   <div class="ph-castical__copo"><i class="ph-castical__poca"></i></div>
   <div class="ph-candle__fumaca"><i></i><i></i><i></i></div>
   <div class="ph-candle__pavio"></div>
@@ -108,11 +129,8 @@ function enhancePageHead() {
   // avisos saem da abertura e ficam logo abaixo dela
   [...ph.querySelectorAll(":scope > .notice")].reverse().forEach(n => ph.after(n));
   if (cfg.art === "candle") ph.classList.add("pagehead--vela");
-  const defumador = cfg.defumador
-    ? `<div class="ph-defumador"><div class="ph-defumador__luz"></div><div class="ph-defumador__fumaca"><i></i><i></i><i></i><i></i><i></i></div><div class="ph-defumador__pote"><i class="ph-defumador__brasa"></i></div><div class="ph-defumador__pes"></div></div>`
-    : "";
-  const luz = (cfg.fireflies || cfg.smoke || cfg.defumador)
-    ? `<div class="ph-art ph-art--luz" aria-hidden="true">${cfg.smoke ? `<div class="ph-fumaca"><i></i><i></i><i></i><i></i></div>` : ""}${cfg.fireflies ? `<canvas class="fireflies ph-fireflies"></canvas>` : ""}${defumador}</div>`
+  const luz = (cfg.fireflies || cfg.smoke)
+    ? `<div class="ph-art ph-art--luz" aria-hidden="true">${cfg.smoke ? `<div class="ph-fumaca"><i></i><i></i><i></i><i></i></div>` : ""}${cfg.fireflies ? `<canvas class="fireflies ph-fireflies"></canvas>` : ""}</div>`
     : "";
   ph.insertAdjacentHTML("afterbegin", (cfg.img
     ? `<div class="ph-media" aria-hidden="true"><img src="${cfg.img}" alt=""></div>`
@@ -158,7 +176,7 @@ function initHeroLuz() {
    Spec 017: efeitos vivos. A vela queima com o relógio, as cartas embaralham,
    a defumação solta fumaça pela página e o banho respinga na tela.
    ========================================================================== */
-const VELA_CICLO = 8 * 3600e3; // uma vela comum queima cerca de 8 horas; novas velas à 0h, 8h e 16h
+const VELA_CICLO = 4 * 3600e3; // vela palito nº 8: de 4 a 5 horas; uma vela nova a cada 4 h (0h, 4h, 8h, 12h, 16h, 20h)
 
 function velaHash(n) {
   n = (n ^ 0x9e3779b9) >>> 0;
@@ -171,57 +189,121 @@ function velaHash(n) {
    Tudo sai do relógio, então todo mundo vê a mesma vela na mesma hora. */
 function velaEstado(date = new Date()) {
   const meiaNoite = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-  const idx = Math.min(2, Math.floor((date.getTime() - meiaNoite) / VELA_CICLO));
+  const porDia = Math.round(864e5 / VELA_CICLO);
+  const idx = Math.min(porDia - 1, Math.floor((date.getTime() - meiaNoite) / VELA_CICLO));
   const inicio = meiaNoite + idx * VELA_CICLO;
   const ms = date.getTime() - inicio;
   const p = ms / VELA_CICLO;
   const resta = VELA_CICLO - ms;
-  const ciclo = ((date.getFullYear() * 13 + date.getMonth()) * 32 + date.getDate()) * 3 + idx;
+  const ciclo = ((date.getFullYear() * 13 + date.getMonth()) * 32 + date.getDate()) * porDia + idx;
 
   let modo;
   if (resta < 2 * 60e3) modo = "apagada";
   else if (ms < 50e3) modo = "acendendo";
-  else if (resta < 12 * 60e3) modo = "baixa";
+  else if (resta < 10 * 60e3) modo = "baixa";
   else {
     const r = velaHash(Math.floor(date.getTime() / 90e3)); // muda de jeito a cada minuto e meio
-    modo = r < .38 ? "calma" : r < .58 ? "alta" : r < .8 ? "danca" : r < .92 ? "dupla" : "baixa";
+    modo = r < .34 ? "calma" : r < .5 ? "alta" : r < .64 ? "sobe" : r < .78 ? "vento" : r < .92 ? "bifurcada" : "baixa";
   }
 
-  // até 3 escorridos por vela; a cera que desce fica até a vela acabar
+  // de 6 a 8 escorridos por vela, cada um numa hora; antes dela a vela fica lisa,
+  // depois a cera desce em poucos minutos, endurece e fica até a vela acabar
   const min = ms / 60e3;
-  const lados = [3, 17, 33];
-  const giro = Math.floor(velaHash(ciclo * 13) * 3);
-  const escorridos = [0, 1, 2]
-    .filter(i => i === 0 || velaHash(ciclo * 11 + i) < .65)
-    .map(i => {
-      const iniMin = (.08 + velaHash(ciclo * 7 + i) * .72) * VELA_CICLO / 60e3;
-      const desde = min - iniMin;
-      return {
-        x: lados[(i + giro) % 3] + Math.round(velaHash(ciclo * 17 + i) * 6),
-        desde,
-        len: desde <= 0 ? 0 : Math.round(10 + (26 + velaHash(ciclo * 19 + i) * 34) * (1 - Math.exp(-desde / 10)))
-      };
-    });
-  const escorrendo = escorridos.some(e => e.desde > 0 && e.desde < 14);
-  const poca = Math.min(1, escorridos.reduce((s, e) => s + (e.desde > 0 ? Math.min(1, e.desde / 40) : 0), 0) / 2.2);
-
-  return { p, h: 1 - .86 * p, ms, inicio: new Date(inicio), fim: new Date(inicio + VELA_CICLO), modo, escorridos, escorrendo, poca };
+  const total = 6 + Math.floor(velaHash(ciclo * 3) * 3);
+  const escorridos = Array.from({ length: total }, (_, i) => {
+    const h = k => velaHash(ciclo * 41 + i * 7 + k);
+    const pIni = .03 + (i + h(1) * .8) / total * .86; // espalhados ao longo da queima
+    const desde = min - pIni * VELA_CICLO / 60e3;
+    const borda = h(2) < .5;
+    return {
+      pIni,
+      borda,
+      lado: h(3) < .5 ? -1 : 1,
+      pos: h(4),
+      w: 3.8 + h(5) * 3.8,
+      lmax: 30 + Math.pow(h(6), 1.2) * 120,
+      calombo: .3 + h(7) * .4,
+      torto: (h(8) - .5) * 2.4,
+      desde,
+      frac: desde <= 0 ? 0 : 1 - Math.exp(-desde / 6)
+    };
+  });
+  const escorrendo = escorridos.some(e => e.desde > 0 && e.desde < 10);
+  return { p, h: 1 - .86 * p, ms, ciclo, inicio: new Date(inicio), fim: new Date(inicio + VELA_CICLO), modo, escorridos, escorrendo };
 }
 
-const VELA_MODOS = ["calma", "alta", "danca", "dupla", "baixa", "apagada", "acendendo"];
+const VELA_MODOS = ["calma", "alta", "sobe", "vento", "bifurcada", "baixa", "apagada", "acendendo"];
+
+/* Desenha o corpo da vela: a borda derretida (lábios nas beiradas, poça no meio),
+   os escorridos com calombo e gota endurecida, e a cera que juntou no pé */
+function velaSvg(svg, e) {
+  const Hs = Math.round(svg.clientHeight); // altura de layout (não muda com o scale do celular)
+  if (!Hs) return;
+  const f = n => n.toFixed(1);
+  const W = 90, cx = 45, cw = 30, L = cx - cw / 2, R = cx + cw / 2;
+  const yTop = Hs * (1 - e.h);
+  const r = k => velaHash(e.ciclo * 31 + k);
+  const lipL = 4 + r(1) * 7, lipR = 3 + r(2) * 8;
+  const rim = [[L, yTop - lipL * .5], [L + 3, yTop - lipL], [L + 8, yTop + r(3) * 2.5], [cx, yTop + 3.2], [R - 8, yTop + r(4) * 2.5], [R - 3, yTop - lipR], [R, yTop - lipR * .45]];
+  const suave = pts => {
+    let d = "";
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      d += ` C${f(p1[0] + (p2[0] - p0[0]) / 6)},${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)},${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])},${f(p2[1])}`;
+    }
+    return d;
+  };
+  const bola = (x, y, rr) => ` M${f(x - rr)},${f(y)} a${f(rr)},${f(rr)} 0 1 0 ${f(2 * rr)},0 a${f(rr)},${f(rr)} 0 1 0 ${f(-2 * rr)},0`;
+  // tudo desenhado no mesmo sentido (anti-horário), para a cera somar e não vazar
+  const aoContrario = rim.slice().reverse();
+  const corpo = `M${R},${Hs} L${f(aoContrario[0][0])},${f(aoContrario[0][1])}${suave(aoContrario)} L${L},${Hs} Z`;
+  let cera = "";
+  let brilho = "", reflexo = "";
+  let noPe = 0;
+  for (const d of e.escorridos) {
+    if (d.frac <= 0) continue;
+    const yIni = Hs * .86 * d.pIni;             // onde estava o topo quando a cera desceu
+    const y0 = Math.max(yIni, yTop - 1.5);      // o que ficava acima do topo atual já queimou
+    const y1 = Math.min(Hs - 2, yIni + d.lmax * d.frac);
+    if (y1 - y0 < 4) continue;
+    const w = d.w;
+    const x = d.borda ? (d.lado < 0 ? L + 1.2 : R - 1.2) : L + 6 + d.pos * (cw - 12);
+    const t = d.torto, m = (y0 + y1) / 2;
+    cera += ` M${f(x - w / 2)},${f(y0)} C${f(x - w / 2 + t)},${f(m)} ${f(x - w * .42)},${f(y1 - w * .6)} ${f(x - w * .42)},${f(y1 - w * .2)}`
+      + ` A${f(w * .62)},${f(w * .62)} 0 1 0 ${f(x + w * .42)},${f(y1 - w * .2)}`
+      + ` C${f(x + w * .42)},${f(y1 - w * .6)} ${f(x + w / 2 + t)},${f(m)} ${f(x + w / 2)},${f(y0)} Z`;
+    if (y0 <= yTop) cera += bola(x, yTop + 1, w * .8);               // a cera saindo pela borda
+    if (y1 - y0 > 22) cera += bola(x + t * .5, y0 + (y1 - y0) * d.calombo, w * .6); // calombo no caminho
+    brilho += ` M${f(x - w * .2)},${f(y0 + 2)} L${f(x - w * .2 + t * .3)},${f(y1 - w * .5)}`;
+    reflexo += bola(x - w * .2, y1 - w * .05, w * .14);
+    if (y1 >= Hs - 2.5) noPe += w;
+  }
+  const pe = Math.min(1, noPe / 14);
+  const molhado = e.escorrendo && e.modo !== "apagada";
+  svg.setAttribute("viewBox", `0 0 ${W} ${Hs}`);
+  svg.innerHTML = `<defs>
+    <linearGradient id="vcCera" gradientUnits="userSpaceOnUse" x1="${L - 7}" y1="0" x2="${R + 7}" y2="0">
+      <stop class="vc-s0" offset="0"/><stop class="vc-s1" offset=".28"/><stop class="vc-s2" offset=".5"/><stop class="vc-s3" offset=".78"/><stop class="vc-s4" offset="1"/>
+    </linearGradient>
+    <linearGradient id="vcLuz" gradientUnits="userSpaceOnUse" x1="0" y1="${f(yTop - 8)}" x2="0" y2="${f(yTop + 64)}">
+      <stop class="vc-l0" offset="0"/><stop class="vc-l1" offset=".3"/><stop class="vc-l2" offset="1"/>
+    </linearGradient>
+  </defs>
+  ${pe > 0 ? `<ellipse class="vc-cera" cx="${cx}" cy="${Hs - 1}" rx="${f(cw / 2 + 2 + pe * 14)}" ry="${f(2.2 + pe * 2.6)}"/>` : ""}
+  <path class="vc-cera" d="${corpo}"/>
+  ${cera ? `<path class="vc-cera vc-gotas" d="${cera}"/>` : ""}
+  <path class="vc-luz" d="${corpo}${cera}"/>
+  <ellipse class="vc-poca" cx="${cx}" cy="${f(yTop + 1.6)}" rx="9.5" ry="2.3"/>
+  <path class="vc-brilho${molhado ? " vc-brilho--molhado" : ""}" d="${brilho}"/>
+  <path class="vc-reflexo" d="${reflexo}"/>`;
+}
 
 function aplicarVela(vela, date = new Date()) {
   const e = velaEstado(date);
   VELA_MODOS.forEach(m => vela.classList.toggle(`ph-vela--${m}`, m === e.modo));
-  vela.classList.toggle("ph-vela--escorrendo", e.escorrendo && e.modo !== "apagada");
   vela.style.setProperty("--h", e.h.toFixed(4));
-  vela.style.setProperty("--poca", e.poca.toFixed(3));
-  vela.querySelectorAll(".ph-candle__escorre i").forEach((i, n) => {
-    const s = e.escorridos[n];
-    i.hidden = !s || !s.len;
-    i.style.setProperty("--len", `${s ? s.len : 0}px`);
-    i.style.setProperty("--x", `${s ? s.x : 0}px`);
-  });
+  const svg = vela.querySelector(".ph-candle__svg");
+  if (svg) velaSvg(svg, e);
   const leg = vela.querySelector(".ph-vela-legenda");
   if (leg) {
     const hh = d => `${d.getHours()}h`;
@@ -230,7 +312,7 @@ function aplicarVela(vela, date = new Date()) {
       ? `A vela terminou. Outra acende às ${hh(e.fim)}.`
       : e.modo === "acendendo"
         ? `Vela nova acesa às ${hh(e.inicio)}.`
-        : `Acesa às ${hh(e.inicio)} · ${Math.floor(q / 60)}h${String(q % 60).padStart(2, "0")} de 8h`;
+        : `Acesa às ${hh(e.inicio)} · ${Math.floor(q / 60)}h${String(q % 60).padStart(2, "0")} de 4h`;
   }
   return e;
 }
@@ -241,6 +323,8 @@ function initVelaRelogio() {
   aplicarVela(vela);
   setInterval(() => { if (!document.hidden) aplicarVela(vela); }, 15000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) aplicarVela(vela); });
+  let rz = 0;
+  window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => aplicarVela(vela), 200); });
 }
 
 /* Tarot: as três cartas da abertura se embaralham e trocam de rosto */
@@ -319,22 +403,14 @@ function respingarTela(n = 26) {
   requestAnimationFrame(frame);
 }
 
-/* Defumação: a fumaça do defumador paira sobre a página */
-function initFumacaPagina() {
+/* Defumação: uma neblina em fios passa devagar sobre a página */
+function initNeblina() {
   if (prefersReducedMotion()) return;
-  const f = document.createElement("div");
-  f.className = "fumaca-pagina";
-  f.setAttribute("aria-hidden", "true");
-  f.innerHTML = "<i></i><i></i><i></i><i></i><b></b>";
-  document.body.append(f);
-  let t = 0;
-  document.addEventListener("fv:ficha", () => {
-    f.classList.remove("fumaca-pagina--sopro");
-    void f.offsetWidth;
-    f.classList.add("fumaca-pagina--sopro");
-    clearTimeout(t);
-    t = setTimeout(() => f.classList.remove("fumaca-pagina--sopro"), 7000);
-  });
+  const n = document.createElement("div");
+  n.className = "neblina";
+  n.setAttribute("aria-hidden", "true");
+  n.innerHTML = "<i class=\"neblina__a\"></i><i class=\"neblina__b\"></i>";
+  document.body.append(n);
 }
 
 function initEfeitosVivos() {
@@ -348,7 +424,7 @@ function initEfeitosVivos() {
     document.addEventListener("fv:ficha", () => respingarTela());
     ph?.addEventListener("click", e => { if (!e.target.closest("a, button, input, select, textarea")) respingarTela(14); });
   }
-  if (pg === "defumacao.html") initFumacaPagina();
+  if (pg === "defumacao.html") initNeblina();
 }
 
 /* Vaga-lumes no herói da home (canvas leve; pausa fora da tela) */

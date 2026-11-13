@@ -6040,28 +6040,26 @@ main:focus { outline: none; }
   background: radial-gradient(circle, var(--luz-vela) 0%, var(--luz-vela-fraca) 34%, transparent 66%);
   animation: velaRespira 4.1s ease-in-out infinite;
 }
-.ph-cha__pires{
-  bottom: 0; width: 170px; height: 22px; transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 35%, var(--porcelana), var(--porcelana-sombra) 75%);
-}
-.ph-cha__xicara{
-  bottom: 10px; width: 112px; height: 78px; transform: translateX(-50%);
-  border-radius: 6px 6px 52px 52px;
-  background: linear-gradient(90deg, var(--porcelana-sombra), var(--porcelana) 42%, var(--porcelana-sombra));
-}
-.ph-cha__xicara::before{ /* o chá */
-  content: ""; position: absolute; left: 4px; right: 4px; top: -5px; height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 45%, var(--chama), var(--cha-liquido) 70%);
-  border: 2px solid var(--porcelana);
-}
-.ph-cha__xicara::after{ /* a asa */
-  content: ""; position: absolute; right: -24px; top: 14px; width: 30px; height: 34px;
-  border: 7px solid var(--porcelana-sombra); border-left: 0;
-  border-radius: 0 50% 50% 0;
-}
-.ph-cha__vapor{ bottom: 72px; width: 0; height: 0; }
+:root{ --porcelana-brilho: #fbf7ee; --porcelana-funda: #8f846f; --cha-reflexo: #f4c46a; --cha-fundo: #5e3214; }
+.ph-cha{ width: 220px; }
+.ph-cha__svg{ bottom: 0; width: 220px; height: 150px; transform: translateX(-50%); overflow: visible; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
+.xc-p0{ stop-color: var(--porcelana-sombra); }
+.xc-p1{ stop-color: var(--porcelana-brilho); }
+.xc-p2{ stop-color: var(--porcelana); }
+.xc-p3{ stop-color: var(--porcelana-funda); }
+.xc-c0{ stop-color: var(--cha-reflexo); }
+.xc-c1{ stop-color: var(--cha-liquido); }
+.xc-c2{ stop-color: var(--cha-fundo); }
+.xc-sombra{ fill: rgba(0,0,0,.4); }
+.xc-pires-fundo{ fill: none; stroke: var(--porcelana-sombra); stroke-width: 1.2; opacity: .7; }
+.xc-asa{ fill: none; stroke: var(--porcelana-sombra); stroke-width: 10; stroke-linecap: round; }
+.xc-asa-brilho{ fill: none; stroke: var(--porcelana-brilho); stroke-width: 2.4; stroke-linecap: round; opacity: .8; }
+.xc-pe{ fill: var(--porcelana-sombra); }
+.xc-filete{ fill: none; stroke: var(--latao-claro); stroke-width: 1.6; opacity: .9; }
+.xc-borda{ fill: var(--porcelana-brilho); }
+.xc-reflexo{ fill: var(--cha-reflexo); opacity: .55; }
+.xc-brilho{ fill: none; stroke: var(--porcelana-brilho); stroke-width: 3.5; stroke-linecap: round; opacity: .55; }
+.ph-cha__vapor{ bottom: 100px; width: 0; height: 0; }
 .ph-cha__vapor i{
   position: absolute; bottom: 0; width: 14px; height: 96px;
   border-radius: 999px;
@@ -6206,10 +6204,17 @@ main:focus { outline: none; }
   --brasa-clara: #ffc06a;
   --carvao: #2a1c14;
   --fumaca-forte: rgba(240,240,234,.85);
-  --fumaca-pagina: rgba(220,222,214,.11);
 }
 
 /* ---------- A vela no castiçal ---------- */
+:root{
+  --cera-brilho: #fffaf0;
+  --cera-funda: #b3a488;
+  --cera-luz: rgba(255,206,128,.9);
+  --cera-luz-meia: rgba(255,186,96,.38);
+  --cera-luz-zero: rgba(255,186,96,0);
+  --poca-vela: #ffd98a;
+}
 .pagehead .ph-candle{
   --base: 36px;
   --vmax: calc(100% - var(--base) - 72px);
@@ -6217,17 +6222,33 @@ main:focus { outline: none; }
   --pavio-h: 11px;
   height: 80%; width: 130px;
 }
-.ph-candle__corpo{
-  bottom: var(--base);
-  height: calc(var(--vmax) * var(--h, 1));
-  min-height: 10px;
-  transition: height 14s linear;
-  border-radius: 7px 7px 2px 2px;
+.ph-candle__svg{
+  bottom: var(--base); width: 90px; height: var(--vmax);
+  transform: translateX(-50%);
+  overflow: visible;
 }
-.ph-candle__pavio{ bottom: calc(var(--topo) - 2px); height: var(--pavio-h); transition: height 2s ease, bottom 14s linear; }
-.ph-candle__chama{ bottom: calc(var(--topo) + var(--pavio-h) - 6px); transition: transform .8s cubic-bezier(.2,.8,.2,1), bottom 14s linear; }
-.ph-candle__halo{ bottom: calc(var(--topo) + 22px); scale: var(--halo, 1); transition: scale 2.4s ease, bottom 14s linear, opacity 2s ease; }
-.ph-candle__fumaca{ bottom: calc(var(--topo) + 56px); }
+.vc-s0{ stop-color: var(--cera-funda); }
+.vc-s1{ stop-color: var(--cera); }
+.vc-s2{ stop-color: var(--cera-brilho); }
+.vc-s3{ stop-color: var(--cera); }
+.vc-s4{ stop-color: var(--cera-sombra); }
+.vc-l0{ stop-color: var(--cera-luz); }
+.vc-l1{ stop-color: var(--cera-luz-meia); }
+.vc-l2{ stop-color: var(--cera-luz-zero); }
+.vc-cera{ fill: url(#vcCera); }
+.vc-luz{ fill: url(#vcLuz); mix-blend-mode: screen; transition: opacity 2s ease; }
+.vc-poca{ fill: var(--poca-vela); opacity: .75; }
+.vc-brilho{ fill: none; stroke: var(--cera-brilho); stroke-width: .9; stroke-linecap: round; opacity: .75; }
+.vc-brilho--molhado{ animation: ceraMolhada 2.4s ease-in-out infinite alternate; }
+@keyframes ceraMolhada{ from{ opacity: .55; } to{ opacity: 1; } }
+.ph-vela--apagada .vc-luz{ opacity: .12; }
+.ph-vela--apagada .vc-poca{ opacity: .25; }
+.ph-vela--baixa .vc-luz{ opacity: .7; }
+
+.ph-candle__pavio{ bottom: calc(var(--topo) + 1px); height: var(--pavio-h); width: 2.5px; transition: height 2s ease, bottom 14s linear; }
+.ph-candle__chama{ bottom: calc(var(--topo) + var(--pavio-h) - 4px); transition: transform .8s cubic-bezier(.2,.8,.2,1), bottom 14s linear; }
+.ph-candle__halo{ bottom: calc(var(--topo) + 26px); scale: var(--halo, 1); transition: scale 2.4s ease, bottom 14s linear, opacity 2s ease; }
+.ph-candle__fumaca{ bottom: calc(var(--topo) + 60px); }
 
 /* castiçal de latão */
 .ph-castical__prato{
@@ -6252,66 +6273,44 @@ main:focus { outline: none; }
   background: radial-gradient(ellipse at 50% 20%, var(--latao-claro), var(--latao) 50%, var(--latao-escuro));
   box-shadow: 0 3px 6px rgba(0,0,0,.45);
 }
-.ph-castical__poca{ /* a cera que escorreu e esfriou no copo */
-  position: absolute; left: 50%; top: -2px; height: 10px;
-  width: calc(46px + 26px * var(--poca, 0));
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 45% 35%, var(--cera), var(--cera-sombra));
-  opacity: calc(var(--poca, 0) * 1.6);
-  transition: width 20s linear, opacity 20s linear;
-}
+.ph-castical__poca{ display: none; }
 
-/* a cera que desce pela lateral e fica */
-.ph-candle__escorre i{
-  position: absolute; top: -4px; left: var(--x, 0);
-  width: 8px; height: min(var(--len, 0px), calc(100% - 6px));
-  border-radius: 4px 4px 6px 6px / 3px 3px 8px 8px;
-  background: linear-gradient(90deg, var(--cera-sombra), var(--cera) 30%, var(--cera) 70%, var(--cera-sombra));
-  box-shadow: 1px 1px 2px rgba(0,0,0,.22), inset 1px 0 1px rgba(255,255,255,.6);
-  transition: height 15s linear;
+/* jeitos da chama: o tamanho vem do "scale", a inclinação do "rotate", sem brigar com o sopro */
+.ph-candle__fogo{ scale: var(--sx, 1) var(--sy, 1); transition: scale 2.4s ease, opacity 1.5s ease, rotate 1.5s ease; }
+.ph-candle__fogo--2{ opacity: 0; }
+.ph-vela--alta{ --sx: .84; --sy: 1.42; --pavio-h: 14px; --halo: 1.08; }
+/* levanta e abaixa */
+.ph-vela--sobe .ph-candle__fogo:not(.ph-candle__fogo--2){ animation: velaSobe 3.4s ease-in-out infinite; }
+@keyframes velaSobe{
+  0%, 100%{ scale: 1 .88; }
+  45%{ scale: .84 1.4; }
+  70%{ scale: .95 1.05; }
 }
-.ph-candle__escorre i::before{ /* um calombo no meio do caminho */
-  content: ""; position: absolute; left: -1.5px; top: 42%; width: 11px; height: 9px;
-  border-radius: 50%; background: inherit; box-shadow: inherit;
+/* corrente de ar: a chama deita para um lado e oscila */
+.ph-vela--vento .ph-candle__fogo:not(.ph-candle__fogo--2){ animation: velaVento 2.6s ease-in-out infinite; }
+.ph-vela--vento{ --sx: .9; --sy: 1.12; }
+@keyframes velaVento{
+  0%, 100%{ rotate: 18deg; }
+  30%{ rotate: 30deg; }
+  55%{ rotate: 14deg; }
+  80%{ rotate: 26deg; }
 }
-.ph-candle__escorre i::after{ /* a gota que endureceu na ponta */
-  content: ""; position: absolute; left: -2px; bottom: -5px; width: 12px; height: 11px;
-  border-radius: 45% 45% 50% 50% / 40% 40% 60% 60%;
-  background: inherit; box-shadow: inherit;
-}
-.ph-candle__escorre i:nth-child(2){ width: 7px; }
-.ph-candle__escorre i:nth-child(3){ width: 6px; }
-.ph-candle__escorre i:nth-child(3)::before{ display: none; }
-.ph-candle__gota{ animation: none; opacity: 0; }
-.ph-vela--escorrendo .ph-candle__gota{ animation: velaGota 9s ease-in infinite; }
-
-/* jeitos da chama: o tamanho vem do "scale", o balanço do "rotate", sem brigar com o sopro */
-.ph-candle__fogo{ scale: var(--sx, 1) var(--sy, 1); transition: scale 2.4s ease, opacity 1.5s ease, translate 1.5s ease, rotate 1.5s ease; }
-.ph-candle__fogo--2{ opacity: 0; scale: .7 .78; translate: -13px 4px; rotate: -18deg; }
-.ph-vela--alta{ --sx: .84; --sy: 1.42; --pavio-h: 15px; --halo: 1.08; }
-.ph-vela--danca .ph-candle__fogo:not(.ph-candle__fogo--2){ animation: velaDanca 1.9s ease-in-out infinite; }
-.ph-vela--dupla .ph-candle__fogo{ translate: 6px 0; rotate: 9deg; }
-.ph-vela--dupla .ph-candle__fogo--2{ opacity: 1; translate: -13px 4px; rotate: -18deg; }
-.ph-vela--dupla{ --pavio-h: 14px; --halo: 1.1; }
-.ph-vela--dupla .ph-candle__pavio{ width: 5px; border-radius: 3px 3px 0 0; }
+/* a ponta do fogo se abre em duas: duas línguas que nascem juntas e se separam no alto */
+.ph-vela--bifurcada{ --sx: .74; --sy: 1.08; --pavio-h: 13px; --halo: 1.06; }
+.ph-vela--bifurcada .ph-candle__fogo{ rotate: 8deg; }
+.ph-vela--bifurcada .ph-candle__fogo--2{ opacity: 1; rotate: -8deg; }
+.ph-vela--bifurcada .ph-candle__fogo .ph-candle__nucleo{ opacity: .7; }
 .ph-vela--baixa{ --sx: .74; --sy: .6; --halo: .78; --pavio-h: 7px; }
 .ph-vela--acendendo .ph-candle__fogo:not(.ph-candle__fogo--2){ animation: velaAcende 4s cubic-bezier(.2,.7,.3,1) both; }
 .ph-vela--apagada{ --sx: .1; --sy: .1; --halo: .3; }
 .ph-vela--apagada .ph-candle__fogo{ opacity: 0; }
 .ph-vela--apagada .ph-candle__halo{ animation: none; opacity: .25; }
 .ph-vela--apagada .ph-candle__pavio{ background: linear-gradient(180deg, var(--brasa), var(--carvao) 40%); animation: pavioBrasa 2.4s ease-in-out infinite alternate; }
-.ph-vela--apagada .ph-candle__fumaca{ bottom: calc(var(--topo) + 10px); }
+.ph-vela--apagada .ph-candle__fumaca{ bottom: calc(var(--topo) + 12px); }
 .ph-vela--apagada .ph-candle__fumaca i{ height: 110px; animation-duration: 4.5s; animation-name: velaFumacaFio; }
 .ph-vela--apagada .ph-candle__fumaca i:nth-child(2){ animation-delay: 1.5s; }
 .ph-vela--apagada .ph-candle__fumaca i:nth-child(3){ animation-delay: 3s; }
 .ph-candle__fumaca i:nth-child(3){ animation-duration: 17s; animation-delay: 9s; }
-@keyframes velaDanca{
-  0%, 100%{ rotate: -6deg; translate: -1px 0; }
-  30%{ rotate: 7deg; translate: 2px 0; }
-  55%{ rotate: -3deg; translate: 0 0; }
-  80%{ rotate: 9deg; translate: 2px 0; }
-}
 @keyframes velaAcende{
   0%{ scale: .08 .05; opacity: 0; }
   12%{ scale: .3 .5; opacity: 1; }
@@ -6336,96 +6335,32 @@ main:focus { outline: none; }
   .pagehead .ph-candle{ height: 74%; }
 }
 
-/* ---------- Defumação: defumador de barro com brasa ---------- */
-.ph-defumador{
-  position: absolute; right: max(12%, calc(50vw - 470px)); bottom: 0;
-  width: 120px; height: 100%;
+/* ---------- Defumação: neblina em fios sobre a página ---------- */
+:root{
+  --neblina-fios: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='900'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0024 .0052' numOctaves='6' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 3 0 0 0 -1.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --neblina-nuvem: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='900'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.0035 .0045' numOctaves='4' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 2 0 0 0 -.95'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-.ph-defumador > *{ position: absolute; left: 50%; transform: translateX(-50%); }
-.ph-defumador__pes{
-  bottom: 0; width: 70px; height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0,0,0,.55), transparent 70%);
+.neblina{
+  position: fixed; inset: 0; z-index: 900; pointer-events: none; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.45) 38%, rgba(0,0,0,.3) 65%, rgba(0,0,0,.85) 100%);
+          mask-image: linear-gradient(180deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.45) 38%, rgba(0,0,0,.3) 65%, rgba(0,0,0,.85) 100%);
+  animation: fadeIn 3s ease;
 }
-.ph-defumador__pote{
-  bottom: 6px; width: 96px; height: 56px;
-  border-radius: 8px 8px 50% 50% / 8px 8px 100% 100%;
-  background:
-    linear-gradient(180deg, transparent 22%, rgba(0,0,0,.22) 22% 27%, transparent 27% 34%, rgba(255,255,255,.08) 34% 37%, transparent 37%),
-    radial-gradient(ellipse at 35% 25%, var(--terracota-clara), var(--terracota) 50%, var(--terracota-escura));
-  box-shadow: inset 0 -8px 14px rgba(0,0,0,.35), 0 6px 14px rgba(0,0,0,.5);
+.neblina i{ position: absolute; top: 0; left: 0; height: 100%; }
+.neblina__a{
+  width: calc(100% + 1400px);
+  background: var(--neblina-fios) repeat 0 0 / 1400px 900px;
+  opacity: .55;
+  animation: neblinaA 150s linear infinite;
 }
-.ph-defumador__pote::before{ /* a boca do defumador */
-  content: ""; position: absolute; left: -4px; right: -4px; top: -7px; height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at 50% 60%, var(--carvao), var(--terracota-escura) 70%, var(--terracota) 72%);
+.neblina__b{
+  width: calc(100% + 1200px);
+  background: var(--neblina-nuvem) repeat 0 0 / 1200px 900px;
+  opacity: .22;
+  animation: neblinaB 210s linear infinite;
 }
-.ph-defumador__brasa{
-  position: absolute; left: 14px; right: 14px; top: -4px; height: 9px;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 50%, var(--brasa-clara) 0 10%, transparent 24%),
-    radial-gradient(circle at 62% 40%, var(--brasa) 0 12%, transparent 26%),
-    radial-gradient(circle at 80% 60%, var(--brasa-clara) 0 7%, transparent 18%),
-    radial-gradient(ellipse, var(--brasa) 0%, transparent 75%);
-  filter: blur(.6px);
-  animation: brasaVive 3.3s ease-in-out infinite alternate;
-}
-@keyframes brasaVive{ from{ opacity: .65; filter: blur(.6px) brightness(.9); } to{ opacity: 1; filter: blur(.8px) brightness(1.25); } }
-.ph-defumador__luz{
-  bottom: 56px; width: 340px; aspect-ratio: 1;
-  transform: translate(-50%, 50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,120,50,.20) 0%, rgba(255,120,50,.05) 35%, transparent 65%);
-  animation: brasaVive 3.3s ease-in-out infinite alternate;
-}
-.ph-defumador__fumaca{ bottom: 64px; width: 0; height: 0; }
-.ph-defumador__fumaca i{
-  position: absolute; left: -20px; bottom: 0; width: 40px; height: 170px;
-  border-radius: 999px;
-  background: linear-gradient(0deg, var(--fumaca-forte), transparent 85%);
-  filter: blur(7px);
-  opacity: 0;
-  animation: defumadorFumaca 9s ease-out infinite;
-}
-.ph-defumador__fumaca i:nth-child(2){ animation-delay: 1.8s; animation-duration: 11s; }
-.ph-defumador__fumaca i:nth-child(3){ animation-delay: 3.6s; animation-duration: 10s; }
-.ph-defumador__fumaca i:nth-child(4){ animation-delay: 5.4s; animation-duration: 12s; }
-.ph-defumador__fumaca i:nth-child(5){ animation-delay: 7.2s; animation-duration: 9.5s; }
-@keyframes defumadorFumaca{
-  0%{ opacity: 0; transform: translateY(0) scaleX(.5) rotate(0); }
-  15%{ opacity: 1; }
-  45%{ transform: translateY(-120px) scaleX(1.2) rotate(-8deg) translateX(-14px); }
-  100%{ opacity: 0; transform: translateY(-300px) scaleX(2.4) rotate(12deg) translateX(40px); }
-}
-@media (max-width: 760px){
-  .ph-defumador{ right: 4px; transform: scale(.72); transform-origin: bottom right; }
-}
-
-/* fumaça que paira sobre a página da defumação */
-.fumaca-pagina{ position: fixed; inset: 0; z-index: 1550; pointer-events: none; overflow: hidden; }
-.fumaca-pagina i, .fumaca-pagina b{
-  position: absolute; width: 70vmax; aspect-ratio: 1.6; border-radius: 50%;
-  background: radial-gradient(ellipse, var(--fumaca-pagina) 0%, transparent 65%);
-}
-.fumaca-pagina i:nth-child(1){ left: -20vmax; top: 10%; animation: fumacaPaira 46s ease-in-out infinite alternate; }
-.fumaca-pagina i:nth-child(2){ right: -25vmax; top: 40%; animation: fumacaPaira 58s ease-in-out -20s infinite alternate-reverse; }
-.fumaca-pagina i:nth-child(3){ left: 10%; bottom: -30vmax; animation: fumacaPaira 52s ease-in-out -8s infinite alternate; }
-.fumaca-pagina i:nth-child(4){ right: 5%; top: -30vmax; width: 50vmax; animation: fumacaPaira 64s ease-in-out -30s infinite alternate-reverse; }
-@keyframes fumacaPaira{
-  0%{ transform: translate(0, 0) rotate(0) scale(1); }
-  50%{ transform: translate(12vw, -6vh) rotate(8deg) scale(1.15); }
-  100%{ transform: translate(-6vw, 8vh) rotate(-6deg) scale(.95); }
-}
-/* ao abrir uma defumação, uma baforada sobe pela tela */
-.fumaca-pagina b{ left: 50%; bottom: -60vmax; width: 80vmax; opacity: 0; translate: -50% 0; }
-.fumaca-pagina--sopro b{ animation: fumacaBaforada 7s ease-out; }
-@keyframes fumacaBaforada{
-  0%{ opacity: 0; transform: translateY(0) scale(.6); }
-  20%{ opacity: 1; }
-  100%{ opacity: 0; transform: translateY(-120vh) scale(1.5) rotate(10deg); }
-}
-.fumaca-pagina--sopro b{ background: radial-gradient(ellipse, rgba(225,225,218,.16) 0%, transparent 60%); }
+@keyframes neblinaA{ from{ transform: translateX(0); } to{ transform: translateX(-1400px); } }
+@keyframes neblinaB{ from{ transform: translateX(-1200px); } to{ transform: translateX(0); } }
 
 /* ---------- Banho: respingos na tela ---------- */
 .respingos{ position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 1550; pointer-events: none; }
@@ -6478,3 +6413,5 @@ main:focus { outline: none; }
   font-family: var(--font-display); font-size: 1.6rem; color: var(--accent);
   animation: fadeIn .8s ease;
 }
+.vc-gotas{ filter: drop-shadow(1px 1px .8px rgba(60,40,20,.45)); }
+.vc-reflexo{ fill: var(--cera-brilho); opacity: .85; }

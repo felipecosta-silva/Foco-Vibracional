@@ -36,3 +36,24 @@
 - **Celular:** sem rolagem lateral a 375 px.
 - **Menos movimento:** a vela tem altura e não há fumaça na página.
 - **Console:** limpo em todas as páginas testadas.
+
+## Revisão 1 (2026-11-13, retorno do dono com fotos de referência)
+
+O dono não gostou da cera derretida, da chama "duplicada" (eram duas chamas separadas), do defumador (desconexo da foto) nem da xícara dos chás.
+
+- **Vela palito nº 8:** o ciclo passou de 8 h para **4 h**, porque a vela palito nº 8 queima de 4 a 5 horas, segundo o dono. Seis velas por dia: 0h, 4h, 8h, 12h, 16h e 20h.
+- **Corpo da vela em SVG** (`velaSvg`):
+  - A borda é derretida e irregular: lábios mais altos nas beiradas e a poça acesa no meio.
+  - De 6 a 8 escorridos por vela, espalhados pela queima. Cada um é um "dedo" de cera com calombo e gota endurecida na ponta, com sombra e brilho. A cera que chega ao pé se junta em volta da base.
+  - O que estava acima do topo atual já queimou, como numa vela de verdade.
+  - A luz da chama atravessa a cera do topo.
+- **Jeitos da chama:**
+  - **calma.**
+  - **alta.**
+  - **levanta e abaixa.**
+  - **corrente de ar:** a chama deita para um lado e oscila.
+  - **ponta bifurcada:** duas línguas que nascem juntas e se abrem no alto.
+  - **baixa.**
+- **Defumação:** saiu o pote. Agora há uma **neblina em fios** sobre a página inteira: duas camadas de ruído fractal (`feTurbulence`), desenhadas uma vez e deslizando devagar, mais densas no alto e no pé da tela. Ficam abaixo do cabeçalho e não pegam clique.
+- **Chás:** a xícara foi redesenhada em SVG: pires, pé, asa, filete dourado, chá com reflexo e brilho na porcelana.
+- `CACHE_VERSION` continua fv-v59, porque esse pacote ainda não foi publicado.
