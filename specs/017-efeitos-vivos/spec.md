@@ -57,3 +57,35 @@ O dono não gostou da cera derretida, da chama "duplicada" (eram duas chamas sep
 - **Defumação:** saiu o pote. Agora há uma **neblina em fios** sobre a página inteira: duas camadas de ruído fractal (`feTurbulence`), desenhadas uma vez e deslizando devagar, mais densas no alto e no pé da tela. Ficam abaixo do cabeçalho e não pegam clique.
 - **Chás:** a xícara foi redesenhada em SVG: pires, pé, asa, filete dourado, chá com reflexo e brilho na porcelana.
 - `CACHE_VERSION` continua fv-v59, porque esse pacote ainda não foi publicado.
+
+## Revisão 2 (2026-11-13, pedida pelo dono; executor: Gemini)
+
+O dono aprovou a neblina da Defumação. Pediu mais realismo na vela e trocar a xícara por um bule de vidro. Fotos de referência: bules de vidro com chá âmbar, com rodela de laranja, flor e lavanda boiando no líquido.
+
+1. **A vela nasce pontuda.**
+   - Uma vela palito nova tem a ponta arredondada, quase cônica, com o pavio no alto.
+   - Só depois de algum tempo (cerca de 30 min) a queima afunda o meio e as bordas ficam um pouco mais altas.
+   - A passagem é gradual.
+2. **Percepção de quem olha de lado.**
+   - De lado não se enxerga a concavidade em volta do pavio, nem as bordas sendo comidas aos poucos.
+   - Então a borda madura é quase reta, com lábios baixos (1,5 a 3,5 px).
+   - Não há poça amarela visível: só a luz atravessando a cera do topo.
+3. **A corrente de ar vem e vai.**
+   - Não é um jeito sorteado a cada 1 min 30 s.
+   - Cada vela tem de 0 a 3 rajadas em horas fixas (sorteio pelo relógio, igual para todos), de 4 a 20 min cada, de um lado e com uma força.
+   - Durante a rajada:
+     - A chama deita para o lado sorteado, e esse lado queima mais: a borda desse lado desce.
+     - A vela "chora" mais por ali: 2 ou 3 escorridos extras, mais longos, nesse lado.
+   - Quando a rajada acaba, a chama volta ao normal e o desgaste do lado vai sumindo aos poucos, em cerca de 15 min, até a vela voltar a queimar por igual.
+   - Os escorridos que se formaram ficam até a vela acabar.
+   - Rajada fraca dá pouca inclinação e pouco desgaste. Sem rajada, a vela queima por igual.
+4. **Bule de vidro nos Chás** no lugar da xícara:
+   - O vidro é transparente, com tampa e pegador, bico curvo e alça.
+   - O chá âmbar ocupa a metade de baixo, com a superfície visível.
+   - Dentro dele boiam devagar as ervas: folhas, uma flor e uma rodela.
+   - O vapor sai do bico e da tampa.
+5. **Teste por horário.**
+   - `?vela=AAAA-MM-DDTHH:MM` na URL de Mantras ou Firmeza congela a vela nesse instante, para conferir e revisar.
+   - Sem o parâmetro, nada muda.
+
+Fora do escopo: a Defumação (aprovada), o tarot, os banhos e o sigilo. Não alterar.
