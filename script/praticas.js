@@ -68,6 +68,22 @@ function setDailyMantra(forcedIndex = null) {
     return;
   }
 
+  if (shuffleBtn) {
+    shuffleBtn.onclick = () => {
+      // sorteia entre todas as afirmações por tema e os mantras
+      const pool = todasAfirmacoes();
+      const total = pool.length + DAILY_MANTRAS.length;
+      const n = randInt(total);
+      if (n < pool.length) mostrarAfirmacao(pool[n]);
+      else setDailyMantra(n - pool.length);
+      toast("Nova afirmação sorteada!");
+    };
+  }
+
+  // Sem escolha manual: a afirmação do dia segue o tema da carta do dia (spec 016)
+  const doDia = forcedIndex === null ? afirmacaoDoDia() : null;
+  if (doDia) return mostrarAfirmacao(doDia, true);
+
   const idx = forcedIndex !== null ? forcedIndex : dailyIndexByDate(new Date(), DAILY_MANTRAS.length);
   currentDailyIndex = idx;
 
@@ -77,14 +93,84 @@ function setDailyMantra(forcedIndex = null) {
   if (tip) tip.textContent = item.tip || "";
 
   if (favBtn) favBtn.onclick = () => addFavorite(item.text);
+}
 
-  if (shuffleBtn) {
-    shuffleBtn.onclick = () => {
-      const newIdx = randInt(DAILY_MANTRAS.length);
-      setDailyMantra(newIdx);
-      toast("Novo mantra sorteado!");
-    };
+/* ==========================================================================
+   Afirmação do dia alinhada com a carta do dia (spec 016)
+   ========================================================================== */
+function cartaDoDiaClassico(date = new Date()) {
+  const cartas = ((window.FV_DATA && window.FV_DATA.tarot) || []).filter(c => c.baralho === "classico");
+  return cartas.length ? cartas[dailyCardIndex(date, cartas.length)] : null;
+}
+
+function temaDaCarta(carta) {
+  const A = window.FV_DATA?.afirmacoes;
+  if (!A || !carta) return null;
+  let k;
+  if (carta.arcano === "maior") k = A.maiores[carta.numero];
+  else {
+    const lista = A.naipes[carta.naipe] || [];
+    k = lista.length ? lista[carta.numero % lista.length] : null;
   }
+  return A.temas.find(t => t.k === k) || null;
+}
+
+function afirmacaoDoDia(date = new Date()) {
+  const A = window.FV_DATA?.afirmacoes;
+  if (!A) return null;
+  const carta = cartaDoDiaClassico(date);
+  const tema = temaDaCarta(carta) || A.temas[dailyIndexByDate(date, A.temas.length)];
+  return { texto: tema.afirmacoes[dailyIndexByDate(date, tema.afirmacoes.length)], tema, carta };
+}
+
+function todasAfirmacoes() {
+  const A = window.FV_DATA?.afirmacoes;
+  if (!A) return [];
+  return A.temas.flatMap(tema => tema.afirmacoes.map(texto => ({ texto, tema, carta: null })));
+}
+
+/* Mostra uma afirmação no bloco do dia (Home e Mantras) */
+function mostrarAfirmacao({ texto, tema, carta }, doDia = false) {
+  const el = $("#dailyMantra"), tag = $("#dailyTag"), tip = $("#dailyTip"), favBtn = $("#favDailyBtn");
+  const A = window.FV_DATA?.afirmacoes;
+  el.textContent = `“${texto}”`;
+  tag.textContent = `${tema.icone} ${tema.titulo}`;
+  if (tip) {
+    const origem = doDia && carta
+      ? `Alinhada com a carta do dia: <a href="tarot.html#${encodeURIComponent(carta.id)}">${escapeHtml(carta.nome)}</a>.`
+      : `Tema: ${escapeHtml(tema.titulo)}.`;
+    tip.innerHTML = `${origem}${tema.nota ? ` ${escapeHtml(tema.nota)}` : ""}${A?.fecho ? `<span class="afirmacao-fecho">${escapeHtml(A.fecho)}</span>` : ""}`;
+  }
+  if (favBtn) favBtn.onclick = () => addFavorite(texto);
+}
+
+/* Aba Afirmações (mantras.html): todos os temas, com Copiar e Ouvir */
+function renderAfirmacoesPorTema() {
+  const wrap = $("#afirmacoesTemas");
+  const A = window.FV_DATA?.afirmacoes;
+  if (!wrap || !A) return;
+  const doDia = afirmacaoDoDia();
+  wrap.innerHTML = A.temas.map(t => `
+    <details${doDia && doDia.tema.k === t.k ? " open" : ""}>
+      <summary><span class="afirmacoes-tema">${t.icone} ${escapeHtml(t.titulo)}${doDia && doDia.tema.k === t.k ? ' <span class="badge">Tema de hoje</span>' : ""}</span></summary>
+      <div class="fund__content">
+        <div class="affirm-list">
+          ${t.afirmacoes.map((a, i) => `
+          <div class="quote-strip">
+            <p class="quote-strip__text" id="af-${t.k}-${i}">“${escapeHtml(a)}”</p>
+            <div class="quote-strip__actions">
+              <button class="btn-micro" data-copy="#af-${t.k}-${i}" type="button" title="Copiar">📋 Copiar</button>
+              <button class="btn-micro" data-speak="#af-${t.k}-${i}" type="button" title="Ouvir">🔊 Ouvir</button>
+            </div>
+          </div>`).join("")}
+        </div>
+        ${t.nota ? `<p class="muted small u-m0">${escapeHtml(t.nota)}</p>` : ""}
+      </div>
+    </details>`).join("");
+  const fecho = $("#afirmacoesFecho");
+  if (fecho) fecho.textContent = A.fecho;
+  const origem = $("#afirmacoesOrigem");
+  if (origem) origem.textContent = A.origem;
 }
 
 function renderAllMantras(filter = "") {

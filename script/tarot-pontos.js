@@ -71,7 +71,7 @@ function initTarotDaily() {
   const render = baralho => {
     const list = TAROT.filter(c => c.baralho === baralho);
     if (!list.length) { box.innerHTML = `<p class="muted">Cartas deste baralho em breve.</p>`; return; }
-    const c = list[dailyIndexByDate(new Date(), list.length)];
+    const c = list[dailyCardIndex(new Date(), list.length)];
     box.innerHTML = `
       <button class="tdaily" type="button" data-open-card="${escapeHtml(c.id)}">
         <span class="tcard__face">${tarotFaceHtml(c)}</span>
@@ -81,7 +81,14 @@ function initTarotDaily() {
           <span class="muted">${escapeHtml(c.significado || "")}</span>
           <span class="tdaily__cta">Ver significado completo →</span>
         </span>
-      </button>`;
+      </button>${afirmacaoDaCartaHtml(baralho)}`;
+  };
+  // Afirmação do dia, no tema da carta do dia do Tarot clássico (spec 016)
+  const afirmacaoDaCartaHtml = baralho => {
+    const af = baralho === "classico" && typeof afirmacaoDoDia === "function" ? afirmacaoDoDia() : null;
+    if (!af) return "";
+    return `<p class="tdaily__afirmacao"><span class="eyebrow">Afirmação do dia • ${af.tema.icone} ${escapeHtml(af.tema.titulo)}</span>
+      <q>${escapeHtml(af.texto)}</q> <a href="mantras.html#afirmacoes">Mais afirmações →</a></p>`;
   };
   $all("[data-daily-deck]").forEach(b => b.addEventListener("click", () => {
     $all("[data-daily-deck]").forEach(x => x.classList.toggle("pill--active", x === b));

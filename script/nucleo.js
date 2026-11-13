@@ -289,6 +289,14 @@ function dailyIndexByDate(date, length) {
   return ((seed % length) + length) % length;
 }
 
+/* Carta do dia: salta 29 posições por dia (29 não divide 78 nem 36), para não andar
+   pelo baralho em ordem (Ás, Dois, Três de Copas…). Continua fixa para o dia inteiro. */
+function dailyCardIndex(date, length) {
+  if (length <= 0) return 0;
+  const seed = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86400000);
+  return (((seed * 29 + 7) % length) + length) % length;
+}
+
 function randInt(max) {
   return Math.floor(Math.random() * max);
 }

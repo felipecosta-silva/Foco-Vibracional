@@ -239,7 +239,7 @@ function initHomeRails() {
   const deck = (window.FV_DATA && window.FV_DATA.tarot) || [];
   if (feat && deck.length) {
     const classico = deck.filter(c => c.baralho === "classico");
-    const c = classico[dailyIndexByDate(new Date(), classico.length)];
+    const c = classico[dailyCardIndex(new Date(), classico.length)];
     feat.href = `tarot.html#${encodeURIComponent(c.id)}`;
     feat.innerHTML = `
       <div class="feature__card">${c.imagem ? `<img src="${escapeHtml(c.imagem)}" alt="${escapeHtml(c.nome)}" loading="lazy">` : ""}</div>
@@ -489,6 +489,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   wireTabs();
   renderFavorites();
   renderAllMantras("");
+  renderAfirmacoesPorTema();
   wireSearch();
 
   // Módulos com novos seletores

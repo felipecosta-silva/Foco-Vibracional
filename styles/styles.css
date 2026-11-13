@@ -6182,3 +6182,11 @@ main:focus { outline: none; }
 }
 
 .agenda-ics{ display: grid; gap: 6px; justify-items: start; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+/* ---------- Spec 016: Afirmação do dia e afirmações por tema ---------- */
+.afirmacao-fecho{ display: block; margin-top: 8px; font-family: var(--font-display); font-style: italic; color: var(--accent); }
+#afirmacoesTemas summary .badge{ margin-left: 6px; }
+.tdaily__afirmacao{ display: grid; gap: 4px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+.tdaily__afirmacao q{ font-family: var(--font-display); font-style: italic; font-size: 1.1rem; line-height: 1.45; }
+.tdaily__afirmacao a{ font-size: .9rem; }
+.afirmacoes-tema{ display: flex; align-items: center; gap: 8px; flex-wrap: wrap; text-align: left; }

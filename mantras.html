@@ -67,7 +67,7 @@
       <div class="mantra-hero__glow" aria-hidden="true"></div>
       <div class="mantra-hero__candle" aria-hidden="true">🕯️</div>
       <div class="mantra-hero__header">
-        <span class="eyebrow">Mantra de hoje</span>
+        <span class="eyebrow">Afirmação do dia</span>
         <span class="badge" id="dailyTag">—</span>
       </div>
 
@@ -163,24 +163,12 @@
     </div>
 
 
-    <section class="card section-gap">
-      <div class="card__header">
-        <h2 class="card__title">Afirmação do momento</h2>
-        <span class="badge">rápido</span>
-      </div>
-
-      <blockquote class="quote" id="affMoment">
-        “Eu estou presente, eu estou em paz, e eu ajo com clareza agora.”
-      </blockquote>
-
-      <div class="row wrap-row">
-        <button class="btn btn--ghost" data-copy="#affMoment" type="button">Copiar</button>
-        <button class="btn" data-speak="#affMoment" type="button">Ouvir</button>
-      </div>
-
-      <p class="muted small">
-        Se quiser, repita 3–9 vezes e faça uma ação pequena real em seguida.
-      </p>
+    <section class="fund section-gap" id="afirmacoes-por-tema" aria-labelledby="afirmacoesTemasTitle">
+      <h2 id="afirmacoesTemasTitle">Afirmações por tema</h2>
+      <p class="muted">Dia a dia, trabalho, prosperidade, relacionamento, amor-próprio, confiança e mais. O tema da carta do dia já vem aberto. Repita 3 vezes, sentindo como se já fosse verdade, e feche com:</p>
+      <p class="afirmacao-fecho" id="afirmacoesFecho"></p>
+      <div id="afirmacoesTemas"></div>
+      <p class="muted small" id="afirmacoesOrigem"></p>
     </section>
 
     <section class="grid">
@@ -813,6 +801,8 @@
   <div id="site-footer"></div>
 
   <script src="./data/mantras.js"></script>
+  <script src="./data/tarot.js"></script>
+  <script src="./data/afirmacoes.js"></script>
   <script src="./script/nucleo.js"></script>
   <script src="./script/lua.js"></script>
   <script src="./script/praticas.js"></script>
