@@ -156,5 +156,55 @@ window.FV_DATA.chas = [
     "variacoes": "Junte 1 pau de canela para ficar mais perto do chá da casa.",
     "cuidados": "Lave bem a casca do abacaxi com escovinha antes. Gengibre: pouco ou nada para quem toma remédio para afinar o sangue, tem gastrite ou pressão descontrolada.",
     "origem": "Receita caseira popular, revisada pelo site."
+  },
+  {
+    "id": "cha-capim-santo",
+    "nome": "Capim-santo (capim-limão)",
+    "objetivo": "calma",
+    "momento": "qualquer",
+    "servir": [
+      "quente",
+      "gelado"
+    ],
+    "ingredientes": [
+      "1 litro de água",
+      "1 punhado de folhas de capim-santo, lavadas e picadas",
+      "Gengibre em rodelas ou 1 pau de canela (opcional)"
+    ],
+    "preparo": [
+      "Ferva a água. Se for usar gengibre ou canela, deixe-os ferver nela por 5 minutos.",
+      "Desligue o fogo, junte as folhas picadas, tampe e deixe abafado 10 minutos.",
+      "Coe."
+    ],
+    "guardar": "Até 2 dias na geladeira.",
+    "servePara": "Chá de pausa e de aconchego. O cheiro de limão vem do citral das folhas, sem precisar da fruta. Também se chama capim-limão e capim-cidreira (Cymbopogon citratus).",
+    "variacoes": "Com gengibre, fica picante; com canela, mais perfumado. Gelado, refresca no calor.",
+    "cuidados": "Confira a planta: no Brasil, \"erva-cidreira\" pode ser o capim-santo (folha comprida de capim), a erva-cidreira-de-arbusto (Lippia alba) ou a melissa (Melissa officinalis); veja a diferença em Ervas. Pode baixar um pouco a pressão: cuidado se a sua já é baixa ou se toma remédio para pressão. Gestantes: só com orientação médica. Chá não substitui tratamento de saúde.",
+    "origem": "Curiosidades de rede social enviadas pelo dono do site em 19/11/2026; preparo caseiro popular, revisado pelo site."
+  },
+  {
+    "id": "mel-camomila-lavanda",
+    "nome": "Mel de camomila ou de lavanda (para adoçar o chá)",
+    "objetivo": "calma",
+    "momento": "noite",
+    "servir": [
+      "numa colher ou no chá morno"
+    ],
+    "ingredientes": [
+      "Mel",
+      "Flores secas de camomila, ou flores secas de lavanda culinária",
+      "1 pote de vidro limpo e bem seco, com tampa"
+    ],
+    "preparo": [
+      "Ponha as flores secas no pote.",
+      "Cubra completamente com mel.",
+      "Tampe e deixe descansar na bancada por 1 a 2 semanas.",
+      "Se quiser, coe antes de usar."
+    ],
+    "guardar": "Pote fechado, em lugar fresco e seco, sempre com colher seca. Se aparecer espuma, bolhas ou cheiro azedo, o mel fermentou: jogue fora.",
+    "servePara": "Uma colher no chá morno da noite, ou pura, para adoçar com o perfume da flor. Pela tradição popular, o mel de camomila acalma e ajuda a dormir quando a mente está agitada, e o de lavanda alivia a tensão e conforta a garganta. A postagem lista muitos outros usos para a saúde; o site não repete promessas de tratamento.",
+    "variacoes": "Em chá muito quente o mel perde o perfume: espere amornar antes de adoçar.",
+    "cuidados": "Mel NUNCA para bebês com menos de 1 ano: risco de botulismo infantil. Use só flores SECAS: flor fresca solta água, e o mel fermenta e mofa. Lavanda só de grau culinário, sem agrotóxico. Camomila: evite se tiver alergia a margaridas ou crisântemos. Gestantes: evite a lavanda. Diabetes: mel é açúcar. Não substitui o médico.",
+    "origem": "Receita popular de rede social, enviada pelo dono do site em 19/11/2026 e revisada. Confira com a sua casa."
   }
 ];

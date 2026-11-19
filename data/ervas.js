@@ -271,11 +271,11 @@ window.FV_DATA.ervas = [
   "cabeca": "Sim (clareza mental e desobstrução)",
   "imagem": "./images/capim-limao.jpg",
   "descricao": "Proporciona desanuviamento da mente cheia de problemas. Refresca o campo áurico e traz equilíbrio para quem sofre de estresse crônico.",
-  "diferenciacao": "CAPIM-SANTO (Capim) vs. ERVA-CIDREIRA (Melisso): Ambas calmantes com aroma cítrico, mas o capim-santo possui folhas em navalha compridas com ação mais rápida de desanuviamento mental.",
+  "diferenciacao": "AS TRÊS \"CIDREIRAS\": no Brasil, três plantas diferentes levam o nome de erva-cidreira.\n• Capim-santo (Cymbopogon citratus): folhas compridas de capim, que cortam a mão. O cheiro de limão vem do citral.\n• Erva-cidreira-de-arbusto (Lippia alba): arbusto de folhas ásperas, muito comum no Nordeste.\n• Melissa (Melissa officinalis): folhas que lembram as da hortelã.\nTodas são calmantes e digestivas. O capim-santo e a Lippia alba são as mais fáceis de cultivar no calor.",
   "colheita": "Cortar as folhas verdes com cuidado para não ferir as mãos.",
   "cuidados": "Uso externo geral tranquilo. Peles muito sensíveis devem usar infusão diluída.",
   "tradicao": "Planta do sossego e do bom discernimento, muito apreciada pelos Caboclos da mata.",
-  "cha": "CHÁ DE CAPIM-SANTO: Folhas picadas em infusão morna. Calmante leve diário que baixa a pressão arterial de forma sutil e refresca o organismo."
+  "cha": "CHÁ DE CAPIM-SANTO: folhas picadas, abafadas em água quente por 10 minutos. Calmante leve do dia a dia. Pode baixar um pouco a pressão: cuidado se a sua já é baixa. A receita completa está em Chás."
  },
  {
   "id": "hortela",

@@ -24,7 +24,7 @@ window.FV_DATA.banhos = [
   "cabeca": true,
   "modoPreparo": "Lave as folhas frescas de boldo com respeito. Coloque água mineral fresca ou fria em bacia ritual limpa. Com as duas mãos, macere e esfregue as folhas na água fria com pensamento elevado, cantando ou rezando a Oxalá e ao seu anjo da guarda até a água ficar verde e aveludada. Não ferver: o boldo de Oxalá pede água fresca para serenar a quentura da mente. Deixe descansar 15 minutos. Coe e despeje DA COROA DA CABEÇA AOS PÉS após o banho de higiene comum, idealmente na sexta-feira. Coloque um pano branco ou toalha clara na cabeça e descanse em silêncio.",
   "reza": "Epà Babá! Salve a paz de Oxalá, salve meu Anjo da Guarda e a firmeza da minha coroa. Lava todo pensamento ruim, silencia a perturbação e renova a alvura do meu espírito.",
-  "observacao": "O SAGRADO BANHO DA PAZ DE OXALÁ E REI DOS BANHOS DE ORI. Deve ser tomado com água fria ou fresca para apaziguar a mente. Diferente do descarrego que esvazia o corpo, o banho de Oxalá preenche a aura com serenidade, equilíbrio e luz divina.",
+  "observacao": "O SAGRADO BANHO DA PAZ DE OXALÁ E REI DOS BANHOS DE ORI. Deve ser tomado com água fria ou fresca para apaziguar a mente. Diferente do descarrego que esvazia o corpo, o banho de Oxalá preenche a aura com serenidade, equilíbrio e luz divina. Uma receita de rede social, enviada pelo dono do site em 19/11/2026, usa 10 folhas para clareza mental, tranquilidade e renovação do ânimo, e 7 folhas para limpeza e reequilíbrio, maceradas em 1 litro de água morna (aqui o banho é de água fresca; as duas formas existem). A reza dessa receita: \"Sagrado que ilumina meus caminhos. Que minha mente encontre clareza, meu coração encontre paz e minha energia encontre equilíbrio. Eu libero o que me pesa, renovo minhas forças e sigo com consciência, proteção e direção. Que assim seja!\" Confira a espécie: o boldo de banho é o boldo-baiano, de folha larga e aveludada (Plectranthus barbatus); outras plantas chamadas de boldo podem irritar a pele. Não ferva o boldo.",
   "versaoCha": "CHÁ DE FOLHA DE BOLDO: Para digestão difícil e fígado sobrecarregado, faça infusão de 1 folha média fresca em 200ml de água quente apagada por 10 minutos. (Evitar em gestação)."
  },
  {
@@ -148,7 +148,7 @@ window.FV_DATA.banhos = [
   "cabeca": false,
   "modoPreparo": "Ferva 1,5L de água com 7 folhas de louro por 3 minutos. Desligue, abafe por 10 minutos e deixe amornar. Coe e despeje do pescoço para baixo após a higiene.",
   "reza": "Louro que coroa a vitória, traga brilho ao meu trabalho, respeito à minha palavra e portas abertas onde eu bater.",
-  "observacao": "Excelente antes de reuniões de negócios, entrevistas de emprego ou apresentações importantes."
+  "observacao": "Excelente antes de reuniões de negócios, entrevistas de emprego ou apresentações importantes. Outra forma, de uma receita de rede social enviada pelo dono do site em 19/11/2026: esquente 1 litro de água e desligue antes de ferver, ponha 7 folhas de louro, tampe e espere 10 minutos, até amornar. Jogue devagar do pescoço para baixo, pensando no que quer atrair (emprego, cliente, dinheiro parado). Não esfregue a toalha, só tire o excesso, e devolva as folhas à terra (jardim ou vaso). O louro atrai, não limpa: por isso a receita pede antes um banho de limpeza (como o de arruda), para a prosperidade não encontrar o caminho fechado. Muitas casas preferem a quinta-feira, que na magia planetária é o dia de Júpiter, planeta da expansão e da sorte."
  },
  {
   "id": "banho-firmeza-protecao",
@@ -2440,5 +2440,59 @@ window.FV_DATA.banhos = [
   "reza": "",
   "observacao": "Na receita, este banho trabalha força, coragem e abertura financeira, e ajuda a resgatar a autoestima e o brilho pessoal. Fica do pescoço para baixo porque a receita não fala da cabeça. As correspondências variam de casa para casa. Coe bem: as sementes de romã mancham a pele, a toalha e o rejunte.",
   "origem": "Receita popular de rede social, enviada pelo dono do site em 06/11/2026 e revisada. Confira com a sua casa."
+ },
+ {
+  "id": "banho-prosperidade-homens",
+  "nome": "Banho de Prosperidade para Homens (Laranja, Anis, Louro, Gengibre, Baunilha, Cravo & Canela)",
+  "objetivo": "prosperidade",
+  "intensidade": "media",
+  "luas": [
+   "crescente",
+   "cheia"
+  ],
+  "dias": [],
+  "horario": "antes de dormir, como pede a receita; se der agitação ou insônia, tome pela manhã, antes do trabalho",
+  "ervas": [
+   "3 rodelas de laranja desidratada",
+   "7 anis-estrelados",
+   "7 folhas de louro",
+   "1 pedaço de gengibre",
+   "1 pedaço de fava de baunilha",
+   "Cravos-da-índia (a receita não diz quantos)",
+   "3 paus de canela",
+   "1 litro de água"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva primeiro o que é duro (canela, cravo, gengibre, anis-estrelado e a fava de baunilha) em 1 litro de água por uns 5 minutos. Desligue o fogo, junte o louro e a laranja e tampe para abafar. Espere amornar até a temperatura do corpo e coe. Depois do banho de higiene, despeje do pescoço para baixo.",
+  "reza": "",
+  "observacao": "A postagem é voltada para os homens: fala em ativar a polaridade masculina para atrair dinheiro, abrir caminhos no trabalho e conquistar reconhecimento, magnetismo pessoal e sucesso material. O que cada elemento representa na receita: laranja, alegria, vitalidade e atração; anis-estrelado, sorte, expansão e proteção; louro, vitória, reconhecimento e prosperidade; gengibre, coragem, movimento e iniciativa; baunilha, magnetismo, encanto e atração; cravo, poder, proteção e conquistas; canela, dinheiro, sucesso e abundância. As correspondências variam de casa para casa. A receita manda ferver tudo junto; o site sugere ferver só o que é duro e abafar o louro e a laranja, para não cozinhar as folhas. Gengibre, canela e cravo são quentes e estimulantes: à noite podem tirar o sono de algumas pessoas, e em pele sensível podem arder. Se arder, enxágue com água fresca. Não deixe cair nos olhos.",
+  "origem": "Receita popular de rede social, enviada pelo dono do site em 19/11/2026 e revisada. Confira com a sua casa."
+ },
+ {
+  "id": "banho-magnetismo-poder-pessoal",
+  "nome": "Banho de Magnetismo e Poder Pessoal (Hibisco, Especiarias & Morango)",
+  "objetivo": "energia",
+  "intensidade": "media",
+  "luas": [
+   "nova"
+  ],
+  "dias": [],
+  "horario": "qualquer horário (a receita não indica)",
+  "ervas": [
+   "1 litro de água",
+   "1 punhado de hibisco",
+   "1 pau de canela",
+   "7 cravos-da-índia",
+   "3 anis-estrelados",
+   "1 punhado de pimenta-rosa",
+   "3 morangos maduros",
+   "3 colheres de açúcar",
+   "Um pouco de espumante doce"
+  ],
+  "cabeca": false,
+  "modoPreparo": "Ferva 1 litro de água, desligue o fogo e junte o hibisco, a canela, os cravos, o anis-estrelado e a pimenta-rosa. Numa bacia, macere com as mãos, pensando na sua intenção, os morangos com o açúcar e um pouco de espumante. Junte a água das especiarias à bacia e deixe descansar ao lado de uma vela acesa por pelo menos 15 minutos. Espere ficar na temperatura do corpo e coe muito bem num pano. Depois do banho de higiene, despeje do pescoço para baixo.",
+  "reza": "",
+  "observacao": "Na receita, o banho ativa o magnetismo, o amor-próprio e o poder pessoal; foi feito para a lua nova em Escorpião. É um banho para você: nada de dirigir a alguém. Fica do pescoço para baixo porque leva especiarias quentes, açúcar e álcool. Coe num pano, para não ficar pedaço de morango nem açúcar grudado na pele. A receita não diz a cor da vela: vela sempre sobre pires, longe de cortinas, e nunca acesa sem ninguém por perto. Hibisco: gestantes não usam. Quem tem alergia a morango não faz. As correspondências variam de casa para casa.",
+  "origem": "Receita popular de rede social, enviada pelo dono do site em 19/11/2026 e revisada. Confira com a sua casa."
  }
 ];

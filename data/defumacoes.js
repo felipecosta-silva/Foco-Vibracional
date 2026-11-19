@@ -919,5 +919,30 @@ window.FV_DATA.defumacoes = [
   "servePara": "Para ambientes pesados, com energia parada ou depois de conflitos. Na leitura popular, desembaraça o que ficou preso nas paredes e limpa o ambiente. A receita original também usa pedaços secos de cipó; o site deixou o cipó de fora até a casa confirmar qual cipó se usa.",
   "cuidados": "Brasa ou carvão em turíbulo ou pires de barro firme, longe de cortinas, crianças e pets. Arruda: gestantes e lactantes fora do cômodo até ventilar bem. Quem tem asma ou bronquite fica fora da fumaça. Janelas abertas no fim.",
   "origem": "Receita popular de rede social, enviada pelo dono do site em 06/11/2026 e revisada. Confira com a sua casa."
+ },
+ {
+  "id": "defumacao-paz-cafe-acucar-oregano",
+  "nome": "Defumação para Acabar com Brigas em Casa (Café, Açúcar & Orégano)",
+  "objetivo": "harmonizacao",
+  "intensidade": "suave",
+  "luas": [
+   "nova",
+   "crescente",
+   "cheia",
+   "minguante"
+  ],
+  "dias": [],
+  "horario": "quando a casa fica pesada do nada e qualquer coisa vira discussão",
+  "ervas": [
+   "Algodão (para a caminha)",
+   "Pó de café",
+   "Um pouco de açúcar",
+   "Orégano seco"
+  ],
+  "sentido": "Dos fundos da casa em direção à porta da frente, com portas e janelas abertas",
+  "reza": "Que essa fumaça leve embora toda energia de briga, raiva, irritação e desentendimento. Que dentro dessa casa permaneçam apenas a paz, o respeito, a união e o amor. Que toda energia ruim encontre a porta de saída e não tenha força para voltar. Que assim seja.",
+  "servePara": "Para quando a casa fica pesada do nada, as pessoas perdem a paciência e pequenas coisas viram discussão. Na receita, o café purifica e renova, o açúcar adoça o ambiente e traz harmonia, e o orégano traz paz, proteção e harmonia. Como fazer: forre o fundo do defumador com papel-alumínio e faça uma caminha de algodão. Ponha o pó de café, um pouco de açúcar e, por cima, o orégano seco, pensando na intenção de cada um. Acenda e leve a fumaça pelos cômodos. Dicas da autora: no dia a dia, queime só um pouco de orégano e passe pano na casa com chá de camomila; para tirar a escassez, ela usa louro, canela, anis-estrelado e orégano. A fumaça ajuda o ambiente; a conversa com calma continua sendo o que resolve a briga.",
+  "cuidados": "A receita usa pote de vidro, mas vidro comum pode trincar com o calor: use defumador de barro ou de metal, ou incensário de cerâmica, sobre um prato. O algodão pega fogo rápido e faz chama alta, e o açúcar derretido queima a pele: acenda longe de cortinas, segure pela alça ou com um pegador e tenha uma tampa à mão para abafar. Longe de crianças e pets. Quem tem asma ou bronquite fica fora da fumaça.",
+  "origem": "Receita popular de rede social, enviada pelo dono do site em 19/11/2026 e revisada. Confira com a sua casa."
  }
 ];
